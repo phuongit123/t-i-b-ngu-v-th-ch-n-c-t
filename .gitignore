@@ -33,3 +33,7 @@ dist-ssr
 # Test artifacts
 test-results/
 
+# Archives
+*.zip
+
+
