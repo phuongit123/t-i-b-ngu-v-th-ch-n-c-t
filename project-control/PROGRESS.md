@@ -23,7 +23,13 @@
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
 | **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E Suite Initialized (5/5 Passing)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
-| **TOTAL** | **Entire Project Scope** | **49** | **12** | **0** | **37** | **24.5% Overall (Track 1 & Simulator MVP Complete)** |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **12** | **0** | **37** | **24.5% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **13** | **0** | **37** | **26.0% Completed** |
+
+> [!NOTE]
+> **Giải trình Tiến độ Task (Progress Metrics Reconciliation):**
+> - **24.5% (12 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`).
+> - **26.0% (13 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
 
 ---
 

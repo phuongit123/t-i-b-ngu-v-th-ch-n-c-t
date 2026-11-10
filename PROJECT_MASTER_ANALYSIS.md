@@ -51,7 +51,7 @@ Dự án hiện đã hoàn tất xuất sắc **Phase 1, Phase 2, một phần P
   - [`ACCEPTANCE_CRITERIA.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/ACCEPTANCE_CRITERIA.md): Tiêu chí nghiệm thu định lượng cho từng tác vụ.
   - [`DECISIONS.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/DECISIONS.md): 20 quyết định kiến trúc (`ADR-001` đến `ADR-020`) được ghi nhận chi tiết.
   - [`BLOCKERS.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/BLOCKERS.md): Nhật ký điểm nghẽn; duy trì cổng kiểm soát `BLK-005` ở trạng thái ACTIVE.
-  - [`PROGRESS.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/PROGRESS.md): Tiến độ thực tế 24.5% (12/49 tác vụ hoàn tất có kiểm định QA).
+  - [`PROGRESS.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/PROGRESS.md): Tiến độ thực tế 26.0% (13/50 hàng tác vụ hoàn tất có kiểm định QA; tức 12/49 tác vụ gốc = 24.5%).
   - [`HANDOFF.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/HANDOFF.md): Cẩm nang bàn giao phiên làm việc, hướng dẫn lệnh và stop condition.
   - Các báo cáo nghiệm thu QA độc lập: `QA_PHASE1_SIGNOFF.md`, `QA_PHASE2_SIGNOFF.md`, `QA_PHASE3_PILOT_SIGNOFF.md`, `QA_TRACK1_DESIGNER_SIGNOFF.md`, `PHASE_4_MVP_SIGNOFF.md`.
   - [`REMEDIATION_REPORT_v4.2.0.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/REMEDIATION_REPORT_v4.2.0.md): Báo cáo nghiệm thu hoàn tất khắc phục 5 khuyết tật kiểm toán.

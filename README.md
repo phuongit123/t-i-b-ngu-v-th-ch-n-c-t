@@ -154,7 +154,7 @@ npm run build
 ## 📊 6. Tóm Tắt Tình Trạng Hiện Tại (Status at a Glance)
 
 - **Trạng thái Cổng Kiểm Soát:** **`HALTED AT PHASE GATE` (Gatekeeper BLK-005 ACTIVE)**
-- **Tiến độ Hệ thống:** **24.5%** (12/49 tác vụ hoàn tất có kiểm định QA đầy đủ).
+- **Tiến độ Hệ thống:** **26.0%** (13/50 hàng tác vụ hoàn thành có kiểm định QA đầy đủ; tương ứng 12/49 tác vụ gốc = 24.5%).
 - **Hạng mục Đã Sẵn Sàng (Ready):** Track 1 (Affinity Designer D01–D10) + Bézier Simulator Sandbox MVP.
 - **Hạng mục Đang Chờ Phê Duyệt:** Track 2 (Photo P02–P10), Track 3 (Publisher B02–B10), Track 4 (Scripting S02–S10), Monaco Code Editor, Live MCP Runner, và Supabase Cloud Backend.
 

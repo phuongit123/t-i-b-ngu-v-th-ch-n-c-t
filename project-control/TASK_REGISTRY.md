@@ -2,10 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.1.0` (Phase 4 MVP Completed)
+- **Version:** `4.2.0` (Phase 4 MVP + Audit Remediation Certified)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-10`
 - **Governing Agent:** `Orchestrator`
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (13 COMPLETED / 37 PENDING = 26.0%).
 
 ---
 
