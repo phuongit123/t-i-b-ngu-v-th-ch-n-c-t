@@ -1,0 +1,293 @@
+{
+  "id": "B01-03",
+  "moduleId": "B01",
+  "trackId": "publisher",
+  "order": 3,
+  "title": "Baseline Grids, Flow Columns & Frame Margins",
+  "subtitle": "Vertical Rhythm, Multi-Column Text Threading & Justification",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the typographic theory of vertical rhythm and the Document Baseline Grid.",
+      "Configure the Baseline Grid Manager (spacing, start position, display thresholds).",
+      "Set up multi-column text frames with gutters and link text flows across pages (text threading).",
+      "Diagnose and resolve overset text indicators, text frame margins, and vertical justification."
+    ],
+    "foundationalKnowledge": "In professional editorial design, nothing looks more amateur than facing pages where lines of text do not align horizontally across adjacent columns. When body copy drifts out of vertical alignment, the visual rhythm of the spread collapses. The solution is the Baseline Grid: an invisible horizontal metric ladder running across the entire document. When paragraphs are configured with 'Align to Baseline Grid', the baseline of every letterform automatically locks onto these grid rungs. This guarantees that whether a text frame has 1, 2, or 4 columns, every line of text across facing pages aligns with laser precision.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Publisher Baseline Grid Manager & Text Threading Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Baseline Grid Manager & Frame Text Tool",
+      "persona": "Publisher Persona (View Menu & Left Tools)",
+      "shortcut": {
+        "win": "T (Frame Text Tool), View > Baseline Grid Manager",
+        "mac": "T (Frame Text Tool), View > Baseline Grid Manager"
+      },
+      "description": "The Frame Text Tool (T) draws multi-column text frames. The Baseline Grid Manager (View > Baseline Grid Manager) controls global and per-frame baseline grid behavior, color, and display zoom thresholds.",
+      "contextBarOptions": [
+        "Columns Input: Number of columns inside a single text frame (e.g. 2 or 3)",
+        "Gutter Input: Gap between columns (e.g. 4mm or 5mm)",
+        "Vertical Alignment: Top, Center, Bottom, Justify Vertically",
+        "Text Flow Triangles: Red eye icon indicates overset text; blue link triangles thread text to next frame"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Configure the Document Baseline Grid",
+        "instruction": "Go to View > Baseline Grid Manager. Check the box labeled 'Use baseline grid'. Set 'Grid spacing' to match your intended body copy leading (e.g. 14 pt or 5 mm). Set 'Start position' to 'Top margin'. Check 'Show baseline grid' and set 'Display threshold' to 50% so grids remain visible when zoomed out.",
+        "shortcutTip": { "win": "View > Baseline Grid Manager", "mac": "View > Baseline Grid Manager" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Create a 3-Column Text Frame",
+        "instruction": "Select the Frame Text Tool (T). Click and drag a text frame spanning the margins of your left page. In the Context Toolbar, change 'Columns' from 1 to 3. Set 'Gutter' to 5mm. Notice the frame immediately divides into 3 equal editorial columns.",
+        "shortcutTip": { "win": "T (Frame Text)", "mac": "T (Frame Text)" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Align Paragraphs to Baseline Grid",
+        "instruction": "Insert placeholder text via Text > Insert Filler Text. Open the Paragraph Studio. Expand the 'Baseline Grid' section and check 'Align to baseline grid'. Notice all lines of text immediately snap into perfect vertical alignment across all 3 columns.",
+        "shortcutTip": { "win": "Paragraph Studio > Align to Grid", "mac": "Paragraph Studio > Align to Grid" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thread Text Flow to the Next Page",
+        "instruction": "Draw another 3-column text frame on the right facing page. Return to the left frame. Notice a small blue triangle icon in the lower-right corner. Click this triangle (your cursor turns into a linking link icon), then click inside the right page's text frame. Text now flows seamlessly from page to page!",
+        "shortcutTip": { "win": "Click Flow Triangle", "mac": "Click Flow Triangle" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Vertical Rhythm Alignment Diagram",
+        "description": "How the Baseline Grid locks text across columns.",
+        "visualType": "diagram",
+        "visualContent": "[Column 1: Body Text]           [Column 2: Body Text]           [Column 3: Body Text]\nLine 1: Typography theory ==== Grid Rung 1 (14pt) ==== Line 1: Advanced baseline\nLine 2: Grid alignment    ==== Grid Rung 2 (28pt) ==== Line 2: Precision layout\nLine 3: Clean readability ==== Grid Rung 3 (42pt) ==== Line 3: Editorial craft"
+      },
+      {
+        "title": "Text Threading Anatomy",
+        "description": "Controls on an Affinity Publisher text frame.",
+        "visualType": "table",
+        "visualContent": "| Indicator Icon | Position | Meaning | Action |\n|---|---|---|---|\n| Blue Triangle | Top Left / Bottom Right | Inflow / Outflow Ports | Click to thread text to/from another frame |\n| Red Eye with Line | Bottom Right | Overset Text Alert | Text exceeds frame bounds; thread or enlarge |\n| Double Line Bar | Column Divider | Column Gutter Handle | Drag to adjust gutter width dynamically |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Multi-Column Spread Threading Walkthrough",
+      "taskDescription": "Establish a 3-column editorial text thread across facing pages with 14pt baseline grid alignment.",
+      "checkpoints": [
+        "Enable Baseline Grid at 14 pt spacing.",
+        "Draw 3-column text frame on Page 2 and 3-column frame on Page 3.",
+        "Thread text from Page 2 to Page 3 using the outflow triangle.",
+        "Insert filler text and verify that headings sit on multiples of 14pt while body copy lines align across the gutter."
+      ],
+      "expectedOutcome": "A seamless, professional editorial layout with locked vertical rhythm across the entire spread."
+    },
+    "independentChallenge": {
+      "title": "Feature Magazine Article Layout",
+      "prompt": "Construct a full feature magazine article layout on Pages 2 and 3 of your A4 publication: (1) Baseline grid locked to 13pt; (2) Page 2 has a large headline spanning columns 1 and 2, with body text starting in column 3; (3) Text threads to Page 3, flowing through two columns; (4) Use Vertical Justification ('Justify Vertically' on Context Bar) on the right frame to align the bottom line perfectly to the bottom margin guide.",
+      "starterAsset": {
+        "filename": "B01_magazine_spec_guide.md",
+        "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+        "filesize": "1.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Contains magazine grid specification (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "13pt baseline grid verified across both pages.",
+        "Text threads cleanly across page boundaries without duplicate frames.",
+        "Zero overset text warnings (no red eye icon).",
+        "Bottom baselines align exactly to bottom margin guide."
+      ],
+      "bonusGoal": "Add a 2-line Drop Cap to the opening paragraph using the Paragraph Studio."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Headlines breaking the baseline grid rhythm",
+        "cause": "Setting a 28pt headline with 32pt leading on a 14pt baseline grid forces the following paragraph to skip awkward rungs.",
+        "solution": "Always set headline leading to an exact integer multiple of your baseline grid (e.g. if the grid is 14pt, set headline leading to 28pt or 42pt)."
+      },
+      {
+        "pitfall": "Overset text disappearing silently into the void",
+        "cause": "A text frame is too small for its content; the overflow text is hidden without warning in print.",
+        "solution": "Watch for the red eye icon in the lower right of the text frame. Affinity Publisher Preflight panel (Window > Preflight) will also flag 'Text frame overflow' as an error."
+      },
+      {
+        "pitfall": "Text frames drifting off-margin",
+        "cause": "Drawing text frames freely with snapping disabled.",
+        "solution": "Turn on Snapping (; [Semicolon] alone; Ctrl+; toggles Guides) and ensure 'Snap to margins' is checked."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "B01-03-Q1",
+        "question": "What is the primary editorial purpose of aligning body text to a Document Baseline Grid?",
+        "options": [
+          "It automatically spell-checks the text.",
+          "It ensures that lines of text across multiple columns and facing pages sit on identical horizontal rungs, maintaining perfect vertical rhythm across the entire publication spread.",
+          "It compresses the file size.",
+          "It converts text into curves."
+        ],
+        "correctIndex": 1,
+        "explanation": "A baseline grid enforces uniform vertical alignment across columns and spreads, preventing the distracting staggered line heights that plague amateur typography."
+      },
+      {
+        "id": "B01-03-Q2",
+        "question": "What does a Red Eye icon on the lower-right corner of a text frame indicate in Affinity Publisher?",
+        "options": [
+          "The text frame has red-eye removal active.",
+          "The text frame has Overset Text (overflowing text that cannot fit within the visible frame boundary).",
+          "The text frame is locked.",
+          "The font is missing."
+        ],
+        "correctIndex": 1,
+        "explanation": "The red eye indicates overset text. You must enlarge the frame, thread the text to another frame, or reduce font size to reveal the hidden text."
+      },
+      {
+        "id": "B01-03-Q3",
+        "question": "If your baseline grid is set to 14 pt, what should your paragraph leading or heading leading ideally be set to?",
+        "options": [
+          "Any random number like 19.3 pt.",
+          "Multiples or exact divisions of the 14 pt grid (e.g. 14 pt, 28 pt, 42 pt) to prevent awkward skipping of grid rungs.",
+          "Always 10 pt.",
+          "Leading should be set to 0."
+        ],
+        "correctIndex": 1,
+        "explanation": "Using multiples of the baseline grid ensures larger headings occupy exactly 2 or 3 grid increments, allowing subsequent body text to resume without vertical disruption."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Baseline grids create an unbroken vertical rhythm across columns and spreads.",
+        "Headline leading should always be configured as whole-number multiples of the grid spacing.",
+        "Multi-column text frames eliminate the need to manually align separate single-column boxes.",
+        "Text threading connects narrative flow dynamically across complex publication architectures."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module B02 Preview: Master Pages & Multi-Section Pagination",
+          "target": "B02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Publisher Typography & Baseline Grid Guide",
+          "target": "https://affinity.serif.com/publisher/typography/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "B01-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Baseline Grids, Flow Columns & Frame Margins",
+      "subtitle": "The Invisible Architecture of Editorial Rhythm",
+      "contentMarkdown": "Look closely at any world-class newspaper, editorial magazine, or Swiss-designed book:\n\nNotice how the lines of text in the left column align with millimeter precision to the lines of text in the right column.\n\nIn this lesson, you will master **Affinity Publisher's Baseline Grid Manager, multi-column text frames, and text threading**.",
+      "actionBox": {
+        "label": "The Swiss Secret",
+        "text": "Vertical rhythm is the heartbeat of typography. Lock your baselines, and your layouts instantly become professional."
+      }
+    },
+    {
+      "id": "B01-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Theory of the Baseline Grid",
+      "subtitle": "An Invisible Ladder for Letterforms",
+      "contentMarkdown": "A **Baseline Grid** is a series of evenly spaced horizontal guides running down every page of your document:\n\n- The spacing matches your primary **Body Copy Leading** (e.g. `14 pt`).\n- When paragraphs are set to 'Align to Baseline Grid', the baseline of every letter automatically snaps to the nearest grid rung.\n- Even when text wraps around an image or encounters a large headline, the subsequent body text immediately re-locks onto the grid.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Column 1: Text] ===== Baseline Rung 1 (14pt) ===== [Column 2: Text]\n[Column 1: Text] ===== Baseline Rung 2 (28pt) ===== [Column 2: Text]\n[Column 1: Text] ===== Baseline Rung 3 (42pt) ===== [Column 2: Text]"
+      }
+    },
+    {
+      "id": "B01-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Baseline Grid Manager & Text Frames",
+      "subtitle": "Precision Configuration",
+      "contentMarkdown": "Access via `View > Baseline Grid Manager`:\n\n- **Use Baseline Grid:** Master toggle to activate the system.\n- **Grid Spacing:** Set to your leading (e.g. `14 pt` or `5 mm`).\n- **Start Position:** Align to 'Top margin' or 'Top of page'.\n- **Display Threshold:** Set to `50%` so grid lines remain visible at comfortable zoom levels.\n\n**Frame Text Tool (T):** Context bar allows setting columns (`3`) and gutters (`5mm`) inside a single frame.",
+      "actionBox": {
+        "label": "Pro Shortcut",
+        "text": "Press T to activate Frame Text Tool. Drag to draw multi-column boxes.",
+        "shortcut": { "win": "T", "mac": "T" }
+      }
+    },
+    {
+      "id": "B01-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Setting Up 3-Column Threaded Spreads",
+      "subtitle": "Threading Editorial Copy Across Facing Pages",
+      "contentMarkdown": "1. **Activate Baseline Grid:** Open `View > Baseline Grid Manager`. Check `[x] Use baseline grid`, set spacing to `14 pt`, and check `[x] Show baseline grid`.\n2. **Draw Left Page Frame:** Select Frame Text Tool (`T`). Draw a frame across Page 2 margins. On Context Bar, set `Columns: 3` and `Gutter: 5mm`.\n3. **Draw Right Page Frame:** Draw a matching 3-column frame across Page 3.\n4. **Thread Text:** Click the small blue triangle at the lower-right of the Page 2 frame. Click inside the Page 3 frame to link them.\n5. **Insert Filler Text:** Right-click inside Page 2 > `Insert Filler Text`. Notice copy flowing across all 6 columns!\n6. **Lock Paragraphs:** In Paragraph Studio, check `[x] Align to baseline grid`. Notice lines across both pages lock into laser alignment.",
+      "visual": {
+        "type": "callout",
+        "content": "A red eye icon in the lower-right corner alerts you to Overset Text (hidden content)."
+      }
+    },
+    {
+      "id": "B01-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Typographic Traps & Headline Math",
+      "subtitle": "Preventing Staggered Text and Overflow",
+      "contentMarkdown": "### 1. Breaking the Rhythm with Arbitrary Headlines\n- **The Trap:** Setting a 24pt headline with 27pt leading on a 14pt grid. The body text below skips awkward fractions.\n- **The Rule:** Always set headline leading to **multiples of the grid** (e.g. `28 pt` or `42 pt`).\n\n### 2. Overset Text Blindness\n- **The Trap:** Text overflows the frame and is silently omitted from the exported PDF.\n- **The Fix:** Always inspect the **Preflight Studio** (`Window > Preflight`) before export. It catches all overset text errors instantly.\n\n### 3. Multiple Unlinked Text Frames\n- **The Fix:** Never draw 3 separate text frames for 3 columns. Use 1 frame with 3 columns in the Context Toolbar.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Headline Leading = Baseline Grid × 2 or 3."
+      }
+    },
+    {
+      "id": "B01-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Editorial Grid",
+      "subtitle": "Validate Your Typographic Alignment",
+      "contentMarkdown": "Test your mastery of baseline grids and text frames.",
+      "quizData": {
+        "id": "B01-03-Q1",
+        "question": "What is the primary editorial purpose of aligning body text to a Document Baseline Grid?",
+        "options": [
+          "It automatically spell-checks the text.",
+          "It ensures that lines of text across multiple columns and facing pages sit on identical horizontal rungs, maintaining perfect vertical rhythm across the entire publication spread.",
+          "It compresses the file size.",
+          "It converts text into curves."
+        ],
+        "correctIndex": 1,
+        "explanation": "A baseline grid enforces uniform vertical alignment across columns and spreads, preventing the distracting staggered line heights that plague amateur typography."
+      }
+    },
+    {
+      "id": "B01-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Feature Article Spread",
+      "subtitle": "Put Vertical Rhythm into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a full feature magazine article layout on Pages 2 and 3:\n\n1. Baseline grid locked to `14 pt`.\n2. Page 2 has a bold 2-column headline with leading set to `42 pt` (3 × 14pt).\n3. Body copy set to 10pt with 14pt leading, locked to baseline grid.\n4. Thread text to Page 3 across 3 columns.\n5. Align the bottom baseline of all columns to the bottom margin guide.\n\n### Acceptance Criteria:\n- Horizontal baseline alignment verified across both pages.\n- Zero overset text warnings (Preflight panel green).\n- Text flow threads continuously without break.",
+      "practiceData": {
+        "prompt": "Construct a feature article with locked vertical rhythm across 2 pages.",
+        "starterAsset": {
+          "filename": "B01_magazine_spec_guide.md",
+          "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+          "filesize": "1.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Contains magazine grid specification (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Baseline grid active at 14pt",
+          "Headline leading set to 42pt (3x grid)",
+          "Threaded text flow across spread with zero overset"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "id": "D09-02",
+  "moduleId": "D09",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Non-Destructive Child Pixel Clipping & Masking",
+  "subtitle": "Insert Inside Selection, Protect Alpha & Blend Mode Shading",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Nest raster pixel layers inside vector parent curves to create automatic, mathematically sharp clipping masks.",
+      "Utilize the 'Insert inside the selection' toolbar mode to draw and paint directly into target vector containers.",
+      "Construct a multi-pass shading stack using specialized blend modes (Multiply for core shadows, Screen for rim highlights).",
+      "Lock transparency using Protect Alpha to recolor existing texture grain without edge bleeding.",
+      "Manipulate vector parent bezier nodes while observing real-time recalculation of the nested raster textures."
+    ],
+    "foundationalKnowledge": "In traditional raster painting programs, painting inside a silhouette requires either maintaining fragile alpha channel selections or permanently locking transparency on flattened pixels, making subsequent changes to the silhouette destructive and painful. Affinity Designer revolutionizes this through its object-oriented Scene Graph. Any vector shape (Curve, Rectangle, Polygon, or Compound) can act as an active clipping mask for nested raster pixel layers. When you paint on a child pixel layer, Designer clips the raster rendering to the parent curve's bezier boundary. If you later reposition a node or reshape the vector curve, the raster shading is re-clipped dynamically with zero pixel distortion.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Scene Graph, Child Layer Clipping & Protect Alpha Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Child Pixel Clipping & Protect Alpha",
+      "persona": "Dual Persona (Designer Persona & Pixel Persona)",
+      "shortcut": {
+        "win": "Alt+Drag (Layer Nesting), Insert Inside (Top Toolbar), Protect Alpha Checkbox",
+        "mac": "Option+Drag (Layer Nesting), Insert Inside (Top Toolbar), Protect Alpha Checkbox"
+      },
+      "description": "Nests raster pixel layers beneath vector parent shapes to restrict paint strictly to vector boundaries with live node editability.",
+      "contextBarOptions": [
+        "Insert inside the selection button: Blue square with inner target arrow on the top toolbar",
+        "Add Pixel Layer button: Bottom of Layers Studio (creates indented child layer when parent is active)",
+        "Protect Alpha checkbox: Context Bar of Paint Brush Tool (locks opacity of painted pixels)",
+        "Layer Blend Modes dropdown: Normal, Multiply, Darken, Screen, Overlay, Soft Light",
+        "Layer Opacity slider: Fine-tunes overall intensity of the child shading pass"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Draw the Parent Vector Silhouette",
+        "instruction": "In the Designer Persona, use the Pen Tool (P) to draw an organic leaf or character arm. Apply a solid flat midtone fill (e.g. Sage Green #15803D), with stroke set to None.",
+        "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Activate Insert Inside Selection",
+        "instruction": "With the vector leaf selected on canvas, click the 'Insert inside the selection' button on the top toolbar (or press Ctrl+Alt+Ins / Cmd+Option+Ins). This instructs Designer to place all subsequent layers directly inside the selected object.",
+        "shortcutTip": { "win": "Insert Inside Icon", "mac": "Insert Inside Icon" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Switch to Pixel Persona & Add Child Layer",
+        "instruction": "Click the Pixel Persona icon on the top-left toolbar. In the Layers Studio, click the 'Add Pixel Layer' button. Notice the new layer appears indented directly under the vector curve with a child disclosure triangle.",
+        "shortcutTip": { "win": "Add Pixel Layer", "mac": "Add Pixel Layer" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Paint Shadow with Multiply Blend Mode",
+        "instruction": "Set the child pixel layer blend mode to 'Multiply' and opacity to 70%. Select a Dry Media grain brush (Flow: 20%). Sample deep evergreen (#052E16) and paint along the shaded edge of the leaf. Notice that even if you brush far outside the shape, all paint outside the vector boundary is clipped instantly!",
+        "shortcutTip": { "win": "B (Paint Brush)", "mac": "B (Paint Brush)" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Lock Transparency with Protect Alpha",
+        "instruction": "In the Paint Brush Context Bar, check 'Protect Alpha'. Choose a warm yellow-green tint (#84CC16). Lightly brush over the shaded grain. The color tints only the previously deposited grain particles without spilling onto the transparent areas of the child layer!",
+        "shortcutTip": { "win": "Check Protect Alpha", "mac": "Check Protect Alpha" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Child Layer Hierarchy Structure",
+        "description": "Layers Studio hierarchy for non-destructive vector-raster shading.",
+        "visualType": "diagram",
+        "visualContent": "Layers Studio:\n[▲ │ (Curve) 'Leaf_Silhouette'] ──> Parent Vector Mask (Flat Fill: #15803D)\n    ├── [Pixel 'Highlight_Rim'] ──> Child Layer (Blend Mode: Screen, Opacity: 60%)\n    └── [Pixel 'Core_Shadow']   ──> Child Layer (Blend Mode: Multiply, Opacity: 70%)"
+      },
+      {
+        "title": "Shading Layer Stack Specifications",
+        "description": "Standard multi-pass blend modes for dimensional vector rendering.",
+        "visualType": "table",
+        "visualContent": "| Pass | Layer Type | Blend Mode | Color Palette | Typical Opacity |\n|---|---|---|---|---|\n| Foundation | Parent Vector Curve | Normal | Base local midtone | 100% |\n| Core Shadow | Child Pixel Layer | Multiply | Deep desaturated cool hue | 60% – 80% |\n| Ambient Occlusion | Child Pixel Layer | Multiply | Dark near-black tone at crevice joints | 40% – 60% |\n| Rim / Key Highlight | Child Pixel Layer | Screen or Overlay | Warm vibrant tint from light source | 40% – 70% |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Shading a Multi-Tier Stylized Character Hand",
+      "taskDescription": "Construct a clean vector cartoon hand and apply contained grain shading across fingers and palm using nested child pixel layers.",
+      "checkpoints": [
+        "Draw a stylized vector hand with distinct fingers in Designer Persona.",
+        "Nest a child pixel layer inside each finger using 'Insert inside the selection'.",
+        "Switch to Pixel Persona, select a chalk stipple brush (Flow: 20%), and set blend mode to Multiply.",
+        "Paint soft cast shadows beneath finger joints; verify that zero paint bleeds into the gaps between fingers.",
+        "Select the parent palm vector with the Node Tool (A) and adjust its curve to verify dynamic live clipping."
+      ],
+      "expectedOutcome": "A richly shaded character asset exhibiting tactile paper-like grain while retaining 100% vector scalability and node adjustability."
+    },
+    "independentChallenge": {
+      "title": "Editorial Retro-Futuristic Botanical Palm",
+      "prompt": "Construct a high-end editorial botanical illustration: (1) In Designer Persona, draw a large fan palm frond with 7 distinct tapering leaves; (2) Nest dedicated child pixel layers inside each frond leaf; (3) Paint dramatic gradient stippling on each frond with Multiply shadows and Screen highlights; (4) Use Protect Alpha to introduce a warm golden dual-tone tint into the deepest shadow crevices; (5) Return to Designer Persona, select 3 leaves, and rotate them into a dynamic overlapping fan composition, verifying that each leaf's texture stays perfectly contained within its own vector silhouette.",
+      "starterAsset": {
+        "filename": "D09_pixel_persona_shading_guide.md",
+        "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for child pixel clipping and botanical illustration (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "7 vector fronds configured with independent child pixel layer structures.",
+        "Zero overspray or bleeding between overlapping adjacent fronds.",
+        "Multiply and Screen blend modes calibrated for rich, non-muddy tonal depth.",
+        "Protect Alpha utilized for dual-tone color transitions inside grain particles."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Painting on a standard top-level pixel layer above the vector art rather than nesting it as a child.",
+        "consequence": "Paint spills all over the canvas and background, destroying the crisp vector silhouette.",
+        "solution": "Drag the pixel layer directly over the text label or thumbnail of the vector shape in Layers Studio until the horizontal highlight indents beneath it."
+      },
+      {
+        "mistake": "Leaving Protect Alpha enabled when trying to paint new shading onto an empty child layer.",
+        "consequence": "The brush appears completely broken and does not deposit any paint because the layer is currently 100% transparent.",
+        "solution": "Uncheck 'Protect Alpha' when painting initial strokes. Only check Protect Alpha when you want to recolor existing paint."
+      },
+      {
+        "mistake": "Converting the vector parent into curves and accidentally flattening the child pixel layers.",
+        "consequence": "Destroys the separation between vectors and pixels, turning the entire artwork into a static bitmap.",
+        "solution": "Never use 'Rasterize' on parent vector containers. Keep the vector shell and child pixel layers permanently distinct."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "How do you nest an existing pixel layer as a child clipping mask inside a vector shape in the Layers Studio?",
+        "options": [
+          "Right-click and select 'Delete'.",
+          "Drag the pixel layer onto the vector shape layer until an indented blue placement bar appears beneath it.",
+          "Press Ctrl+Alt+Shift+N.",
+          "Convert the document to CMYK color space."
+        ],
+        "correctIndex": 1,
+        "explanation": "Dragging a layer onto another layer in Affinity's Layers Studio until the placement guide indents underneath creates a parent-child clipping mask relationship."
+      },
+      {
+        "question": "What is the function of the 'Protect Alpha' checkbox in the Paint Brush Context Bar?",
+        "options": [
+          "It password-protects the document.",
+          "It locks the transparency of the layer so new brush strokes only affect existing pixels without painting into transparent areas.",
+          "It renders the canvas in black and white.",
+          "It prevents the brush from using pressure sensitivity."
+        ],
+        "correctIndex": 1,
+        "explanation": "Protect Alpha locks transparent pixels: any brush stroke you make will only paint over pixels that already contain pigment, allowing effortless recoloring without edge bleeding."
+      },
+      {
+        "question": "What happens if you modify the control handles of the parent vector curve with the Node Tool (A) after painting on its child pixel layer?",
+        "options": [
+          "All child pixel layers are permanently deleted.",
+          "The pixel texture stretches and blurs like a bitmap.",
+          "The vector shape updates its outline, and the raster texture remains stationary, cleanly clipped to the new vector boundary in real time.",
+          "Affinity Designer displays a syntax error."
+        ],
+        "correctIndex": 2,
+        "explanation": "Affinity Designer evaluates clipping non-destructively: reshaping the parent vector curve updates the clipping aperture immediately without distorting the underlying raster texture."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "Vector shapes act as non-destructive clipping shells for child pixel layers.",
+        "'Insert inside the selection' automatically nests new layers into the active vector object.",
+        "Multiply blend modes build realistic cast shadows; Screen blend modes generate luminous highlights.",
+        "Protect Alpha allows effortless recoloring of existing grain textures without edge overspill."
+      ],
+      "nextSteps": "Proceed to D09-03 to master resolution governance, DPI boundaries, and commercial print preparation.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Layers/layerClip.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Non-Destructive Child Pixel Clipping",
+      "subtitle": "The Ultimate Marriage of Vector Shells and Raster Grain",
+      "bullets": [
+        "Painting inside selections in Photoshop creates fragile, hard-to-edit pixel boundaries.",
+        "In Affinity Designer, any vector curve acts as a live, permanent clipping aperture.",
+        "Child pixel layers live physically inside the parent vector object in the Layers Studio.",
+        "All paint strokes outside the vector boundary are clipped away dynamically by the GPU."
+      ],
+      "proTip": "This architecture keeps your illustration 100% responsive to client shape revisions."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Setting Up the Vector Shell",
+      "subtitle": "Designer Persona Foundation",
+      "bullets": [
+        "In Designer Persona, draw your base silhouette with the Pen Tool (P).",
+        "Apply a flat local color (e.g. Sage Green #15803D).",
+        "Ensure all curves are closed paths with clean node geometry.",
+        "Select the object to designate it as the active clipping container."
+      ],
+      "proTip": "Use parametric shapes (Ellipses, Rounded Rectangles) for geometric mechanical parts."
+    },
+    {
+      "slideNumber": 3,
+      "title": "The 'Insert Inside Selection' Workflow",
+      "subtitle": "Direct In-Container Creation",
+      "bullets": [
+        "Click the 'Insert inside the selection' button on the top toolbar.",
+        "Switch to the Pixel Persona via the top-left toolbar icon.",
+        "Click 'Add Pixel Layer' at the bottom of the Layers Studio.",
+        "The new pixel layer is created already indented inside the parent vector curve!"
+      ],
+      "callout": "Notice the small disclosure triangle next to the vector layer indicating child content."
+    },
+    {
+      "slideNumber": 4,
+      "title": "Building the Shading Layer Stack",
+      "subtitle": "Multiply Shadows & Screen Highlights",
+      "bullets": [
+        "Create Child Layer 1: Name it 'Shadow_Grain' -> Set Blend Mode to 'Multiply'.",
+        "Set Opacity to 60%–75% to let the base vector color tint through.",
+        "Create Child Layer 2: Name it 'Highlight_Rim' -> Set Blend Mode to 'Screen'.",
+        "Set Opacity to 40%–60% for radiant, warm rim lighting along light-facing edges."
+      ],
+      "proTip": "Using Multiply and Screen prevents colors from turning into muddy gray washes."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Recoloring Texture with Protect Alpha",
+      "subtitle": "Precision Pigment Glazing",
+      "bullets": [
+        "Once grain texture is deposited, you can lock its transparency boundary.",
+        "In the Paint Brush Context Bar, check 'Protect Alpha'.",
+        "Select a new color (e.g. warm gold or violet) and paint across the shaded area.",
+        "The brush ONLY recolors existing grain particles without bleeding onto blank areas!"
+      ],
+      "proTip": "Uncheck Protect Alpha when you want to paint new shading; check it to tint existing texture."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Live Node Re-Shaping in Action",
+      "subtitle": "Zero-Distortion Silhouette Revisions",
+      "bullets": [
+        "Switch back to Designer Persona via the top-left toolbar.",
+        "Select the parent vector shape with the Node Tool (A).",
+        "Drag bezier nodes or bend curve segments to alter the silhouette.",
+        "The child pixel shading recalculates immediately, perfectly clipped to the new shape!"
+      ],
+      "callout": "The raster pixels do NOT stretch, warp, or blur when the vector parent is reshaped!"
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: Stylized Palm Frond",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
+        "Draw an organic leaf silhouette filled with deep teal (#0F766E).",
+        "Nest a child pixel layer set to Multiply; paint soft stipple grain along the bottom edge.",
+        "Nest a second child pixel layer set to Screen; paint soft rim highlights along the top edge.",
+        "Switch to Designer Persona and add crisp 2pt vector leaf veins over the top."
+      ],
+      "proTip": "The contrast between sharp vector veins and analog grain delivers instant editorial charm."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Child Layer & Clipping Competencies",
+      "bullets": [
+        "Explain how to establish a child layer relationship in the Layers Studio.",
+        "Describe the effect of the 'Protect Alpha' toggle on transparent pixels.",
+        "Evaluate the stability of raster textures when vector parent nodes are edited.",
+        "Ensure all exercise checkpoints pass before proceeding to DPI management."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Lesson Summary & Moving to DPI Standards",
+      "subtitle": "From Single Objects to Commercial Print Production",
+      "bullets": [
+        "Mastered non-destructive child pixel layer nesting inside vector parent curves.",
+        "Engineered multi-pass shading stacks utilizing Multiply and Screen blend modes.",
+        "Leveraged Protect Alpha for seamless dual-tone texture recoloring.",
+        "In Lesson D09-03, we explore hybrid DPI management, noise injection, and print preparation."
+      ],
+      "proTip": "You now possess the foundational workflow used by the world's leading editorial illustrators."
+    }
+  ]
+}

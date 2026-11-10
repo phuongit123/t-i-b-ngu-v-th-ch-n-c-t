@@ -1,0 +1,21 @@
+{
+  "id": "S01",
+  "trackId": "scripting",
+  "moduleNumber": "S01",
+  "title": "Affinity JS Runtime, Environment & Hello World",
+  "tagline": "Master programmatic graphic automation using the Affinity 3.0 JavaScript DOM and MCP server.",
+  "description": "Understand the internal JavaScript automation engine of Serif Affinity 3.0: the embedded Google V8 engine, sandbox filesystem boundaries, module resolution (/application.js, /document.js), MCP SSE connection on port 6767, and authoring your first automation scripts for real-time document inspection and session telemetry.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 75,
+  "prerequisites": [],
+  "primaryPersona": "JavaScript DOM & MCP Server",
+  "starterAsset": {
+    "filename": "S01_hello_affinity.js",
+    "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
+    "filesize": "0.7 KB",
+    "filetype": ".js",
+    "isVerified": true,
+    "statusNote": "Verified runnable automation script tested against live Affinity 3.3.3 instance."
+  },
+  "lessonIds": ["S01-01", "S01-02", "S01-03"]
+}

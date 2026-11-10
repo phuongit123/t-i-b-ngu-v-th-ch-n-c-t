@@ -1,0 +1,273 @@
+{
+  "id": "D02-02",
+  "moduleId": "D02",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Node Classifications & Node Tool Manipulation",
+  "subtitle": "Sharp, Smooth, Smart Nodes, Extrema Placement & Alignment",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the Node Tool (A) for selecting, transforming, aligning, and sculpting vector nodes.",
+      "Identify and convert between the three node types: Sharp (Cusp), Smooth, and Smart nodes.",
+      "Manipulate multi-node selections, lasso node selections, and box marquee selections.",
+      "Employ the Transform Studio and Alignment options to align groups of nodes numerically."
+    ],
+    "foundationalKnowledge": "While the Pen Tool (P) is for creating vector curves, the Node Tool (A) is the precision scalpel for refining, editing, and perfecting them. In Affinity Designer, every anchor node belongs to one of three mathematical classifications: (1) Sharp Nodes: Control handles are completely independent in angle and length, or absent altogether, forming corners; (2) Smooth Nodes: Both control handles are locked in a collinear line (180 degrees apart), ensuring tangential continuity with independent handle lengths; (3) Smart Nodes: Designer dynamically calculates curvature based on neighboring points, automatically smoothing out any harsh transitions.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Node Tool & Node Type Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Node Tool",
+      "persona": "Vector Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "A",
+        "mac": "A"
+      },
+      "description": "The dedicated surgical tool for inspecting and adjusting individual anchor points, control handles, and curve spans.",
+      "contextBarOptions": [
+        "Convert to Sharp: Breaks handles into an independent corner cusp",
+        "Convert to Smooth: Locks handles into collinear 180-degree tangent alignment",
+        "Convert to Smart: Auto-computes natural Bezier tension based on neighbor geometry",
+        "Snap options: Align to node handles, geometry points, and grid intersections",
+        "Transform Mode: Bounding box for scaling and rotating multiple selected nodes"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Select the Node Tool",
+        "instruction": "Press A to activate the Node Tool. Click directly on any vector path or shape on the canvas. The path outline and all existing anchor nodes will illuminate.",
+        "shortcutTip": { "win": "A", "mac": "A" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Convert a Sharp Corner to Smooth",
+        "instruction": "Click on a sharp corner node (e.g. the corner of a rectangle). In the Context Toolbar, click the 'Smooth' button under the Convert section. Notice two collinear handles immediately appear, transforming the sharp angle into a fluid curve.",
+        "shortcutTip": { "win": "Click Smooth Button", "mac": "Click Smooth Button" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Multi-Node Marquee Selection",
+        "instruction": "Click and drag a marquee selection box over several nodes. Notice the selected nodes turn blue/highlighted. Drag any selected node to move the entire cluster while preserving their relative positions.",
+        "shortcutTip": { "win": "Marquee Drag", "mac": "Marquee Drag" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Align Nodes Using the Alignment Studio",
+        "instruction": "With multiple nodes selected, click the 'Alignment' popup on the top main toolbar. Click 'Align Middle' or 'Align Bottom'. All selected nodes immediately snap into a laser-straight horizontal line.",
+        "shortcutTip": { "win": "Align Middle", "mac": "Align Middle" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "The Three Node Classifications",
+        "description": "Visual comparison of Sharp, Smooth, and Smart nodes.",
+        "visualType": "table",
+        "visualContent": "| Node Type | Icon / Visual Indicator | Handle Behavior | Primary Use Case |\n|---|---|---|---|\n| Sharp Node | Square / Diamond | Independent angles or 0 handles | Sharp corners, arrow points, zigzags |\n| Smooth Node | Circle / Collinear handles | Handles locked at 180° | Organic flowing curves, waves, circles |\n| Smart Node | Circle with dot | Auto-calculated curvature | Rapid organic sketching, character curves |"
+      },
+      {
+        "title": "Direct Segment Sculpting",
+        "description": "Dragging curve spans without touching handles directly.",
+        "visualType": "diagram",
+        "visualContent": "Node A ● ──────── (Drag mouse directly on curve) ──────── ● Node B\n                      ↓ Pull Downward\nNode A ● ───────.                   .──────── ● Node B\n                 \\                 /\n                  '─── Curve Arc ─'"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Sculpting a Geometric Shield into an Organic Emblem",
+      "taskDescription": "Take a 4-point sharp diamond shape and sculpt it into an aerodynamic crest using Node Tool conversions.",
+      "checkpoints": [
+        "Draw a sharp diamond shape using the Pen Tool in Polygon Mode (4 sharp nodes).",
+        "Activate Node Tool (A) and select the top and bottom nodes.",
+        "Keep the top and bottom nodes as Sharp cusps.",
+        "Select the left and right side nodes and click 'Smooth' on the Context Toolbar.",
+        "Drag the handles of the smooth side nodes vertically to bow out the sides gracefully."
+      ],
+      "expectedOutcome": "An elegant heraldic crest combining sharp top/bottom points with parabolic curved side flanks."
+    },
+    "independentChallenge": {
+      "title": "Vector Heart Sculpting Mission",
+      "prompt": "Construct a mathematically perfect vector heart using exactly 4 nodes: 1 Sharp node at top cusp, 1 Sharp node at bottom tip, and 2 Smooth nodes for the left and right lobes. Use the Alignment panel to ensure horizontal symmetry across the two smooth lobe nodes.",
+      "starterAsset": {
+        "filename": "D02_pen_node_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Node Tool conversions."
+      },
+      "challengeCriteria": [
+        "Heart contains exactly 4 nodes (2 sharp, 2 smooth).",
+        "Left and right lobe nodes align along the identical Y coordinate.",
+        "Top cusp features a clean inward 45-degree corner."
+      ],
+      "bonusGoal": "Enable 'Transform Mode' on the Context Toolbar and rotate the entire heart 15 degrees using only node selections."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Dragging an entire object instead of a single node",
+        "cause": "Using the Move Tool (V) instead of the Node Tool (A).",
+        "solution": "Always press A to activate the Node Tool before attempting to edit individual vertices."
+      },
+      {
+        "pitfall": "Accidentally breaking a smooth node into a sharp node",
+        "cause": "Holding Alt while dragging a handle on an existing smooth node.",
+        "solution": "To adjust handle length while keeping it smooth, do not hold Alt; simply drag the handle directly."
+      },
+      {
+        "pitfall": "Stray duplicate nodes on top of each other",
+        "cause": "Double-clicking or clicking twice in the same coordinate.",
+        "solution": "Marquee-select around suspicious points; check the Context Toolbar to verify if '1 node selected' or '2 nodes selected' is displayed."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D02-02-Q1",
+        "question": "What is the defining mechanical characteristic of a 'Smooth Node' in Affinity Designer?",
+        "options": [
+          "It has zero control handles.",
+          "Both of its control handles are locked collinearly (180 degrees apart), ensuring curvature continuity across the point.",
+          "It turns the layer invisible.",
+          "It forces the stroke width to expand."
+        ],
+        "correctIndex": 1,
+        "explanation": "A smooth node maintains continuous tangential curvature because its opposing control handles are permanently aligned on a straight 180-degree axis."
+      },
+      {
+        "id": "D02-02-Q2",
+        "question": "Which tool shortcut activates the Node Tool in Affinity Designer?",
+        "options": [
+          "V",
+          "A",
+          "P",
+          "N"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pressing 'A' activates the Node Tool. 'V' activates the Move Tool, and 'P' activates the Pen Tool."
+      },
+      {
+        "id": "D02-02-Q3",
+        "question": "How can you sculpt a curve segment in Affinity Designer without dragging its control handles directly?",
+        "options": [
+          "You must always drag control handles; there is no other way.",
+          "With the Node Tool active, click and drag directly on the curve segment itself between two nodes.",
+          "Export to bitmap and use the liquify brush.",
+          "Type numbers in the Layers panel."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer allows direct curve sculpting: clicking and pulling directly on any line segment with the Node Tool interactively adjusts both neighboring Bezier handles."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The Node Tool (A) allows surgical editing of vector geometry.",
+        "Nodes fall into three classes: Sharp (corners), Smooth (collinear arcs), and Smart (algorithmic).",
+        "Direct segment pulling allows intuitive shaping without hunting for handles.",
+        "Multiple nodes can be aligned, distributed, and transformed as a unified group."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D02-03 Path Operations, Joining, Breaking & Stroke Joins",
+          "target": "D02-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Node Tool Manipulation",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D02-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Node Classifications & Node Tool Manipulation",
+      "subtitle": "The Surgical Sculpting Instrument of Vector Design",
+      "contentMarkdown": "Welcome to **Lesson D02-02**.\n\nWhile the Pen Tool places vector foundations, the **Node Tool (A)** is where vector artwork is sculpted, refined, and perfected.\n\nIn this lesson, you will master the three mathematical node types—**Sharp, Smooth, and Smart**—and learn how to reshape geometry directly on curve spans without fumbling with handles.",
+      "actionBox": {
+        "label": "Key Workflow",
+        "text": "Press 'A' at any time to enter Node edit mode. Toggle seamlessly between Move Tool (V) and Node Tool (A)."
+      }
+    },
+    {
+      "id": "D02-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Three Node Classifications",
+      "subtitle": "Sharp, Smooth & Smart Geometry",
+      "contentMarkdown": "Affinity Designer categorizes every node into one of three distinct types:\n\n1. **Sharp Nodes (Cusps):**\n   - Handles are independent in angle and length (or nonexistent).\n   - Creates crisp corners, vertices, and direction reversals.\n2. **Smooth Nodes:**\n   - Handles are strictly collinear (180° apart).\n   - Guarantees seamless curvature transitions with no kinks.\n3. **Smart Nodes:**\n   - Handles are auto-calculated by Affinity's curvature engine based on surrounding geometry.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Sharp Node (Diamond / Corner) | Smooth Node (Circle / 180° Tangent) | Smart Node (Auto-Tension)"
+      }
+    },
+    {
+      "id": "D02-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Node Tool Context Toolbar Controls",
+      "subtitle": "Mastering Conversions & Action Buttons",
+      "contentMarkdown": "When the Node Tool (`A`) is active, the Context Toolbar reveals precision controls:\n\n- **Convert Buttons:** Instantly convert selected nodes to Sharp, Smooth, or Smart.\n- **Action Buttons:**\n  - *Break Curve:* Splits an anchor node into two disconnected endpoints.\n  - *Close Curve:* Adds a closing line between open endpoints.\n  - *Smooth Curve:* Algorithmic path relaxation.\n  - *Reverse Curve:* Flips start and end point direction (vital for text-on-path).\n- **Transform Mode:** Wraps a bounding box around multiple selected nodes for collective scaling and rotation.",
+      "actionBox": {
+        "label": "Pro Technique: Direct Curve Pulling",
+        "text": "You do not need to click small handles! Click directly on any curve line segment and drag to reshape it intuitively."
+      }
+    },
+    {
+      "id": "D02-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Converting & Aligning Multi-Nodes",
+      "subtitle": "Executing Precision Node Edits",
+      "contentMarkdown": "Follow these steps to align and smooth vector geometry:\n\n1. **Step 1:** Select any vector shape with the Node Tool (`A`).\n2. **Step 2:** Click and drag a marquee selection box across 3 adjacent nodes.\n3. **Step 3:** Click the 'Smooth' button on the Context Toolbar. All three nodes convert to smooth tangent points.\n4. **Step 4:** Open the top Alignment popup and click 'Align Middle'. The three nodes snap into a level horizontal line.\n5. **Step 5:** Press `Shift` and drag the center node upward; notice it moves strictly along the vertical axis.",
+      "visual": {
+        "type": "table",
+        "content": "| Action | Windows Modifier | macOS Modifier |\n|---|---|---|\n| Constrain Angle (45°/90°) | Hold Shift | Hold Shift |\n| Break Smooth to Cusp | Hold Alt + Drag Handle | Hold Option + Drag Handle |\n| Retract Handle to 0 | Alt + Click Handle | Option + Click Handle |"
+      }
+    },
+    {
+      "id": "D02-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Node Pitfalls & Common Mistakes",
+      "subtitle": "Diagnose and Eliminate Vector Defects",
+      "contentMarkdown": "### 1. Ghost Nodes (Overlapping Identical Coordinates)\n- **The Issue:** A path appears to have a kink; clicking reveals two nodes stacked in the exact same spot.\n- **The Fix:** Marquee select the area. If '2 nodes selected' appears, click 'Join Curves' or delete one node.\n\n### 2. Accidental Tool Confusion (Move vs Node)\n- **The Issue:** Attempting to click an anchor point moves the whole layer.\n- **The Fix:** Ensure you are in Node Tool (`A`), not Move Tool (`V`).\n\n### 3. Handle Retraction Trap\n- **The Fix:** If you accidentally double-click a handle and it disappears into the node, hold `Alt` (Win) / `Option` (Mac) and drag outward from the node to pull a fresh handle.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Never leave redundant or overlapping anchor nodes on a path. Clean geometry means clean exports."
+      }
+    },
+    {
+      "id": "D02-02-S6",
+      "slideNumber": 6,
+      "type": "challenge",
+      "title": "Independent Challenge: The 4-Node Heart",
+      "subtitle": "Sculpting Geometry with Minimal Nodes",
+      "contentMarkdown": "### Your Mission:\nConstruct a perfectly symmetrical vector heart silhouette using **strictly 4 anchor nodes**:\n\n1. Top node: **Sharp node** indented downward.\n2. Bottom node: **Sharp node** pointing directly down.\n3. Left and right lobe nodes: **Smooth nodes** aligned to identical Y coordinates.\n4. Use the Alignment Studio to verify absolute horizontal symmetry across both lobes.\n\n### Acceptance Criteria:\n- Exactly 4 nodes verified in the Node Tool.\n- Top and bottom cusps are clean sharp corners.\n- Left and right lobes are silky smooth arcs.",
+      "practiceData": {
+        "prompt": "Construct a 4-node vector heart using Node Tool conversions and alignment.",
+        "starterAsset": {
+          "filename": "D02_pen_node_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Node Tool conversions."
+        },
+        "checkpoints": [
+          "Node Tool active (A)",
+          "Top and bottom vertices set to Sharp",
+          "Lobe vertices set to Smooth and aligned horizontally"
+        ]
+      }
+    }
+  ]
+}

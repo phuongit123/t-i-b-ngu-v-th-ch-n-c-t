@@ -1,0 +1,289 @@
+{
+  "id": "D10-01",
+  "moduleId": "D10",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Export Persona Workspace & Slices Architecture",
+  "subtitle": "Persona Navigation, Slice Tool, Layer Slices & Bounding Box Tracking",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Navigate the specialized Export Persona workspace and understand its dedicated toolset.",
+      "Distinguish between Document Slices, Artboard Slices, User Custom Slices, and Layer-Based Slices.",
+      "Generate dynamic Layer-Based Slices that automatically track vector group bounding box modifications.",
+      "Manage slice visibility, naming conventions, and export targets within the Slices Studio."
+    ],
+    "foundationalKnowledge": "In traditional design software, exporting individual graphic assets—such as icons, UI buttons, and marketing hero banners—from a complex document required tedious manual crop-and-save rituals or running clunky third-party scripts. Affinity Designer eliminates this entire friction layer through the Export Persona (accessible via the top-left Toolbar icon). In this dedicated workspace, slicing is treated as a first-class citizen. You can manually draw slices with the Slice Tool (S), or better yet, convert any vector layer into a 'Layer-Based Slice' in the Slices Studio. Unlike static rectangular coordinates, a layer-based slice dynamically hugs the exact mathematical bounding box of the vector object, updating its export dimensions automatically if the artwork is resized or moved on canvas.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Export Persona & Slices Architecture Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Export Persona & Slice Tool",
+      "persona": "Export Persona (Top-Left Toolbar)",
+      "shortcut": {
+        "win": "Click Export Persona icon (Top-Left) / Custom shortcut in Edit > Preferences > Shortcuts. Tool: S (Slice Tool), Shift+S (Slice Select)",
+        "mac": "Click Export Persona icon (Top-Left) / Custom shortcut in Affinity Designer > Settings > Shortcuts. Tool: S (Slice Tool), Shift+S (Slice Select)"
+      },
+      "description": "Dedicated export environment providing slice creation, bounding box tracking, and batch multi-format configuration. Note: Affinity Designer does not assign default keyboard shortcuts for switching personas out of the box.",
+      "contextBarOptions": [
+        "Slice Tool (S): Interactively draws rectangular slice zones on canvas",
+        "Slice Selection Tool: Selects, resizes, and repositions existing slice bounding boxes",
+        "Slices Studio: Displays full directory tree of all active slices with individual export toggles",
+        "Export Options Studio: Configures default format presets (PNG, JPEG, WebP, SVG, PDF)",
+        "Create Slice button: Located in the Layers Studio tab inside Export Persona"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Switch to Export Persona",
+        "instruction": "Open a document containing multiple icons or UI components. Click the third icon on the top-left Persona toolbar (Export Persona), or press your custom shortcut if configured in Preferences. Notice the top toolbar and left tool dock reconfigure exclusively for slicing.",
+        "shortcutTip": { "win": "Export Persona Icon", "mac": "Export Persona Icon" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Inspect Default Document & Artboard Slices",
+        "instruction": "In the right studio dock, open the Slices Studio. Notice that Designer has already automatically created a full-canvas slice, as well as individual slices for each artboard present in the document.",
+        "shortcutTip": { "win": "Slices Studio", "mac": "Slices Studio" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Create a Dynamic Layer-Based Slice",
+        "instruction": "In the Export Persona, click on the 'Layers' tab in the right dock. Select a vector button or icon group ('Component_Button_Primary'). At the bottom of the panel, click the 'Create Slice' button. Switch back to the 'Slices' tab: an exact-fit slice labeled after your layer is created!",
+        "shortcutTip": { "win": "Click 'Create Slice'", "mac": "Click 'Create Slice'" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Verify Bounding Box Tracking",
+        "instruction": "Click the Designer Persona icon on the top-left toolbar to return to drawing mode. Select the button with the Move Tool and stretch its width from 160px to 220px. Switch back to Export Persona: observe that the slice bounding box has expanded dynamically to exactly 220px!",
+        "shortcutTip": { "win": "Switch Persona Icons", "mac": "Switch Persona Icons" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Draw a Manual Custom Slice with the Slice Tool",
+        "instruction": "Select the Slice Tool (S) on the left toolbar. Click and drag a marquee over a specific sub-region of your illustration (e.g. a focal badge). A new user slice is generated in the Slices Studio, ready for custom naming and export.",
+        "shortcutTip": { "win": "S (Slice Tool)", "mac": "S (Slice Tool)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Slice Architecture Taxonomy",
+        "description": "Comparison of the four distinct slice classifications in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Slice Type | Origin | Dynamic Tracking | Best Use Case |\n|---|---|---|---|\n| Document Slice | Automatically generated | Tracks global canvas or bleed bounds | Full layout proofs, complete poster exports |\n| Artboard Slice | Automatically generated | Tracks artboard dimensions dynamically | Multi-screen app mockups, responsive viewports |\n| Layer-Based Slice | Created via Layers tab -> Create Slice | Hugs exact vector object bounding box dynamically | UI component buttons, system icons, logo lockups |\n| User Custom Slice | Drawn manually with Slice Tool (S) | Static rectangular coordinates on canvas | Bespoke detail crops, zoomed marketing previews |"
+      },
+      {
+        "title": "Dynamic Layer Bounding Box Tracking Flowchart",
+        "description": "How layer edits propagate into slice dimensions automatically.",
+        "visualType": "diagram",
+        "visualContent": "[Vector Component on Canvas: 160x44 px] ──> [Layer Slice: 160x44 px]\n                          │\n                          ▼ (User widens button to 220 px)\n[Vector Component on Canvas: 220x44 px] ──> [Layer Slice Auto-Updates to 220x44 px!]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Setting Up an App Asset Slice Catalog",
+      "taskDescription": "Establish a production-ready slice catalog for an icon navigation bar containing 5 distinct system icons.",
+      "checkpoints": [
+        "In Designer Persona, organize 5 icons into semantic groups ('Nav_Home', 'Nav_Search', 'Nav_Feed', 'Nav_Notifications', 'Nav_Profile').",
+        "Switch to Export Persona by clicking the Export Persona icon on the top-left Toolbar.",
+        "In the Layers tab, select all 5 icon groups and click 'Create Slice'.",
+        "In the Slices Studio, verify that 5 individual layer-based slices are listed with clean naming.",
+        "Uncheck the default Document Slice so only the 5 icons will export."
+      ],
+      "expectedOutcome": "A streamlined slice manifest where only the 5 intended asset slices are active and calibrated to their exact vector geometry."
+    },
+    "independentChallenge": {
+      "title": "Multi-Artboard Enterprise Dashboard Slicing",
+      "prompt": "Construct a full production slicing architecture: (1) Set up an enterprise dashboard document containing 3 artboards ('Desktop_1440', 'Tablet_768', 'Mobile_375'); (2) Ensure each artboard contains header, sidebar, and metric card component groups; (3) In Export Persona, generate artboard slices for all 3 viewports; (4) Generate layer-based slices for the individual metric cards and avatar badges; (5) Name all slices with semantic kebab-case paths (e.g. 'ui-card-revenue', 'nav-icon-home'); (6) Verify that all slices track their parent geometry without clipping drop shadows or outer glows.",
+      "starterAsset": {
+        "filename": "D10_export_slices_production_guide.md",
+        "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for Export Persona and slice architecture (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Export Persona accessed and navigated via verified shortcuts.",
+        "Artboard and layer-based slices coexisting cleanly in Slices Studio.",
+        "Semantic naming conventions applied across all slice manifests.",
+        "Dynamic bounding box tracking verified when underlying vector geometry is updated."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Drawing manual slices over components instead of creating Layer-Based Slices.",
+        "consequence": "If you later nudge or resize the component on canvas, the manual slice stays behind, cropping the art awkwardly.",
+        "solution": "Always select the layer in Export Persona's Layers tab and click 'Create Slice'. It will track the object wherever it moves."
+      },
+      {
+        "mistake": "Leaving all default slices checked when clicking Export Slices.",
+        "consequence": "Exports gigabytes of unwanted full-canvas background files along with your intended icons.",
+        "solution": "Uncheck the top-level 'Document' or 'Artboards' checkboxes in the Slices Studio so only desired component slices export."
+      },
+      {
+        "mistake": "Forgetting that outer layer effects (like Outer Glow or Drop Shadow) expand the layer's bounding box.",
+        "consequence": "The slice size may be slightly larger than the raw vector geometry to accommodate the soft blurred shadow pixels.",
+        "solution": "This is intended behavior so shadows are not cut off. If you need hard integer dimensions, clip the shadow inside a vector container."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary advantage of a 'Layer-Based Slice' over a user-drawn manual slice in Affinity Designer?",
+        "options": [
+          "Layer-based slices can only export in black and white.",
+          "Layer-based slices automatically track the position and bounding box dimensions of the vector object if it is resized or moved.",
+          "Layer-based slices permanently lock the document so no other edits can occur.",
+          "Layer-based slices only work on macOS."
+        ],
+        "correctIndex": 1,
+        "explanation": "A layer-based slice dynamically hugs the parent layer's bounding box; moving, nudging, or resizing the layer in Designer Persona automatically updates the slice bounds without manual adjustment."
+      },
+      {
+        "question": "How do you switch into the Export Persona in Affinity Designer by default?",
+        "options": [
+          "Press Ctrl+Shift+E",
+          "Click the Export Persona icon on the top-left Toolbar (Affinity has no default shortcut out of the box, but custom shortcuts can be configured in Preferences)",
+          "Press F12",
+          "Double-click the canvas background"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer does not assign default keyboard shortcuts for switching between Personas out of the box. Users switch by clicking the persona icons on the top-left toolbar, or by assigning custom shortcuts in Preferences > Keyboard Shortcuts."
+      },
+      {
+        "question": "Where do you find the 'Create Slice' command to convert an existing vector group into a dynamic slice inside Export Persona?",
+        "options": [
+          "In the File > Print menu.",
+          "At the bottom of the 'Layers' tab inside the Export Persona studio dock.",
+          "In the Swatches Studio palette menu.",
+          "In the Help documentation."
+        ],
+        "correctIndex": 1,
+        "explanation": "Inside the Export Persona, switch to the 'Layers' tab, select any layer or group, and click the 'Create Slice' button located at the bottom of the panel."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "The Export Persona provides a dedicated, non-destructive slicing and asset generation environment.",
+        "Layer-based slices dynamically track vector object dimensions and movements.",
+        "Artboards automatically generate dedicated full-screen slice boundaries.",
+        "Unchecking unwanted slices in the Slices Studio prevents accidental bloat during batch export."
+      ],
+      "nextSteps": "Proceed to D10-02 to configure multi-density scale targets (1x/2x/3x) and unlock the Continuous Export engine.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/ExportPersona/exportPersona.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Welcome to the Export Persona",
+      "subtitle": "Professional Production Output Engineering",
+      "bullets": [
+        "In traditional design apps, exporting individual assets requires tedious manual cropping.",
+        "Affinity Designer elevates asset production into a dedicated environment: the Export Persona.",
+        "Slicing is non-destructive, persistent, and decoupled from your creative drawing canvas.",
+        "Access via the top-left Toolbar icon or assign custom shortcuts in Preferences."
+      ],
+      "proTip": "The Export Persona keeps your main drawing workspace 100% clean of slicing clutter."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Workspace Layout & Dedicated Tools",
+      "subtitle": "The Slicing Command Center",
+      "bullets": [
+        "Left Toolbar: Slice Tool (S) for manual drawing, Slice Selection Tool for tweaking.",
+        "Right Studios: Slices Studio (manages all slices) and Export Options Studio (preset defaults).",
+        "Layers Tab in Export Persona: Allows you to convert any vector layer into a dynamic slice.",
+        "Canvas Viewport: Highlights active slice zones with cyan/orange bounding rectangles."
+      ],
+      "proTip": "Return to Designer Persona anytime by clicking the first icon on the top-left Persona Toolbar."
+    },
+    {
+      "slideNumber": 3,
+      "title": "The Four Types of Slices",
+      "subtitle": "Document, Artboards, Layers & Custom",
+      "bullets": [
+        "Document Slice: Full canvas bounds for master document proofs and posters.",
+        "Artboard Slices: Automatically created for every artboard; auto-updates if artboard is resized.",
+        "Layer-Based Slices: Created from specific layers; dynamically tracks object bounds.",
+        "User Custom Slices: Drawn manually with the Slice Tool (S) to capture arbitrary regions."
+      ],
+      "callout": "Use Layer-Based Slices for 95% of your UI icons, badges, and components!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "Creating Dynamic Layer-Based Slices",
+      "subtitle": "Zero-Maintenance Asset Bounding Boxes",
+      "bullets": [
+        "Inside Export Persona, click the 'Layers' tab in the right dock.",
+        "Select your icon or button group (e.g. 'Btn_Primary_Action').",
+        "Click the 'Create Slice' button at the bottom of the panel.",
+        "A slice is generated that perfectly hugs the outer boundaries of the vector shapes."
+      ],
+      "proTip": "Select multiple layers at once and click 'Create Slice' to batch-generate dozens of slices in 1 second."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Live Bounding Box Tracking in Action",
+      "subtitle": "Never Re-Crop an Asset Again",
+      "bullets": [
+        "Return to Designer Persona via the top-left Toolbar icon.",
+        "Move the button to another artboard or stretch its width from 160px to 220px.",
+        "Switch back to Export Persona via the top-left Toolbar icon.",
+        "The slice rectangle has automatically updated its coordinates and dimensions to 220px!"
+      ],
+      "callout": "Manual user-drawn slices do NOT track objects; always prefer layer-based slices!"
+    },
+    {
+      "slideNumber": 6,
+      "title": "Managing the Slices Studio Manifest",
+      "subtitle": "Organizing Export Targets",
+      "bullets": [
+        "The Slices Studio lists every slice with a checkbox and thumbnail preview.",
+        "Uncheck slices you do not want to export during the current build.",
+        "Rename slice labels to match your developer asset naming specs (e.g. 'icon-search').",
+        "Drag slices into logical groups to mirror your design system folder hierarchy."
+      ],
+      "proTip": "Use kebab-case ('btn-save-draft') for clean cross-platform developer handoff."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: App Icon Manifest",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D10_export_slices_production_guide.md'.",
+        "Organize 5 system icons in Designer Persona into clean vector groups.",
+        "Switch to Export Persona via the top-left Toolbar icon.",
+        "In the Layers tab, select all 5 groups and click 'Create Slice'.",
+        "Verify in the Slices Studio that 5 dynamic layer slices are active with exact pixel bounds."
+      ],
+      "proTip": "Uncheck the default Document Slice to avoid exporting unwanted full-screen proofs."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Slice Architecture Concepts",
+      "bullets": [
+        "Identify how to switch to Export Persona via the Toolbar and configure custom shortcuts in Preferences.",
+        "Explain why layer-based slices are superior to manual rectangular slices.",
+        "Locate the 'Create Slice' command inside the Export Persona Layers tab.",
+        "Confirm all 5 exercise icon slices are established before proceeding to multi-density scaling."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Lesson Summary & Moving to Continuous Export",
+      "subtitle": "From Static Slices to Automated Multi-Density Pipelines",
+      "bullets": [
+        "Mastered the Export Persona workspace and slice taxonomy.",
+        "Generated dynamic layer-based slices that track vector bounding boxes automatically.",
+        "Organized slice manifests in the Slices Studio with clean semantic naming.",
+        "In Lesson D10-02, we configure 1x/2x/3x scaling and unlock the Continuous Export engine."
+      ],
+      "proTip": "You now possess the foundational slicing pipeline used in top digital product agencies."
+    }
+  ]
+}

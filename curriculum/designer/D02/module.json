@@ -1,0 +1,54 @@
+{
+  "id": "D02",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Vector Nodes, Paths & Pen Tool Geometry",
+  "subtitle": "Sharp, Smooth, Smart Nodes, Control Handles, Bezier Curves & Keyboard Modifiers",
+  "description": "Master the mathematical core of vector illustration: the Pen Tool (P) and Node Tool (A). Learn the mechanics of cubic Bezier handles, the three fundamental node classifications (Sharp, Smooth, Smart), and professional workflows for joining, breaking, closing, and reversing complex paths with stroke caps and joins.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 80,
+  "prerequisites": ["D01: Designer Workspace Anatomy & Canvas Setup"],
+  "learningOutcomes": [
+    "Navigate all 4 Pen Tool modes: Standard Pen, Smart Mode, Polygon Mode, and Line Mode.",
+    "Manipulate cubic Bezier control handles using Alt/Option handle-breaking modifiers.",
+    "Differentiate and convert between Sharp (Cusp), Smooth, and Smart nodes.",
+    "Execute path operations: Join Curves, Break Curve, Close Curve, and Reverse Curve.",
+    "Apply stroke styling: Butt/Round/Square caps, Miter/Round/Bevel joins, and Align Stroke settings."
+  ],
+  "capstoneProject": {
+    "title": "Precision Organic Vector Monogram",
+    "description": "Draw an intricate geometric monogram with interwoven fluid curves, crisp corner cusps, and customized stroke caps, demonstrating zero stray or redundant nodes.",
+    "deliverableAsset": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+    "evaluationCriteria": [
+      "Path contains only necessary anchor nodes placed at curve extrema.",
+      "No broken or overlapping Bezier handles.",
+      "Path is closed cleanly with appropriate Miter and Cap settings."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D02-01",
+      "order": 1,
+      "title": "Pen Tool Modes & Bezier Handle Mechanics",
+      "subtitle": "Standard Pen, Smart Mode, Polygon, Line & Cusp Handle Breaking",
+      "durationMinutes": 25,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "D02-02",
+      "order": 2,
+      "title": "Node Classifications & Node Tool Manipulation",
+      "subtitle": "Sharp, Smooth, Smart Nodes, Extrema Placement & Alignment",
+      "durationMinutes": 25,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "D02-03",
+      "order": 3,
+      "title": "Path Operations, Joining, Breaking & Stroke Joins",
+      "subtitle": "Join Curves, Break, Close, Reverse, Miter Limits & Cap Profiles",
+      "durationMinutes": 30,
+      "difficulty": "Beginner"
+    }
+  ]
+}

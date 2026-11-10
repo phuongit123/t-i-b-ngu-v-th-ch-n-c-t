@@ -1,0 +1,291 @@
+{
+  "id": "D01-01",
+  "moduleId": "D01",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Designer Workspace Anatomy & Persona Switching",
+  "subtitle": "Unlocking the Tri-Persona Architecture: Vector, Pixel & Export Workspaces",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the conceptual separation and seamless cohesion between Vector Persona, Pixel Persona, and Export Persona.",
+      "Navigate the Affinity Designer top Toolbar, Persona Switcher, Context Toolbar, Tools Panel, and Dockable Studios.",
+      "Switch between personas without leaving the current document, preserving layer hierarchy and object states.",
+      "Customize workspace Studio layouts and save optimized presets for vector illustration vs raster shading."
+    ],
+    "foundationalKnowledge": "Unlike legacy vector applications that treat vector geometry and raster pixel painting as completely isolated software silos, Affinity Designer integrates an ultra-fast dual-engine core. In Designer, vector and raster layers coexist inside a unified scene graph. Personas are not separate file modes; they are specialized modal toolsets tailored for distinct creative phases: (1) Vector Persona provides infinite resolution bezier precision, boolean curves, and typography; (2) Pixel Persona brings raster brushes, textured shading, eraser tools, and selection marquees; (3) Export Persona delivers production-grade multi-format asset slicing and batch export.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Official Affinity Designer 3.3.3 Interface & Persona Architecture Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Persona Switcher",
+      "persona": "Top Left Application Toolbar",
+      "shortcut": {
+        "win": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (e.g. Alt+D, Alt+P, Alt+E). Note: Ctrl+1 is Zoom 100%",
+        "mac": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (e.g. Opt+D, Opt+P, Opt+E). Note: Cmd+1 is Zoom 100%"
+      },
+      "description": "The Persona Switcher sits in the top-left corner of the main toolbar. Clicking an icon instantly swivels the left Tools Panel and right Studio panels to expose persona-specific capabilities while leaving the active artwork completely intact.",
+      "contextBarOptions": [
+        "Vector Persona: Node selection, Pen mode, Boolean operations, Convert to Curves, Fill/Stroke swatches",
+        "Pixel Persona: Brush dynamics, Flow/Opacity sliders, Blend modes, Symmetry mode, Protect Alpha toggle",
+        "Export Persona: Slice Tool, Slice Selection Tool, Export Options panel, Slices batch list"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Inspect the Vector Persona Default Workspace",
+        "instruction": "Launch Affinity Designer and open any vector artboard. Notice the top toolbar displaying the blue Pen icon (Vector Persona active). On the left, observe the vector toolset: Move Tool (V), Node Tool (A), Pen Tool (P), and Shape tools.",
+        "shortcutTip": { "win": "V", "mac": "V" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Switch to Pixel Persona for Raster Embellishment",
+        "instruction": "Click the raster brush icon on the top-left Persona toolbar (or use a custom shortcut if configured). Notice the left toolbar instantly transform to display the Paint Brush Tool (B), Pixel Tool, Eraser Brush Tool (E), and Selection Marquees.",
+        "shortcutTip": { "win": "Pixel Persona Icon", "mac": "Pixel Persona Icon" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Switch to Export Persona for Slice Extraction",
+        "instruction": "Click the Export Persona icon on the top-left Persona toolbar. The canvas switches to slice-generation mode, displaying the Slice Tool (S) on the left and the Slices panel on the right, displaying all defined asset bounding boxes.",
+        "shortcutTip": { "win": "Export Persona Icon", "mac": "Export Persona Icon" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Reset and Organize Studio Panels",
+        "instruction": "Return to Vector Persona by clicking the Designer Persona icon. Go to Window > Studio > Reset Studio if panels have become disorganized, or toggle Studio visibility using Tab to focus purely on the canvas.",
+        "shortcutTip": { "win": "Tab", "mac": "Tab" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Tri-Persona Matrix Comparison",
+        "description": "Functional matrix distinguishing the 3 primary personas in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Persona | Core Focus | Primary File Outputs | Signature Tools |\n|---|---|---|---|\n| Vector Persona | Bezier curves, logos, icons, layout | .afdesign, .svg, .eps, .pdf | Pen (P), Node (A), Vector Brush (B) |\n| Pixel Persona | Textured shading, grain, painting | Raster masks, pixel layers | Paint Brush (B), Eraser (E), Smudge |\n| Export Persona | Slicing, asset export, retina specs | 1x, 2x, 3x PNG, WebP, SVG | Slice Tool (S), Slices Studio |"
+      },
+      {
+        "title": "Unified Scene Graph Diagram",
+        "description": "How raster and vector layers nest together seamlessly without file conversion.",
+        "visualType": "diagram",
+        "visualContent": "Document Root\n ├── Artboard (Desktop 1920x1080)\n │    ├── [Vector] Path (Hero Illustration)\n │    │    └── [Pixel Mask] Shading Grain Brush\n │    ├── [Vector] Text Frame (Headline Typography)\n │    └── [Pixel] Layer (Atmospheric Background Noise)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Hands-On Tri-Persona Walkthrough",
+      "taskDescription": "Create a vector circle, switch to Pixel Persona to paint a textured shadow clipped inside the circle, and switch to Export Persona to define a slice.",
+      "checkpoints": [
+        "Draw an ellipse using the Ellipse Tool (M) with a vibrant teal fill (#00d2ff).",
+        "Switch to Pixel Persona (Ctrl+2 / Cmd+2). Select the Paint Brush Tool (B) and pick a dark charcoal color.",
+        "Paint across the lower half of the circle. Notice how the pixel stroke automatically nests as a child mask inside the vector shape.",
+        "Switch to Export Persona (Ctrl+3 / Cmd+3) and verify that the circle slice appears in the Slices panel."
+      ],
+      "expectedOutcome": "A vector circle containing organic raster texture, completely editable in vector without rasterizing the underlying bezier geometry."
+    },
+    "independentChallenge": {
+      "title": "Multi-Persona Icon Construction",
+      "prompt": "Construct a clean vector app icon (1024x1024 px) in Vector Persona. In Pixel Persona, add hand-stippled highlight and shadow layers using a textured brush. In Export Persona, configure 1x, 2x, and 3x PNG export presets.",
+      "starterAsset": {
+        "filename": "D01_artboard_starter_guide.md",
+        "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+        "filesize": "1.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Setup guide for 1024px icon artboard (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Base icon geometry must remain 100% scalable vector paths.",
+        "All raster shading must be clipped inside vector parent layers.",
+        "Export Persona must have 3 automated output scales (1x, 2x, 3x) configured for the icon slice."
+      ],
+      "bonusGoal": "Assign unique color tags to the vector vs pixel layers in the Layers Studio."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Mistaking Vector Brush for Pixel Brush",
+        "cause": "In Vector Persona, the Vector Brush Tool (B) draws a vector bezier path textured with a bitmap nozzle. In Pixel Persona, the Paint Brush Tool (B) draws raw raster pixels into a pixel layer.",
+        "solution": "Always check your active Persona icon before painting. For scalable paths, stay in Vector Persona; for hand-drawn grain or photorealistic shading, switch to Pixel Persona."
+      },
+      {
+        "pitfall": "Accidentally rasterizing vector layers when painting",
+        "cause": "Painting with a pixel brush over an unmasked vector shape can prompt Designer to rasterize the entire vector layer if 'Insert Inside' is not enabled.",
+        "solution": "Create a dedicated Pixel Layer as a child clip of the vector shape, or ensure the 'Insert inside the selection' toggle is active on the top toolbar."
+      },
+      {
+        "pitfall": "Panels disappeared from the screen",
+        "cause": "Accidentally pressing Tab hides all studio panels and toolbars for distraction-free canvas preview.",
+        "solution": "Press Tab again, or go to Window > Studio > Reset Studio to restore default layout."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D01-01-Q1",
+        "question": "What is the primary architectural advantage of Personas in Affinity Designer compared to opening separate vector and raster applications?",
+        "options": [
+          "Personas automatically convert all vector artwork into 300 DPI bitmaps.",
+          "Personas allow vector and pixel operations to coexist non-destructively within the exact same document without file export or conversion.",
+          "Personas reduce file size by disabling the undo history.",
+          "Personas require three separate user licenses."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer shares a single unified core engine. Switching personas immediately changes the active toolset while keeping the document, vector mathematics, raster layers, and undo stack intact."
+      },
+      {
+        "id": "D01-01-Q2",
+        "question": "By default out-of-the-box in Affinity Designer, how do you switch between Personas?",
+        "options": [
+          "Press Ctrl+1, Ctrl+2, or Ctrl+3 (which actually control canvas zoom to 100%, 200%)",
+          "Click the Persona Switcher icons on the top-left toolbar, or configure custom shortcuts under Settings > Shortcuts",
+          "Restart the application with a command line flag",
+          "Export the file to PSD and re-open it"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer does not assign default keyboard shortcuts to switch personas; Ctrl+1 is Zoom 100%. Users click the Persona Switcher icons in the top-left toolbar or assign custom shortcuts in Settings > Keyboard Shortcuts."
+      },
+      {
+        "id": "D01-01-Q3",
+        "question": "If you paint with the Paint Brush Tool in Pixel Persona while a vector shape is selected with 'Insert Inside' active, what happens to the painted pixels?",
+        "options": [
+          "The vector shape is permanently flattened into a JPEG.",
+          "The pixels are clipped non-destructively inside the vector shape boundaries as a child mask layer.",
+          "The stroke disappears because vector shapes cannot hold pixels.",
+          "An error dialog is displayed."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer nests the pixel layer directly inside the vector curve, creating a non-destructive clipping mask where the vector curve defines the visible boundary."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Affinity Designer unifies Vector, Pixel, and Export capabilities into a single seamless document model.",
+        "Vector Persona provides infinite mathematical precision for branding, logos, and UI layout.",
+        "Pixel Persona enables tactile raster texturing, stippling, and photorealistic shading directly on vector artwork.",
+        "Export Persona automates modern multi-density asset generation without manual cropping."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D01-02 Artboards vs Single Canvas Setup",
+          "target": "D01-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Understanding Personas",
+          "target": "https://affinity.serif.com/designer/personas/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D01-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Affinity Designer Workspace & Tri-Persona Architecture",
+      "subtitle": "A Paradigm Shift in Digital Design Software",
+      "contentMarkdown": "Welcome to **Affinity Designer 3.0**.\n\nUnlike traditional creative workflows that force you to jump between different standalone software for vector drawing and bitmap retouching, Designer is built upon a **unified dual-engine core**.\n\nIn this lesson, you will master the **Tri-Persona architecture**: navigating between vector precision, raster texturing, and automated export in a single click.",
+      "actionBox": {
+        "label": "Key Insight",
+        "text": "Personas are not file formats; they are specialized tool modes operating on the exact same document."
+      }
+    },
+    {
+      "id": "D01-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Tri-Persona Ecosystem Explained",
+      "subtitle": "Vector, Pixel & Export Workspaces",
+      "contentMarkdown": "Affinity Designer organizes your creative workflow into three specialized personas:\n\n1. **Vector Persona (Designer Persona):** Your primary design studio. Precision bezier curves, infinite scaling, typography, boolean geometry, and symbols.\n2. **Pixel Persona:** Direct raster manipulation. Textured shading, custom grain brushes, selection marquees, and pixel-level retouching.\n3. **Export Persona:** Production export station. Define continuous slices, export 1x/2x/3x assets, and generate SVG/PDF specs in one click.\n\n*Note on Navigation:* By default, switch between Personas by clicking the top-left toolbar switcher. Shortcuts like `Ctrl+1` / `Cmd+1` default to 100% Zoom, though custom shortcuts can be configured in Settings.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Vector Persona (Electric Cyan #00d2ff) | Pixel Persona (Cobalt Blue #38bdf8) | Export Persona (Neon Emerald #10b981)"
+      }
+    },
+    {
+      "id": "D01-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Anatomy of the Designer Interface",
+      "subtitle": "Navigating the 5 Core Workspace Zones",
+      "contentMarkdown": "Every element of the Affinity Designer interface has been engineered for maximum creative focus:\n\n- **Top Toolbar:** Home to the Persona Switcher, Document Setup, Snapping toggles, and Geometry buttons.\n- **Context Toolbar:** Dynamically updates to display modifiers and settings for your currently active tool.\n- **Left Tools Panel:** Houses primary tool icons (Move, Node, Pen, Shapes, Brushes).\n- **Right Studio Panels:** Dockable inspectors for Layers, Color, Swatches, Stroke, Appearance, and Transform.\n- **Canvas Viewport:** Ultra-smooth 60fps pan/zoom hardware-accelerated rendering stage.",
+      "actionBox": {
+        "label": "Pro Shortcut",
+        "text": "Press Tab at any time to instantly hide all toolbars and studio panels for distraction-free full canvas viewing.",
+        "shortcut": { "win": "Tab", "mac": "Tab" }
+      }
+    },
+    {
+      "id": "D01-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Hands-On Step-by-Step Persona Switching",
+      "subtitle": "Execute the Multi-Persona Workflow",
+      "contentMarkdown": "Follow these steps to experience seamless persona switching:\n\n1. **Vector Stage:** Press `M` to activate the Ellipse Tool. Click and drag on the canvas while holding `Shift` to create a perfect circle.\n2. **Color Fill:** Assign a bright electric cyan fill `#00d2ff` in the Color Studio.\n3. **Switch to Pixel Persona:** Click the Pixel Persona icon on the top-left toolbar. Notice your left toolbar transform to raster tools.\n4. **Clip Pixel Brush:** Press `B` for the Paint Brush Tool, choose a soft grain brush, and paint across the bottom rim.\n5. **Inspect Layers:** Notice the pixel layer is automatically nested inside your vector circle as a child clipping mask!\n6. **Export Stage:** Click the Export Persona icon to view your automatically generated export slice in Export Persona.",
+      "visual": {
+        "type": "comparison",
+        "content": "Vector Shape (Infinite Math) + Pixel Texture (Organic Grain) = Unified Masterpiece"
+      }
+    },
+    {
+      "id": "D01-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Common Pitfalls & Troubleshooting",
+      "subtitle": "Avoid These Beginner Missteps",
+      "contentMarkdown": "### 1. Vector Brush vs Pixel Brush Confusion\n- **The Issue:** Choosing the Vector Brush Tool (B in Vector Persona) thinking it acts like a Photoshop brush.\n- **The Fix:** The Vector Brush produces an editable bezier path with an image nozzle. For true raster painting and grain, switch to Pixel Persona (`Ctrl+2` / `Cmd+2`).\n\n### 2. Accidental Destructive Rasterization\n- **The Issue:** Painting on a vector layer without clipping, causing Designer to rasterize the entire shape.\n- **The Fix:** Enable 'Insert inside the selection' on the top toolbar or nest a dedicated Pixel Layer as a child in the Layers panel.\n\n### 3. Missing Studio Panels\n- **The Fix:** If panels disappear, press `Tab` or navigate to `Window > Studio > Reset Studio`.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Never rasterize a vector shape just to shade it. Nest a pixel layer inside the vector parent instead."
+      }
+    },
+    {
+      "id": "D01-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Master the Personas",
+      "subtitle": "Test Your Understanding",
+      "contentMarkdown": "Check your comprehension of the Tri-Persona architecture before continuing.",
+      "quizData": {
+        "id": "D01-01-Q1",
+        "question": "What is the primary architectural advantage of Personas in Affinity Designer compared to opening separate vector and raster applications?",
+        "options": [
+          "Personas automatically convert all vector artwork into 300 DPI bitmaps.",
+          "Personas allow vector and pixel operations to coexist non-destructively within the exact same document without file export or conversion.",
+          "Personas reduce file size by disabling the undo history.",
+          "Personas require three separate user licenses."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer shares a single unified core engine. Switching personas immediately changes the active toolset while keeping the document, vector mathematics, raster layers, and undo stack intact."
+      }
+    },
+    {
+      "id": "D01-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Tri-Persona App Icon",
+      "subtitle": "Put Your Knowledge into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a clean vector app icon (1024x1024 px) in Vector Persona.\n\n1. In **Vector Persona**, draw base geometric shapes using the Ellipse and Rectangle tools.\n2. In **Pixel Persona**, add subtle hand-stippled highlight and shadow layers using a textured brush nested inside the shapes.\n3. In **Export Persona**, configure 1x, 2x, and 3x PNG export presets in the Slices studio.\n\n### Acceptance Criteria:\n- Base geometry remains 100% vector curves.\n- Raster shading is clipped non-destructively.\n- Slices panel shows automated 1x, 2x, 3x configurations.",
+      "practiceData": {
+        "prompt": "Create an icon utilizing all 3 Personas without rasterizing the vector foundation.",
+        "starterAsset": {
+          "filename": "D01_artboard_starter_guide.md",
+          "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+          "filesize": "1.2 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Verified setup guide for icon artboard (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Vector paths drawn in Vector Persona",
+          "Raster texture nested in Pixel Persona",
+          "Multi-scale slices configured in Export Persona"
+        ]
+      }
+    }
+  ]
+}

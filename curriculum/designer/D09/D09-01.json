@@ -1,0 +1,289 @@
+{
+  "id": "D09-01",
+  "moduleId": "D09",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Pixel Persona & Raster Brush Dynamics in Designer",
+  "subtitle": "Persona Switching, Brush Categories, Flow vs Opacity & Jitter Engine",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the hybrid architectural engine of Affinity Designer and switch between Vector and Pixel Personas seamlessly.",
+      "Distinguish between vector stroke brushes (Designer Persona) and true raster pixel brushes (Pixel Persona).",
+      "Master brush context dynamics: Width, Hardness, Spacing, and the crucial distinction between Opacity and Flow.",
+      "Configure the Brush Engine 'More' dialog: Size Jitter, Accumulation, Wet Edges, and Pressure controller response."
+    ],
+    "foundationalKnowledge": "In traditional illustration, artists were forced to choose between rigid mathematical vector software (clean lines, but flat mechanical shading) and raster painting applications (rich organic texture, but pixelation and un-scalable edges). Affinity Designer fundamentally solves this dichotomy by embedding a full raster painting engine directly inside the vector application via the Pixel Persona. Switching personas does not convert or rasterize your document; it simply exposes dedicated raster tools (Paint Brush Tool 'B', Eraser 'E', Selection Brushes) operating on pixel layers that coexist directly alongside vector bezier curves.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Persona Architecture & Pixel Brush Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Pixel Persona & Paint Brush Tool",
+      "persona": "Pixel Persona (Top-Left Toolbar)",
+      "shortcut": {
+        "win": "Click Pixel Persona icon (Top-Left) / Custom shortcut in Edit > Preferences > Shortcuts. Tool: B (Paint Brush), E (Eraser), [ / ] (Size)",
+        "mac": "Click Pixel Persona icon (Top-Left) / Custom shortcut in Affinity Designer > Settings > Shortcuts. Tool: B (Paint Brush), E (Eraser), [ / ] (Size)"
+      },
+      "description": "Raster painting environment within Designer providing pressure-sensitive brush engines, textured grain, and raster selections. Note: Affinity Designer does not assign default keyboard shortcuts for persona switching out of the box.",
+      "contextBarOptions": [
+        "Width input & scrub slider (Adjustable via [ and ] square brackets)",
+        "Opacity slider: Sets the maximum ceiling opacity for a complete stroke",
+        "Flow slider: Sets the rate at which pigment accumulates with overlapping passes (best at 10%–25% for grain)",
+        "Hardness slider: Controls radial edge softness (Shift+[ and Shift+])",
+        "More Button: Opens deep brush dynamics (Size Jitter, Flow Jitter, Spacing, Texture nozzles, Shape dynamics)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Switch to the Pixel Persona",
+        "instruction": "Open or create a document set to 300 DPI. Click the second icon on the top-left Persona toolbar (Pixel Persona), or press your custom shortcut if configured in Preferences > Keyboard Shortcuts. Observe the left toolbar reconfiguring to raster tools.",
+        "shortcutTip": { "win": "Pixel Persona Icon", "mac": "Pixel Persona Icon" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Open Brushes Studio & Select Dry Media",
+        "instruction": "In the right studio dock, open the Brushes Studio. Notice the brush categories have changed to raster packs. Select the 'Dry Media' or 'Texture' category, and choose a textured stipple brush such as 'Chalk Rough'.",
+        "shortcutTip": { "win": "Brushes Studio", "mac": "Brushes Studio" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Calibrate Flow vs Opacity for Velvety Grain",
+        "instruction": "Select the Paint Brush Tool (B). In the Context Bar, set Opacity to 100%, but reduce Flow to 20%. Set Hardness to 0%. This ensures pigment builds up gradually like analog dry chalk without harsh brush stamp edges.",
+        "shortcutTip": { "win": "B (Paint Brush)", "mac": "B (Paint Brush)" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Configure Pressure Dynamics via More Dialog",
+        "instruction": "Click the 'More' button in the Context Bar. In the Brush Dynamics dialog, set Size Jitter to 25% and set Controller to 'Pressure'. Set Flow Jitter to 15% with Controller set to 'Pressure'. Click Close.",
+        "shortcutTip": { "win": "Context Bar > More", "mac": "Context Bar > More" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Paint a Multi-Pass Stippled Gradient",
+        "instruction": "On a new pixel layer, make light, repeated passes with your stylus or mouse. Notice how repeated overlapping strokes build from a light speckle into a dense, velvety dark core shadow.",
+        "shortcutTip": { "win": "Stylus Pass", "mac": "Stylus Pass" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Opacity vs Flow Accumulation Matrix",
+        "description": "Comparison of pigment delivery mechanics in Affinity's brush engine.",
+        "visualType": "table",
+        "visualContent": "| Setting | Value | Behavior on Single Continuous Stroke | Behavior on Overlapping Multi-Pass |\n|---|---|---|---|\n| Opacity Low / Flow 100% | Opacity 20%, Flow 100% | Never exceeds 20% opacity even if you scribble back and forth repeatedly | Only builds darker if you lift the stylus and start a brand-new stroke |\n| Opacity 100% / Flow Low | Opacity 100%, Flow 20% | Builds continuously darker with every back-and-forth scrub (Analog behavior) | Seamless, velvety gradient transitions with beautiful textured grain |"
+      },
+      {
+        "title": "Persona Tool Switch Diagram",
+        "description": "How the toolbar adapts when toggling between personas.",
+        "visualType": "diagram",
+        "visualContent": "[Designer Persona (Toolbar Icon 1)] ──> Vector Tools: Pen (P), Node (A), Shapes (M), Corner (C)\n                                       │\n                                       ▼ (Switch Persona via Toolbar)\n[Pixel Persona    (Toolbar Icon 2)] ──> Raster Tools: Paint Brush (B), Pixel (P), Eraser (E), Smudge"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Calibrating a Custom Grain Shading Brush",
+      "taskDescription": "Duplicate a standard dry media brush, configure custom grain dynamics, and paint a 5-step tonal value sphere.",
+      "checkpoints": [
+        "Switch to Pixel Persona by clicking the Pixel Persona icon on the top-left Toolbar.",
+        "Duplicate 'Chalk Rough' in the Brushes Studio and rename it 'Custom_Velvet_Grain'.",
+        "Open brush settings: set Spacing to 18%, Size Jitter to 20% (Pressure), Flow to 15%.",
+        "Draw a circular raster ball and paint a smooth shadow transition from white highlight to deep core shadow.",
+        "Verify that no individual brush nozzle stamp edges are visible at 100% zoom."
+      ],
+      "expectedOutcome": "A customized, responsive grain brush that delivers buttery, tactile shading transitions across broad surface areas."
+    },
+    "independentChallenge": {
+      "title": "Textured Vector Moon Illustration",
+      "prompt": "Construct a stylized celestial poster: (1) In Designer Persona, draw a perfect vector circle (600x600 px) filled with midnight navy (#0F172A); (2) Switch to Pixel Persona; (3) Add a pixel layer and select a stipple noise brush; (4) Configure Flow to 20% and paint a dramatic crescent shadow curving around the sphere; (5) Add a secondary warm gold rim highlight along the opposite edge; (6) Switch back to Designer Persona and overlay sharp vector crater rings (1.5pt white strokes).",
+      "starterAsset": {
+        "filename": "D09_pixel_persona_shading_guide.md",
+        "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for Pixel Persona setup and grain shading (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Document established at 300 DPI for high-density grain fidelity.",
+        "Persona switching executed via shortcuts without document disruption.",
+        "Flow dynamics properly calibrated between 15% and 25%.",
+        "Seamless fusion of organic raster noise and sharp vector overlays."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Leaving Flow at 100% and trying to shade by dropping Opacity.",
+        "consequence": "Produces harsh overlapping banding streaks wherever the brush overlaps itself on a single stroke.",
+        "solution": "Keep Opacity at 100% and lower Flow to 15%–25%. This allows pigment to accumulate naturally with smooth gradients."
+      },
+      {
+        "mistake": "Working in a 72 DPI document and wondering why raster grain looks blurry and pixelated.",
+        "consequence": "At 72 DPI, raster brush stamps have very few pixels, turning subtle noise textures into chunky pixel squares.",
+        "solution": "Always ensure your document is set to 300 DPI (or minimum 144 DPI for Retina web) in Document Setup."
+      },
+      {
+        "mistake": "Attempting to edit vector curves while still in the Pixel Persona.",
+        "consequence": "The Pen and Node tools are unavailable; users get confused thinking their vector paths have locked.",
+        "solution": "Click the Designer Persona icon on the top-left Toolbar to return to vector editing and manipulate nodes and shapes."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary difference in behavior between lowering Opacity versus lowering Flow when painting with a raster brush?",
+        "options": [
+          "Opacity changes the brush color, while Flow changes the brush size.",
+          "Low Opacity caps the maximum density on a single stroke regardless of scribbling; low Flow allows pigment to accumulate continuously with overlapping passes.",
+          "Flow only works with a tablet stylus, while Opacity only works with a mouse.",
+          "There is no functional difference."
+        ],
+        "correctIndex": 1,
+        "explanation": "Opacity sets a hard ceiling on transparency for an entire stroke, whereas Flow regulates the deposition rate per stamp, allowing you to build rich, multi-pass gradients by scrubbing over an area."
+      },
+      {
+        "question": "How do you switch into the Pixel Persona in Affinity Designer by default?",
+        "options": [
+          "Press F9",
+          "Click the Pixel Persona icon on the top-left Toolbar (Affinity has no default shortcut out of the box, but custom shortcuts can be set in Preferences > Keyboard Shortcuts)",
+          "Press Ctrl+Shift+P",
+          "Go to File > New"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer does not assign default keyboard shortcuts for switching between Personas out of the box. Users switch by clicking the persona icons on the top-left toolbar, or by assigning custom shortcuts in Preferences > Keyboard Shortcuts."
+      },
+      {
+        "question": "Why is document DPI critical when working with the Pixel Persona inside Affinity Designer?",
+        "options": [
+          "Vector paths cannot be drawn in documents below 300 DPI.",
+          "Raster brush strokes created in the Pixel Persona are resolution-dependent bitmaps rendered at the document's DPI setting.",
+          "The Pixel Persona will automatically delete all layers if DPI is changed.",
+          "DPI only affects font sizes."
+        ],
+        "correctIndex": 1,
+        "explanation": "While vector bezier paths scale infinitely without pixelation, pixel brush strokes are raster bitmaps tied directly to the document's resolution; low DPI results in blurry or chunky grain."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "The Pixel Persona embeds a full raster painting engine directly inside the vector workflow.",
+        "Personas have no default shortcuts out of the box; switch via top-left icons or assign custom shortcuts in Preferences.",
+        "Low Flow (15%–25%) is the secret to velvety, non-banding analog grain shading.",
+        "Always design at 300 DPI for high-resolution print and crisp Retina raster reproduction."
+      ],
+      "nextSteps": "Proceed to D09-02 to learn how to clip raster pixel shading non-destructively inside vector curve shapes.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Painting/pixel_persona.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "The Hybrid Engine: Pixel Persona in Designer",
+      "subtitle": "Unifying Vector Precision with Analog Texture",
+      "bullets": [
+        "Pure vectors can feel sterile, cold, and mathematically rigid.",
+        "Pure raster software loses sharp scalability when resized for print or large formats.",
+        "Affinity Designer embeds an uncompromised raster painting studio via the Pixel Persona.",
+        "Switch personas in 1 keystroke without converting, exporting, or flattening layers."
+      ],
+      "proTip": "The document remains a live .afdesign file with simultaneous vector and pixel layers."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Persona Navigation & Toolbar Adaptations",
+      "subtitle": "Seamless Workflow Switching",
+      "bullets": [
+        "Designer Persona (Top-Left Blue Pen): Pen, Node, Shapes, Boolean tools.",
+        "Pixel Persona (Top-Left Brush): Paint Brush, Pixel Tool, Eraser, Smudge, Selections.",
+        "Export Persona (Top-Left Slices): Slices, batch multi-density exports.",
+        "No default persona shortcuts exist out of the box; assign your own in Edit > Preferences > Shortcuts."
+      ],
+      "proTip": "Configure custom shortcuts like Alt+1 / Alt+2 (or Opt+1 / Opt+2 on Mac) for rapid persona toggling."
+    },
+    {
+      "slideNumber": 3,
+      "title": "Raster Brushes Studio Architecture",
+      "subtitle": "Exploring Texture, Dry Media & Inks",
+      "bullets": [
+        "In Pixel Persona, the Brushes Studio displays high-resolution raster brush categories.",
+        "Dry Media: Chalks, charcoals, and pastels with rich tooth and organic grain.",
+        "Inks & Gouache: Smooth pigment with natural brush edge textures.",
+        "Spray and Spatters: Realistic airbrush mist and stipple noise dispersion."
+      ],
+      "callout": "Vector brushes in Designer Persona stretch along curves; Pixel brushes deposit real pixels!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "The Golden Rule of Shading: Flow vs Opacity",
+      "subtitle": "Building Smooth, Velvety Texture Gradients",
+      "bullets": [
+        "Setting Opacity to 20% creates a flat ceiling: you cannot build depth without lifting the pen.",
+        "Setting Flow to 15%–25% mimics real chalk: scrubbing back and forth deposits more pigment.",
+        "Overlapping low-flow strokes creates continuous, rich transitions with zero harsh lines.",
+        "Keep Opacity at 100% and regulate density exclusively via the Flow slider."
+      ],
+      "proTip": "Press number keys (e.g. '2' for 20%, '5' for 50%) to change Flow instantly while painting."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Deep Brush Dynamics: The More Dialog",
+      "subtitle": "Pressure Sensitivity & Organic Jitter",
+      "bullets": [
+        "Click 'More' on the Context Bar to open granular brush configuration.",
+        "Size Jitter: Randomizes brush diameter slightly, breaking mechanical regularity.",
+        "Flow Jitter: Varies pigment release based on graphics tablet stylus pressure.",
+        "Spacing: Set to 15%–20% for continuous smooth strokes without discrete dot stamps."
+      ],
+      "proTip": "Set Controller to 'Pressure' on Size and Flow for natural calligraphic hand response."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Resolution Governance: The 300 DPI Standard",
+      "subtitle": "Why Vector Documents Need DPI Awareness",
+      "bullets": [
+        "Vector shapes are infinite math; raster brush strokes are pixel arrays.",
+        "At 72 DPI, grain brushes look chunky, blurry, and pixelated when printed.",
+        "Always initialize illustration projects at 300 DPI in File > New or Document Setup.",
+        "At 300 DPI, grain textures reproduce with microscopic, velvety analog fidelity."
+      ],
+      "callout": "You can change document DPI anytime in File > Document Setup... without distorting vectors."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: The Textured Shading Ball",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
+        "Create a 300 DPI canvas and switch to Pixel Persona via the top-left Toolbar icon.",
+        "Select 'Chalk Rough' or 'Noise Grain' brush from Dry Media.",
+        "Set Opacity: 100%, Flow: 20%, Hardness: 0%.",
+        "Paint a multi-pass value sphere demonstrating core shadow, midtone, and reflected light."
+      ],
+      "proTip": "Use quick, circular feathering motions with your stylus to blend stipple transitions."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Core Pixel Persona Concepts",
+      "bullets": [
+        "Explain the functional difference between Flow and Opacity.",
+        "Recall how to switch personas via the top-left Toolbar and how to configure custom shortcuts in Preferences.",
+        "Identify why 300 DPI is required for high-end textured illustration.",
+        "Verify your custom brush settings before proceeding to child layer clipping."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Lesson Summary & Moving to Vector Clipping",
+      "subtitle": "From Freehand Painting to Precision Containment",
+      "bullets": [
+        "Mastered the hybrid dual-engine architecture of Affinity Designer.",
+        "Calibrated raster brush dynamics with low Flow for velvety analog grain.",
+        "Configured tablet pressure response for organic illustration hand feel.",
+        "In Lesson D09-02, we lock these raster textures inside razor-sharp vector containers."
+      ],
+      "proTip": "Freehand painting is fun; contained non-destructive vector clipping is professional!"
+    }
+  ]
+}

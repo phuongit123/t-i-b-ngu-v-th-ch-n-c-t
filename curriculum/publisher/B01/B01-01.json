@@ -1,0 +1,300 @@
+{
+  "id": "B01-01",
+  "moduleId": "B01",
+  "trackId": "publisher",
+  "order": 1,
+  "title": "Publication Architecture, Facing Pages, Slug & Bleed Standards",
+  "subtitle": "Commercial Print Geometry, Binding Gutters & Press-Ready Margins",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the mechanics of commercial editorial printing: signatures, facing page spreads, and spine creep.",
+      "Configure facing pages, starting page sides (Right vs Left), and page counts matching commercial binding multiples (4s/8s/16s).",
+      "Calculate and configure 3mm ISO standard bleed zones and explain why bleed is non-negotiable for edge-to-edge color.",
+      "Establish asymmetrical margins with binding gutter allowances for perfect bound vs saddle-stitched publications."
+    ],
+    "foundationalKnowledge": "In digital document production, a single screen page is self-contained. In commercial print production, documents are printed on giant parent sheets (press sheets), folded into multi-page bundles called 'signatures' (typically 8, 16, or 32 pages), bound together, and mechanically trimmed with high-speed guillotines. Because paper shifts slightly during mechanical folding and trimming (tolerance of +/- 1.0mm), any artwork intended to touch the paper's edge must extend beyond the trim line into a designated 3.0mm 'Bleed' zone. Failure to include bleed results in unsightly slivers of unprinted white paper along trimmed edges.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Publisher Document Architecture, ISO 12647 Bleed & Trim Specifications",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Document Setup & Bleed Engine",
+      "persona": "Publisher Persona",
+      "shortcut": {
+        "win": "Ctrl+Shift+P (Document Setup), Ctrl+N (New Document)",
+        "mac": "Cmd+Shift+P (Document Setup), Cmd+N (New Document)"
+      },
+      "description": "Accessed via File > Document Setup (Ctrl+Shift+P / Cmd+Shift+P) or during initial document creation. Controls page dimensions, facing page flow, margins, bleed zones, and color management.",
+      "contextBarOptions": [
+        "Facing Pages Checkbox: Creates side-by-side spreads (Left/Right) sharing a central spine",
+        "Arrange Dropdown: Horizontal (Standard book spreads) or Vertical",
+        "Start On: Right (Standard editorial start—Page 1 is front right cover)",
+        "Bleed Inputs: Top, Bottom, Inner, Outer (Standard 3.0 mm on all exterior edges)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Launch New Publication Dialog",
+        "instruction": "Open Affinity Publisher and press Ctrl+N (Windows) / Cmd+N (macOS). Under the 'Print' or 'Press Ready' category, select preset 'A4' (210 x 297 mm).",
+        "shortcutTip": { "win": "Ctrl+N", "mac": "Cmd+N" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Configure Facing Page Architecture",
+        "instruction": "Under the 'Layout' tab on the right, check the box labeled 'Facing pages'. Set 'Arrange' to Horizontal, and 'Start on' to 'Right'. Set initial Pages to 8 (a standard 8-page introductory signature).",
+        "shortcutTip": { "win": "Facing Pages ON", "mac": "Facing Pages ON" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Set Asymmetrical Binding Margins",
+        "instruction": "Click the 'Margins' tab. Uncheck the chain-link icon to allow independent margin values. Set Top: 20mm, Bottom: 22mm, Outer: 18mm, and Inner (Gutter): 25mm. Notice how the inner gutter provides essential clearance so text doesn't disappear into the folded spine.",
+        "shortcutTip": { "win": "Inner Margin: 25mm", "mac": "Inner Margin: 25mm" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Configure 3mm Commercial Bleed",
+        "instruction": "Click the 'Bleed' tab. Ensure the chain-link icon is checked and enter '3.0 mm'. All four fields (Top, Bottom, Inner, Outer) will populate with 3mm. Click 'Create'.",
+        "shortcutTip": { "win": "Bleed: 3mm", "mac": "Bleed: 3mm" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Verify Bleed Guides on Canvas",
+        "instruction": "Look at your newly created spread. The solid border is the page Trim line. The outer cyan/gray guideline extending 3mm beyond the edge is the Bleed line. Ensure background artwork extends all the way to this outer bleed line.",
+        "shortcutTip": { "win": "View > Show Bleed", "mac": "View > Show Bleed" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Commercial Print Anatomy Diagram",
+        "description": "Cross-section of an editorial facing-page spread.",
+        "visualType": "diagram",
+        "visualContent": "+--- Bleed Line (+3.0mm) ----------------------------------------------------+\n|                                                                            |\n|   +--- Trim Edge (Final Cut 210x297mm) --------------------------------+   |\n|   |                                 |                                  |   |\n|   |   +--- Margin Safe Zone ---+    |    +--- Margin Safe Zone ---+    |   |\n|   |   | [Left Page: 18mm Out]  | 25 | 25 | [Right Page: 18mm Out] |    |   |\n|   |   |                        | mm | mm |                        |    |   |\n|   |   |                        | Gut| Gut|                        |    |   |\n|   |   +------------------------+ ter| ter+------------------------+    |   |\n|   |                                 |                                  |   |\n|   +---------------------------------+----------------------------------+   |\n|                                   Spine                                    |\n+----------------------------------------------------------------------------+"
+      },
+      {
+        "title": "Binding Methods vs Gutter Requirements",
+        "description": "Recommended gutter allowances by binding type.",
+        "visualType": "table",
+        "visualContent": "| Binding Style | Page Range | Gutter Recommendation | Production Notes |\n|---|---|---|---|\n| Saddle-Stitched | 8 - 64 pages | 15 mm - 18 mm | Wire staples through spine; lays relatively flat |\n| Perfect Bound | 48 - 400+ pages | 22 mm - 28 mm | Glued square spine; requires deep gutter for reading |\n| Case Bound (Hardcover) | 80+ pages | 25 mm - 32 mm | Stitched signatures encased in board; large hinge allowance |\n| Wire-O / Spiral | Any | 20 mm - 24 mm | Punched holes through inner margin; keep text clear |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Editorial Magazine Spread Construction",
+      "taskDescription": "Construct a clean 8-page A4 magazine layout with 3mm bleed, 25mm inner gutter, and verify bleed snapping.",
+      "checkpoints": [
+        "Create 8-page A4 document with Facing Pages active, starting on Right.",
+        "Configure Margins: Top 20mm, Bottom 22mm, Outer 18mm, Inner 25mm.",
+        "Configure Bleed: 3.0mm on all sides.",
+        "Draw a colored rectangle spanning across Spread 2-3 that extends completely to the outer bleed line on all 3 exterior sides.",
+        "Toggle 'View > View Mode > Clip to Canvas' (\\ [Backslash] shortcut on both Win/Mac; never press Ctrl+W as it closes the document!) to preview with and without bleed."
+      ],
+      "expectedOutcome": "A press-ready publication architecture guaranteed against white slivers on commercial trimming."
+    },
+    "independentChallenge": {
+      "title": "Coffee Table Art Book Specification",
+      "prompt": "Using Document Setup, build a luxury square format coffee table art book: (1) Dimensions: 250 x 250 mm; (2) Facing Pages, starting on Right; (3) 16 pages total; (4) Perfect bound with 28mm inner gutter to account for thick binding; (5) Commercial 3mm bleed; (6) Color profile: CMYK/8 Coated FOGRA39.",
+      "starterAsset": {
+        "filename": "B01_magazine_spec_guide.md",
+        "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+        "filesize": "1.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Includes coffee table book layout specification (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Square 250x250mm dimensions verified in Document Setup.",
+        "Color profile is commercial CMYK FOGRA39.",
+        "Inner margins provide full 28mm clearance for spine glue.",
+        "3mm bleed verified across all 16 pages."
+      ],
+      "bonusGoal": "Create a 2-page full-bleed photograph placeholder spanning pages 4 and 5."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Snapping artwork to the page edge instead of the bleed line",
+        "cause": "Assuming the visible canvas edge is where color should stop.",
+        "solution": "Always pull background fills and images past the black page border out to the red/cyan bleed line. When the print house cuts the paper, any slight blade deviation will cut colored ink, not white paper."
+      },
+      {
+        "pitfall": "Symmetrical margins causing text to be swallowed by the spine",
+        "cause": "Setting all margins to a uniform 15mm in a thick book.",
+        "solution": "Always use asymmetrical margins: make the Inner (Gutter) margin substantially wider (22-28mm) than the Outer margin (15-18mm) for perfect bound books."
+      },
+      {
+        "pitfall": "Page counts that cannot be bound",
+        "cause": "Submitting a 19-page document for saddle-stitched print.",
+        "solution": "Commercial sheet-fed printing folds 1 sheet of paper into 4 pages. Print page counts MUST be multiples of 4 (e.g. 8, 12, 16, 20, 24, 28, 32)."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "B01-01-Q1",
+        "question": "Why must print artwork that touches the edge of a page extend into the 3mm Bleed zone?",
+        "options": [
+          "To increase the overall resolution of the PDF.",
+          "Because mechanical guillotine blades have physical cutting tolerances (+/- 1mm); extending color into the bleed zone ensures that slight trimming shifts never leave an unprinted white sliver along the edge.",
+          "To satisfy government tax regulations.",
+          "Because ink cannot stick to the exact edge of paper."
+        ],
+        "correctIndex": 1,
+        "explanation": "Bleed provides an intentional margin of error for industrial print finishing, ensuring clean, borderless color even if paper slips slightly under the blade."
+      },
+      {
+        "id": "B01-01-Q2",
+        "question": "Why should the Inner (Gutter) margin of a perfect-bound book be wider than the Outer margin?",
+        "options": [
+          "It makes the book lighter to hold.",
+          "Because the inner spine of a perfect bound book is glued together and bends into the binding valley; extra gutter margin ensures readable text is not obscured by the page curvature.",
+          "Because left pages have less text than right pages.",
+          "It is an arbitrary tradition with no practical purpose."
+        ],
+        "correctIndex": 1,
+        "explanation": "In glued perfect-bound books, pages do not lay completely flat. Text placed too close to the spine curves into the gutter and becomes illegible."
+      },
+      {
+        "id": "B01-01-Q3",
+        "question": "Why must the page count of a standard saddle-stitched commercial publication be a multiple of 4?",
+        "options": [
+          "Because Affinity Publisher only counts in 4s.",
+          "Because each physical sheet of paper folded in half creates exactly 4 individual pages (front-left, front-right, back-left, back-right).",
+          "Because printers charge by sets of four.",
+          "Because of 4-color CMYK printing."
+        ],
+        "correctIndex": 1,
+        "explanation": "Folding any single sheet of physical paper in half creates 2 leaves, which equals exactly 4 numbered pages. Therefore, signature binding requires multiples of 4."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Publication architecture requires understanding commercial press mechanics (signatures and folding).",
+        "Facing pages allow editorial designers to balance typography and visual weight across full spreads.",
+        "Commercial 3mm bleed prevents white paper slivers caused by guillotine trimming shifts.",
+        "Asymmetrical gutter margins safeguard legibility against spine curvature in glued books."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: B01-02 Master Pages Foundations & Page Numbers",
+          "target": "B01-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Publisher Print Setup Guide",
+          "target": "https://affinity.serif.com/publisher/print-setup/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "B01-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Publication Architecture & Bleed Standards",
+      "subtitle": "The Engineering Behind Commercial Print Layout",
+      "contentMarkdown": "Welcome to **Affinity Publisher 3.0**.\n\nDesigning for print is an engineering discipline: you are not creating a static digital screen—you are creating a physical three-dimensional object made of folded, glued, and trimmed paper.\n\nIn this lesson, you will master **facing page spreads, spine gutter physics, and the non-negotiable rules of 3mm commercial bleed**.",
+      "actionBox": {
+        "label": "Print Truth",
+        "text": "Every printed book is made of folded sheets. Page counts must always be multiples of 4."
+      }
+    },
+    {
+      "id": "B01-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Facing Pages & The Anatomy of a Spread",
+      "subtitle": "Viewing the Reader's Eye Flow",
+      "contentMarkdown": "When you open a book or magazine, you never read a single page in isolation:\n\n- You view **two facing pages simultaneously (a Spread)**.\n- **Page 1 (Front Cover):** Sits alone on the **Right**.\n- **Pages 2 & 3:** First interior spread (Page 2 Left, Page 3 Right), meeting at the center **Spine**.\n- **Final Page (Back Cover):** Sits alone on the **Left**.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Page 1: Cover (Right)]\n[Page 2 (Left)  | Spine |  Page 3 (Right)]\n[Page 4 (Left)  | Spine |  Page 5 (Right)]\n[Page 6 (Left)  | Spine |  Page 7 (Right)]\n[Page 8: Back Cover (Left)]"
+      }
+    },
+    {
+      "id": "B01-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Document Setup: Margins & Bleed Engine",
+      "subtitle": "Configuring Precision Geometry",
+      "contentMarkdown": "In `File > Document Setup` (Ctrl+Shift+P / Cmd+Shift+P):\n\n- **Facing Pages:** Check `[x] Facing pages`.\n- **Start on:** Set to `Right`.\n- **Margins:** Uncheck uniform linking. Set Inner (Gutter) to `25mm` to clear the binding curve. Set Outer to `18mm`.\n- **Bleed:** Set to `3.0 mm` on all sides.\n- **Color Profile:** Ensure commercial CMYK (e.g. `Coated FOGRA39`).",
+      "actionBox": {
+        "label": "Commercial Rule",
+        "text": "Standard European and Asian commercial offset printers require 3.0mm bleed. US printers typically require 0.125 inches (3.175mm).",
+        "shortcut": { "win": "Ctrl+Shift+P", "mac": "Cmd+Shift+P" }
+      }
+    },
+    {
+      "id": "B01-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Setting Up an 8-Page Magazine Spread",
+      "subtitle": "From Blank Canvas to Press-Ready Signature",
+      "contentMarkdown": "1. **Initialize:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Print > A4`.\n2. **Enable Spreads:** Check `Facing pages`, set `Start on: Right`, and set `Number of pages: 8`.\n3. **Set Margins:** Unlink margins. Top: `20mm`, Bottom: `22mm`, Inner: `25mm`, Outer: `18mm`.\n4. **Set Bleed:** In the Bleed tab, enter `3.0 mm` across all edges.\n5. **Create & Inspect:** Click Create. Open the Pages studio on the left. Notice your cover page on the right, followed by 3 two-page interior spreads!\n6. **Extend Color to Bleed:** Place a color block and drag it past the black edge until it snaps to the outer red bleed line.",
+      "visual": {
+        "type": "callout",
+        "content": "View > View Mode > Clip to Canvas (Ctrl+W / Cmd+W) toggles between showing bleed and previewing final trimmed paper."
+      }
+    },
+    {
+      "id": "B01-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Print Production Pitfalls & Traps",
+      "subtitle": "Avoid Costly Reprints",
+      "contentMarkdown": "### 1. The White Sliver of Shame\n- **Cause:** Snapping a photo to the black page edge instead of the red 3mm bleed guide.\n- **Result:** Trimming blades shift 0.5mm, leaving an ugly white paper hairline on the final print.\n- **Fix:** Always pull bleeds to the outer guide line.\n\n### 2. Swallowed Spine Text\n- **Cause:** Using equal 12mm margins everywhere. In a 200-page book, text curves into the spine and becomes unreadable.\n- **Fix:** Give the Inner margin at least 25mm to 28mm for perfect binding.\n\n### 3. Odd Page Counts\n- **Rule:** A booklet cannot have 15 or 17 pages. Always ensure your page count divides evenly by 4.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "If it bleeds, it must extend 3mm past the trim."
+      }
+    },
+    {
+      "id": "B01-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Print Geometry",
+      "subtitle": "Validate Your Production Readiness",
+      "contentMarkdown": "Test your mastery of publication setup.",
+      "quizData": {
+        "id": "B01-01-Q1",
+        "question": "Why must print artwork that touches the edge of a page extend into the 3mm Bleed zone?",
+        "options": [
+          "To increase the overall resolution of the PDF.",
+          "Because mechanical guillotine blades have physical cutting tolerances (+/- 1mm); extending color into the bleed zone ensures that slight trimming shifts never leave an unprinted white sliver along the edge.",
+          "To satisfy government tax regulations.",
+          "Because ink cannot stick to the exact edge of paper."
+        ],
+        "correctIndex": 1,
+        "explanation": "Bleed provides an intentional margin of error for industrial print finishing, ensuring clean, borderless color even if paper slips slightly under the blade."
+      }
+    },
+    {
+      "id": "B01-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Luxury Editorial Spread",
+      "subtitle": "Building a Real Magazine Base",
+      "contentMarkdown": "### Your Mission:\nConstruct an 8-page editorial publication architecture in Affinity Publisher:\n\n1. Set up an **A4 portrait document** with Facing Pages, starting on Right.\n2. Configure Margins: Top `20mm`, Bottom `24mm`, Outer `18mm`, Inner `26mm`.\n3. Configure standard `3.0 mm` bleed.\n4. On Spread 2-3 (Pages 2 & 3), place a dark charcoal background rectangle `#111115` spanning the full width of both pages, extending completely to the outer bleed line on all exterior sides.\n\n### Acceptance Criteria:\n- 8 total pages organized into 1 cover, 3 spreads, and 1 back cover.\n- Spanning rectangle extends exactly to the 3mm bleed line.\n- Inner gutter provides 26mm safe margin.",
+      "practiceData": {
+        "prompt": "Create an 8-page A4 magazine layout with 3mm bleed and asymmetric margins.",
+        "starterAsset": {
+          "filename": "B01_magazine_spec_guide.md",
+          "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+          "filesize": "1.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Verified specification for A4 facing page editorial spread with 3mm bleed (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Facing pages with 8-page count active",
+          "3mm bleed verified on all edges",
+          "Inner gutter margin set to 26mm"
+        ]
+      }
+    }
+  ]
+}

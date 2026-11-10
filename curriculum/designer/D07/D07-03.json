@@ -1,0 +1,277 @@
+{
+  "id": "D07-03",
+  "moduleId": "D07",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Snapping Candidates & 3D Vector Assembly",
+  "subtitle": "Candidate Lists, Intersection Snapping & Seamless Vertex Joining",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Configure the Snapping Manager candidate list to track active isometric geometry without lag.",
+      "Activate specific target objects as snapping candidates by hovering over their vector outlines.",
+      "Utilize Intersection Snapping to lock nodes to virtual line crossings without adding manual construction curves.",
+      "Assemble multi-tier isometric structures with zero subpixel gaps or antialiasing color fringe."
+    ],
+    "foundationalKnowledge": "When illustrating complex isometric scenes—incorporating hundreds of wall bevels, panels, and conduit cables—naive snapping engines fail because checking thousands of potential vector coordinates causes cursor stutter and misdirected snapping. Affinity Designer solves this with its patented 'Snapping Candidate List'. Instead of checking every object on canvas, Designer selectively tracks a focused pool of up to 6 'Candidate' objects (highlighted by subtle magenta outlines). In isometric drafting, hovering over a pedestal or building corner adds it to the candidate pool, allowing subsequent shapes and paths to weld to its vertices with subpixel mathematical precision.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Snapping Engine & Spatial Candidate Architecture Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Snapping Manager & Candidate Engine",
+      "persona": "Vector Persona (View > Snapping Manager...)",
+      "shortcut": {
+        "win": "Ctrl+Alt+S (Toggle Snapping), Ctrl+Y (Outline View), Hover (Activate Candidate)",
+        "mac": "Cmd+Option+S (Toggle Snapping), Cmd+Y (Outline View), Hover (Activate Candidate)"
+      },
+      "description": "Selective spatial snapping engine that tracks candidate geometry, intersections, and grid lines with subpixel floating-point precision.",
+      "contextBarOptions": [
+        "Enable Snapping toggle (Magnet icon on main toolbar)",
+        "Candidates dropdown: Candidate list (maximum 6) | Immediate layers | All layers",
+        "Show snapping candidates checkbox: Displays magenta outline around tracked objects",
+        "Snap to object geometry checkbox: Magnetically locks cursor to vertices and curve segments",
+        "Snap to grid intersections checkbox: Locks to 30°/150° grid line crossings"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Configure the Snapping Manager",
+        "instruction": "Click the small dropdown arrow next to the Magnet icon on the main toolbar. Check 'Enable Snapping', 'Show snapping candidates', and 'Snap to object geometry'. Set Candidates to 'Candidate list (maximum 6)'.",
+        "shortcutTip": { "win": "Magnet Dropdown", "mac": "Magnet Dropdown" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Promote Base Geometry to Candidate",
+        "instruction": "Hover your cursor over the top surface of the kiosk base constructed in D07-02. Observe the magenta outline flash around the shape, confirming it is now an active snapping candidate.",
+        "shortcutTip": { "win": "Hover Cursor", "mac": "Hover Cursor" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Construct Upper Tier with Vertex Snapping",
+        "instruction": "Using the Pen Tool (P) or Rectangle Tool with Edit in Plane, draw an upper telemetry housing on top of the base. Notice the cursor snaps magnetically to the magenta candidate's corner vertices with a yellow indicator.",
+        "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Route Conduit Cables Across Intersections",
+        "instruction": "Select the Pen Tool. Click the upper corner vertex, then click the ground corner vertex to draw a conduit cable (Stroke: 4 pt, #00D2FF). The Pen Tool locks to both vertices instantly without drifting.",
+        "shortcutTip": { "win": "Pen Tool Click", "mac": "Pen Tool Click" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Audit Alignment in Outline View",
+        "instruction": "Press Ctrl+Y (Windows) or Cmd+Y (macOS) to switch to Wireframe / Outline view. Zoom to 800% on the corner junctions. Verify that all overlapping lines collapse into a single mathematical wire, confirming zero subpixel gaps.",
+        "shortcutTip": { "win": "Ctrl+Y", "mac": "Cmd+Y" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Snapping Candidate Modes Comparison",
+        "description": "Performance and behavior across candidate settings.",
+        "visualType": "table",
+        "visualContent": "| Mode | Candidate Pool Limit | Visual Indicator | Performance Impact | Recommended Use Case |\n|---|---|---|---|---|\n| Candidate List | Up to 6 objects (FIFO) | Magenta outline | Zero lag (60 fps) | Complex isometric scenes, architecture, game art |\n| Immediate Layers | Selection + parent container | None | Minimal | Simple isolated icons, 2-layer assemblies |\n| All Layers | Every object on canvas | None | Severe lag in large files | Small documents (< 50 objects) only |"
+      },
+      {
+        "title": "Cursor Snapping Feedback Symbols",
+        "description": "Visual indicators displayed by Designer during snapping.",
+        "visualType": "diagram",
+        "visualContent": "Yellow Diamond:   [ ◆ ] Object Vertex Lock (Exact curve node)\nPurple Cross:     [ ╳ ] Intersection Lock (Crossing of two non-parallel paths)\nCyan/Red Cross:   [ ┼ ] Grid Line Intersection (Global isometric axis)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Locking Modular Isometric Building Blocks",
+      "taskDescription": "Assemble a 3-story modular isometric structure using Snapping Candidates and verify zero seam defects.",
+      "checkpoints": [
+        "Open Snapping Manager and enable Candidate List mode with 6 max candidates.",
+        "Promote the ground level block to candidate by hovering over its perimeter.",
+        "Snap the second story cube onto the exact roof vertices of the ground block.",
+        "Route an external elevator track along the 90° vertical seam.",
+        "Audit vertices in Outline view (Ctrl+Y / Cmd+Y) to verify zero light leaks."
+      ],
+      "expectedOutcome": "A perfectly welded 3-story isometric architectural asset with mathematically aligned vertices and zero antialiasing gaps."
+    },
+    "independentChallenge": {
+      "title": "Isometric Power Substation Assembly",
+      "prompt": "Construct a complete isometric power substation: (1) Base foundation slab (512x512 px); (2) Three transformer units docked onto the slab with candidate snapping; (3) Overhead gantry structure spanning across the transformers; (4) Four curved high-voltage cables connecting the transformers to the gantry, locked to exact terminal nodes; (5) Wireframe inspection confirming 100% gapless joins across all components.",
+      "starterAsset": {
+        "filename": "D07_isometric_snapping_guide.md",
+        "filepath": "curriculum/assets/designer/D07_isometric_snapping_guide.md",
+        "filesize": "3.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for server kiosk and multi-tier vector assembly (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Snapping Manager configured with Candidate List and Object Geometry.",
+        "All transformers and gantry supports lock directly to foundation vertices.",
+        "Cables snap node-to-node without subpixel floating-point drift.",
+        "Outline View (Ctrl+Y) confirms zero hairline gaps or overlapping misalignments."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Setting Candidates mode to 'All Layers' in a document with hundreds of vector curves.",
+        "consequence": "The cursor lags and stutters as the engine attempts to calculate thousands of potential snap vectors simultaneously.",
+        "solution": "Keep Candidates set to 'Candidate list' (default maximum of 6). Hover intentionally over the 2 or 3 shapes you wish to snap against."
+      },
+      {
+        "mistake": "Relying purely on visual zoom to align edges instead of activating 'Snap to object geometry'.",
+        "consequence": "Leaves hairline 0.1px gaps that reveal background colors or cause antialiasing fringes when rendered to PNG/JPG.",
+        "solution": "Enable 'Snap to object geometry' in the Snapping Manager so vertices magnetically weld together."
+      },
+      {
+        "mistake": "Confusing candidate magenta outlines with selected object bounding boxes.",
+        "consequence": "Users mistakenly think candidate objects will move or transform along with the active selection.",
+        "solution": "Candidates are merely reference landmarks. Only objects with active blue bounding boxes will move."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What does a magenta outline around an object indicate in Affinity Designer?",
+        "options": [
+          "The object has a missing font or broken link.",
+          "The object is locked and cannot be edited.",
+          "The object is currently registered as an active Snapping Candidate.",
+          "The object has been converted to a raster pixel layer."
+        ],
+        "correctIndex": 2,
+        "explanation": "A magenta outline indicates that the object is in the active Snapping Candidate list, meaning its geometry, edges, and vertices are being tracked for precise cursor snapping."
+      },
+      {
+        "question": "How do you add an object to the active Snapping Candidate list without switching tools?",
+        "options": [
+          "Right-click the object and choose 'Export'.",
+          "Hover the cursor over the object for a fraction of a second.",
+          "Double-click the canvas background.",
+          "Press Ctrl+Shift+Delete."
+        ],
+        "correctIndex": 1,
+        "explanation": "Simply hovering your cursor over an object for a moment automatically promotes it to the active snapping candidate list."
+      },
+      {
+        "question": "Which keyboard shortcut toggles Outline / Wireframe view mode to inspect subpixel seam alignment?",
+        "options": [
+          "Ctrl+Y (Cmd+Y)",
+          "Ctrl+Alt+G (Cmd+Option+G)",
+          "Ctrl+Shift+O (Cmd+Shift+O)",
+          "Ctrl+W (Cmd+W)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ctrl+Y (Cmd+Y on macOS) toggles between standard vector rendering and Outline / Wireframe mode, allowing you to see the underlying vector path skeletons and spot any microscopic gaps."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "Snapping Candidates track up to 6 objects with magenta outlines to deliver lag-free snapping.",
+        "Hovering over any shape promotes it into the active candidate list instantly.",
+        "Intersection Snapping detects line crossings in 3D space with high floating-point precision.",
+        "Outline View (Ctrl+Y / Cmd+Y) is the professional standard for auditing vector seam alignment."
+      ],
+      "nextSteps": "Complete the D07 capstone project in D07_isometric_snapping_guide.md, then proceed to Module D08 (Symbols, Linked Assets & Component Systems).",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/DesignAid/snapping.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "The Challenge of Dense 3D Vector Assembly",
+      "subtitle": "Eliminating Cursor Lag and Snapping Clutter",
+      "bullets": [
+        "In scenes with 500+ vector paths, naive snapping evaluates thousands of potential targets.",
+        "This leads to cursor stutter, slow response times, and snapping to unintended geometry.",
+        "Affinity Designer solves this with its patented 'Snapping Candidate' engine.",
+        "The engine selectively tracks a small pool of candidate objects (default maximum of 6)."
+      ],
+      "proTip": "Candidate pooling keeps your viewport running at a locked 60 fps regardless of scene density."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Understanding Snapping Candidates",
+      "subtitle": "Magenta Outlines & Instant Hover Promotion",
+      "bullets": [
+        "Tracked objects display a distinctive magenta outline on canvas.",
+        "Hovering your cursor over any object for a fraction of a second adds it to the candidate pool.",
+        "The pool operates on a First-In, First-Out (FIFO) buffer: older objects drop off automatically.",
+        "Candidates serve purely as snapping reference landmarks; they do not move when you drag."
+      ],
+      "callout": "Do not confuse magenta candidate outlines with blue selection bounding boxes!"
+    },
+    {
+      "slideNumber": 3,
+      "title": "Configuring the Snapping Manager",
+      "subtitle": "Essential Settings for Isometric Drafting",
+      "bullets": [
+        "Access via toolbar Magnet icon dropdown or View > Snapping Manager...",
+        "Enable 'Show snapping candidates' to visualize active magenta landmarks.",
+        "Check 'Snap to object geometry' to lock to curve vertices and line segments.",
+        "Check 'Snap to grid intersections' to align to global 30°/150° grid line crossings."
+      ],
+      "proTip": "Set Candidates to 'Candidate list (maximum 6)' for optimal performance in large illustrations."
+    },
+    {
+      "slideNumber": 4,
+      "title": "Cursor Snapping Feedback Indicators",
+      "subtitle": "Reading Crosshairs and Geometric Symbols",
+      "bullets": [
+        "Yellow Diamond / Dot: Exact vertex or node lock.",
+        "Purple Cross: Virtual intersection point where two non-parallel paths cross.",
+        "Cyan/Red Crosshair: Global isometric grid axis crossing.",
+        "Dynamic tooltips display the exact geometric relationship (e.g. 'Node', 'Mid point', 'Intersection')."
+      ],
+      "proTip": "Trust the yellow vertex indicator to ensure 100% gapless joins without guessing."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Auditing Seams with Outline View (Ctrl+Y)",
+      "subtitle": "Detecting Subpixel Light Leaks",
+      "bullets": [
+        "Hairline 0.1px gaps cause ugly background color bleed or antialiasing fringing.",
+        "Press Ctrl+Y (Cmd+Y) to toggle Wireframe / Outline mode instantly.",
+        "Outline view removes all fills and strokes to reveal raw underlying vector paths.",
+        "Properly welded vertices collapse into a single pixel-wide wire under high zoom."
+      ],
+      "proTip": "Make Ctrl+Y a mandatory QA checkpoint before exporting any commercial illustration."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Hands-on Exercise: Kiosk Assembly & Conduits",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Open 'D07_isometric_snapping_guide.md' for production specifications.",
+        "Hover over the base kiosk pedestal to promote it to a magenta candidate.",
+        "Dock an upper telemetry housing onto the roof using exact vertex snapping.",
+        "Route twin cyan conduit cables (4 pt stroke) connecting upper and lower terminals."
+      ],
+      "proTip": "Hold Alt temporarily if snapping pulls your node away from an intentional curved sag."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Candidate & Assembly Mastery",
+      "bullets": [
+        "Explain the purpose of magenta outlines in the viewport.",
+        "Describe how to promote an object to a snapping candidate without switching tools.",
+        "Recall the shortcut for Wireframe / Outline view (Ctrl+Y / Cmd+Y).",
+        "Confirm zero gaps between all modular components before proceeding."
+      ]
+    },
+    {
+      "slideNumber": 8,
+      "title": "Module D07 Complete: Isometric Mastery",
+      "subtitle": "Summary of Parallel 3D Vector Capabilities",
+      "bullets": [
+        "Configured true 30°/150°/90° axonometric grids with 16px modular snapping.",
+        "Projected flat 2D graphics into 3D using Isometric Studio Fit-to-Plane.",
+        "Drew directly inside projected planes using Edit in Plane.",
+        "Assembled multi-tier vector architecture with lag-free candidate snapping.",
+        "Next up: Module D08 (Symbols, Linked Assets & Component Systems)."
+      ],
+      "proTip": "You now possess the foundational skills required for pro game art and technical drafting."
+    }
+  ]
+}

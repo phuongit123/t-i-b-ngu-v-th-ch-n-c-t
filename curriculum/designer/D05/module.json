@@ -1,0 +1,54 @@
+{
+  "id": "D05",
+  "trackId": "designer",
+  "order": 5,
+  "title": "Layer Organization, Masks & Clipping Paths",
+  "subtitle": "Layer Hierarchy, Vector Clipping, Vector Masking, Blend Modes & Isolation Mode",
+  "description": "Master enterprise-scale vector organization: complex layer nesting, the critical mechanical distinction between Vector Clipping (child nesting) and Vector Masking (thumbnail drop), advanced Blend Ranges, and distraction-free Isolation Mode.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry", "D03: Advanced Shape Creation & Boolean Geometry"],
+  "learningOutcomes": [
+    "Structure professional scene graphs using Groups, Layer Containers, Locks, and Color Tags.",
+    "Distinguish mechanically between Vector Clipping (child nesting) and Vector Masking (thumbnail docking).",
+    "Employ the 'Insert Inside the Selection' workflow (Ctrl+Alt+X / Cmd+Opt+X) for rapid contained drafting.",
+    "Manipulate layer Blend Modes and fine-tune tonal transition curves in the Blend Ranges dialog.",
+    "Engage and exit Isolation Mode (Alt+Click / Option+Click on layer thumbnail) for distraction-free editing."
+  ],
+  "capstoneProject": {
+    "title": "Layered Fantasy Isometric Citadel",
+    "description": "Construct an intricate multi-tier fantasy tower featuring nested vector clipping masks for stone textures, masked shadow cast planes, and color-tagged layer groups with Blend Ranges.",
+    "deliverableAsset": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+    "evaluationCriteria": [
+      "Scene graph organized into color-tagged and named groups.",
+      "Vector clipping masks used cleanly without raster flattening.",
+      "Blend mode shadows interact dynamically with underlying architecture."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D05-01",
+      "order": 1,
+      "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
+      "subtitle": "Scene Graph Architecture, Layer Types, Locks & Naming Conventions",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D05-02",
+      "order": 2,
+      "title": "Vector Clipping (Child Nesting) vs Vector Masking",
+      "subtitle": "Thumbnail Drop vs Body Drop, Insert Inside & Unmasking",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D05-03",
+      "order": 3,
+      "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
+      "subtitle": "Multiply, Screen, Blend Options Gear, Luminance Graphs & Alt+Click Solo",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

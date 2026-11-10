@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AffinityAcademyLessonSchema",
+  "type": "object",
+  "required": [
+    "id",
+    "moduleId",
+    "trackId",
+    "order",
+    "title",
+    "subtitle",
+    "durationMinutes",
+    "difficulty",
+    "standardSections",
+    "slides"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[DPBS][0-9]{2}-[0-9]{2}$" },
+    "moduleId": { "type": "string", "pattern": "^[DPBS][0-9]{2}$" },
+    "trackId": { "type": "string", "enum": ["designer", "photo", "publisher", "scripting"] },
+    "order": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "durationMinutes": { "type": "integer" },
+    "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+    "standardSections": {
+      "type": "object",
+      "required": [
+        "learningObjectives",
+        "foundationalKnowledge",
+        "toolAndFeatureExplanation",
+        "stepByStepInstructions",
+        "visualExamples",
+        "guidedPractice",
+        "independentChallenge",
+        "commonPitfalls",
+        "knowledgeCheck",
+        "summaryAndResources"
+      ]
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 15,
+      "items": {
+        "type": "object",
+        "required": ["id", "slideNumber", "type", "title", "contentMarkdown"]
+      }
+    }
+  }
+}

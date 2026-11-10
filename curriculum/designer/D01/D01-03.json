@@ -1,0 +1,293 @@
+{
+  "id": "D01-03",
+  "moduleId": "D01",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Vector View Modes, Pixel Preview, Grids & Snapping Systems",
+  "subtitle": "Pixel-Perfect Alignment, Wireframe Outlines & Dynamic Snapping",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Master vector view modes: Vector mode, Pixel Preview (1x and 2x Retina), and Wireframe / Hairline Outline mode.",
+      "Configure dynamic snapping candidates, geometric alignment, and pixel grid alignment.",
+      "Set up custom square, isometric, and triangular grids in the Grid and Axis Manager.",
+      "Diagnose and eliminate sub-pixel rendering blur on digital icon and UI designs."
+    ],
+    "foundationalKnowledge": "Vector graphics are mathematically resolution-independent; however, screens are rigid grids of discrete physical pixels. When an SVG icon or UI button is placed on fractional pixel coordinates (e.g. X: 140.4 px, Width: 48.7 px), the screen rasterizer is forced to anti-alias edges across multiple pixels, causing blurry, soft, or fuzzy lines. Affinity Designer solves this challenge with two powerful technologies: (1) Instant Pixel Preview mode (1x and 2x Retina), allowing vector artists to inspect how curves rasterize in real time; (2) The Advanced Snapping Manager and 'Force Pixel Alignment' engine, ensuring node coordinates always snap to integer pixel values.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer Snapping Manager, Pixel Alignment & Grid Engine Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Snapping & View Mode Engine",
+      "persona": "Vector Persona (Top Main Toolbar)",
+      "shortcut": {
+        "win": "; (Toggle Snapping), Ctrl+' (Toggle Grid), Ctrl+; (Toggle Guides)",
+        "mac": "; (Toggle Snapping), Cmd+' (Toggle Grid), Cmd+; (Toggle Guides)"
+      },
+      "description": "The magnet icon on the top toolbar controls the Snapping Manager. Beside it are 'Force Pixel Alignment' and 'Move by Whole Pixels'. View Modes are accessed via View > View Mode (Vector, Pixel, Retina, Wireframe).",
+      "contextBarOptions": [
+        "Force Pixel Alignment: Forces all object moves and resizes to land on integer pixel boundaries",
+        "Move by Whole Pixels: Preserves fractional offsets while moving by whole integers (keep OFF for UI design)",
+        "Snap to Grid: Snaps nodes and bounding boxes to defined grid intersections",
+        "Snap to Shape Key Points: Snaps to centers, corners, and midpoint tangents of adjacent geometry"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Activate Pixel Preview Mode",
+        "instruction": "Open a document with fine vector shapes. Go to View > View Mode > Pixels (or click the Pixel Preview icon on the toolbar). Zoom in past 500%. Notice that vector curves now display their exact raster anti-aliasing grid rather than mathematical paths.",
+        "shortcutTip": { "win": "View > View Mode > Pixels", "mac": "View > View Mode > Pixels" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Enable Force Pixel Alignment",
+        "instruction": "Look at the top toolbar. Click the magnet icon dropdown to open Snapping. Click the 'Force Pixel Alignment' button (icon with a magnet and pixel grid). Ensure 'Move by Whole Pixels' is turned OFF.",
+        "shortcutTip": { "win": "Force Pixel Alignment ON", "mac": "Force Pixel Alignment ON" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Inspect Wireframe / Outline View",
+        "instruction": "Press View > View Mode > Wireframe (or Ctrl+Y on Windows / Cmd+Y on macOS depending on shortcut mapping). All fills, strokes, and layer effects disappear, revealing the raw bezier skeleton of your artwork. This is invaluable for finding rogue or overlapping nodes.",
+        "shortcutTip": { "win": "View > View Mode > Wireframe", "mac": "View > View Mode > Wireframe" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Configure an Isometric Grid",
+        "instruction": "Go to View > Grid and Axis Manager. Uncheck 'Use automatic grid'. Change Mode to 'Advanced' and choose 'Isometric'. Check 'Show grid' and set the grid spacing to 16px. Your canvas now displays an axonometric 30-degree isometric grid ready for 3D illustration.",
+        "shortcutTip": { "win": "View > Grid & Axis", "mac": "View > Grid & Axis" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "View Modes Comparison Matrix",
+        "description": "When to utilize each view mode in production.",
+        "visualType": "table",
+        "visualContent": "| View Mode | Visual Output | Primary Production Use Case |\n|---|---|---|\n| Vector Mode | Infinitely crisp curves at all zoom levels | Precision bezier plotting, print illustration |\n| Pixel Preview (1x) | Shows exact anti-aliased pixels at 72/96 DPI | UI icon design, crisp border verification |\n| Retina Preview (2x) | Simulates high-density @2x display output | Mobile app UI, modern web typography check |\n| Wireframe | Hairline black node paths, 0 fills/effects | Locating hidden anchor points, boolean cleanup |"
+      },
+      {
+        "title": "Sub-Pixel Blur Diagram",
+        "description": "How fractional coordinates create blurry rendering.",
+        "visualType": "diagram",
+        "visualContent": "Fractional Node (X: 12.4 px) --> Spans Pixel Column 12 & 13 --> 50% Alpha Anti-Aliasing (BLURRY!)\nInteger Node    (X: 12.0 px) --> Aligns Exactly on Pixel 12  --> 100% Solid Crisp Edge (PERFECT!)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Pixel-Perfect Icon Alignment",
+      "taskDescription": "Take a 24x24 px vector hamburger menu icon with blurry, anti-aliased strokes and snap it into razor-sharp pixel perfection.",
+      "checkpoints": [
+        "Enable 'View > View Mode > Pixels' and zoom into 800%.",
+        "Observe the blurry 1px lines sitting on fractional coordinates (e.g. Y: 5.5 px).",
+        "Enable 'Force Pixel Alignment' and disable 'Move by Whole Pixels'.",
+        "Select the lines with the Move Tool and re-snap them to whole integer coordinates (Y: 6.0 px, 12.0 px, 18.0 px).",
+        "Verify in the Transform Studio that X, Y, W, and H are all solid whole numbers."
+      ],
+      "expectedOutcome": "A crystal-clear vector icon with 100% solid, unblurred horizontal pixel bars at 1x view."
+    },
+    "independentChallenge": {
+      "title": "Isometric Grid Cube Illustration",
+      "prompt": "Using the Grid and Axis Manager, configure a 30-degree isometric grid with 20px spacing. Enable 'Snap to Grid'. Using the Pen Tool in Polygon mode, construct a multi-colored 3D isometric cube with light, mid, and shadow faces meeting at a single precision corner vertex.",
+      "starterAsset": {
+        "filename": "D01_artboard_starter_guide.md",
+        "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+        "filesize": "1.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Includes isometric grid setup instructions (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "All vertices must snap exactly to isometric grid intersection points.",
+        "Zero gaps or overlaps between adjacent cube polygons in Wireframe view.",
+        "Pixel Preview must confirm razor-sharp edges."
+      ],
+      "bonusGoal": "Use the Isometric Studio panel to project flat text onto the top face of the cube."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Strokes remain blurry even with Force Pixel Alignment enabled",
+        "cause": "A 1px stroke centered on an integer pixel line (e.g. X: 10.0 px) places 0.5px on each side, forcing half-pixel anti-aliasing blur.",
+        "solution": "In the Stroke Studio, set Stroke Alignment to 'Inside' or 'Outside' instead of 'Center', OR position 1px centered strokes on half-pixel offsets (10.5 px) so the stroke fills an entire 1px column."
+      },
+      {
+        "pitfall": "Move by Whole Pixels preserves existing blur",
+        "cause": "If an object is already at X: 10.3 px, 'Move by Whole Pixels' will move it to 11.3, 12.3, preserving the 0.3 fractional blur forever.",
+        "solution": "Turn OFF 'Move by Whole Pixels' and keep 'Force Pixel Alignment' ON to snap directly to the nearest integer."
+      },
+      {
+        "pitfall": "Snapping lines cluttering the screen and freezing movement",
+        "cause": "Too many snapping candidates enabled in complex documents.",
+        "solution": "Open the Snapping Manager. Reduce 'Candidates' to 'Immediate layers' or 6 candidates, or toggle Snapping quickly with ; (Semicolon) when fine-tuning."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D01-03-Q1",
+        "question": "Why does a 1px centered vector stroke on an integer pixel coordinate (e.g. X: 20 px) appear blurry in Pixel Preview mode?",
+        "options": [
+          "Because Affinity Designer does not support vector strokes.",
+          "Because a 1px centered stroke places 0.5px to the left and 0.5px to the right of the coordinate line, causing the renderer to anti-alias across two pixel rows.",
+          "Because the display monitor is defective.",
+          "Because the document color space is CMYK."
+        ],
+        "correctIndex": 1,
+        "explanation": "A centered 1px stroke splits across the coordinate line (0.5px on each side). To be crisp, it must either sit on a half-pixel (20.5 px) or have its alignment set to Inside/Outside on an integer coordinate."
+      },
+      {
+        "id": "D01-03-Q2",
+        "question": "What is the primary diagnostic benefit of switching to 'Wireframe' View Mode?",
+        "options": [
+          "It boosts CPU rendering speed by 500%.",
+          "It reveals the naked bezier outlines of all vector paths, making it easy to spot redundant, misaligned, or hidden nodes without visual distraction from fills and layer effects.",
+          "It exports the document to 3D CAD.",
+          "It activates the 3D printer driver."
+        ],
+        "correctIndex": 1,
+        "explanation": "Wireframe mode strips all raster fills, gradients, and layer effects, showing raw hairline paths so designers can inspect underlying curve topology."
+      },
+      {
+        "id": "D01-03-Q3",
+        "question": "What setting in the Snapping options must be turned OFF if you want to eliminate existing fractional pixel values when moving objects?",
+        "options": [
+          "Snap to Artboards",
+          "Move by Whole Pixels",
+          "Snap to Grid",
+          "Show Snapping Candidates"
+        ],
+        "correctIndex": 1,
+        "explanation": "'Move by Whole Pixels' preserves whatever fractional offset an object already has (e.g. +0.4px). Turning it off forces the object to snap cleanly to whole integers."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Pixel Preview allows vector designers to verify real-world raster rendering before exporting.",
+        "Force Pixel Alignment eliminates sub-pixel blur for UI, icons, and web graphics.",
+        "Wireframe mode provides an X-ray view of complex vector curve topology.",
+        "Custom grids (Square, Isometric, Triangular) empower rapid geometric and axonometric illustration."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module D02 Preview: Vector Nodes, Paths & Pen Tool Geometry",
+          "target": "D02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Snapping & Grids",
+          "target": "https://affinity.serif.com/designer/snapping/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D01-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Vector View Modes & Precision Snapping",
+      "subtitle": "Bridging Infinite Mathematics with Pixel Reality",
+      "contentMarkdown": "Vector curves possess infinite mathematical precision.\n\nHowever, our audiences consume design on **physical pixel displays** (smartphones, monitors, TV screens).\n\nIn this lesson, you will master **Affinity Designer's View Modes and Snapping Engine**—ensuring your artwork is both mathematically immaculate and razor-sharp on real-world screens.",
+      "actionBox": {
+        "label": "Key Insight",
+        "text": "Great vector design isn't just about smooth curves—it's about how those curves meet the pixel grid."
+      }
+    },
+    {
+      "id": "D01-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Understanding View Modes",
+      "subtitle": "Vector, Pixel Preview & Wireframe",
+      "contentMarkdown": "Affinity Designer offers four distinct lenses through which to view your artwork:\n\n1. **Vector Mode:** Infinite smoothness at any zoom level (up to 1,000,000%+). Ideal for print and logo drafting.\n2. **Pixel Preview (1x):** Renders the canvas at standard 72/96 DPI. Essential for catching sub-pixel blur in UI icons.\n3. **Pixel Preview (Retina 2x):** Simulates high-density @2x displays.\n4. **Wireframe Mode:** X-ray outline view displaying naked hairline paths, zero fills, and zero effects.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Vector (Smooth) | Pixels 1x (Screen Accurate) | Retina 2x (Hi-DPI) | Wireframe (Node Geometry)"
+      }
+    },
+    {
+      "id": "D01-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Snapping Manager Architecture",
+      "subtitle": "Mastering the Alignment Magnet",
+      "contentMarkdown": "The Snapping Manager (Magnet icon on the top toolbar) is your precision navigation system:\n\n- **Force Pixel Alignment (Must-Have for UI):** Locks node coordinates and bounding boxes to whole integer pixel values.\n- **Move by Whole Pixels (Warning):** Preserves existing fractional values (e.g. 10.3 px -> 11.3 px). Turn this OFF when designing icons.\n- **Snap to Shape Key Points:** Snaps to centers, vertices, and tangency points of neighboring geometry.\n- **Dynamic Snapping Candidates:** Highlights candidate objects with a colored halo as you drag.",
+      "actionBox": {
+        "label": "Top Shortcut",
+        "text": "Toggle snapping instantly with Ctrl+; (Win) or Cmd+; (Mac).",
+        "shortcut": { "win": "Ctrl+;", "mac": "Cmd+;" }
+      }
+    },
+    {
+      "id": "D01-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Fixing Blurry Sub-Pixel Lines",
+      "subtitle": "Achieving Razor-Sharp Iconography",
+      "contentMarkdown": "1. **Inspect Blurriness:** Switch to `View > View Mode > Pixels`. Zoom into 800% on a 24x24 icon.\n2. **Check Coordinates:** Select an icon line and look at the Transform Studio in the lower-right. Does `Y` read something like `12.4 px`?\n3. **Enable Integer Snapping:** Turn ON 'Force Pixel Alignment' and turn OFF 'Move by Whole Pixels' on the top toolbar.\n4. **Re-snap Line:** Nudge the line. Notice how `Y` immediately locks to `12.0 px`.\n5. **Stroke Alignment Check:** For 1px lines, if centered strokes still look soft, set Stroke Alignment to 'Inside' or position the path on a half-pixel (`12.5 px`).",
+      "visual": {
+        "type": "comparison",
+        "content": "Before: Y: 12.4 px (Soft 2px blur) | After: Y: 12.0 px / Inside Stroke (Crisp 1px solid)"
+      }
+    },
+    {
+      "id": "D01-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Common Snapping Pitfalls",
+      "subtitle": "Solve Snapping Conflicts Instantly",
+      "contentMarkdown": "### 1. Snapping Lag in Heavy Documents\n- **Cause:** Having too many snapping candidates enabled in complex vector files.\n- **Fix:** In Snapping options, set Candidates to 'Immediate Layers' and limit candidate count to 6.\n\n### 2. Centered 1px Stroke Dilemma\n- **Cause:** Centered 1px strokes split 0.5px onto adjacent pixels, creating inevitable blur on integer coordinates.\n- **Fix:** Set stroke alignment to 'Inside' or 'Outside', or align the anchor path to `0.5px`.\n\n### 3. Wireframe Overlook\n- **Pro-Tip:** Always switch to Wireframe view before sending artwork to a CNC router, vinyl cutter, or laser cutter to spot invisible open paths.",
+      "actionBox": {
+        "label": "Pro-Tip",
+        "text": "Use Wireframe view to verify that closed shapes don't have stray overlapping vertices."
+      }
+    },
+    {
+      "id": "D01-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Pixel-Perfect Math",
+      "subtitle": "Verify Your Understanding",
+      "contentMarkdown": "Test your mastery of pixel alignment and view modes.",
+      "quizData": {
+        "id": "D01-03-Q1",
+        "question": "Why does a 1px centered vector stroke on an integer pixel coordinate (e.g. X: 20 px) appear blurry in Pixel Preview mode?",
+        "options": [
+          "Because Affinity Designer does not support vector strokes.",
+          "Because a 1px centered stroke places 0.5px to the left and 0.5px to the right of the coordinate line, causing the renderer to anti-alias across two pixel rows.",
+          "Because the display monitor is defective.",
+          "Because the document color space is CMYK."
+        ],
+        "correctIndex": 1,
+        "explanation": "A centered 1px stroke splits across the coordinate line (0.5px on each side). To be crisp, it must either sit on a half-pixel (20.5 px) or have its alignment set to Inside/Outside on an integer coordinate."
+      }
+    },
+    {
+      "id": "D01-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Isometric 3D Cube",
+      "subtitle": "Precision Geometric Snapping",
+      "contentMarkdown": "### Your Mission:\nConstruct a clean 3D isometric cube using an advanced axonometric grid:\n\n1. Open `View > Grid and Axis Manager`, choose `Advanced > Isometric`, and set spacing to 20px.\n2. Ensure 'Snap to Grid' is enabled.\n3. Using the Pen Tool in Polygon mode, draw the 3 visible faces of a cube (Top, Left, Right).\n4. Assign light cyan `#00d2ff` to Top, mid blue `#0080ff` to Right, and deep navy `#0a192f` to Left.\n\n### Acceptance Criteria:\n- All vertices snap exactly to grid intersections.\n- Check in Wireframe mode: exactly 1 shared line per seam, zero overlaps or micro-gaps.",
+      "practiceData": {
+        "prompt": "Construct a precision 3D isometric cube with zero seam gaps.",
+        "starterAsset": {
+          "filename": "D01_artboard_starter_guide.md",
+          "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+          "filesize": "1.2 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Includes isometric grid setup instructions (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Isometric grid configured in Grid and Axis Manager",
+          "Three cube faces drawn with snap to grid",
+          "Zero gaps verified in Wireframe mode"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "D03-01",
+  "moduleId": "D03",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Parametric Shape Primitives & Corner Tool Mechanics",
+  "subtitle": "Cog, Donut, Star, Orange Handles & 4 Corner Radiuses",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Utilize Affinity Designer's rich library of procedural parametric primitives (Cog, Star, Donut, Cloud, Pie, Crescent).",
+      "Manipulate red/orange on-canvas handles to dynamically adjust tooth counts, hole sizes, inner radiuses, and curvatures.",
+      "Convert parametric objects to editable Bezier curves using the 'Convert to Curves' command (Ctrl+Enter / Cmd+Enter).",
+      "Master the Corner Tool (C) to apply Rounded, Concave, Straight (Chamfer), and Cutout corners to any vector vertex."
+    ],
+    "foundationalKnowledge": "Most vector design applications only offer three basic geometric shapes: rectangles, ellipses, and simple polygons. Creating complex items like gear cogs, speech bubbles, badges, or donuts requires tedious manual drafting. Affinity Designer revolutionizes this workflow with over 18 procedural parametric shapes. These objects remain completely dynamic in real time: on-canvas orange control handles allow you to adjust hole radiuses, tooth pitch, or star points numerically or interactively. When manual Bezier customization is needed, 'Convert to Curves' instantly transforms the procedural math into standard anchor nodes.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Parametric Shape System & Corner Tool Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Parametric Shapes & Corner Tool",
+      "persona": "Vector Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "C (Corner Tool), Ctrl+Enter (Convert to Curves)",
+        "mac": "C (Corner Tool), Cmd+Enter (Convert to Curves)"
+      },
+      "description": "Parametric shapes are accessed via the Shape Tool flyout on the left toolbar. The Corner Tool (C) edits corner radiuses on any curve with four selectable corner geometries.",
+      "contextBarOptions": [
+        "Corner Type: Rounded (standard radial arc)",
+        "Corner Type: Concave (inward scooped curve)",
+        "Corner Type: Straight (flat chiseled chamfer)",
+        "Corner Type: Cutout (orthogonal inward notch)",
+        "Bake Corners: Permanently converts corner parameters into fixed Bezier nodes",
+        "Convert to Curves: Transforms procedural shape primitives into standard curves"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Draw a Procedural Cog",
+        "instruction": "Click and hold the Rectangle Tool icon on the left toolbar to open the Shape flyout. Select the 'Cog Tool'. Click and drag on the canvas while holding Shift to create a proportional mechanical gear.",
+        "shortcutTip": { "win": "Cog Tool", "mac": "Cog Tool" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Adjust Teeth and Hole via Orange On-Canvas Handles",
+        "instruction": "Look at the gear on your canvas. Notice several small orange/red circular handles. Drag the innermost handle outward to expand the central axle hole. Drag the outer handle to adjust tooth height. On the Context Toolbar, change 'Teeth' from 8 to 12.",
+        "shortcutTip": { "win": "Drag Orange Handles", "mac": "Drag Orange Handles" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Convert to Editable Curves",
+        "instruction": "Press Ctrl+Enter (Windows) or Cmd+Enter (macOS), or click 'Convert to Curves' on the top Context Toolbar. The shape transitions from a parametric generator into a standard closed Bezier curve.",
+        "shortcutTip": { "win": "Ctrl+Enter", "mac": "Cmd+Enter" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Apply Styled Corners with Corner Tool",
+        "instruction": "Press C to activate the Corner Tool. Drag a marquee box over the outer tips of all gear teeth. Click and drag any selected corner handle inward to create a smooth radius. On the Context Toolbar, switch Corner Type to 'Straight' to create high-tech industrial chamfers.",
+        "shortcutTip": { "win": "C (Corner Tool)", "mac": "C (Corner Tool)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "The 4 Corner Tool Geometry Types",
+        "description": "Stylistic variations available in the Corner Tool.",
+        "visualType": "table",
+        "visualContent": "| Corner Type | Visual Profile | Design Application |\n|---|---|---|\n| Rounded | Smooth outward convex radius | Friendly UI buttons, organic logos |\n| Concave | Inward circular scoop | Luxury serif styling, ornamental borders |\n| Straight | 45-degree flat chamfer | Sci-fi UI, architectural blueprints, tech tags |\n| Cutout | 90-degree inward notch | Ticket stubs, coupon borders, mechanical slots |"
+      },
+      {
+        "title": "Parametric to Curves Transformation",
+        "description": "The lifecycle of a procedural vector primitive.",
+        "visualType": "diagram",
+        "visualContent": "[Parametric Cog Object]\n  ├── Live Teeth Slider (12 teeth)\n  ├── Live Inner Radius Handle (40% hole)\n  └── Live Curvature Profile (Parametric)\n         ↓ Press Ctrl+Enter / Cmd+Enter (Convert to Curves)\n[Standard Vector Curve (Node Tool A)]\n  └── Discrete Anchor Nodes & Bezier Handles (Customizable)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing an Industrial Badge",
+      "taskDescription": "Create a 16-point military rosette badge with chamfered inner corners using the Star Tool and Corner Tool.",
+      "checkpoints": [
+        "Select the Star Tool and draw a star with 16 points.",
+        "Use the orange inner handle to set the inner radius to 75%.",
+        "Convert to Curves via Ctrl+Enter / Cmd+Enter.",
+        "Activate Corner Tool (C) and select all 16 outer star points.",
+        "Set Corner Type to 'Straight' with a 4px chamfer radius.",
+        "Select all 16 inner valley points and set Corner Type to 'Rounded' with a 3px radius."
+      ],
+      "expectedOutcome": "A sophisticated, high-end geometric medal with contrasting sharp chamfers and rounded interior fillets."
+    },
+    "independentChallenge": {
+      "title": "Sci-Fi HUD Hexagonal Battery Cell",
+      "prompt": "Construct a futuristic UI power cell: (1) Use the Polygon Tool to draw a regular hexagon; (2) Convert to Curves; (3) Use the Corner Tool (C) to apply 'Cutout' corners to the left and right vertices, creating mechanical mounting slots; (4) Apply 'Straight' chamfers to top and bottom points; (5) Click 'Bake Corners' on the Context Toolbar to bake the geometry into permanent Bezier nodes.",
+      "starterAsset": {
+        "filename": "D03_boolean_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+        "filesize": "1.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Includes parametric and corner tool setup notes (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Hexagon features both Cutout and Straight corners.",
+        "All corners baked successfully into clean Bezier nodes.",
+        "Zero stray overlapping anchor points in Node Tool (A)."
+      ],
+      "bonusGoal": "Nest a Donut shape inside the center of the hexagon as a circular energy gauge."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Cannot edit individual nodes with the Node Tool",
+        "cause": "Attempting to edit a parametric shape before converting it to curves.",
+        "solution": "Parametric shapes must first be converted to curves via Ctrl+Enter / Cmd+Enter before anchor nodes become accessible in the Node Tool."
+      },
+      {
+        "pitfall": "Corner Tool does not respond when dragging",
+        "cause": "The selected node is already a smooth curve node or has no angular deflection.",
+        "solution": "The Corner Tool only operates on sharp vertices with an angle. Convert smooth nodes to sharp cusps first if needed."
+      },
+      {
+        "pitfall": "Losing live corner adjustability after Bake Corners",
+        "cause": "Clicking 'Bake Corners' permanently computes the math into raw Bezier nodes.",
+        "solution": "Leave corners unbaked if you want to readjust their radiuses later; only bake when finalizing for SVG export."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D03-01-Q1",
+        "question": "Which keyboard shortcut converts a parametric shape primitive into an editable Bezier curve in Affinity Designer?",
+        "options": [
+          "Ctrl+Enter (Windows) / Cmd+Enter (macOS)",
+          "Ctrl+Shift+U / Cmd+Shift+U",
+          "Ctrl+C / Cmd+C",
+          "F12"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ctrl+Enter (Windows) or Cmd+Enter (macOS) triggers 'Convert to Curves', instantly unlocking raw Bezier anchor nodes on parametric primitives."
+      },
+      {
+        "id": "D03-01-Q2",
+        "question": "Which keyboard shortcut activates the Corner Tool?",
+        "options": [
+          "C",
+          "O",
+          "R",
+          "K"
+        ],
+        "correctIndex": 0,
+        "explanation": "Pressing 'C' activates the Corner Tool. (Note: 'O' activates the Contour Tool)."
+      },
+      {
+        "id": "D03-01-Q3",
+        "question": "What happens when you click 'Bake Corners' on the Corner Tool Context Toolbar?",
+        "options": [
+          "It fills the shape with a gradient.",
+          "It permanently bakes the corner radius mathematical parameters into standard Bezier nodes and handles.",
+          "It rasterizes the shape into a 72 DPI bitmap.",
+          "It locks the layer from further editing."
+        ],
+        "correctIndex": 1,
+        "explanation": "Baking corners replaces the dynamic, editable corner radius attributes with permanent, explicit Bezier control points and curve segments."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Affinity Designer offers 18+ live parametric primitives with interactive orange handles.",
+        "Convert to Curves (Ctrl+Enter / Cmd+Enter) transitions procedural objects into standard Bezier paths.",
+        "The Corner Tool (C) sculpts 4 corner profiles: Rounded, Concave, Straight, and Cutout.",
+        "Bake Corners permanently translates dynamic fillets into clean vector nodes."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D03-02 Boolean Geometry Operations",
+          "target": "D03-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Parametric Shapes & Corner Tool",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D03-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Parametric Shape Primitives & Corner Tool Mechanics",
+      "subtitle": "Procedural Geometry & High-Precision Fillets",
+      "contentMarkdown": "Welcome to **Module D03: Advanced Shape Creation & Boolean Geometry**.\n\nBuilding complex vectors from scratch with the Pen Tool is powerful, but modern production speed demands **procedural primitives**.\n\nIn this lesson, you will master Affinity Designer's 18+ parametric shapes with on-canvas orange handles, and wield the **Corner Tool (C)** to craft professional chamfers, cutouts, and fillets.",
+      "actionBox": {
+        "label": "Production Power",
+        "text": "Parametric shapes save hours of drafting: gear cogs, stars, and donuts adjust in real time."
+      }
+    },
+    {
+      "id": "D03-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Procedural Shapes vs Static Curves",
+      "subtitle": "Understanding the Parametric Engine",
+      "contentMarkdown": "In Affinity Designer, shapes like the **Cog, Star, Cloud, and Donut** are not dumb Bezier paths; they are **live procedural equations**:\n\n- **Orange On-Canvas Handles:** Drag handles directly to adjust inner radiuses, hole diameters, and tooth curvatures.\n- **Numeric Context Bar:** Type exact tooth counts (e.g. 16 teeth), corner rounding percentages, and notch depths.\n- **Non-Destructive State:** You can change a 5-point star to a 12-point star days later, provided it hasn't been converted to curves.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Live Cog Object]\n  ├── Orange Handle 1: Tooth Height\n  ├── Orange Handle 2: Inner Axle Hole (0-100%)\n  └── Orange Handle 3: Tooth Curvature Slope"
+      }
+    },
+    {
+      "id": "D03-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Corner Tool (Shortcut: C)",
+      "subtitle": "Precision Radiuses for Any Sharp Vertex",
+      "contentMarkdown": "Press **`C`** to activate the **Corner Tool**. It introduces four distinct geometric filleting types:\n\n1. **Rounded:** Standard circular convex arc.\n2. **Concave:** Elegant inward circular scoop.\n3. **Straight (Chamfer):** Chiseled 45° flat cut.\n4. **Cutout:** Squared 90° inward notch.\n\n*Pro Tip:* You can select a single corner, a group of corners, or all corners on a shape simultaneously.",
+      "actionBox": {
+        "label": "Pro Shortcut",
+        "text": "Press Ctrl+Enter (Win) or Cmd+Enter (Mac) to instantly convert any parametric shape to curves.",
+        "shortcut": { "win": "Ctrl+Enter", "mac": "Cmd+Enter" }
+      }
+    },
+    {
+      "id": "D03-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: From Parametric Primitive to Precision Fillet",
+      "subtitle": "Executing the Workflow",
+      "contentMarkdown": "Follow these steps to construct an industrial gear emblem:\n\n1. **Step 1:** Select the **Cog Tool** from the shapes flyout and draw a gear while holding `Shift`.\n2. **Step 2:** On the Context Toolbar, set Teeth to `10` and drag the central orange handle to make an axle hole.\n3. **Step 3:** Press `Ctrl+Enter` (Win) / `Cmd+Enter` (Mac) to **Convert to Curves**.\n4. **Step 4:** Press `C` for the **Corner Tool**. Marquee-select the outer tooth tips.\n5. **Step 5:** On the Context Toolbar, select **Straight** and drag 3mm inward to create industrial chamfers!",
+      "visual": {
+        "type": "comparison",
+        "content": "Raw Cog Primitive (Standard) ===> Converted & Corner Filleted (Custom Tech Gear)"
+      }
+    },
+    {
+      "id": "D03-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Corner Tool Traps & Best Practices",
+      "subtitle": "Avoid These Beginner Missteps",
+      "contentMarkdown": "### 1. Trying to Use Node Tool on Unconverted Primitives\n- **The Issue:** Attempting to move individual vertices on a star and discovering nodes don't exist.\n- **The Fix:** Parametric objects must be converted to curves (`Ctrl+Enter` / `Cmd+Enter`) first.\n\n### 2. Baking Corners Prematurely\n- **The Issue:** Clicking 'Bake Corners' locks the geometry, preventing radius adjustments later.\n- **The Fix:** Keep corners dynamic until final artwork handoff or export optimization.\n\n### 3. Corner Radius Overlap\n- **The Fix:** If adjacent corners collide, Designer automatically clamps the radius to prevent path self-intersection.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Keep shapes parametric as long as possible; convert to curves only when custom asymmetry is required."
+      }
+    },
+    {
+      "id": "D03-01-S6",
+      "slideNumber": 6,
+      "type": "challenge",
+      "title": "Independent Challenge: Sci-Fi Tech Emblem",
+      "subtitle": "Put Procedural Geometry to the Test",
+      "contentMarkdown": "### Your Mission:\nConstruct a futuristic sci-fi armor badge using procedural tools:\n\n1. Use the **Polygon Tool** to draw a 6-sided regular hexagon.\n2. Convert to Curves (`Ctrl+Enter` / `Cmd+Enter`).\n3. Use the **Corner Tool (`C`)** to apply **Cutout** corners to the left and right tips.\n4. Apply **Straight** chamfers to the top and bottom tips.\n5. Draw a **Donut** primitive in the center as an interior gauge ring.\n\n### Acceptance Criteria:\n- Hexagon has clean Cutout and Straight corner fillets.\n- Donut centered cleanly using Alignment tools.\n- All geometry remains crisp vector curves.",
+      "practiceData": {
+        "prompt": "Create a sci-fi tech emblem utilizing the Polygon, Donut, and Corner tools.",
+        "starterAsset": {
+          "filename": "D03_boolean_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+          "filesize": "1.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Corner Tool fillets."
+        },
+        "checkpoints": [
+          "Polygon drawn and converted to curves",
+          "Corner Tool (C) applied with Cutout and Straight styles",
+          "Central Donut aligned to center"
+        ]
+      }
+    }
+  ]
+}

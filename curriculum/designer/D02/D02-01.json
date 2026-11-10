@@ -1,0 +1,275 @@
+{
+  "id": "D02-01",
+  "moduleId": "D02",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Pen Tool Modes & Bezier Handle Mechanics",
+  "subtitle": "Standard Pen, Smart Mode, Polygon, Line & Cusp Handle Breaking",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the Pen Tool (P) and its four operational modes: Standard Pen, Smart Mode, Polygon Mode, and Line Mode.",
+      "Understand cubic Bezier curve mathematics: how control handle distance governs curvature tension and tangent angles.",
+      "Employ the Alt (Win) / Option (Mac) modifier to break handle symmetry into sharp cusp corners dynamically while drawing.",
+      "Place anchor points at geometric curve extrema (top, bottom, left, right) for clean, minimal vector paths."
+    ],
+    "foundationalKnowledge": "Vector graphics calculate curves using cubic Bezier equations: two endpoints (anchor nodes) and two off-curve control points (handles). The length of a handle determines the tension or velocity of the curve, while its angle defines the entry tangent. In traditional software, artists frequently drop too many nodes, creating bumpy, lumpy paths. In Affinity Designer, the golden rule of vector geometry is 'Less is More': placing nodes strictly at horizontal and vertical curve extrema yields the smoothest curves and smallest file size.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Pen Tool Engine & Bezier Curve Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Pen Tool",
+      "persona": "Vector Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "P (Cycles Pen modes if configured)",
+        "mac": "P (Cycles Pen modes if configured)"
+      },
+      "description": "The primary instrument for plotting precision mathematical Bezier curves. The Context Toolbar gives access to four drawing modes and node conversion options.",
+      "contextBarOptions": [
+        "Mode: Pen Mode (standard cubic Bezier with drag handles)",
+        "Mode: Smart Mode (auto-calculates smooth curvature through points)",
+        "Mode: Polygon Mode (draws straight polygonal line segments)",
+        "Mode: Line Mode (creates individual two-point line segments)",
+        "Preserve selection when creating new curves toggle"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Activate the Pen Tool",
+        "instruction": "Press P to select the Pen Tool. Verify on the Context Toolbar that 'Pen Mode' (first icon) is selected.",
+        "shortcutTip": { "win": "P", "mac": "P" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Plot a Smooth Bezier Arc",
+        "instruction": "Click and release on the canvas to place a starting node. Move right, click and drag upward to draw a graceful arch. Notice two symmetrical control handles extend out from the point.",
+        "shortcutTip": { "win": "Click & Drag", "mac": "Click & Drag" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Break Handle Symmetry with Alt/Option",
+        "instruction": "While still holding the mouse button, press and hold Alt (Win) or Option (Mac). Move the cursor to angle the forward handle downward at 90 degrees. Release the mouse. You have created an instant sharp corner without switching tools!",
+        "shortcutTip": { "win": "Alt+Drag Handle", "mac": "Option+Drag Handle" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Experiment with Smart Mode",
+        "instruction": "Click the second icon on the Context Toolbar to enter 'Smart Mode'. Click 4 or 5 points across the canvas without dragging. Notice how Designer smoothly loops organic curves through every node automatically.",
+        "shortcutTip": { "win": "Smart Mode", "mac": "Smart Mode" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Pen Tool 4-Mode Overview",
+        "description": "Functional matrix distinguishing the 4 Pen modes in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Pen Mode | Mouse Action | Curve Result | Best Use Case |\n|---|---|---|---|\n| Pen Mode | Click-drag handles | Full cubic Bezier control | Custom illustration, typography |\n| Smart Mode | Single clicks only | Algorithmic natural curve | Quick organic silhouettes |\n| Polygon Mode | Single clicks only | Strict straight edges | Low-poly art, geometric shapes |\n| Line Mode | Click-drag pairs | Discrete independent lines | Technical diagrams, dimension lines |"
+      },
+      {
+        "title": "Extrema Node Placement Rule",
+        "description": "Placing nodes at 90-degree curve tangents.",
+        "visualType": "diagram",
+        "visualContent": "        (Node at Apex: Y Extrema)\n                ●───────○ (Handle H-constrained)\n              /   \\\n (X Extrema) ●     ● (X Extrema)\n              \\   /\n                ● (Node at Base: Y Extrema)\n*Golden Rule: Place nodes strictly where curves change direction horizontally or vertically.*"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Drawing a Symmetrical Teardrop / Water Drop",
+      "taskDescription": "Construct a clean, single-path water droplet using 3 nodes at extrema and 1 sharp apex cusp.",
+      "checkpoints": [
+        "Select Pen Tool (P) in Standard Pen Mode.",
+        "Click at the top apex to place a sharp corner node.",
+        "Move down and right, click and drag vertically downward to place the right extrema node.",
+        "Move to the bottom center, click and drag horizontally to place the bottom curvature node.",
+        "Move up and left, click and drag vertically upward to place the left extrema node.",
+        "Click back on the starting top node to close the path."
+      ],
+      "expectedOutcome": "A sleek, organic teardrop with zero redundant nodes and perfectly smooth tangents."
+    },
+    "independentChallenge": {
+      "title": "Vector Swan Silhouette Challenge",
+      "prompt": "Using the provided guide document, construct a graceful swan neck and head vector silhouette using no more than 8 anchor nodes total. Utilize Alt/Option to create a sharp beak cusp and smooth nodes for the neck curvature.",
+      "starterAsset": {
+        "filename": "D02_pen_node_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Includes Bezier curvature setup instructions (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Path must be completely closed and filled with a solid color.",
+        "Node count must be 8 or fewer.",
+        "Beak must have clean sharp cusps; neck must have silky smooth transitions."
+      ],
+      "bonusGoal": "Convert the beak tip into a 0.5mm rounded corner using the Corner Tool (C)."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Over-plotting anchor nodes (Node Overcrowding)",
+        "cause": "Clicking every few millimeters along a curve out of fear of Bezier handle control.",
+        "solution": "Delete intermediate nodes with Backspace/Delete. Extend the handles of the remaining nodes to span the curve smoothly."
+      },
+      {
+        "pitfall": "Accidentally creating a new layer instead of continuing a path",
+        "cause": "Deselecting the curve before clicking the next point.",
+        "solution": "Hover over the endpoint node until the Pen cursor displays a link/minus badge, then click to resume drawing the same curve."
+      },
+      {
+        "pitfall": "Uncontrolled handle explosion when clicking and dragging",
+        "cause": "Dragging too far across the screen, making the handle longer than the distance between nodes.",
+        "solution": "Keep handle lengths to approximately 1/3 of the length of the curve arc being drawn."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D02-01-Q1",
+        "question": "Which keyboard modifier breaks the collinear symmetry of a Bezier handle into a sharp cusp while drawing with the Pen Tool?",
+        "options": [
+          "Shift (Win / Mac)",
+          "Alt (Windows) / Option (macOS)",
+          "Ctrl (Windows) / Cmd (macOS)",
+          "Spacebar"
+        ],
+        "correctIndex": 1,
+        "explanation": "Holding Alt (Windows) or Option (macOS) while dragging a Bezier control handle disconnects the opposing handle, creating a sharp corner angle."
+      },
+      {
+        "id": "D02-01-Q2",
+        "question": "What is the primary advantage of 'Smart Mode' on the Pen Tool?",
+        "options": [
+          "It converts the artwork to CMYK automatically.",
+          "It computes optimal natural smooth curvature through placed nodes without requiring manual handle dragging.",
+          "It deletes the layer if there is an error.",
+          "It forces all lines to snap to 90-degree angles."
+        ],
+        "correctIndex": 1,
+        "explanation": "Smart Mode uses an intelligent curvature interpolation algorithm that draws smooth, organic arcs through clicked points without manual handle manipulation."
+      },
+      {
+        "id": "D02-01-Q3",
+        "question": "Where should anchor nodes ideally be placed along an organic curve for optimal smoothness and editability?",
+        "options": [
+          "Randomly every 10 pixels along the perimeter.",
+          "Strictly at curve extrema (points of horizontal and vertical tangent changes).",
+          "Only in the exact center of the document.",
+          "At every straight line midpoint."
+        ],
+        "correctIndex": 1,
+        "explanation": "Placing anchor nodes at curve extrema (highest, lowest, leftmost, and rightmost points) minimizes the total node count and produces the mathematically cleanest Bezier curves."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The Pen Tool (P) is the foundation of precision vector art in Affinity Designer.",
+        "Cubic Bezier handles govern curve direction and curvature tension.",
+        "Alt/Option breaks handle symmetry for instant sharp corners.",
+        "Placing nodes at extrema produces superior curves with minimal node overhead."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D02-02 Node Classifications & Node Tool Manipulation",
+          "target": "D02-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Pen Tool Modes",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D02-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Pen Tool Modes & Bezier Curve Mechanics",
+      "subtitle": "Unlocking the Mathematics of Infinite Vector Geometry",
+      "contentMarkdown": "Welcome to **Module D02: Vector Nodes, Paths & Pen Tool Geometry**.\n\nWhile shape primitives provide quick building blocks, true vector mastery begins when you command the **Pen Tool (P)**.\n\nIn this lesson, you will master cubic Bezier handle mechanics, conquer handle-breaking shortcuts, and learn the industry-standard **Extrema Rule** for plotting razor-sharp, buttery-smooth curves.",
+      "actionBox": {
+        "label": "Core Maxim",
+        "text": "Great vector artists do not place the most nodes; they place the fewest nodes in the mathematically ideal positions."
+      }
+    },
+    {
+      "id": "D02-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Anatomy of a Cubic Bezier Curve",
+      "subtitle": "Nodes, Handles, Tension & Tangents",
+      "contentMarkdown": "Every curved segment in Affinity Designer is governed by a **Cubic Bezier Equation** composed of:\n\n1. **Anchor Nodes (Points):** The fixed coordinates on the canvas where the curve begins and terminates.\n2. **Control Handles:** Tangent levers extending from each node.\n   - **Handle Angle:** Dictates the entry and exit angle of the curve.\n   - **Handle Length:** Controls the tension (velocity) of the curve arc.\n3. **Handle Symmetry:** By default, pulling one handle mirror-rotates the opposing handle to keep curves perfectly smooth.",
+      "visual": {
+        "type": "diagram",
+        "content": "Control Handle [○] <==== Tangent Angle ====> [○] Control Handle\n          \\\n           ● Anchor Node (Curvature Apex)\n          /\n   Curve Arc Flowing to Next Node..."
+      }
+    },
+    {
+      "id": "D02-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Pen Tool 4 Operational Modes",
+      "subtitle": "Choosing the Right Mode for the Job",
+      "contentMarkdown": "On the Context Toolbar, the Pen Tool features 4 distinct operational modes:\n\n- **Pen Mode (Default):** Standard cubic Bezier mode. Click for sharp nodes, click-drag for smooth handles.\n- **Smart Mode:** Click points consecutively; Designer computes fluid curvature automatically.\n- **Polygon Mode:** Enforces straight lines between points. Perfect for faceted origami or low-poly geometry.\n- **Line Mode:** Creates isolated two-point line segments without continuous path chaining.",
+      "actionBox": {
+        "label": "Pro Shortcut",
+        "text": "Hold Alt (Windows) or Option (macOS) while dragging a handle to snap-break it into an independent cusp handle.",
+        "shortcut": { "win": "Alt+Drag", "mac": "Option+Drag" }
+      }
+    },
+    {
+      "id": "D02-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: The Extrema Node Method",
+      "subtitle": "Constructing Smooth Shapes with Minimal Anchors",
+      "contentMarkdown": "Follow these steps to plot a flawless curved arch:\n\n1. **Step 1:** Select the Pen Tool (`P`) in Standard Pen Mode.\n2. **Step 2:** Click at the left base (Point A). Hold `Shift` and drag upward to establish a vertical tangent.\n3. **Step 3:** Move to the apex peak (Point B). Click and drag horizontally to the right while holding `Shift`.\n4. **Step 4:** Move to the right base (Point C). Click and drag downward.\n5. **Inspect:** Notice how constraining handles to 90° angles creates an optically pure parabolic curve with zero wobbles!",
+      "visual": {
+        "type": "comparison",
+        "content": "Beginner Method: 14 random nodes (Bumpy & heavy) VS Extrema Method: 3 orthogonal nodes (Silky & ultra-clean)"
+      }
+    },
+    {
+      "id": "D02-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Common Pen Traps & Troubleshooting",
+      "subtitle": "Avoid These Beginner Habits",
+      "contentMarkdown": "### 1. Node Overcrowding\n- **The Trap:** Clicking every few millimeters around a curve. Results in jagged edges.\n- **The Fix:** Delete unnecessary nodes with `Backspace`. Adjust remaining handles to bridge the distance.\n\n### 2. Handle Crossing Over\n- **The Trap:** Dragging a control handle past its partner node, creating an accidental loop knot.\n- **The Fix:** Ensure handle lengths never exceed ~35% of the total distance between adjacent nodes.\n\n### 3. Accidental Path Disconnection\n- **The Fix:** If you click away and lose your active path, switch to Node Tool (`A`), select the end node, switch back to Pen (`P`), and click the endpoint to resume drawing.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "A curve should always be controlled by its handles, not by adding more nodes."
+      }
+    },
+    {
+      "id": "D02-01-S6",
+      "slideNumber": 6,
+      "type": "challenge",
+      "title": "Independent Challenge: The 8-Node Swan",
+      "subtitle": "Put Precision Geometry into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a graceful swan neck and head vector silhouette using no more than **8 anchor nodes** total:\n\n1. Plot nodes strictly at horizontal and vertical curve extrema.\n2. Use `Alt` / `Option` to snap-break a sharp cusp at the tip of the beak.\n3. Close the path by clicking the starting node and apply a clean fill.\n\n### Acceptance Criteria:\n- Path is 100% closed vector curves.\n- Node count is 8 or fewer in the Node Tool.\n- Zero kinks on the neck curve.",
+      "practiceData": {
+        "prompt": "Construct an 8-node organic vector swan silhouette using extrema placement.",
+        "starterAsset": {
+          "filename": "D02_pen_node_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Pen Tool geometry."
+        },
+        "checkpoints": [
+          "Pen Tool active in Standard Pen Mode",
+          "Handles constrained with Shift & Alt modifiers",
+          "Total node count does not exceed 8 nodes"
+        ]
+      }
+    }
+  ]
+}

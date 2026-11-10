@@ -1,0 +1,290 @@
+{
+  "id": "S01-02",
+  "moduleId": "S01",
+  "trackId": "scripting",
+  "order": 2,
+  "title": "Connecting to Local Affinity MCP Server (Port 6767) & SSE Bridge",
+  "subtitle": "Server-Sent Events, Upstream Tools Protocol & Health Checks",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the Model Context Protocol (MCP) and how Affinity exposes its automation tools via HTTP/SSE.",
+      "Verify the local server listener at `http://localhost:6767/sse` using status health checks.",
+      "Identify the 11 upstream MCP tools (`affinity_status`, `execute_script`, `render_spread`, `list_sdk_documentation`, etc.).",
+      "Diagnose port conflicts, firewall permissions, and application lifecycle states."
+    ],
+    "foundationalKnowledge": "The Model Context Protocol (MCP) is an open architectural standard created by Anthropic that allows AI agents, IDE extensions, and external applications to safely interface with local desktop tools and real-time environments. Serif Affinity implements a native MCP server listening locally on port 6767 using Server-Sent Events (SSE). When an external client connects to `http://localhost:6767/sse`, Affinity establishes a full-duplex JSON-RPC communications channel, exposing capabilities like executing DOM scripts, taking real-time pixel renders of document spreads, and querying SDK documentation.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity MCP Server HTTP/SSE Protocol (Port 6767) & Upstream Tool Inventory",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Affinity MCP Health Bridge (`affinity_status`)",
+      "persona": "MCP Architecture",
+      "shortcut": {
+        "win": "GET http://localhost:6767/sse",
+        "mac": "GET http://localhost:6767/sse"
+      },
+      "description": "The entry ping endpoint for verifying that Affinity is active and ready to accept remote automation payloads.",
+      "contextBarOptions": [
+        "Endpoint: http://localhost:6767/sse",
+        "Protocol: Server-Sent Events (text/event-stream)",
+        "Default Upstream Tools: 11 active tools",
+        "Typical Response Latency: 80ms - 100ms"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Verify Local Affinity Process is Running",
+        "instruction": "Before attempting an MCP connection, ensure Serif Affinity 3.0+ is actively running on the host machine. You can verify this via Windows Task Manager or `Get-Process Affinity` in PowerShell.",
+        "shortcutTip": { "win": "Get-Process Affinity", "mac": "pgrep Affinity" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Execute the MCP Health Check Utility",
+        "instruction": "Run our verified diagnostic utility `node curriculum/assets/scripting/S01_ping_mcp.js`. The script issues a streaming HTTP GET request to `http://localhost:6767/sse` with `Accept: text/event-stream`.",
+        "shortcutTip": { "win": "node S01_ping_mcp.js", "mac": "node S01_ping_mcp.js" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Inspect HTTP Response Headers and Status Code",
+        "instruction": "Verify that the server returns HTTP Status `200` with `Content-Type: text/event-stream`. This confirms that the MCP transport pipeline is established and awaiting tool invocations.",
+        "shortcutTip": { "win": "HTTP 200 OK", "mac": "HTTP 200 OK" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Call the affinity_status Tool",
+        "instruction": "Invoke `affinity_status`. The tool returns: `'Connected to Affinity MCP at http://localhost:6767/sse. Found 11 upstream tools.'` within ~85ms.",
+        "shortcutTip": { "win": "affinity_status", "mac": "affinity_status" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "MCP Toolset Inventory",
+        "description": "Verified capabilities exposed over the port 6767 bridge.",
+        "visualType": "table",
+        "visualContent": "| Tool Name | Purpose | Execution Latency |\n|---|---|---|\n| `affinity_status` | Pings connection and verifies upstream tool count | ~85 ms |\n| `execute_script` | Evaluates JavaScript DOM code in Affinity process | ~100 ms |\n| `render_spread` | Captures spread snapshot as JPEG image | ~180 ms |\n| `render_selection` | Captures selected node bounding box as JPEG | ~140 ms |\n| `list_sdk_documentation` | Lists all 401 available SDK topic files | ~120 ms |\n| `read_sdk_documentation_topic` | Reads specific SDK API reference topic | ~110 ms |\n| `save_script_to_library` | Persists reusable snippet to internal library | ~115 ms |\n| `search_sdk_hints` | Semantic vector query across developer hints | ~5.8 s |"
+      },
+      {
+        "title": "SSE Protocol Communications Flow",
+        "description": "How events and tool calls flow across the local network interface.",
+        "visualType": "diagram",
+        "visualContent": "[Web Platform / Node Client]\n   │  1. HTTP GET http://localhost:6767/sse\n   ├────────────────────────────────────────────────► [Affinity MCP Server]\n   │  2. HTTP 200 (Content-Type: text/event-stream)\n   │     event: endpoint?session_id=...\n   │◄────────────────────────────────────────────────┤\n   │  3. HTTP POST /message?session_id=... (execute_script payload)\n   ├────────────────────────────────────────────────► [Evaluates in V8]\n   │  4. Returns JSON-RPC Tool Result\n   │◄────────────────────────────────────────────────┤"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Live MCP Handshake Verification",
+      "taskDescription": "Run the diagnostic test script against localhost:6767, confirm port availability, and inspect the returned SSE endpoint payload.",
+      "checkpoints": [
+        "Run `npm run check:env` in the terminal.",
+        "Verify `[PASS] Affinity MCP Server is ACTIVE (HTTP Status: 200)`.",
+        "Execute `affinity_status` and verify that exactly 11 upstream tools are discovered."
+      ],
+      "expectedOutcome": "Confirmed sub-100ms connection between learning platform and local Affinity engine."
+    },
+    "independentChallenge": {
+      "title": "Automated MCP Bridge Health Monitor",
+      "prompt": "Author a Node.js monitoring script that checks the health of `http://localhost:6767/sse` every 5 seconds. If the connection fails or times out (e.g. if the user closes Affinity), the script must output a red alert `'[ALERT] Affinity 3.0 has stopped or port 6767 is unreachable'`. When re-opened, it must display green `'[RECONNECTED]'`.",
+      "starterAsset": {
+        "filename": "S01_ping_mcp.js",
+        "filepath": "curriculum/assets/scripting/S01_ping_mcp.js",
+        "filesize": "0.9 KB",
+        "filetype": ".js",
+        "assetStatus": "JAVASCRIPT_SCRIPT",
+        "isVerified": true,
+        "statusNote": "Verified Node.js HTTP/SSE ping utility (JAVASCRIPT_SCRIPT)."
+      },
+      "challengeCriteria": [
+        "Uses native node:http module with 3000ms timeout.",
+        "Properly closes and destroys request sockets on each cycle.",
+        "Handles error events gracefully without crashing."
+      ],
+      "bonusGoal": "Track and output average response latency in milliseconds."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Connection Refused (ECONNREFUSED) on port 6767",
+        "cause": "Affinity is closed or the MCP listener is disabled in Preferences.",
+        "solution": "Ensure Affinity 3.3.3 is launched and running. In Affinity, ensure MCP integration is allowed under Preferences > General / Automation."
+      },
+      {
+        "pitfall": "Hanging socket connections on SSE streams",
+        "cause": "Server-Sent Events keep the HTTP response socket open permanently to stream notifications.",
+        "solution": "In one-shot ping scripts, always call `res.destroy()` or `req.destroy()` after reading the initial HTTP 200 headers to avoid memory leaks."
+      },
+      {
+        "pitfall": "Schema parameter mismatch in read_sdk_documentation_topic",
+        "cause": "The tool schema declares `topic`, but the implementation requires `filename`.",
+        "solution": "Always pass `{\"filename\": \"...\"}` as documented in our Phase 1 MCP Capability Report."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "S01-02-Q1",
+        "question": "On which local port and endpoint does the Affinity 3.0 MCP Server listen for connections by default?",
+        "options": [
+          "http://localhost:3000/api",
+          "http://localhost:6767/sse",
+          "http://localhost:8080/mcp",
+          "ws://localhost:9999"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity's native MCP server listens on port 6767 and uses Server-Sent Events (SSE) at the path /sse."
+      },
+      {
+        "id": "S01-02-Q2",
+        "question": "What HTTP Content-Type header does the Affinity MCP server return when a client connects to /sse?",
+        "options": [
+          "application/json",
+          "text/html",
+          "text/event-stream",
+          "application/octet-stream"
+        ],
+        "correctIndex": 2,
+        "explanation": "Server-Sent Events require the MIME type 'text/event-stream' to maintain a persistent push channel between server and client."
+      },
+      {
+        "id": "S01-02-Q3",
+        "question": "What is the primary benefit of the MCP architecture for Affinity design automation compared to running standalone Node scripts?",
+        "options": [
+          "It makes the computer run cooler.",
+          "It provides a standardized, secure tool-calling protocol allowing AI agents and web interfaces to inspect docs, run DOM scripts, and capture live renders with zero complex configuration.",
+          "It converts Windows into macOS.",
+          "It replaces the graphics card."
+        ],
+        "correctIndex": 1,
+        "explanation": "MCP standardizes tool schemas, execution lifecycles, and visual telemetry, enabling seamless communication between intelligent agents and creative software."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Affinity 3.0 provides a native MCP server at `http://localhost:6767/sse`.",
+        "The SSE transport protocol delivers sub-100ms tool execution and real-time visual streaming.",
+        "11 upstream tools expose full control over DOM execution, rendering, and SDK documentation.",
+        "Diagnostic scripts verify environment health before executing automated workflows."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: S01-03 First Automation Script: Inspecting Document Metadata",
+          "target": "S01-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "AFFINITY MCP CAPABILITY REPORT",
+          "target": "AFFINITY_MCP_CAPABILITY_REPORT.md",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "S01-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Connecting to Local Affinity MCP Server",
+      "subtitle": "The Model Context Protocol Bridge at Port 6767",
+      "contentMarkdown": "How do AI agents, automated pipelines, and web interfaces communicate with a running desktop creative suite?\n\nThe answer is the **Model Context Protocol (MCP)**.\n\nIn this lesson, you will master the **Affinity MCP Server architecture**—learning how to connect to `http://localhost:6767/sse`, execute health pings, and harness the 11 native automation tools.",
+      "actionBox": {
+        "label": "The Connection",
+        "text": "Port 6767 is the high-speed gateway linking modern software to Affinity 3.0."
+      }
+    },
+    {
+      "id": "S01-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "How the MCP SSE Bridge Works",
+      "subtitle": "Server-Sent Events & JSON-RPC Telemetry",
+      "contentMarkdown": "When you open Affinity 3.0, it initializes an internal HTTP server on **localhost:6767**:\n\n1. **SSE Handshake:** The client connects to `http://localhost:6767/sse` with `Accept: text/event-stream`.\n2. **Session Endpoint:** Affinity responds with an active session ID.\n3. **JSON-RPC Tool Calls:** The client posts tool execution requests (e.g. `execute_script`, `render_spread`).\n4. **Real-Time Delivery:** Results, logs, and base64 rendered graphics return instantly over the bridge.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Client / Agent] --- HTTP GET /sse ---> [Affinity Port 6767] ---> [11 Upstream Tools Ready]"
+      }
+    },
+    {
+      "id": "S01-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The 11 Verified MCP Upstream Tools",
+      "subtitle": "Your Programmatic Palette",
+      "contentMarkdown": "The Affinity MCP bridge gives you access to 11 verified tools:\n\n- **`affinity_status`:** Instant connection health ping (~85ms).\n- **`execute_script`:** Executes JavaScript DOM code in the running app (~100ms).\n- **`render_spread`:** Captures an active spread as a JPEG image (~180ms).\n- **`render_selection`:** Captures selected node bounds as an image (~140ms).\n- **`list_sdk_documentation`:** Scans all 401 SDK documentation files.\n- **`read_sdk_documentation_topic`:** Reads complete API class specs.",
+      "actionBox": {
+        "label": "Speed Benchmark",
+        "text": "Every tool executes in under 200ms—instantaneous for real-time web previews."
+      }
+    },
+    {
+      "id": "S01-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Testing the Bridge with Node.js",
+      "subtitle": "Running S01_ping_mcp.js",
+      "contentMarkdown": "1. **Check Process:** Ensure Affinity is running on your machine.\n2. **Inspect S01_ping_mcp.js:**\n```javascript\nimport http from 'node:http';\nconst req = http.request({\n  hostname: 'localhost',\n  port: 6767,\n  path: '/sse',\n  headers: { 'Accept': 'text/event-stream' }\n}, (res) => {\n  console.log('HTTP Status:', res.statusCode);\n  res.destroy();\n});\nreq.end();\n```\n3. **Execute:** Run `node curriculum/assets/scripting/S01_ping_mcp.js`.\n4. **Observe:** Notice `HTTP Status : 200` confirming active server health!",
+      "visual": {
+        "type": "code",
+        "content": "node curriculum/assets/scripting/S01_ping_mcp.js\n// Output: HTTP Status : 200 (PASS)"
+      }
+    },
+    {
+      "id": "S01-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "MCP Bridge Troubleshooting",
+      "subtitle": "Resolve Port and Connection Issues Instantly",
+      "contentMarkdown": "### 1. ECONNREFUSED on Port 6767\n- **The Issue:** Connection refused when sending requests.\n- **The Fix:** Affinity is not running. Launch Affinity 3.0 and verify that automation listener is enabled.\n\n### 2. Hanging SSE Connection Sockets\n- **The Issue:** Node scripts never exit because SSE streams stay open indefinitely.\n- **The Fix:** In health-check pings, always destroy the response socket (`res.destroy()`) immediately after reading the HTTP 200 header.\n\n### 3. Topic vs Filename Parameter Schema Bug\n- **Important:** `read_sdk_documentation_topic` requires parameter `filename` (not `topic`).",
+      "actionBox": {
+        "label": "Pro-Tip",
+        "text": "Run npm run check:env at any time to verify local port 6767 readiness."
+      }
+    },
+    {
+      "id": "S01-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: MCP Network Architecture",
+      "subtitle": "Validate Your Connection Mastery",
+      "contentMarkdown": "Test your grasp of the MCP bridge.",
+      "quizData": {
+        "id": "S01-02-Q1",
+        "question": "On which local port and endpoint does the Affinity 3.0 MCP Server listen for connections by default?",
+        "options": [
+          "http://localhost:3000/api",
+          "http://localhost:6767/sse",
+          "http://localhost:8080/mcp",
+          "ws://localhost:9999"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity's native MCP server listens on port 6767 and uses Server-Sent Events (SSE) at the path /sse."
+      }
+    },
+    {
+      "id": "S01-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Health Poller Utility",
+      "subtitle": "Build a Resilient MCP Connection Watcher",
+      "contentMarkdown": "### Your Mission:\nBuild and verify a persistent MCP connection monitor in Node.js:\n\n1. Modify `curriculum/assets/scripting/S01_ping_mcp.js` to accept a timeout parameter.\n2. Log the connection latency in milliseconds (e.g. `Latency: 84ms`).\n3. Execute the script via terminal and verify clean exit code 0.\n\n### Acceptance Criteria:\n- Returns HTTP 200 from `http://localhost:6767/sse`.\n- Displays execution latency.\n- Closes socket cleanly without hanging.",
+      "practiceData": {
+        "prompt": "Execute S01_ping_mcp.js and verify HTTP 200 status.",
+        "starterAsset": {
+          "filename": "S01_ping_mcp.js",
+          "filepath": "curriculum/assets/scripting/S01_ping_mcp.js",
+          "filesize": "0.9 KB",
+          "filetype": ".js",
+          "assetStatus": "JAVASCRIPT_SCRIPT",
+          "isVerified": true,
+          "statusNote": "Verified Node.js HTTP/SSE ping utility (JAVASCRIPT_SCRIPT)."
+        },
+        "checkpoints": [
+          "HTTP 200 returned from port 6767",
+          "SSE Content-Type verified",
+          "Zero socket leaks"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "id": "D05-01",
+  "moduleId": "D05",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
+  "subtitle": "Scene Graph Architecture, Layer Types, Locks & Naming Conventions",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the Layers Studio as the master control center for document scene graph architecture.",
+      "Distinguish between object layer types: Curves, Shapes, Groups, dedicated (Layer) containers, and Artboards.",
+      "Execute layer grouping (Ctrl+G / Cmd+G), ungrouping (Ctrl+Shift+G / Cmd+Shift+G), locking, and hiding.",
+      "Apply color tagging (7 color swatches) and disciplined naming conventions to manage complex enterprise vector documents."
+    ],
+    "foundationalKnowledge": "In amateur vector drafting, documents quickly devolve into a chaotic flat list of hundreds of unnamed '(Curve)' layers, making edits slow, frustrating, and prone to breaking collateral artwork. In Affinity Designer, the Layers Studio acts as a full hierarchical scene graph. Objects can be grouped into lightweight folders (`Group`) or placed into formal Illustrator-style container layers (`(Layer)` via the Add Layer button). Color tags allow teams to color-code departments (e.g. Red for cut lines, Blue for typography, Yellow for annotations). Locking background layers prevents accidental misalignments when marquee selecting foreground elements.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Layers Studio & Scene Graph Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Layers Studio",
+      "persona": "Vector Persona (View > Studio > Layers / F7 on Windows)",
+      "shortcut": {
+        "win": "Ctrl+G (Group), Ctrl+Shift+G (Ungroup), Ctrl+L (Lock)",
+        "mac": "Cmd+G (Group), Cmd+Shift+G (Ungroup), Cmd+L (Lock)"
+      },
+      "description": "Displays the complete parent-child object hierarchy, opacity, blend modes, masks, and clipping structures.",
+      "contextBarOptions": [
+        "Add Group Button (Ctrl+G / Cmd+G): Bundles selected layers into an expandable group folder",
+        "Add Layer Button: Creates a dedicated top-level container layer (Illustrator style)",
+        "Lock / Unlock Toggle (Padlock Icon): Protects layer from on-canvas selection and movement",
+        "Visibility Toggle (Checkmark / Eye): Toggles layer rendering on the canvas viewport",
+        "Color Tags Context Menu: Assigns 1 of 7 color badges (Red, Orange, Yellow, Green, Blue, Purple, Gray)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Inspect the Layer Stack",
+        "instruction": "Open a multi-element document. Open the Layers Studio on the right dock (press F7 if hidden). Examine how layers closer to the top of the list render visually on top of lower layers on the canvas.",
+        "shortcutTip": { "win": "F7", "mac": "F7" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Group Related Objects",
+        "instruction": "Select multiple related objects on the canvas with the Move Tool. Press Ctrl+G (Windows) or Cmd+G (macOS). The individual objects consolidate into a single expandable folder labeled 'Group'.",
+        "shortcutTip": { "win": "Ctrl+G", "mac": "Cmd+G" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Rename Layers Professionally",
+        "instruction": "Double-click directly on the text label 'Group'. Type a semantic title like 'Icon_Navigation_Home' and press Enter. Clear names eliminate confusion across design teams.",
+        "shortcutTip": { "win": "Double-Click Label", "mac": "Double-Click Label" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Assign Color Tags",
+        "instruction": "Right-click on your group in the Layers Studio. Look at the bottom of the context menu. Click the Blue circular color tag swatch. Notice a clear blue accent bar illuminate beside the group thumbnail.",
+        "shortcutTip": { "win": "Right-Click > Color Tag", "mac": "Right-Click > Color Tag" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Lock Background Elements",
+        "instruction": "Select your background artwork layer. Click the padlock icon in the upper-right corner of the Layers Studio (or press Ctrl+L / Cmd+L). Now you can freely drag large marquee selection boxes across the canvas without accidentally nudging the background!",
+        "shortcutTip": { "win": "Ctrl+L (Lock)", "mac": "Cmd+L (Lock)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Layer Types Matrix",
+        "description": "Distinguishing layer objects in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Layer Type | Icon / Indicator | Primary Characteristics |\n|---|---|---|\n| (Curve) / (Shape) | Geometric thumbnail | Primitive vector shape or Bezier curve path |\n| Group | Folder icon | Lightweight organizational wrapper; moves items together |\n| (Layer) | Square stack icon | Dedicated structural container (analogous to Adobe Illustrator layers) |\n| Artboard | Page icon with title | Independent canvas container; clips objects outside its bounding box |"
+      },
+      {
+        "title": "Color-Coded Production Scene Graph",
+        "description": "Professional studio organization scheme.",
+        "visualType": "diagram",
+        "visualContent": "[Artboard: Hero_Banner]\n  ├── [Red Tag: Cut_Lines] (Dieline vector overlay - Locked)\n  ├── [Blue Tag: Typography] (Headline, subhead text frames)\n  ├── [Orange Tag: Foreground_Illustration]\n  │    ├── Group: Character_Hero\n  │    └── Group: Prop_Assets\n  └── [Gray Tag: Background_Atmosphere] (Locked backdrop)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Reorganizing an Unstructured Vector Clutter",
+      "taskDescription": "Take an unorganized document with 15 flat unnamed vector paths and organize it into a 3-tier, color-tagged, professional scene graph.",
+      "checkpoints": [
+        "Create 3 distinct Groups: 'Background', 'Main_Subject', and 'UI_Overlays'.",
+        "Rename all individual shape layers semantically.",
+        "Assign Green color tags to 'Background', Blue to 'Main_Subject', and Purple to 'UI_Overlays'.",
+        "Lock the 'Background' group to prevent unintended selection.",
+        "Verify canvas marquee selections cleanly target only 'Main_Subject' items."
+      ],
+      "expectedOutcome": "A clean, production-ready vector file that any team member can navigate effortlessly."
+    },
+    "independentChallenge": {
+      "title": "Enterprise UI Design System Hierarchy",
+      "prompt": "Construct a comprehensive mobile screen layout (393 x 852 px) with strict layer hierarchy: (1) Top-level '(Layer)' container named 'UI_Mobile_Screen'; (2) Color-tagged Groups for 'Status_Bar' (Gray), 'App_Header' (Blue), 'Card_Feed' (Orange), and 'Bottom_Navigation' (Purple); (3) Lock the background grid container; (4) Use selection shortcuts to re-order groups without disturbing inner child positions.",
+      "starterAsset": {
+        "filename": "D05_layers_masks_clipping_guide.md",
+        "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+        "filesize": "1.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Layers Studio organization (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "100% of layers organized inside named, color-tagged groups.",
+        "Zero default '(Curve)' or 'Group' generic names remain.",
+        "Background layer locked and unselectable on canvas."
+      ],
+      "bonusGoal": "Create a dedicated global annotation layer tagged with Red color swatch."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Over-nesting groups inside groups (Group Inception)",
+        "cause": "Pressing Ctrl+G repeatedly every time an object is moved.",
+        "solution": "Keep hierarchies lean (maximum 3 levels of nesting). Use Ctrl+Shift+G / Cmd+Shift+G to dissolve redundant single-item groups."
+      },
+      {
+        "pitfall": "Locked layer still being edited by mistake",
+        "cause": "Clicking the layer in the Layers panel allows direct editing even if locked on canvas.",
+        "solution": "Remember that locking primarily locks on-canvas selection; deselect in the panel or hide visibility if you want total immutability."
+      },
+      {
+        "pitfall": "Object hidden behind background after grouping",
+        "cause": "Grouping moves all selected objects to the stacking index of the highest selected item.",
+        "solution": "Select items with similar Z-depth when grouping, or reorder the group in the Layers panel."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D05-01-Q1",
+        "question": "Which keyboard shortcut groups selected vector objects together in Affinity Designer?",
+        "options": [
+          "Ctrl+G (Windows) / Cmd+G (macOS)",
+          "Ctrl+K / Cmd+K",
+          "Ctrl+B / Cmd+B",
+          "Alt+F4"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ctrl+G (Windows) or Cmd+G (macOS) creates a Group container enclosing all selected layers."
+      },
+      {
+        "id": "D05-01-Q2",
+        "question": "What is the primary visual function of Color Tags in the Affinity Designer Layers Studio?",
+        "options": [
+          "They change the physical fill color of the vector shape on the canvas.",
+          "They display a distinctive colored accent bar beside the layer name in the Layers panel, helping teams visually segment large files.",
+          "They automatically convert the layer into a master page.",
+          "They encrypt the file with a password."
+        ],
+        "correctIndex": 1,
+        "explanation": "Color tags are administrative metadata for the Layers Studio, illuminating layer rows with color bars without altering canvas artwork."
+      },
+      {
+        "id": "D05-01-Q3",
+        "question": "What happens when you lock a layer using the padlock icon in the Layers Studio?",
+        "options": [
+          "The layer is deleted from the file.",
+          "The layer cannot be accidentally clicked, dragged, or marquee-selected on the canvas viewport.",
+          "The layer becomes 50% transparent.",
+          "The layer can only be viewed in Pixel Persona."
+        ],
+        "correctIndex": 1,
+        "explanation": "Locking protects layers from canvas interactions, allowing artists to work freely on foreground details without disturbing backgrounds."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "A disciplined Layers Studio hierarchy is the cornerstone of professional vector production.",
+        "Groups (Ctrl+G) bundle related objects; semantic naming ensures seamless collaboration.",
+        "Color tags categorize assets visually across large, multi-screen artboards.",
+        "Locking canvas elements prevents accidental nudges during complex marquee selections."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D05-02 Vector Clipping (Child Nesting) vs Vector Masking",
+          "target": "D05-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Layers Studio",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D05-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
+      "subtitle": "Engineering Scalable Vector Scene Graphs",
+      "contentMarkdown": "Welcome to **Module D05: Layer Organization, Masks & Clipping Paths**.\n\nGreat design is not just what appears on the canvas; it is how the file is constructed underneath. A disorganized file slows down teams and introduces expensive production errors.\n\nIn this lesson, you will master the **Layers Studio**, implement semantic grouping workflows, and leverage **Color Tagging** to architect enterprise-grade vector files.",
+      "actionBox": {
+        "label": "Professional Standard",
+        "text": "Every layer in a professional file must be named, organized, and grouped logically."
+      }
+    },
+    {
+      "id": "D05-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The 4 Core Layer Types",
+      "subtitle": "Curves, Groups, Dedicated Layers & Artboards",
+      "contentMarkdown": "Affinity Designer classifies scene graph items into four fundamental layer structures:\n\n1. **(Curve) / (Shape):** Discrete vector geometry (paths, rectangles, stars).\n2. **Group:** Lightweight folder created with `Ctrl+G` / `Cmd+G`.\n3. **(Layer):** Heavy-duty organizational container (created via the 'Add Layer' button at the bottom of the panel).\n4. **Artboard:** Top-level canvas container that defines independent screen bounds.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "(Curve) Geometry | Group Folder | (Layer) Container | Artboard Canvas"
+      }
+    },
+    {
+      "id": "D05-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Layers Studio Anatomy (Shortcut: F7)",
+      "subtitle": "Navigating Panel Controls & Context Menus",
+      "contentMarkdown": "Located on the right dock, the Layers Studio provides instant control:\n\n- **Padlock Icon:** Toggles Canvas Selection Lock (`Ctrl+L` / `Cmd+L`).\n- **Checkmark Icon:** Toggles layer visibility on/off.\n- **Double-Click Label:** Renames the layer in place.\n- **Color Tag Bar:** Right-click a layer row to assign 1 of 7 bright accent swatches (Red, Orange, Yellow, Green, Blue, Purple, Gray).\n- **Stacking Order:** Drag layers up to bring them forward, down to send them behind.",
+      "actionBox": {
+        "label": "Quick Shortcut",
+        "text": "Press Ctrl+[ (Win) / Cmd+[ (Mac) to move a layer backward; press Ctrl+] / Cmd+] to bring it forward."
+      }
+    },
+    {
+      "id": "D05-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Grouping & Color Tagging",
+      "subtitle": "Executing the Cleanup Workflow",
+      "contentMarkdown": "Follow these steps to clean up an unstructured document:\n\n1. **Step 1:** Marquee select all character linework on your canvas.\n2. **Step 2:** Press `Ctrl+G` (Windows) or `Cmd+G` (macOS) to group them.\n3. **Step 3:** Double-click the label and name it **'Character_Hero'**.\n4. **Step 4:** Right-click the group in the Layers panel and pick the **Blue** color tag.\n5. **Step 5:** Select your background graphics, group them into **'Background_Set'**, assign a **Green** tag, and click the padlock icon to lock them!",
+      "visual": {
+        "type": "comparison",
+        "content": "Chaos: 40 unnamed (Curve) layers VS Order: 3 Color-tagged, named semantic groups"
+      }
+    },
+    {
+      "id": "D05-01-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "Canvas Lock vs Panel Selection",
+      "subtitle": "Understanding How Padlocks Function",
+      "contentMarkdown": "A vital distinction in Affinity Designer:\n\n- **When a layer is LOCKED (Padlock Active):**\n  - Clicking or dragging across the canvas *will not* select or nudge the layer.\n  - You can safely draw over, marquee-select, and measure adjacent elements.\n  - *Note:* If you deliberately click the layer directly inside the Layers Studio panel, you can still edit it! This allows intentional edits without having to unlock and re-lock.",
+      "visual": {
+        "type": "diagram",
+        "content": "Canvas Viewport Marquee Drag ───► Ignored by Locked Layer (Safe!)\nLayers Panel Direct Click   ───► Selects Locked Layer for Intentional Edit"
+      }
+    },
+    {
+      "id": "D05-01-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Enterprise Color-Tag Conventions",
+      "subtitle": "Standardizing Departmental Asset Tags",
+      "contentMarkdown": "Adopt this battle-tested industry color-tagging standard:\n\n- **Red Tag:** Technical marks, cutlines, die-lines, bleed boundaries.\n- **Blue Tag:** Typography, labels, headline text frames.\n- **Orange Tag:** Core foreground vector illustrations, character art.\n- **Purple Tag:** Interactive UI components, buttons, navigation bars.\n- **Gray Tag:** Backgrounds, textures, atmospheric lighting (usually locked).",
+      "actionBox": {
+        "label": "Team Synergy",
+        "text": "When files are color-tagged, printers and developers find cutlines and copy instantly."
+      }
+    },
+    {
+      "id": "D05-01-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Layer Pitfalls & Common Mistakes",
+      "subtitle": "Avoid Group Bloat and Z-Index Traps",
+      "contentMarkdown": "### 1. Group Inception (Redundant Nested Folders)\n- **The Issue:** A folder inside a folder inside a folder, holding only 1 single path.\n- **The Fix:** Select the outer group and press `Ctrl+Shift+G` / `Cmd+Shift+G` to dissolve unnecessary levels.\n\n### 2. Disappearing Layer on Grouping\n- **The Cause:** Grouping brings objects to the Z-index of the top-selected layer; if that layer was inside a mask, the other objects jump inside the mask too!\n- **The Fix:** Ungroup, drag items out to the root layer stack, and regroup.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Max 3 Nesting Levels | Ctrl+Shift+G to Dissolve | Mind Z-Index Shifts"
+      }
+    },
+    {
+      "id": "D05-01-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Enterprise UI Screen Architecture",
+      "subtitle": "Put Scene Graph Discipline to the Test",
+      "contentMarkdown": "### Your Mission:\nConstruct an enterprise mobile app screen scene graph:\n\n1. Create a top-level `(Layer)` named **'Screen_Checkout'**.\n2. Structure 4 color-tagged groups inside:\n   - **Status_Bar:** Tagged Gray.\n   - **Header_Navigation:** Tagged Blue.\n   - **Product_Card:** Tagged Orange.\n   - **Primary_Button:** Tagged Purple.\n3. Place a background shape behind everything and lock it.\n4. Ensure 0 default generic '(Curve)' names remain.\n\n### Acceptance Criteria:\n- 100% of layers organized inside named, color-coded groups.\n- Background layer locked against canvas selection.\n- Clean, logical Z-index order.",
+      "practiceData": {
+        "prompt": "Construct an enterprise mobile app screen scene graph with color tags and locks.",
+        "starterAsset": {
+          "filename": "D05_layers_masks_clipping_guide.md",
+          "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+          "filesize": "1.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Layers Studio organization."
+        },
+        "checkpoints": [
+          "Group created with Ctrl+G",
+          "Color tags assigned via right-click menu",
+          "Background layer locked with padlock"
+        ]
+      }
+    }
+  ]
+}

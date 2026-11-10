@@ -1,0 +1,54 @@
+{
+  "id": "D03",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Advanced Shape Creation & Boolean Geometry",
+  "subtitle": "Add, Subtract, Intersect, Xor, Divide, Non-destructive Compound Shapes",
+  "description": "Unlock procedural vector construction: parametric primitive handles, interactive corner types via the Corner Tool (C), the 5 core Boolean operations, and non-destructive Compound Shapes via Alt/Option modifiers.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 85,
+  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry"],
+  "learningOutcomes": [
+    "Manipulate orange parametric handles on specialized primitives (Cog, Star, Donut, Crescent).",
+    "Apply and bake corner radiuses with the Corner Tool (C) using Rounded, Concave, Straight, and Cutout types.",
+    "Execute destructive Boolean operations: Add, Subtract, Intersect, Xor, and Divide.",
+    "Construct fully non-destructive Compound Shapes using Alt (Win) / Option (Mac) modifiers.",
+    "Convert procedural parametric primitives into standard editable vector Bezier curves (Ctrl+Enter / Cmd+Enter)."
+  ],
+  "capstoneProject": {
+    "title": "Camera Aperture & Mechanical Lens Emblem",
+    "description": "Construct an intricate camera lens emblem using a procedural Cog or Donut base, non-destructive Compound subtractions, and stylized Corner Tool chamfers.",
+    "deliverableAsset": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+    "evaluationCriteria": [
+      "Base emblem built using parametric primitives.",
+      "Compound Shape layer used non-destructively with editable child primitives.",
+      "Corner Tool chamfers or radiuses applied to corner vertices."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D03-01",
+      "order": 1,
+      "title": "Parametric Shape Primitives & Corner Tool Mechanics",
+      "subtitle": "Cog, Donut, Star, Orange Handles & 4 Corner Radiuses",
+      "durationMinutes": 25,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "D03-02",
+      "order": 2,
+      "title": "Boolean Geometry Operations (5 Operations)",
+      "subtitle": "Add, Subtract, Intersect, Xor, Divide & Layer Hierarchy",
+      "durationMinutes": 30,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "D03-03",
+      "order": 3,
+      "title": "Non-Destructive Compound Shapes & Geometry Optimization",
+      "subtitle": "Live Compound Layers, Alt/Option Modifier & Boolean Expansion",
+      "durationMinutes": 30,
+      "difficulty": "Beginner"
+    }
+  ]
+}

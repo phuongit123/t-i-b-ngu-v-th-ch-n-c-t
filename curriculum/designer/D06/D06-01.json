@@ -1,0 +1,297 @@
+{
+  "id": "D06-01",
+  "moduleId": "D06",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Artistic Text vs Frame Text & Text Hierarchy",
+  "subtitle": "Display Headlines vs Body Copy, Kerning, Tracking & Leading",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Distinguish between Artistic Text and Frame Text, and select the appropriate tool for display logos vs multi-line body paragraphs.",
+      "Understand text box scaling behavior: resizing text frames (reflow) versus scaling text font size (distortion avoidance).",
+      "Master micro-typography keyboard shortcuts: manual kerning (Alt+Left/Right), tracking, and baseline shift.",
+      "Establish an optical typographic hierarchy: selecting complementary font pairings, leading scales, and weight contrasts."
+    ],
+    "foundationalKnowledge": "In digital design, typography is divided into two distinct functional requirements: (1) Display Typography: Large, high-impact headlines, logotypes, and labels where letterforms are treated as geometric art; (2) Body Typography: Continuous reading paragraphs where text must flow, wrap, and paginate reliably across layout boundaries. Affinity Designer addresses this with two dedicated text tools: the Artistic Text Tool (click-drag to scale font point size interactively) and the Frame Text Tool (defines a fixed rectangular or shaped container that wraps copy without scaling point size). Mastering the key differences prevents common beginner accidents where paragraphs get inadvertently stretched or distorted.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Typography Engine & Text Tool Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Artistic Text Tool & Frame Text Tool",
+      "persona": "Vector Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "T (Artistic Text / Frame Text toggle)",
+        "mac": "T (Artistic Text / Frame Text toggle)"
+      },
+      "description": "Artistic Text is optimized for display headlines and logos; Frame Text is engineered for multi-line copy with automatic wrapping.",
+      "contextBarOptions": [
+        "Font Family & Font Style dropdowns (Weights: Thin, Light, Regular, SemiBold, Bold, Black)",
+        "Font Size input with quick scrub slider and point increments",
+        "Kerning / Tracking inputs (Manual kerning between letter pairs; tracking across selections)",
+        "Leading override and paragraph alignment (Left, Center, Right, Justified)",
+        "Convert to Curves button: Converts editable typography into static Bezier outlines"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Create an Artistic Text Headline",
+        "instruction": "Select the Artistic Text Tool (letter 'A' on the toolbar, shortcut T). Click and drag on the canvas to set the initial point size visually. Type 'SUMMIT COFFEE'. Notice the text acts like a vector object: dragging its corner handle with the Move Tool scales font size smoothly.",
+        "shortcutTip": { "win": "T (Artistic Text)", "mac": "T (Artistic Text)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Create a Multi-Line Frame Text Box",
+        "instruction": "Select the Frame Text Tool (letter 'T' in a box). Click and drag a rectangle. Go to Text > Insert Filler Text. Drag the right edge of the frame. Notice the words reflow smoothly across lines, while the font size remains completely fixed at 12 pt!",
+        "shortcutTip": { "win": "Frame Text Tool", "mac": "Frame Text Tool" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Perform Optical Micro-Kerning",
+        "instruction": "Click with the text tool between a capital 'T' and 'A'. Notice an awkward visual gap due to character geometry. Hold Alt (Windows) or Option (macOS) and press the Left Arrow key repeatedly. The letters tighten by 10‰ increments until optically balanced.",
+        "shortcutTip": { "win": "Alt+Left Arrow", "mac": "Option+Left Arrow" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Adjust Tracking on Headlines",
+        "instruction": "Select an entire uppercase headline. In the Character Studio (View > Studio > Character), increase Tracking to +150‰. The expanded letter-spacing delivers an immediate luxury, high-end editorial aesthetic.",
+        "shortcutTip": { "win": "Character Studio > Tracking", "mac": "Character Studio > Tracking" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Artistic Text vs Frame Text Matrix",
+        "description": "Comparison of the two typography tools.",
+        "visualType": "table",
+        "visualContent": "| Feature | Artistic Text Tool | Frame Text Tool |\n|---|---|---|\n| Dragging Corner Handle | Scales the actual font point size larger/smaller | Reflows text inside the box; font size remains fixed |\n| Text Wrapping | Never auto-wraps; requires manual Enter key | Auto-wraps lines cleanly at container margins |\n| Primary Use Case | Brand logos, headlines, badges, callouts | Editorial body paragraphs, card descriptions, specs |\n| Path Conversion | Direct support for curved Text-on-Path | Text threads between multiple frames |"
+      },
+      {
+        "title": "Kerning vs Tracking Diagram",
+        "description": "Distinguishing letter pair adjustment from global spacing.",
+        "visualType": "diagram",
+        "visualContent": "Kerning:   T │ A (Adjusts spacing between exactly TWO specific letters)\nTracking:  [A ── V ── A ── I ── L ── A ── B ── L ── E] (Uniform spacing across ALL letters)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Designing a Luxury Branding Wordmark",
+      "taskDescription": "Construct a high-end luxury brand typography hierarchy for a fashion atelier using custom tracking and optical kerning.",
+      "checkpoints": [
+        "Create brand title 'L'AVENIR' using Artistic Text (High-contrast Serif typeface, 48 pt).",
+        "Manually kern the 'L', apostrophe, and 'A' using Alt/Option + Arrow keys to achieve balanced whitespace.",
+        "Create subtitle 'HAUTE COUTURE PARIS' in clean geometric sans-serif (10 pt), set to All Caps, with +250‰ tracking.",
+        "Create a Frame Text block beneath containing a 3-line brand bio with 1.4x proportional line leading."
+      ],
+      "expectedOutcome": "An elegant, polished luxury brand lockup with optically flawless kerning and sophisticated letter-spacing."
+    },
+    "independentChallenge": {
+      "title": "Magazine Editorial Hero Header",
+      "prompt": "Construct a bold magazine cover headline composition: (1) Giant oversized display word using Artistic Text overlapping an architectural photo; (2) Tight negative tracking (-30‰) on the headline for an impactful modern poster feel; (3) A 2-column Frame Text editorial intro with 14pt leading and justified text; (4) Convert the display word to curves (Layer > Convert to Curves) and customize one letter's descender with the Node Tool (A).",
+      "starterAsset": {
+        "filename": "D06_typography_glyphs_guide.md",
+        "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for typography and kerning (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Both Artistic Text and Frame Text utilized for appropriate roles.",
+        "Manual kerning applied to awkward character pairings (e.g. 'AV', 'To', 'WA').",
+        "Customized letterform converted cleanly to Bezier curves without orphan nodes."
+      ],
+      "bonusGoal": "Apply a vertical baseline shift to superscript characters in the subtitle."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Distorting Frame Text by scaling the outer frame handle",
+        "cause": "Accidentally dragging the extra detached scaling handle (outer lower-right handle) on a text frame instead of the standard corner bounding box.",
+        "solution": "Drag the standard corner handles on the frame border to reflow text. Only use the detached floating handle if you deliberately want to scale both box and text size simultaneously."
+      },
+      {
+        "pitfall": "Using spacebar to space out letters",
+        "cause": "Typing multiple spaces between letters to increase letter-spacing.",
+        "solution": "Never use spacebars! Use the Tracking field in the Character Studio. Tracking applies mathematically uniform kerning units that export cleanly to SVG and web fonts."
+      },
+      {
+        "pitfall": "Losing live font editability after converting to curves",
+        "cause": "Converting to curves prematurely, making typo corrections impossible.",
+        "solution": "Keep an invisible backup copy of the live editable text layer before executing Convert to Curves."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D06-01-Q1",
+        "question": "What is the primary operational difference when dragging a corner bounding handle on an Artistic Text object versus a Frame Text object?",
+        "options": [
+          "Artistic Text reflows into a paragraph; Frame Text changes font.",
+          "Artistic Text scales the physical font point size larger or smaller; Frame Text reflows the text inside the box while keeping font size unchanged.",
+          "Artistic Text converts into a bitmap.",
+          "There is no difference."
+        ],
+        "correctIndex": 1,
+        "explanation": "Artistic Text treats the letterforms as an interactive vector graphic whose point size scales with the bounding box, whereas Frame Text reflows lines within fixed margins."
+      },
+      {
+        "id": "D06-01-Q2",
+        "question": "Which keyboard shortcut allows you to manually adjust kerning between two letters by 10‰ increments in Affinity Designer?",
+        "options": [
+          "Alt (Windows) / Option (macOS) + Left/Right Arrow Keys",
+          "Ctrl+K / Cmd+K",
+          "Shift+Spacebar",
+          "Tab"
+        ],
+        "correctIndex": 0,
+        "explanation": "Placing the cursor between two characters and holding Alt (Win) or Option (Mac) while tapping the Left or Right arrow key adjusts kerning in real-time micro-increments."
+      },
+      {
+        "id": "D06-01-Q3",
+        "question": "What typographic parameter adjusts the uniform horizontal spacing across an ENTIRE block or line of text?",
+        "options": [
+          "Kerning",
+          "Tracking",
+          "Leading",
+          "Baseline Shift"
+        ],
+        "correctIndex": 1,
+        "explanation": "Tracking adjusts the overall letter-spacing uniformly across a selection of text, whereas Kerning operates strictly between an individual pair of characters."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Artistic Text is ideal for display headlines, logos, and badges where point size scales interactively.",
+        "Frame Text is engineered for body copy, wrapping lines cleanly at container margins.",
+        "Manual kerning (Alt/Option + Arrow keys) eliminates optical gaps between difficult letter pairs.",
+        "Tracking expands or contracts overall spacing for high-end editorial styling."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D06-02 Text-on-Path & Circular Badges",
+          "target": "D06-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Typography Tools & Hierarchy",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D06-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Artistic Text vs Frame Text & Text Hierarchy",
+      "subtitle": "The Architecture of Professional Vector Typography",
+      "contentMarkdown": "Welcome to **Module D06: Typography, Text-on-Path & Glyph Styling**.\n\nTypography is the voice of graphic design. A brilliant illustration paired with clumsy, un-kerned typography looks amateur.\n\nIn this lesson, you will master the two fundamental text engines in Affinity Designer—**Artistic Text vs Frame Text**—and learn micro-typography shortcuts for **flawless optical kerning**.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Use Artistic Text for logos and headlines. Use Frame Text for body copy and paragraphs."
+      }
+    },
+    {
+      "id": "D06-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Two Typography Paradigms",
+      "subtitle": "Interactive Scaling vs Automatic Reflow",
+      "contentMarkdown": "Affinity Designer divides text into two distinct tools on the toolbar (`T`):\n\n1. **Artistic Text Tool:**\n   - Click-drag on canvas to set initial font point size.\n   - Dragging the corner handle **scales the actual font size** (e.g. 24pt up to 72pt).\n   - Never auto-wraps; perfect for logos, titles, and price tags.\n2. **Frame Text Tool:**\n   - Click-drag a bounding rectangle on canvas.\n   - Dragging the corner handle **reflows words across lines**; font size stays fixed.\n   - Perfect for multi-line body paragraphs and product cards.",
+      "visual": {
+        "type": "comparison",
+        "content": "Artistic Text: Scales font size with bounding box VS Frame Text: Wraps lines within fixed margins"
+      }
+    },
+    {
+      "id": "D06-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Micro-Typography: Kerning vs Tracking vs Leading",
+      "subtitle": "Understanding Spacing Metrics",
+      "contentMarkdown": "Mastering the three foundational spacing dimensions:\n\n- **Kerning:** Spacing between a *single specific pair* of adjacent characters (e.g. 'A' and 'V'). Adjusted optically to eliminate awkward gaps.\n- **Tracking:** Uniform spacing across an *entire word or paragraph*. Increasing tracking on all-caps titles creates an airy, luxury feel.\n- **Leading:** The vertical distance between consecutive baselines of text (line height).",
+      "actionBox": {
+        "label": "Essential Kerning Shortcut",
+        "text": "Place cursor between two letters: hold Alt (Win) / Option (Mac) + tap Left/Right Arrow keys to kern by 10‰.",
+        "shortcut": { "win": "Alt+Arrow", "mac": "Option+Arrow" }
+      }
+    },
+    {
+      "id": "D06-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Optical Kerning Workflow",
+      "subtitle": "Eliminating Awkward Letterform Gaps",
+      "contentMarkdown": "Follow these steps to kern a luxury display logo:\n\n1. **Step 1:** Select the Artistic Text Tool (`T`) and type 'VAULT'.\n2. **Step 2:** Choose a bold serif or clean geometric sans-serif typeface.\n3. **Step 3:** Place your cursor between 'V' and 'A'. Notice the diagonal slant of 'V' creates an immense optical canyon before 'A'.\n4. **Step 4:** Hold `Alt` / `Option` and press **Left Arrow** 4 times until the visual negative space matches the gap between 'U' and 'L'.\n5. **Inspect:** The wordmark now flows with seamless optical rhythm!",
+      "visual": {
+        "type": "table",
+        "content": "| Problematic Letter Pairs | Why They Need Manual Kerning |\n|---|---|\n| T + o / T + e | Crossbar overhang leaves giant whitespace underneath |\n| A + V / V + A | Diagonal strokes collide or separate awkwardly |\n| L + T / L + Y | Horizontal base of L creates a void beneath T or Y |"
+      }
+    },
+    {
+      "id": "D06-01-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "The Power of Luxury Tracking",
+      "subtitle": "Transforming Small Text into High-Fashion Accents",
+      "contentMarkdown": "A staple technique in high-end editorial and perfume branding:\n\n- Type secondary labels or subtitles in **ALL CAPS** (e.g. 'AUTUMN / WINTER COLLECTION').\n- Set font size small (`9 pt` to `11 pt`).\n- In the Character Studio, boost **Tracking to `+200‰` or `+300‰`**.\n- The generous letter-spacing creates an undeniable impression of elegance, restraint, and luxury.",
+      "actionBox": {
+        "label": "Design Secret",
+        "text": "Tighten tracking (-10‰ to -30‰) on massive headlines; expand tracking (+150‰ to +300‰) on small all-caps subtitles."
+      }
+    },
+    {
+      "id": "D06-01-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Converting Text to Vector Curves",
+      "subtitle": "When and How to Freeze Type into Geometry",
+      "contentMarkdown": "Before sending logo artwork to print or using boolean operations on letterforms:\n\n1. Select the live Artistic Text object with the Move Tool (`V`).\n2. Go to **`Layer > Convert to Curves`** (or press `Ctrl+Enter` / `Cmd+Enter`).\n3. The text layer converts into a Group of individual `(Curve)` shapes!\n4. You can now use the Node Tool (`A`) to sculpt custom ligatures, extend serifs, or slice letters with Boolean Divide.",
+      "actionBox": {
+        "label": "Production Best Practice",
+        "text": "Always keep a hidden backup of the live text layer! Once converted to curves, you cannot fix spelling errors."
+      }
+    },
+    {
+      "id": "D06-01-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Typography Pitfalls & Common Mistakes",
+      "subtitle": "Avoid These Beginner Habits",
+      "contentMarkdown": "### 1. The Accidental Squished Text Trap\n- **The Issue:** A headline appears vertically squished or horizontally stretched.\n- **The Cause:** Dragging a middle edge handle on a text box instead of the corner proportional handle.\n- **The Fix:** In the Character panel, verify both Horizontal and Vertical Scale are set to exactly `100%`.\n\n### 2. Spacing Letters with the Spacebar\n- **The Issue:** Typing spaces between characters to simulate tracking.\n- **The Fix:** Never use spacebars! Use the **Tracking field** in the Character panel for mathematically consistent spacing that remains accessible.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Keep Scale at 100% | Never Use Spacebar for Tracking | Duplicate Before Converting to Curves"
+      }
+    },
+    {
+      "id": "D06-01-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Luxury Atelier Wordmark",
+      "subtitle": "Put Typography Mastery into Action",
+      "contentMarkdown": "### Your Mission:\nConstruct a high-fashion luxury atelier identity lockup:\n\n1. Headline wordmark: Artistic Text 'MONOLITH' using high-contrast serif typography (`44 pt`).\n2. Manually kern the 'M-O-N-O' sequence using `Alt/Option + Arrow` keys.\n3. Subtitle: 'ARCHITECTURAL DESIGN STUDIO' in geometric sans-serif (`10 pt`), All Caps, with **`+250‰` tracking**.\n4. Body block: A 2-column Frame Text description with 1.4x leading and justified text.\n5. Convert a duplicate of 'MONOLITH' to curves and customize the terminal curve of 'R'.\n\n### Acceptance Criteria:\n- Optically balanced kerning with zero awkward letter gaps.\n- Tracking on subtitle verified at +250‰.\n- Clean hierarchy between display headline and body copy.",
+      "practiceData": {
+        "prompt": "Construct a luxury fashion wordmark using Artistic Text and custom kerning.",
+        "starterAsset": {
+          "filename": "D06_typography_glyphs_guide.md",
+          "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for typography and kerning."
+        },
+        "checkpoints": [
+          "Artistic Text used for display wordmark",
+          "Manual kerning applied via Alt/Option + Arrow",
+          "Frame Text used for multi-line description"
+        ]
+      }
+    }
+  ]
+}

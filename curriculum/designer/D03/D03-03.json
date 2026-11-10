@@ -1,0 +1,294 @@
+{
+  "id": "D03-03",
+  "moduleId": "D03",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Non-Destructive Compound Shapes & Geometry Optimization",
+  "subtitle": "Live Compound Layers, Alt/Option Modifier & Boolean Expansion",
+  "durationMinutes": 30,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Construct non-destructive Compound Shapes by holding Alt (Win) / Option (Mac) during any Boolean operation.",
+      "Understand the internal architecture of a `(Compound)` layer in the Layers Studio.",
+      "Edit, move, resize, and re-order child vector shapes inside a live compound in real time without destroying the compound calculation.",
+      "Change individual Boolean modes per child item (Add, Subtract, Intersect, Xor) inside the same Compound container.",
+      "Bake or expand a Compound Shape into a final flattened Bezier curve when finalizing production artwork."
+    ],
+    "foundationalKnowledge": "Standard Boolean operations are destructive: once you click 'Subtract' or 'Add', the original primitive shapes are permanently welded or destroyed. If a creative director asks to reposition a circular cutout 10 pixels to the left, you would normally have to start from scratch. Affinity Designer solves this with 'Compound Shapes'. By holding Alt (Windows) or Option (macOS) while clicking any Boolean button, Designer creates a live procedural `(Compound)` layer. Inside this compound, all original circles, stars, and rectangles remain 100% intact and editable, while the canvas renders the dynamic composite outline at 60fps.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Compound Shapes & Non-Destructive Vector Architecture",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Compound Shapes Engine",
+      "persona": "Vector Persona (Alt/Option + Geometry Toolbar)",
+      "shortcut": {
+        "win": "Alt + Click Boolean Button (Toolbar or Layer > Create Compound)",
+        "mac": "Option + Click Boolean Button (Toolbar or Layer > Create Compound)"
+      },
+      "description": "Holding Alt/Option while invoking a Boolean command generates a dynamic Compound Shape layer. Child layers can have their individual Boolean interaction mode toggled in the Layers panel.",
+      "contextBarOptions": [
+        "Alt + Add: Creates non-destructive additive Compound",
+        "Alt + Subtract: Creates non-destructive subtractive Compound",
+        "Alt + Intersect: Creates non-destructive intersection Compound",
+        "Alt + Xor: Creates non-destructive exclusion Compound",
+        "Layer > Create Compound: Converts selected layers into a compound structure",
+        "Layer > Geometry > Convert to Curves: Flattens the compound into static curves"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Select Multiple Vector Shapes",
+        "instruction": "Draw a large rounded rectangle and three small circles positioned over it. Select all 4 objects with the Move Tool (V).",
+        "shortcutTip": { "win": "V", "mac": "V" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Generate a Non-Destructive Compound via Alt/Option",
+        "instruction": "Press and hold Alt (Windows) or Option (macOS). Click the 'Subtract' button on the top toolbar. Notice on the canvas that the circles cut holes through the rectangle.",
+        "shortcutTip": { "win": "Alt+Click Subtract", "mac": "Option+Click Subtract" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Inspect the (Compound) Layer Hierarchy",
+        "instruction": "Open the Layers Studio. Notice a new layer labeled '(Compound)' with an expansion arrow. Expand the layer: all 4 of your original shapes are listed inside, with small boolean operator icons beside each thumbnail!",
+        "shortcutTip": { "win": "Layers Studio", "mac": "Layers Studio" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Reposition Child Shapes in Real Time",
+        "instruction": "Select one of the child circles inside the Compound in the Layers panel. Use the Move Tool to drag it across the canvas. Notice the hole glides across the rounded rectangle smoothly in real time!",
+        "shortcutTip": { "win": "Move Child Shape", "mac": "Move Child Shape" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Change Boolean Mode Per Child Shape",
+        "instruction": "Click the small operator icon beside a child circle in the Layers panel. Change its mode from 'Subtract' to 'Intersect' or 'Add'. The compound instantly recalculates the visual output.",
+        "shortcutTip": { "win": "Toggle Operator Icon", "mac": "Toggle Operator Icon" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Destructive Boolean vs Non-Destructive Compound",
+        "description": "Structural comparison of the two workflows.",
+        "visualType": "table",
+        "visualContent": "| Feature | Standard Boolean (Click) | Compound Shape (Alt/Option + Click) |\n|---|---|---|\n| Layer Output | Single flattened '(Curve)' | Live dynamic '(Compound)' container |\n| Primitives Preserved | NO (shapes permanently dissolved) | YES (all shapes fully editable inside) |\n| Repositioning Cutouts | Impossible without redrawing | Instant (simply drag child shape) |\n| Mode Flexibility | Single fixed operation | Each child can have independent mode |\n| File Size Impact | Identical | Identical (vector math evaluated on GPU) |"
+      },
+      {
+        "title": "Compound Scene Graph Hierarchy",
+        "description": "How child shapes nest inside a compound.",
+        "visualType": "diagram",
+        "visualContent": "(Compound Layer) [Base Material: Dark Slate #1e1e24]\n  ├── [Add] Base Rounded Rectangle (Card Foundation)\n  ├── [- Subtract] Circle A (Left Camera Hole)\n  ├── [- Subtract] Circle B (Right Camera Hole)\n  └── [+ Add] Pill Capsule (Speaker Grille)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Parametric Smartphone Camera Bump",
+      "taskDescription": "Construct a modern smartphone camera island featuring a main enclosure, three lens cutouts, and a flash lens, all built inside a single non-destructive Compound Shape.",
+      "checkpoints": [
+        "Create base rounded rectangle for the camera housing.",
+        "Add 3 circles for triple lens barrels.",
+        "Alt/Option + Click 'Subtract' to generate the (Compound) container.",
+        "Add a 4th small circle for the LED flash.",
+        "Set the 4th circle's boolean icon to 'Add' so it protrudes rather than cuts.",
+        "Drag the lens circles with the Move Tool and observe the live compound recalculation."
+      ],
+      "expectedOutcome": "A fully adjustable, production-grade smartphone camera island where lens spacing can be tuned infinitely."
+    },
+    "independentChallenge": {
+      "title": "Modular Game Character Face Rig",
+      "prompt": "Construct a cartoon character face using a single non-destructive Compound Shape: (1) Head base circle (Add); (2) Two eye sockets (Subtract); (3) Pupil circles nested inside sockets (Intersect); (4) Mouth slot (Subtract). Prove that selecting any eye circle allows shifting the character's gaze in real time without redrawing the face.",
+      "starterAsset": {
+        "filename": "D03_boolean_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+        "filesize": "1.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Compound Shapes (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Entire character head contained within a single (Compound) layer.",
+        "All child shapes retain original geometric primitive identities.",
+        "Gaze shift demonstrated by moving eye child shapes."
+      ],
+      "bonusGoal": "Duplicate the compound shape and create a 'Winking' expression by changing one eye socket to a horizontal bar."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Forgetting to hold Alt / Option and collapsing the shape",
+        "cause": "Clicking the standard Boolean buttons without holding the modifier key.",
+        "solution": "Immediately press Ctrl+Z / Cmd+Z to undo, then hold Alt (Win) or Option (Mac) and click the button again."
+      },
+      {
+        "pitfall": "Compound disappears or renders completely empty",
+        "cause": "All child shapes are set to 'Subtract' with no base shape set to 'Add', leaving nothing to subtract from.",
+        "solution": "Ensure the bottommost foundational shape inside the compound is set to 'Add'."
+      },
+      {
+        "pitfall": "Third-party game engines or plotters failing to parse compounds",
+        "cause": "Some legacy SVG parsers do not support complex procedural clipping math.",
+        "solution": "Duplicate the compound, hide the original backup, and choose Layer > Geometry > Convert to Curves on the duplicate before final export."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D03-03-Q1",
+        "question": "How do you create a non-destructive Compound Shape from selected objects in Affinity Designer?",
+        "options": [
+          "Double-click the canvas with the Pen Tool.",
+          "Hold Alt (Windows) or Option (macOS) while clicking any Boolean geometry button on the toolbar.",
+          "Group the layers and change blend mode to Multiply.",
+          "Export the file to PDF."
+        ],
+        "correctIndex": 1,
+        "explanation": "Holding Alt (Windows) or Option (macOS) while clicking an Add, Subtract, Intersect, or Xor button generates an interactive, non-destructive Compound Shape."
+      },
+      {
+        "id": "D03-03-Q2",
+        "question": "What happens if you move a child shape that is set to 'Subtract' inside an active Compound Shape?",
+        "options": [
+          "The compound layer dissolves into a bitmap.",
+          "The cutout hole moves across the parent shape in real time, recalculating the subtraction dynamically.",
+          "An error dialog is displayed.",
+          "The shape is deleted from the document."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer's GPU-accelerated compound engine recalculates Boolean geometry dynamically in real time as child layers are moved, scaled, or rotated."
+      },
+      {
+        "id": "D03-03-Q3",
+        "question": "Can different child shapes within the same Compound Shape have different Boolean interaction modes?",
+        "options": [
+          "No; all shapes in a compound must share the identical mode.",
+          "Yes; each child shape displays an operator icon in the Layers panel that can be set independently to Add, Subtract, Intersect, or Xor.",
+          "Only in Affinity Photo.",
+          "Only if the document has fewer than 2 layers."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer compounds support mixed-mode hierarchies: each child layer has its own Boolean operator icon in the Layers Studio that can be toggled independently."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Compound Shapes (Alt/Option + Boolean) provide 100% non-destructive vector sculpting.",
+        "Child shapes remain fully editable, movable, and resizable inside the (Compound) layer.",
+        "Different child layers can mix Add, Subtract, Intersect, and Xor within the same compound.",
+        "Compounds can be converted to static curves when baking final production SVG assets."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Module: D04 Fill, Gradient, Stroke & Pressure Profiles",
+          "target": "D04-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Compound Shapes",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D03-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Non-Destructive Compound Shapes & Geometry Optimization",
+      "subtitle": "The Ultimate Non-Destructive Vector Workflow",
+      "contentMarkdown": "Welcome to **Lesson D03-03**.\n\nDestructive Booleans are fast, but what happens when a client asks to change the size of a hole, or reposition a cutout after hours of work?\n\nIn this lesson, you will master **Compound Shapes**—Affinity Designer's superpower for creating live, fully non-destructive Boolean hierarchies using the **Alt / Option modifier**.",
+      "actionBox": {
+        "label": "Superpower Shortcut",
+        "text": "Never click a Boolean button alone! Hold Alt (Win) or Option (Mac) to keep your primitives alive."
+      }
+    },
+    {
+      "id": "D03-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Anatomy of a (Compound) Layer",
+      "subtitle": "Inside the Live Boolean Container",
+      "contentMarkdown": "When you hold **Alt / Option** and click a Boolean button, Affinity creates a specialized **`(Compound)`** layer:\n\n- **Parent Container:** Behaves on canvas as a single unified vector path with one fill and stroke.\n- **Child Primitives:** Inside the container, all original circles, stars, and rectangles remain completely intact.\n- **Per-Item Operators:** Each child has its own clickable icon: `[+] Add`, `[-] Subtract`, `[∩] Intersect`, or `[X] Xor`.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Compound Layer] (Renders unified silhouette at 60fps)\n  ├── [+] Base Shape (Rectangle)\n  ├── [-] Cutout Hole 1 (Circle)\n  └── [-] Cutout Hole 2 (Star)"
+      }
+    },
+    {
+      "id": "D03-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Creating and Manipulating Compounds",
+      "subtitle": "Modifiers, Menus & Layers Panel Controls",
+      "contentMarkdown": "There are two primary ways to create a Compound Shape:\n\n1. **Toolbar Modifier:** Select shapes, hold **`Alt` (Win) / `Option` (Mac)**, and click any Boolean button on the main toolbar.\n2. **Menu Command:** Go to `Layer > Create Compound`.\n\n*Layer Management:* In the Layers Studio, click the small operator icon beside any child to toggle its Boolean mode on the fly without breaking the compound.",
+      "actionBox": {
+        "label": "Live Interaction",
+        "text": "Select a child circle inside the compound and move it with the Move Tool (V). The cut updates smoothly in real time!"
+      }
+    },
+    {
+      "id": "D03-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: The Triple-Lens Camera Island",
+      "subtitle": "Constructing an Editable Hardware Asset",
+      "contentMarkdown": "Follow these steps to build an editable smartphone camera island:\n\n1. **Step 1:** Draw a dark rounded rectangle for the island body.\n2. **Step 2:** Draw 3 circles for camera lenses overlapping the island.\n3. **Step 3:** Select all 4 objects. Hold **`Alt` (Win) / `Option` (Mac)** and click **Subtract**.\n4. **Step 4:** Notice the `(Compound)` layer in the Layers Studio. Expand it.\n5. **Step 5:** Select any lens circle and use the arrow keys to nudge it. The cutout hole moves live!\n6. **Step 6:** Add a small pill shape for the microphone, and toggle its icon inside the compound to `Add`.",
+      "visual": {
+        "type": "comparison",
+        "content": "Destructive Boolean: Fixed pixels, impossible to tweak VS Compound Shape: 100% parametric, infinitely adjustable"
+      }
+    },
+    {
+      "id": "D03-03-S5",
+      "slideNumber": 5,
+      "type": "step-by-step",
+      "title": "Baking Compounds for Final Production",
+      "subtitle": "When and How to Flatten Geometry",
+      "contentMarkdown": "While Compound Shapes are ideal during design, certain production pipelines (e.g. laser cutters, embroidery machines, or simple SVG web icons) require a single static path:\n\n1. Always keep an editable master backup of your Compound layer in an invisible '(Archive)' group.\n2. Select the compound and navigate to `Layer > Geometry > Convert to Curves`.\n3. Designer permanently bakes the compound calculations into a single clean Bezier `(Curve)` layer.",
+      "actionBox": {
+        "label": "Production Best Practice",
+        "text": "Never delete your live compound! Duplicate before baking so you can always revise client requests."
+      }
+    },
+    {
+      "id": "D03-03-S6",
+      "slideNumber": 6,
+      "type": "pitfalls",
+      "title": "Compound Traps & Edge Cases",
+      "subtitle": "Diagnose Common Hierarchy Mistakes",
+      "contentMarkdown": "### 1. Inverted Hierarchy (Everything Vanishes)\n- **The Issue:** The entire compound disappears from the screen.\n- **The Cause:** The lowest foundational layer is set to `Subtract` or `Intersect`, so there is no base geometry to calculate against.\n- **The Fix:** Ensure the bottom child layer inside the compound is always set to `Add`.\n\n### 2. Accidental Destructive Overwrite\n- **The Cause:** Forgetting to hold Alt/Option when clicking the Boolean button.\n- **The Fix:** Undo (`Ctrl+Z` / `Cmd+Z`) and hold Alt/Option.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Base Layer = Add (+) | Modifier Layers = Subtract (-) | Always Duplicate Before Baking"
+      }
+    },
+    {
+      "id": "D03-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Dynamic Vector Mascot Face",
+      "subtitle": "Build an Expressive Character Rig",
+      "contentMarkdown": "### Your Mission:\nConstruct an expressive character face inside a single non-destructive **Compound Shape**:\n\n1. Base head: Circle primitive set to `Add`.\n2. Eye sockets: Two circles set to `Subtract`.\n3. Eye pupils: Two smaller circles nested inside sockets set to `Add`.\n4. Mouth slot: Capsule shape set to `Subtract`.\n5. Select the pupil circles and reposition them to give the character different emotional expressions (looking left, right, up, down) in real time.\n\n### Acceptance Criteria:\n- Entire face lives inside 1 `(Compound)` layer.\n- Expression changes dynamically simply by moving child shapes.\n- Zero destructive flattening.",
+      "practiceData": {
+        "prompt": "Construct a dynamic vector character face using non-destructive Compound Shapes.",
+        "starterAsset": {
+          "filename": "D03_boolean_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+          "filesize": "1.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Compound Shapes."
+        },
+        "checkpoints": [
+          "Compound Shape created via Alt/Option modifier",
+          "Multiple child shapes with mixed Add and Subtract modes",
+          "Real-time expression shifting verified"
+        ]
+      }
+    }
+  ]
+}

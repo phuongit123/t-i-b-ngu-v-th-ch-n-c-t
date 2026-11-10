@@ -1,0 +1,289 @@
+{
+  "id": "D08-02",
+  "moduleId": "D08",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Assets Studio & Portable .afassets Libraries",
+  "subtitle": "Categories, Subcategories, Importing/Exporting & Cloud Sync",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Distinguish between document-scoped Symbols and application-scoped persistent Assets.",
+      "Organize enterprise design libraries using Categories and Subcategories inside the Assets Studio.",
+      "Add, update, and manage vector components, icons, and UI groups into the Assets library.",
+      "Export and import portable .afassets library files for team distribution and StudioLink cross-app usage."
+    ],
+    "foundationalKnowledge": "While Symbols allow live synchronization within a single active document, professional creative workflows require component libraries that persist globally across entirely separate projects, client files, and even across Affinity Photo and Affinity Publisher via StudioLink. This is the domain of the Assets Studio (View > Studio > Assets). Any completed vector illustration, icon set, typographic lockup, or UI kit can be added to an Assets category. These assets are saved in the user's global application application data and can be compiled into portable binary packages with the .afassets extension for team-wide design system deployment.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Assets Studio Specification & .afassets Architecture",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Assets Studio",
+      "persona": "Vector Persona (View > Studio > Assets)",
+      "shortcut": {
+        "win": "View > Studio > Assets (Dock Panel), Drag-and-Drop Insertion",
+        "mac": "View > Studio > Assets (Dock Panel), Drag-and-Drop Insertion"
+      },
+      "description": "Global persistent library manager for storing, organizing, and distributing reusable vector graphics, UI kits, and branding assets.",
+      "contextBarOptions": [
+        "Category Dropdown: Selects the active high-level asset library (e.g. 'iOS UI Kit', 'Company Branding')",
+        "Subcategory Sections: Collapsible groupings (e.g. 'Buttons', 'Navigation', 'Logos')",
+        "Panel Menu (≡): Create Category, Rename Category, Delete Category, Export Assets, Import Assets",
+        "Subcategory Menu (≡): Add from Selection, Rename Subcategory, Delete Subcategory",
+        "Show as List vs Show as Icons: Toggles thumbnail grid versus detailed list view"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Open the Assets Studio",
+        "instruction": "Go to View > Studio > Assets. Dock the panel on the left or right studio panel. Notice that Affinity ships with a default 'iOS' or sample asset category.",
+        "shortcutTip": { "win": "View > Studio > Assets", "mac": "View > Studio > Assets" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Create a Custom Enterprise Category",
+        "instruction": "Click the burger menu (≡) in the top-right corner of the Assets Studio panel. Select 'Create New Category'. Click the burger menu again and select 'Rename Category...', naming it 'Affinity Academy UI Kit'.",
+        "shortcutTip": { "win": "≡ > Create New Category", "mac": "≡ > Create New Category" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Establish Structured Subcategories",
+        "instruction": "By default, a new category contains a subcategory named 'Assets'. Click the subcategory burger menu, select 'Rename...', and name it 'Buttons'. Click the top panel burger menu and select 'Create New Subcategory', naming it 'Telemetry Badges'.",
+        "shortcutTip": { "win": "≡ > Create New Subcategory", "mac": "≡ > Create New Subcategory" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Add Vector Components from Canvas",
+        "instruction": "Select your completed primary button component on the canvas with the Move Tool (V). In the Assets Studio under the 'Buttons' subcategory, click the burger menu and choose 'Add from Selection'. A crisp preview thumbnail of the button appears in the Assets palette.",
+        "shortcutTip": { "win": "Add from Selection", "mac": "Add from Selection" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Export as Portable .afassets Bundle",
+        "instruction": "Click the top panel burger menu (≡) and select 'Export Assets...'. Choose a destination folder and save the file as 'Affinity_Academy_UI_v1.afassets'. This package can now be sent to any Affinity user on Windows, macOS, or iPad.",
+        "shortcutTip": { "win": "≡ > Export Assets...", "mac": "≡ > Export Assets..." }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Symbols vs Assets Architecture Comparison",
+        "description": "Functional differences between Symbols and Assets.",
+        "visualType": "table",
+        "visualContent": "| Dimension | Symbols Studio | Assets Studio |\n|---|---|---|\n| Storage Scope | Local to the active document only | Global across all documents and projects |\n| Live Bidirectional Linking | Yes: Editing one updates all instances (with Sync ON) | No: Dragging an asset creates an independent copy |\n| File Format | Contained within .afdesign document file | Exportable as standalone .afassets package |\n| Cross-App Sharing | Requires copying between open documents | Instantly accessible in Photo and Publisher via StudioLink |\n| Primary Purpose | Multi-artboard responsive consistency and state overrides | Long-term design system distribution and icon kits |"
+      },
+      {
+        "title": "Assets Studio Taxonomy Hierarchy",
+        "description": "Structural organization of enterprise asset packages.",
+        "visualType": "diagram",
+        "visualContent": "Assets Studio:\n[Category: 'Enterprise Design System']\n    ├── [Subcategory: '01_Buttons'] ──> (Primary, Secondary, Ghost, Destructive)\n    ├── [Subcategory: '02_Form Inputs'] ──> (Text Field, Dropdown, Toggle, Checkbox)\n    ├── [Subcategory: '03_Navigation'] ──> (Header Bar, Sidebar, Breadcrumb, Tabs)\n    └── [Subcategory: '04_Iconography'] ──> (24px Solid, 24px Outline, 16px Micro)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Curating an Icon Pack in the Assets Studio",
+      "taskDescription": "Organize a cohesive set of 6 vector system icons into a dedicated subcategory and export as a team distribution bundle.",
+      "checkpoints": [
+        "Create an Assets category named 'System Icons 24px'.",
+        "Create two subcategories: 'Navigation' and 'Media Controls'.",
+        "Draw or place 6 vector icons (Home, Search, User, Play, Pause, Mute) on 24x24 px bounds.",
+        "Add each icon to its respective subcategory using 'Add from Selection'.",
+        "Export the category as 'System_Icons_24px.afassets' and test importing it into a blank document."
+      ],
+      "expectedOutcome": "A fully functional, categorized .afassets icon library that instantly populates when dragged onto any canvas."
+    },
+    "independentChallenge": {
+      "title": "Cross-App StudioLink Asset Deployment",
+      "prompt": "Build an enterprise brand asset kit: (1) Create category 'Corporate Identity Assets'; (2) Add vector logo lockups (Horizontal, Stacked, Monogram), color chip swatches, and social media watermarks into organized subcategories; (3) Export the category as 'Brand_Kit_2026.afassets'; (4) Open Affinity Photo or Publisher (or switch Persona) and verify that the 'Corporate Identity Assets' category is instantly visible in the Assets Studio; (5) Drag an asset onto a photo canvas to confirm 100% vector fidelity preservation across apps.",
+      "starterAsset": {
+        "filename": "D08_symbols_assets_guide.md",
+        "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
+        "filesize": "3.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for Assets Studio packaging and distribution (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Category and subcategories created with clean semantic naming.",
+        "Vector artwork stored with exact stroke scaling and fill settings intact.",
+        ".afassets file exported successfully with clean metadata.",
+        "Asset operates seamlessly across all Affinity Suite applications."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Adding ungrouped loose layers into the Assets Studio.",
+        "consequence": "Only one individual shape is added, leaving related text or icon vectors behind on canvas.",
+        "solution": "Always group the entire component (Ctrl+G / Cmd+G) before clicking 'Add from Selection'."
+      },
+      {
+        "mistake": "Assuming an asset dragged onto canvas will update if the original asset in the studio is altered.",
+        "consequence": "Assets do NOT have live links like Symbols; they are independent copies at the moment of insertion.",
+        "solution": "If live synchronization across instances is required, convert the component into a Symbol FIRST, and then add that Symbol to the Assets Studio!"
+      },
+      {
+        "mistake": "Forgetting to check 'Scale with object' on strokes before adding an asset.",
+        "consequence": "When an asset is dragged and scaled onto a smaller or larger artboard, stroke borders look massive or paper-thin.",
+        "solution": "Always check 'Scale with object' in the Stroke Studio before adding any asset to your library."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary difference in scope between Symbols and Assets in Affinity Designer?",
+        "options": [
+          "Symbols only work with pixel brushes, while Assets only work with vectors.",
+          "Symbols are scoped to the active document and maintain live linking; Assets are saved globally across the application and can be shared via .afassets files.",
+          "Symbols can only contain one shape, while Assets can contain multiple shapes.",
+          "Assets can only be used on macOS."
+        ],
+        "correctIndex": 1,
+        "explanation": "Symbols are contained within the active document and maintain live bidirectional synchronization between instances; Assets are stored globally in your application settings and can be exported as .afassets files for cross-project sharing."
+      },
+      {
+        "question": "How can you combine the benefits of Assets and Symbols so that dragged assets retain live linking?",
+        "options": [
+          "It is technically impossible in Affinity Designer.",
+          "Convert the component into a Symbol first in the Symbols Studio, and then add that Symbol container into the Assets Studio.",
+          "Save the file as a PDF/X-4 document.",
+          "Hold Shift+Ctrl while dragging from the Assets panel."
+        ],
+        "correctIndex": 1,
+        "explanation": "If you convert an object into a Symbol and then drag it into the Assets Studio, dragging that asset out into any document will instantiate it as an active Symbol!"
+      },
+      {
+        "question": "What file extension is used when exporting a standalone asset library from Affinity Designer?",
+        "options": [
+          ".afdesign",
+          ".afphoto",
+          ".afassets",
+          ".svgz"
+        ],
+        "correctIndex": 2,
+        "explanation": "Affinity's native portable asset library package uses the .afassets file extension, which works across Designer, Photo, and Publisher."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "The Assets Studio provides global, persistent component storage across documents and projects.",
+        "Categories and Subcategories establish a clean, enterprise-ready taxonomy for design systems.",
+        "Always group components and enable 'Scale with object' before adding to Assets.",
+        "Storing Symbols inside the Assets Studio enables instant live-linking upon canvas insertion."
+      ],
+      "nextSteps": "Proceed to D08-03 to construct an enterprise vector component library with variants, states, and responsive constraints.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/assetsPanel.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Persistent Libraries: The Assets Studio",
+      "subtitle": "Beyond Single-Document Symbols",
+      "bullets": [
+        "Symbols solve synchronization within a single active document.",
+        "Professional teams require component libraries that persist across hundreds of distinct files.",
+        "The Assets Studio stores reusable vector art in the global application memory.",
+        "Assets are instantly accessible in Affinity Designer, Photo, and Publisher without re-importing."
+      ],
+      "proTip": "Assets can be exported as standalone .afassets packages for team distribution."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Assets Studio Taxonomy Architecture",
+      "subtitle": "Categories & Subcategories Organization",
+      "bullets": [
+        "Access via View > Studio > Assets in the Vector Persona.",
+        "Top Level: Category (e.g. 'Enterprise Mobile UI Kit', 'Brand Identity Assets').",
+        "Second Level: Subcategory (e.g. 'Buttons', 'Inputs', 'Avatars', 'Cards').",
+        "Clean folder structures prevent design libraries from devolving into visual chaos."
+      ],
+      "proTip": "Prefix subcategory names with numbers (e.g. '01_Headers', '02_Buttons') for strict sorting."
+    },
+    {
+      "slideNumber": 3,
+      "title": "Adding Assets from Canvas",
+      "subtitle": "One-Click Library Ingestion",
+      "bullets": [
+        "Ensure the component is grouped into a single tidy container layer (Ctrl+G / Cmd+G).",
+        "Verify that 'Scale with object' is enabled in the Stroke Studio for all borders.",
+        "In the Assets Studio, click the subcategory burger menu (≡) -> 'Add from Selection'.",
+        "A thumbnail preview is generated instantly in the Assets palette."
+      ],
+      "callout": "Never add ungrouped layers or only part of your component will be saved!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "Symbols Inside Assets: The Ultimate Hybrid",
+      "subtitle": "Instantiating Linked Symbols from Global Libraries",
+      "bullets": [
+        "Normal assets are static independent copies when dragged onto canvas.",
+        "If you convert a component to a Symbol FIRST, and then add that Symbol to Assets...",
+        "Dragging instances onto canvas preserves active Symbol linkage and orange layer bars!",
+        "This combines global persistent storage with live multi-instance synchronization."
+      ],
+      "proTip": "This workflow enables true cross-document design system distribution."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Exporting and Distributing .afassets Bundles",
+      "subtitle": "Packaging Libraries for Design Teams",
+      "bullets": [
+        "Click the top panel burger menu (≡) and select 'Export Assets...'.",
+        "Outputs a compact, standalone .afassets binary archive file.",
+        "Colleagues simply double-click the .afassets file or choose 'Import Assets...' to install.",
+        "Compatible across Windows, macOS, and iPad versions of Affinity Suite."
+      ],
+      "proTip": "Store .afassets bundles in your team's Git or cloud repository for versioned design systems."
+    },
+    {
+      "slideNumber": 6,
+      "title": "StudioLink Cross-App Integration",
+      "subtitle": "Using Vector Assets in Photo and Publisher",
+      "bullets": [
+        "Assets saved in Designer are instantly visible in Affinity Photo and Publisher.",
+        "Drag vector UI badges directly onto photography compositions in Photo.",
+        "Place master vector logos directly onto editorial multi-page layouts in Publisher.",
+        "Zero loss of vector precision, color profiles, or layer hierarchy across apps."
+      ],
+      "proTip": "StudioLink eliminates the friction of exporting intermediary SVG/PNG assets between apps."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: Curating a Brand Kit",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D08_symbols_assets_guide.md'.",
+        "Create category 'Affinity Academy UI Kit' with subcategories 'Buttons' and 'Badges'.",
+        "Add completed master buttons and metric pills to the library.",
+        "Export the category as 'Affinity_Academy_UI_v1.afassets'.",
+        "Open a fresh blank canvas and drag your assets to test instant reusability."
+      ],
+      "proTip": "Inspect stroke thickness when dragging onto large vs small canvases."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Asset Studio Competencies",
+      "bullets": [
+        "Contrast the storage lifecycle of Symbols vs Assets.",
+        "Explain how to preserve live symbol links when saving to the Assets Studio.",
+        "Identify the file format used for exporting portable asset packages.",
+        "Ensure all assets are tested in a blank document before finalizing."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Summary & Transition to Component Systems",
+      "subtitle": "From Raw Assets to Unified Design Systems",
+      "bullets": [
+        "Constructed structured enterprise asset libraries with Categories and Subcategories.",
+        "Packaged and exported portable .afassets bundles for cross-team deployment.",
+        "Leveraged StudioLink for seamless asset sharing across Photo and Publisher.",
+        "In Lesson D08-03, we will assemble scalable component systems with variants and nested symbols."
+      ],
+      "proTip": "A well-organized asset library cuts UI production time by over 60%."
+    }
+  ]
+}

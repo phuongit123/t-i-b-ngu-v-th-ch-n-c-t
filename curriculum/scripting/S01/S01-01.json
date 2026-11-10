@@ -1,0 +1,292 @@
+{
+  "id": "S01-01",
+  "moduleId": "S01",
+  "trackId": "scripting",
+  "order": 1,
+  "title": "Affinity JS Runtime Architecture, V8 Engine & Sandbox Limits",
+  "subtitle": "Embedded V8 Execution, Module Resolution & Sandboxed Security",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand how Serif Affinity 3.0 embeds the Google V8 JavaScript engine directly inside its C++ process.",
+      "Import native modules using CommonJS syntax: `require('/application.js')` and `require('/document.js')`.",
+      "Query application metadata: `Application.version`, `Application.productFullName`, `Application.buildVersion`.",
+      "Understand sandbox boundaries: why direct arbitrary disk I/O throws PERMISSION_DENIED and how `Application.userDesktopPath` governs write access."
+    ],
+    "foundationalKnowledge": "Starting in Affinity 3.0, Serif introduced a modern programmatic automation architecture powered by an embedded Google V8 ECMAScript engine. Rather than relying on legacy OS-level AppleScript or COM interfaces, Affinity executes JavaScript directly within its high-performance C++ document memory model. Scripts execute synchronously on the main application thread or asynchronously via promises. For security, the runtime runs inside a strict MSIX application sandbox: scripts cannot execute arbitrary shell binaries or write to arbitrary system folders without explicit user permission. All core automation interfaces are exposed via native virtual root modules such as `/application.js`, `/document.js`, `/shapes.js`, and `/layereffects.js`.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity 3.3.3 Embedded Google V8 Runtime & Application Module API Reference",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Application Module (`/application.js`)",
+      "persona": "JavaScript DOM API (MCP execute_script)",
+      "shortcut": {
+        "win": "execute_script MCP Tool or Window > Scripting Console",
+        "mac": "execute_script MCP Tool or Window > Scripting Console"
+      },
+      "description": "The root application singleton providing access to the Affinity version, open documents collection, desktop path, and user dialogs (alert, confirm, prompt).",
+      "contextBarOptions": [
+        "Application.version: Returns the full build string (e.g. 'Affinity 3.3.3.5004 Win32 (Oct 30 2026)')",
+        "Application.productFullName: Returns 'Affinity'",
+        "Application.buildVersion: Returns integer major version (e.g. 3)",
+        "Application.documents.current: Returns active Document instance or null if no document is open",
+        "Application.userDesktopPath: Sandboxed writable desktop directory"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Import the Native Application Module",
+        "instruction": "Open the Affinity Academy MCP Playground or scripting runner. At the top of your script, import the Application class using the mandatory slash-prefixed path: `const { Application } = require('/application.js');`.",
+        "shortcutTip": { "win": "require('/application.js')", "mac": "require('/application.js')" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Log Runtime Information to the Console",
+        "instruction": "Output the application version and product details using `console.log()`: `console.log('Product:', Application.productFullName); console.log('Version:', Application.version);`.",
+        "shortcutTip": { "win": "console.log()", "mac": "console.log()" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Inspect the Sandboxed Desktop Path",
+        "instruction": "Query the user's desktop boundary path: `console.log('Desktop Boundary:', Application.userDesktopPath);`. Notice this path points to the authorized user workspace.",
+        "shortcutTip": { "win": "Application.userDesktopPath", "mac": "Application.userDesktopPath" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Execute Script and Capture Output",
+        "instruction": "Click 'Run Script' (or execute via the `execute_script` tool). Observe the execution time (~85-100ms) and the exact string returned in the execution console.",
+        "shortcutTip": { "win": "Run (Ctrl+Enter)", "mac": "Run (Cmd+Enter)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Affinity Automation Architecture",
+        "description": "How JavaScript scripts interface with Affinity's C++ core.",
+        "visualType": "diagram",
+        "visualContent": "[Agent / Student / Web LMS UI]\n        ↓ SSE / JSON-RPC (Port 6767)\n[Affinity MCP Server]\n        ↓ C++ Internal Dispatcher\n[Embedded Google V8 Engine]\n   ├── /application.js  (App metadata, dialogs, documents collection)\n   ├── /document.js     (Active doc, session UUID, spreads, nodes)\n   ├── /shapes.js       (ShapeRectangle, ShapeEllipse, bezier curves)\n   └── /layereffects.js (Gaussian blur, shadows, FX parameters)\n        ↓ Direct Pointer Manipulation\n[Affinity 3.0 Core Engine & GPU Scene Graph]"
+      },
+      {
+        "title": "Sandbox Security Constraints",
+        "description": "What scripts can and cannot access.",
+        "visualType": "table",
+        "visualContent": "| Capability | Allowed / Restricted | Behavioral Notes |\n|---|---|---|\n| Query App & Doc DOM | ALLOWED | Instant synchronous access to document scene graph |\n| Create Shapes & FX | ALLOWED | Parametric vector generation via Shape classes |\n| Render Spreads | ALLOWED | Generates JPEG/PNG snapshots via MCP render engine |\n| Arbitrary Disk Write | RESTRICTED | Sandboxed; writing outside user folders throws PERMISSION_DENIED |\n| Launch OS Binaries | FORBIDDEN | Cannot spawn external CLI processes (prevents exploits) |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Hello World Script Execution",
+      "taskDescription": "Author and execute a verified diagnostic script that outputs the Affinity engine metadata and logs execution timestamps.",
+      "checkpoints": [
+        "Import Application from '/application.js'.",
+        "Extract Application.version and Application.productFullName.",
+        "Query Application.userDesktopPath.",
+        "Execute via execute_script and verify HTTP 200 / zero syntax exceptions."
+      ],
+      "expectedOutcome": "Formatted diagnostic banner displaying exact live Affinity version without errors."
+    },
+    "independentChallenge": {
+      "title": "Diagnostic Telemetry Reporter",
+      "prompt": "Write an automation script in 'curriculum/assets/scripting/S01_hello_affinity.js' that: (1) Verifies Application.buildVersion equals 3; (2) Checks if Application.documents.current is open; (3) Logs a structured JSON report object containing buildKind, compileDate, and platformName; (4) Throws a clean descriptive Error if no document is open.",
+      "starterAsset": {
+        "filename": "S01_hello_affinity.js",
+        "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
+        "filesize": "0.7 KB",
+        "filetype": ".js",
+        "assetStatus": "JAVASCRIPT_SCRIPT",
+        "isVerified": true,
+        "statusNote": "Verified runnable practice script (JAVASCRIPT_SCRIPT)."
+      },
+      "challengeCriteria": [
+        "Uses strict CommonJS require with leading slash.",
+        "Outputs valid parseable JSON string to console.",
+        "Executes in under 150ms via MCP."
+      ],
+      "bonusGoal": "Log the total count of open documents using Application.documents.all."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Omitting the leading slash in require statements",
+        "cause": "Writing `const { Application } = require('application.js')` instead of `require('/application.js')`.",
+        "solution": "Affinity's virtual module resolver requires a leading forward slash (e.g. `require('/application.js')`). Omitting it throws 'Module not found'."
+      },
+      {
+        "pitfall": "Attempting to use ES module import syntax inside execute_script",
+        "cause": "Writing `import { Application } from '/application.js'`.",
+        "solution": "The Affinity 3.0 embedded V8 scripting sandbox evaluates standard CommonJS `require()`. Use `const { ... } = require('/module.js')`."
+      },
+      {
+        "pitfall": "Writing files to arbitrary C:\\ folders and getting PERMISSION_DENIED",
+        "cause": "Affinity runs as a sandboxed WindowsApp (MSIX); saving to root folders like `C:\\` or `C:\\Windows` is strictly blocked.",
+        "solution": "Save files only within `Application.userDesktopPath` or user-granted document directories."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "S01-01-Q1",
+        "question": "What is the correct syntax for importing the Application class in an Affinity JavaScript DOM script?",
+        "options": [
+          "import Application from 'affinity';",
+          "const { Application } = require('/application.js');",
+          "const Application = window.Application;",
+          "require('node:affinity');"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity's embedded V8 runtime uses CommonJS syntax with root-level virtual module paths starting with a forward slash: require('/application.js')."
+      },
+      {
+        "id": "S01-01-Q2",
+        "question": "Why does attempting to write a file to 'C:\\Windows\\temp' throw a PERMISSION_DENIED error in an Affinity script?",
+        "options": [
+          "Because JavaScript does not have file write capabilities.",
+          "Because Affinity runs inside a hardened application sandbox that restricts filesystem access to authorized user folders such as Application.userDesktopPath.",
+          "Because your Affinity license has expired.",
+          "Because the hard drive is full."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity 3.0 implements strict sandbox boundaries to prevent untrusted scripts from modifying system files or executing unauthorized code on the host machine."
+      },
+      {
+        "id": "S01-01-Q3",
+        "question": "What does `Application.documents.current` return when no document is open in Affinity?",
+        "options": [
+          "A blank default document.",
+          "null",
+          "An empty string.",
+          "An unhandled kernel panic."
+        ],
+        "correctIndex": 1,
+        "explanation": "When zero documents are loaded in the application workspace, Application.documents.current evaluates to null. Scripts should always verify `if (doc) { ... }` before accessing properties."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Affinity 3.0 embeds Google V8 for native, high-performance DOM automation.",
+        "Native modules are loaded via CommonJS syntax with leading slashes (`/application.js`, `/document.js`).",
+        "Application sandbox security prevents destructive host OS modifications while exposing full graphic control.",
+        "The DOM API executes with sub-100ms latency directly inside the running process."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: S01-02 Connecting to Local Affinity MCP Server",
+          "target": "S01-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "AFFINITY DOM API REFERENCE Guide",
+          "target": "AFFINITY_DOM_API_REFERENCE.md",
+          "type": "mcp-api"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "S01-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Affinity JS Runtime & Architecture",
+      "subtitle": "Programmatic Design Automation with Embedded Google V8",
+      "contentMarkdown": "Welcome to **Affinity Scripting & MCP Automation**.\n\nDesign is no longer limited to manual mouse dragging. In modern creative workflows, **programmatic automation** handles generative art, automated data merges, batch resizing, and visual quality assurance.\n\nIn this lesson, you will master the **internal Google V8 runtime, native module resolution, and security boundaries** of Affinity 3.0.",
+      "actionBox": {
+        "label": "Architectural Truth",
+        "text": "Affinity executes JavaScript directly inside its C++ memory model—not through slow browser bridges."
+      }
+    },
+    {
+      "id": "S01-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Embedded V8 Engine",
+      "subtitle": "Sub-Millisecond Synchronous Execution",
+      "contentMarkdown": "How does Affinity 3.0 execute your code?\n\n- **Embedded Google V8:** The same ultra-fast engine powering Node.js and Google Chrome.\n- **Direct C++ Binding:** When you call `doc.addNode()`, V8 directly manipulates the internal C++ scene graph with zero IPC latency.\n- **Sandbox Isolation:** Scripts run inside a secure container. Arbitrary OS command execution is prohibited, preventing security exploits.",
+      "visual": {
+        "type": "diagram",
+        "content": "JavaScript Code ---> [Embedded Google V8] ---> [C++ Scene Graph] ---> [Instant Canvas Render]"
+      }
+    },
+    {
+      "id": "S01-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Root Module Ecosystem",
+      "subtitle": "CommonJS Virtual Paths",
+      "contentMarkdown": "Affinity exposes its DOM through clean virtual modules:\n\n- **`/application.js`:** `Application.version`, `Application.documents`, `alert()`, `confirm()`.\n- **`/document.js`:** `Document.current`, `sessionUuid`, `spreads`, `addNode()`, `saveAs()`.\n- **`/shapes.js`:** `ShapeRectangle`, `ShapeEllipse`, `ShapePolygon`, `ShapeStar`.\n- **`/layereffects.js`:** `GaussianBlurLayerEffect`, `OuterShadowLayerEffect`.\n\n**Syntax Rule:** Always include the leading forward slash in `require('/module.js')`!",
+      "actionBox": {
+        "label": "Syntax Alert",
+        "text": "require('/application.js') is VALID. require('application.js') will FAIL."
+      }
+    },
+    {
+      "id": "S01-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Writing Your First Automation Script",
+      "subtitle": "Querying Application Telemetry",
+      "contentMarkdown": "1. **Import Module:**\n```javascript\nconst { Application } = require('/application.js');\n```\n2. **Query Version & Identity:**\n```javascript\nconsole.log('App:', Application.productFullName);\nconsole.log('Build:', Application.version);\n```\n3. **Inspect Active Documents Collection:**\n```javascript\nconst doc = Application.documents.current;\nconsole.log('Active Doc:', doc ? doc.title : 'No doc open');\n```\n4. **Execute:** Run the code. Notice the instant return in ~100ms with full version telemetry!",
+      "visual": {
+        "type": "code",
+        "content": "const { Application } = require('/application.js');\nconsole.log('Affinity Version:', Application.version);"
+      }
+    },
+    {
+      "id": "S01-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Runtime Pitfalls & Security Sandbox Limits",
+      "subtitle": "Avoid Syntax and Permission Errors",
+      "contentMarkdown": "### 1. Missing Leading Slash in Require\n- **Error:** `Module not found: application.js`\n- **Fix:** Always write `require('/application.js')` with a leading slash.\n\n### 2. ES Module 'import' Syntax\n- **The Issue:** Writing `import { Application } from ...` throws a syntax error.\n- **Fix:** Affinity V8 uses CommonJS `const { ... } = require(...)`.\n\n### 3. File System PERMISSION_DENIED\n- **The Issue:** Attempting to write to `C:\\test.afphoto` fails.\n- **The Fix:** The MSIX sandbox allows writing only to authorized user paths like `Application.userDesktopPath`.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Always write scripts using CommonJS require() with leading slashes."
+      }
+    },
+    {
+      "id": "S01-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Runtime Fundamentals",
+      "subtitle": "Test Your Scripting Foundation",
+      "contentMarkdown": "Validate your understanding of Affinity's JavaScript environment.",
+      "quizData": {
+        "id": "S01-01-Q1",
+        "question": "What is the correct syntax for importing the Application class in an Affinity JavaScript DOM script?",
+        "options": [
+          "import Application from 'affinity';",
+          "const { Application } = require('/application.js');",
+          "const Application = window.Application;",
+          "require('node:affinity');"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity's embedded V8 runtime uses CommonJS syntax with root-level virtual module paths starting with a forward slash: require('/application.js')."
+      }
+    },
+    {
+      "id": "S01-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Diagnostic Telemetry Reporter",
+      "subtitle": "Write and Execute S01_hello_affinity.js",
+      "contentMarkdown": "### Your Mission:\nWrite and execute `curriculum/assets/scripting/S01_hello_affinity.js`:\n\n1. Import `Application` from `/application.js`.\n2. Output a clean ASCII diagnostic banner with Product Name, Build Version, and Full Version string.\n3. Query and log `Application.userDesktopPath`.\n4. Check if a document is currently open and output its filename, or log `'No open document'`.\n\n### Acceptance Criteria:\n- Script executes with zero errors in under 150ms.\n- Logs formatted telemetry banner to console.",
+      "practiceData": {
+        "prompt": "Author and run S01_hello_affinity.js against live Affinity 3.3.3.",
+        "starterAsset": {
+          "filename": "S01_hello_affinity.js",
+          "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
+          "filesize": "0.7 KB",
+          "filetype": ".js",
+          "assetStatus": "JAVASCRIPT_SCRIPT",
+          "isVerified": true,
+          "statusNote": "Verified runnable practice script (JAVASCRIPT_SCRIPT)."
+        },
+        "checkpoints": [
+          "Application module required with leading slash",
+          "Product and version strings extracted",
+          "Clean exit with execution time < 150ms"
+        ]
+      }
+    }
+  ]
+}

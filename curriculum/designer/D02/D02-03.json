@@ -1,0 +1,287 @@
+{
+  "id": "D02-03",
+  "moduleId": "D02",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Path Operations, Joining, Breaking & Stroke Joins",
+  "subtitle": "Join Curves, Break, Close, Reverse, Miter Limits & Cap Profiles",
+  "durationMinutes": 30,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Execute fundamental path operations: Join Curves, Break Curve, Close Curve, and Reverse Curve.",
+      "Understand path winding direction and its impact on fills, Boolean operations, and Text-on-Path.",
+      "Master the Stroke Studio: Butt, Round, and Square Cap styles.",
+      "Configure corner Join styles: Miter Join (with threshold limits), Round Join, and Bevel Join.",
+      "Diagnose and eliminate stroke spikes caused by excessive miter limits on acute angles."
+    ],
+    "foundationalKnowledge": "In vector illustration, an open curve has distinct start and end endpoints, while a closed curve forms an unbroken perimeter loop. Often in complex drafting, multiple individual line segments must be merged into a single continuous vector outline (Join Curves), or a path must be uncoupled at a specific vertex (Break Curve). Furthermore, stroke geometry is not purely mathematical hairpins—it possesses physical thickness governed by Cap styles (how stroke ends terminate) and Join styles (how two line segments meet at an angle). Controlling the Miter Limit is vital to avoid unsightly giant spikes poking out from acute sharp angles.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Stroke Studio & Curve Operation Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Path Operations & Stroke Studio",
+      "persona": "Vector Persona (Context Toolbar & Stroke Panel)",
+      "shortcut": {
+        "win": "View > Studio > Stroke (or Context Toolbar Actions)",
+        "mac": "View > Studio > Stroke (or Context Toolbar Actions)"
+      },
+      "description": "Path operation buttons reside on the Node Tool Context Toolbar (Join Curves, Break Curve, Close Curve, Reverse Curve). The Stroke Studio governs width, alignment, caps, joins, and miter limits.",
+      "contextBarOptions": [
+        "Join Curves: Merges two separate selected curves into one continuous path",
+        "Break Curve: Splits a single curve at the selected node into two independent open endpoints",
+        "Close Curve: Automatically bridges start and end nodes with a closing segment",
+        "Reverse Curve: Inverts the internal directional sequence of nodes",
+        "Cap Options: Butt Cap (flat at node), Round Cap (semicircle), Square Cap (extends by half width)",
+        "Join Options: Miter Join (sharp), Round Join (curved), Bevel Join (clipped bevel)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Draw Two Disconnected Paths",
+        "instruction": "Using the Pen Tool (P), draw two separate curved line segments side-by-side on your canvas. Notice they appear as two separate '(Curve)' layers in the Layers Studio.",
+        "shortcutTip": { "win": "P", "mac": "P" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Join Two Curves into One Continuous Path",
+        "instruction": "Switch to the Node Tool (A). Hold Shift and select both curves. Marquee-select the two neighboring endpoints that you want to unite. On the Context Toolbar, click the 'Join Curves' button. The two endpoints weld together into a single continuous path!",
+        "shortcutTip": { "win": "Click Join Curves", "mac": "Click Join Curves" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Break a Path at a Specific Vertex",
+        "instruction": "Select any anchor point along your continuous curve. On the Context Toolbar, click 'Break Curve'. The node splits into two open endpoints, allowing you to pull them apart.",
+        "shortcutTip": { "win": "Click Break Curve", "mac": "Click Break Curve" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Configure Stroke Caps and Miter Limits",
+        "instruction": "Open the Stroke Studio (View > Studio > Stroke). Set Stroke width to 12 pt. Click 'Round Cap' to give the path friendly rounded ends. Under Join, select 'Miter Join' and set the Miter Limit to 1.4. Notice how acute corners automatically clip to a clean bevel if the angle is too sharp, preventing giant runaway spikes.",
+        "shortcutTip": { "win": "Stroke Studio", "mac": "Stroke Studio" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cap Styles Comparison Matrix",
+        "description": "How stroke endings behave in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Cap Style | Terminal Geometry | Relationship to Endpoint Node |\n|---|---|---|\n| Butt Cap | Flat edge | Terminates exactly at the endpoint coordinate |\n| Round Cap | Semicircular dome | Extends beyond endpoint by 1/2 stroke width |\n| Square Cap | Flat rectangular box | Extends beyond endpoint by 1/2 stroke width |"
+      },
+      {
+        "title": "Miter Limit Behavior Diagram",
+        "description": "Why miter limits prevent needle spikes on sharp angles.",
+        "visualType": "diagram",
+        "visualContent": "High Miter Limit (10.0): Acute Corner ===> Enormous sharp needle spike! (Breaks layout)\nBalanced Miter (1.5-2.0): Acute Corner ===> Smoothly converts to neat bevel flat edge! (Safe)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing an Architectural Floorplan Wall Joint",
+      "taskDescription": "Take separate wall path segments, join them into a continuous perimeter, and configure Miter Joins and Butt Caps.",
+      "checkpoints": [
+        "Draw three separate intersecting line segments representing walls.",
+        "Select all segments with Node Tool (A) and click 'Join Curves' at all junctions.",
+        "Verify in the Layers Studio that the 3 layers have merged into a single '(Curve)' layer.",
+        "Set Stroke width to 8 pt with Butt Caps and Miter Joins.",
+        "Click 'Close Curve' to seal the perimeter into a fully enclosed room outline."
+      ],
+      "expectedOutcome": "A unified architectural perimeter curve with razor-sharp 90-degree corners and zero unjoined gaps."
+    },
+    "independentChallenge": {
+      "title": "Custom Vector Calligraphy Ribbons",
+      "prompt": "Construct a dynamic ribbon banner with folded ends using joined paths, custom cap styles, and closed geometry. Use 'Reverse Curve' on the inner shadow ribbon to ensure gradients flow in the correct optical direction.",
+      "starterAsset": {
+        "filename": "D02_pen_node_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for path operations and stroke caps."
+      },
+      "challengeCriteria": [
+        "Ribbon front banner must be a single closed curve.",
+        "Ribbon fold tails must be joined cleanly without double-stroked overlapping seams.",
+        "Miter limit configured to 2.0 to ensure crisp fold corners without spikes."
+      ],
+      "bonusGoal": "Apply a Round Cap to decorative flourish tails extending from the ribbon."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Runaway Miter Spikes protruding from acute corners",
+        "cause": "Drawing a very acute sharp angle (e.g. 15 degrees) with a high Miter Limit (e.g. 10.0).",
+        "solution": "Lower the Miter slider in the Stroke Studio to ~1.4 - 2.0, or switch Join style to 'Round Join' or 'Bevel Join'."
+      },
+      {
+        "pitfall": "Join Curves button is disabled (grayed out)",
+        "cause": "Both curves are already closed, or the selected nodes are intermediate nodes rather than open endpoints.",
+        "solution": "Join Curves only operates on open end nodes of two curves. Use Break Curve first if you need to open a path."
+      },
+      {
+        "pitfall": "Text-on-Path flowing upside down or backwards",
+        "cause": "The curve was drawn from right to left; text always flows in the direction the curve was plotted.",
+        "solution": "Select the curve with the Node Tool and click 'Reverse Curve' on the Context Toolbar."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D02-03-Q1",
+        "question": "What is the function of the 'Miter Limit' setting in the Stroke Studio?",
+        "options": [
+          "It controls the transparency of the stroke.",
+          "It defines the maximum allowable ratio between miter length and stroke width before a sharp corner automatically converts into a bevel, preventing giant runaway spikes.",
+          "It sets the color of the path.",
+          "It closes open curves automatically."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Miter Limit prevents ugly spikes at acute sharp corners by converting the point to a clean flat bevel whenever the spike exceeds the defined ratio threshold."
+      },
+      {
+        "id": "D02-03-Q2",
+        "question": "What requirement must be met before two separate curves can be merged using the 'Join Curves' button?",
+        "options": [
+          "Both curves must be grouped together.",
+          "Both curves must be selected, and their open endpoint nodes must be selected with the Node Tool.",
+          "The document must be in CMYK mode.",
+          "Both curves must have the exact same color fill."
+        ],
+        "correctIndex": 1,
+        "explanation": "Join Curves operates by welding the open terminal endpoints of two selected vector paths into a continuous single curve."
+      },
+      {
+        "id": "D02-03-Q3",
+        "question": "If you attach text to a vector curve and the letters render upside down, which command instantly fixes the reading direction?",
+        "options": [
+          "Break Curve",
+          "Reverse Curve",
+          "Smooth Curve",
+          "Close Curve"
+        ],
+        "correctIndex": 1,
+        "explanation": "The 'Reverse Curve' action inverts the intrinsic mathematical winding direction of the path, flipping the orientation of Text-on-Path immediately."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Open paths can be welded using Join Curves and split using Break Curve.",
+        "Closing curves forms airtight boundary perimeters ready for complex fills.",
+        "Cap styles (Butt, Round, Square) define how stroke terminals end.",
+        "Miter limits prevent needle spikes on sharp angles by cleanly transitioning to bevels."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Module: D03 Advanced Shape Creation & Boolean Geometry",
+          "target": "D03-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Stroke Studio & Miter Limits",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D02-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Path Operations, Joining, Breaking & Stroke Joins",
+      "subtitle": "Uniting Segments & Engineering Precision Stroke Terminals",
+      "contentMarkdown": "Welcome to **Lesson D02-03**.\n\nReal-world vector illustration frequently requires assembling complex graphics from multiple individual segments, splitting paths for color transitions, and fine-tuning stroke terminations.\n\nIn this lesson, you will master path topology: **Join, Break, Close, and Reverse**, alongside professional **Stroke Caps, Joins, and Miter Limits**.",
+      "actionBox": {
+        "label": "Mastery Goal",
+        "text": "Weld disparate curve fragments into a unified, mathematically clean closed shape."
+      }
+    },
+    {
+      "id": "D02-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Path Topology: Open vs Closed Curves",
+      "subtitle": "Endpoints, Winding Order & Continuity",
+      "contentMarkdown": "Vector curves possess directional and topological states:\n\n1. **Open Curves:** Possess a distinct Start Node and End Node. Cap styles only apply to open curve ends.\n2. **Closed Curves:** The start and end nodes are welded into a continuous perimeter loop with zero terminal ends.\n3. **Path Direction (Winding):** Curves have an invisible chronological vector direction. Winding dictates which way Text-on-Path flows and how compound fills evaluate.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Start Node ●] ════════════> Flow Direction ════════════> [End Node ●] (Open Curve)\n                                  ↓ Close Curve\n                      [ ● ═══════════════════ ● ]\n                      [ ║                     ║ ] (Closed Perimeter Loop)\n                      [ ● ═══════════════════ ● ]"
+      }
+    },
+    {
+      "id": "D02-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Stroke Studio Architecture",
+      "subtitle": "Caps, Joins, Alignments & Miter Limits",
+      "contentMarkdown": "Located in the right studio dock (`View > Studio > Stroke`), the Stroke panel controls physical stroke properties:\n\n- **Cap Styles:**\n  - *Butt Cap:* Terminates flat exactly on the anchor point.\n  - *Round Cap:* Adds a smooth 180° rounded cap extending 1/2 stroke width.\n  - *Square Cap:* Extends a flat rectangle 1/2 stroke width beyond the node.\n- **Join Styles:**\n  - *Miter Join:* Sharp pointed corners governed by the Miter Limit.\n  - *Round Join:* Curvature corners.\n  - *Bevel Join:* Chiseled flat corner bevels.",
+      "actionBox": {
+        "label": "Critical Control",
+        "text": "Keep Miter Limit around 1.4 to 2.0. Setting it too high generates runaway needle spikes on sharp angles!"
+      }
+    },
+    {
+      "id": "D02-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Welding Disconnected Curves",
+      "subtitle": "Executing the Join Curves Operation",
+      "contentMarkdown": "Follow these steps to unite two separate vector paths into one:\n\n1. **Step 1:** Select both curves using the Move Tool (`V`) or Node Tool (`A`) by holding `Shift`.\n2. **Step 2:** Press `A` to switch to the Node Tool.\n3. **Step 3:** Marquee-select the two open endpoints that you want to join.\n4. **Step 4:** Look at the top Context Toolbar. Click the **'Join Curves'** icon.\n5. **Inspect:** The two endpoints snap together into a single continuous vector path. Check the Layers Studio: the two layers have merged into one!",
+      "visual": {
+        "type": "comparison",
+        "content": "Before: 2 Separate (Curve) Layers VS After: 1 Continuous Unified (Curve) Layer"
+      }
+    },
+    {
+      "id": "D02-03-S5",
+      "slideNumber": 5,
+      "type": "step-by-step",
+      "title": "Reversing Path Direction for Text & Fills",
+      "subtitle": "Fixing Inverted Typography Flows",
+      "contentMarkdown": "When you attach text to a path, it follows the chronological direction in which the path was plotted:\n\n1. If text renders upside down along the bottom of an arc, select the curve with the Node Tool (`A`).\n2. Click the **'Reverse Curve'** button on the Context Toolbar.\n3. The starting node and ending node swap positions instantly, and the text immediately flips right-side up!",
+      "actionBox": {
+        "label": "Pro Tip",
+        "text": "Reverse Curve is essential when creating badges, circular logos, and currency seals."
+      }
+    },
+    {
+      "id": "D02-03-S6",
+      "slideNumber": 6,
+      "type": "pitfalls",
+      "title": "Path Traps & Common Failures",
+      "subtitle": "Avoid These Beginner Errors",
+      "contentMarkdown": "### 1. The Needle Spike Disaster\n- **The Issue:** A 2px corner produces a 200px long sharp needle spike protruding across the canvas.\n- **The Cause:** Acute sharp angle with Miter Limit set to 10 or higher.\n- **The Fix:** Lower Miter Limit to `1.5` or switch to `Round Join`.\n\n### 2. Join Curves Grayed Out\n- **The Cause:** The selected nodes are intermediate nodes along the body of the curve, not open terminal ends.\n- **The Fix:** Join Curves requires open endpoints. Use `Break Curve` to split intermediate nodes first.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Needle Spike (Miter > 5) | Safe Bevel (Miter 1.5) | Friendly Corner (Round Join)"
+      }
+    },
+    {
+      "id": "D02-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Precision Ribbon Seal",
+      "subtitle": "Put Path Operations into Action",
+      "contentMarkdown": "### Your Mission:\nConstruct a multi-piece vector heraldic ribbon seal:\n\n1. Draw 3 separate curve pieces: the front banner arc and two trailing ribbon tails.\n2. Join and close the front banner into a solid closed curve filled with deep crimson `#990000`.\n3. Configure stroke to `4 pt`, Miter Join with Miter Limit `2.0`.\n4. Apply **Round Caps** to the tail flourishes and verify zero spikes.\n\n### Acceptance Criteria:\n- Front banner is 100% closed vector shape.\n- Tail strokes have smooth rounded caps.\n- Zero miter spikes protruding outside bounds.",
+      "practiceData": {
+        "prompt": "Construct a vector ribbon banner with joined paths and custom stroke caps.",
+        "starterAsset": {
+          "filename": "D02_pen_node_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for path operations."
+        },
+        "checkpoints": [
+          "Separate curves joined using Join Curves",
+          "Miter limit set to 2.0 with zero spikes",
+          "Banner closed cleanly using Close Curve"
+        ]
+      }
+    }
+  ]
+}

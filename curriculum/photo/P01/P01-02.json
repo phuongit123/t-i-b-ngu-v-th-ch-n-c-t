@@ -1,0 +1,300 @@
+{
+  "id": "P01-02",
+  "moduleId": "P01",
+  "trackId": "photo",
+  "order": 2,
+  "title": "RAW Develop Persona & 32-bit HDR Color Pipelines",
+  "subtitle": "Sensor Data Decoding, Exposure Recovery, White Balance & Lens Correction",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Understand the mechanics of digital camera RAW sensor data and the role of the Develop Persona.",
+      "Work in a 32-bit unbounded floating point color space (RGB/32 HDR) vs standard 8-bit / 16-bit integers.",
+      "Recover clipped highlights, open shadow details, and calibrate White Balance via the Tint and Temperature sliders.",
+      "Apply automated and manual lens profile corrections (distortion, chromatic aberration, vignette removal)."
+    ],
+    "foundationalKnowledge": "When a camera captures a RAW photograph (e.g. .CR3, .NEF, .ARW, .DNG), it records uncompressed 12-bit or 14-bit linear electrical signals directly from the CMOS sensor without applying in-camera sharpening, tone curves, or color balance. When opened in Affinity Photo, the Develop Persona decodes this raw Bayer mosaic. Crucially, Affinity Photo allows developing RAW files directly into a 32-bit unbounded floating-point workspace (RGB/32 HDR). In 32-bit float, highlight luminance values can exceed 1.0 (pure white), preserving real physical light data and preventing color banding during heavy grade pulls.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo Develop Persona RAW Bayer Pipeline & 32-bit Float Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Develop Persona & Basic Panel",
+      "persona": "Develop Persona",
+      "shortcut": {
+        "win": "Automatically launches upon opening RAW files, or click Develop Persona icon on top-left toolbar",
+        "mac": "Automatically launches upon opening RAW files, or click Develop Persona icon on top-left toolbar"
+      },
+      "description": "The dedicated environment for processing camera RAW data. Houses the Basic, Lens, Details, Tones, and Overlays panels, alongside exposure clipping warning toggles.",
+      "contextBarOptions": [
+        "Develop Button (Top Left): Commits RAW processing and sends artwork to Photo Persona",
+        "Cancel Button: Discards changes and closes file without saving",
+        "Show Clipped Highlights (Toolbar Icon / Custom Shortcut): Flashes pure red over blown specular highlights",
+        "Show Clipped Shadows (Toolbar Icon / Custom Shortcut): Flashes pure blue over completely crushed black areas",
+        "Output Format Dropdown: Choose RGB (16-bit) or RGB (32-bit Float HDR)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Inspect RAW File in Develop Persona",
+        "instruction": "Open a RAW photograph or switch to Develop Persona on an existing image. Notice the Basic panel on the right with Exposure, Black Point, Brightness, and Contrast sliders.",
+        "shortcutTip": { "win": "Develop Persona", "mac": "Develop Persona" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Enable Clipping Warnings",
+        "instruction": "On the top toolbar, click the two exclamation mark icons (or use custom shortcuts if mapped in Settings > Shortcuts). Areas of the sky that have blown to pure white highlight will glow bright red; crushed shadows will glow blue. Use these visual alerts to guide your adjustments.",
+        "shortcutTip": { "win": "Clipping Warning Icons", "mac": "Clipping Warning Icons" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Recover Highlights and Calibrate White Balance",
+        "instruction": "Under the Basic panel, pull the Highlights slider down (e.g. -40%) to restore cloud texture. Use the White Balance eyedropper tool to click on a neutral gray or white area in the scene to neutralize color casts.",
+        "shortcutTip": { "win": "White Balance Eyedropper", "mac": "White Balance Eyedropper" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Enable Lens Corrections & Remove Chromatic Aberration",
+        "instruction": "Switch to the 'Lens' tab in the Develop panel. Check 'Automatic Lens Correction' (detects lens make/model). Under Chromatic Aberration, check 'Remove Chromatic Aberration' to eliminate purple/green fringing along high-contrast edges.",
+        "shortcutTip": { "win": "Lens Tab", "mac": "Lens Tab" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Develop as 32-bit Float or 16-bit Layer",
+        "instruction": "In the top context bar, verify the Output format is set to 'RGB (16-bit)' or 'RGB (32-bit)'. Click the blue 'Develop' button in the top left corner to transition into Photo Persona.",
+        "shortcutTip": { "win": "Click Develop", "mac": "Click Develop" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Color Bit Depth Pipeline Comparison",
+        "description": "Why 32-bit float and 16-bit matter for professional colorists.",
+        "visualType": "table",
+        "visualContent": "| Bit Depth | Total Discrete Tonal Levels per Channel | Dynamic Range Behavior | Primary Usage |\n|---|---|---|---|\n| 8-bit Integer | 256 levels (0-255) | Clamps at 0 (black) and 255 (white); banding risk | Web JPEG, final export |\n| 16-bit Integer | 65,536 levels | Smooth gradients; zero posterization during grading | Professional retouching |\n| 32-bit Float | Billions of values (unbounded) | Values can exceed 1.0; true HDR physical light data | VFX, 3D render comps, RAW |"
+      },
+      {
+        "title": "Bayer Sensor De-Mosaicing Diagram",
+        "description": "How the Develop Persona reconstructs full color from RAW sensor data.",
+        "visualType": "diagram",
+        "visualContent": "Camera CMOS Sensor [RG/GB Bayer Pattern]\n   ↓ Raw Sensor Voltage\nDevelop Persona [De-mosaicing Algorithm]\n   ├── White Balance Matrix Calibration\n   ├── Unbounded Highlight/Shadow Recovery\n   └── Lens Distortion & Vignette Correction\n   ↓\nPhoto Persona [Full 16-bit or 32-bit Pixel Canvas]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Landscape RAW Recovery Walkthrough",
+      "taskDescription": "Recover blown skies and open crushed tree shadows on a landscape photograph using clipping warnings.",
+      "checkpoints": [
+        "Enable Highlight (Alt+W) and Shadow (Alt+S) clipping alerts.",
+        "Pull Highlights slider to -35% until red warning indicators disappear from the sky.",
+        "Push Shadows slider to +25% until blue warning indicators lift from the foliage.",
+        "Adjust Clarity slider to +15% to enhance local micro-contrast.",
+        "Click Develop to finalize the conversion into Photo Persona."
+      ],
+      "expectedOutcome": "A balanced, high-dynamic-range image with zero blown highlights and natural shadow detail."
+    },
+    "independentChallenge": {
+      "title": "Architectural RAW Lens Calibration",
+      "prompt": "Take an architectural photo with barrel distortion and chromatic fringing. In Develop Persona: (1) Calibrate White Balance to neutral daylight (5500K); (2) Eliminate perspective lean using the Lens tab vertical correction; (3) Remove purple chromatic aberration on the building roofline; (4) Commit the develop process into Photo Persona.",
+      "starterAsset": {
+        "filename": "P01_starter.afphoto",
+        "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+        "filesize": "1.65 MB",
+        "filetype": ".afphoto",
+        "assetStatus": "REAL_AFFINITY_FILE",
+        "isVerified": true,
+        "statusNote": "Practice asset for lens correction and tonal balancing (REAL_AFFINITY_FILE)."
+      },
+      "challengeCriteria": [
+        "Highlights and shadows completely within visible range (zero clipping warnings).",
+        "Vertical building pillars align parallel to canvas edges.",
+        "Chromatic purple fringing completely eliminated at 100% zoom."
+      ],
+      "bonusGoal": "Use the Develop Persona Gradient Overlay tool to apply an independent 1-stop exposure drop to the sky before developing."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Over-pushing Shadows causing heavy digital noise",
+        "cause": "Under-exposed shadow areas contain low signal-to-noise ratio; pushing the Shadows slider to +100% amplifies raw sensor read noise.",
+        "solution": "Balance shadow recovery with the Noise Reduction slider in the 'Details' panel, applying Color Noise reduction to tame chroma speckles."
+      },
+      {
+        "pitfall": "Developing directly into 8-bit and discarding color headroom",
+        "cause": "If the Output setting is set to 8-bit, 98% of the camera sensor's original tonal gradation is permanently discarded upon clicking Develop.",
+        "solution": "Always verify that Output is set to 'RGB (16-bit)' or 'RGB (32-bit)' in the Develop Persona top context bar."
+      },
+      {
+        "pitfall": "Unintentional color shifting when moving between computers",
+        "cause": "Mismatch between camera sensor profile (Adobe RGB / ProPhoto) and monitor sRGB space.",
+        "solution": "Enable Soft Proofing adjustment in Photo Persona to preview target destination color gamut."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P01-02-Q1",
+        "question": "What is the primary benefit of developing a RAW file into a 32-bit floating-point workspace (RGB/32 HDR)?",
+        "options": [
+          "It makes the image file size smaller than a JPEG.",
+          "It permits unbounded luminance values where highlights can exceed 1.0 (pure white), allowing subsequent adjustments to recover blown details that would be permanently clipped in 8-bit or 16-bit.",
+          "It forces the camera to take another picture.",
+          "It converts the image into vector paths."
+        ],
+        "correctIndex": 1,
+        "explanation": "32-bit floating point color representation is unbounded. Values above 1.0 represent real physical light values, allowing retouchers to dim intense highlights later without experiencing white clipping."
+      },
+      {
+        "id": "P01-02-Q2",
+        "question": "Which keyboard shortcut toggles the Highlight Clipping Warning overlay in the Develop Persona?",
+        "options": [
+          "Ctrl+H / Cmd+H",
+          "Alt+W / Option+W",
+          "Shift+F7",
+          "Ctrl+Alt+Delete"
+        ],
+        "correctIndex": 1,
+        "explanation": "Alt+W (Windows) / Option+W (macOS) flashes pure red over pixels whose luminance has reached 100% clipping."
+      },
+      {
+        "id": "P01-02-Q3",
+        "question": "What does checking 'Remove Chromatic Aberration' in the Lens tab accomplish?",
+        "options": [
+          "It deletes all green colors from the photo.",
+          "It detects and removes optical color fringing (typically magenta/purple and green halos) caused by light wavelengths refracting at slightly different angles through camera lens elements.",
+          "It blurs the background.",
+          "It adds film grain."
+        ],
+        "correctIndex": 1,
+        "explanation": "Chromatic aberration is an optical artifact where colors fail to converge at the same focal point. Affinity Photo's algorithm detects and neutralizes these peripheral color fringes."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Develop Persona decodes camera sensor data with maximum bit-depth preservation.",
+        "Clipping overlays (Alt+W / Alt+S) provide objective visual feedback to avoid losing detail.",
+        "16-bit and 32-bit color pipelines prevent posterization and color banding during intense post-processing.",
+        "Automated Lens corrections eliminate optical distortion and chromatic fringing before retouching begins."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: P01-03 Non-Destructive Canvas Geometry & Crop",
+          "target": "P01-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Photo RAW Processing Guide",
+          "target": "https://affinity.serif.com/photo/raw-processing/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P01-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "RAW Develop Persona & 32-bit HDR Pipelines",
+      "subtitle": "Unleashing the Full Power of Digital Camera Sensors",
+      "contentMarkdown": "When you capture a RAW image, your camera doesn't save an ordinary picture—it saves **raw sensor telemetry**.\n\nAffinity Photo's **Develop Persona** gives you direct, unadulterated access to this data before it is converted into standard pixels.\n\nIn this lesson, you will master **exposure recovery, 32-bit floating point color, and optical lens calibration**.",
+      "actionBox": {
+        "label": "The RAW Advantage",
+        "text": "RAW files contain up to 14 stops of dynamic range—twice the dynamic range of an 8-bit JPEG."
+      }
+    },
+    {
+      "id": "P01-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Bit Depth & The 32-bit Floating Point Revolution",
+      "subtitle": "Why Integers Limit You and Floats Set You Free",
+      "contentMarkdown": "Traditional image editors lock your artwork into **8-bit integers (0 to 255)**:\n- If a cloud hits 255, it's clipped to pure white forever. Darkening it later only produces muddy gray.\n\n**Affinity Photo's 32-bit Float (RGB/32 HDR)** is completely **unbounded**:\n- Bright sunlight or light bulbs can register as `2.5` or `10.0`.\n- You can darken the sky three stops later in Photo Persona, and the cloud texture miraculously reappears!",
+      "visual": {
+        "type": "comparison",
+        "content": "8-bit (256 steps, clamped) vs 16-bit (65,536 steps) vs 32-bit Float (Billions of values, unbounded HDR)"
+      }
+    },
+    {
+      "id": "P01-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Develop Persona Control Center",
+      "subtitle": "Basic, Lens & Details Panels",
+      "contentMarkdown": "Master the core panels of the Develop Persona:\n\n- **Basic Panel:** Exposure, Black Point, Brightness, Contrast, Highlights/Shadows recovery, and White Balance (Temperature & Tint).\n- **Lens Tab:** Automatic camera/lens profile detection, distortion correction, and Chromatic Aberration removal.\n- **Details Tab:** Luminance and Chrominance Noise Reduction, and Radius/Clarity detail sharpening.\n- **Clipping Warning Icons:** Alt+W (Red for blown highlights), Alt+S (Blue for crushed shadows).",
+      "actionBox": {
+        "label": "Clipping Shortcut",
+        "text": "Press Alt+W (Win) / Option+W (Mac) to show highlight clipping in real time.",
+        "shortcut": { "win": "Alt+W", "mac": "Option+W" }
+      }
+    },
+    {
+      "id": "P01-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: RAW Sky & Shadow Recovery",
+      "subtitle": "A Practical Colorist Workflow",
+      "contentMarkdown": "1. **Activate Develop Persona:** Open your RAW photograph. Affinity automatically opens the Develop Persona.\n2. **Toggle Clipping Warnings:** Press `Alt+W` and `Alt+S`. Notice the red warning patches across the over-exposed sky.\n3. **Pull Highlights:** In the Basic panel, pull the **Highlights** slider down until all red warning patches vanish.\n4. **Lift Shadows:** Push the **Shadows** slider up (+25%) to open dark foliage detail without washing out the blacks.\n5. **Check Lens Correction:** Click the **Lens** tab. Ensure 'Remove Chromatic Aberration' is checked to kill purple fringes.\n6. **Commit:** Click the blue **Develop** button in the top left toolbar to transition into Photo Persona.",
+      "visual": {
+        "type": "callout",
+        "content": "Always develop into 16-bit or 32-bit Output to retain pristine color fidelity during final grading."
+      }
+    },
+    {
+      "id": "P01-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "RAW Development Pitfalls & Fixes",
+      "subtitle": "Preventing Noise and Color Banding",
+      "contentMarkdown": "### 1. Excessive Shadow Lifting\n- **The Cause:** Pushing shadows +100% amplifies raw sensor thermal noise, causing ugly color speckles.\n- **The Fix:** Go to the **Details** tab and increase **Color Noise Reduction** to 30% to clean up speckled pixels.\n\n### 2. Accidental 8-bit Bottleneck\n- **The Cause:** Leaving Output set to 8-bit in the context toolbar throws away 98% of your RAW tonal depth.\n- **The Fix:** Set Output to `RGB (16-bit)` or `RGB (32-bit Float)` before clicking Develop.\n\n### 3. Over-Sharpening in RAW\n- **The Pro-Tip:** Keep sharpening minimal in Develop Persona. Perform high-end frequency separation and sharpening in Photo Persona instead.",
+      "actionBox": {
+        "label": "Pro-Tip",
+        "text": "RAW noise is easiest to tame before demosaicing artifacts are baked in."
+      }
+    },
+    {
+      "id": "P01-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: RAW Science",
+      "subtitle": "Verify Your Sensor Understanding",
+      "contentMarkdown": "Check your comprehension of RAW development and bit depth.",
+      "quizData": {
+        "id": "P01-02-Q1",
+        "question": "What is the primary benefit of developing a RAW file into a 32-bit floating-point workspace (RGB/32 HDR)?",
+        "options": [
+          "It makes the image file size smaller than a JPEG.",
+          "It permits unbounded luminance values where highlights can exceed 1.0 (pure white), allowing subsequent adjustments to recover blown details that would be permanently clipped in 8-bit or 16-bit.",
+          "It forces the camera to take another picture.",
+          "It converts the image into vector paths."
+        ],
+        "correctIndex": 1,
+        "explanation": "32-bit floating point color representation is unbounded. Values above 1.0 represent real physical light values, allowing retouchers to dim intense highlights later without experiencing white clipping."
+      }
+    },
+    {
+      "id": "P01-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Dynamic Range Balancing",
+      "subtitle": "Perfecting High-Contrast Architecture",
+      "contentMarkdown": "### Your Mission:\nUsing the practice file `P01_starter.afphoto`, simulate a full RAW dynamic range balance:\n\n1. In Develop Persona, eliminate all clipping warnings on bright skies and dark brick shadows.\n2. Calibrate White Balance so that neutral whites measure equal RGB values in the Info Studio.\n3. Enable Lens Correction and eliminate any lateral chromatic aberration along contrasting structural edges.\n\n### Acceptance Criteria:\n- Zero red highlight clipping patches.\n- Zero blue shadow clipping patches.\n- Final image developed cleanly into a 16-bit canvas in Photo Persona.",
+      "practiceData": {
+        "prompt": "Balance highlights, shadows, and lens corrections with zero clipped pixels.",
+        "starterAsset": {
+          "filename": "P01_starter.afphoto",
+          "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+          "filesize": "1.65 MB",
+          "filetype": ".afphoto",
+          "assetStatus": "REAL_AFFINITY_FILE",
+          "isVerified": true,
+          "statusNote": "Practice asset for lens correction and tonal balancing (REAL_AFFINITY_FILE)."
+        },
+        "checkpoints": [
+          "Clipping alerts active during adjustment",
+          "Highlights pulled to eliminate over-exposure",
+          "Lens chromatic aberration removed"
+        ]
+      }
+    }
+  ]
+}

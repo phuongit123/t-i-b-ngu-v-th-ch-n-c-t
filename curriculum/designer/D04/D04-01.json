@@ -1,0 +1,303 @@
+{
+  "id": "D04-01",
+  "moduleId": "D04",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Fill Tool & Multi-Stop Gradients (5 Types)",
+  "subtitle": "Linear, Radial, Elliptical, Conical, Midpoints & Opacity Stops",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the Fill Tool (G) to paint interactive color gradients directly across vector paths and text.",
+      "Understand the geometric differences and optical behavior of Linear, Elliptical, Radial, and Conical gradients.",
+      "Insert, position, delete, and sample multi-stop color ramps with independent opacity values.",
+      "Adjust gradient midpoint bias sliders to control tonal transitions and prevent muddy gray blending zones."
+    ],
+    "foundationalKnowledge": "Gradients transform flat two-dimensional vector paths into dimensional, illuminated surfaces by interpolating colors smoothly across space. While many applications only offer basic linear or circular ramps, Affinity Designer delivers five high-performance gradient types: Linear, Elliptical (with two independent focal axes), Radial, Conical (a 360-degree sweep around a central pole, indispensable for metals and radar screens), and Bitmap. Crucially, the Fill Tool (G) operates directly on-canvas: you drag gradient lines interactively, reposition focal points, and adjust color stops and midpoint bias sliders without burying yourself in modal dialogs.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Fill Tool & Gradient Interpolation Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Fill Tool",
+      "persona": "Vector Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "G",
+        "mac": "G"
+      },
+      "description": "The dedicated interactive on-canvas tool for defining fills, gradients, and bitmap patterns across selected vector shapes.",
+      "contextBarOptions": [
+        "Type Dropdown: Solid, Linear, Elliptical, Radial, Conical, Bitmap",
+        "Context Switcher: Toggle between editing the Fill or editing the Stroke",
+        "Reverse Gradient Button: Instantly inverts the start and end color stops",
+        "Maintain Fill Aspect Ratio toggle for elliptical gradients",
+        "Color Popover: Hex, RGB, HSL, CMYK, LAB color picker for active stop"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Activate the Fill Tool",
+        "instruction": "Select a vector shape with the Move Tool (V). Press G to activate the Fill Tool.",
+        "shortcutTip": { "win": "G", "mac": "G" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Drag a Linear Gradient",
+        "instruction": "Click on the left edge of your shape and drag horizontally across to the right edge. Notice an on-canvas gradient line appear with two terminal stop nodes.",
+        "shortcutTip": { "win": "Click & Drag", "mac": "Click & Drag" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Intermediate Color Stops",
+        "instruction": "Hover over the gradient line between the two endpoints until your cursor gains a plus (+) badge. Click to insert a third color stop. Click the Color swatch on the Context Toolbar and assign an electric neon cyan `#00d2ff`.",
+        "shortcutTip": { "win": "Click on Line", "mac": "Click on Line" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Adjust Midpoint Bias",
+        "instruction": "Notice the small circular tick mark sitting halfway between two color stops. Drag this midpoint tick left or right. Observe how the transition rate skews dynamically, allowing sharp highlights or gradual fades.",
+        "shortcutTip": { "win": "Drag Midpoint Tick", "mac": "Drag Midpoint Tick" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Test Conical Metallic Sweeps",
+        "instruction": "Draw a circular disc. With the Fill Tool active, change Type on the Context Toolbar to 'Conical'. Notice the gradient sweeps 360 degrees around the center pole like an aluminum dial! Add alternating light and dark stops to simulate realistic brushed stainless steel.",
+        "shortcutTip": { "win": "Type: Conical", "mac": "Type: Conical" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "The 4 Primary Gradient Types",
+        "description": "Optical characteristics and best use cases.",
+        "visualType": "table",
+        "visualContent": "| Gradient Type | Geometric Structure | Common Design Applications |\n|---|---|---|\n| Linear | 1D vector line from point A to point B | Sky horizons, button highlights, shadows |\n| Radial | Concentric circular rings from center point | Glowing lightbulbs, sun flares, spheres |\n| Elliptical | Dual-axis oval with independent X and Y radii | Perspective surfaces, dramatic spotlighting |\n| Conical | 360-degree sweep around central origin pole | Brushed metal volume knobs, CD grooves, radars |"
+      },
+      {
+        "title": "On-Canvas Gradient Line Anatomy",
+        "description": "Interactive controls on the Fill Tool line.",
+        "visualType": "diagram",
+        "visualContent": "[Start Stop: Deep Navy] ──── [Midpoint Bias Tick] ──── [Color Stop: Cyan] ──── [End Stop: White]\n      ●                           |                         ●                    ●\n (Color & Opacity)       (Drag to skew ramp)         (Click line to add)   (Color & Opacity)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Crafting a Brushed Titanium Volume Knob",
+      "taskDescription": "Construct a realistic brushed metal audio knob with 360-degree anisotropic highlights using a Conical gradient.",
+      "checkpoints": [
+        "Draw a circle (200x200 px).",
+        "Activate Fill Tool (G) and select 'Conical'.",
+        "Place 4 bright highlight stops (`#e2e8f0`) at 45°, 135°, 225°, and 315°.",
+        "Place 4 deep shadow stops (`#334155`) at 0°, 90°, 180°, and 270°.",
+        "Notice the convincing optical simulation of cross-polarized brushed metal."
+      ],
+      "expectedOutcome": "A photorealistic metallic dial with seamless 360-degree anisotropic surface reflection."
+    },
+    "independentChallenge": {
+      "title": "Volumetric Neon Sphere with Elliptical Spotlight",
+      "prompt": "Construct a 3D volumetric glass sphere: (1) Use an Elliptical gradient offset toward the upper-left to simulate an off-axis key light; (2) Incorporate an opacity stop at 85% opacity to give a translucent glass feel; (3) Add an independent bottom rim reflection using a secondary Linear gradient on an inner crescent shape.",
+      "starterAsset": {
+        "filename": "D04_gradients_stroke_contour_guide.md",
+        "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for multi-stop gradients (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Sphere exhibits realistic spherical shading via Elliptical gradient.",
+        "Focal highlight positioned off-center.",
+        "At least one color stop utilizes partial alpha opacity."
+      ],
+      "bonusGoal": "Apply a Conical gradient to a surrounding planetary ring orbit."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Muddy grayish blending in the middle of a gradient",
+        "cause": "Transitioning directly between complementary saturated colors (e.g. vibrant blue directly to vibrant orange) through standard RGB space.",
+        "solution": "Insert an intermediate bridge color stop (e.g. a warm yellow or white) in the middle, or adjust the midpoint bias tick away from the muddy zone."
+      },
+      {
+        "pitfall": "Accidentally editing the stroke instead of the fill",
+        "cause": "The Context selector on the Fill Tool Context Toolbar was left on 'Stroke'.",
+        "solution": "Check the 'Context' dropdown in the top-left toolbar; toggle between 'Fill' and 'Stroke' as needed."
+      },
+      {
+        "pitfall": "Hard seam line visible on Conical gradients",
+        "cause": "The start color stop (at 0°) does not match the end color stop (at 360°).",
+        "solution": "Ensure the very first stop and very last stop of a Conical gradient have the exact same color and opacity values."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D04-01-Q1",
+        "question": "Which gradient type sweeps colors 360 degrees around a central pole and is ideal for simulating brushed metal surfaces?",
+        "options": [
+          "Linear",
+          "Radial",
+          "Conical",
+          "Elliptical"
+        ],
+        "correctIndex": 2,
+        "explanation": "Conical gradients sweep around a central anchor point across a full circle, creating radial light patterns typical of machined or brushed metals."
+      },
+      {
+        "id": "D04-01-Q2",
+        "question": "How do you add a new color stop to an existing gradient line when using the Fill Tool (G)?",
+        "options": [
+          "You must open the Gradient Editor dialog in preferences.",
+          "Hover directly over the on-canvas gradient line until the cursor gains a plus (+) badge, then click.",
+          "Hold Ctrl+Alt+Shift and drag the canvas.",
+          "Press the Tab key twice."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer supports direct on-canvas editing: clicking anywhere along the active gradient line immediately inserts a new color stop."
+      },
+      {
+        "id": "D04-01-Q3",
+        "question": "What is the purpose of the small midpoint slider tick located between two gradient color stops?",
+        "options": [
+          "It deletes the neighboring stops.",
+          "It skews the rate of color transition, allowing you to favor one color over the other without moving the physical stop locations.",
+          "It rotates the entire artboard.",
+          "It converts the layer to grayscale."
+        ],
+        "correctIndex": 1,
+        "explanation": "The midpoint bias tick controls the acceleration curve of the color ramp between two stops, giving fine control over color falloff."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The Fill Tool (G) provides direct, on-canvas manipulation of gradients and fills.",
+        "Designer supports 5 gradient types: Linear, Radial, Elliptical, Conical, and Bitmap.",
+        "Color stops and midpoint bias sliders can be edited directly on the canvas vector line.",
+        "Matching 0° and 360° stops on Conical gradients guarantees seamless metallic reflections."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D04-02 Stroke Studio, Custom Dashes & Vector Pressure Curves",
+          "target": "D04-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Fill Tool & Gradients",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D04-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Fill Tool & Multi-Stop Gradients (5 Types)",
+      "subtitle": "Painting Dimensional Light and Materiality into Vector Paths",
+      "contentMarkdown": "Welcome to **Module D04: Fill, Gradient, Stroke & Pressure Profiles**.\n\nFlat vector graphics are crisp, but adding realistic lighting, metallic sheens, and atmospheric depth requires mastering the **Fill Tool (G)**.\n\nIn this lesson, you will conquer **5 gradient geometries**—including the powerful **Conical** sweep—and learn on-canvas midpoint modulation for silky-smooth color blending.",
+      "actionBox": {
+        "label": "Direct Canvas Control",
+        "text": "Never fiddle with buried modal menus! The Fill Tool (G) plots interactive gradient lines directly on your art."
+      }
+    },
+    {
+      "id": "D04-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Geometry of Color Gradients",
+      "subtitle": "Linear, Radial, Elliptical & Conical",
+      "contentMarkdown": "Affinity Designer calculates gradient color ramps using 4 geometric formulas:\n\n1. **Linear:** Color interpolates in a single straight vector line.\n2. **Radial:** Concentric spheres emanating from a single center point.\n3. **Elliptical:** Dual-radius ellipse with independent X and Y focal axes.\n4. **Conical:** 360° angular sweep around a central pole—essential for brushed metals, watch dials, and radar screens.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Linear (Directional) | Radial (Concentric) | Elliptical (Dual-Axis) | Conical (360° Sweep)"
+      }
+    },
+    {
+      "id": "D04-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Fill Tool On-Canvas Anatomy (Shortcut: G)",
+      "subtitle": "Handles, Stops, Midpoints & Opacity",
+      "contentMarkdown": "When the Fill Tool (`G`) is active:\n\n- **Terminal Stops:** The start and end circular nodes control the overall angle and span of the gradient.\n- **Intermediate Stops:** Click anywhere on the line to add a new color node. Select a stop and press `Delete` to remove it.\n- **Midpoint Bias Tick:** The small tick mark between stops controls the transition rate (falloff curve).\n- **Context Switcher:** On the top toolbar, toggle between editing the **Fill** or editing the **Stroke**.",
+      "actionBox": {
+        "label": "Reverse Gradient",
+        "text": "Click the 'Reverse Gradient' button on the Context Toolbar to instantly flip color stops end-to-end."
+      }
+    },
+    {
+      "id": "D04-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Crafting Brushed Metallic Dial",
+      "subtitle": "Executing a Conical Anisotropic Gradient",
+      "contentMarkdown": "Follow these steps to build a luxury watch dial:\n\n1. **Step 1:** Draw a circle using the Ellipse Tool (`M`).\n2. **Step 2:** Press `G` for the Fill Tool. On the Context Toolbar, change Type to **'Conical'**.\n3. **Step 3:** Notice the circular gradient line. Drag the center node to the center of your disc.\n4. **Step 4:** Add 8 alternating stops around the perimeter: 4 bright silver highlights (`#f1f5f9`) and 4 deep steel shadows (`#475569`).\n5. **Inspect:** Your flat circle transforms into an authentic 3D machined aluminum dial!",
+      "visual": {
+        "type": "comparison",
+        "content": "Flat Gray Circle ===[ Conical Gradient ]===> Anisotropic Brushed Steel Audio Dial"
+      }
+    },
+    {
+      "id": "D04-01-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "Taming Color Transitions: The Muddy Zone",
+      "subtitle": "Why RGB Blends Fail and How to Fix Them",
+      "contentMarkdown": "When blending between opposite colors on the color wheel (e.g. Blue and Orange):\n\n- **The Issue:** The mathematical midpoint in RGB space passes through desaturated gray/brown mud.\n- **The Fix 1:** Insert a vibrant intermediate color stop (e.g. golden yellow or vibrant cyan) to guide the interpolation.\n- **The Fix 2:** Shift the **Midpoint Bias Tick** toward one of the colors so the transition happens quickly rather than lingering in the middle.",
+      "visual": {
+        "type": "diagram",
+        "content": "Bad Blend: Blue ────────── [MUDDY BROWN GRAY ZONE] ────────── Orange\nGood Blend: Blue ──── [Vibrant Cyan Stop] ──── [Gold Stop] ──── Orange"
+      }
+    },
+    {
+      "id": "D04-01-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Independent Opacity Stops",
+      "subtitle": "Creating Glass, Smoke & Atmospheric Fades",
+      "contentMarkdown": "Every color stop in Affinity Designer contains both **Color** and **Opacity**:\n\n1. Select any color stop along your on-canvas gradient line.\n2. In the Color Studio or Context Toolbar popover, lower the **Opacity slider** from `100%` to `0%`.\n3. You have created an atmospheric fade to transparency without needing a separate layer mask!\n4. This is ideal for glass reflections, light rays, and soft drop shadows.",
+      "actionBox": {
+        "label": "Pro Technique",
+        "text": "Combine color stops with 0% opacity to create glowing atmospheric sunbeams."
+      }
+    },
+    {
+      "id": "D04-01-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Gradient Pitfalls & Troubleshooting",
+      "subtitle": "Avoid These Common Mistakes",
+      "contentMarkdown": "### 1. Conical Seam Line Glitch\n- **The Issue:** A harsh visible line cuts down your conical metallic dial.\n- **The Fix:** The 0° stop and 360° stop must have the identical Hex color and opacity. Sample one and paste into the other.\n\n### 2. Gradient Disappears When Scaling\n- **The Issue:** Resizing a shape leaves the gradient anchored to the old canvas coordinates.\n- **The Fix:** On the Context Toolbar, verify 'Maintain Fill Aspect Ratio' is enabled, or toggle 'Scale with object' in the Stroke/Fill panels.\n\n### 3. Gradient Applies to Outline Instead of Body\n- **The Fix:** Check the 'Context' dropdown on the Fill Tool Context Bar; ensure it is set to **Fill**, not **Stroke**.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Check Context (Fill vs Stroke) | Match 0° & 360° Stops | Scale With Object Toggle"
+      }
+    },
+    {
+      "id": "D04-01-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: The Volumetric Hologram Orb",
+      "subtitle": "Put Multi-Stop Gradients into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a glowing volumetric hologram orb using advanced gradients:\n\n1. Base sphere: **Elliptical gradient** offset to the upper-left (Dark Indigo `#0f172a` to Cyan `#00d2ff`).\n2. Primary highlight stop: 100% opacity electric white `#ffffff`.\n3. Shadow stop: Set to 80% opacity for a translucent crystalline feel.\n4. Orbit ring: Draw a surrounding tilted ellipse and apply a **Conical gradient** to simulate sweeping laser energy.\n\n### Acceptance Criteria:\n- Sphere has realistic 3D volume via off-axis Elliptical gradient.\n- Gradient line features at least 3 color stops and 1 opacity modulation.\n- Zero harsh raster banding.",
+      "practiceData": {
+        "prompt": "Construct a volumetric hologram sphere using Elliptical and Conical gradients.",
+        "starterAsset": {
+          "filename": "D04_gradients_stroke_contour_guide.md",
+          "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for multi-stop gradients."
+        },
+        "checkpoints": [
+          "Fill Tool active (G)",
+          "Elliptical gradient applied with off-center focus",
+          "Conical gradient applied to surrounding orbit ring"
+        ]
+      }
+    }
+  ]
+}

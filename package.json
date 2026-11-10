@@ -1,0 +1,42 @@
+{
+  "name": "affinity-academy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Interactive learning platform and programmatic design automation sandbox for Serif Affinity 3.0 suite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "check:env": "node scripts/check-affinity-env.js",
+    "validate:curriculum": "node scripts/validate-curriculum.js",
+    "test:scripts": "node scripts/test-curriculum-scripts.js",
+    "test:e2e": "playwright test",
+    "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\""
+  },
+  "dependencies": {
+    "@rollup/wasm-node": "^4.68.1",
+    "@supabase/supabase-js": "^2.49.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@^4.68.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0"
+  }
+}

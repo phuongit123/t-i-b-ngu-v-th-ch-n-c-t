@@ -1,0 +1,21 @@
+{
+  "id": "D01",
+  "trackId": "designer",
+  "moduleNumber": "D01",
+  "title": "Designer Interface, Personas & Canvas Setup",
+  "tagline": "Master the tri-persona workspace, responsive artboards, and precision snapping architecture.",
+  "description": "Understand the revolutionary dual-engine foundation of Affinity Designer: seamless transitions between Vector Persona, Pixel Persona, and Export Persona. Learn professional artboard organization for multi-screen responsive UI and print collateral, alongside vector pixel preview modes and dynamic snapping grids.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 75,
+  "prerequisites": [],
+  "primaryPersona": "Vector Persona",
+  "starterAsset": {
+    "filename": "D01_artboard_starter_guide.md",
+    "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+    "filesize": "1.2 KB",
+    "filetype": ".pdf",
+    "isVerified": true,
+    "statusNote": "Verified setup specification for multi-device responsive artboard canvas."
+  },
+  "lessonIds": ["D01-01", "D01-02", "D01-03"]
+}

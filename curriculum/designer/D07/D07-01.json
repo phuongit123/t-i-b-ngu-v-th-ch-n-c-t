@@ -1,0 +1,275 @@
+{
+  "id": "D07-01",
+  "moduleId": "D07",
+  "trackId": "designer",
+  "order": 1,
+  "title": "Axonometric & Isometric Grid Configuration",
+  "subtitle": "Grid and Axis Manager, 30° Angles, Division Spacing & Axis Constraints",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Differentiate standard Cartesian 90° grids from isometric (30°/150°/90°) and axonometric parallel projection grids.",
+      "Configure custom spacing, subdivisions, and axis angles inside the Grid and Axis Manager.",
+      "Toggle grid visibility and snap-to-grid constraints using verified keyboard shortcuts (Ctrl+' and Ctrl+Alt+').",
+      "Constrain vector node movements along active isometric projection axes during path creation."
+    ],
+    "foundationalKnowledge": "In engineering, technical drafting, and game design, isometric projection represents three-dimensional objects in two dimensions where the coordinate axes appear equally foreshortened and the angle between any two of them is 120°. In vector design, ground planes sit at 30° relative to the horizontal axis, and vertical lines remain at 90°. Unlike perspective projection, parallel lines never converge to a vanishing point, allowing modular game tiles and architectural diagrams to snap together seamlessly across infinite repetition. Affinity Designer renders axonometric grids natively via GPU acceleration and offers deep customization in its Grid and Axis Manager.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Grid and Axis Manager & Axonometric Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Grid and Axis Manager",
+      "persona": "Vector Persona (View > Grid and Axis Manager...)",
+      "shortcut": {
+        "win": "Ctrl+Alt+G (Dialog), Ctrl+' (Show Grid), Ctrl+Alt+' (Snap to Grid)",
+        "mac": "Cmd+Option+G (Dialog), Cmd+' (Show Grid), Cmd+Option+' (Snap to Grid)"
+      },
+      "description": "Configures Cartesian, isometric, axonometric, and triangular background grids with customizable spacing, subdivisions, and axis angles.",
+      "contextBarOptions": [
+        "Use automatic grid checkbox: When unchecked, unlocks fixed modular grid spacing",
+        "Mode toggle (Basic vs Advanced): Advanced mode unlocks the full Grid Type dropdown",
+        "Grid Type dropdown: Isometric, Dimetric, Trimetric, Oblique, and Triangular presets",
+        "Spacing & Division inputs: Major spacing (e.g. 64 px) and minor subdivisions (e.g. 4 divisions)",
+        "Axis Color Pickers: Custom RGB tinting for Axis 1, Axis 2, and Axis 3 projection lines"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Open Grid and Axis Manager",
+        "instruction": "Open a new FHD document (1920x1080 px). Press Ctrl+Alt+G (Windows) or Cmd+Option+G (macOS) to open the Grid and Axis Manager modal dialog.",
+        "shortcutTip": { "win": "Ctrl+Alt+G", "mac": "Cmd+Option+G" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Unlock Advanced Mode",
+        "instruction": "Uncheck 'Use automatic grid'. In the Mode selector, switch from 'Basic' to 'Advanced'. This reveals the full axonometric projection controls.",
+        "shortcutTip": { "win": "Uncheck Auto Grid", "mac": "Uncheck Auto Grid" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Select Isometric Grid Type",
+        "instruction": "From the Grid Type dropdown, choose 'Isometric'. Notice the canvas grid lines instantly rotate to 30°, 90°, and 150° trajectories.",
+        "shortcutTip": { "win": "Dropdown: Isometric", "mac": "Dropdown: Isometric" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Configure Spacing & Subdivisions",
+        "instruction": "Set Spacing to 64 px and Divisions to 4. This produces major grid rhombuses of 64 px with precise 16 px snapping subdivisions. Ensure 'Show grid' and 'Snap to grid' are checked, then click Close.",
+        "shortcutTip": { "win": "Ctrl+' to toggle", "mac": "Cmd+' to toggle" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Test Path Creation along Isometric Axes",
+        "instruction": "Select the Pen Tool (P). Click three consecutive grid intersection vertices. Notice how the cursor snaps magnetically to the 30° and 150° crosshairs.",
+        "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Projection Types Comparison Matrix",
+        "description": "Comparison of parallel projection systems.",
+        "visualType": "table",
+        "visualContent": "| Projection Type | Ground Axis 1 | Ground Axis 2 | Vertical Axis | Typical Application |\n|---|---|---|---|---|\n| True Isometric | 30° | 150° (180°-30°) | 90° | Vector UI icons, technical diagrams, architectural art |\n| 2:1 Pixel Isometric | 26.565° | 153.435° | 90° | Retro pixel art, 2D game tile engines (smooth staircasing) |\n| Dimetric | Custom (e.g. 15°) | Custom (e.g. 165°) | 90° | Bird's eye views with reduced vertical height |\n| Trimetric | Unequal angles | Unequal angles | 90° | Dynamic game cameras with customized depth emphasis |"
+      },
+      {
+        "title": "Grid Snapping Hierarchy Diagram",
+        "description": "Spatial relationship between major spacing and subdivisions.",
+        "visualType": "diagram",
+        "visualContent": "[Major Spacing: 64 px] ──┬── [Subdivision 1: 16 px]\n                         ├── [Subdivision 2: 32 px]\n                         ├── [Subdivision 3: 48 px]\n                         └── [Subdivision 4: 64 px (Major Line)]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Building an Isometric Ground Tile Matrix",
+      "taskDescription": "Establish a 64px isometric grid and construct a 3-tile modular floor pattern using exact 30° vector rhombuses.",
+      "checkpoints": [
+        "Open Grid and Axis Manager, uncheck automatic grid, and select Advanced Isometric mode.",
+        "Set major spacing to 64 px with 4 divisions (16 px increments).",
+        "Use the Pen Tool (P) to construct three adjacent ground plane rhombuses (#334155, #475569, #64748B).",
+        "Toggle grid visibility with Ctrl+' (Cmd+') to inspect visual edge alignment."
+      ],
+      "expectedOutcome": "A seamless 3-tile isometric vector floor segment locked firmly to 30° and 150° axes with zero subpixel gaps."
+    },
+    "independentChallenge": {
+      "title": "Multi-Elevation Isometric Terrace Layout",
+      "prompt": "Construct a multi-tiered isometric courtyard: (1) Set up a 64px isometric grid with custom cyan/magenta axis colors; (2) Create a lower ground slab (256x256 px); (3) Build an elevated terrace 128 px above the ground plane using 90° vertical extrusions; (4) Add connecting 30° stair risers with 16 px increments; (5) Verify that all vertex coordinates lock perfectly to grid subdivisions.",
+      "starterAsset": {
+        "filename": "D07_isometric_snapping_guide.md",
+        "filepath": "curriculum/assets/designer/D07_isometric_snapping_guide.md",
+        "filesize": "3.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for isometric grid configuration and terrace layout (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Grid and Axis Manager configured in Advanced Isometric mode with 64px/4div setup.",
+        "Lower and upper terrace slabs align strictly to 30°, 90°, and 150° axes.",
+        "Stair risers step at uniform 16px vertical and horizontal increments.",
+        "Zero seam artifacts or light leaks visible in Wireframe view (Ctrl+Y)."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Leaving 'Use automatic grid' checked while expecting custom modular dimensions.",
+        "consequence": "The grid continuously rescales and changes subdivisions dynamically when zooming, destroying fixed module snapping.",
+        "solution": "Open Grid and Axis Manager, uncheck 'Use automatic grid', select 'Advanced', and choose 'Isometric' explicitly."
+      },
+      {
+        "mistake": "Confusing 2:1 pixel isometric projection (26.565°) with true 30° vector isometric projection.",
+        "consequence": "Geometric vectors will not align cleanly with standard 30° isometric assets or the native Isometric Studio planes.",
+        "solution": "Use true 30°/150°/90° for vector illustration in Designer. Only use 2:1 axonometric if exporting sprite sheets to older 2D pixel engines."
+      },
+      {
+        "mistake": "Snapping to canvas bounding boxes rather than grid intersection vertices.",
+        "consequence": "Objects drift off the parallel axes over multiple iterations, causing visible seams in tiled buildings or vehicles.",
+        "solution": "In Snapping Manager, enable 'Snap to grid' and ensure 'Snap to object bounding boxes' does not overpower grid intersections."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What are the exact elevation angles for the two ground axes in standard true isometric projection?",
+        "options": [
+          "45° and 135°",
+          "30° and 150°",
+          "26.565° and 153.435°",
+          "60° and 120°"
+        ],
+        "correctIndex": 1,
+        "explanation": "True isometric projection uses 30° for the right-facing ground axis and 150° (180° - 30°) for the left-facing ground axis, with vertical lines remaining at 90°."
+      },
+      {
+        "question": "Which shortcut toggles grid visibility On and Off across the active document?",
+        "options": [
+          "Ctrl+; (Cmd+;)",
+          "Ctrl+' (Cmd+')",
+          "Ctrl+Alt+G (Cmd+Option+G)",
+          "Shift+G"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ctrl+' (Cmd+' on macOS) toggles grid visibility. Ctrl+; toggles guides, and Ctrl+Alt+G opens the Grid and Axis Manager."
+      },
+      {
+        "question": "Why must 'Use automatic grid' be unchecked when setting up modular isometric vector assets?",
+        "options": [
+          "Automatic grid disables vector path rendering in the Designer Persona.",
+          "Automatic grid rescales division spacing dynamically when zooming in or out, breaking fixed modular dimensions.",
+          "Automatic grid forces the canvas into CMYK color space.",
+          "Automatic grid hides the Pen Tool cursor during drawing."
+        ],
+        "correctIndex": 1,
+        "explanation": "Automatic grid changes its subdivision intervals dynamically based on canvas zoom level, making it impossible to align fixed modular tile dimensions consistently."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "True isometric projection maintains parallel lines at 30° and 150° with zero perspective vanishing points.",
+        "Unchecking 'Use automatic grid' unlocks the Advanced mode and the full Grid Type menu.",
+        "Ctrl+' toggles grid visibility, and Ctrl+Alt+' toggles magnetic grid snapping.",
+        "Subdivisions of 4 on a 64px grid produce clean 16px snapping increments."
+      ],
+      "nextSteps": "Proceed to D07-02 to utilize the Isometric Studio for one-click Fit-to-Plane projection and in-plane editing.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/DesignAid/grids.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Welcome to Parallel 3D: Isometric Projection",
+      "subtitle": "Eliminating Vanishing Points for Precision Vector Drafting",
+      "bullets": [
+        "Isometric projection represents 3D objects in 2D with equal foreshortening across all three axes.",
+        "Parallel lines never converge to a vanishing point, allowing infinite modular reusability.",
+        "Right ground axis elevates at 30°; Left ground axis elevates at 150°; Vertical axis remains at 90°.",
+        "Affinity Designer features native GPU-accelerated axonometric grids with subpixel precision."
+      ],
+      "proTip": "Use powers of 2 for spacing (32, 64, 128 px) to guarantee clean pixel-aligned exports."
+    },
+    {
+      "slideNumber": 2,
+      "title": "The Grid and Axis Manager Architecture",
+      "subtitle": "Unlocking Advanced Axonometric Presets",
+      "bullets": [
+        "Access via View > Grid and Axis Manager... or shortcut Ctrl+Alt+G (Cmd+Option+G).",
+        "Must uncheck 'Use automatic grid' to prevent the grid from rescaling when zooming.",
+        "Switch Mode from Basic to 'Advanced' to reveal the full Grid Type selector.",
+        "Choose 'Isometric' to load the standard 30°/150°/90° coordinate overlay."
+      ],
+      "proTip": "Adjust Axis colors to Cyan and Magenta for high contrast against dark artwork."
+    },
+    {
+      "slideNumber": 3,
+      "title": "Grid Spacing & Subdivisions Math",
+      "subtitle": "Calibrating Modular Snapping Intervals",
+      "bullets": [
+        "Major Spacing defines the primary grid rhombus dimension (e.g. 64 px).",
+        "Subdivisions divide the major spacing into fine snapping intervals (e.g. 4 divisions = 16 px).",
+        "Snap to Grid (Ctrl+Alt+') forces cursor placement directly onto grid line vertices.",
+        "Toggle grid display on and off anytime using the global shortcut Ctrl+' (Cmd+')."
+      ],
+      "proTip": "Memorize Ctrl+' so you can check your artwork without grid clutter in one keystroke."
+    },
+    {
+      "slideNumber": 4,
+      "title": "True Isometric vs 2:1 Pixel Axonometric",
+      "subtitle": "Choosing the Right Angle for Your Pipeline",
+      "bullets": [
+        "True Isometric: Exactly 30.0° elevation. Ideal for vector illustration, icons, and UI.",
+        "2:1 Pixel Isometric: 26.565° elevation. Ideal for retro pixel art (2 px horizontal per 1 px vertical).",
+        "Affinity Designer's Isometric Studio is calibrated for true 30° projection.",
+        "Mixing 30° vector elements with 26.565° tile sets causes noticeable alignment drift."
+      ],
+      "callout": "Always select true 'Isometric' in Designer unless building a retro 2:1 pixel game."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Drawing Along Projection Axes",
+      "subtitle": "Pen Tool Constraints & Vertex Snapping",
+      "bullets": [
+        "Select the Pen Tool (P) and place nodes directly on grid intersection points.",
+        "Hold Shift while dragging to constrain movement along 30°, 90°, and 150° trajectories.",
+        "Observe the cursor snapping crosshair confirming 'Grid Intersection' lock.",
+        "Always close paths by clicking back on the origin node to enable clean vector fills."
+      ],
+      "proTip": "Hold Alt temporarily to bypass snapping if placing intentional organic offsets."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Hands-on Exercise: Modular Ground Slab",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Open 'D07_isometric_snapping_guide.md' for production specifications.",
+        "Configure a 64px isometric grid with 4 subdivisions (16px snap intervals).",
+        "Draw three adjacent 30° vector rhombuses with the Pen Tool (P).",
+        "Apply directional color fills (#334155, #475569, #64748B) to simulate ambient lighting."
+      ],
+      "proTip": "Check Outline view (Ctrl+Y) to verify zero hairline gaps between the tiles."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Core Axonometric Competencies",
+      "bullets": [
+        "Identify the three canonical isometric angles (30°, 150°, 90°).",
+        "Recall the grid toggle (Ctrl+') and snapping toggle (Ctrl+Alt+') shortcuts.",
+        "Explain why automatic grid must be disabled for modular asset creation.",
+        "Ensure all practice criteria are met before moving to the Isometric Studio."
+      ]
+    },
+    {
+      "slideNumber": 8,
+      "title": "Summary & Transition to Isometric Studio",
+      "subtitle": "From Static Grids to Dynamic 3D Plane Projections",
+      "bullets": [
+        "Configured true 30° isometric coordinate system with 16px snapping intervals.",
+        "Mastered the Grid and Axis Manager controls and keyboard shortcuts.",
+        "Verified seamless vertex-to-vertex vector path closure.",
+        "In Lesson D07-02, we unlock one-click flat-to-3D projection using the Isometric Studio."
+      ],
+      "proTip": "Save your configured document as an .aftemplate for instant future project setup."
+    }
+  ]
+}

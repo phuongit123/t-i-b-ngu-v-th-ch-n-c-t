@@ -1,0 +1,276 @@
+{
+  "id": "D07-02",
+  "moduleId": "D07",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Isometric Studio & Fit-to-Plane Workflow",
+  "subtitle": "Top, Side & Front Planes, In-Plane Editing & Flat-to-3D Projection",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Navigate the Isometric Studio panel across the three canonical projection planes (Front, Side, and Top).",
+      "Transform 2D flat typography, shapes, and complex UI groups into parallel 3D space using Fit to Plane.",
+      "Draw and edit vector paths directly inside projected planes using the Edit in Plane mode.",
+      "Reverse or alter isometric projection matrices non-destructively without loss of vector quality."
+    ],
+    "foundationalKnowledge": "In legacy design software, creating isometric artwork required manually calculating shear angles (-30° or +30°), rotating objects (-30° or +30°), and scaling vertically to 86.602% (cosine of 30°), known as the tedious SSR (Scale, Shear, Rotate) method. Affinity Designer obsoletes manual SSR with its dedicated Isometric Studio. By maintaining an internal affine projection matrix, Designer allows artists to build intricate flat UI elements, icons, or typography in normal 2D, and then project them onto Front, Side, or Top 3D planes with a single click. Furthermore, 'Edit in Plane' allows direct drawing of shapes and curves inside the projected plane in real time.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Isometric Studio Specification & Affine Matrix Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Isometric Studio",
+      "persona": "Vector Persona (View > Studio > Isometric)",
+      "shortcut": {
+        "win": "View > Studio > Isometric (Dock Panel), Ctrl+Shift+M (Cycle Planes)",
+        "mac": "View > Studio > Isometric (Dock Panel), Cmd+Shift+M (Cycle Planes)"
+      },
+      "description": "Performs one-click non-destructive isometric projection of 2D vector groups onto Top, Side, and Front planes, and enables in-plane drawing.",
+      "contextBarOptions": [
+        "Plane buttons: Front (left 150°), Side (right 30°), Top (ground/roof)",
+        "Fit to Plane button: Applies affine transformation matrix to selected 2D vector group",
+        "Edit in Plane checkbox: Dynamically constrains drawing tools to active plane",
+        "Swap Planes dropdown: Reassigns an already projected object to a different plane",
+        "Grid Snapping toggle: Integrates with active isometric grid"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Open and Dock the Isometric Studio",
+        "instruction": "Go to View > Studio > Isometric. Dock the panel beside the Layers and Transform studios on the right studio panel.",
+        "shortcutTip": { "win": "View > Studio > Isometric", "mac": "View > Studio > Isometric" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build a 2D Flat Terminal Card",
+        "instruction": "In a blank area of the canvas, draw a 2D flat terminal screen (200x260 px, fill #0F172A, cyan border 1.5 pt). Add two lines of Artistic Text ('SECURITY TERMINAL' and 'STATUS: ARMED'). Group all elements with Ctrl+G (Cmd+G).",
+        "shortcutTip": { "win": "Ctrl+G", "mac": "Cmd+G" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Project Flat Artwork using Fit to Plane",
+        "instruction": "Select the flat UI group with the Move Tool (V). In the Isometric Studio panel, click the 'Side' plane button, then click 'Fit to Plane'.",
+        "shortcutTip": { "win": "Click 'Fit to Plane'", "mac": "Click 'Fit to Plane'" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Reposition with Edit in Plane",
+        "instruction": "Check the 'Edit in Plane' checkbox in the Isometric Studio. Use the Move Tool to slide the projected UI along the 30° and 90° axes onto the kiosk wall. Notice that dragging never distorts the projected angle.",
+        "shortcutTip": { "win": "Check 'Edit in Plane'", "mac": "Check 'Edit in Plane'" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Draw Directly in Plane on the Top Roof",
+        "instruction": "Switch the active plane to 'Top'. With 'Edit in Plane' still checked, select the Ellipse Tool (M). Click and drag while holding Shift on the top roof plane. The ellipse is drawn directly as a true projected 30° isometric ground circle.",
+        "shortcutTip": { "win": "Shift+Drag Ellipse", "mac": "Shift+Drag Ellipse" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Isometric Projection Planes Matrix",
+        "description": "Comparison of the three canonical projection planes.",
+        "visualType": "table",
+        "visualContent": "| Plane | Orientation | Ground Axis | Vertical Axis | Standard Lighting Value |\n|---|---|---|---|---|\n| Top | Horizontal ceiling/floor | 30° Right | 150° Left | Key light highlight (Brightest value) |\n| Front | Left vertical facade | 150° Left | 90° Vertical | Core shadow (Darkest depth) |\n| Side | Right vertical facade | 30° Right | 90° Vertical | Ambient fill / midtone value |"
+      },
+      {
+        "title": "Fit to Plane Transformation Flowchart",
+        "description": "Flow of flat artwork into 3D isometric space.",
+        "visualType": "diagram",
+        "visualContent": "[Flat 2D UI Group] ──> [Select 'Side' Plane] ──> [Click 'Fit to Plane'] ──> [Projected 3D Asset on 30° Facade]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Projecting a Server Telemetry Display",
+      "taskDescription": "Construct a flat 2D telemetry UI panel and project it onto the Side wall of an isometric server rack.",
+      "checkpoints": [
+        "Create a 180x240 px dark UI card with cyan vector border and live text readouts.",
+        "Ensure 'Scale with object' is checked in the Stroke Studio before projecting.",
+        "Group all UI layers (Ctrl+G / Cmd+G).",
+        "Open Isometric Studio, select Side Plane, and click Fit to Plane.",
+        "Align the projected card onto the server rack face using Edit in Plane."
+      ],
+      "expectedOutcome": "A crisply projected telemetry terminal adhering strictly to 30° parallel projection with live editable text intact."
+    },
+    "independentChallenge": {
+      "title": "Isometric Control Console with Circular Dials",
+      "prompt": "Construct an isometric mechanical console: (1) Create a 3-sided extruded base console (Top, Side, Front); (2) Design a flat 2D audio equalizer card and project it onto the Front plane; (3) Design a flat numeric keypad and project it onto the Side plane; (4) Use Edit in Plane on the Top plane to draw two circular rotary knobs with 30° indicator notches; (5) Apply coherent 3-value shading across all planes.",
+      "starterAsset": {
+        "filename": "D07_isometric_snapping_guide.md",
+        "filepath": "curriculum/assets/designer/D07_isometric_snapping_guide.md",
+        "filesize": "3.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for server kiosk and console UI projection (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Front and Side UI panels projected using Isometric Studio Fit to Plane.",
+        "Circular dials drawn directly on Top plane using Edit in Plane + Shift.",
+        "Live typography remains fully editable after 3D projection.",
+        "Lighting hierarchy matches standard Top (light), Side (midtone), Front (shadow)."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Applying 'Fit to Plane' multiple times to an object already projected.",
+        "consequence": "The transform matrix compounds, resulting in severe distortion and skewing into an unintended orientation.",
+        "solution": "Only click Fit to Plane once on flat 2D artwork. If you selected the wrong plane, undo (Ctrl+Z) or reset transform before re-projecting."
+      },
+      {
+        "mistake": "Projecting un-grouped complex illustrations piece by piece.",
+        "consequence": "Each individual layer may calculate its bounding box center independently, scattering elements across the plane.",
+        "solution": "Always group the entire 2D illustration (Ctrl+G / Cmd+G) before applying Fit to Plane."
+      },
+      {
+        "mistake": "Leaving 'Scale with object' unchecked on fine stroke borders before projecting.",
+        "consequence": "Stroke weights appear disproportionately heavy or inconsistent once projected into 3D space.",
+        "solution": "In the Stroke Studio, check 'Scale with object' so stroke borders scale in exact optical proportion with the geometry."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary difference between 'Fit to Plane' and 'Edit in Plane' in the Isometric Studio?",
+        "options": [
+          "Fit to Plane creates raster images, while Edit in Plane creates vector curves.",
+          "Fit to Plane projects existing 2D flat artwork into the active plane, while Edit in Plane allows drawing new shapes directly in projected space.",
+          "Fit to Plane only works on text, while Edit in Plane only works on rectangles.",
+          "Fit to Plane permanently flattens all layers into a single pixel background."
+        ],
+        "correctIndex": 1,
+        "explanation": "Fit to Plane takes flat 2D vector artwork and projects it onto the chosen plane, whereas Edit in Plane allows drawing new shapes (rectangles, ellipses, curves) directly within the tilted plane in real-time."
+      },
+      {
+        "question": "Why should you group multiple 2D vector elements before clicking 'Fit to Plane'?",
+        "options": [
+          "Affinity Designer will refuse to project ungrouped shapes.",
+          "Grouping ensures the entire composition shares a common bounding box and transform origin, preventing elements from scattering.",
+          "Ungrouped elements are automatically converted into bitmap pixels.",
+          "Grouping locks the colors so they cannot change in 3D."
+        ],
+        "correctIndex": 1,
+        "explanation": "If multiple elements are not grouped, each shape may calculate its affine transformation around its individual center point, scattering the layout across the plane."
+      },
+      {
+        "question": "What happens to live Artistic Text after applying 'Fit to Plane' in Affinity Designer?",
+        "options": [
+          "It is rasterized into a 72 DPI bitmap image.",
+          "It is automatically converted to curves and can no longer be edited as text.",
+          "It remains fully editable live text that retains font family, tracking, and character attributes.",
+          "It is deleted from the canvas."
+        ],
+        "correctIndex": 2,
+        "explanation": "Affinity Designer's vector projection engine preserves live text non-destructively; you can still double-click projected text to edit spelling, fonts, or kerning."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "The Isometric Studio replaces the legacy SSR formula with one-click affine plane projection.",
+        "Top, Side, and Front planes cover the three canonical orientations of parallel axonometry.",
+        "Always group flat 2D elements before projecting to maintain layout integrity.",
+        "Edit in Plane enables direct shape drawing and constrained movement along plane axes."
+      ],
+      "nextSteps": "Proceed to D07-03 to learn Snapping Candidates and assemble dense multi-part isometric scenes without gaps.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/isometricPanel.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Eliminating Manual SSR: The Isometric Studio",
+      "subtitle": "One-Click Parallel 3D Affine Transformations",
+      "bullets": [
+        "Manual SSR (Scale 86.6%, Shear 30°, Rotate 30°) is slow, destructive, and error-prone.",
+        "Affinity Designer's Isometric Studio applies affine matrices non-destructively.",
+        "Flat artwork remains fully vector, sharp, and resolution-independent.",
+        "Live typography remains editable even after 3D projection."
+      ],
+      "proTip": "Build all complex UI flat in 2D first, then project in 1 second with Fit to Plane."
+    },
+    {
+      "slideNumber": 2,
+      "title": "The Three Canonical Projection Planes",
+      "subtitle": "Top, Front & Side Facades",
+      "bullets": [
+        "Top Plane: Ground and ceiling surfaces (tilted between 30° and 150° axes).",
+        "Front Plane: Left vertical facade (tilted along 150° and 90° axes).",
+        "Side Plane: Right vertical facade (tilted along 30° and 90° axes).",
+        "Cycle between planes quickly using the panel buttons or Ctrl+Shift+M (Cmd+Shift+M)."
+      ],
+      "proTip": "Apply consistent 3-value lighting: Top highlight, Side midtone, Front core shadow."
+    },
+    {
+      "slideNumber": 3,
+      "title": "Mastering the 'Fit to Plane' Workflow",
+      "subtitle": "Projecting Flat Groups into 3D Space",
+      "bullets": [
+        "Construct flat UI, icons, or badges using normal 2D vector tools.",
+        "Always group all related elements (Ctrl+G / Cmd+G) before projecting.",
+        "Ensure 'Scale with object' is enabled in Stroke Studio to preserve borders.",
+        "Select the target plane (Top/Front/Side) and click 'Fit to Plane'."
+      ],
+      "callout": "Never click Fit to Plane twice on the same object or the projection will compound!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "Direct Drawing with 'Edit in Plane'",
+      "subtitle": "Real-Time In-Plane Vector Creation",
+      "bullets": [
+        "Check 'Edit in Plane' in the Isometric Studio to activate in-plane constraints.",
+        "Rectangles, ellipses, and pen curves automatically tilt to the active plane.",
+        "Hold Shift while using the Ellipse Tool (M) to draw a perfect projected circle.",
+        "Move Tool (V) constrains dragging along the active plane's 30° or 150° axes."
+      ],
+      "proTip": "Use Edit in Plane for instant floor tiles, door frames, and roof vents."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Editing Projected Text & Symbols",
+      "subtitle": "Non-Destructive Vector Editing Pipeline",
+      "bullets": [
+        "Projected text remains live; double-click with the Text Tool to edit copy.",
+        "Character styling, fonts, and colors can be modified at any time.",
+        "Combine projected elements with Symbols (Module D08) for live multi-plane sync.",
+        "Use Undo (Ctrl+Z) or reset transform if you project onto the wrong plane."
+      ],
+      "proTip": "Design a master UI symbol; duplicate and project instances onto multiple 3D screens."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Hands-on Exercise: Cyberpunk Server UI",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Open 'D07_isometric_snapping_guide.md' for production dimensions.",
+        "Construct a flat 2D telemetry card with neon cyan borders and live text.",
+        "Project the flat card onto the Side plane using Fit to Plane.",
+        "Switch to Top plane, enable Edit in Plane, and draw a circular cooling hatch."
+      ],
+      "proTip": "Check that the UI border scales cleanly without pixel distortion."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Plane Projection Competencies",
+      "bullets": [
+        "Distinguish between Fit to Plane and Edit in Plane modes.",
+        "Explain why grouping is required before applying affine projection.",
+        "Confirm that live text remains editable after 3D projection.",
+        "Verify proper 3-value tonal hierarchy across all visible planes."
+      ]
+    },
+    {
+      "slideNumber": 8,
+      "title": "Summary & Transition to Advanced Snapping",
+      "subtitle": "From Single Assets to Complex Assemblies",
+      "bullets": [
+        "Eliminated manual SSR with one-click Fit-to-Plane workflow.",
+        "Constructed projected UI screens and in-plane ground circles.",
+        "Preserved non-destructive live text and proportional stroke weights.",
+        "In Lesson D07-03, we unlock Snapping Candidates for gap-free multi-tier assembly."
+      ],
+      "proTip": "Review your kiosk assembly to prepare for conduit cable routing in D07-03."
+    }
+  ]
+}

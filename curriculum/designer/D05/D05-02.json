@@ -1,0 +1,304 @@
+{
+  "id": "D05-02",
+  "moduleId": "D05",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Vector Clipping (Child Nesting) vs Vector Masking",
+  "subtitle": "Thumbnail Drop vs Body Drop, Insert Inside & Unmasking",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the fundamental architectural difference between Vector Clipping (child nesting) and Vector Masking.",
+      "Execute Vector Clipping by dragging an artwork layer onto the text body of a parent container.",
+      "Execute Vector Masking by docking a vector path onto the thumbnail icon of a target layer.",
+      "Utilize the top toolbar 'Insert inside the selection' toggle (Ctrl+Alt+X / Cmd+Opt+X) for real-time contained drawing.",
+      "Release, extract, and re-order nested layers without breaking geometry or causing accidental flattening."
+    ],
+    "foundationalKnowledge": "Many vector artists conflate 'clipping' and 'masking', using the terms interchangeably. In Affinity Designer, they represent two radically different mathematical and scene graph operations: (1) Vector Clipping (Child Nesting): An object becomes a child nested physically inside a parent vector shape. The parent acts as a visible cookie cutter, retaining its own fill and stroke while constraining the child's visibility to its interior; (2) Vector Masking: A vector curve is attached to a layer as a pure alpha/boundary stencil. The mask path itself becomes invisible (losing its own fill and stroke), dictating strictly where the parent layer shows through. Mastering the physical drag drop-zones in the Layers panel is key to commanding this engine.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Vector Clipping & Masking Architecture Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Clipping & Masking Engine",
+      "persona": "Vector Persona (Layers Studio Drag Zones & Top Toolbar)",
+      "shortcut": {
+        "win": "Ctrl+Alt+X (Insert Inside), Layer > Release Mask",
+        "mac": "Cmd+Option+X (Insert Inside), Layer > Release Mask"
+      },
+      "description": "Controlled via physical drag drop-zones in the Layers Studio or the 'Insert Inside' toggle on the top toolbar.",
+      "contextBarOptions": [
+        "Insert at top of layer (default drafting behavior)",
+        "Insert behind selection (places new objects directly under active selection)",
+        "Insert inside the selection (automatically nests new drawings as children inside active shape)",
+        "Drop onto Layer Label: Creates a Vector Clipping hierarchy (nested child)",
+        "Drop onto Layer Thumbnail: Creates a Vector Mask hierarchy (attached stencil)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Create a Parent Vector Container",
+        "instruction": "Draw a large circle and give it a vibrant teal fill `#00d2ff`. This will serve as your parent container shape.",
+        "shortcutTip": { "win": "M (Ellipse Tool)", "mac": "M (Ellipse Tool)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Draw Overflowing Content",
+        "instruction": "Draw a jagged polygon or a series of diagonal stripes that extend far outside the boundaries of the teal circle.",
+        "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Perform Vector Clipping (Body Drop)",
+        "instruction": "In the Layers Studio, click and drag the stripes layer directly over the text name/body of the teal circle layer (notice a horizontal blue indent line appear). Release the mouse. The stripes are instantly clipped inside the circle, while the teal background and circle stroke remain completely intact!",
+        "shortcutTip": { "win": "Drag onto Layer Body", "mac": "Drag onto Layer Body" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Perform Vector Masking (Thumbnail Drop)",
+        "instruction": "Create a fresh rectangle filled with a photo or gradient. Draw a star shape above it. In the Layers Studio, drag the star layer and drop it directly onto the square THUMBNAIL icon of the rectangle (notice a vertical drop line appear right beside the thumbnail). The star becomes an attached vector mask!",
+        "shortcutTip": { "win": "Drag onto Thumbnail", "mac": "Drag onto Thumbnail" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Use the 'Insert Inside' Toolbar Toggle",
+        "instruction": "Select any vector shape. On the top toolbar, click the 'Insert inside the selection' button (circle with an arrow pointing into a square). Now select the Paint Brush or Pen Tool and draw freely. Notice everything you draw automatically nests inside the selected shape without needing manual drag-and-drop in the Layers panel!",
+        "shortcutTip": { "win": "Insert Inside Toggle", "mac": "Insert Inside Toggle" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Vector Clipping vs Vector Masking Matrix",
+        "description": "Crucial mechanical differences between the two methods.",
+        "visualType": "table",
+        "visualContent": "| Feature | Vector Clipping (Child Nesting) | Vector Masking (Thumbnail Dock) |\n|---|---|---|\n| Drop Target in Layers Panel | Drag onto the Layer Text / Body | Drag onto the Layer Thumbnail Icon |\n| Drop Indicator Bar | Horizontal indented line under parent | Vertical line attached to thumbnail |\n| Container Fill / Stroke | KEPT (Parent circle retains fill & stroke) | LOST (Mask shape becomes transparent stencil) |\n| Child Layer Freedom | Child can be moved freely inside bounds | Parent artwork moves; mask stencil stays fixed |\n| Multiple Items Inside | Can hold unlimited nested children | Single vector mask path per layer |"
+      },
+      {
+        "title": "Layers Studio Drop Zone Diagram",
+        "description": "Where to drop layers in the Layers Studio.",
+        "visualType": "diagram",
+        "visualContent": "Layer Row: [Thumbnail]   [Layer Text Label: Circle]   [Eye Icon]\n                ▲                     ▲\n                │                     │\n   DROP HERE for Vector MASK   DROP HERE for Vector CLIPPING\n   (Vertical Drop Line)        (Horizontal Indented Line)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing a Planet with Shadow & Crater Clips",
+      "taskDescription": "Construct a cosmic planet sphere with an atmospheric shadow crescent and surface craters nested cleanly using vector clipping.",
+      "checkpoints": [
+        "Draw base planet circle filled with warm orange `#f97316`.",
+        "Enable 'Insert inside the selection' on the top toolbar.",
+        "Draw a dark shadow crescent shape across the lower-right half. Notice it clips inside the sphere instantly.",
+        "Draw several circular craters overlapping the planet edge. Notice they clip cleanly without spilling into space.",
+        "Select the craters with the Move Tool and adjust their positions freely inside the planet sphere."
+      ],
+      "expectedOutcome": "A celestial illustration where multiple interior shading and detail layers are non-destructively clipped inside the parent sphere."
+    },
+    "independentChallenge": {
+      "title": "Ornate Heraldic Postage Stamp",
+      "prompt": "Construct a collector's postage stamp: (1) Base stamp rectangle with perforated serrated edges (using Corner Tool or Boolean subtractions); (2) A vector mask applied to a central landscape painting layer using an ornate oval frame; (3) Multiple vector clipping layers nested inside the landscape (clouds, mountain shadows, sun rays); (4) Prove that dragging the sun inside the clipping layer moves the sun without exceeding the oval mask.",
+      "starterAsset": {
+        "filename": "D05_layers_masks_clipping_guide.md",
+        "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+        "filesize": "1.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Vector Clipping & Masking (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Document features both a Vector Mask (thumbnail dock) and Vector Clipping (child nesting).",
+        "Interior artwork remains 100% editable and repositionable.",
+        "Zero rasterization; completely scalable vector artwork."
+      ],
+      "bonusGoal": "Nest a subtle grunge texture pixel layer inside the stamp background as a child clip."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Parent shape loses its color fill when trying to clip",
+        "cause": "Accidentally dropping the shape onto the THUMBNAIL (creating a mask) instead of the BODY (creating a clipping child).",
+        "solution": "Drag the layer out to undo. Drag it carefully onto the text label area of the parent layer until a horizontal indented line appears."
+      },
+      {
+        "pitfall": "Cannot select or move a clipped child with the Move Tool",
+        "cause": "Auto-select is selecting the parent container instead of the child.",
+        "solution": "Double-click directly on the child artwork on the canvas, or select the child layer directly inside the Layers Studio."
+      },
+      {
+        "pitfall": "Accidentally clipping an entire artboard",
+        "cause": "Dragging an object onto the artboard header instead of a specific shape layer.",
+        "solution": "Check layer indentation in the Layers panel; keep objects organized under designated shape parents."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D05-02-Q1",
+        "question": "In the Affinity Designer Layers Studio, how do you create a Vector Clipping hierarchy where a child layer is clipped inside a parent shape?",
+        "options": [
+          "Drag the child layer directly onto the text name / body area of the parent layer (horizontal indented drop bar).",
+          "Drag the child layer onto the trash can icon.",
+          "Hold Alt+F4 while clicking the canvas.",
+          "Convert the document to a PDF."
+        ],
+        "correctIndex": 0,
+        "explanation": "Dropping a layer onto the text body of another layer indents it as a child clip, constraining its visible boundaries while preserving the parent's fill and stroke."
+      },
+      {
+        "id": "D05-02-Q2",
+        "question": "What happens to a vector shape when it is dragged onto the THUMBNAIL icon of a target layer to become a Vector Mask?",
+        "options": [
+          "It duplicates itself 10 times.",
+          "Its original fill and stroke become invisible, functioning purely as a geometric stencil that dictates where the target layer is revealed.",
+          "It converts into an artboard.",
+          "It changes color to pure black."
+        ],
+        "correctIndex": 1,
+        "explanation": "A vector mask sheds its visible cosmetic styling and acts purely as an alpha/boundary stencil docked to the parent thumbnail."
+      },
+      {
+        "id": "D05-02-Q3",
+        "question": "Which top toolbar toggle allows you to draw new vector shapes that automatically nest inside the currently selected object as child clips?",
+        "options": [
+          "Insert at top of layer",
+          "Insert behind selection",
+          "Insert inside the selection",
+          "Snapping toggle"
+        ],
+        "correctIndex": 2,
+        "explanation": "The 'Insert inside the selection' toggle automatically channels all newly drawn paths and strokes directly into the active shape as non-destructive child clips."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Vector Clipping nests objects as children inside a visible parent shape (Body Drop).",
+        "Vector Masking docks a vector curve as an invisible stencil onto a layer thumbnail (Thumbnail Drop).",
+        "'Insert Inside' automates child clipping directly from the top toolbar.",
+        "Clipped child objects can be repositioned and animated freely without altering parent bounds."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D05-03 Layer Blend Modes, Blend Ranges & Isolation Mode",
+          "target": "D05-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Clipping vs Masking",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D05-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Vector Clipping (Child Nesting) vs Vector Masking",
+      "subtitle": "Mastering the Two Fundamental Containment Paradigms",
+      "contentMarkdown": "Welcome to **Lesson D05-02**.\n\nOne of the most common points of confusion in digital design is the difference between **Clipping** and **Masking**.\n\nIn this lesson, you will master Affinity Designer's physical drop-zone mechanics in the Layers Studio, and learn when to use **Child Nesting** (clipping) versus **Thumbnail Docking** (masking).",
+      "actionBox": {
+        "label": "Mastery Insight",
+        "text": "Dropping onto the Layer Body creates a Clip. Dropping onto the Thumbnail creates a Mask."
+      }
+    },
+    {
+      "id": "D05-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Core Mechanical Difference",
+      "subtitle": "Parent Container vs Alpha Stencil",
+      "contentMarkdown": "Affinity Designer distinguishes clearly between:\n\n1. **Vector Clipping (Child Nesting):**\n   - The parent shape **keeps its own fill and stroke**.\n   - Child layers sit inside, clipped by the parent's boundary.\n   - Ideal for adding textures, stripes, and shadows inside buttons and characters.\n2. **Vector Masking (Thumbnail Docking):**\n   - The masking shape **loses its fill and stroke**, becoming an invisible stencil.\n   - It clips the target layer to its silhouette.\n   - Ideal for cropping illustrations or photos into custom geometric shapes.",
+      "visual": {
+        "type": "comparison",
+        "content": "Vector Clipping: Parent Fill is KEPT (Visible Container) VS Vector Masking: Mask Fill is LOST (Invisible Stencil)"
+      }
+    },
+    {
+      "id": "D05-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Layers Studio Drop Zones Demystified",
+      "subtitle": "The Two Physical Drop Targets in Every Layer Row",
+      "contentMarkdown": "Look closely at any layer row in the Layers Studio:\n\n- **Drop Zone 1: The Thumbnail Icon (Left):**\n  - Dragging a layer here displays a **vertical drop indicator**.\n  - Results in an attached **Vector Mask**.\n- **Drop Zone 2: The Text Label / Row Body (Right):**\n  - Dragging a layer here displays an **indented horizontal line**.\n  - Results in a **Vector Clipping Child**.",
+      "visual": {
+        "type": "diagram",
+        "content": "Layer Row:  [Thumbnail] ─────────────── [Layer Name / Label Body]\n                 ▲                                    ▲\n          Drop on Thumbnail                     Drop on Text Body\n        = Attached Vector Mask                = Nested Vector Child Clip"
+      }
+    },
+    {
+      "id": "D05-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Executing a Vector Clip",
+      "subtitle": "Nesting Stripes Inside an App Icon",
+      "contentMarkdown": "Follow these steps to clip decorative stripes inside an icon base:\n\n1. **Step 1:** Draw a rounded rectangle and fill it with deep royal blue `#1e3a8a`.\n2. **Step 2:** Draw 3 diagonal yellow stripes that run completely across the canvas.\n3. **Step 3:** Open the Layers Studio (`F7`).\n4. **Step 4:** Drag the stripes layer onto the **text name** of the rounded rectangle.\n5. **Inspect:** The stripes instantly vanish outside the rounded rectangle edges, but remain 100% visible inside! Select the stripes with the Move Tool (`V`) to reposition them freely.",
+      "actionBox": {
+        "label": "Pro Shortcut",
+        "text": "Double-click directly on the stripes on the canvas to select the child without hunting in the Layers panel."
+      }
+    },
+    {
+      "id": "D05-02-S5",
+      "slideNumber": 5,
+      "type": "tool-anatomy",
+      "title": "The 'Insert Inside' Toolbar Engine",
+      "subtitle": "Drafting Directly Inside Containers",
+      "contentMarkdown": "You don't need to drag layers in the panel every time! The top main toolbar features **Drafting Target Toggles**:\n\n1. **Insert at top of layer:** Standard behavior (new items appear at the top of the stack).\n2. **Insert behind selection:** Places newly drawn shapes underneath the selected object.\n3. **Insert inside the selection:** Any path, brush stroke, or shape you draw next is **automatically nested as a child clip** inside the active selection!",
+      "actionBox": {
+        "label": "Workflow Accelerator",
+        "text": "Select a character body, turn on 'Insert Inside', and paint shadows freely without worrying about spilling outside."
+      }
+    },
+    {
+      "id": "D05-02-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Releasing and Unmasking Layers",
+      "subtitle": "Extracting Children Without Data Loss",
+      "contentMarkdown": "If you ever need to extract or reorder a clipped layer:\n\n1. Expand the parent layer in the Layers Studio to reveal its nested children.\n2. Click and drag the child upward or downward **past the left margin** until a full-width non-indented horizontal bar appears.\n3. Release the mouse. The child is liberated back to the root layer stack, completely unclipped and intact!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Expand Parent | Drag to Left Margin | Full-Width Drop Bar = Unclipped"
+      }
+    },
+    {
+      "id": "D05-02-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Clipping & Masking Traps",
+      "subtitle": "Diagnose Common UI Confusion",
+      "contentMarkdown": "### 1. Shape Lost Its Color (Accidental Mask)\n- **The Issue:** You wanted to clip stripes inside a red circle, but the circle turned invisible and only the stripes show.\n- **The Cause:** You dropped the circle onto the stripes' thumbnail.\n- **The Fix:** Drag the circle out to restore its fill. Drag the stripes onto the *body* of the red circle.\n\n### 2. Can't Move Mask Independently\n- **The Issue:** Moving an image moves the mask along with it.\n- **The Fix:** On the Context Toolbar, enable **'Lock Children'** so you can reposition the artwork while the mask remains anchored.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Body Drop = Retain Fill | Thumbnail Drop = Stencil | Lock Children = Decouple Movement"
+      }
+    },
+    {
+      "id": "D05-02-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Celestial Vector Terrarium",
+      "subtitle": "Put Clipping & Masking into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a botanical terrarium contained inside a glass flask:\n\n1. Draw a glass flask silhouette.\n2. Use **Vector Masking** (thumbnail dock) to mask an organic landscape painting inside the glass flask.\n3. Select the soil bed layer inside the flask, activate **'Insert inside the selection'**, and draw plant roots that automatically clip to the soil.\n4. Add a highlight glare curve nested inside the glass flask rim.\n\n### Acceptance Criteria:\n- Landscape masked cleanly to flask shape.\n- Plant roots clipped non-destructively to the soil container.\n- Move Tool allows adjusting roots without breaking flask bounds.",
+      "practiceData": {
+        "prompt": "Construct a vector terrarium utilizing both Vector Masking and Vector Clipping.",
+        "starterAsset": {
+          "filename": "D05_layers_masks_clipping_guide.md",
+          "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+          "filesize": "1.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Clipping & Masking."
+        },
+        "checkpoints": [
+          "Flask vector mask created via thumbnail drop",
+          "Soil roots clipped via 'Insert inside the selection'",
+          "Zero destructive rasterization"
+        ]
+      }
+    }
+  ]
+}

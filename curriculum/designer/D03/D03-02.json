@@ -1,0 +1,274 @@
+{
+  "id": "D03-02",
+  "moduleId": "D03",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Boolean Geometry Operations (5 Operations)",
+  "subtitle": "Add, Subtract, Intersect, Xor, Divide & Layer Hierarchy",
+  "durationMinutes": 30,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the five core destructive Boolean geometry operations: Add, Subtract, Intersect, Xor, and Divide.",
+      "Understand how layer stacking order dictates Boolean results (especially in Subtract operations).",
+      "Harness the Divide operation to slice complex overlapping vectors into independent jigsaw puzzle pieces.",
+      "Diagnose and prevent microscopic gap slivers and redundant inner points caused by imperfect boolean unions."
+    ],
+    "foundationalKnowledge": "Boolean operations are the primary method for constructing complex vector logos, icons, and illustrations from simple primitive shapes. Named after mathematician George Boole, these set-theory operations calculate the mathematical union, difference, intersection, and exclusion of two or more vector paths. In Affinity Designer, Boolean operations reside permanently on the main toolbar. Crucially, in a Subtract operation, the upper selected layers act as 'cookie cutters', punching through and cutting into the lowest selected layer in the layer hierarchy.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Geometry Operations & Boolean Engine Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Geometry Toolbar & Menu",
+      "persona": "Vector Persona (Top Main Toolbar / Layer > Geometry)",
+      "shortcut": {
+        "win": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)",
+        "mac": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)"
+      },
+      "description": "Located on the top main toolbar to the right of the alignment controls, or under Layer > Geometry.",
+      "contextBarOptions": [
+        "Add: Unites all selected shapes into a single outline containing all areas",
+        "Subtract: Cuts the upper shapes out of the bottommost shape",
+        "Intersect: Retains strictly the common overlapping area between all shapes",
+        "Xor (Exclusive Or): Retains non-overlapping areas and punches out the shared intersection",
+        "Divide: Slices all overlapping shapes into discrete independent fragments"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Prepare Overlapping Primitives",
+        "instruction": "Draw a large circle using the Ellipse Tool (M). Draw a smaller circle overlapping its top-right quadrant. Select both shapes using the Move Tool (V).",
+        "shortcutTip": { "win": "V (Move Tool)", "mac": "V (Move Tool)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Execute a Subtract Operation",
+        "instruction": "Verify in the Layers Studio that the smaller circle is positioned directly above the larger circle. On the top main toolbar, click the 'Subtract' button (two overlapping squares with one cut out). The upper circle cuts an instant crescent moon bite out of the lower circle!",
+        "shortcutTip": { "win": "Click Subtract", "mac": "Click Subtract" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Test the Divide Operation",
+        "instruction": "Draw two intersecting rectangles. Select both and click the 'Divide' button. Notice in the Layers panel that the two objects are instantly sliced into three separate pieces: Left Wing, Overlapping Center, and Right Wing. Each can now be assigned independent colors!",
+        "shortcutTip": { "win": "Click Divide", "mac": "Click Divide" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Weld Multiple Elements with Add",
+        "instruction": "Select 3 adjacent shapes that touch or overlap. Click 'Add'. The interior partition lines disappear, leaving a single consolidated vector outline.",
+        "shortcutTip": { "win": "Click Add", "mac": "Click Add" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "The 5 Boolean Operations Comparison",
+        "description": "Visual logic of the 5 geometry operations.",
+        "visualType": "table",
+        "visualContent": "| Boolean Operation | Mathematical Formula | Result on Overlapping Shapes A & B |\n|---|---|---|\n| Add | A ∪ B | Single unified silhouette; all interior seams dissolved |\n| Subtract | A - B | B cuts into A; B is discarded leaving hole in A |\n| Intersect | A ∩ B | Only the shared overlap is kept; all exterior parts discarded |\n| Xor | (A ∪ B) - (A ∩ B) | Shared overlap becomes a transparent hole; exteriors kept |\n| Divide | Slice All | Every intersection becomes a new independent vector layer |"
+      },
+      {
+        "title": "Layer Stacking Rule in Subtractions",
+        "description": "Top layer cuts bottom layer.",
+        "visualType": "diagram",
+        "visualContent": "[Layer 2: Circle (Cookie Cutter - High in Stack)]\n       ↓ Cuts downward into\n[Layer 1: Rectangle (Target Base - Low in Stack)]\n       =\n[Result: Rectangle with Circular Bite Removed]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing a Clean Cloud Icon via Boolean Add & Subtract",
+      "taskDescription": "Construct a clean flat-bottomed cloud icon using 3 overlapping circles, 1 base rectangle, and Boolean operations.",
+      "checkpoints": [
+        "Draw a center circle (diameter: 120px).",
+        "Draw a left circle (diameter: 80px) and a right circle (diameter: 90px) overlapping the center.",
+        "Draw a rectangle spanning across the lower half of all three circles.",
+        "Select all 4 shapes and click 'Add' to fuse them into a solid cloud silhouette.",
+        "Draw a horizontal rectangle positioned across the bottom edge where you want the flat base.",
+        "Select the cloud and the cutting rectangle, and click 'Subtract' to produce a razor-straight flat base."
+      ],
+      "expectedOutcome": "A flawless, single-path vector cloud with zero stray inner vertices and a clean horizontal base."
+    },
+    "independentChallenge": {
+      "title": "Interlocking Olympic Ring Geometry",
+      "prompt": "Construct two interlocking circular rings using Boolean Divide: (1) Draw two overlapping Donut shapes with contrasting colors; (2) Click 'Divide' to split the intersection segments; (3) Re-order the resulting sliced layers in the Layers Studio so that Ring A weaves over-and-under Ring B seamlessly; (4) Use 'Add' to re-weld the non-overlapping segments of each ring.",
+      "starterAsset": {
+        "filename": "D03_boolean_geometry_guide.md",
+        "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+        "filesize": "1.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Boolean operations (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Rings create an optically perfect 3D over-and-under weave.",
+        "Divide used to isolate the crossover intersection pieces.",
+        "Zero visible seams or raster artifacts at the splice lines."
+      ],
+      "bonusGoal": "Add a subtle drop shadow to the over-weaving segment using the Quick FX panel."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Subtracting cuts away the wrong shape",
+        "cause": "The shape you wanted to keep was positioned higher in the Layers stack than the cutter shape.",
+        "solution": "Check the Layers Studio. In a Subtract operation, the topmost layer cuts into the bottommost layer. Press Ctrl+[ / Cmd+[ to lower the target shape."
+      },
+      {
+        "pitfall": "Microscopic gap lines (anti-aliasing seams) between touching shapes",
+        "cause": "Attempting to create seamless adjacent shapes by aligning edges without overlapping before adding.",
+        "solution": "Always ensure shapes overlap by at least 0.5px before executing 'Add' to ensure a watertight mathematical union."
+      },
+      {
+        "pitfall": "Losing original editable shapes after a Boolean operation",
+        "cause": "Standard toolbar clicks are destructive, collapsing original primitives into a single static curve.",
+        "solution": "Hold Alt (Windows) or Option (macOS) while clicking any Boolean operation to create a non-destructive Compound Shape."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D03-02-Q1",
+        "question": "In an Affinity Designer 'Subtract' operation with two selected objects, which object acts as the cutter?",
+        "options": [
+          "The object that was created first.",
+          "The topmost object in the Layers panel cuts into the bottommost object.",
+          "The object with the darker color fill.",
+          "The largest object by surface area."
+        ],
+        "correctIndex": 1,
+        "explanation": "Subtract uses the top layer in the visual stacking order as the cookie cutter, carving through and cutting away from the lower layer."
+      },
+      {
+        "id": "D03-02-Q2",
+        "question": "What is the function of the 'Divide' Boolean operation?",
+        "options": [
+          "It divides the stroke thickness in half.",
+          "It slices all overlapping vector shapes at every intersection edge into individual, independent vector puzzle pieces.",
+          "It deletes all layers in the document.",
+          "It splits a vector shape into pixels."
+        ],
+        "correctIndex": 1,
+        "explanation": "Divide computes all intersection points across selected shapes and fragments them into separate, discrete closed vector paths."
+      },
+      {
+        "id": "D03-02-Q3",
+        "question": "What Boolean operation would you use to retain ONLY the shared overlapping area between two vector circles?",
+        "options": [
+          "Add",
+          "Subtract",
+          "Intersect",
+          "Divide"
+        ],
+        "correctIndex": 2,
+        "explanation": "'Intersect' discards all outer areas and preserves strictly the shared overlapping intersection region."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The 5 Boolean operations (Add, Subtract, Intersect, Xor, Divide) construct complex vectors from primitives.",
+        "Layer stacking order determines Subtract behavior (top cuts bottom).",
+        "Divide is the premier tool for interlocking rings and complex color weaving.",
+        "Overlapping shapes slightly before 'Add' prevents microscopic hairline gaps."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D03-03 Non-Destructive Compound Shapes",
+          "target": "D03-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Boolean Operations",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D03-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Boolean Geometry Operations (The 5 Operations)",
+      "subtitle": "Sculpting Complex Vectors from Pure Primitives",
+      "contentMarkdown": "Welcome to **Lesson D03-02**.\n\nFrom the Apple logo to iconic app symbols, professional vector illustration relies on combining simple primitives using **Boolean Geometry Operations**.\n\nIn this lesson, you will master the 5 core Boolean operations—**Add, Subtract, Intersect, Xor, and Divide**—and understand how layer hierarchy dictates geometric cuts.",
+      "actionBox": {
+        "label": "Core Maxim",
+        "text": "Every intricate icon is simply basic circles and rectangles added together or subtracted apart."
+      }
+    },
+    {
+      "id": "D03-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The 5 Boolean Geometry Modes",
+      "subtitle": "Set Theory Applied to Vector Art",
+      "contentMarkdown": "Located on the main toolbar, Affinity Designer provides 5 operations:\n\n1. **Add (Union):** Combines multiple overlapping shapes into one unified silhouette.\n2. **Subtract (Difference):** The top layer cuts away from the bottom layer.\n3. **Intersect:** Retains strictly the common shared overlap.\n4. **Xor (Exclusive Or):** Retains exterior areas and hollows out the shared overlap.\n5. **Divide:** Slices every intersection line into separate puzzle-piece layers.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Add (Union) | Subtract (Difference) | Intersect (Shared) | Xor (Inversion) | Divide (Fragment)"
+      }
+    },
+    {
+      "id": "D03-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Geometry Controls on the Main Toolbar",
+      "subtitle": "Selection, Stacking Order & Operations",
+      "contentMarkdown": "To execute a Boolean operation:\n\n- Select two or more vector objects using the Move Tool (`V`).\n- Observe the **Geometry section** on the top main toolbar (five geometric icons).\n- **The Golden Stacking Rule:** In **Subtract**, the *top layer* in the Layers panel acts as the cookie cutter, cutting downward into the *bottom layer*.",
+      "actionBox": {
+        "label": "Stacking Pro Tip",
+        "text": "If Subtract bites into the wrong shape, press Ctrl+[ (Win) or Cmd+[ (Mac) to move the cutter layer above the target layer."
+      }
+    },
+    {
+      "id": "D03-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Crafting a Crescent Moon",
+      "subtitle": "Executing the Classic Subtract Technique",
+      "contentMarkdown": "Follow these steps to construct an iconic crescent moon:\n\n1. **Step 1:** Press `M` for the Ellipse Tool. Hold `Shift` and drag to create a circle.\n2. **Step 2:** Hold `Alt` / `Option` and drag the circle rightward to duplicate it.\n3. **Step 3:** Overlap the second circle over the right rim of the first circle.\n4. **Step 4:** Select both circles with the Move Tool (`V`).\n5. **Step 5:** Click the **Subtract** button on the top toolbar.\n6. **Inspect:** The duplicate circle carves away a clean crescent moon!",
+      "visual": {
+        "type": "comparison",
+        "content": "2 Overlapping Circles ===[ Subtract ]===> 1 Perfect Crescent Moon Vector"
+      }
+    },
+    {
+      "id": "D03-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Boolean Pitfalls & Troubleshooting",
+      "subtitle": "Avoid These Common Headaches",
+      "contentMarkdown": "### 1. Hairline Seam Artifacts\n- **The Issue:** Adding two shapes touching edge-to-edge leaves an unsightly faint 1px gap line in SVG exports.\n- **The Fix:** Ensure shapes overlap by at least `0.5 px` before clicking 'Add'.\n\n### 2. Accidental Permanent Shape Collapse\n- **The Issue:** After executing 'Add' or 'Subtract', you can no longer adjust the original circle radius.\n- **The Fix:** Hold `Alt` (Win) / `Option` (Mac) while clicking the Boolean button to create a non-destructive **Compound Shape** instead!",
+      "actionBox": {
+        "label": "Pro Technique",
+        "text": "Use the Divide operation when you need to color the overlapping lens between two circles with a different swatch."
+      }
+    },
+    {
+      "id": "D03-02-S6",
+      "slideNumber": 6,
+      "type": "challenge",
+      "title": "Independent Challenge: Interlocking Rings",
+      "subtitle": "Master the Divide & Re-Weave Technique",
+      "contentMarkdown": "### Your Mission:\nConstruct two interlocking circular rings using the Boolean Divide method:\n\n1. Draw two overlapping **Donut primitives** (one Gold, one Teal).\n2. Select both rings and click **Divide** on the top toolbar.\n3. In the Layers panel, locate the segmented crossover piece.\n4. Reorder the crossover piece so that Ring A appears to weave **over** Ring B on the top, and **under** Ring B on the bottom.\n\n### Acceptance Criteria:\n- 3D interlocking illusion is optically flawless.\n- Zero gap artifacts at the split lines.\n- Layers cleanly organized.",
+      "practiceData": {
+        "prompt": "Construct interlocking vector rings using Boolean Divide.",
+        "starterAsset": {
+          "filename": "D03_boolean_geometry_guide.md",
+          "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
+          "filesize": "1.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Boolean operations."
+        },
+        "checkpoints": [
+          "Donut shapes created and overlapped",
+          "Boolean Divide executed",
+          "Layers re-ordered to create over-and-under weave"
+        ]
+      }
+    }
+  ]
+}

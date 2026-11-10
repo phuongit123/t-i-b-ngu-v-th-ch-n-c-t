@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "title": "Serif Affinity 3.0 JavaScript DOM API Reference",
+    "version": "3.3.3.5004",
+    "extractedAt": "2026-11-09T19:45:00+07:00",
+    "totalTopics": 401,
+    "environment": "Affinity 3.3.3.5004 Win32 on Windows 11",
+    "mcpEndpoint": "http://localhost:6767/sse"
+  },
+  "modules": {
+    "application": {
+      "path": "/application.js",
+      "nativeModule": "affinity:application",
+      "status": "VERIFIED_LIVE",
+      "classes": {
+        "Application": {
+          "properties": [
+            { "name": "version", "type": "string", "verifiedValue": "Affinity 3.3.3.5004 Win32 (Oct 30 2026)" },
+            { "name": "productFullName", "type": "string", "verifiedValue": "Affinity" },
+            { "name": "buildVersion", "type": "number", "verifiedValue": 3 },
+            { "name": "documents", "type": "ApplicationDocuments" },
+            { "name": "settings", "type": "ApplicationSettings" },
+            { "name": "userDesktopPath", "type": "string" },
+            { "name": "resourcesPath", "type": "string" }
+          ],
+          "methods": [
+            { "name": "alert", "params": ["message: string", "title: string"], "type": "sync" },
+            { "name": "confirm", "params": ["message: string", "title: string"], "type": "sync" },
+            { "name": "prompt", "params": ["message: string", "title: string", "initialText: string"], "type": "sync" },
+            { "name": "chooseFile", "params": [], "type": "sync" }
+          ]
+        },
+        "ApplicationDocuments": {
+          "properties": [
+            { "name": "current", "type": "Document | null", "verifiedValue": "Active Document object" },
+            { "name": "all", "type": "Document[]" }
+          ],
+          "methods": [
+            { "name": "load", "params": ["path: string", "options: object | null"], "type": "sync" }
+          ]
+        }
+      }
+    },
+    "document": {
+      "path": "/document.js",
+      "nativeModule": "affinity:dom",
+      "status": "VERIFIED_LIVE",
+      "classes": {
+        "Document": {
+          "properties": [
+            { "name": "sessionUuid", "type": "string", "verifiedValue": "e.g. 695C8818-C576-40BA-A670-7D2D1A87A8B0" },
+            { "name": "spreads", "type": "Spread[]" },
+            { "name": "name", "type": "string" },
+            { "name": "selectedNodes", "type": "Node[]" }
+          ],
+          "methods": [
+            { "name": "addNode", "params": ["definition: NodeDefinition"], "returns": "Node" },
+            { "name": "executeCommand", "params": ["command: Command"], "returns": "void" }
+          ]
+        }
+      }
+    },
+    "shapes": {
+      "path": "/shapes.js",
+      "nativeModule": "affinity:geometry",
+      "status": "DOCUMENTED_AND_SAMPLED",
+      "classes": {
+        "ShapeRectangle": {
+          "factory": "ShapeRectangle.create()",
+          "properties": [
+            { "name": "useSingleRadius", "type": "boolean" },
+            { "name": "topLeft", "type": "CornerRadius", "note": "setRadius(radius, width, height)" }
+          ]
+        },
+        "ShapeEllipse": { "factory": "ShapeEllipse.create()" },
+        "ShapePolygon": { "factory": "ShapePolygon.create(sides: number)" },
+        "ShapeStar": { "factory": "ShapeStar.create(points: number)" },
+        "ShapeCog": { "factory": "ShapeCog.create(teeth: number)" }
+      }
+    },
+    "layereffects": {
+      "path": "/layereffects.js",
+      "nativeModule": "affinity:layereffects",
+      "status": "DOCUMENTED_PARAM_RANGES_VERIFIED",
+      "classes": {
+        "GaussianBlurLayerEffect": { "property": "radius", "range": "[0.0, 1024.0]" },
+        "OuterShadowLayerEffect": { "property": "intensity", "range": "[0.0, 1.0]" },
+        "InnerShadowLayerEffect": { "property": "intensity", "range": "[0.0, 1.0]" },
+        "OuterGlowLayerEffect": { "property": "intensity", "range": "[0.0, 1.0]" },
+        "BevelEmbossLayerEffect": { "property": "soften", "range": "[0.0, 1.0]" }
+      }
+    },
+    "commands": {
+      "path": "/commands.js",
+      "nativeModule": "affinity:commands",
+      "status": "DOCUMENTED",
+      "classes": {
+        "DocumentCommand": {
+          "staticMethods": [
+            "createAddPages",
+            "createDeletePages",
+            "createAddMasterPages",
+            "createFeatherRasterSelectionCommand",
+            "createGenerativeUpscaleCommand",
+            "createImageTraceCommand",
+            "createMixedLightCorrectionCommand",
+            "createRasterMLDenoiseCommand",
+            "createRasterFloodFillCommand",
+            "createRasterFloodSelectCommand"
+          ]
+        }
+      }
+    }
+  },
+  "toolsMcp": {
+    "affinity_status": { "status": "VERIFIED_LIVE", "executionTimeMs": 85 },
+    "list_sdk_documentation": { "status": "VERIFIED_LIVE", "executionTimeMs": 120, "topicsCount": 401 },
+    "read_sdk_documentation_topic": { "status": "VERIFIED_LIVE", "executionTimeMs": 110, "parameterNote": "Requires 'filename' property" },
+    "execute_script": { "status": "VERIFIED_LIVE", "executionTimeMs": 100 },
+    "render_spread": { "status": "VERIFIED_LIVE", "executionTimeMs": 180, "outputFormat": "JPEG", "maxDimension": 1024 },
+    "render_selection": { "status": "VERIFIED_LIVE", "executionTimeMs": 140, "outputFormat": "JPEG", "maxDimension": 1024 },
+    "list_library_scripts": { "status": "VERIFIED_LIVE", "executionTimeMs": 90 },
+    "save_script_to_library": { "status": "VERIFIED_LIVE", "executionTimeMs": 115 },
+    "read_library_script": { "status": "VERIFIED_LIVE", "executionTimeMs": 95 },
+    "search_sdk_hints": { "status": "VERIFIED_LIVE", "executionTimeMs": 5800 },
+    "add_sdk_hint": { "status": "VERIFIED_LIVE", "executionTimeMs": 110 },
+    "report_sdk_issue": { "status": "VERIFIED_LIVE", "executionTimeMs": 2800 }
+  },
+  "constraints": {
+    "filesystem": "Restricted to Application.userDesktopPath by default",
+    "network": "Restricted unless explicitly enabled in Affinity settings",
+    "uiDialogs": "UiApi alert/confirm/prompt block application process until dismissed; avoid in unattended automated runs",
+    "interactiveMouseGestures": "Not automatable via script (code-based creation only)"
+  }
+}

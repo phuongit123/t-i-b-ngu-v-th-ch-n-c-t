@@ -1,0 +1,89 @@
+/**
+ * AFFINITY ACADEMY — DESIGN SYSTEM TOKENS
+ * Philosophy: Mastero & Minimalism (inspired by traced.life)
+ * Dark mode default with high-contrast typography and authentic Affinity accents.
+ */
+
+:root {
+  /* Color Palette - Dark Mode Primary (Default) */
+  --bg-canvas: #09090b;
+  --bg-surface: #111115;
+  --bg-elevated: #18181f;
+  --bg-overlay: rgba(9, 9, 11, 0.85);
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-inverse: #09090b;
+
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-active: rgba(255, 255, 255, 0.28);
+
+  /* Affinity App Signature Accents */
+  --accent-brand: #10b981;        /* Academy Core / Emerald */
+  --accent-designer: #00d2ff;     /* Designer: Electric Cyan */
+  --accent-photo: #38bdf8;        /* Photo: Cobalt Sky */
+  --accent-publisher: #fb7185;    /* Publisher: Vivid Rose / Magenta */
+  --accent-scripting: #34d399;    /* Scripting / MCP Automation */
+
+  /* Semantics */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #0284c7;
+
+  /* Typography Scales */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Spacing Scale (rem / px) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
+  --shadow-glow-designer: 0 0 24px -4px rgba(0, 210, 255, 0.25);
+  --shadow-glow-photo: 0 0 24px -4px rgba(56, 189, 248, 0.25);
+  --shadow-glow-publisher: 0 0 24px -4px rgba(251, 113, 133, 0.25);
+  --shadow-glow-brand: 0 0 24px -4px rgba(16, 185, 129, 0.25);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+}
+
+/* Light Mode Overrides */
+[data-theme='light'] {
+  --bg-canvas: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f4f4f5;
+  --bg-overlay: rgba(255, 255, 255, 0.9);
+
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --text-inverse: #f4f4f5;
+
+  --border-hairline: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.14);
+  --border-active: rgba(0, 0, 0, 0.32);
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,304 @@
+{
+  "id": "D04-03",
+  "moduleId": "D04",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Contour Tool (Offset Curves) & Expand Stroke",
+  "subtitle": "Contour Tool (O), Inset/Offset Geometry & Expand Stroke Baking",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the Contour Tool (O) to generate live concentric outward offsets and inward insets on any vector shape or open path.",
+      "Configure contour corner joins: Round, Miter, and Bevel.",
+      "Understand the 'Bake Appearance' command to convert live contour parameters into explicit Bezier curves.",
+      "Execute 'Expand Stroke' (Layer > Expand Stroke) to transform paths with thickness into filled boundary outlines for icon design and CNC/cutter production.",
+      "Diagnose and eliminate self-intersecting loops and inverted corner kinks during extreme negative inset contours."
+    ],
+    "foundationalKnowledge": "In technical drafting, logo design, and lettering, creating uniform offsets—such as a 3mm protective border around an emblem, concentric sticker cutlines, or an engraved inset line—is a notoriously difficult task if done manually with the Pen Tool. Affinity Designer introduces the dedicated 'Contour Tool' (O). Unlike basic scaling (which distorts non-proportional shapes), the Contour Tool calculates true mathematical orthogonal offsets: expanding or contracting every curve segment perpendicular to its tangent. When preparing artwork for plotters, vinyl cutters, or icon font export, the 'Expand Stroke' engine bakes dynamic line weights into permanent closed vector paths.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Contour Tool Engine & Expand Stroke Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Contour Tool & Expand Stroke",
+      "persona": "Vector Persona (Left Tools Panel / Layer Menu)",
+      "shortcut": {
+        "win": "O (Contour Tool), Layer > Expand Stroke",
+        "mac": "O (Contour Tool), Layer > Expand Stroke"
+      },
+      "description": "Activated by pressing O. Click and drag on any shape perimeter to offset it outward or inset it inward. 'Expand Stroke' converts stroked paths into filled outlines.",
+      "contextBarOptions": [
+        "Radius Slider: Numerical offset distance (positive for outward expansion, negative for inward contraction)",
+        "Cap Options: Auto, Round, Square (for open paths)",
+        "Point / Join Types: Round (smooth arcs), Miter (sharp pointed corners), Bevel (flat chamfered corners)",
+        "Bake Appearance: Permanently converts the live contour offset into standard Bezier nodes",
+        "Layer > Expand Stroke: Converts any stroked path into a closed vector curve"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Activate the Contour Tool",
+        "instruction": "Draw a star or complex polygon. Press O to activate the Contour Tool. Notice the on-canvas cursor transforms into an offset radius indicator.",
+        "shortcutTip": { "win": "O", "mac": "O" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Drag an Outward Offset Contour",
+        "instruction": "Click and drag outward from the edge of your star. Notice an offset outline swell symmetrically around every vertex and arm! On the Context Toolbar, type an exact Radius of `12 px`.",
+        "shortcutTip": { "win": "Drag Outward", "mac": "Drag Outward" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Test Inset Contours and Corner Types",
+        "instruction": "Drag inward toward the center to create an inward inset. In the Context Toolbar, toggle Point type between 'Miter' and 'Round'. Observe how sharp interior angles either maintain sharp points or resolve to smooth fillets.",
+        "shortcutTip": { "win": "Point: Round / Miter", "mac": "Point: Round / Miter" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake the Contour Appearance",
+        "instruction": "When satisfied with the offset distance, click 'Bake Appearance' on the Context Toolbar. The contour parameter is converted into permanent, editable Bezier anchor nodes.",
+        "shortcutTip": { "win": "Bake Appearance", "mac": "Bake Appearance" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Execute Expand Stroke for Production",
+        "instruction": "Draw a curved line with an 18pt stroke. Go to Layer > Expand Stroke. The single centerline path transforms into a closed ribbon with independent outer and inner outline curves filled with solid color!",
+        "shortcutTip": { "win": "Layer > Expand Stroke", "mac": "Layer > Expand Stroke" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Contour Tool vs Simple Scaling",
+        "description": "Why scaling fails and Contour succeeds on complex shapes.",
+        "visualType": "table",
+        "visualContent": "| Transformation | Corner Behavior | Thickness Uniformity | Result on a Star / Cross |\n|---|---|---|---|\n| Standard Scale | Disproportionate stretch | Uneven; thin tips, fat middles | Distorted; arms become too fat/skinny |\n| Contour Tool (O) | True normal perpendicular offset | 100% mathematically uniform | Perfect concentric shell; identical margin on all sides |"
+      },
+      {
+        "title": "Expand Stroke Transformation Diagram",
+        "description": "How single-line strokes convert into filled boundary shapes.",
+        "visualType": "diagram",
+        "visualContent": "Before Expand Stroke: [Start Node ●] ═══════ Centerline (18pt Stroke) ═══════ [End Node ●]\n                                                ↓ Layer > Expand Stroke\nAfter Expand Stroke:  [Top Left Node ●] ──────────────────────────────────────── [Top Right Node ●]\n                      [               Solid Fill Color Inside                  ]\n                      [Bottom Left ●] ──────────────────────────────────────── [Bottom Right ●]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Crafting a Die-Cut Sticker Border & Bleed Line",
+      "taskDescription": "Take an organic mascot illustration and generate an automated 4mm white die-cut border with a 2mm outer bleed offset.",
+      "checkpoints": [
+        "Select the mascot silhouette vector shape.",
+        "Duplicate the shape and press O for the Contour Tool.",
+        "Set Radius to +4.0 mm with Round corners.",
+        "Fill the expanded shape with pure white `#ffffff` and move it behind the mascot.",
+        "Duplicate the white border, set Contour to +2.0 mm, fill with the background color to serve as print bleed."
+      ],
+      "expectedOutcome": "A professional die-cut sticker graphic ready for vinyl cutting with uniform white margins."
+    },
+    "independentChallenge": {
+      "title": "Neon Monoline Maze with Offset Tracks",
+      "prompt": "Construct a labyrinthine neon vector maze: (1) Plot an interlocking grid of single-stroke lines (16pt stroke); (2) Use Layer > Expand Stroke to convert all paths into solid ribbons; (3) Select the resulting shapes and press O for the Contour Tool; (4) Apply an inward -2px inset contour with 'Round' points; (5) Click 'Bake Appearance' and assign a vibrant dual-tone neon gradient.",
+      "starterAsset": {
+        "filename": "D04_gradients_stroke_contour_guide.md",
+        "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Contour Tool and Expand Stroke (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Initial paths expanded cleanly via Expand Stroke with zero stray inner vertices.",
+        "Contour Tool applied uniformly to create parallel track grooves.",
+        "All offsets baked into clean, production-ready Bezier curves."
+      ],
+      "bonusGoal": "Add an Outer Shadow and Outer Glow in the Quick FX studio to simulate radiant neon tubes."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Inverted loop knots during deep negative insets",
+        "cause": "Contouring too far inward on acute sharp angles forces the offset curves to cross over themselves.",
+        "solution": "Switch Point type to 'Round' in the Context Toolbar, or decrease the negative radius value to prevent self-intersection."
+      },
+      {
+        "pitfall": "Unintentional node explosion after Expand Stroke",
+        "cause": "Expanding a stroke that used a complex textured raster brush nozzle.",
+        "solution": "Ensure the stroke is a 'Solid Line' with vector pressure, not a bitmap textured brush, before invoking Expand Stroke."
+      },
+      {
+        "pitfall": "Cannot select individual anchor points on a contoured shape",
+        "cause": "The contour is still live as an interactive attribute.",
+        "solution": "Click 'Bake Appearance' on the Context Toolbar or use the Node Tool to finalize the geometry into raw anchor nodes."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D04-03-Q1",
+        "question": "Which keyboard shortcut activates the Contour Tool in Affinity Designer?",
+        "options": [
+          "O",
+          "C",
+          "K",
+          "G"
+        ],
+        "correctIndex": 0,
+        "explanation": "Pressing 'O' activates the Contour Tool. (Note: 'C' activates the Corner Tool, and 'G' activates the Fill Tool)."
+      },
+      {
+        "id": "D04-03-Q2",
+        "question": "What is the primary difference between using the Contour Tool versus simply scaling a shape up proportionally?",
+        "options": [
+          "Scaling only works on text.",
+          "The Contour Tool calculates true perpendicular normal offsets, maintaining uniform distance on all sides, whereas scaling distorts non-proportional arms and corners.",
+          "The Contour Tool changes the document DPI.",
+          "Scaling always rasterizes the layer."
+        ],
+        "correctIndex": 1,
+        "explanation": "Scaling applies a uniform coordinate multiplier, which pinches narrow sections and balloons wide sections; the Contour Tool maintains an exact, uniform offset distance everywhere."
+      },
+      {
+        "id": "D04-03-Q3",
+        "question": "Why is 'Layer > Expand Stroke' a mandatory step before sending vector artwork to vinyl plotters, laser cutters, or CNC machines?",
+        "options": [
+          "Plotters cannot cut centerlines with thickness; they require explicit closed boundary vector outlines to guide the physical cutting blade.",
+          "It converts the file to JPEG.",
+          "It disables the undo history.",
+          "It locks the computer screen."
+        ],
+        "correctIndex": 0,
+        "explanation": "CNC routers and vinyl plotters follow explicit cutting paths; Expand Stroke converts open paths with simulated thickness into real, physical perimeter cut boundaries."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The Contour Tool (O) generates mathematically uniform outward offsets and inward insets.",
+        "Contour Point types (Round, Miter, Bevel) dictate how corner intersections resolve.",
+        "Bake Appearance permanently converts dynamic contour shells into standard Bezier nodes.",
+        "Layer > Expand Stroke converts stroked lines into closed, filled boundary vectors for production."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Module: D05 Layer Organization, Masks & Clipping Paths",
+          "target": "D05-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Contour Tool & Expand Stroke",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D04-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Contour Tool (Offset Curves) & Expand Stroke",
+      "subtitle": "Generating Precision Offsets & Production Cut Outlines",
+      "contentMarkdown": "Welcome to **Lesson D04-03**.\n\nWhether generating sticker die-lines, concentric badges, or preparing icons for SVG web fonts, creating **exact offset curves** is essential.\n\nIn this lesson, you will master the **Contour Tool (O)** for live mathematical offsetting, and learn when and how to **Expand Stroke** to bake lines into airtight production vector geometry.",
+      "actionBox": {
+        "label": "Offset Superpower",
+        "text": "Never try to scale-duplicate a complex logo to create a border! The Contour Tool (O) offsets every curve perpendicularly."
+      }
+    },
+    {
+      "id": "D04-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Contour Offsets vs Standard Scaling",
+      "subtitle": "Why Standard Scaling Distorts Geometry",
+      "contentMarkdown": "Consider an asymmetrical star or letter 'S':\n\n- **If you Duplicate & Scale Up:** Narrow arms swell into fat blobs while vertical sections drift out of alignment. The gap between shapes is wildly uneven.\n- **If you use the Contour Tool (`O`):** Affinity calculates the true mathematical normal (perpendicular) vector at every point along the path. The offset boundary maintains an exact, uniform distance (e.g. `3.0 mm`) across the entire perimeter!",
+      "visual": {
+        "type": "comparison",
+        "content": "Scaled Duplicate: Uneven gaps, distorted arms VS Contour Offset: 100% uniform gap on every edge"
+      }
+    },
+    {
+      "id": "D04-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Contour Tool Controls (Shortcut: O)",
+      "subtitle": "Radius, Point Types & Appearance Baking",
+      "contentMarkdown": "Press **`O`** to activate the **Contour Tool**:\n\n- **Drag Outward:** Creates an expanding outer shell (positive radius).\n- **Drag Inward:** Creates an inward contracting inset (negative radius).\n- **Point Types:**\n  - *Round:* Curvature fillet at every corner.\n  - *Miter:* Sharp angular vertices.\n  - *Bevel:* Flat chamfered corners.\n- **Bake Appearance:** Converts the live contour into standard editable Bezier nodes.",
+      "actionBox": {
+        "label": "Live Interactive Drag",
+        "text": "Click directly on the canvas edge of any vector shape and drag outward. The contour updates at 60fps."
+      }
+    },
+    {
+      "id": "D04-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Sticker Die-Cut Border",
+      "subtitle": "Creating a Professional Vinyl Cutline",
+      "contentMarkdown": "Follow these steps to generate a sticker die-cut shell:\n\n1. **Step 1:** Select your complete vector mascot graphic.\n2. **Step 2:** Duplicate it (`Ctrl+J` / `Cmd+J`) and click 'Add' on the toolbar to merge it into a single silhouette.\n3. **Step 3:** Press `O` for the Contour Tool. Click and drag outward `5 mm`.\n4. **Step 4:** Set Point type to **'Round'** on the Context Toolbar for smooth, friendly curves.\n5. **Step 5:** Click **'Bake Appearance'**. Fill the new outer shell with pure white and send it to the back!",
+      "visual": {
+        "type": "diagram",
+        "content": "[Mascot Artwork]\n        ↓ Duplicate & Add\n[Solid Silhouette]\n        ↓ Contour Tool (+5mm, Round Points)\n[Pure White Die-Cut Sticker Shell (Ready for Print & Cut)]"
+      }
+    },
+    {
+      "id": "D04-03-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "The Purpose of 'Expand Stroke'",
+      "subtitle": "Why Production Hardware Requires Filled Outlines",
+      "contentMarkdown": "In Affinity Designer, a line with a 12pt stroke is mathematically a **1-dimensional centerline** with a visual shader thickness applied:\n\n- **The Production Problem:** Vinyl plotters, CNC routing mills, and SVG icon sets cannot interpret dynamic stroke widths; they cut along the centerline, ruining the design!\n- **The Solution:** Navigate to **`Layer > Expand Stroke`**.\n- Designer calculates the outer and inner perimeter edges and transforms the path into a **closed 2D vector shape** with a solid fill and zero stroke.",
+      "actionBox": {
+        "label": "Icon Designer Best Practice",
+        "text": "Always Expand Stroke on final icon exports to guarantee consistent line rendering across all screen sizes and SVG parsers."
+      }
+    },
+    {
+      "id": "D04-03-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Combining Contour with Expand Stroke",
+      "subtitle": "Building Complex Inset Grooves",
+      "contentMarkdown": "Create high-tech racing stripes and mechanical grooves:\n\n1. **Step 1:** Draw a bold vector ribbon path with a `24 pt` stroke.\n2. **Step 2:** Go to **`Layer > Expand Stroke`** to convert it into a solid ribbon shape.\n3. **Step 3:** Press `O` for the **Contour Tool**.\n4. **Step 4:** Drag inward `-2 px` to generate an interior inset track.\n5. **Step 5:** Duplicate the ribbon, apply a dark fill, and place it behind the inset to simulate an engraved mechanical channel!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Draw Path (Centerline) | Expand Stroke (Solid Ribbon) | Contour Inset (Engraved Track)"
+      }
+    },
+    {
+      "id": "D04-03-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Contour & Expand Pitfalls",
+      "subtitle": "Avoid Common Production Mistakes",
+      "contentMarkdown": "### 1. Inward Contour Self-Intersection Kinks\n- **The Issue:** Dragging too far inward on an acute corner causes opposite edges to collide and flip inside out.\n- **The Fix:** Switch Point type from Miter to **Round**, or reduce the negative radius value.\n\n### 2. Node Explosion on Expand Stroke\n- **The Issue:** Expanding a path creates thousands of anchor nodes.\n- **The Cause:** The path had a textured raster brush nozzle attached.\n- **The Fix:** Only expand paths using **Solid Line** styles.\n\n### 3. Forgetting to Duplicate Before Expanding\n- **The Fix:** Once a stroke is expanded, you can no longer adjust its width as a simple number. Always duplicate and hide an editable backup layer!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Avoid Extreme Insets | Solid Lines Only | Keep Backup Layer"
+      }
+    },
+    {
+      "id": "D04-03-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Precision Motor Sport Decal",
+      "subtitle": "Put Contour & Expand Stroke to the Test",
+      "contentMarkdown": "### Your Mission:\nConstruct a multi-layered high-performance automotive decal:\n\n1. Use the Pen Tool to draw a dynamic speed numeral (e.g. '07') using bold strokes.\n2. Apply **Layer > Expand Stroke** to convert the numerals into solid vector outlines.\n3. Use the **Contour Tool (`O`)** to generate an external `3 mm` offset outline shell (Miter points).\n4. Fill the outer shell with high-contrast electric lime `#00ff66`.\n5. Click **Bake Appearance** to finalize the geometry into clean, plotter-ready vector paths.\n\n### Acceptance Criteria:\n- Numerals expanded into 100% closed filled curves.\n- Offset shell generated via Contour Tool with uniform 3mm clearance.\n- Zero self-intersection loops or overlapping stray vertices.",
+      "practiceData": {
+        "prompt": "Construct a motor sport decal using Expand Stroke and the Contour Tool.",
+        "starterAsset": {
+          "filename": "D04_gradients_stroke_contour_guide.md",
+          "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Contour Tool and Expand Stroke."
+        },
+        "checkpoints": [
+          "Initial strokes expanded using Layer > Expand Stroke",
+          "Uniform offset shell created via Contour Tool (O)",
+          "Bake Appearance executed with clean Bezier nodes"
+        ]
+      }
+    }
+  ]
+}

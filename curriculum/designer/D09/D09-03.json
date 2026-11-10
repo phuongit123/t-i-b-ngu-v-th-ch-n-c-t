@@ -1,0 +1,292 @@
+{
+  "id": "D09-03",
+  "moduleId": "D09",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Hybrid Vector-Raster Workflow & DPI Management",
+  "subtitle": "Resolution Boundaries, 300 DPI Print Standards & Visual Polish",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Navigate the technical resolution boundaries between infinite vector mathematics and DPI-dependent pixel layers.",
+      "Calibrate document resolution (DPI) and color profiles for commercial press reproduction (300 DPI) versus digital display.",
+      "Leverage the native Vector Noise engine in the Color Studio for procedural grain without generating raster layers.",
+      "Evaluate trade-offs between procedural vector noise and hand-painted Pixel Persona texture brushes.",
+      "Prepare and inspect hybrid vector-raster artwork for PDF/X and high-fidelity multi-format export."
+    ],
+    "foundationalKnowledge": "A hybrid vector-raster workflow offers the greatest creative freedom, but it introduces strict technical boundaries that professional designers must manage. Pure vector artwork can be printed on a skyscraper banner or shrunk to a smartwatch icon without quality loss. However, the moment a child pixel layer or raster filter is introduced, that specific element is bound to the document's physical DPI (Dots Per Inch). If a document is initialized at 72 DPI and later scaled up for a physical poster, the vector silhouettes will remain pin-sharp, but the textured grain will look severely pixelated and blurry. Mastering DPI governance, noise engines, and export formatting guarantees museum-grade commercial reproduction.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Color Studio Noise Engine, DPI Architecture & PDF/X Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Color Studio Noise Engine & Document Setup",
+      "persona": "Designer Persona (File > Document Setup... & View > Studio > Color)",
+      "shortcut": {
+        "win": "Ctrl+Alt+P (Document Setup), Click Opacity Well in Color Studio (Toggles Noise)",
+        "mac": "Cmd+Option+P (Document Setup), Click Opacity Well in Color Studio (Toggles Noise)"
+      },
+      "description": "Manages document resolution, color conversions, and injects procedural stippling directly into vector fill or stroke colors. Note: Applies only to vector fills, strokes, or gradient stops (not to groups or images). Adjusting color sliders after setting noise resets it; pure white/black exhibit minimal noise; and on SVG/PDF export, noisy fills are rasterized at document DPI.",
+      "contextBarOptions": [
+        "Document Setup DPI dropdown: 72, 96, 144, 192, 300, 400, 600 DPI presets",
+        "Objects will: Rescale vs Anchor options when altering canvas dimensions",
+        "Color Studio Opacity/Noise Well: Clicking the small circle toggles between Opacity (%) and Noise (%)",
+        "Noise Slider (0% to 100%): Injects procedural film-like stippling directly into solid or gradient vector fills (must be applied as final step)",
+        "Rasterize & Trim command: Bakes selected layers to document DPI when flattening is explicitly required"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Audit Document DPI in Document Setup",
+        "instruction": "Press Ctrl+Alt+P (Windows) or Cmd+Option+P (macOS) to open Document Setup. In the Dimensions tab, verify that DPI is set to exactly 300 DPI. If it is set to 72, change it to 300 and ensure 'Objects will: Anchor' is selected, then click OK.",
+        "shortcutTip": { "win": "Ctrl+Alt+P", "mac": "Cmd+Option+P" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Inject Procedural Vector Noise in Color Studio",
+        "instruction": "Select a solid vector shape in Designer Persona. Open the Color Studio (View > Studio > Color). Locate the small circular well labeled 'Opacity' below the color wheel. Click the circle once. Notice the label transforms to 'Noise'!",
+        "shortcutTip": { "win": "Click Opacity Circle", "mac": "Click Opacity Circle" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dial in Procedural Vector Grain",
+        "instruction": "Drag the Noise slider to 15%–25%. Notice the vector fill instantly develops a fine, organic stippled grain texture. Important: Finalize your color hue and saturation first, because moving the color wheel afterward will automatically reset the Noise slider back to 0%!",
+        "shortcutTip": { "win": "Noise: 20%", "mac": "Noise: 20%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Apply Noise to Gradient Stops",
+        "instruction": "Select the Fill Tool (G) and draw a linear gradient across a vector shape. Click on the shadow end stop. In the Color Studio, set Noise to 30%. The shadow end exhibits rich stipple grain while the highlight end remains smooth!",
+        "shortcutTip": { "win": "G (Fill Tool)", "mac": "G (Fill Tool)" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Compare Procedural Noise vs Pixel Persona Grain",
+        "instruction": "Zoom into 400%. Notice that procedural vector noise recalculates with sharp grain at any zoom level, while Pixel Persona hand-painted brushes offer bespoke directional shading and manual artistic control. Combine both for optimal depth.",
+        "shortcutTip": { "win": "Zoom (Ctrl++)", "mac": "Zoom (Cmd++)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Procedural Vector Noise vs Pixel Persona Brushes",
+        "description": "Comparison between the two texture methodologies in Affinity Designer.",
+        "visualType": "table",
+        "visualContent": "| Dimension | Procedural Vector Noise (Color Studio) | Pixel Persona Shading (Brushes) |\n|---|---|---|\n| Layer Type | Attribute of Vector Fill / Stroke / Gradient | Dedicated Child Pixel Layer |\n| Resolution On Canvas | Procedural on canvas; recalculates during vector zoom | Resolution-dependent; bound to document DPI |\n| Export Behavior | Rasterized at document DPI upon SVG/PDF export | Exported as high-res raster bitmap at document DPI |\n| Control Limitations | Single slider (0-100%); coupled resets with color changes | Directional, pressure-sensitive hand-painted shading |\n| File Size Impact | Virtually zero bytes inside native .afdesign | Adds bitmap raster data per pixel layer |\n| Best Use Case | Quick atmospheric background grit, subtle UI cards | Atmospheric character art, bespoke analog illustration |"
+      },
+      {
+        "title": "Print DPI Resolution Pyramid",
+        "description": "Standard resolution benchmarks across commercial delivery channels.",
+        "visualType": "diagram",
+        "visualContent": "Resolution Standards:\n[600 DPI] ──> Fine Art Giclée / Museum Quality Intaglio Prints\n[300 DPI] ──> Commercial Offset Lithography, Books, Magazines & Posters (Standard)\n[144 DPI] ──> Apple Retina / High-Density Mobile Displays (2x Screen)\n[ 72 DPI] ──> Legacy Web Viewports (Insufficient for raster grain textures!)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Calibrating a Dual-Methodology Poster Asset",
+      "taskDescription": "Construct a hybrid vector poster combining procedural gradient noise with hand-painted directional stippling and prepare for 300 DPI print export.",
+      "checkpoints": [
+        "Initialize document at 2400x3200 px at 300 DPI in sRGB or CMYK.",
+        "Create a background vector rectangle and apply a gradient with 20% procedural noise on the dark stop.",
+        "Construct a foreground vector vase with 2 child pixel layers for hand-painted directional shadow and highlight.",
+        "Inspect edges at 100% pixel preview (View > View Mode > Pixels).",
+        "Verify that vectors remain razor-sharp while raster textures exhibit velvety, non-pixelated grain."
+      ],
+      "expectedOutcome": "A commercial-grade hybrid illustration that balances procedural vector efficiency with bespoke analog craftsmanship."
+    },
+    "independentChallenge": {
+      "title": "Exhibition Print Ready Poster Preparation",
+      "prompt": "Finalize the retro-futuristic botanical illustration: (1) Audit all layers to ensure document is set to 300 DPI; (2) Apply 15% procedural noise to the background backdrop gradient; (3) Refine all botanical fronds with directional child pixel shading; (4) Add fine vector contour lines (1pt white) over the fronds to establish strong vector-raster contrast; (5) Export a press-ready PDF/X-4 document and inspect the resulting PDF to verify that vector text and outlines remain live vector paths while textures are preserved at 300 DPI.",
+      "starterAsset": {
+        "filename": "D09_pixel_persona_shading_guide.md",
+        "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for 300 DPI hybrid print preparation (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Document verified at 300 DPI with zero low-res bitmap assets.",
+        "Procedural vector noise and hand-painted pixel grain harmonized visually.",
+        "PDF/X-4 export preserves live vector curves with embedded 300 DPI raster textures.",
+        "Artwork satisfies commercial offset printing specifications without banding."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Altering color sliders or wheel hue after setting the Noise slider.",
+        "consequence": "Affinity Designer's color engine automatically resets Opacity to 100% and Noise to 0%, wiping out your noise adjustment.",
+        "solution": "Always dial in your exact color hue, saturation, and luminance first, and apply the Noise slider as the final adjustment step."
+      },
+      {
+        "mistake": "Scaling up a 72 DPI document containing child pixel layers to 300 DPI after painting is complete.",
+        "consequence": "The vector paths upscale cleanly, but all existing child pixel layers become soft, blurry, and pixelated.",
+        "solution": "Always establish your document at 300 DPI BEFORE beginning raster painting in the Pixel Persona."
+      },
+      {
+        "mistake": "Expecting Color Studio noise to export as pure vector code in an SVG file.",
+        "consequence": "SVG 1.1 cannot natively represent procedural color noise without rasterization or feTurbulence filters, forcing Affinity to rasterize the fill.",
+        "solution": "Recognize that both vector noise and child pixel layers will be rendered to bitmaps at document DPI when exporting to standard web/print formats."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "How do you activate the procedural vector Noise slider in Affinity Designer's Color Studio?",
+        "options": [
+          "Go to Filter > Add Noise.",
+          "Click the small circular 'Opacity' well beneath the color wheel/sliders to toggle it to 'Noise'.",
+          "Right-click the canvas and choose 'Noise'.",
+          "Press Ctrl+Alt+N."
+        ],
+        "correctIndex": 1,
+        "explanation": "In the Color Studio, clicking the small circle under the color wheel toggles between Opacity and Noise, unlocking native procedural grain without creating any raster layers."
+      },
+      {
+        "question": "What happens to child pixel layers if a document is initialized at 72 DPI and later printed at 300 DPI on physical paper?",
+        "options": [
+          "The printer will automatically upscale the pixels into vectors.",
+          "The vector lines will print sharp, but the child pixel textures will look noticeably blurry and pixelated.",
+          "The document will fail to print and output blank sheets.",
+          "All layers will be deleted."
+        ],
+        "correctIndex": 1,
+        "explanation": "Raster pixels are bound to their native resolution; if painted at 72 DPI, they will appear blurry and pixelated when printed at 300 DPI, even though the parent vector curves remain sharp."
+      },
+      {
+        "question": "Which export format is ideal for commercial print production containing hybrid vector paths and 300 DPI raster grain textures?",
+        "options": [
+          "GIF",
+          "PDF/X-4",
+          "SVG 1.1",
+          "BMP"
+        ],
+        "correctIndex": 1,
+        "explanation": "PDF/X-4 is the modern commercial printing standard: it preserves mathematical vector paths and live text while embedding high-resolution 300 DPI CMYK raster textures with transparency support."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "Vectors scale infinitely, but pixel layers depend strictly on document DPI.",
+        "Always set document resolution to 300 DPI for professional print illustrations.",
+        "Clicking the Opacity well in the Color Studio reveals the procedural Vector Noise slider.",
+        "Combine procedural noise on gradients with hand-painted child pixel passes for maximum visual richness.",
+        "PDF/X-4 is the definitive commercial standard for exporting hybrid vector-raster artwork."
+      ],
+      "nextSteps": "Complete the D09 capstone project in D09_pixel_persona_shading_guide.md, then proceed to the final Designer module: D10 (Vector Export, Slices & Production Output).",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Clr/noise.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "The Hybrid Resolution Frontier",
+      "subtitle": "Navigating Vector Scalability and Raster DPI",
+      "bullets": [
+        "Vector paths are pure mathematics: resolution-independent at any scale.",
+        "Pixel layers are fixed grids of color values: resolution-dependent.",
+        "When you paint in Pixel Persona, those brush strokes are tied to document DPI.",
+        "Professional workflows require strict resolution discipline to prevent commercial print blur."
+      ],
+      "proTip": "Always verify document DPI before laying down the first brush stroke."
+    },
+    {
+      "slideNumber": 2,
+      "title": "The Commercial Print Benchmark: 300 DPI",
+      "subtitle": "Why 72 DPI Fails on Paper",
+      "bullets": [
+        "72 DPI: 72 pixels per inch. Adequate for legacy displays, disastrous for physical printing.",
+        "300 DPI: 300 pixels per inch. The standard for offset lithography, books, and fine art posters.",
+        "At 300 DPI, stipple grain and paper tooth textures reproduce with microscopic, velvety fidelity.",
+        "Verify or change DPI in File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P)."
+      ],
+      "callout": "Changing DPI after painting cannot restore lost resolution; start at 300 DPI!"
+    },
+    {
+      "slideNumber": 3,
+      "title": "Secret Weapon: The Vector Noise Engine",
+      "subtitle": "Procedural Grain Without Raster Layers",
+      "bullets": [
+        "Affinity Designer features a native procedural noise engine built into every color swatch.",
+        "Open View > Studio > Color.",
+        "Locate the small circular well labeled 'Opacity' beneath the color wheel.",
+        "Click the circle once: the label and slider transform into 'Noise'!"
+      ],
+      "proTip": "This hidden toggle is one of the most powerful and overlooked features in Designer."
+    },
+    {
+      "slideNumber": 4,
+      "title": "Dialing in Procedural Grain on Vectors",
+      "subtitle": "Zero File Size & Visual Limitations",
+      "bullets": [
+        "Drag the Noise slider from 0% to 100% to inject stippling directly into any fill or stroke.",
+        "Works on solid fills, strokes, and individual gradient stops.",
+        "Crucial gotcha: Adjusting color hue/wheel after setting noise resets it to 0% (apply noise last!).",
+        "Export caveat: SVG and PDF/X rasterize the noisy fill at document DPI during export."
+      ],
+      "proTip": "Apply noise last on dark gradient stops (12%–18%) for subtle, retro atmospheric depth."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Choosing the Right Texture Tool",
+      "subtitle": "Procedural Noise vs Pixel Persona Brushes",
+      "bullets": [
+        "Procedural Noise: Best for uniform atmospheric grit across large backgrounds and cards.",
+        "Pixel Persona Brushes: Best for directional, hand-painted volume shading and rim highlights.",
+        "The Pro Hybrid Strategy: Use procedural noise on base gradient fills, then overlay child pixel grain for focal lighting.",
+        "Delivers both rapid production efficiency and bespoke analog charm."
+      ],
+      "proTip": "Combining both techniques produces the distinctive look of modern editorial illustration."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Inspecting Pixel Preview Modes",
+      "subtitle": "Auditing How Your Work Renders on Screens",
+      "bullets": [
+        "Menu: View > View Mode > Pixels (Ctrl+Alt+Y / Cmd+Option+Y).",
+        "Toggles the canvas from vector wireframe math to actual rendered pixel output.",
+        "Pixel Retina (2x) mode simulates how artwork will appear on Apple Retina / 4K displays.",
+        "Use Pixel Preview to check for accidental jagged edges or over-softened textures."
+      ],
+      "proTip": "Check Pixel Preview at 100% actual size (Ctrl+1 / Cmd+1) for true output verification."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: Finalizing the Botanical Art",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
+        "Verify document is set to 300 DPI in Document Setup.",
+        "Apply 18% procedural noise to the deep navy background gradient in Color Studio.",
+        "Inspect all palm fronds to ensure child pixel layers are cleanly clipped.",
+        "Overlay crisp 2pt white vector leaf veins in Designer Persona."
+      ],
+      "proTip": "Verify that moving the fronds preserves the razor-sharp vector silhouette."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Hybrid Resolution Competencies",
+      "bullets": [
+        "Explain how to toggle the Noise slider in the Color Studio.",
+        "Identify the consequences of painting raster textures in a 72 DPI document.",
+        "Select the appropriate commercial print export format (PDF/X-4).",
+        "Ensure all artwork passes 100% zoom inspection before proceeding."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Module D09 Complete: Hybrid Workflow Mastery",
+      "subtitle": "Summary of Vector-Raster Synergy",
+      "bullets": [
+        "Mastered seamless persona switching between Designer and Pixel Personas.",
+        "Calibrated raster grain brushes with low Flow for velvety shading gradients.",
+        "Engineered non-destructive child pixel layer clipping inside vector shells.",
+        "Harnessed procedural vector noise and commercial 300 DPI print standards.",
+        "Next up: The final Track 1 capstone module — D10 (Vector Export, Slices & Production Output)."
+      ],
+      "proTip": "You are now fully equipped to produce gallery-grade commercial vector-raster art."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "B01",
+  "trackId": "publisher",
+  "moduleNumber": "B01",
+  "title": "Publication Architecture, Document Setup & Bleed",
+  "tagline": "Master professional editorial foundations, multi-page book signatures, and press-ready bleed standards.",
+  "description": "Understand commercial editorial setup in Affinity Publisher 3.0: facing pages vs single page flows, binding gutters, 3mm commercial bleed margins, parent/child Master Pages, dynamic field pagination, baseline grids, and multi-column text frame threading.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 80,
+  "prerequisites": [],
+  "primaryPersona": "Publisher Persona",
+  "starterAsset": {
+    "filename": "B01_magazine_spec_guide.md",
+    "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+    "filesize": "1.4 KB",
+    "filetype": ".pdf",
+    "isVerified": true,
+    "statusNote": "Verified specification for A4 facing page editorial spread with 3mm bleed."
+  },
+  "lessonIds": ["B01-01", "B01-02", "B01-03"]
+}

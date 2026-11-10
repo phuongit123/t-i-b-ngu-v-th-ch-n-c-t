@@ -1,0 +1,293 @@
+{
+  "id": "P01-01",
+  "moduleId": "P01",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Photo Interface, Toolbars & Studio Panels",
+  "subtitle": "Workspace Customization, Navigation & Non-Destructive Workflow Architecture",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Navigate the Affinity Photo 3.0 interface: Personas (Photo, Develop, Liquify, Tone Mapping, Export), Toolbars, and Studio Panels.",
+      "Understand the core non-destructive design pattern: adjustment layers, live filters, and pixel masks.",
+      "Customize studio docks, tool columns, and save dedicated workspace presets for retouching vs digital painting.",
+      "Master fluid canvas navigation: zoom (Z / Alt+Scroll), pan (Spacebar), and canvas rotation."
+    ],
+    "foundationalKnowledge": "Affinity Photo is engineered from the ground up as a pure non-destructive editing engine. In traditional photo manipulation software, operations like cropping, blurring, sharpening, or adjusting tonal curves permanently alter raw pixel data in memory (destructive editing). In Affinity Photo, every single modification—whether it is a Curves adjustment, an Unsharp Mask, a Gaussian Blur, or a perspective transform—exists as a real-time mathematical shader layer that can be re-adjusted, re-ordered, masked, or discarded at any point in the project lifecycle without ever degrading the source pixels.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Non-Destructive Layer Pipeline & Persona Architecture",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Photo Persona Workspace & Studios",
+      "persona": "Photo Persona (Default Mode)",
+      "shortcut": {
+        "win": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (Note: Ctrl+1 is Zoom 100%, Ctrl+2 is Zoom 200%)",
+        "mac": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (Note: Cmd+1 is Zoom 100%, Cmd+2 is Zoom 200%)"
+      },
+      "description": "The Photo Persona is the central hub for pixel editing, retouching, compositing, and color grading. Key studios on the right dock include Layers (F7), Histogram, Info, Adjustment, Color, Channels, and History.",
+      "contextBarOptions": [
+        "View Tool (H) / Hand: Canvas panning, rotation angle, zoom percentage",
+        "Move Tool (V): Layer selection, auto-select options (Default, Group, Object)",
+        "Toolbar Customization: View > Customize Tools (configure single or double column)",
+        "Studio Layouts: Window > Studio > Reset Studio"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Open the Practice File",
+        "instruction": "Open the provided starter file 'P01_starter.afphoto' via File > Open (Ctrl+O / Cmd+O). Notice the image loads immediately in Photo Persona with full bit-depth intact.",
+        "shortcutTip": { "win": "Ctrl+O", "mac": "Cmd+O" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Inspect the Non-Destructive Layer Stack",
+        "instruction": "Open the Layers Studio (press F7 if hidden). Examine how adjustment layers and masks sit above the base pixel layer. Toggle the visibility checkmark of an adjustment to see real-time non-destructive preview.",
+        "shortcutTip": { "win": "F7", "mac": "F7" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Fluid Canvas Navigation",
+        "instruction": "Hold Spacebar and drag to pan across the high-resolution canvas at 60fps. Hold Ctrl+Space (Win) or Cmd+Space (Mac) and drag left/right to scrub zoom dynamically. Hold Alt+drag with the View Tool to rotate canvas angle for comfortable brush ergonomics.",
+        "shortcutTip": { "win": "Spacebar (Pan)", "mac": "Spacebar (Pan)" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Customize Tools Panel Layout",
+        "instruction": "Go to View > Customize Tools. Change the number of columns from 1 to 2. Drag frequently used tools (such as Inpainting Brush Tool or Live Filters) into your primary palette.",
+        "shortcutTip": { "win": "View > Customize Tools", "mac": "View > Customize Tools" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Photo Personas Overview Matrix",
+        "description": "The 5 specialized personas within Affinity Photo.",
+        "visualType": "table",
+        "visualContent": "| Persona | Primary Functionality | Signature Capabilities |\n|---|---|---|\n| Photo Persona | Retouching, compositing, color grading | Layers, Adjustments, Live Filters, Masks |\n| Develop Persona | Raw sensor decoding & exposure prep | 32-bit float pipeline, CA, Lens correction |\n| Tone Mapping | High Dynamic Range exposure fusion | 32-bit to 16/8-bit tone compression |\n| Liquify Persona | Mesh warping, face & body sculpting | Push, Twirl, Pinch, Reconstruct brushes |\n| Export Persona | Slicing and production file output | WebP, JPEG XL, TIFF, OpenEXR slicing |"
+      },
+      {
+        "title": "Non-Destructive Layer Pipeline",
+        "description": "How non-destructive adjustments evaluate on top of base pixels.",
+        "visualType": "diagram",
+        "visualContent": "[Display Output]\n  ↑\n[Live Filter: Gaussian Blur (Editable Radius)]\n  ↑\n[Adjustment: Curves (Tonal Contrast Masked to Subject)]\n  ↑\n[Pixel Layer: Retouched Frequency Separation]\n  ↑\n[Raw Background Pixels (Original Untouched Sensor Data)]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Non-Destructive Adjustment Layer Stacking",
+      "taskDescription": "Load 'P01_starter.afphoto' and add a non-destructive Black & White adjustment layer without altering raw pixel data.",
+      "checkpoints": [
+        "Open 'curriculum/assets/photo/P01_starter.afphoto'.",
+        "In the Adjustments Studio, click 'Black and White'.",
+        "Notice a new 'Black and White Adjustment' layer appears directly above the image.",
+        "Double-click the adjustment icon to adjust Red and Yellow channel luminance sliders.",
+        "Turn the adjustment visibility OFF and ON to confirm that original colors remain 100% preserved beneath."
+      ],
+      "expectedOutcome": "A customized monochrome rendition that can be reverted to full color with a single click."
+    },
+    "independentChallenge": {
+      "title": "Custom Retouching Workspace Setup",
+      "prompt": "Configure a dedicated high-efficiency Retouching Workspace in Affinity Photo: (1) Set Tools panel to 2 columns with Inpainting and Healing tools prominent; (2) Dock Layers, Channels, and Histogram studios on the right; (3) Add a Live High Pass filter to 'P01_starter.afphoto' set to 'Overlay' blend mode; (4) Verify that double-clicking the High Pass icon allows changing radius non-destructively.",
+      "starterAsset": {
+        "filename": "P01_starter.afphoto",
+        "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+        "filesize": "1.65 MB",
+        "filetype": ".afphoto",
+        "assetStatus": "REAL_AFFINITY_FILE",
+        "isVerified": true,
+        "statusNote": "Verified practice document for retouching workspace challenge (REAL_AFFINITY_FILE)."
+      },
+      "challengeCriteria": [
+        "Tools panel arranged in 2 columns.",
+        "Live High Pass filter applied non-destructively (not rasterized).",
+        "Original background image layer remains locked and intact."
+      ],
+      "bonusGoal": "Assign a custom shortcut to 'Live Filters > Sharpen > High Pass'."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Applying destructive filters from the Filters menu instead of Live Filters",
+        "cause": "Menu commands under 'Filters > Blur' bake permanently into selected pixel layers, destroying history.",
+        "solution": "Always use 'Layer > New Live Filter Layer' or the hourglass icon at the bottom of the Layers panel to get fully editable live filters."
+      },
+      {
+        "pitfall": "Trying to edit an adjustment layer with a pixel brush",
+        "cause": "Painting directly on an adjustment layer paints on its built-in mask (grayscale opacity), not color pixels.",
+        "solution": "Paint with black to hide the adjustment, white to reveal it; to paint color, create a new Pixel Layer."
+      },
+      {
+        "pitfall": "Accidentally rotating canvas while panning",
+        "cause": "Holding Alt while dragging with the View Tool triggers free canvas rotation.",
+        "solution": "Press View > Reset Rotation (Ctrl+Shift+R / Cmd+Shift+R) to snap the canvas back to 0 degrees."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P01-01-Q1",
+        "question": "What is the primary difference between a Standard Filter (from the Filters menu) and a Live Filter Layer in Affinity Photo?",
+        "options": [
+          "Standard filters have higher resolution than Live Filters.",
+          "Live Filter Layers operate non-destructively as real-time GPU shaders that can be re-adjusted, re-ordered, or masked at any time without damaging underlying pixels.",
+          "Live Filters can only be used on 8-bit images.",
+          "Standard filters automatically save to the cloud."
+        ],
+        "correctIndex": 1,
+        "explanation": "Live Filters in Affinity Photo are non-destructive layers that evaluate on GPU in real-time. Their parameters (radius, intensity) remain continuously editable."
+      },
+      {
+        "id": "P01-01-Q2",
+        "question": "How do you temporarily pan the canvas viewport while any drawing or retouching tool is active?",
+        "options": [
+          "Hold Tab",
+          "Hold the Spacebar and drag the mouse",
+          "Press Escape",
+          "Double-click the mouse wheel"
+        ],
+        "correctIndex": 1,
+        "explanation": "Holding the Spacebar temporarily overrides the active tool with the Hand / View Tool, allowing fluid panning across the canvas."
+      },
+      {
+        "id": "P01-01-Q3",
+        "question": "What does painting with pure Black (RGB: 0, 0, 0) on an Adjustment Layer's thumbnail do?",
+        "options": [
+          "It paints black ink onto the photograph.",
+          "It masks out (hides) the adjustment effect in the painted area, restoring the underlying original image appearance.",
+          "It inverts the colors of the whole document.",
+          "It deletes the adjustment layer."
+        ],
+        "correctIndex": 1,
+        "explanation": "Every adjustment layer in Affinity Photo has a built-in mask. Black conceals the adjustment effect; white reveals it."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Affinity Photo's 5 personas streamline specialized phases from RAW development to pixel retouching and export.",
+        "Non-destructive workflows preserve original sensor data while allowing infinite parameter tuning.",
+        "Live Filters and Adjustment Layers include built-in masking channels for localized edits.",
+        "Customizing studio panels and tools maximizes ergonomic focus for high-volume retouching."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: P01-02 RAW Develop Persona & 32-bit HDR Pipelines",
+          "target": "P01-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Photo Manual: Non-Destructive Editing",
+          "target": "https://affinity.serif.com/photo/non-destructive/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P01-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Affinity Photo Interface & Non-Destructive Architecture",
+      "subtitle": "Professional Image Retouching Reimagined",
+      "contentMarkdown": "Welcome to **Affinity Photo 3.0**.\n\nDesigned from the ground up to eliminate the destructive workflows of legacy editors, Affinity Photo operates on a **pure non-destructive engine**.\n\nIn this lesson, you will master the **workspace anatomy, 5 specialized personas, and the non-destructive layer stack** that professional retouchers rely on daily.",
+      "actionBox": {
+        "label": "Golden Philosophy",
+        "text": "Never bake a destructive pixel change when a non-destructive adjustment or live filter can achieve the same result."
+      }
+    },
+    {
+      "id": "P01-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The 5 Specialized Personas of Affinity Photo",
+      "subtitle": "End-to-End Image Processing Pipeline",
+      "contentMarkdown": "Affinity Photo divides the digital imaging lifecycle into 5 purpose-built environments:\n\n1. **Photo Persona:** Primary retouching, layer compositing, masking, and color grading.\n2. **Develop Persona:** High-bitdepth RAW sensor decoding, exposure recovery, and optical lens corrections.\n3. **Tone Mapping Persona:** HDR dynamic range compression for 32-bit bracketed shots.\n4. **Liquify Persona:** GPU-accelerated mesh warping and facial/body contour sculpting.\n5. **Export Persona:** Slicing and automated export for web, print, and game asset pipelines.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Photo Persona (Cobalt) | Develop Persona (Amber) | Tone Mapping (Violet) | Liquify (Rose) | Export (Emerald)"
+      }
+    },
+    {
+      "id": "P01-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Workspace Navigation & Studio Anatomy",
+      "subtitle": "Key Panels for Image Mastery",
+      "contentMarkdown": "The Affinity Photo workspace surrounds your canvas with real-time diagnostic and editing tools:\n\n- **Layers Studio (F7):** The beating heart of non-destructive compositing. Houses blend modes, opacity, clipping masks, and live filters.\n- **Histogram Studio:** Live RGB and luminance readout that reveals blown highlights or crushed shadows.\n- **Adjustments Studio:** Instant access to 22 non-destructive color and tonal curves.\n- **Channels Studio:** Inspect individual Red, Green, Blue, Alpha, and composite selections.",
+      "actionBox": {
+        "label": "Fluid Navigation",
+        "text": "Hold Spacebar to pan. Hold Space+Ctrl (Win) or Space+Cmd (Mac) to scrub zoom smoothly.",
+        "shortcut": { "win": "Spacebar", "mac": "Spacebar" }
+      }
+    },
+    {
+      "id": "P01-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Adding a Non-Destructive Adjustment",
+      "subtitle": "Working with Built-In Masking",
+      "contentMarkdown": "1. **Open Starter Asset:** Load `P01_starter.afphoto` via `File > Open` (`Ctrl+O` / `Cmd+O`).\n2. **Add Curves Adjustment:** Click the Adjustments panel on the right, or click the half-circle icon at the bottom of the Layers panel and choose **Curves**.\n3. **S-Curve Contrast:** Click to add a point in the upper right (highlights) and nudge upward; add a point in the lower left (shadows) and nudge downward.\n4. **Selective Masking:** Select the Paint Brush Tool (`B`), choose pure Black, and paint over the subject's face to shield it from excess contrast.\n5. **Inspect Non-Destructive Result:** Notice the Curves layer remains completely editable at any time by double-clicking its thumbnail!",
+      "visual": {
+        "type": "callout",
+        "content": "Black Conceals, White Reveals: Every adjustment layer has a built-in mask ready to accept grayscale brush strokes."
+      }
+    },
+    {
+      "id": "P01-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Common Photo Pitfalls & Solutions",
+      "subtitle": "Preserve Quality and Avoid Unintended Canvas Drift",
+      "contentMarkdown": "### 1. Destructive Filter Baking\n- **The Issue:** Choosing `Filters > Blur > Gaussian Blur` applies permanent pixel changes that destroy original data.\n- **The Fix:** Always choose `Layer > New Live Filter Layer > Blur > Gaussian Blur` (or use the hourglass icon in the Layers panel).\n\n### 2. Accidental Canvas Rotation\n- **The Issue:** Accidentally holding Alt while panning rotates the canvas angle, causing visual confusion.\n- **The Fix:** Press `Ctrl+Shift+R` (Win) / `Cmd+Shift+R` (Mac) or choose `View > Reset Rotation`.\n\n### 3. Painting on the Wrong Layer\n- **The Fix:** Check the Layers panel before painting. Always create a new empty Pixel Layer (`Ctrl+Shift+N` / `Cmd+Shift+N`) for paint or clone work.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Live Filters and Adjustments cost zero extra file size compared to duplicated pixel layers."
+      }
+    },
+    {
+      "id": "P01-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Photo Architecture",
+      "subtitle": "Validate Your Non-Destructive Understanding",
+      "contentMarkdown": "Check your comprehension before proceeding.",
+      "quizData": {
+        "id": "P01-01-Q1",
+        "question": "What is the primary difference between a Standard Filter (from the Filters menu) and a Live Filter Layer in Affinity Photo?",
+        "options": [
+          "Standard filters have higher resolution than Live Filters.",
+          "Live Filter Layers operate non-destructively as real-time GPU shaders that can be re-adjusted, re-ordered, or masked at any time without damaging underlying pixels.",
+          "Live Filters can only be used on 8-bit images.",
+          "Standard filters automatically save to the cloud."
+        ],
+        "correctIndex": 1,
+        "explanation": "Live Filters in Affinity Photo are non-destructive layers that evaluate on GPU in real-time. Their parameters (radius, intensity) remain continuously editable."
+      }
+    },
+    {
+      "id": "P01-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Retouching Stack Setup",
+      "subtitle": "Build a Professional Non-Destructive Structure",
+      "contentMarkdown": "### Your Mission:\nUsing the verified starter file `P01_starter.afphoto`, build a professional non-destructive retouching stack:\n\n1. Add a **Live High Pass Filter** set to 1.8px radius with blend mode set to **Overlay** (for subtle micro-contrast).\n2. Add a **Selective Color Adjustment** layer to boost warm skin tones or cool sky highlights.\n3. Create a dedicated **Empty Pixel Layer** labeled `Blemish Touchup` placed immediately above the base image.\n\n### Acceptance Criteria:\n- Background image layer is untouched.\n- Live High Pass filter can be double-clicked to alter radius.\n- All adjustment and filter layers are neatly labeled.",
+      "practiceData": {
+        "prompt": "Construct a clean, labeled non-destructive adjustment stack on P01_starter.afphoto.",
+        "starterAsset": {
+          "filename": "P01_starter.afphoto",
+          "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+          "filesize": "1.65 MB",
+          "filetype": ".afphoto",
+          "assetStatus": "REAL_AFFINITY_FILE",
+          "isVerified": true,
+          "statusNote": "Verified practice document for retouching workspace challenge (REAL_AFFINITY_FILE)."
+        },
+        "checkpoints": [
+          "Live High Pass filter applied non-destructively",
+          "Selective Color adjustment layer active",
+          "Dedicated retouching pixel layer positioned correctly"
+        ]
+      }
+    }
+  ]
+}

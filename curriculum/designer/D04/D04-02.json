@@ -1,0 +1,303 @@
+{
+  "id": "D04-02",
+  "moduleId": "D04",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Stroke Studio, Custom Dashes & Vector Pressure Curves",
+  "subtitle": "4 Dash/Gap Sequences, Pressure Graph Tapering & Presets",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the advanced controls of the Stroke Studio: Width, Alignment (Center, Inside, Outside), Caps, and Joins.",
+      "Design complex rhythmic dashed lines using the 4 dash/gap pattern input matrix.",
+      "Sculpt variable-width calligraphy and hair strands using the interactive Stroke Pressure Graph.",
+      "Save, manage, and recall custom stroke pressure presets across vector illustration projects."
+    ],
+    "foundationalKnowledge": "In basic graphic design, vector strokes have a uniform, rigid thickness from start to finish. In high-end digital illustration and calligraphy, organic strokes require dynamic weight variation: thin delicate hairlines that swell into thick bold curves and taper gracefully into razor-sharp points. Rather than requiring you to outline paths and manually nudge hundreds of Bezier nodes, Affinity Designer incorporates a real-time 'Pressure Studio' into every vector stroke. An interactive pressure curve graph maps stroke width dynamically along the path length, transforming a single mathematical curve into expressive, responsive brushwork.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Stroke Studio & Pressure Graph Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Stroke Studio & Pressure Graph",
+      "persona": "Vector Persona (View > Studio > Stroke)",
+      "shortcut": {
+        "win": "View > Studio > Stroke (or Context Bar stroke swatch)",
+        "mac": "View > Studio > Stroke (or Context Bar stroke swatch)"
+      },
+      "description": "Governs line weight, alignment, caps, dash sequences, and the variable pressure graph.",
+      "contextBarOptions": [
+        "Align Stroke: Center (50/50), Inner (clamped inside boundary), Outer (clamped outside boundary)",
+        "Dash Pattern Inputs: 4 pairs of Dash and Gap inputs (e.g. 4-2-1-2 for Morse code / rhythm lines)",
+        "Dash Phase Offset: Shifts dash start position along the curve perimeter",
+        "Pressure Button: Opens the interactive curve graph editor (0% to 100% stroke variance)",
+        "Save Profile Button: Saves current pressure graph as a reusable preset"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Draw a Freehand or Pen Path",
+        "instruction": "Using the Pen Tool (P) or Vector Brush Tool, draw an elegant S-shaped curve on your artboard.",
+        "shortcutTip": { "win": "P", "mac": "P" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Configure Stroke Weight in the Stroke Studio",
+        "instruction": "Open the Stroke Studio (View > Studio > Stroke). Set the width to 32 pt so that pressure variations are clearly visible. Set Cap to 'Round Cap'.",
+        "shortcutTip": { "win": "Stroke Studio", "mac": "Stroke Studio" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Open the Pressure Graph",
+        "instruction": "At the bottom of the Stroke Studio, click the 'Pressure' button. A popup graph appears with a horizontal line across the top (representing 100% stroke thickness along the path).",
+        "shortcutTip": { "win": "Click Pressure", "mac": "Click Pressure" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Sculpt a Calligraphic Taper Profile",
+        "instruction": "Drag the leftmost node of the graph down to 0% (path start is needle sharp). Click the middle of the graph line to add a center control node and pull it to 100% (thick belly). Drag the rightmost node down to 0% (path end is needle sharp). Observe your path instantly transform into an organic hand-lettered brush stroke!",
+        "shortcutTip": { "win": "Drag Graph Nodes", "mac": "Drag Graph Nodes" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Create a Custom Rhythmic Dash Pattern",
+        "instruction": "Draw a circle. In the Stroke Studio, switch Style to 'Dashed Line'. In the 4 dash boxes, enter: Dash 1: `6`, Gap 1: `2`, Dash 2: `2`, Gap 2: `2`. Notice a refined technical blueprint dash rhythm appear immediately around the circle.",
+        "shortcutTip": { "win": "Dashed Line Mode", "mac": "Dashed Line Mode" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Pressure Graph Taper Profiles",
+        "description": "Standard stroke pressure configurations.",
+        "visualType": "table",
+        "visualContent": "| Profile Name | Graph Shape | Visual Stroke Result |\n|---|---|---|\n| Uniform | Flat line at 100% | Constant industrial thickness |\n| Calligraphy Taper | 0% start, 100% center, 0% end | Pointed ends with swollen middle belly |\n| Comet Tail | 100% start sloping down to 0% end | Heavy impact head with fading taper tail |\n| Dual Swell | 100% start, 20% center, 100% end | Pinched waist with bulbous terminals |"
+      },
+      {
+        "title": "Pressure Graph Coordinate Mapping",
+        "description": "How the graph translates along the physical path.",
+        "visualType": "diagram",
+        "visualContent": "Pressure Graph: [100% Height]        .--- Peak Belly (100% Width) ---.\n                                     /                                 \\\n                [  0% Height] ● (Start: 0%)                        ● (End: 0%)\n                              | ◄────── Length of Vector Path ──────► |\nPath on Canvas:               ● ══════════════ ▰▰▰▰▰▰▰ ══════════════ ●\n                             (Fine Needle)    (Thick Swell)       (Fine Needle)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Dynamic Comic Inking with Vector Pressure",
+      "taskDescription": "Ink a dynamic action speed-line burst using variable stroke pressure profiles and save the custom preset.",
+      "checkpoints": [
+        "Draw 5 radiating curved speed lines using the Pen Tool.",
+        "Set stroke width to 20 pt.",
+        "Configure the Pressure graph: Start at 0%, rise sharply to 100% at 20% length, taper to 0% at 100% length.",
+        "Click 'Save Profile' in the Pressure popup to store this 'Speed Line' preset.",
+        "Select the remaining 4 lines and apply the saved profile with one click."
+      ],
+      "expectedOutcome": "A synchronized, high-impact comic book action burst with organic, tapered vector linework."
+    },
+    "independentChallenge": {
+      "title": "Baroque Botanical Leaf Flourish",
+      "prompt": "Construct an ornate botanical vine flourish: (1) Main vine stem using a smooth continuous stroke with a tapering pressure profile; (2) Multiple leaf fronds sprouting from the vine, each created from a single stroke shaped purely by an asymmetrical pressure profile (bulbous base tapering to a leaf tip); (3) A decorative accent border around the composition using an 8-4-2-4 custom dashed pattern.",
+      "starterAsset": {
+        "filename": "D04_gradients_stroke_contour_guide.md",
+        "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for stroke pressure graphs (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Leaf flourishes constructed using single stroked paths with pressure curves (not outlined shapes).",
+        "At least 2 distinct pressure curve presets created and saved.",
+        "Border uses custom 4-pair dash pattern with zero seam overlapping glitches."
+      ],
+      "bonusGoal": "Apply a subtle 2-stop gold gradient along the stroke of the main vine stem."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Stroke Pressure button is disabled (grayed out)",
+        "cause": "The active stroke style is set to 'Dashed Line' or 'No Stroke'.",
+        "solution": "Pressure curves only apply to continuous solid line styles. Set Style to 'Solid Line' in the Stroke Studio."
+      },
+      {
+        "pitfall": "Strokes ballooning when artwork is scaled down",
+        "cause": "The 'Scale with object' checkbox is unchecked in the Stroke Studio.",
+        "solution": "Always check 'Scale with object' so that stroke widths and pressure profiles scale proportionally with your illustration."
+      },
+      {
+        "pitfall": "Tapered stroke looking pixelated on canvas",
+        "cause": "Viewing in Pixel Preview mode at a low zoom level.",
+        "solution": "Switch to Vector View Mode (View > View Mode > Vector) to preview infinite mathematical Bezier curves."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D04-02-Q1",
+        "question": "What is the primary architectural function of the 'Pressure' graph in the Affinity Designer Stroke Studio?",
+        "options": [
+          "It measures how hard you press your keyboard keys.",
+          "It dynamically maps the thickness of a vector stroke along its length, allowing you to sculpt calligraphic tapers without outlining paths.",
+          "It compresses PNG files.",
+          "It closes open curves."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Pressure graph allows artists to modulate the stroke width multiplier (0% to 100%) from the start node to the end node along any vector curve."
+      },
+      {
+        "id": "D04-02-Q2",
+        "question": "How many independent Dash and Gap parameter pairs does Affinity Designer support in its custom dashed line engine?",
+        "options": [
+          "Only 1 pair (simple dash and gap).",
+          "Up to 4 pairs (Dash 1/Gap 1, Dash 2/Gap 2, Dash 3/Gap 3, Dash 4/Gap 4).",
+          "Unlimited pairs.",
+          "None; dashes are not supported."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Designer provides 4 consecutive pairs of Dash and Gap inputs, enabling intricate rhythmic dash sequences (such as Morse code or complex technical drafting lines)."
+      },
+      {
+        "id": "D04-02-Q3",
+        "question": "Why is the 'Scale with object' checkbox crucial when working with detailed vector strokes?",
+        "options": [
+          "It forces the stroke to convert into an artboard.",
+          "It ensures the stroke width shrinks and enlarges proportionally when the shape is resized, preventing line weights from overwhelming miniaturized graphics.",
+          "It changes the stroke color to black.",
+          "It saves the file automatically."
+        ],
+        "correctIndex": 1,
+        "explanation": "Without 'Scale with object', a 20pt stroke remains 20pt even if you scale an icon down to 16x16 px, turning the artwork into a solid blob."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "The Stroke Studio provides comprehensive control over weight, caps, joins, and alignments.",
+        "The Pressure graph transforms uniform vector strokes into expressive, tapered brushwork.",
+        "Custom dash engines accept up to 4 dash/gap sequence pairs.",
+        "Always enable 'Scale with object' to guarantee scalable vector portability."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D04-03 Contour Tool (Offset Curves) & Expand Stroke",
+          "target": "D04-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Stroke Studio & Pressure Curves",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D04-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Stroke Studio, Custom Dashes & Vector Pressure Curves",
+      "subtitle": "Breathing Organic Vitality into Precision Vector Linework",
+      "contentMarkdown": "Welcome to **Lesson D04-02**.\n\nUniform strokes look mechanical. True illustration—from manga inking to luxury calligraphy—demands **variable-width strokes**.\n\nIn this lesson, you will master the **Stroke Studio Pressure Graph**, sculpt custom calligraphic tapers on single Bezier paths, and build complex **4-stage rhythmic dash patterns**.",
+      "actionBox": {
+        "label": "Illustration Breakthrough",
+        "text": "Never manually trace two sides of a tapered hair strand again! Draw a single line and sculpt it with Pressure."
+      }
+    },
+    {
+      "id": "D04-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Mechanics of the Pressure Graph",
+      "subtitle": "Mapping Width Multipliers Along a Bezier Curve",
+      "contentMarkdown": "At the bottom of the Stroke Studio (`View > Studio > Stroke`), the **Pressure graph** modulates path thickness:\n\n- **X-Axis:** Represents the chronological progression of the path from `0%` (Start Node) to `100%` (End Node).\n- **Y-Axis:** Represents the stroke thickness multiplier from `0%` (razor-sharp hairline) to `100%` (maximum stroke width).\n- **Control Nodes:** Click anywhere on the curve to add inflection points; drag nodes up or down to swell or pinch the stroke.",
+      "visual": {
+        "type": "diagram",
+        "content": "[100% Width] ────● (Thick Swell) ────\n                 /                    \\\n  [0% Width]   ● (Sharp Taper)         ● (Sharp Taper)\n               Start ═════════════════ End"
+      }
+    },
+    {
+      "id": "D04-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Stroke Alignment & Caps Refresher",
+      "subtitle": "Center, Inside & Outside Alignments",
+      "contentMarkdown": "The Stroke Studio provides 3 essential alignment modes for closed shapes:\n\n1. **Center Align:** The stroke straddles the path 50% inside, 50% outside (standard for illustration).\n2. **Inner Align:** The entire stroke is clamped *inside* the vector boundary. Essential for UI buttons to prevent 1px boundary bleeding.\n3. **Outer Align:** The entire stroke sits *outside* the boundary, preserving interior negative space.",
+      "actionBox": {
+        "label": "Golden Checkbox",
+        "text": "Always enable 'Scale with object' in the Stroke panel so strokes scale proportionally when graphics resize."
+      }
+    },
+    {
+      "id": "D04-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Sculpting a Calligraphy Stroke",
+      "subtitle": "Executing the Pressure Taper Workflow",
+      "contentMarkdown": "Follow these steps to turn a simple line into a calligraphic stroke:\n\n1. **Step 1:** Select the Pen Tool (`P`) and draw a smooth curved flourish.\n2. **Step 2:** In the Stroke Studio, set Width to `28 pt` and select **Round Cap**.\n3. **Step 3:** Click the **'Pressure'** button at the bottom of the panel.\n4. **Step 4:** Drag the left point down to `0%`. Drag the right point down to `0%`.\n5. **Step 5:** Click the center of the graph line to add a node and drag it to `100%`.\n6. **Step 6:** Click **'Save Profile'** to store this taper preset for future one-click use!",
+      "visual": {
+        "type": "comparison",
+        "content": "Uniform 28pt Line (Mechanical) ===[ Pressure Graph ]===> Calligraphic Ribbon (Organic)"
+      }
+    },
+    {
+      "id": "D04-02-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "Architectural Dashes: The 4-Pair Sequence",
+      "subtitle": "Creating Morse Code and Blueprint Patterns",
+      "contentMarkdown": "Affinity Designer's dashed line engine is far more advanced than basic on/off toggles:\n\n- It accepts **4 consecutive pairs** of Dash and Gap inputs.\n- **Example 1 (Technical Blueprint):** `Dash 1: 8 | Gap 1: 2 | Dash 2: 2 | Gap 2: 2` (Long dash followed by dot).\n- **Example 2 (Security Ticket):** `Dash 1: 12 | Gap 1: 3 | Dash 2: 4 | Gap 2: 3 | Dash 3: 4 | Gap 3: 3`.\n- **Phase Offset:** Shift the phase slider to align corner dashes neatly without clipping.",
+      "visual": {
+        "type": "table",
+        "content": "| Pattern Name | Dash 1 / Gap 1 | Dash 2 / Gap 2 | Visual Rhythm |\n|---|---|---|---|\n| Standard | 3 / 3 | - | ──  ──  ──  ── |\n| Long-Short | 8 / 2 | 2 / 2 | ──── ─ ──── ─ |\n| Stitched Seam | 4 / 2 | 4 / 2 | ── ── ── ── |"
+      }
+    },
+    {
+      "id": "D04-02-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Tablet Stylus Velocity & Pressure",
+      "subtitle": "Live Drawing with Wacom & Apple Pencil",
+      "contentMarkdown": "If you use a drawing tablet (Wacom, iPad Sidecar, Huion):\n\n1. Select the **Vector Brush Tool (`B`)**.\n2. On the Context Toolbar, change Controller from 'None' to **'Pressure'** or **'Velocity'**.\n3. Affinity Designer samples your hardware stylus pressure levels in real time at 120Hz, automatically recording custom pressure graphs onto every vector curve as you draw!",
+      "actionBox": {
+        "label": "Hardware Integration",
+        "text": "Every tablet stroke creates an editable vector path with an embedded Pressure curve."
+      }
+    },
+    {
+      "id": "D04-02-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Stroke Studio Pitfalls & Troubleshooting",
+      "subtitle": "Avoid Common Vector Glitches",
+      "contentMarkdown": "### 1. Pressure Button is Grayed Out\n- **The Cause:** The stroke is set to 'Dashed Line' or has a texture brush nozzle applied.\n- **The Fix:** Switch the stroke style back to **Solid Line**.\n\n### 2. The Ballooning Stroke Trap\n- **The Issue:** You shrink an icon from 500px down to 50px, and the 20pt stroke fills the entire icon with black.\n- **The Fix:** Enable **'Scale with object'** in the Stroke Studio before resizing.\n\n### 3. Asymmetrical Pressure on Symmetrical Shapes\n- **The Fix:** Reset the Pressure curve by clicking the 'Reset' button inside the Pressure popup dialog.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Scale With Object: Mandatory | Solid Style for Pressure | Reset Button Restores Flat Line"
+      }
+    },
+    {
+      "id": "D04-02-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Dynamic Manga Action Burst",
+      "subtitle": "Put Vector Pressure & Dashes into Practice",
+      "contentMarkdown": "### Your Mission:\nConstruct a high-intensity manga action speed burst around a central crest:\n\n1. Draw 8 radiating curved speed lines using the Pen Tool (`P`).\n2. Configure a custom **Pressure profile**: `0%` start, rising sharply to `100%` width, and tapering back to `0%`.\n3. Save the profile preset as **'Action Taper'** and apply it across all 8 lines.\n4. Draw an outer circular border frame and apply a custom **4-pair dash pattern** (`8-2-2-2-2-2`).\n\n### Acceptance Criteria:\n- Speed lines feature razor-sharp tapered ends sculpted via Pressure.\n- At least 1 pressure preset saved.\n- Frame features 4-pair rhythmic dashes.",
+      "practiceData": {
+        "prompt": "Construct dynamic action linework using the Stroke Pressure graph and custom dashes.",
+        "starterAsset": {
+          "filename": "D04_gradients_stroke_contour_guide.md",
+          "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for stroke pressure graphs."
+        },
+        "checkpoints": [
+          "Pen Tool linework created",
+          "Pressure graph customized with 0%-100%-0% taper",
+          "Pressure preset saved and applied across multiple lines"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "id": "D01-02",
+  "moduleId": "D01",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Artboard Architecture vs Single Canvas Setup",
+  "subtitle": "Responsive Multi-Screen Layouts, Bleed & Device Presets",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Distinguish between single canvas documents and multi-artboard responsive design documents.",
+      "Create, resize, duplicate, and organize artboards using the Artboard Tool and Transform Studio.",
+      "Configure print bleed (3mm), margins, and color spaces (RGB vs CMYK) across artboards.",
+      "Manage artboard hierarchies in the Layers panel and understand how objects clip within artboard bounds."
+    ],
+    "foundationalKnowledge": "In digital design, artboards act as independent design canvases residing inside a single infinite workspace. While a single-canvas setup is ideal for one-off standalone graphics (e.g. a poster or t-shirt print), modern creative workflows require designing responsive digital experiences across mobile, tablet, desktop, and watch screen dimensions simultaneously. In Affinity Designer, an artboard is fundamentally a specialized container layer with its own bounding box, background fill, and export properties. Elements placed on an artboard automatically clip to its boundaries, preventing visual bleed between adjacent screen variations.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer Multi-Artboard Engine & Transform Panel Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Artboard Tool",
+      "persona": "Vector Persona",
+      "shortcut": {
+        "win": "No default single-key shortcut (accessible under Move Tool dropdown or Insert Artboard toolbar button)",
+        "mac": "No default single-key shortcut"
+      },
+      "description": "Located in the left Tools Panel (grouped beneath or alongside the Move Tool). When active, the Context Toolbar allows inserting new artboards based on standard device presets (iPhone, iPad, Desktop, Apple Watch, Paper sizes) or drawing custom freeform artboards on the canvas.",
+      "contextBarOptions": [
+        "Size dropdown: Device presets (Apple, Android, Generic Screens, Print Paper)",
+        "Insert Artboard button: Instantly places a new artboard with the selected preset",
+        "Color swatch: Customizes the artboard canvas background fill (default white or transparent)",
+        "Lock Children toggle: Allows resizing the artboard without scaling the artwork inside"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Create a New Artboard-Enabled Document",
+        "instruction": "Press Ctrl+N (Windows) / Cmd+N (macOS). Under the 'Web' category, select 'FHD (1920 x 1080)'. Under Layout, check the box labeled 'Create Artboard'. Click Create.",
+        "shortcutTip": { "win": "Ctrl+N", "mac": "Cmd+N" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Add a Second Artboard for Mobile Viewport",
+        "instruction": "Select the Artboard Tool from the left Tools Panel. In the Context Toolbar, open the Size dropdown and select 'iPhone 15 / 16' (393 x 852 px). Click the 'Insert Artboard' button. Notice the mobile artboard appear neatly beside your desktop canvas.",
+        "shortcutTip": { "win": "Click Insert Artboard", "mac": "Click Insert Artboard" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Duplicate an Artboard with Content",
+        "instruction": "Switch to the Move Tool (V). Click directly on the title text of the Desktop artboard to select it. Hold Alt (Windows) or Option (macOS) and drag horizontally to duplicate the entire artboard along with all contained layers.",
+        "shortcutTip": { "win": "Alt+Drag", "mac": "Option+Drag" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Toggle 'Lock Children' to Resize Artboard Only",
+        "instruction": "Select an artboard. On the Context Toolbar, enable 'Lock Children'. Now drag an artboard edge or enter new dimensions in the Transform panel. The artboard canvas resizes without distorting any contained text or vector shapes.",
+        "shortcutTip": { "win": "Lock Children ON", "mac": "Lock Children ON" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Artboard vs Single Canvas Comparison",
+        "description": "Key structural differences between canvas models.",
+        "visualType": "table",
+        "visualContent": "| Feature | Single Canvas Setup | Multi-Artboard Setup |\n|---|---|---|\n| Multi-Screen UI | Impossible in one file | Seamless (Desktop + Mobile side-by-side) |\n| Export Persona | Exports whole canvas as 1 file | Auto-detects each artboard as a slice |\n| Bleed Display | Bleed shows outside page edge | Bleed is contained per artboard |\n| Asset Sharing | Objects outside canvas get lost | Shared assets can sit on pasteboard |"
+      },
+      {
+        "title": "Responsive Layout Diagram",
+        "description": "How multi-device layouts align on the infinite pasteboard.",
+        "visualType": "diagram",
+        "visualContent": "Infinite Pasteboard\n [Artboard: Desktop 1920x1080]   [Artboard: Tablet 768x1024]   [Artboard: Mobile 375x812]\n  ├── Header (3-col)             ├── Header (2-col)            ├── Header (Stacked)\n  └── Hero Grid                  └── Hero Grid                 └── Single Column"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Responsive UI Artboard Setup",
+      "taskDescription": "Set up a clean 3-artboard design system workspace for a SaaS web application.",
+      "checkpoints": [
+        "Create Desktop artboard: 1920x1080 px, named 'Web-Desktop'.",
+        "Add Tablet artboard: 768x1024 px, named 'Web-Tablet'.",
+        "Add Mobile artboard: 375x812 px, named 'Web-Mobile'.",
+        "Align artboards with 100px uniform gap using the Alignment panel."
+      ],
+      "expectedOutcome": "A synchronized multi-device workspace ready for responsive typography and layout testing."
+    },
+    "independentChallenge": {
+      "title": "Cross-Platform Social Media Suite",
+      "prompt": "Create a multi-artboard document containing exact aspect ratio artboards for a marketing campaign: (1) Instagram Post (1080x1080), (2) Instagram Story (1080x1920), (3) Twitter/X Header (1500x500), (4) LinkedIn Post (1200x627). Add a shared color palette on the pasteboard.",
+      "starterAsset": {
+        "filename": "D01_artboard_starter_guide.md",
+        "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+        "filesize": "1.2 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Setup guide for social media artboard dimensions (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "All 4 artboards created with exact pixel dimensions.",
+        "Each artboard properly named in the Layers panel.",
+        "Lock Children tested when adjusting banner margins."
+      ],
+      "bonusGoal": "Set unique background fill colors for each social platform artboard."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Artwork scaling when resizing an artboard",
+        "cause": "When resizing an artboard with the Move Tool, Designer scales all child objects proportionally unless 'Lock Children' is activated.",
+        "solution": "Always toggle 'Lock Children' on the Context Toolbar before manually adjusting artboard boundaries."
+      },
+      {
+        "pitfall": "Layers floating outside artboard containers",
+        "cause": "Dragging an element across artboards can place it onto the generic pasteboard root instead of inside the target artboard layer.",
+        "solution": "Check the Layers Studio. Drag the object directly into the target artboard layer hierarchy to ensure proper clipping and export association."
+      },
+      {
+        "pitfall": "Export Persona exporting only one screen",
+        "cause": "If artboards were not enabled and artwork was drawn on standard canvas layers, Export Persona does not automatically create discrete slices.",
+        "solution": "Convert layers to artboards via Layer > New Artboard, or use the Slice Tool in Export Persona."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D01-02-Q1",
+        "question": "What happens to objects contained within an artboard when you resize the artboard with 'Lock Children' enabled?",
+        "options": [
+          "The child objects scale proportionally to fit the new size.",
+          "The child objects remain completely untouched in position and size while only the canvas bounds change.",
+          "The child objects are deleted.",
+          "The child objects are converted to pixels."
+        ],
+        "correctIndex": 1,
+        "explanation": "'Lock Children' prevents any transformation applied to the artboard container from propagating to the child elements inside it."
+      },
+      {
+        "id": "D01-02-Q2",
+        "question": "How can you quickly duplicate an entire artboard along with all of its contents?",
+        "options": [
+          "File > Duplicate Canvas",
+          "Select the artboard label with the Move Tool, hold Alt / Option and drag to a new position",
+          "Export to PDF and re-import",
+          "Press Ctrl+Shift+N"
+        ],
+        "correctIndex": 1,
+        "explanation": "Selecting the artboard title bar and Alt/Option dragging instantly clones the artboard and all nested layers."
+      },
+      {
+        "id": "D01-02-Q3",
+        "question": "How does Export Persona treat artboards created in Affinity Designer?",
+        "options": [
+          "It forces the user to manually draw slices over each screen.",
+          "It automatically generates an individual export slice for every artboard in the document.",
+          "It merges all artboards into a single gigantic PNG.",
+          "It ignores artboards completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In Export Persona, every artboard automatically becomes a primary slice, allowing one-click batch export of all screen sizes."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Artboards provide independent, multi-dimensional canvases within a single project file.",
+        "Artboards automatically clip child content and streamline multi-density export.",
+        "'Lock Children' allows flexible viewport adjustment without distorting vector artwork.",
+        "Multi-artboard setups are the industry standard for responsive UI design and multi-format campaigns."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D01-03 Vector View Modes, Grids & Snapping Systems",
+          "target": "D01-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Guide: Artboard Best Practices",
+          "target": "https://affinity.serif.com/designer/artboards/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D01-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Artboard Architecture vs Single Canvas Setup",
+      "subtitle": "Designing for the Multi-Device Era",
+      "contentMarkdown": "In modern digital product design, you rarely design for a single screen size.\n\nYou design responsive ecosystems that adapt across mobile phones, tablets, high-resolution desktops, and print collateral.\n\nIn this lesson, you will master **Affinity Designer's Artboard Architecture**—learning how to manage multi-device viewports, configure print bleeds, and unlock automated batch export.",
+      "actionBox": {
+        "label": "Core Principle",
+        "text": "Artboards are isolated canvas containers living in a unified pasteboard."
+      }
+    },
+    {
+      "id": "D01-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "When to Use Artboards vs Single Canvas",
+      "subtitle": "Choosing the Optimal Document Foundation",
+      "contentMarkdown": "Choosing your canvas structure at document creation sets the tone for your entire project:\n\n### Single Canvas Setup\n- **Best For:** Standalone digital illustrations, single-page posters, t-shirt prints, or photo matte paintings.\n- **Characteristics:** Fixed canvas boundary; elements outside the canvas are hidden.\n\n### Multi-Artboard Setup\n- **Best For:** UI/UX design, mobile app prototypes, multi-size social media ad sets, and brand identity kits.\n- **Characteristics:** Multiple independent canvases of varying dimensions and DPI living side-by-side in one `.afdesign` document.",
+      "visual": {
+        "type": "callout",
+        "content": "Rule of Thumb: If your project produces more than one final asset or requires responsive testing, always choose Artboards."
+      }
+    },
+    {
+      "id": "D01-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Artboard Tool & Context Toolbar",
+      "subtitle": "Precision Canvas Creation at Your Fingertips",
+      "contentMarkdown": "The **Artboard Tool** gives you complete control over your canvas boundaries:\n\n- **Preset Selector:** Choose from dozens of calibrated device templates (iPhone, iPad, MacBook, Watch, Print A4/Letter).\n- **Insert Artboard Button:** Instantly stamps a new artboard onto the pasteboard.\n- **Lock Children Toggle:** **CRITICAL:** When enabled, lets you resize the artboard canvas without squishing or stretching the graphic elements inside.\n- **Canvas Fill Swatch:** Assign individual background colors per artboard or set to transparent.",
+      "actionBox": {
+        "label": "Essential Setting",
+        "text": "Always verify that 'Lock Children' is checked when adjusting canvas margins or padding.",
+        "shortcut": { "win": "Context Toolbar", "mac": "Context Toolbar" }
+      }
+    },
+    {
+      "id": "D01-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Building a Responsive Trio",
+      "subtitle": "Desktop, Tablet & Mobile Side-by-Side",
+      "contentMarkdown": "1. **Initialize Document:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Web > FHD (1920x1080)` and ensure `[x] Create Artboard` is active.\n2. **Name the Desktop Artboard:** In the Layers panel, double-click the artboard name and rename to `Desktop-1920`.\n3. **Insert Tablet Screen:** Activate the Artboard Tool. In the Context Toolbar, select `iPad` from the preset list and click `Insert Artboard`.\n4. **Insert Mobile Screen:** Select `iPhone 15 / 16` and click `Insert Artboard`.\n5. **Organize Spacing:** Use the Move Tool to arrange all three artboards horizontally with equal 80px gaps on your pasteboard.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Desktop 1920x1080]  80px  [Tablet 768x1024]  80px  [Mobile 393x852]"
+      }
+    },
+    {
+      "id": "D01-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Artboard Pitfalls & Pro-Tips",
+      "subtitle": "Avoid Content Distortion and Layer Drift",
+      "contentMarkdown": "### 1. Distorting Graphics on Resize\n- **Cause:** Dragging artboard corner handles with 'Lock Children' turned off.\n- **Fix:** Toggle 'Lock Children' ON in the top Context Toolbar before dragging bounds.\n\n### 2. Layers Escaping the Artboard\n- **Cause:** Moving elements near the artboard edge can inadvertently pop them out into the root pasteboard.\n- **Fix:** Check your Layers panel. Always keep child elements indented underneath their parent artboard layer.\n\n### 3. Bleed Preview Confusion\n- **Cause:** Bleed guides appear per artboard in print presets. If you don't see bleed, check `View > View Mode > Clip to Canvas`.",
+      "actionBox": {
+        "label": "Quick Fix",
+        "text": "To duplicate an artboard instantly with all contents: Select its title bar with Move Tool, hold Alt/Option, and drag."
+      }
+    },
+    {
+      "id": "D01-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Artboard Mechanics",
+      "subtitle": "Test Your Mastery",
+      "contentMarkdown": "Validate your understanding of artboard behavior.",
+      "quizData": {
+        "id": "D01-02-Q1",
+        "question": "What happens to objects contained within an artboard when you resize the artboard with 'Lock Children' enabled?",
+        "options": [
+          "The child objects scale proportionally to fit the new size.",
+          "The child objects remain completely untouched in position and size while only the canvas bounds change.",
+          "The child objects are deleted.",
+          "The child objects are converted to pixels."
+        ],
+        "correctIndex": 1,
+        "explanation": "'Lock Children' prevents any transformation applied to the artboard container from propagating to the child elements inside it."
+      }
+    },
+    {
+      "id": "D01-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Campaign Artboard Suite",
+      "subtitle": "Build a Cross-Platform Social Ad Set",
+      "contentMarkdown": "### Your Mission:\nCreate a multi-artboard marketing document with 4 exact social media formats:\n\n1. **Instagram Post:** 1080 x 1080 px (Square)\n2. **Instagram Story / Reel:** 1080 x 1920 px (Vertical 9:16)\n3. **Twitter / X Header:** 1500 x 500 px (Banner 3:1)\n4. **LinkedIn Post:** 1200 x 627 px (Landscape 1.91:1)\n\n### Acceptance Criteria:\n- All 4 artboards created with exact dimensions.\n- Each artboard named accurately in the Layers Studio.\n- Arrange artboards neatly on the pasteboard with consistent spacing.",
+      "practiceData": {
+        "prompt": "Create 4 social media artboards with correct dimensions and clean hierarchy.",
+        "starterAsset": {
+          "filename": "D01_artboard_starter_guide.md",
+          "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
+          "filesize": "1.2 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Setup guide for social media artboard dimensions (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Instagram square 1080x1080 configured",
+          "Vertical 1080x1920 story configured",
+          "Banner 1500x500 and LinkedIn 1200x627 configured"
+        ]
+      }
+    }
+  ]
+}

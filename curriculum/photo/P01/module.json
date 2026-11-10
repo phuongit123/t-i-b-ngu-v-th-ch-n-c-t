@@ -1,0 +1,21 @@
+{
+  "id": "P01",
+  "trackId": "photo",
+  "moduleNumber": "P01",
+  "title": "Photo Interface, RAW Develop Persona & Color Profiles",
+  "tagline": "Master professional photo editing foundations, high-bitdepth RAW development, and color management.",
+  "description": "Understand the non-destructive architecture of Affinity Photo 3.0: workspace navigation, 32-bit floating point HDR color pipelines, RAW Develop Persona exposure recovery, white balance calibration, chromatic aberration removal, and non-destructive canvas geometry.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 80,
+  "prerequisites": [],
+  "primaryPersona": "Develop Persona & Photo Persona",
+  "starterAsset": {
+    "filename": "P01_starter.afphoto",
+    "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+    "filesize": "1.65 MB",
+    "filetype": ".afphoto",
+    "isVerified": true,
+    "statusNote": "Verified genuine Affinity Photo document (1.65 MB) tested in active Affinity 3.3.3 session."
+  },
+  "lessonIds": ["P01-01", "P01-02", "P01-03"]
+}

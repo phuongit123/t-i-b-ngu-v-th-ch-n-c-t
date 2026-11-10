@@ -1,0 +1,293 @@
+{
+  "id": "D08-03",
+  "moduleId": "D08",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Scalable Vector Component Systems & Variants",
+  "subtitle": "Nested Symbols, Button States, Responsive Layouts & Design Tokens",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Construct multi-variant UI component systems incorporating Primary, Secondary, Ghost, and Destructive button styles.",
+      "Architect hierarchical Nested Symbols (e.g. an icon symbol embedded within a button symbol) for compound updates.",
+      "Configure the Constraints Studio to establish responsive auto-resizing rules for cards and navigation bars.",
+      "Integrate Global Color Swatches as design tokens to enable instant thematic restyling across an entire component library."
+    ],
+    "foundationalKnowledge": "Building an enterprise design system requires more than isolated buttons; it requires an architectural ecosystem where changes cascade predictably. In Affinity Designer, this is achieved by combining three advanced vector engines: (1) Nested Symbols, where sub-components like icons or badges are symbols nested inside larger container symbols; (2) The Constraints Studio (View > Studio > Constraints), which defines responsive pinning rules (pin left, pin right, fixed width) so cards scale cleanly without distorting buttons or avatars; and (3) Global Color Swatches in the Swatches Studio, which act as native design tokens—re-tinting a single global swatch updates every component, border, and typography instance throughout the entire document.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Constraints Engine, Nested Symbols & Global Swatches Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Constraints Studio & Global Swatches",
+      "persona": "Vector Persona (View > Studio > Constraints & View > Studio > Swatches)",
+      "shortcut": {
+        "win": "View > Studio > Constraints (Dock Panel), Swatches Studio Palette",
+        "mac": "View > Studio > Constraints (Dock Panel), Swatches Studio Palette"
+      },
+      "description": "Defines responsive scaling and pinning relationships for vector objects, paired with document-wide global color swatches.",
+      "contextBarOptions": [
+        "Constraints Edge Pinning: Pin Left, Pin Right, Pin Top, Pin Bottom",
+        "Constraints Dimension Locks: Fixed Width, Fixed Height, Lock Aspect Ratio",
+        "Max / Min size limits: Protects inner elements from collapsing during responsive drag",
+        "Global Color Swatch: Created via Swatches Studio menu -> Add Global Color (displays small lower-left triangle badge)",
+        "Overprint & Spot Color options for print-ready press workflows"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Create an Icon Sub-Symbol",
+        "instruction": "Draw a 16x16 px vector chevron icon (#FFFFFF). In the Symbols Studio, click 'Create' to register it as 'SubComponent_Icon_Chevron'.",
+        "shortcutTip": { "win": "Symbols > Create", "mac": "Symbols > Create" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Nest the Icon Inside a Master Button",
+        "instruction": "Draw a button container (160x44 px, 8px rounded corners, fill #4F46E5). Add an Artistic Text label ('Next Step'). Place an instance of your 'SubComponent_Icon_Chevron' inside the group. In the Symbols Studio, select the entire group and click 'Create' to register 'Component_Button_Action'. You have now created a Nested Symbol!",
+        "shortcutTip": { "win": "Nested Symbol", "mac": "Nested Symbol" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Configure Responsive Pinning in Constraints Studio",
+        "instruction": "Open View > Studio > Constraints. Select the chevron icon inside the button. In the Constraints panel, check 'Pin Right' and 'Fixed Width'. Select the text label and check 'Pin Left'. Drag the button's right edge wider: the chevron stays locked to the right margin while the button expands smoothly without distortion!",
+        "shortcutTip": { "win": "View > Studio > Constraints", "mac": "View > Studio > Constraints" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Define Global Swatches as Design Tokens",
+        "instruction": "In the Swatches Studio, click the palette burger menu and select 'Add Global Color...'. Name it 'Token_Brand_Primary' and set value to #4F46E5. Apply this global swatch to your button fill. Notice the swatch thumbnail displays a distinct triangle badge indicating it is a live global token.",
+        "shortcutTip": { "win": "Swatches > Add Global Color", "mac": "Swatches > Add Global Color" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Test Cascade Architecture",
+        "instruction": "Duplicate your button component across 3 artboards. Double-click the 'Token_Brand_Primary' swatch in the Swatches Studio and change the hue to Purple (#7C3AED). Observe: Every button instance on every artboard updates color instantly. Then edit the original 'SubComponent_Icon_Chevron' to an arrow: Every button updates its icon automatically!",
+        "shortcutTip": { "win": "Double-Click Swatch", "mac": "Double-Click Swatch" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Component System Cascade Architecture",
+        "description": "How tokens, sub-symbols, and constraints interconnect.",
+        "visualType": "diagram",
+        "visualContent": "[Global Swatch: Token_Brand_Primary] ────┐\n                                        ▼\n[Sub-Symbol: Icon_Chevron] ──> [Master Symbol: Button_Action] ──> [Constraints: Pin Right]\n                                        │\n                                        ▼\n                     [All Instances Across 10+ Artboards]"
+      },
+      {
+        "title": "Constraints Studio Pinning Matrix",
+        "description": "Standard pinning configurations for common UI components.",
+        "visualType": "table",
+        "visualContent": "| UI Element | Pinning Configuration | Dimension Lock | Resize Behavior |\n|---|---|---|---|\n| Trailing Icon | Pin Right, Pin Center-Y | Fixed Width & Height | Stays docked to right edge with fixed icon size |\n| Leading Logo | Pin Left, Pin Center-Y | Fixed Width & Height | Stays docked to left edge with fixed logo size |\n| Card Body Copy | Pin Left, Pin Right, Pin Top | None | Stretches horizontally to fill card width |\n| Modal Background | Pin Top, Bottom, Left, Right | None | Stretches responsively with parent artboard |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing an Adaptive Analytics Metric Card",
+      "taskDescription": "Build a responsive KPI card with nested metric pills, pinning rules, and global color tokens that resizes from 240px to 480px width flawlessly.",
+      "checkpoints": [
+        "Create a global swatch 'Token_Surface_Card' (#1E293B) and 'Token_Accent_Cyan' (#06B6D4).",
+        "Create a nested symbol for a trend badge pill ('+24% Growth').",
+        "Assemble the card container with title, metric number, and the nested badge symbol.",
+        "Apply Constraints: Title pins Left, Badge pins Right with fixed width.",
+        "Drag the card's bounding box horizontally to verify that padding remains locked at exactly 24px."
+      ],
+      "expectedOutcome": "A fully responsive vector analytics card component that scales smoothly across mobile, tablet, and desktop viewports without broken alignment."
+    },
+    "independentChallenge": {
+      "title": "Full-Spectrum Design System Library",
+      "prompt": "Construct a production-ready UI component kit in Affinity Designer: (1) Establish 4 global color tokens (Primary, Success, Warning, Neutral); (2) Build an Icon Sub-Symbol library (Arrow, Check, Close, Alert); (3) Build 4 Button Variants (Primary Filled, Secondary Outlined, Ghost, Destructive) using nested icon symbols and constraints; (4) Configure hover and disabled states with local overrides; (5) Archive the entire suite into the Assets Studio under 'Enterprise UI System' and export as 'Design_System_Tokens_v1.afassets'.",
+      "starterAsset": {
+        "filename": "D08_symbols_assets_guide.md",
+        "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
+        "filesize": "3.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for full-spectrum component systems and constraints (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "4 global color tokens configured in Swatches Studio.",
+        "Nested symbols utilized for icon interchangeability.",
+        "Constraints Studio rules prevent distortion during card and button resizing.",
+        "Asset package exported as clean, distributable .afassets bundle."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Neglecting to check 'Fixed Width' and 'Fixed Height' on icons inside responsive containers.",
+        "consequence": "When the parent card or button is stretched wider, the circular or square icon stretches into a distorted oval.",
+        "solution": "In the Constraints Studio, always lock 'Fixed Width' and 'Fixed Height' on icons, logos, and badges."
+      },
+      {
+        "mistake": "Using regular document swatches instead of Global Swatches for brand colors.",
+        "consequence": "Updating a brand color requires manually selecting and re-tinting hundreds of individual vector paths.",
+        "solution": "Always choose 'Add Global Color...' in the Swatches Studio menu. Global swatches display a distinctive corner triangle badge."
+      },
+      {
+        "mistake": "Nesting symbols more than 3 levels deep unnecessarily.",
+        "consequence": "Creates confusion in the Layers Studio and increases mental overhead when troubleshooting override propagation.",
+        "solution": "Keep nesting hierarchy disciplined: Design Tokens -> Sub-Symbols (Icons/Badges) -> Master Components (Buttons/Cards)."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary visual indicator that a color swatch in the Swatches Studio is a live Global Swatch?",
+        "options": [
+          "It is marked with a padlock icon.",
+          "It displays a small white or gray triangle in its bottom-left corner.",
+          "It is outlined with a dotted red border.",
+          "It is sorted into a separate window."
+        ],
+        "correctIndex": 1,
+        "explanation": "Global Color Swatches in Affinity Designer are visually distinguished by a small triangle badge in their lower-left corner, signifying that edits to the swatch update all objects using that color."
+      },
+      {
+        "question": "Which studio panel in Affinity Designer allows you to pin an icon to the right margin of a button so it does not distort when the button is resized wider?",
+        "options": [
+          "Transform Studio",
+          "Constraints Studio",
+          "Isometric Studio",
+          "History Studio"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Constraints Studio (View > Studio > Constraints) allows you to define edge pinning (Pin Right) and dimension locking (Fixed Width) for responsive vector components."
+      },
+      {
+        "question": "What happens if you edit a Sub-Symbol (e.g. an icon) that is nested inside a Master Button Symbol?",
+        "options": [
+          "Only the active document closes.",
+          "The icon updates globally inside every button symbol instance that contains it.",
+          "The button symbol is automatically detached into a plain group.",
+          "The icon disappears from the canvas."
+        ],
+        "correctIndex": 1,
+        "explanation": "Nested Symbols exhibit compound inheritance: modifying the nested child symbol propagates changes through all parent master symbols that embed it."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "Nested Symbols allow compound component architectures where sub-elements update seamlessly.",
+        "The Constraints Studio ensures responsive auto-resizing without distorting icons or margins.",
+        "Global Swatches function as design tokens, enabling instant document-wide theme re-coloration.",
+        "Combining Symbols, Assets, Constraints, and Global Tokens elevates Affinity Designer into an enterprise UI powerhouse."
+      ],
+      "nextSteps": "Complete the D08 capstone project in D08_symbols_assets_guide.md, then proceed to Module D09 (Pixel Persona Integration & Textured Vector Shading).",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/constraintsPanel.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Architecting Enterprise Component Systems",
+      "subtitle": "Beyond Standalone Buttons to Scalable Systems",
+      "bullets": [
+        "A true design system is an ecosystem of interdependent visual decisions.",
+        "Affinity Designer uniquely combines four powerful vector engines:",
+        "1. Nested Symbols: Compounds of symbols inside symbols.",
+        "2. Constraints Studio: Responsive pinning and dimension locking.",
+        "3. Global Swatches: Live color tokens that ripple through the whole document.",
+        "4. Assets Studio: Persistent global distribution across projects."
+      ],
+      "proTip": "This multi-engine synergy allows solo designers to manage enterprise-scale design systems."
+    },
+    {
+      "slideNumber": 2,
+      "title": "The Power of Nested Symbols",
+      "subtitle": "Compound Inheritance in Vector Architecture",
+      "bullets": [
+        "Create an icon (e.g. chevron or arrow) and register it as an Icon Symbol.",
+        "Place instances of this icon symbol inside button and card Master Symbols.",
+        "Updating the icon symbol later propagates through all buttons, headers, and cards simultaneously.",
+        "Keeps your iconography 100% unified without touching individual parent components."
+      ],
+      "proTip": "Limit nesting depth to 2–3 levels for maximum clarity and maintainability."
+    },
+    {
+      "slideNumber": 3,
+      "title": "The Constraints Studio Architecture",
+      "subtitle": "Responsive Vector Auto-Resizing",
+      "bullets": [
+        "Open via View > Studio > Constraints.",
+        "Edge Pinning: Pin Left, Right, Top, or Bottom relative to the parent container.",
+        "Dimension Locking: Fixed Width, Fixed Height, or maintain proportional aspect ratio.",
+        "Prevents icons, badges, and avatars from stretching when a card is widened for tablet or desktop."
+      ],
+      "callout": "Always lock 'Fixed Width' and 'Fixed Height' on circular avatars and icons!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "Pinning Rules for Common UI Elements",
+      "subtitle": "Standardizing Responsive Behaviors",
+      "bullets": [
+        "Trailing Chevron: Pin Right, Pin Center-Y, Fixed Width, Fixed Height.",
+        "Leading Brand Logo: Pin Left, Pin Center-Y, Fixed Width, Fixed Height.",
+        "Card Body Description: Pin Left, Pin Right, Pin Top (stretches with card width).",
+        "Action Buttons in Dialog: Pin Right, Pin Bottom (docked to bottom-right corner)."
+      ],
+      "proTip": "Test your constraints by selecting the parent container and dragging its corner handle."
+    },
+    {
+      "slideNumber": 5,
+      "title": "Global Color Swatches as Design Tokens",
+      "subtitle": "Document-Wide Thematic Color Control",
+      "bullets": [
+        "In the Swatches Studio, select 'Add Global Color...' from the panel menu.",
+        "Global swatches display a distinct triangle badge in their lower-left corner.",
+        "Apply global swatches to component backgrounds, borders, and typography.",
+        "Editing the global swatch in the palette instantly repaints every instance document-wide!"
+      ],
+      "proTip": "Establish semantic tokens: 'Token_Primary', 'Token_Success', 'Token_Surface'."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Building Multi-Variant Button Systems",
+      "subtitle": "Primary, Secondary, Ghost & Destructive",
+      "bullets": [
+        "Primary: Solid brand fill (#4F46E5) with white label and icon.",
+        "Secondary: 1.5pt vector border with transparent fill and brand text.",
+        "Ghost: Transparent fill with subtle hover state tint.",
+        "Destructive: Coral red accent (#EF4444) for delete or danger actions.",
+        "All 4 variants utilize identical padding, corner radii, and nested icon symbols."
+      ],
+      "proTip": "Organize your button variants in a clean 4-column matrix on your design system canvas."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: Responsive Analytics Card",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D08_symbols_assets_guide.md'.",
+        "Define global swatches for Surface, Accent, and Text tokens.",
+        "Build a metric card with nested trend pills and trailing arrow icons.",
+        "Apply Constraints: Pin title Left, Pin trend pill Right with fixed width.",
+        "Drag the card from 240px to 480px width to verify responsive scaling."
+      ],
+      "proTip": "Inspect corner radii during scaling to verify that corners remain uniform."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Advanced System Competencies",
+      "bullets": [
+        "Explain how Nested Symbols propagate updates through parent containers.",
+        "Identify the Constraints Studio settings required to protect circular icons from stretching.",
+        "Recognize the visual badge marking a Global Swatch in the palette.",
+        "Confirm that your component library is saved into an exportable .afassets bundle."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Module D08 Complete: Component Systems Mastery",
+      "subtitle": "Summary of Symbols, Assets & Responsive Design",
+      "bullets": [
+        "Constructed master symbols with non-destructive local overrides via Sync OFF.",
+        "Organized and packaged persistent .afassets libraries for enterprise distribution.",
+        "Engineered responsive UI components with Constraints edge pinning.",
+        "Implemented document-wide design tokens using Global Color Swatches.",
+        "Next up: Module D09 (Pixel Persona Integration & Textured Vector Shading)."
+      ],
+      "proTip": "You now wield professional design system capabilities rivaling dedicated UI suites."
+    }
+  ]
+}

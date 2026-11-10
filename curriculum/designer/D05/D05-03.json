@@ -1,0 +1,304 @@
+{
+  "id": "D05-03",
+  "moduleId": "D05",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
+  "subtitle": "Multiply, Screen, Blend Options Gear, Luminance Graphs & Alt+Click Solo",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the essential vector Blend Modes: Multiply, Screen, Overlay, Color Dodge, and Luminosity.",
+      "Unlock the 'Blend Options' dialog (gear icon) to configure custom tonal Blend Ranges for source and underlying artwork.",
+      "Use luminance opacity curves to seamlessly dissolve vector textures into shadow or highlight tones of underlying layers.",
+      "Engage Isolation Mode (Alt+Click / Option+Click on a layer thumbnail) to isolate and solo any complex object for distraction-free editing.",
+      "Diagnose and correct color clipping and unexpected color shifts when grouping layers with mixed blend modes."
+    ],
+    "foundationalKnowledge": "In basic vector design, layers interact simply by occluding layers beneath them based on flat opacity percentages. In professional art direction, layers interact through optical mathematical blend equations: Multiply darkens by multiplying pixel luminance values (ideal for shadows); Screen brightens by inverting, multiplying, and re-inverting (ideal for glows and lens flares); Overlay enhances contrast. Beyond standard Photoshop-style blend modes, Affinity Designer provides an exclusive, high-end feature: 'Blend Ranges' (accessible via the small cog icon at the top of the Layers Studio). Blend Ranges allows you to plot custom input and output curve graphs, dictating exactly which tonal ranges of an object blend into the underlying artwork.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Blend Modes, Blend Ranges & Isolation Mode Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Blend Modes & Blend Options Gear",
+      "persona": "Vector Persona (Layers Studio Header)",
+      "shortcut": {
+        "win": "Alt + Click Layer Thumbnail (Isolation Mode), Click Cog Icon (Blend Options)",
+        "mac": "Option + Click Layer Thumbnail (Isolation Mode), Click Cog Icon (Blend Options)"
+      },
+      "description": "Blend mode dropdown sits at the top of the Layers panel. The gear/cog icon beside it opens the advanced Blend Options dialog.",
+      "contextBarOptions": [
+        "Blend Mode Dropdown: Normal, Darken, Multiply, Lighten, Screen, Overlay, Soft Light, Hard Light, Color Dodge, etc.",
+        "Opacity Slider: 0% to 100% layer transparency",
+        "Blend Options Cog Icon: Opens dual tonal curve graphs for Source Layer and Underlying Composition",
+        "Isolation Mode: Solo viewing of a single layer or group on the canvas",
+        "Pass Through Blend Mode: Default for groups, allowing inner blend modes to interact with layers outside the group"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Apply a Multiply Shadow",
+        "instruction": "Draw a vector character face. Draw a dark blue crescent shape overlapping the right cheek to represent a cast shadow. In the Layers Studio, change the crescent's Blend Mode from 'Normal' to 'Multiply'. Lower Opacity to 70%. Notice how the shadow darkens the skin tone naturally without muddying the colors.",
+        "shortcutTip": { "win": "Mode: Multiply", "mac": "Mode: Multiply" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Apply a Screen Glow",
+        "instruction": "Draw a glowing particle circle. Change its Blend Mode to 'Screen' or 'Color Dodge'. Notice how it illuminates and bleeds light directly into the underlying character artwork.",
+        "shortcutTip": { "win": "Mode: Screen", "mac": "Mode: Screen" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Open Blend Options (The Gear Icon)",
+        "instruction": "Select your shadow layer. In the top-right header of the Layers Studio, click the small gear/cog icon. The 'Blend Options' dialog appears, displaying two interactive curve graphs: 'Source Layer Ranges' (left) and 'Underlying Composition Ranges' (right).",
+        "shortcutTip": { "win": "Click Cog Icon", "mac": "Click Cog Icon" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Tweak Underlying Luminance Curves",
+        "instruction": "In the 'Underlying Composition Ranges' graph, drag the rightmost highlight node downward to 0%. Notice your shadow layer now dissolves cleanly away from any bright highlight areas on underlying layers, creating realistic light wrap!",
+        "shortcutTip": { "win": "Drag Graph Node", "mac": "Drag Graph Node" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Engage Isolation Mode for Focused Editing",
+        "instruction": "In a complex drawing with dozens of layers, hold Alt (Windows) or Option (macOS) and click directly on the thumbnail of the shadow layer in the Layers panel. Instantly, all other layers on the canvas disappear, leaving ONLY your shadow layer isolated on the canvas! Edit its Bezier nodes freely. Alt/Option-click the thumbnail again to exit Isolation Mode.",
+        "shortcutTip": { "win": "Alt+Click Thumbnail", "mac": "Option+Click Thumbnail" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Primary Blend Mode Categories",
+        "description": "Mathematical families of layer blending.",
+        "visualType": "table",
+        "visualContent": "| Blend Family | Signature Modes | Mathematical Behavior | Primary Use Case |\n|---|---|---|---|\n| Darken | Multiply, Darken, Color Burn | White becomes 100% transparent; darks multiply | Shadows, ink washes, ambient occlusion |\n| Lighten | Screen, Lighten, Color Dodge | Black becomes 100% transparent; brights add | Neon glows, lens flares, rim light highlights |\n| Contrast | Overlay, Soft Light, Hard Light | 50% gray is transparent; darks darken, lights lighten | Textures, cinematic grading, metallic sheen |\n| Color | Hue, Saturation, Color, Luminosity | Transfers color while keeping underlying luminance | Colorizing monochrome sketches, tinting |"
+      },
+      {
+        "title": "Blend Ranges Graph Mechanics",
+        "description": "How the dual tonal curves control blending.",
+        "visualType": "diagram",
+        "visualContent": "Underlying Composition Graph: [In Darks: 100% Visible] ──────.\n                                                            \\\n                                   [In Highlights: 0% Opacity] '────● (Fades out in bright highlights!)\n*Result: Shadow layer automatically evaporates when touching underlying sunny highlights.*"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Crafting a Neon Cyberpunk Helmet with Dynamic Glows",
+      "taskDescription": "Construct a futuristic visor with Multiply contact shadows, Color Dodge neon edge glows, and customized Blend Ranges.",
+      "checkpoints": [
+        "Draw base helmet geometry.",
+        "Create shadow layer with 'Multiply' at 75% opacity.",
+        "Create neon visor visor line with 'Color Dodge' at 100% opacity.",
+        "Open Blend Options (cog icon) on the shadow layer and tune underlying ranges to fade out over the neon visor.",
+        "Use Isolation Mode (Alt/Option + click thumbnail) to refine the visor curve in complete isolation."
+      ],
+      "expectedOutcome": "A dazzling, cinematic vector illustration with dynamic light blending that adapts as underlying layers are moved."
+    },
+    "independentChallenge": {
+      "title": "Atmospheric Sunlit Forest Canopy",
+      "prompt": "Construct a dramatic sunlit forest scene: (1) Background trees in silhouette; (2) Volumetric sun rays using semi-transparent polygons set to 'Screen'; (3) Atmospheric haze set to 'Soft Light'; (4) Use Blend Ranges on the sun rays to ensure they fade completely out of the darkest trunk shadows (protecting deep contrast); (5) Use Isolation Mode to clean up stray nodes on the foliage layers.",
+      "starterAsset": {
+        "filename": "D05_layers_masks_clipping_guide.md",
+        "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+        "filesize": "1.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Blend Modes and Blend Ranges (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "At least 3 distinct blend modes utilized appropriately (Multiply, Screen, Soft Light).",
+        "Blend Options gear dialog customized with custom tonal falloff curve.",
+        "Isolation Mode utilized and verified during node editing."
+      ],
+      "bonusGoal": "Nest a subtle grunge texture clipped inside the foreground tree silhouettes."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Blend mode stops working when placed inside a group",
+        "cause": "The parent group's blend mode is set to 'Normal' instead of 'Pass Through', causing the group to isolate its inner blend calculations.",
+        "solution": "Set the group's blend mode to 'Pass Through' in the Layers Studio dropdown so inner blend modes interact with layers outside the group."
+      },
+      {
+        "pitfall": "Artwork turns completely white or blown out with Color Dodge",
+        "cause": "Color Dodge calculates division by inverted values; white or very bright backgrounds result in pure blown specular clipping.",
+        "solution": "Switch to 'Screen' or reduce layer Opacity to ~40-60% when working over light backgrounds."
+      },
+      {
+        "pitfall": "Forgetting that Isolation Mode is active",
+        "cause": "Wondering why the rest of the canvas vanished.",
+        "solution": "Alt+Click / Option+Click on the isolated layer's thumbnail in the Layers panel to instantly restore the full canvas view."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D05-03-Q1",
+        "question": "How do you enter 'Isolation Mode' to view and edit a single layer or group on the canvas in Affinity Designer?",
+        "options": [
+          "Double-click the spacebar.",
+          "Hold Alt (Windows) or Option (macOS) and click directly on the layer's thumbnail icon in the Layers Studio.",
+          "Press Ctrl+Shift+Q.",
+          "Delete all other layers."
+        ],
+        "correctIndex": 1,
+        "explanation": "Alt-clicking (Win) or Option-clicking (Mac) on a layer thumbnail solos that layer, temporarily hiding all other document content for distraction-free editing."
+      },
+      {
+        "id": "D05-03-Q2",
+        "question": "Which blend mode mathematically multiplies pixel values together, making pure white 100% transparent and darkening all underlying colors (ideal for realistic shadows)?",
+        "options": [
+          "Screen",
+          "Multiply",
+          "Color Dodge",
+          "Luminosity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Multiply is the industry standard for realistic shading; white pixels disappear, and darks blend smoothly into underlying color tones."
+      },
+      {
+        "id": "D05-03-Q3",
+        "question": "What unique capability does the 'Blend Options' gear icon provide in Affinity Designer?",
+        "options": [
+          "It opens the print spooler.",
+          "It provides dual tonal curve graphs (Source and Underlying Ranges), allowing you to control exactly which luminance highlights or shadows blend into the composition.",
+          "It converts the vector layer to HTML code.",
+          "It changes the language of the application."
+        ],
+        "correctIndex": 1,
+        "explanation": "Blend Ranges provides fine-grained tonal curve control, letting artists fade layers out of specific shadow or highlight luminance zones on underlying artwork."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Blend modes (Multiply, Screen, Overlay) enable sophisticated optical lighting and shading.",
+        "Blend Ranges (gear icon) provide surgical control over tonal luminance falloff.",
+        "Pass Through allows grouped layers to blend with external layers beneath.",
+        "Isolation Mode (Alt/Option + Click thumbnail) isolates complex components for focused editing."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Module: D06 Typography, Text-on-Path & Glyph Styling",
+          "target": "D06-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Blend Modes & Blend Ranges",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D05-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
+      "subtitle": "Unlocking Atmospheric Lighting & Surgical Solo Editing",
+      "contentMarkdown": "Welcome to **Lesson D05-03**.\n\nFlat color opacity only scratches the surface of digital art. Dynamic lighting—from volumetric sunbeams to cinematic rim lights—relies on **Blend Modes**.\n\nIn this lesson, you will master the 4 core blend families, discover Affinity's exclusive **Blend Ranges (Gear Icon)** tonal curves, and harness **Isolation Mode** for focused editing.",
+      "actionBox": {
+        "label": "Cinematic Lighting",
+        "text": "Multiply for cast shadows. Screen & Color Dodge for luminous neon glows. Overlay for punchy contrast."
+      }
+    },
+    {
+      "id": "D05-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The 4 Core Blend Mode Families",
+      "subtitle": "Mathematics of Vector Compositing",
+      "contentMarkdown": "In the Layers Studio top dropdown, blend modes are grouped into 4 mathematical families:\n\n1. **Darken (Multiply, Color Burn):** White becomes transparent; darks multiply downward. Perfect for cast shadows and inking.\n2. **Lighten (Screen, Color Dodge):** Black becomes transparent; brights add together. Perfect for laser visors and flares.\n3. **Contrast (Overlay, Soft Light):** 50% gray is transparent; darks darken and lights brighten.\n4. **Component (Luminosity, Color):** Preserves or transfers color without changing underlying tonal values.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Multiply (Shadows) | Screen (Glows) | Overlay (Contrast) | Luminosity (Texture)"
+      }
+    },
+    {
+      "id": "D05-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Blend Options & The Gear Icon",
+      "subtitle": "Surgical Luminance Tone Curves",
+      "contentMarkdown": "Beside the Opacity slider in the Layers Studio sits a small **Gear/Cog Icon**:\n\n- Click it to open **Blend Options**.\n- It contains two curve graphs:\n  - **Source Layer Ranges:** Controls which tones of the active layer are visible.\n  - **Underlying Composition Ranges:** Controls how the active layer reacts to the brightness of layers underneath it!\n- Drag the highlight node down to make shadows magically vanish when they touch sunny highlights.",
+      "visual": {
+        "type": "diagram",
+        "content": "[Blend Options Gear Icon]\n       ├── Source Layer Ranges (Active Shape Falloff)\n       └── Underlying Composition (Fades out when touching underlying brights)"
+      }
+    },
+    {
+      "id": "D05-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: The Isolation Mode Solo Workflow",
+      "subtitle": "Distraction-Free Editing in Complex Documents",
+      "contentMarkdown": "When a document has 200 overlapping vector layers, editing a single inner curve can be frustrating:\n\n1. Locate the layer in the Layers Studio.\n2. Hold **`Alt` (Windows) or `Option` (macOS)**.\n3. Click directly on the layer's **Thumbnail Icon**.\n4. **Boom!** The entire rest of the canvas disappears. ONLY the isolated layer is rendered on screen!\n5. Tweak its Bezier nodes and handles with the Node Tool (`A`) in complete clarity.\n6. Hold `Alt` / `Option` and click the thumbnail again to restore the full scene.",
+      "actionBox": {
+        "label": "Solo Superpower",
+        "text": "Alt+Clicking a thumbnail isolates that layer instantly without having to hide other layers manually!"
+      }
+    },
+    {
+      "id": "D05-03-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "Group Blending: Pass Through vs Normal",
+      "subtitle": "Why Blend Modes Fail Inside Groups",
+      "contentMarkdown": "When you group layers that use Multiply or Screen:\n\n- **If Group is set to 'Normal':** The group evaluates its inner blend modes internally, then stamps the composite flat onto the canvas. The inner blend modes *cannot* interact with layers beneath the group!\n- **If Group is set to 'Pass Through':** The group acts as a transparent wrapper. Inner Multiply and Screen modes pass directly through the group boundary to interact with the external canvas.",
+      "visual": {
+        "type": "comparison",
+        "content": "Group set to Normal: Blends clamped inside group VS Group set to Pass Through: Blends interact with whole canvas"
+      }
+    },
+    {
+      "id": "D05-03-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Simulating Realistic Ambient Occlusion",
+      "subtitle": "Executing the Multiply + Blend Range Technique",
+      "contentMarkdown": "Follow these steps to create realistic crevice shading:\n\n1. **Step 1:** Draw a dark purple curve along the seam between two overlapping character armor plates.\n2. **Step 2:** Set Blend Mode to **Multiply** and Opacity to `80%`.\n3. **Step 3:** Click the **Gear icon** (Blend Options).\n4. **Step 4:** In 'Source Layer Ranges', drag the highlight end down slightly to soften the edge.\n5. **Inspect:** The crease darkens the armor naturally without looking like a flat black sticker!",
+      "actionBox": {
+        "label": "Colorist Insight",
+        "text": "Never shade with flat black #000000. Use deep indigo or warm sepia with Multiply for rich, vibrant shadows."
+      }
+    },
+    {
+      "id": "D05-03-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Blend Mode Pitfalls & Troubleshooting",
+      "subtitle": "Avoid Common Blending Artifacts",
+      "contentMarkdown": "### 1. Blown Specular Clipping on Light Backgrounds\n- **The Issue:** Color Dodge or Add causes pixels to explode into 100% clipped white.\n- **The Fix:** Switch to **Screen** or lower layer Opacity to `50%`.\n\n### 2. Can't Find Where My Artwork Went\n- **The Cause:** You accidentally left Isolation Mode active.\n- **The Fix:** Look for the highlighted thumbnail in the Layers panel; `Alt+Click` / `Option+Click` it to restore all layers.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Use Screen for Soft Glows | Lower Opacity on Dodge | Alt+Click Restores Canvas"
+      }
+    },
+    {
+      "id": "D05-03-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Cyberpunk Visor Illumination",
+      "subtitle": "Put Blend Modes and Isolation to the Test",
+      "contentMarkdown": "### Your Mission:\nConstruct a futuristic cyberpunk pilot visor:\n\n1. Base helmet: Dark slate armor plates.\n2. Visor glass: Deep cyan rectangle with **Multiply** ambient shadow at top.\n3. Digital HUD display: Neon green graphics set to **Color Dodge** for radiant luminescence.\n4. Use **Blend Options (Gear icon)** on the shadow to ensure it fades gracefully away from the neon HUD.\n5. Engage **Isolation Mode (`Alt/Option + Click`)** to fine-tune the HUD glyph geometry in total focus.\n\n### Acceptance Criteria:\n- Both Multiply and Color Dodge modes utilized effectively.\n- Blend Options customized with non-linear falloff.\n- Isolation Mode demonstrated.",
+      "practiceData": {
+        "prompt": "Construct a cyberpunk visor with Multiply shadows and Color Dodge neon glows.",
+        "starterAsset": {
+          "filename": "D05_layers_masks_clipping_guide.md",
+          "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
+          "filesize": "1.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Blend Modes and Isolation Mode."
+        },
+        "checkpoints": [
+          "Multiply applied to shadow layer",
+          "Color Dodge / Screen applied to neon HUD elements",
+          "Blend Options gear tuned with custom curves"
+        ]
+      }
+    }
+  ]
+}

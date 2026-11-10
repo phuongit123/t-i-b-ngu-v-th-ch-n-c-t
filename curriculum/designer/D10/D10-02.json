@@ -1,0 +1,289 @@
+{
+  "id": "D10-02",
+  "moduleId": "D10",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Multi-Density Formats & Continuous Export Engine",
+  "subtitle": "1x/2x/3x Scaling, PNG/WebP/JPEG XL, Suffix Syntax & Background Auto-Builds",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Configure multi-density asset pipelines generating 1x, 2x, and 3x resolution files simultaneously from a single vector source.",
+      "Select and calibrate modern digital formats including PNG-24, WebP, JPEG XL, and SVG for production delivery.",
+      "Utilize dynamic path template syntax and custom suffixes (@1x, @2x, @3x) for automated folder routing.",
+      "Activate the Continuous Export engine to automatically rebuild and overwrite assets upon document save (Ctrl+S / Cmd+S)."
+    ],
+    "foundationalKnowledge": "In mobile and web engineering, a single graphic asset must be deployed across varying device display pixel densities (e.g. 1x for standard monitors, 2x for Apple Retina and 1080p mobile, 3x for modern OLED smartphones). Manually resizing and exporting an icon three times in multiple formats is an enormous waste of development time. Affinity Designer's Slices Studio features a multi-tiered export engine where a single slice can output 1x PNG, 2x PNG, 3x WebP, and 1x SVG simultaneously. Coupled with the revolutionary 'Continuous' export toggle, Designer watches your document and silently re-renders every asset directly into your project's codebase whenever you save.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Slices Studio Multi-Format & Continuous Export Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Slices Studio Multi-Format & Continuous Export",
+      "persona": "Export Persona (View > Studio > Slices)",
+      "shortcut": {
+        "win": "Export Persona (Top-Left Toolbar), Check 'Continuous' checkbox in Slices panel, Ctrl+S (Save sync trigger)",
+        "mac": "Export Persona (Top-Left Toolbar), Check 'Continuous' checkbox in Slices panel, Cmd+S (Save sync trigger)"
+      },
+      "description": "Multi-tier export matrix allowing simultaneous multi-scale asset rendering with automated background file rebuilding. Prerequisites: (1) Must click 'Export Slices' once to bind the destination directory; (2) Triggers include document save (Ctrl+S / Cmd+S), live layer edits inside the slice bounds, slice geometry changes, or export format updates; (3) Use selectively on active UI components to avoid rendering lag across large documents.",
+      "contextBarOptions": [
+        "Add Export Setup (+) button: Appends a new resolution/format tier to the selected slice",
+        "Scale dropdown: 1x, 2x, 3x, 0.5x, or custom pixel dimensions (e.g. 512w, 1024h)",
+        "Format dropdown: PNG, JPEG, WebP, SVG, PDF, TIFF, EXR, HDR, JPEG XL",
+        "Suffix input field: Automatically assigns file suffixes like '@1x', '@2x', or subfolder paths",
+        "Continuous checkbox: Toggles automatic background rebuilding upon saving the master document or editing slice contents"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Open Slice Export Tiers",
+        "instruction": "In the Export Persona, locate your 'Component_Button_Primary' slice in the Slices Studio. Click the small disclosure arrow next to its name to expand its export format tiers.",
+        "shortcutTip": { "win": "Expand Slice Arrow", "mac": "Expand Slice Arrow" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Configure 1x Standard & 2x Retina Tiers",
+        "instruction": "Set the first tier to: Scale: 1x, Format: PNG, Suffix: '@1x'. Click the '+' icon beside the tier to add a second tier. Set it to: Scale: 2x, Format: PNG, Suffix: '@2x'.",
+        "shortcutTip": { "win": "Click '+' Icon", "mac": "Click '+' Icon" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Next-Gen WebP 3x & SVG Tiers",
+        "instruction": "Click '+' again. Set Tier 3 to: Scale: 3x, Format: WebP, Suffix: '@3x'. Click '+' a fourth time. Set Tier 4 to: Scale: 1x, Format: SVG (for web), Suffix: '' (clean filename).",
+        "shortcutTip": { "win": "Add WebP & SVG", "mac": "Add WebP & SVG" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Enable Continuous Export",
+        "instruction": "At the very top of the Slices Studio panel, check the 'Continuous' checkbox. Click the 'Export Slices' button at the bottom of the panel and select an output folder (e.g. 'src/assets/icons/'). All files are generated immediately.",
+        "shortcutTip": { "win": "Check 'Continuous'", "mac": "Check 'Continuous'" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Verify Automatic Background Rebuilding",
+        "instruction": "Click the Designer Persona icon on the top-left Toolbar to return to vector editing. Change the button's color to bright magenta (#EC4899). Press Ctrl+S (Cmd+S) to save the document. Open your output folder: observe that all 4 files (@1x.png, @2x.png, @3x.webp, .svg) have been automatically re-rendered and overwritten in the background with zero prompts!",
+        "shortcutTip": { "win": "Ctrl+S (Auto-Rebuild)", "mac": "Cmd+S (Auto-Rebuild)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Multi-Density Output Matrix",
+        "description": "Standard scale targets and format selections across target operating systems.",
+        "visualType": "table",
+        "visualContent": "| Tier | Target Device / Screen | Scale | Output Format | Output Filename Example |\n|---|---|---|---|---|\n| Tier 1 | Standard Web / Desktop (1080p) | 1x | PNG-24 (Alpha) | `btn-primary@1x.png` |\n| Tier 2 | Apple Retina / High-DPI Mobile | 2x | PNG-24 (Alpha) | `btn-primary@2x.png` |\n| Tier 3 | Modern OLED Smartphones (3x Density) | 3x | WebP (Lossless) | `btn-primary@3x.webp` |\n| Tier 4 | Scalable Modern Web Dom | 1x | SVG (Clean ViewBox) | `btn-primary.svg` |"
+      },
+      {
+        "title": "Continuous Export Pipeline Flowchart",
+        "description": "How document saves trigger background file updates.",
+        "visualType": "diagram",
+        "visualContent": "[Designer Persona Canvas] ──> [Ctrl+S (Save)]\n                                     │\n                                     ▼ (Affinity Background Daemon)\n     ┌───────────────────────────────┴───────────────────────────────┐\n     ▼                               ▼                               ▼\n[`btn-primary@1x.png`]     [`btn-primary@2x.png`]        [`btn-primary.svg`]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Setting Up an Automated Mobile App Asset Pipeline",
+      "taskDescription": "Configure a complete 4-tier multi-density export preset for a suite of 4 navigation icons and verify automated continuous rebuilds.",
+      "checkpoints": [
+        "In Export Persona, select all 4 icon slices in the Slices Studio.",
+        "Batch-assign 4 export tiers: 1x PNG (@1x), 2x PNG (@2x), 3x PNG (@3x), and 1x SVG.",
+        "Enable the 'Continuous' export checkbox.",
+        "Export once to establish the target build directory.",
+        "Return to Designer Persona, edit one icon's stroke profile, save with Ctrl+S, and confirm all 4 files update automatically."
+      ],
+      "expectedOutcome": "A fully automated build pipeline that updates multi-scale production assets seamlessly during active design work."
+    },
+    "independentChallenge": {
+      "title": "Cross-Platform Asset Distribution Architecture",
+      "prompt": "Construct an automated developer handoff pipeline: (1) Prepare an illustration containing 3 telemetry badges; (2) Create layer-based slices for all 3 badges; (3) Configure custom path templates in the Slices Studio to route files into separate directories (e.g. 'ios/{name}@{dpi}x.{ext}' and 'web/{name}.{ext}'); (4) Set up WebP with 90% quality and PNG with 24-bit transparency; (5) Engage Continuous Export and demonstrate background file generation across both iOS and Web directories upon document save.",
+      "starterAsset": {
+        "filename": "D10_export_slices_production_guide.md",
+        "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for multi-density and continuous export (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "Multi-density export tiers configured across 1x, 2x, and 3x scales.",
+        "Modern WebP and PNG-24 formats operating with proper compression parameters.",
+        "Continuous Export verified: background asset updates fire cleanly on Ctrl+S.",
+        "Zero modal dialogs or workflow interruptions during iterative design."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Forgetting to click 'Export Slices' once after enabling the 'Continuous' checkbox.",
+        "consequence": "Affinity Designer does not know which target directory to save to, so Continuous Export does not initiate.",
+        "solution": "You must click 'Export Slices' one time to choose the output folder. After that initial export, Continuous Export handles all future updates."
+      },
+      {
+        "mistake": "Using JPEG format for icons and logos that require transparent backgrounds.",
+        "consequence": "JPEG does not support alpha channels; transparent backgrounds turn into solid white boxes.",
+        "solution": "Always use PNG-24 or WebP for transparent UI assets and iconography."
+      },
+      {
+        "mistake": "Setting up 3x scale on raster pixel layers originally painted at 72 DPI.",
+        "consequence": "The 3x export looks blurry because there is insufficient source raster data to scale cleanly.",
+        "solution": "Ensure your document was created at 300 DPI (Module D09) so raster textures upscale with razor-sharp fidelity."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "What is the primary function of the 'Continuous' checkbox in Affinity Designer's Slices Studio?",
+        "options": [
+          "It plays an animated slideshow of the canvas.",
+          "It automatically re-renders and overwrites all enabled slice files in the target directory whenever the document is saved.",
+          "It connects the document directly to a 3D printer.",
+          "It creates an infinite loop of undo states."
+        ],
+        "correctIndex": 1,
+        "explanation": "When 'Continuous' is checked, Affinity Designer watches the document: every time you press Ctrl+S (Cmd+S) in any persona, Designer quietly updates all exported slice files in the background without modal prompts."
+      },
+      {
+        "question": "Which modern image format provides both lossless transparency and superior compression (approximately 30% smaller than PNG) for web delivery?",
+        "options": [
+          "BMP",
+          "WebP",
+          "TIFF",
+          "EPS"
+        ],
+        "correctIndex": 1,
+        "explanation": "WebP supports full 8-bit alpha transparency with significantly smaller file sizes than traditional PNGs, making it the preferred raster format for modern web and mobile apps."
+      },
+      {
+        "question": "What suffix naming convention is standard for Apple iOS Retina 2x and 3x image assets?",
+        "options": [
+          "_large and _huge",
+          "@2x and @3x",
+          "-retina and -super",
+          ".v2 and .v3"
+        ],
+        "correctIndex": 1,
+        "explanation": "Apple's iOS asset catalog standard relies on the @2x and @3x suffixes (e.g. `icon@2x.png`, `icon@3x.png`) to identify display density tiers."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "A single slice can output multiple densities (1x, 2x, 3x) and formats (PNG, WebP, SVG) simultaneously.",
+        "The Continuous export engine turns Designer into an automated background asset compiler on save.",
+        "WebP delivers modern, high-efficiency transparency for mobile and web delivery.",
+        "Always execute one manual export to bind the output directory before relying on Continuous mode."
+      ],
+      "nextSteps": "Proceed to D10-03 to master clean SVG code optimization, decimal precision, and press-ready PDF/X commercial print preparation.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/ExportPersona/exportSettings.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "The Multi-Density Challenge in Modern UI",
+      "subtitle": "Serving 1x, 2x, and 3x Displays Simultaneously",
+      "bullets": [
+        "Modern screens range from standard 1080p monitors to ultra-dense 3x OLED smartphones.",
+        "Deploying a single 1x bitmap looks blurry and low-res on modern phones.",
+        "Deploying an oversized 3x bitmap on standard screens wastes mobile bandwidth.",
+        "Affinity Designer allows a single vector slice to output all required density tiers at once."
+      ],
+      "proTip": "Design at 1x base vector scale; let the Slices Studio generate the 2x and 3x assets."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Configuring Export Tiers in Slices Studio",
+      "subtitle": "Building Your Asset Output Matrix",
+      "bullets": [
+        "Expand any slice in the Slices Studio by clicking its disclosure arrow.",
+        "Click the '+' button to add multiple resolution and format targets.",
+        "Set Scale multipliers: 1x, 2x, 3x, or specify exact pixel widths (e.g. '512w').",
+        "Set Suffixes: '@1x', '@2x', '@3x' for standard developer file naming."
+      ],
+      "proTip": "Create a 0.5x tier if supporting legacy low-memory embedded displays."
+    },
+    {
+      "slideNumber": 3,
+      "title": "Modern Digital Formats: PNG, WebP & JPEG XL",
+      "subtitle": "Choosing the Right Codec for the Job",
+      "bullets": [
+        "PNG-24: Universal compatibility, crisp transparency, but larger file size.",
+        "WebP: Modern web standard, full alpha transparency, 30% smaller than PNG.",
+        "JPEG XL: Next-generation high-efficiency compression with wide color gamut.",
+        "SVG: Mathematical scalability for pure vector icons and illustrations."
+      ],
+      "callout": "Never export icons as standard JPEG or transparent backgrounds will turn solid white!"
+    },
+    {
+      "slideNumber": 4,
+      "title": "The Magic of Continuous Export",
+      "subtitle": "Automated Background Asset Compiler",
+      "bullets": [
+        "Check the 'Continuous' checkbox at the top of the Slices Studio.",
+        "Click 'Export Slices' once to designate your project's destination folder.",
+        "Return to Designer Persona and continue your normal creative workflow.",
+        "Whenever you press Ctrl+S (Cmd+S) to save, Designer automatically updates all files!"
+      ],
+      "proTip": "Pair Continuous Export with a local dev server (Vite/Webpack) for instant hot-reload design!"
+    },
+    {
+      "slideNumber": 5,
+      "title": "Dynamic Path Templates & Subfolder Routing",
+      "subtitle": "Automating Directory Architecture",
+      "bullets": [
+        "You can define subfolder paths directly in the slice or suffix fields.",
+        "Entering 'icons/{name}@{dpi}x' routes assets into an 'icons/' subfolder automatically.",
+        "Supports dynamic variables: {name}, {dpi}, {width}, {height}, {format}.",
+        "Eliminates manual file sorting after bulk asset exports."
+      ],
+      "proTip": "Use `{platform}/{name}` templates to separate iOS, Android, and Web builds in one click."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Verifying Continuous Rebuilds in Code",
+      "subtitle": "The Friction-Free Developer Handoff",
+      "bullets": [
+        "Open your code editor (e.g. VS Code) beside Affinity Designer.",
+        "Nudge a vector anchor point or change a brand accent color in Designer Persona.",
+        "Press Ctrl+S (Cmd+S).",
+        "Watch your local web app refresh immediately with the updated 1x/2x/3x graphics!"
+      ],
+      "callout": "Zero dialog boxes, zero file dialogs, zero repetitive export confirmations!"
+    },
+    {
+      "slideNumber": 7,
+      "title": "Hands-on Exercise: Mobile Navigation Suite",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D10_export_slices_production_guide.md'.",
+        "Configure 4 export tiers for each of your 5 navigation icons (1x PNG, 2x PNG, 3x WebP, 1x SVG).",
+        "Enable the Continuous Export checkbox and export once to your project asset directory.",
+        "Return to Designer Persona, adjust the icon stroke weight, and save with Ctrl+S.",
+        "Verify that all 20 output files regenerate in the background seamlessly."
+      ],
+      "proTip": "Check file sizes in File Explorer to verify that WebP is significantly smaller than PNG."
+    },
+    {
+      "slideNumber": 8,
+      "title": "Knowledge Check & Comprehension",
+      "subtitle": "Verifying Multi-Density & Continuous Competencies",
+      "bullets": [
+        "Identify how to add multiple export tiers to a single slice.",
+        "Explain the workflow trigger that fires Continuous Export (saving the document).",
+        "Evaluate the advantages of WebP over PNG for modern mobile applications.",
+        "Confirm all background export files generated cleanly before proceeding."
+      ]
+    },
+    {
+      "slideNumber": 9,
+      "title": "Lesson Summary & Moving to SVG Optimization & Print",
+      "subtitle": "From Automated Pipelines to Code & Press Standards",
+      "bullets": [
+        "Configured multi-density export matrices across 1x, 2x, and 3x scale factors.",
+        "Automated background asset generation via the Continuous Export engine.",
+        "Leveraged modern WebP and transparent PNG codecs for digital delivery.",
+        "In Lesson D10-03, we inspect raw SVG code optimization and prep commercial PDF/X for print."
+      ],
+      "proTip": "Continuous Export transforms Designer from a static drawing tool into a build-pipeline asset compiler."
+    }
+  ]
+}

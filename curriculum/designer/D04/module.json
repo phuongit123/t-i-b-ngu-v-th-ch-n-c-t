@@ -1,0 +1,54 @@
+{
+  "id": "D04",
+  "trackId": "designer",
+  "order": 4,
+  "title": "Fill, Gradient, Stroke & Pressure Profiles",
+  "subtitle": "Linear, Elliptical, Radial, Conical Gradients, Brush Pressure Curves, Contour Tool",
+  "description": "Transform flat vector paths into rich, dimensional illustrations using the Fill Tool (G), 5 gradient types, custom stroke dash patterns, dynamic pressure graphs for tapered calligraphy, the Contour Tool (O), and Expand Stroke for production.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry", "D03: Advanced Shape Creation & Boolean Geometry"],
+  "learningOutcomes": [
+    "Master the Fill Tool (G) across Linear, Radial, Elliptical, and Conical gradients.",
+    "Add, position, reverse, and modulate midpoints and opacity stops along gradient ramps.",
+    "Sculpt dynamic stroke taper profiles using the Stroke Studio Pressure graph.",
+    "Generate concentric offset outlines and inward insets using the Contour Tool (O).",
+    "Bake variable strokes and contour offsets into permanent filled vectors using Expand Stroke."
+  ],
+  "capstoneProject": {
+    "title": "Brushed Metal Chronograph Watch Dial",
+    "description": "Construct an ultra-realistic luxury chronograph dial featuring a 360-degree Conical brushed metal texture, dynamic tapered pressure tick marks, and an offset bezel using the Contour Tool.",
+    "deliverableAsset": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
+    "evaluationCriteria": [
+      "Dial background utilizes a 360-degree Conical gradient simulating brushed steel.",
+      "Tick marks feature custom pressure curves or tapered stroke profiles.",
+      "Bezel rim constructed using Contour Tool (O) or Expand Stroke."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D04-01",
+      "order": 1,
+      "title": "Fill Tool & Multi-Stop Gradients (5 Types)",
+      "subtitle": "Linear, Radial, Elliptical, Conical, Midpoints & Opacity Stops",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D04-02",
+      "order": 2,
+      "title": "Stroke Studio, Custom Dashes & Vector Pressure Curves",
+      "subtitle": "4 Dash/Gap Sequences, Pressure Graph Tapering & Presets",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D04-03",
+      "order": 3,
+      "title": "Contour Tool (Offset Curves) & Expand Stroke",
+      "subtitle": "Contour Tool (O), Inset/Offset Geometry & Expand Stroke Baking",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

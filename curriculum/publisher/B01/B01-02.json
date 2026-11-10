@@ -1,0 +1,300 @@
+{
+  "id": "B01-02",
+  "moduleId": "B01",
+  "trackId": "publisher",
+  "order": 2,
+  "title": "Master Pages Foundations & Dynamic Page Numbering",
+  "subtitle": "Parent/Child Hierarchy, Running Headers & Field Insertion",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Create and organize Master Pages (Spread Masters vs Single Page Masters) in the Pages Studio.",
+      "Insert dynamic fields: Page Number (#), Page Count, Section Name, and Running Headers.",
+      "Build a hierarchical parent-to-child Master Page inheritance tree (e.g. Master B inherits from Master A).",
+      "Override or detach master page items locally on specific pages without breaking master link synchronization."
+    ],
+    "foundationalKnowledge": "In publications exceeding a few pages, repeating design elements manually—such as folios, chapter titles, page numbers, decorative header rules, and background grids—is prone to human error and unmaintainable when pages are rearranged. Master Pages act as dynamic templates in Affinity Publisher. Any element placed on a Master Page automatically broadcasts to every document page to which that master is applied. Furthermore, Publisher supports Multi-Master inheritance: a child master page can inherit background graphics from Master A while adding unique three-column text frames, creating an efficient modular template hierarchy.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Publisher Master Pages & Dynamic Fields Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Master Pages Panel & Dynamic Fields",
+      "persona": "Publisher Persona (Pages Studio)",
+      "shortcut": {
+        "win": "Text > Insert > Fields > Page Number (or custom shortcut in Settings > Shortcuts), View > Studio > Pages",
+        "mac": "Text > Insert > Fields > Page Number (or custom shortcut in Settings > Shortcuts), View > Studio > Pages"
+      },
+      "description": "The top half of the Pages Studio displays Master Pages. Right-clicking allows creating new masters, applying masters to specific page ranges, and configuring parent inheritance. Dynamic fields are inserted via Text > Insert > Fields.",
+      "contextBarOptions": [
+        "Apply Master to Pages: Choose target pages (e.g. '1, 3-5, 8') and replacement behavior (Replace vs Clear)",
+        "Edit Detached: Temporarily detaches master elements on a single page for local customization",
+        "Edit Linked: Edits propagate back to the master page and all sibling pages",
+        "Fields Panel: Access dynamic variables (Document Title, Author, Date, Section Name, Next Page Number)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Access Master Pages in the Pages Studio",
+        "instruction": "Open your publication. In the Pages Studio on the left, locate the upper section titled 'Master Pages'. Notice 'Master A' already exists as a default spread master.",
+        "shortcutTip": { "win": "Pages Studio", "mac": "Pages Studio" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Insert Dynamic Page Numbers on Master Spread",
+        "instruction": "Double-click 'Master A' to open it in the canvas. Draw a small Artistic Text frame in the bottom outer corner of the left page. Go to Text > Insert > Fields > Page Number (or your custom shortcut). A '#' symbol appears. Draw a matching frame on the bottom outer corner of the right page.",
+        "shortcutTip": { "win": "Text > Insert > Fields > Page Number", "mac": "Text > Insert > Fields > Page Number" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Create a Child Master Page (Inheritance)",
+        "instruction": "In the Master Pages panel, right-click and choose 'Add Master'. Name it 'Master B - Feature Article'. In the 'Based on' dropdown, select 'Master A'. Click OK. Master B now automatically displays the page numbers and headers from Master A, while allowing you to add unique layout grids.",
+        "shortcutTip": { "win": "Based On: Master A", "mac": "Based On: Master A" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Apply Master Pages to Document Pages",
+        "instruction": "Right-click 'Master B' in the master panel and choose 'Apply Master to Pages'. In the Pages field, enter '4-7'. Click OK. Switch to Page 4 in the document. Notice it now displays both the Master B features and automatically resolves the '#' symbol to '4', while Page 5 resolves to '5'!",
+        "shortcutTip": { "win": "Apply Master to Pages", "mac": "Apply Master to Pages" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Perform an 'Edit Detached' Local Override",
+        "instruction": "On Page 4, you want a full-page photo that covers the master page number. Right-click the master layer in the Layers panel and choose 'Edit Detached'. Move or hide the page number frame. Click the orange 'Finish' bar at the top of the canvas. The override is preserved without breaking the link to Master A on other pages.",
+        "shortcutTip": { "win": "Edit Detached", "mac": "Edit Detached" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Master Page Inheritance Tree",
+        "description": "How parent masters propagate through a publication.",
+        "visualType": "diagram",
+        "visualContent": "[Master A: Universal Base]\n │  ├── Running Header (Magazine Title)\n │  └── Dynamic Page Numbers (#)\n ├── [Master B: Editorial Feature (Based on Master A)]\n │    ├── Inherits Master A Headers & Folios\n │    └── Adds 3-Column Text Thread Grid\n └── [Master C: Photo Spread (Based on Master A)]\n      ├── Inherits Master A Folios\n      └── Overrides background to Full Bleed Dark Tint"
+      },
+      {
+        "title": "Dynamic Text Fields Matrix",
+        "description": "Essential dynamic variables for editorial layout.",
+        "visualType": "table",
+        "visualContent": "| Field Name | Menu Path | Display on Master | Evaluated Output on Page |\n|---|---|---|---|\n| Page Number | Text > Insert > Fields > Page Number | # | 1, 2, 3, 4, 5... |\n| Next Page Number | Text > Insert > Fields > Next Page Number | # | 14 (e.g. 'Continued on page 14') |\n| Section Name | Text > Insert > Fields > Section Name | Section | 'Architecture & Design' |\n| Total Pages | Text > Insert > Fields > Page Count | ## | 128 (e.g. 'Page 4 of 128') |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Automated Folio & Header Setup",
+      "taskDescription": "Set up a two-level master page hierarchy with dynamic running headers and automatic page numbering.",
+      "checkpoints": [
+        "Open Master A. Place running header text 'AFFINITY ACADEMY JOURNAL' at the top of both pages.",
+        "Insert dynamic page number field (#) at the bottom outer margin of both pages.",
+        "Create Master B based on Master A. Add a subtle decorative hairline separator rule below the header.",
+        "Apply Master B to pages 2 through 7.",
+        "Navigate across pages 2, 3, 4, 5 and verify page numbers update dynamically."
+      ],
+      "expectedOutcome": "A fully automated, bulletproof editorial numbering and header template system."
+    },
+    "independentChallenge": {
+      "title": "Chapter Section Folio Architecture",
+      "prompt": "Using the Section Manager (Document > Section Manager), divide an 8-page document into two distinct editorial sections: (1) Section 1 (Pages 1-2): Roman numerals (i, ii) for Front Matter; (2) Section 2 (Pages 3-8): Arabic numerals (1, 2, 3...) restarting at 1 for the Main Story. Add dynamic Section Name fields to Master A headers.",
+      "starterAsset": {
+        "filename": "B01_magazine_spec_guide.md",
+        "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+        "filesize": "1.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Contains Section Manager configuration notes (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Pages 1-2 display Roman numerals (i, ii).",
+        "Page 3 restarts page numbering at '1'.",
+        "Headers display the dynamic section name from the Section Manager.",
+        "Master pages link cleanly without broken field tokens."
+      ],
+      "bonusGoal": "Use 'Edit Detached' to suppress the running header on Page 1 (Cover) only."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Typing literal numbers instead of inserting dynamic fields",
+        "cause": "Typing '3' on Master A creates a literal '3' on every single page of your entire publication.",
+        "solution": "Always use 'Text > Insert > Fields > Page Number'. It displays as '#' on the master page and resolves to the real page number on document pages."
+      },
+      {
+        "pitfall": "Accidentally modifying master elements on a document page without Edit Detached",
+        "cause": "Dragging or editing master layers directly can cause confusion or break linked positioning.",
+        "solution": "Always click 'Edit Detached' in the top orange toolbar when making a local exception, then click 'Finish' to re-lock the master binding."
+      },
+      {
+        "pitfall": "Master pages applied over covers where they shouldn't appear",
+        "cause": "Default master page applied automatically to Page 1.",
+        "solution": "Right-click Page 1 in the Pages Studio, select 'Clear Masters', or apply a dedicated 'Cover Master' with no headers or page numbers."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "B01-02-Q1",
+        "question": "What symbol is displayed on a Master Page when you insert a dynamic Page Number field via Text > Insert > Fields?",
+        "options": [
+          "0",
+          "#",
+          "PAGE",
+          "@"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Publisher uses the hash symbol (#) as the visual placeholder token on Master Pages. When evaluated on actual document pages, it automatically calculates the numerical page value."
+      },
+      {
+        "id": "B01-02-Q2",
+        "question": "What is the primary benefit of basing 'Master B' on 'Master A' in Affinity Publisher?",
+        "options": [
+          "It doubles the memory cache.",
+          "Any future global changes made to Master A (e.g. updating the magazine title or font in the header) will automatically propagate into Master B and all pages using Master B.",
+          "It encrypts the PDF.",
+          "It forces all pages to be black and white."
+        ],
+        "correctIndex": 1,
+        "explanation": "Parent/Child Master inheritance creates a single source of truth. Modifying the parent automatically cascades updates across all inherited child templates."
+      },
+      {
+        "id": "B01-02-Q3",
+        "question": "How do you locally hide or reposition a master page element on a single specific page without affecting other pages?",
+        "options": [
+          "Delete the master page.",
+          "Select the master layer on that page, click 'Edit Detached' on the orange top bar, make the adjustment, and click 'Finish'.",
+          "Convert the document to a PNG.",
+          "Restart Affinity Publisher."
+        ],
+        "correctIndex": 1,
+        "explanation": "'Edit Detached' unlocks the master elements on that specific page for local modification while preserving the master link for all other sibling pages."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Master Pages automate consistent headers, footers, margins, and page numbering across publications.",
+        "Dynamic text fields (#) calculate page numbers and section titles dynamically as pages move.",
+        "Multi-Master inheritance allows child templates to share global branding while introducing unique layouts.",
+        "'Edit Detached' empowers designers to craft local page exceptions without severing master links."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: B01-03 Baseline Grids, Text Frame Flow & Margins",
+          "target": "B01-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Publisher Master Pages Documentation",
+          "target": "https://affinity.serif.com/publisher/master-pages/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "B01-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Master Pages Foundations & Page Numbering",
+      "subtitle": "Automating Long-Form Publication Consistency",
+      "contentMarkdown": "Imagine manually typing page numbers and book titles on a 200-page book... and then having the client insert three new pages at the beginning!\n\nManual pagination is a recipe for disaster.\n\nIn this lesson, you will master **Affinity Publisher's Master Page Architecture**—learning how to automate running headers, build parent/child template trees, and harness dynamic fields.",
+      "actionBox": {
+        "label": "Editorial Rule",
+        "text": "Never type a literal page number. Always insert a dynamic field."
+      }
+    },
+    {
+      "id": "B01-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Understanding Master Pages & Dynamic Fields",
+      "subtitle": "Single Source of Truth for Publication Design",
+      "contentMarkdown": "A **Master Page** is a global design blueprint:\n\n- Elements placed on Master A appear automatically on every assigned page.\n- **Dynamic Fields (#):** Special tokens that automatically compute the live page number, chapter name, or total page count.\n- **Spread Masters:** Design left and right pages together, placing running headers on outer edges and folios at the bottom.",
+      "visual": {
+        "type": "comparison",
+        "content": "Master View: [Header | #] (Blueprint) ---> Document View: [Affinity Journal | Page 4] (Resolved Output)"
+      }
+    },
+    {
+      "id": "B01-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Master Pages Panel & Inheritance",
+      "subtitle": "Building a Parent/Child Template Tree",
+      "contentMarkdown": "In the Pages Studio on the left:\n\n- **Master Pages Section (Top):** Shows all master spread thumbnails.\n- **'Based On' Inheritance:** Create `Master B` based on `Master A`. If you update Master A's font next month, Master B updates automatically!\n- **Edit Detached Button:** When selected on a page, unlocks master items for local customization without touching the parent master.\n- **Edit Linked Button:** Changes made locally propagate back to the master blueprint.",
+      "actionBox": {
+        "label": "Field Shortcut",
+        "text": "Insert Page Number: Ctrl+Alt+Shift+N (Win) / Cmd+Option+Shift+N (Mac).",
+        "shortcut": { "win": "Ctrl+Alt+Shift+N", "mac": "Cmd+Option+Shift+N" }
+      }
+    },
+    {
+      "id": "B01-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Building an Automated Folio System",
+      "subtitle": "From Blank Spread to Dynamic Numbering",
+      "contentMarkdown": "1. **Open Master A:** Double-click `Master A` in the Pages panel.\n2. **Left Folio:** Draw an Artistic Text frame in the bottom left corner. Type: `Text > Insert > Fields > Page Number` followed by ` | AFFINITY ACADEMY`.\n3. **Right Folio:** Draw a matching frame in the bottom right corner: `ISSUE 01 | ` followed by `Text > Insert > Fields > Page Number`.\n4. **Notice `#` Symbol:** The frame displays `#`. This is completely normal on master blueprints!\n5. **Inspect Document Page 2:** Double-click Page 2 in the lower panel. Notice the `#` has resolved to `2` on the left and `3` on the right!\n6. **Rearrange Pages:** Drag Page 2 after Page 4. The numbers update instantly and automatically.",
+      "visual": {
+        "type": "callout",
+        "content": "To clear masters from Page 1 (Cover): Right-click Page 1 in Pages panel > Clear Masters."
+      }
+    },
+    {
+      "id": "B01-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Master Page Traps & Pro-Tips",
+      "subtitle": "Avoid Broken Layout Synchronization",
+      "contentMarkdown": "### 1. Typing Literal Numbers\n- **The Trap:** Typing '1' on Master A. Result: Every page in your entire publication says 'Page 1'!\n- **The Fix:** Always insert the dynamic field via `Text > Insert > Fields > Page Number`.\n\n### 2. Accidental Permanent Detachment\n- **The Issue:** Choosing 'Clear Masters' instead of 'Edit Detached' when hiding a header.\n- **The Fix:** Use 'Edit Detached' on the top orange bar to make single-page exceptions, then click 'Finish'.\n\n### 3. Numbering Over Full-Bleed Photos\n- **The Fix:** In the Layers panel, drag the Master Layer above the photo layer, or edit detached to switch the folio text color to white for contrast.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Keep Master Pages minimal. Only place truly recurring elements on masters."
+      }
+    },
+    {
+      "id": "B01-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Master Architecture",
+      "subtitle": "Validate Your Template Mastery",
+      "contentMarkdown": "Test your grasp of master pages and field evaluation.",
+      "quizData": {
+        "id": "B01-02-Q1",
+        "question": "What symbol is displayed on a Master Page when you insert a dynamic Page Number field via Text > Insert > Fields?",
+        "options": [
+          "0",
+          "#",
+          "PAGE",
+          "@"
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Publisher uses the hash symbol (#) as the visual placeholder token on Master Pages. When evaluated on actual document pages, it automatically calculates the numerical page value."
+      }
+    },
+    {
+      "id": "B01-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Two-Tier Master Hierarchy",
+      "subtitle": "Construct an Editorial Magazine Template",
+      "contentMarkdown": "### Your Mission:\nBuild an automated two-tier Master Page hierarchy for an 8-page journal:\n\n1. **Master A (Parent):** Running Header with publication title and dynamic Page Number field (#) on both spreads.\n2. **Master B (Child, Based on Master A):** Adds a 3-column guide grid and an editorial tagline in small caps.\n3. Apply Master B to Pages 2, 3, 4, 5.\n4. Clear masters from Page 1 (Cover).\n5. Use 'Edit Detached' on Page 4 to hide the header for a feature headline.\n\n### Acceptance Criteria:\n- Master B inherits Master A headers.\n- Pages 2-5 evaluate numbers `2, 3, 4, 5` correctly.\n- Page 1 has zero folios.",
+      "practiceData": {
+        "prompt": "Construct a two-tier master page hierarchy with dynamic folios.",
+        "starterAsset": {
+          "filename": "B01_magazine_spec_guide.md",
+          "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
+          "filesize": "1.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Contains Section Manager configuration notes (GUIDE_DOCUMENT)."
+        },
+        "checkpoints": [
+          "Master A folios created with dynamic fields",
+          "Master B inherits from Master A",
+          "Page 1 cleared of master folios"
+        ]
+      }
+    }
+  ]
+}

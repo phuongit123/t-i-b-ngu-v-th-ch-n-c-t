@@ -1,0 +1,54 @@
+{
+  "id": "D06",
+  "trackId": "designer",
+  "order": 6,
+  "title": "Typography, Text-on-Path & Glyph Styling",
+  "subtitle": "Artistic Text vs Frame Text, Path Text, OpenType Features, Glyph Browser & Text Styles",
+  "description": "Master professional typographic design: the fundamental distinction between Artistic Text and Frame Text, precision micro-kerning with keyboard modifiers, circular Text-on-Path badge layout, advanced OpenType stylistic alternates, and reusable Text Style hierarchies.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry", "D04: Fill, Gradient, Stroke & Pressure Profiles"],
+  "learningOutcomes": [
+    "Choose appropriately between Artistic Text (display logos) and Frame Text (editorial body reflow).",
+    "Perform optical and metric micro-kerning and tracking using Alt/Option arrow key shortcuts.",
+    "Attach, position, and flip typography along open and closed vector curves using Text-on-Path handles.",
+    "Inspect, unlock, and assign OpenType glyph variants (ligatures, swashes, stylistic sets) via Typography & Glyph Studios.",
+    "Build a unified Text Style hierarchy (H1, H2, Body, Caption) for brand and product typography systems."
+  ],
+  "capstoneProject": {
+    "title": "Vintage Hand-Lettered Distillery Seal",
+    "description": "Construct an authentic vintage circular emblem featuring curved text along concentric outer and inner arcs, OpenType swash flourishes, and customized kerning pairs.",
+    "deliverableAsset": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
+    "evaluationCriteria": [
+      "Top and bottom circular text arcs aligned symmetrically using Text-on-Path.",
+      "OpenType ligatures or swashes utilized on headline typography.",
+      "Manual optical kerning applied to eliminate awkward character gaps."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D06-01",
+      "order": 1,
+      "title": "Artistic Text vs Frame Text & Text Hierarchy",
+      "subtitle": "Display Headlines vs Body Copy, Kerning, Tracking & Leading",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D06-02",
+      "order": 2,
+      "title": "Text-on-Path & Circular Badges",
+      "subtitle": "Curved Baselines, Green/Red Margin Handles & Path Direction Reversal",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D06-03",
+      "order": 3,
+      "title": "OpenType Features, Glyph Browser & Text Styles Hierarchy",
+      "subtitle": "Ligatures, Stylistic Alternates, Swashes & Paragraph/Character Styles",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

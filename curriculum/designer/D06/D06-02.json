@@ -1,0 +1,305 @@
+{
+  "id": "D06-02",
+  "moduleId": "D06",
+  "trackId": "designer",
+  "order": 2,
+  "title": "Text-on-Path & Circular Badges",
+  "subtitle": "Curved Baselines, Green/Red Margin Handles & Path Direction Reversal",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Convert any open or closed vector curve into an interactive curved text path using the Artistic Text Tool.",
+      "Manipulate the green (Start Margin) and red (End Margin) on-canvas locator handles to position typography along curves.",
+      "Adjust Baseline Offset to slide text radially above, centered on, or inside circular path perimeters.",
+      "Execute 'Reverse Direction' on the Context Toolbar to flip inverted text right-side up along bottom badge arcs.",
+      "Construct multi-arc circular emblem seals with concentric upper and lower typography that share an identical center origin."
+    ],
+    "foundationalKnowledge": "In badge, emblem, stamp, and packaging design, typography frequently flows along curved circular paths. In legacy applications, creating text that follows a circle requires confusing envelope distortions or separate warp effects that degrade font metrics. In Affinity Designer, any vector curve—whether drawn with the Pen Tool, Ellipse Tool, or Cog Tool—can instantly become a curved text baseline. When the Artistic Text Tool hovers over any curve perimeter, the cursor indicates path conversion. Once clicked, Designer provides two interactive on-canvas handles: a Green triangle marking the start margin, and a Red triangle marking the end margin.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 Text-on-Path Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Text-on-Path Engine",
+      "persona": "Vector Persona (Artistic Text Tool + Context Toolbar)",
+      "shortcut": {
+        "win": "T (Hover over path edge until 'T with curve' cursor appears)",
+        "mac": "T (Hover over path edge until 'T with curve' cursor appears)"
+      },
+      "description": "Transforms any vector curve into a live editable text path with on-canvas margin limit handles and baseline offsets.",
+      "contextBarOptions": [
+        "Green Triangle Handle: Drag to adjust the Start margin boundary of the text",
+        "Red Triangle Handle: Drag to adjust the End margin boundary of the text",
+        "Reverse Direction Button: Inverts text flow and flips text to the opposing side of the curve",
+        "Baseline Offset Input: Shifts text radially inward or outward from the path spine",
+        "Alignment Options: Left, Center, Right, or Justified along the curved path span"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Draw a Circular Baseline Path",
+        "instruction": "Press M for the Ellipse Tool. Hold Shift and draw a circle (e.g. 240 x 240 px). Give it a temporary thin stroke with no fill.",
+        "shortcutTip": { "win": "M (Ellipse)", "mac": "M (Ellipse)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Attach Text to the Path",
+        "instruction": "Select the Artistic Text Tool (T). Hover the cursor directly over the top perimeter outline of the circle until the cursor icon gains a wavy diagonal curve badge. Click once. Type your headline: 'ARTISANAL ROASTED COFFEE'.",
+        "shortcutTip": { "win": "Click on Path Edge", "mac": "Click on Path Edge" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Adjust Start and End Margin Handles",
+        "instruction": "Notice two small colored triangles appear on the circle. Drag the Green triangle to the 9 o'clock position (left) and the Red triangle to the 3 o'clock position (right). Click 'Center Align' on the Context Toolbar. The text centers perfectly along the top crown arc of the circle!",
+        "shortcutTip": { "win": "Drag Green/Red Handles", "mac": "Drag Green/Red Handles" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Build the Bottom Arc Text",
+        "instruction": "Duplicate the circle layer (Ctrl+J / Cmd+J). In the duplicated path, change the text to 'ESTABLISHED 2026'. Notice the text is currently upside down along the bottom rim. On the top Context Toolbar, click the 'Reverse Direction' button. The text instantly flips right-side up, reading naturally from left to right along the bottom!",
+        "shortcutTip": { "win": "Reverse Direction", "mac": "Reverse Direction" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Calibrate Baseline Offset",
+        "instruction": "Notice that flipping text inside the circle caused it to sit inside the path radius, making the two circles slightly misaligned. In the Character Studio, adjust the 'Baseline' offset input (e.g. -6 pt) until the bottom text aligns along the identical optical radius as the top text.",
+        "shortcutTip": { "win": "Baseline Offset", "mac": "Baseline Offset" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Text-on-Path On-Canvas Handles",
+        "description": "Interactive controls governing curved type.",
+        "visualType": "table",
+        "visualContent": "| Handle / Control | Visual Indicator | Functionality |\n|---|---|---|\n| Start Margin | Green Triangle Handle | Sets where the text begins along the path |\n| End Margin | Red Triangle Handle | Sets where text terminates or wraps |\n| Reverse Direction | Double Arrow Button | Flips text to opposite side of curve and inverts winding |\n| Baseline Shift | Numeric Point Input | Slides letters radially above or below path line |"
+      },
+      {
+        "title": "Circular Badge Geometry Diagram",
+        "description": "Constructing matching top and bottom arcs.",
+        "visualType": "diagram",
+        "visualContent": "                [★ TOP CROWN TEXT: Normal Winding ★]\n             .─────────────────────────────────────────.\n            /                                           \\\n           │              [Central Logo]                 │\n            \\                                           /\n             '─────────────────────────────────────────'\n              [★ BOTTOM TEXT: Reverse Direction + Offset ★]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Constructing an Official University Seal",
+      "taskDescription": "Construct a concentric double-arc academic seal with upper Latin motto and lower foundation year.",
+      "checkpoints": [
+        "Create outer circle (diameter: 280px).",
+        "Attach upper text 'UNIVERSITAS ACADEMIA' with Green handle at 8 o'clock, Red handle at 4 o'clock, Center aligned.",
+        "Duplicate circle, change text to 'MCMLXXXVIII &bull; TRUTH &amp; LIGHT'.",
+        "Click 'Reverse Direction' on the duplicate.",
+        "Adjust Baseline Offset so font caps match the radius of the upper text arc.",
+        "Place a central heraldic crest primitive in the dead center."
+      ],
+      "expectedOutcome": "A dignified, perfectly balanced academic seal with top and bottom text arcs aligned along an identical optical baseline."
+    },
+    "independentChallenge": {
+      "title": "Vintage Outdoor Adventure Badge",
+      "prompt": "Construct a rugged outdoor adventure embroidered patch: (1) Circular outer ring with stitched dashed stroke; (2) Top arc text 'PACIFIC CREST TRAIL' with generous tracking (+150‰); (3) Bottom arc text 'ELEVATION 14,411 FT' with Reverse Direction applied; (4) A mountain silhouette vector nested inside the center; (5) Two decorative five-pointed star glyphs placed between the top and bottom text margins.",
+      "starterAsset": {
+        "filename": "D06_typography_glyphs_guide.md",
+        "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
+        "filesize": "1.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Practice setup guide for Text-on-Path badges (GUIDE_DOCUMENT)."
+      },
+      "challengeCriteria": [
+        "Top and bottom curved text share identical circular origin center.",
+        "Bottom text reads legibly from left to right with no upside-down letters.",
+        "Baseline offset tuned so upper and lower baselines match concentric circles."
+      ],
+      "bonusGoal": "Attach secondary wavy text along the contour of a mountain ridge path."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Bottom text reads upside down and backwards",
+        "cause": "Typing along the bottom of a circle without reversing path direction.",
+        "solution": "Select the text path and click the 'Reverse Direction' button on the Context Toolbar."
+      },
+      {
+        "pitfall": "Text disappears when moving margin handles",
+        "cause": "The Green (start) and Red (end) handles were dragged past each other, creating a negative margin span.",
+        "solution": "Ensure the Green triangle sits before the Red triangle in the direction of the text flow."
+      },
+      {
+        "pitfall": "Original circle shape loses its fill color",
+        "cause": "Converting a shape into a text path converts the shape into a pure typography baseline, stripping its original fill.",
+        "solution": "Duplicate the circle before attaching text! Use the original circle for the colored background, and use the duplicate for the text path."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "D06-02-Q1",
+        "question": "What happens when you duplicate a circle text path and click 'Reverse Direction' on the Context Toolbar?",
+        "options": [
+          "The letters convert to Japanese kanji.",
+          "The path's mathematical flow direction inverts, allowing bottom arc text to flip right-side up and read naturally from left to right.",
+          "The text is permanently rasterized into a PNG.",
+          "The circle is converted into a square."
+        ],
+        "correctIndex": 1,
+        "explanation": "Reverse Direction swaps start and end nodes, inverting the text baseline so text along the lower half of a circle reads naturally from left to right."
+      },
+      {
+        "id": "D06-02-Q2",
+        "question": "What do the on-canvas Green and Red triangle handles represent when working with Text-on-Path?",
+        "options": [
+          "Green sets color; Red sets size.",
+          "Green sets the Start margin boundary; Red sets the End margin boundary along the curve.",
+          "They are printing registration marks.",
+          "They represent RGB color channels."
+        ],
+        "correctIndex": 1,
+        "explanation": "The Green handle bounds the start of the text span, and the Red handle bounds the end. Text centers or justifies between these two boundary locators."
+      },
+      {
+        "id": "D06-02-Q3",
+        "question": "Why should you always duplicate a circular vector shape before clicking it with the Text Tool to create a badge?",
+        "options": [
+          "Affinity crashes if you don't.",
+          "Converting a vector shape to a text path removes its visible color fill; having a duplicate ensures the underlying colored circle remains behind the text.",
+          "Text paths cannot hold fonts.",
+          "Printers require two copies."
+        ],
+        "correctIndex": 1,
+        "explanation": "A text path sacrifices its original fill and stroke to serve as a pure typographic baseline. Keeping an underlying duplicate preserves the colored badge background."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Any vector curve can be converted into a curved text baseline using the Artistic Text Tool.",
+        "Green and Red triangle handles control the start and end margins along the curve.",
+        "Reverse Direction inverts text flow, allowing bottom arcs to read naturally left-to-right.",
+        "Always duplicate background badge shapes before attaching text."
+      ],
+      "relatedResources": [
+        {
+          "title": "Next Lesson: D06-03 OpenType Features, Glyph Browser & Text Styles Hierarchy",
+          "target": "D06-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Documentation: Text on a Path",
+          "target": "https://affinity.serif.com/designer/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "D06-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Text-on-Path & Circular Badges",
+      "subtitle": "Curved Baselines, Flow Direction & Concentric Seal Layout",
+      "contentMarkdown": "Welcome to **Lesson D06-02**.\n\nFrom university seals and coffee logos to military patches, **Text-on-Path** is one of the most recognizable design techniques in the vector medium.\n\nIn this lesson, you will master attaching typography to open and closed curves, commanding on-canvas **Green/Red margin handles**, and executing **Direction Reversals** for balanced bottom arcs.",
+      "actionBox": {
+        "label": "Badge Secret",
+        "text": "Never type along a circle without duplicating it first! Text paths sacrifice their fill to become baselines."
+      }
+    },
+    {
+      "id": "D06-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Path Conversion Mechanics",
+      "subtitle": "How Any Vector Curve Becomes a Typography Rail",
+      "contentMarkdown": "In Affinity Designer, you do not need a special separate 'Path Text' tool:\n\n1. Select the standard **Artistic Text Tool (`T`)**.\n2. Hover directly over the perimeter line of any vector shape.\n3. The cursor changes to a **`T` with a wavy curve badge**.\n4. Click on the path! The curve instantly becomes an interactive baseline.\n5. You can edit the curve with the Node Tool (`A`) at any time, and the text reflows along the new curvature at 60fps!",
+      "visual": {
+        "type": "diagram",
+        "content": "[Standard Vector Curve] ──(Hover with T & Click)──► [Live Text-on-Path Baseline]\n                                                            │\n                                                 Letters flow along arc!"
+      }
+    },
+    {
+      "id": "D06-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Green & Red Margin Locators",
+      "subtitle": "Interactive On-Canvas Boundary Control",
+      "contentMarkdown": "Once text is attached to a path, two interactive locator handles appear:\n\n- **Green Triangle Handle (Start Margin):** Marks the point on the path where text begins.\n- **Red Triangle Handle (End Margin):** Marks where text terminates or wraps.\n- **Centering Along Arcs:** Drag the Green handle to `9 o'clock` (left) and the Red handle to `3 o'clock` (right), then click **Center Align** on the Context Bar. Your text centers automatically at high noon!",
+      "actionBox": {
+        "label": "Locator Insight",
+        "text": "Dragging handles lets you position curved text anywhere along a 360° circle with zero guesswork."
+      }
+    },
+    {
+      "id": "D06-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: The Bottom Arc Reversal Technique",
+      "subtitle": "How to Avoid Upside-Down Typography",
+      "contentMarkdown": "Follow these steps to build matching top and bottom circular text:\n\n1. **Step 1:** Create top crown text ('SUMMIT COFFEE ROASTERS') on a circular path.\n2. **Step 2:** Duplicate the layer with `Ctrl+J` (Win) / `Cmd+J` (Mac).\n3. **Step 3:** Change the text to 'ESTABLISHED 2026'. Notice it is currently upside-down along the bottom rim.\n4. **Step 4:** On the Context Toolbar, click the **'Reverse Direction'** button.\n5. **Inspect:** The letters immediately flip right-side up, reading naturally from left to right along the bottom arc!",
+      "visual": {
+        "type": "comparison",
+        "content": "Before Reverse: Upside-down & unreadable VS After Reverse: Clean, right-side-up left-to-right flow"
+      }
+    },
+    {
+      "id": "D06-02-S5",
+      "slideNumber": 5,
+      "type": "theory",
+      "title": "Calibrating the Optical Baseline Offset",
+      "subtitle": "Equalizing Top and Bottom Arc Radii",
+      "contentMarkdown": "When you reverse direction on the bottom arc:\n\n- The top text sits **outside** the path line (cap-height touches outer radius).\n- The reversed bottom text sits **inside** the path line!\n- **The Fix:** In the Character Studio, enter a negative **Baseline Shift** (e.g. `-8 pt`) on the bottom text.\n- The bottom text shifts radially outward until its letters sit on the identical concentric optical circle as the top text.",
+      "visual": {
+        "type": "diagram",
+        "content": "Top Arc Text    ═══ (Rests on outer perimeter)\n                  ▲\n                  │ Equalized Radial Gap (via Baseline Offset)\n                  ▼\nBottom Arc Text ═══ (Pushed outward to match)"
+      }
+    },
+    {
+      "id": "D06-02-S6",
+      "slideNumber": 6,
+      "type": "step-by-step",
+      "title": "Text on Open Wave Curves",
+      "subtitle": "Flowing Headlines Across Illustration Contours",
+      "contentMarkdown": "Text-on-Path is not limited to circles:\n\n1. Draw a graceful undulating wave with the Pen Tool (`P`).\n2. Click the start of the wave with the Artistic Text Tool (`T`).\n3. Type your headline. Words naturally rise and fall along the swell of the path.\n4. Switch to the Node Tool (`A`) and tweak node handles; notice typography tracks the wave dynamically in real time!",
+      "actionBox": {
+        "label": "Editorial Power",
+        "text": "Combine wavy path text with high-contrast serif fonts for editorial magazine headlines."
+      }
+    },
+    {
+      "id": "D06-02-S7",
+      "slideNumber": 7,
+      "type": "pitfalls",
+      "title": "Text-on-Path Pitfalls & Troubleshooting",
+      "subtitle": "Avoid Common Badge Traps",
+      "contentMarkdown": "### 1. Vanishing Text After Moving Handles\n- **The Issue:** All letters disappear suddenly.\n- **The Cause:** Dragging the Green handle past the Red handle creates a negative boundary.\n- **The Fix:** Drag the Red handle forward along the curve to restore text space.\n\n### 2. Badge Color Fill Disappeared\n- **The Cause:** You clicked the original background circle with the text tool, transforming it into a baseline.\n- **The Fix:** Duplicate the circle before attaching text so the colored disc remains beneath.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Keep Green Before Red | Duplicate Circle for Fill | Use Baseline Offset for Alignment"
+      }
+    },
+    {
+      "id": "D06-02-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Independent Challenge: Vintage Distillery Seal",
+      "subtitle": "Put Circular Typography to the Test",
+      "contentMarkdown": "### Your Mission:\nConstruct an authentic vintage circular spirit distillery seal:\n\n1. Base badge: Dark charcoal concentric circles with an inner dashed ring.\n2. Upper crown arc text: **'HIGHLAND SINGLE MALT'** (Serif typeface, +150‰ tracking).\n3. Lower arc text: **'AGED 18 YEARS IN OAK'** (Reversed direction with baseline offset aligned).\n4. Place 2 decorative star glyphs separating the top and bottom text margins.\n5. Centerpiece: An illustrative vector crest in the center.\n\n### Acceptance Criteria:\n- Top and bottom text share concentric alignment.\n- Zero upside-down or backwards letters.\n- Margin handles balanced symmetrically.",
+      "practiceData": {
+        "prompt": "Construct a vintage circular emblem seal with concentric upper and lower text arcs.",
+        "starterAsset": {
+          "filename": "D06_typography_glyphs_guide.md",
+          "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
+          "filesize": "1.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Practice setup guide for Text-on-Path badges."
+        },
+        "checkpoints": [
+          "Upper text on path created and centered",
+          "Lower text duplicated, reversed, and baseline-shifted",
+          "Concentric radial geometry verified"
+        ]
+      }
+    }
+  ]
+}

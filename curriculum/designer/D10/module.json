@@ -1,0 +1,59 @@
+{
+  "id": "D10",
+  "trackId": "designer",
+  "order": 10,
+  "title": "Vector Export, Slices & Production Output",
+  "subtitle": "Export Persona, Multi-Density Slices, Continuous Export, SVG Optimization & Press PDF/X",
+  "description": "Master commercial production output in Affinity Designer: harness the dedicated Export Persona, create dynamic layer-based slices, automate multi-density (1x/2x/3x) asset pipelines with Continuous Export, optimize clean semantic SVG code for web and app development, and generate press-ready PDF/X files with bleed and printer marks.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 90,
+  "prerequisites": [
+    "D01: Designer Interface, Personas & Canvas Setup",
+    "D08: Symbols, Linked Assets & Component Systems",
+    "D09: Pixel Persona Integration & Textured Vector Shading"
+  ],
+  "learningOutcomes": [
+    "Navigate the Export Persona workspace and distinguish document, artboard, and layer-based slices.",
+    "Configure automated multi-density asset pipelines across 1x, 2x, and 3x scale factors for PNG, WebP, and SVG.",
+    "Operate the Continuous Export engine to trigger automated background asset rebuilding upon saving.",
+    "Audit and optimize SVG export presets with clean viewBox coordinates, decimal precision, and flattened transforms.",
+    "Generate press-ready PDF/X-1a and PDF/X-4 commercial print documents with 300 DPI rasterization and bleed marks."
+  ],
+  "capstoneProject": {
+    "title": "Multi-Platform Production Delivery Package",
+    "description": "Prepare a comprehensive commercial delivery package from an enterprise brand system: automate continuous multi-density slicing (1x/2x/3x PNG and WebP), export optimized lightweight SVGs with responsive viewBoxes, and generate a preflight-verified PDF/X-4 print sheet with trim marks and 3mm bleed.",
+    "deliverableAsset": "curriculum/assets/designer/D10_export_slices_production_guide.md",
+    "evaluationCriteria": [
+      "Layer-based slices established in Export Persona for all core icons and UI cards.",
+      "Multi-density presets configured with correct scale suffixes (@1x, @2x, @3x).",
+      "Exported SVG files verified clean in code editor without bloated base64 raster blobs.",
+      "Press PDF/X-4 rendered with active trim marks, registration marks, and 3mm bleed margin."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D10-01",
+      "order": 1,
+      "title": "Export Persona Workspace & Slices Architecture",
+      "subtitle": "Persona Navigation, Slice Tool, Layer Slices & Bounding Box Tracking",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D10-02",
+      "order": 2,
+      "title": "Multi-Density Formats & Continuous Export Engine",
+      "subtitle": "1x/2x/3x Scaling, PNG/WebP/JPEG XL, Suffix Syntax & Background Auto-Builds",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D10-03",
+      "order": 3,
+      "title": "Clean SVG Code Optimization & Press-Ready PDF/X",
+      "subtitle": "viewBox Precision, Font Embedding Rules, PDF/X-4 & Commercial Bleed Setup",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    }
+  ]
+}

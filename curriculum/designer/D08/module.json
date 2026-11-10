@@ -1,0 +1,59 @@
+{
+  "id": "D08",
+  "trackId": "designer",
+  "order": 8,
+  "title": "Symbols, Linked Assets & Component Systems",
+  "subtitle": "Symbol Creation, Detached Synchronization, Asset Studio & Vector UI Kits",
+  "description": "Master scalable design systems and reusable component architecture in Affinity Designer: create multi-instance symbols, master the critical Sync toggle for local overrides versus global propagation, organize enterprise asset libraries in the Assets Studio, and distribute .afassets packages across design and production teams.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 90,
+  "prerequisites": [
+    "D01: Designer Interface, Personas & Canvas Setup",
+    "D05: Layer Organization, Masks & Clipping Paths",
+    "D06: Typography, Text-on-Path & Glyph Styling"
+  ],
+  "learningOutcomes": [
+    "Create and manage linked vector symbols using the Symbols Studio.",
+    "Master the Sync button (Synchronize ON/OFF) to execute safe local instance overrides without severing master links.",
+    "Organize multi-tier component libraries inside the Assets Studio using Categories and Subcategories.",
+    "Export, import, and distribute portable .afassets bundles across enterprise design systems.",
+    "Build a production-ready vector UI component kit featuring scalable variants, states, and nested symbols."
+  ],
+  "capstoneProject": {
+    "title": "Enterprise Analytics Dashboard Component System",
+    "description": "Construct an end-to-end vector design system in Affinity Designer comprising synchronized button states, modular metric cards, and navigation bars with detached local overrides archived into an .afassets library.",
+    "deliverableAsset": "curriculum/assets/designer/D08_symbols_assets_guide.md",
+    "evaluationCriteria": [
+      "Master symbols created with visible orange link indicators in Layers Studio.",
+      "Local text overrides applied successfully with Sync OFF.",
+      "Global styling modifications propagated to all instances with Sync ON.",
+      "Reusable UI components archived into structured Assets Studio subcategories."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D08-01",
+      "order": 1,
+      "title": "Symbol Creation & Multi-Instance Synchronization",
+      "subtitle": "Symbols Studio, Sync ON/OFF Toggle & Non-Destructive Overrides",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D08-02",
+      "order": 2,
+      "title": "Assets Studio & Portable .afassets Libraries",
+      "subtitle": "Categories, Subcategories, Importing/Exporting & Cloud Sync",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D08-03",
+      "order": 3,
+      "title": "Scalable Vector Component Systems & Variants",
+      "subtitle": "Nested Symbols, Button States, Responsive Layouts & Design Tokens",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    }
+  ]
+}

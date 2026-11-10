@@ -1,0 +1,295 @@
+{
+  "id": "D10-03",
+  "moduleId": "D10",
+  "trackId": "designer",
+  "order": 3,
+  "title": "Clean SVG Code Optimization & Press-Ready PDF/X",
+  "subtitle": "viewBox Precision, Font Embedding Rules, PDF/X-4 & Commercial Bleed Setup",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Audit and optimize SVG export presets to output clean, lightweight, semantic vector code with responsive viewBox coordinates.",
+      "Calibrate SVG decimal precision, transform flattening, and font outline conversion to eliminate bloated base64 raster blobs.",
+      "Distinguish between PDF/X-1a (flattened legacy press) and PDF/X-4 (modern live transparency press) standards.",
+      "Configure commercial document bleed (3mm / 0.125 in) and output printer crop marks, registration targets, and color bars."
+    ],
+    "foundationalKnowledge": "The culmination of professional vector mastery is the delivery of flawless production assets tailored to their ultimate destinations: either clean, semantic SVG code for digital developers or bulletproof, color-calibrated PDF/X documents for commercial offset printers. A poorly configured SVG export can inadvertently embed megabytes of base64 bitmap data or include non-responsive hardcoded pixel dimensions that break web layouts. Similarly, sending a standard digital PDF to a commercial print house without bleed or trim marks causes white paper edges and misregistration on high-speed guillotine cutters. Mastering SVG code optimization and PDF/X commercial standards completes the full-spectrum Designer toolchain.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Designer 3.3.3 SVG Engine Specification & ISO 15930 PDF/X Standards",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "SVG Code Optimizer & PDF/X Export Engine",
+      "persona": "Designer Persona & Export Persona (File > Export... / Ctrl+Alt+Shift+S)",
+      "shortcut": {
+        "win": "Ctrl+Alt+Shift+S (Export Dialog), Ctrl+Alt+P (Document Setup / Bleed)",
+        "mac": "Cmd+Option+Shift+S (Export Dialog), Cmd+Option+P (Document Setup / Bleed)"
+      },
+      "description": "Comprehensive production export engine delivering standards-compliant SVG markup and ISO-certified commercial PDF/X print archives.",
+      "contextBarOptions": [
+        "SVG Preset dropdown: SVG (for web), SVG (digital - small size), SVG (for print)",
+        "Use viewBox checkbox: Replaces fixed width/height with responsive viewBox coordinates",
+        "Flatten transforms checkbox: Bakes affine matrices into raw path d-coordinates for clean DOM",
+        "PDF/X Presets: PDF/X-1a:2001 (CMYK flattened), PDF/X-3:2002, PDF/X-4:2010 (Live transparency)",
+        "Include Bleed & Printer Marks checkboxes: Generates 3mm bleed margin, crop marks, and registration crosshairs"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Configure Document Bleed for Commercial Print",
+        "instruction": "In Designer Persona, press Ctrl+Alt+P (Cmd+Option+P) to open Document Setup. Switch to the 'Bleed' tab. Set Top, Bottom, Left, and Right bleed according to your print vendor's mechanical guidelines (commonly 3 mm in metric regions or 0.125 inches in imperial regions). Click OK. Notice the outer cyan bleed margin guide appearing around your canvas.",
+        "shortcutTip": { "win": "Ctrl+Alt+P -> Bleed Tab", "mac": "Cmd+Option+P -> Bleed Tab" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Open the Master Export Dialog",
+        "instruction": "Press Ctrl+Alt+Shift+S (Windows) or Cmd+Option+Shift+S (macOS) to open the comprehensive Export modal dialog.",
+        "shortcutTip": { "win": "Ctrl+Alt+Shift+S", "mac": "Cmd+Option+Shift+S" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Calibrate Clean SVG Web Code",
+        "instruction": "Select the SVG icon. From the Preset dropdown, choose 'SVG (for web)'. Click the 'More' button to inspect advanced markup rules: Ensure 'Use viewBox' is checked, set 'Decimal Places' to 2, check 'Flatten transforms', set 'Text' to 'Convert to curves', and set 'Rasterize' to 'Nothing'. Click Close.",
+        "shortcutTip": { "win": "Export > SVG > More", "mac": "Export > SVG > More" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Inspect Raw SVG Markup in a Text Editor",
+        "instruction": "Export the SVG file. Open it inside a text editor (e.g. VS Code). Verify that the file begins with a clean `<svg viewBox=\"0 0 24 24\">` tag, uses pure `<path d=\"...\">` coordinates without `matrix(...)` clutter, and contains zero `<image src=\"data:image/png;base64...\">` bloated raster blobs!",
+        "shortcutTip": { "win": "Inspect Code", "mac": "Inspect Code" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Generate Press-Ready PDF/X-4 with Printer Marks",
+        "instruction": "Re-open File > Export. Select PDF. Set Preset to 'PDF/X-4:2010'. Click 'More'. Under 'Raster DPI', confirm 300 DPI. Mandatory: Under 'Bleed and Marks', you MUST check 'Include bleed' (otherwise Affinity clips output to page trim regardless of Document Setup bleed!). Also check 'Include printer marks', 'Crop marks', and 'Registration marks'. Color space: CMYK. Click Export.",
+        "shortcutTip": { "win": "PDF/X-4 + Check 'Include bleed'", "mac": "PDF/X-4 + Check 'Include bleed'" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "PDF/X Standards Comparison Matrix",
+        "description": "Technical differences between ISO PDF/X commercial print standards.",
+        "visualType": "table",
+        "visualContent": "| Standard | Year | Color Spaces Allowed | Transparency Handling | Recommended Use Case |\n|---|---|---|---|---|\n| PDF/X-1a | 2001 | CMYK and Spot Colors only (RGB forbidden) | Flattened (All drop shadows and blend modes baked to bitmaps) | Traditional legacy offset presses, strict newspaper publishing |\n| PDF/X-3 | 2002 | CMYK, Spot, and Color-Managed RGB | Flattened (Requires transparency flattening) | European commercial color-managed workflows |\n| PDF/X-4 | 2010 | CMYK, Spot, RGB, and 16-bit Float | Live Transparency Preserved (RIP handles flattening at press time) | Modern commercial presses, packaging, high-end magazines, fine art |"
+      },
+      {
+        "title": "Clean SVG vs Bloated SVG Code Snippet",
+        "description": "Comparison of optimized markup versus un-optimized exporter output.",
+        "visualType": "code",
+        "visualContent": "<!-- OPTIMIZED CLEAN SVG (viewBox, 2 decimals, flattened) -->\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n  <path d=\"M12 2L2 22h20L12 2zm0 3.8L18.5 20H5.5L12 5.8z\" fill=\"#4f46e5\"/>\n</svg>\n\n<!-- BLOATED DIRTY SVG (Fixed px, 6 decimals, base64 image blob) -->\n<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24.000000 24.000000\">\n  <image width=\"24\" height=\"24\" href=\"data:image/png;base64,iVBORw0KGgoAAA...\"/>\n</svg>"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Auditing SVG Code & Generating Press Proofs",
+      "taskDescription": "Export an optimized SVG navigation icon, inspect its raw markup for DOM cleanliness, and generate a certified PDF/X-4 print sheet with 3mm bleed.",
+      "checkpoints": [
+        "In Document Setup, configure a 3mm document bleed margin.",
+        "Export an icon using 'SVG (for web)' with 2 decimal precision, viewBox enabled, and text as curves.",
+        "Open the SVG in a code editor to confirm file size is under 2 KB with zero embedded base64 data.",
+        "Export the complete document to PDF/X-4 with Crop Marks, Registration Marks, and 300 DPI rasterization.",
+        "Open the PDF proof and verify that artwork extends fully across the 3mm bleed margin."
+      ],
+      "expectedOutcome": "A pristine, lightweight SVG asset ready for web deployment alongside a certified PDF/X-4 press document ready for commercial offset printing."
+    },
+    "independentChallenge": {
+      "title": "Commercial Product Delivery Handoff Package",
+      "prompt": "Finalize the complete Affinity Designer Track 1 capstone project: (1) Set up a commercial brand brochure layout with 3mm bleed; (2) Ensure all brand logo lockups and icons export to clean, responsive SVGs with zero rasterization; (3) Ensure all typography is converted to curves or embedded; (4) Generate a certified PDF/X-4 proof with CMYK color profile (ISO Coated v2 or US Web Coated SWOP) and full printer marks; (5) Compile an asset handoff directory containing the master .afdesign, optimized .svg icons, multi-density PNGs (@1x, @2x, @3x), and the print-ready .pdf.",
+      "starterAsset": {
+        "filename": "D10_export_slices_production_guide.md",
+        "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
+        "filesize": "3.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Production blueprint for SVG code optimization and commercial PDF/X setup (GUIDE_DOCUMENT)."
+      },
+      "successCriteria": [
+        "SVG output verified semantic, responsive (viewBox), and under 3 KB per asset.",
+        "Document bleed (3mm) correctly established and filled by background artwork.",
+        "PDF/X-4 document successfully generated with visible crop marks and registration targets.",
+        "Zero missing font warnings or low-resolution image alerts."
+      ]
+    },
+    "commonPitfalls": [
+      {
+        "mistake": "Unchecking 'Use viewBox' when exporting SVG for responsive web development.",
+        "consequence": "The SVG embeds hardcoded width='500px' height='500px' attributes, preventing CSS from scaling the icon responsively.",
+        "solution": "Always check 'Use viewBox' in the SVG export settings so developers can scale the vector cleanly via CSS."
+      },
+      {
+        "mistake": "Using unsupported layer effects (like Gaussian Blur) and setting Rasterize to 'Everything'.",
+        "consequence": "The SVG is no longer vector; it becomes a massive base64-encoded bitmap wrapped in an SVG tag.",
+        "solution": "In SVG export settings, set 'Rasterize: Nothing' or use pure vector gradients instead of heavy raster blurs for web assets."
+      },
+      {
+        "mistake": "Sending a PDF to a commercial printer without checking 'Include bleed'.",
+        "consequence": "The printer's guillotine blade may cut 0.5mm off-center, leaving an unsightly white hairline border along the trimmed paper edge.",
+        "solution": "Always set 3mm bleed in Document Setup, extend background artwork to the bleed guide, and check 'Include bleed' when exporting PDF."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "question": "Why is the 'Use viewBox' attribute essential when exporting SVG graphics for modern web and mobile applications?",
+        "options": [
+          "It forces the SVG to open only in Adobe Acrobat.",
+          "It defines the relative aspect ratio and coordinate system, allowing the SVG to scale smoothly to any dimension via CSS without hardcoded pixel limits.",
+          "It converts the SVG into a 3D stereoscopic format.",
+          "It reduces the color palette to 16 colors."
+        ],
+        "correctIndex": 1,
+        "explanation": "The viewBox attribute defines the vector coordinate boundaries (e.g. `viewBox='0 0 24 24'`), allowing CSS and HTML to resize the icon responsively to any width or height."
+      },
+      {
+        "question": "What is the primary difference between the PDF/X-1a and PDF/X-4 commercial printing standards?",
+        "options": [
+          "PDF/X-1a requires all transparency to be flattened and permits only CMYK/Spot colors; PDF/X-4 supports modern live transparency and color-managed workflows.",
+          "PDF/X-1a is for web only; PDF/X-4 is for laser printers only.",
+          "PDF/X-1a does not support typography.",
+          "PDF/X-4 can only be opened on macOS."
+        ],
+        "correctIndex": 0,
+        "explanation": "PDF/X-1a is an older standard that flattens all transparencies into static CMYK pixels at export; PDF/X-4 is the modern standard that preserves live vector transparency and handles RIP flattening at the press."
+      },
+      {
+        "question": "How much bleed margin is standard for international commercial offset printing?",
+        "options": [
+          "50 mm",
+          "0 mm",
+          "3 mm (or 0.125 inches)",
+          "25 mm"
+        ],
+        "correctIndex": 2,
+        "explanation": "The international commercial standard for document bleed is 3 mm (or 0.125 inches in imperial regions), which accommodates minor physical paper shifting during mechanical guillotine trimming."
+      }
+    ],
+    "summaryAndResources": {
+      "keyTakeaways": [
+        "Optimized SVGs require responsive viewBox attributes, 2 decimal precision, and flattened transforms.",
+        "Avoid base64 SVG bloating by setting 'Rasterize: Nothing' and relying on native vector paths.",
+        "PDF/X-4 is the definitive modern standard for commercial press printing with live transparency.",
+        "Always configure 3mm bleed and include printer crop marks to prevent white trim defects.",
+        "Congratulations! You have completed all 10 modules of the Affinity Designer Mastery Track!"
+      ],
+      "nextSteps": "Complete the D10 capstone project, review the Track 1 verification sign-off, and await user approval before proceeding to Track 2.",
+      "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/ExportPersona/exportOptions.html"
+    }
+  },
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "The Final Frontier: Production Output",
+      "subtitle": "Engineering Assets for Web, Mobile & Commercial Press",
+      "bullets": [
+        "A brilliant vector illustration is only as good as its final exported delivery.",
+        "Digital developers demand clean, lightweight, semantic SVG code.",
+        "Commercial printers demand certified, color-accurate PDF/X documents with bleed.",
+        "Affinity Designer provides industry-leading export engines for both worlds."
+      ],
+      "proTip": "Mastering production settings eliminates 99% of developer friction and printer rejection."
+    },
+    {
+      "slideNumber": 2,
+      "title": "Anatomy of an Optimized SVG",
+      "subtitle": "Clean Semantic Code vs Bloated Markup",
+      "bullets": [
+        "A clean SVG contains pure mathematical paths: `<path d='M12 2L2 22...' fill='#4f46e5'/>`.",
+        "A bloated SVG contains huge base64 images: `<image href='data:image/png;base64...'/>`.",
+        "Bloated SVGs occur when unsupported layer effects force the exporter to rasterize.",
+        "Clean SVGs load in milliseconds, scale infinitely, and can be styled with CSS."
+      ],
+      "callout": "In SVG export settings, always set 'Rasterize: Nothing' to prevent bitmap embedding!"
+    },
+    {
+      "slideNumber": 3,
+      "title": "Essential SVG Settings: The 'More' Dialog",
+      "subtitle": "Precision Markup Calibration",
+      "bullets": [
+        "Preset: Choose 'SVG (for web)' as your baseline.",
+        "Use viewBox: Checked (Removes hardcoded width/height for fluid CSS responsiveness).",
+        "Decimal Places: Set to 2 (Saves up to 40% file size without visible degradation).",
+        "Flatten Transforms: Checked (Bakes matrices into path coordinates for cleaner DOM).",
+        "Text: 'Convert to curves' guarantees exact font rendering on all client machines."
+      ],
+      "proTip": "Inspect your exported SVG in VS Code or Chrome DevTools to verify its markup cleanliness."
+    },
+    {
+      "slideNumber": 4,
+      "title": "Commercial Print: Why We Need Bleed",
+      "subtitle": "Preventing Unsightly White Paper Edges",
+      "bullets": [
+        "Commercial presses print multiple pages onto giant sheets of paper, then cut them with high-speed guillotines.",
+        "Guillotine blades can drift by 0.5mm to 1mm during physical trimming.",
+        "Bleed is the extra 3mm margin of artwork extending OUTSIDE the final cut line.",
+        "If the blade shifts slightly, it trims into the extra artwork instead of revealing raw white paper."
+      ],
+      "callout": "Never stop your background color at the document edge; always stretch it to the bleed line!"
+    },
+    {
+      "slideNumber": 5,
+      "title": "Configuring Document Bleed (3mm Standard)",
+      "subtitle": "Document Setup Geometry",
+      "bullets": [
+        "Open File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P).",
+        "Switch to the 'Bleed' tab.",
+        "Set Top, Bottom, Left, and Right to 3 mm (or 0.125 inches in imperial regions).",
+        "The canvas displays a cyan guide line indicating the outer bleed perimeter."
+      ],
+      "proTip": "Press Ctrl+; (Cmd+;) to ensure guides and bleed lines are visible on your canvas."
+    },
+    {
+      "slideNumber": 6,
+      "title": "Deciphering the PDF/X Standards",
+      "subtitle": "PDF/X-1a vs PDF/X-4",
+      "bullets": [
+        "PDF/X-1a:2001: The traditional standard. Requires CMYK only; flattens all transparency into pixels.",
+        "PDF/X-4:2010: The modern standard. Supports live vector transparency, spot colors, and RGB color management.",
+        "Most high-end commercial printers today recommend PDF/X-4 for superior gradient and drop shadow reproduction.",
+        "Always check with your specific commercial print provider for their preferred ISO preset."
+      ],
+      "proTip": "When in doubt, PDF/X-4 delivers the highest visual fidelity with live transparency."
+    },
+    {
+      "slideNumber": 7,
+      "title": "Exporting Commercial PDF/X with Printer Marks",
+      "subtitle": "Crop Marks, Registration & Color Bars",
+      "bullets": [
+        "Open File > Export... (Ctrl+Alt+Shift+S / Cmd+Option+Shift+S) -> Select PDF.",
+        "Choose Preset: 'PDF/X-4:2010'. Click 'More'.",
+        "Check 'Include bleed' (Crucial: Omitting this will clip the PDF at the trim boundary!).",
+        "Check 'Crop marks' (Trim lines for the guillotine cutter).",
+        "Check 'Registration marks' (Alignment crosshairs for multi-color press plates)."
+      ],
+      "callout": "Confirm Raster DPI is set to 300 DPI for any embedded textured raster passes!"
+    },
+    {
+      "slideNumber": 8,
+      "title": "Hands-on Exercise: Final Production Package",
+      "subtitle": "Step-by-Step Production Practice",
+      "bullets": [
+        "Follow instructions in 'D10_export_slices_production_guide.md'.",
+        "Set up a 3mm document bleed and stretch background art to the bleed guide.",
+        "Export your system icon suite as clean, optimized SVGs with responsive viewBoxes.",
+        "Verify in a code editor that SVG markup is under 3 KB with zero base64 images.",
+        "Export a certified PDF/X-4 proof with crop marks and verify that bleed artwork extends cleanly."
+      ],
+      "proTip": "Open the PDF in Adobe Acrobat or browser to inspect the crop marks and registration targets."
+    },
+    {
+      "slideNumber": 9,
+      "title": "TRACK 1 COMPLETE: AFFINITY DESIGNER MASTERY",
+      "subtitle": "Celebrating 10 Modules of Professional Vector Engineering",
+      "bullets": [
+        "You have conquered the complete spectrum of Serif Affinity Designer 3.3.3:",
+        "• D01–D03: Canvas architecture, Pen & Node geometry, and Boolean compounds.",
+        "• D04–D06: Gradients, layer scene graphs, and advanced micro-typography.",
+        "• D07–D08: Axonometric 3D projection, Symbols, and enterprise design systems.",
+        "• D09–D10: Pixel Persona hybrid shading, multi-density slicing, and press PDF/X.",
+        "You are now a certified master of vector design and graphic automation!"
+      ],
+      "proTip": "Take pride in your work: you now command the exact workflows of elite creative studios."
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "id": "S01-03",
+  "moduleId": "S01",
+  "trackId": "scripting",
+  "order": 3,
+  "title": "First Automation Script: Programmatic Document & Session UUID Extraction",
+  "subtitle": "Active Document DOM, Session Identifiers & Render Pipeline Hookup",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Access the currently active document using `Document.current` or `Application.documents.current`.",
+      "Extract core document properties: `sessionUuid`, `persistentUuid`, `widthPixels`, `heightPixels`, `dpi`, `spreadCount`.",
+      "Understand why `sessionUuid` is mandatory for triggering visual renders via `render_spread` and `render_selection`.",
+      "Handle null document states gracefully and build defensive automation pipelines."
+    ],
+    "foundationalKnowledge": "In Affinity's JavaScript DOM, every open document is represented by a `Document` object. Crucially, Affinity assigns two distinct unique identifiers to every document session: (1) `persistentUuid`—a GUID that remains consistent across save/load cycles; (2) `sessionUuid`—an ephemeral 36-character hexadecimal token (e.g. `695C8818-C576-40BA-A670-7D2D1A87A8B0`) that represents the active in-memory document state in the running application instance. This `sessionUuid` is the key cryptographic handle required by the Affinity MCP render engine (`render_spread` and `render_selection`) to locate the document buffer and synthesize a pixel-accurate JPEG/PNG render.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity 3.3.3 Document Module API Reference & MCP Visual Render Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Document Module (`/document.js`)",
+      "persona": "JavaScript DOM API (MCP execute_script & render_spread)",
+      "shortcut": {
+        "win": "const { Document } = require('/document.js');",
+        "mac": "const { Document } = require('/document.js');"
+      },
+      "description": "Provides programmatic access to document dimensions, spreads, pages, artboards, layers, selection, and the vital sessionUuid required for automated rendering.",
+      "contextBarOptions": [
+        "doc.sessionUuid: 36-character UUID required for render_spread and render_selection",
+        "doc.title: Filename of the document (e.g. 'artistic_masterpiece.afphoto')",
+        "doc.widthPixels / doc.heightPixels: Exact floating-point pixel dimensions",
+        "doc.dpi: Base document resolution",
+        "doc.isDirty: Boolean indicating unsaved changes"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Import Document Module",
+        "instruction": "In your script, require the Document module: `const { Document } = require('/document.js');`.",
+        "shortcutTip": { "win": "require('/document.js')", "mac": "require('/document.js')" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Access the Active Document Safely",
+        "instruction": "Retrieve the current document reference: `const doc = Document.current;`. Implement a guard check `if (!doc) { throw new Error('No document is open in Affinity'); }`.",
+        "shortcutTip": { "win": "Document.current", "mac": "Document.current" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Extract Session UUID and Canvas Dimensions",
+        "instruction": "Read and log the session token and pixel dimensions: `console.log('UUID:', doc.sessionUuid); console.log('Size:', doc.widthPixels, 'x', doc.heightPixels, 'px @', doc.dpi, 'DPI');`.",
+        "shortcutTip": { "win": "doc.sessionUuid", "mac": "doc.sessionUuid" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Trigger an MCP Visual Spread Render",
+        "instruction": "Pass the extracted `sessionUuid` to the MCP `render_spread` tool: `render_spread({ document_session_uuid: doc.sessionUuid, spread_index: 0 })`. Observe the 1024px JPEG snapshot generated and saved to disk in under 180ms!",
+        "shortcutTip": { "win": "render_spread Tool", "mac": "render_spread Tool" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Document Property Map",
+        "description": "Essential properties available on the Document instance.",
+        "visualType": "table",
+        "visualContent": "| Property | Type | Sample Return Value | Description |\n|---|---|---|---|\n| `doc.sessionUuid` | string | `\"695C8818-C576-40BA-A670-7D2D1A87A8B0\"` | Mandatory handle for rendering tools |\n| `doc.title` | string | `\"artistic_masterpiece.afphoto\"` | Filename of document |\n| `doc.widthPixels` | number | `1920` | Document canvas width in pixels |\n| `doc.heightPixels` | number | `1080` | Document canvas height in pixels |\n| `doc.dpi` | number | `300` | Document resolution |\n| `doc.spreadCount` | number | `4` | Total number of spreads |\n| `doc.isDirty` | boolean | `false` | Indicates whether file has unsaved edits |"
+      },
+      {
+        "title": "Automated Render Pipeline Architecture",
+        "description": "How DOM script extraction feeds into the MCP rendering engine.",
+        "visualType": "diagram",
+        "visualContent": "1. Script executes: doc = Document.current\n   ↓\n2. Script extracts: uuid = doc.sessionUuid\n   ↓\n3. Client calls MCP: render_spread({ document_session_uuid: uuid, spread_index: 0 })\n   ↓\n4. Affinity renders: media_0.jpg (1024px JPEG, 180ms latency)\n   ↓\n5. LMS Web Viewport displays live student visual output!"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Document Inspector Script Walkthrough",
+      "taskDescription": "Execute 'S01_inspect_doc.js' against the live Affinity session, log all document properties, and trigger a spread render.",
+      "checkpoints": [
+        "Open 'curriculum/assets/scripting/S01_inspect_doc.js'.",
+        "Run via execute_script tool.",
+        "Verify document title ('artistic_masterpiece.afphoto') and session UUID appear in log output.",
+        "Use the returned session UUID to invoke render_spread and verify image creation."
+      ],
+      "expectedOutcome": "Automated telemetry retrieval and visual proof image generated in under 300ms total round-trip."
+    },
+    "independentChallenge": {
+      "title": "Autonomous QA Validation Script",
+      "prompt": "Author a complete automated quality assurance script: (1) Reads the active document; (2) Asserts that `doc.dpi` is at least 300 (flagging an error if under 300); (3) Asserts that `doc.widthPixels` is at least 1920; (4) Automatically triggers `render_spread` for spread 0; (5) Returns a structured JSON validation summary `{ valid: true, width, height, dpi, sessionUuid }`.",
+      "starterAsset": {
+        "filename": "S01_inspect_doc.js",
+        "filepath": "curriculum/assets/scripting/S01_inspect_doc.js",
+        "filesize": "1.1 KB",
+        "filetype": ".js",
+        "assetStatus": "JAVASCRIPT_SCRIPT",
+        "isVerified": true,
+        "statusNote": "Verified practice script for document inspection (JAVASCRIPT_SCRIPT)."
+      },
+      "challengeCriteria": [
+        "Validates DPI and pixel dimensions programmatically.",
+        "Catches null document exception gracefully.",
+        "Outputs valid JSON QA report string."
+      ],
+      "bonusGoal": "Add a check for `doc.isDirty` and warn if document contains unsaved changes."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Calling render_spread without a valid sessionUuid",
+        "cause": "Passing a static hardcoded UUID or forgetting that sessionUuid changes each time a document is re-opened.",
+        "solution": "Always extract `doc.sessionUuid` live from `Document.current` right before calling `render_spread`."
+      },
+      {
+        "pitfall": "Crash when no document is open in Affinity",
+        "cause": "Attempting to read `Document.current.title` when `Document.current` is null throws `TypeError: Cannot read properties of null`.",
+        "solution": "Always include `const doc = Document.current; if (!doc) { return; }` before accessing properties."
+      },
+      {
+        "pitfall": "Using spreadCount out-of-bounds in render_spread",
+        "cause": "Passing `spread_index: 1` when a single-canvas document only has `spread_index: 0`.",
+        "solution": "Check `doc.spreadCount` and ensure requested spread index is between `0` and `doc.spreadCount - 1`."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "S01-03-Q1",
+        "question": "Why is the `doc.sessionUuid` property required when calling the Affinity MCP `render_spread` tool?",
+        "options": [
+          "It is used to bill the user's credit card.",
+          "It is the unique 36-character in-memory handle that tells the Affinity rendering subsystem which specific open document to render into an image.",
+          "It sets the font size.",
+          "It determines whether the file is CMYK or RGB."
+        ],
+        "correctIndex": 1,
+        "explanation": "Because multiple documents can be open simultaneously in Affinity, sessionUuid provides the exact cryptographic handle directing the render engine to the target document buffer."
+      },
+      {
+        "id": "S01-03-Q2",
+        "question": "What happens if you execute a script that accesses `doc.widthPixels` while zero documents are open in Affinity?",
+        "options": [
+          "It returns 0.",
+          "It throws a TypeError because Document.current is null.",
+          "It automatically creates a 1920x1080 canvas.",
+          "It closes the application."
+        ],
+        "correctIndex": 1,
+        "explanation": "Document.current evaluates to null when no files are open. Attempting to access properties on null throws a standard V8 TypeError unless guarded by an if-check."
+      },
+      {
+        "id": "S01-03-Q3",
+        "question": "What format does the Affinity MCP `render_spread` tool return by default?",
+        "options": [
+          "TIFF",
+          "PSD",
+          "JPEG (capped at maximum 1024px dimension)",
+          "Vector SVG"
+        ],
+        "correctIndex": 2,
+        "explanation": "As benchmarked live in Phase 1, render_spread delivers an optimized JPEG image capped at 1024px, ensuring instantaneous transmission across the MCP bridge."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Document.current provides immediate programmatic inspection of the active canvas.",
+        "sessionUuid links DOM scripting execution to MCP visual rendering tools.",
+        "Defensive null checks protect automation pipelines from runtime crashes when no document is active.",
+        "Combining DOM telemetry with render_spread enables automated visual regression testing and web LMS feedback."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module S02 Preview: Document Object Model (DOM) Architecture & Node Tree",
+          "target": "S02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "AFFINITY MCP RENDERING BENCHMARK",
+          "target": "docs/MCP_RENDERING_BENCHMARK.md",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "S01-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Document Inspection & Session Telemetry",
+      "subtitle": "Querying the Active Canvas & Hooking into the Render Engine",
+      "contentMarkdown": "How does an automated pipeline know what document is open, what its dimensions are, and how to photograph it?\n\nIn this lesson, you will author your **first complete Affinity DOM automation script**.\n\nYou will learn how to **query the active document, extract its session UUID, and trigger live visual rendering** via the MCP bridge.",
+      "actionBox": {
+        "label": "Key Insight",
+        "text": "The sessionUuid is the bridge linking JavaScript code to visual pixels."
+      }
+    },
+    {
+      "id": "S01-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Dual UUID Architecture",
+      "subtitle": "Persistent vs Session Handles",
+      "contentMarkdown": "Affinity 3.0 assigns two distinct identifiers to every document:\n\n1. **`persistentUuid`:** Stored inside the `.afphoto` / `.afdesign` file header. Remains constant across reboots and saves.\n2. **`sessionUuid`:** Dynamic 36-character memory handle (e.g. `695C8818-C576-40BA-A670-7D2D1A87A8B0`). Generated each time the document is loaded into RAM.\n\n**The Rule:** Always use `doc.sessionUuid` when calling `render_spread` or `render_selection`!",
+      "visual": {
+        "type": "comparison",
+        "content": "persistentUuid (On-Disk Identity) vs sessionUuid (In-Memory Render Handle)"
+      }
+    },
+    {
+      "id": "S01-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Document Class Anatomy",
+      "subtitle": "Core Properties on Document.current",
+      "contentMarkdown": "Import via `const { Document } = require('/document.js');`:\n\n- **`doc.title`:** Current document name (e.g. `artistic_masterpiece.afphoto`).\n- **`doc.widthPixels` & `doc.heightPixels`:** Floating-point canvas dimensions.\n- **`doc.dpi`:** Print resolution (e.g. `300` or `72`).\n- **`doc.spreadCount`:** Number of spreads (pages).\n- **`doc.isDirty`:** True if unsaved changes exist.",
+      "actionBox": {
+        "label": "Defensive Code",
+        "text": "Always write: const doc = Document.current; if (!doc) return;"
+      }
+    },
+    {
+      "id": "S01-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: The Inspection Script",
+      "subtitle": "Extracting Real-Time Document Metrics",
+      "contentMarkdown": "1. **Import Module:**\n```javascript\nconst { Document } = require('/document.js');\nconst doc = Document.current;\n```\n2. **Defensive Guard:**\n```javascript\nif (!doc) {\n  console.log('No active document found.');\n  return;\n}\n```\n3. **Log Core Telemetry:**\n```javascript\nconsole.log('Title :', doc.title);\nconsole.log('UUID  :', doc.sessionUuid);\nconsole.log('Canvas:', doc.widthPixels + 'x' + doc.heightPixels + ' px');\nconsole.log('DPI   :', doc.dpi);\n```\n4. **Call MCP Render Tool:** Pass `doc.sessionUuid` to `render_spread` to generate a live preview image in 180ms!",
+      "visual": {
+        "type": "code",
+        "content": "const doc = Document.current;\nconsole.log('Session UUID:', doc.sessionUuid);"
+      }
+    },
+    {
+      "id": "S01-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Common Scripting Pitfalls",
+      "subtitle": "Avoid Null Pointers and Stale UUIDs",
+      "contentMarkdown": "### 1. Null Pointer on Document.current\n- **The Issue:** Running a script when no document is open throws `TypeError: Cannot read properties of null`.\n- **The Fix:** Always guard with `if (!doc) { ... }`.\n\n### 2. Using Stale Session UUIDs\n- **The Issue:** Hardcoding a UUID from yesterday causes `render_spread` to fail with 'Document session not found'.\n- **The Fix:** Query `doc.sessionUuid` dynamically on every execution.\n\n### 3. Out-of-Bounds Spread Index\n- **The Issue:** Calling `render_spread` with `spread_index: 2` on a 1-page document.\n- **The Fix:** Ensure requested index is less than `doc.spreadCount`.",
+      "actionBox": {
+        "label": "Golden Rule",
+        "text": "Never hardcode UUIDs. Extract them dynamically at runtime."
+      }
+    },
+    {
+      "id": "S01-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Document Telemetry",
+      "subtitle": "Test Your Automation Logic",
+      "contentMarkdown": "Validate your understanding of document inspection.",
+      "quizData": {
+        "id": "S01-03-Q1",
+        "question": "Why is the `doc.sessionUuid` property required when calling the Affinity MCP `render_spread` tool?",
+        "options": [
+          "It is used to bill the user's credit card.",
+          "It is the unique 36-character in-memory handle that tells the Affinity rendering subsystem which specific open document to render into an image.",
+          "It sets the font size.",
+          "It determines whether the file is CMYK or RGB."
+        ],
+        "correctIndex": 1,
+        "explanation": "Because multiple documents can be open simultaneously in Affinity, sessionUuid provides the exact cryptographic handle directing the render engine to the target document buffer."
+      }
+    },
+    {
+      "id": "S01-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Automated QA Auditor",
+      "subtitle": "Build an Automated Preflight Script",
+      "contentMarkdown": "### Your Mission:\nAuthor an autonomous preflight inspection script:\n\n1. Check `Document.current`. If null, output an alert and exit.\n2. Verify that `doc.dpi >= 300` (for print readiness). If below 300, log a warning.\n3. Output a structured JSON report object containing: `title`, `sessionUuid`, `dimensions`, `dpi`, and `isDirty`.\n4. Trigger `render_spread` to generate a visual verification record.\n\n### Acceptance Criteria:\n- Executes against active document in under 200ms.\n- Outputs clean, parseable JSON report to console.",
+      "practiceData": {
+        "prompt": "Author and run S01_inspect_doc.js to verify active document telemetry.",
+        "starterAsset": {
+          "filename": "S01_inspect_doc.js",
+          "filepath": "curriculum/assets/scripting/S01_inspect_doc.js",
+          "filesize": "1.1 KB",
+          "filetype": ".js",
+          "assetStatus": "JAVASCRIPT_SCRIPT",
+          "isVerified": true,
+          "statusNote": "Verified practice script for document inspection (JAVASCRIPT_SCRIPT)."
+        },
+        "checkpoints": [
+          "Guarded against null document states",
+          "Session UUID successfully extracted",
+          "Spread rendered via MCP bridge"
+        ]
+      }
+    }
+  ]
+}

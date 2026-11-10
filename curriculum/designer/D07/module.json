@@ -1,0 +1,58 @@
+{
+  "id": "D07",
+  "trackId": "designer",
+  "order": 7,
+  "title": "Isometric Grids, 3D Projections & Snapping",
+  "subtitle": "Axonometric Grids, Isometric Studio, Fit-to-Plane & Snapping Candidates",
+  "description": "Master parallel 3D vector illustration in Affinity Designer: configure axonometric and isometric grids in the Grid and Axis Manager, leverage the dedicated Isometric Studio with Front/Side/Top planes, perform non-destructive Fit-to-Plane projection for flat UI and typography, and lock vertices with precision snapping candidates.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": [
+    "D01: Designer Interface, Personas & Canvas Setup",
+    "D02: Vector Nodes, Paths & Pen Tool Geometry",
+    "D03: Advanced Shape Creation & Boolean Geometry"
+  ],
+  "learningOutcomes": [
+    "Configure custom axonometric and true 30° isometric grids using the Grid and Axis Manager.",
+    "Activate and navigate the Isometric Studio across Top, Side, and Front projection planes.",
+    "Project 2D flat typography, badges, and interface assets into 3D isometric space using Fit to Plane.",
+    "Draw and edit vector geometry directly inside projected planes using the Edit in Plane toggle.",
+    "Configure Snapping Candidates and Intersection Snapping to achieve pixel-perfect vertex joins without seam artifacts."
+  ],
+  "capstoneProject": {
+    "title": "Isometric Modular Server Terminal Kiosk",
+    "description": "Construct an architecturally accurate isometric server kiosk complete with multi-plane bevels, projected flat UI screens, and interlocking conduit cables locked to snapping candidates.",
+    "deliverableAsset": "curriculum/assets/designer/D07_isometric_snapping_guide.md",
+    "evaluationCriteria": [
+      "Isometric grid configured at 30° angles with 64px major spacing and 16px subdivisions.",
+      "Coherent 3-value light model applied across Top (light), Side (midtone), and Front (shadow) planes.",
+      "Flat 2D UI elements accurately projected using Isometric Studio Fit-to-Plane."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D07-01",
+      "order": 1,
+      "title": "Axonometric & Isometric Grid Configuration",
+      "subtitle": "Grid and Axis Manager, 30° Angles, Division Spacing & Axis Constraints",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D07-02",
+      "order": 2,
+      "title": "Isometric Studio & Fit-to-Plane Workflow",
+      "subtitle": "Top, Side & Front Planes, In-Plane Editing & Flat-to-3D Projection",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "D07-03",
+      "order": 3,
+      "title": "Snapping Candidates & 3D Vector Assembly",
+      "subtitle": "Candidate Lists, Intersection Snapping & Seamless Vertex Joining",
+      "durationMinutes": 30,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

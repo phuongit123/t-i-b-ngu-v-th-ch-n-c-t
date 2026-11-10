@@ -1,0 +1,293 @@
+{
+  "id": "P01-03",
+  "moduleId": "P01",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Non-Destructive Canvas Geometry, Crop Tool, DPI & Resampling",
+  "subtitle": "Aspect Ratios, Horizon Straightening, Golden Ratio Overlays & Canvas Extension",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Master the non-destructive Crop Tool (C): cropping, uncropping, and rotating without pixel loss.",
+      "Utilize composition overlays: Rule of Thirds, Golden Spiral (Fibonacci), and Diagonals.",
+      "Straighten crooked horizons instantly using the Straighten Tool and angle calculation.",
+      "Differentiate between Canvas Resize (expanding workspace without scaling pixels) and Document Resize (resampling pixels with Lanczos, Bicubic, or Bilinear algorithms)."
+    ],
+    "foundationalKnowledge": "In destructive photo editing, cropping an image physically deletes all pixels residing outside the crop box. If a client later requests expanding the framing or shifting the composition, the deleted data is gone. In Affinity Photo, the Crop Tool operates completely non-destructively. When you crop a document, Affinity simply adjusts the active viewport boundary. All original pixels outside the framing remain fully preserved in the file. At any point—even days later—activating the Crop Tool reveals the hidden pixel data, allowing you to uncrop, pan the crop frame, or rotate the angle freely.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo Non-Destructive Crop & Interpolation Geometry Documentation",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Crop Tool & Straighten Tool",
+      "persona": "Photo Persona (Left Tools Panel)",
+      "shortcut": {
+        "win": "C",
+        "mac": "C"
+      },
+      "description": "Activated by pressing C. Displays interactive corner and edge handles around the canvas. The Context Toolbar gives access to standard aspect ratios, composition guides, and the Straighten tool.",
+      "contextBarOptions": [
+        "Mode Dropdown: Unconstrained, Original Ratio, Custom Ratio (16:9, 4:5, 1:1), Resample",
+        "Overlay Dropdown: Thirds Grid, Golden Spiral, Diagonals, Triangle, None",
+        "Straighten Button: Allows dragging a reference horizon line across water or architecture to auto-level the canvas",
+        "Apply / Cancel Buttons: Enter commits the crop boundary; Escape cancels"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Activate the Crop Tool and Choose Aspect Ratio",
+        "instruction": "Open 'P01_starter.afphoto' and press C to activate the Crop Tool. On the Context Toolbar, open the Mode dropdown and select 'Custom Ratio'. Enter '4 : 5' (the standard portrait orientation for Instagram / mobile feeds).",
+        "shortcutTip": { "win": "C", "mac": "C" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Enable Composition Guides",
+        "instruction": "On the Context Toolbar, open the 'Overlay' dropdown and select 'Golden Spiral' (or press Ctrl+O / Cmd+O inside the crop tool). Notice the Fibonacci logarithmic curve appear across the framing. Press 'O' to cycle the spiral orientation until it anchors on your visual focal point.",
+        "shortcutTip": { "win": "O (Cycle Overlay)", "mac": "O (Cycle Overlay)" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Straighten a Crooked Horizon",
+        "instruction": "Click the 'Straighten' button on the Context Toolbar. Click and drag a straight line directly along the horizon line or a building roof. Affinity Photo automatically calculates the exact rotation angle and levels the image, expanding the crop box to prevent transparent corners.",
+        "shortcutTip": { "win": "Straighten Tool", "mac": "Straighten Tool" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Commit and Test Non-Destructive Recovery",
+        "instruction": "Press Enter to commit the crop. Now, switch to the Move Tool (V) and zoom out. Press C again. Notice that all of your original pixels outside the boundary reappear instantly, completely intact and ready to be re-adjusted!",
+        "shortcutTip": { "win": "Enter (Commit)", "mac": "Enter (Commit)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Resampling Algorithms Matrix",
+        "description": "Choosing the right mathematical algorithm when resizing images.",
+        "visualType": "table",
+        "visualContent": "| Algorithm | Image Type | Processing Characteristics |\n|---|---|---|\n| Lanczos 3 (Non-separable) | Downsampling fine details, complex photos | Maximum sharpness, highest quality, avoids blur |\n| Bicubic | General photographic resizing | Smooth gradients, balanced interpolation |\n| Bilinear | Quick previews, low-frequency art | Fast, softer transitions |\n| Nearest Neighbor | Pixel art, 8-bit retro graphics | Zero anti-aliasing, preserves hard pixel blocks |"
+      },
+      {
+        "title": "Non-Destructive Crop Boundary Diagram",
+        "description": "How pixels remain preserved outside the visible canvas.",
+        "visualType": "diagram",
+        "visualContent": "+---------------------------------------------------+\n| Preserved Hidden Pixels (Still in memory / file)  |\n|    +-----------------------------+                |\n|    | Active Viewport Frame       |                |\n|    | (Visible Cropped Canvas)    |                |\n|    +-----------------------------+                |\n|                                                   |\n+---------------------------------------------------+"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Editorial 4:5 Crop & Leveling Walkthrough",
+      "taskDescription": "Take 'P01_starter.afphoto', level its orientation using the Straighten Tool, and re-frame it to a 4:5 vertical editorial portrait.",
+      "checkpoints": [
+        "Press C to activate Crop Tool.",
+        "Use Straighten button to align horizontal features.",
+        "Set Mode to 'Custom Ratio' 4:5.",
+        "Position the main focal subject at the intersection of the upper-third guide lines.",
+        "Press Enter to apply, then press C again to prove zero pixels were destroyed."
+      ],
+      "expectedOutcome": "A perfectly leveled editorial composition with full uncrop recovery capability."
+    },
+    "independentChallenge": {
+      "title": "Print Pre-Press Canvas Resizing",
+      "prompt": "Prepare an image for commercial gallery print: (1) Check Document > Resize Document; (2) Change Units to Inches and verify DPI is set to exactly 300 DPI without resampling (uncheck 'Resample'); (3) Go to Document > Resize Canvas and add 1 inch of extra white canvas space around all sides (Anchor: Center) to create a museum-style mat border.",
+      "starterAsset": {
+        "filename": "P01_starter.afphoto",
+        "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+        "filesize": "1.65 MB",
+        "filetype": ".afphoto",
+        "assetStatus": "REAL_AFFINITY_FILE",
+        "isVerified": true,
+        "statusNote": "Practice asset for canvas geometry and DPI scaling (REAL_AFFINITY_FILE)."
+      },
+      "challengeCriteria": [
+        "Document measures 300 DPI with pixel dimensions unchanged.",
+        "Canvas extended by exactly 1.0 inch uniformly on top, bottom, left, and right.",
+        "New canvas area filled with a clean white or dark charcoal background matte."
+      ],
+      "bonusGoal": "Save a Crop Preset named 'Editorial 4:5' for one-click future use."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Confusing 'Resize Document' with 'Resize Canvas'",
+        "cause": "Resize Document scales your actual pixel data (making the image smaller or larger in pixel count). Resize Canvas expands or trims the boundary paper without changing the scale of existing artwork.",
+        "solution": "Use Resize Document when changing image resolution (e.g. 4000px down to 1920px); use Resize Canvas when adding borders, margins, or padding."
+      },
+      {
+        "pitfall": "Unintentional image blur when changing DPI",
+        "cause": "Leaving 'Resample' checked in the Resize Document dialog causes Affinity to interpolate and blur existing pixels when all you wanted was to change the print metadata.",
+        "solution": "Uncheck 'Resample' if you only want to change the DPI for print without modifying existing pixel dimensions."
+      },
+      {
+        "pitfall": "Exporting cropped images still showing extra canvas",
+        "cause": "Using 'Export Whole Document' when layers extend beyond the canvas bounds.",
+        "solution": "In File > Export, ensure 'Area' is set to 'Document' or 'Whole Document' depending on whether you want the cropped boundary or the unclipped bounds."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P01-03-Q1",
+        "question": "What happens to pixels that fall outside the active crop box when you press Enter in Affinity Photo?",
+        "options": [
+          "They are permanently deleted from the document to save disk space.",
+          "They remain preserved non-destructively in the document file; reactivating the Crop Tool at any time allows expanding or repositioning the crop frame to reveal them.",
+          "They are converted into vector clipping paths.",
+          "They are saved to a separate backup folder on your desktop."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Photo's Crop Tool is completely non-destructive. Applying a crop merely adjusts the visible viewport; zero pixel data is discarded."
+      },
+      {
+        "id": "P01-03-Q2",
+        "question": "Which resampling algorithm provides the highest clarity and sharpest edge retention when downsampling high-resolution photographs for web display?",
+        "options": [
+          "Nearest Neighbor",
+          "Bilinear",
+          "Lanczos 3 (Non-separable)",
+          "Gaussian"
+        ],
+        "correctIndex": 2,
+        "explanation": "Lanczos 3 uses a complex windowed sinc function that evaluates surrounding pixels to maximize edge contrast and prevent softness during downsampling."
+      },
+      {
+        "id": "P01-03-Q3",
+        "question": "What is the key functional difference between unchecking 'Resample' vs keeping it checked in the 'Resize Document' dialog?",
+        "options": [
+          "Unchecking 'Resample' locks the pixel count and simply recalculates the physical print size when changing DPI, ensuring not a single pixel is blurred or interpolated.",
+          "Unchecking 'Resample' turns the document black and white.",
+          "Unchecking 'Resample' speeds up the internet connection.",
+          "There is no difference."
+        ],
+        "correctIndex": 0,
+        "explanation": "When 'Resample' is unchecked, changing DPI simply changes the print metadata (how large it prints on paper) while leaving the exact pixel grid 100% untouched."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Non-destructive cropping preserves original pixels, allowing unlimited reframing and uncropping.",
+        "The Straighten tool eliminates tilted horizons in a single drag gesture.",
+        "Composition overlays (Rule of Thirds, Golden Spiral) guide aesthetic balance.",
+        "Resize Canvas expands paper borders, while Resize Document scales pixel grids via advanced interpolation."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module P02 Preview: Non-Destructive Workflow & Layer Hierarchy",
+          "target": "P02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Affinity Photo Canvas Geometry Manual",
+          "target": "https://affinity.serif.com/photo/canvas-geometry/",
+          "type": "doc"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P01-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Non-Destructive Canvas Geometry & Crop",
+      "subtitle": "Framing, Leveling & The Geometry of Composition",
+      "contentMarkdown": "How you frame an image defines how the viewer experiences its story.\n\nIn legacy software, cropping is a high-risk destructive action: once committed, exterior pixels are lost forever.\n\nIn **Affinity Photo 3.0**, the Crop Tool is **100% non-destructive**.\n\nIn this lesson, you will master **compositional overlays, horizon leveling, and the distinction between Canvas and Document resizing**.",
+      "actionBox": {
+        "label": "Peace of Mind",
+        "text": "Crop freely in Affinity Photo. Your original pixels are never deleted."
+      }
+    },
+    {
+      "id": "P01-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "The Anatomy of Non-Destructive Cropping",
+      "subtitle": "Viewport Adjustment vs Pixel Destruction",
+      "contentMarkdown": "When you apply a crop in Affinity Photo:\n\n1. **Zero Pixel Loss:** The software adjusts the visible viewport window, not the underlying pixel array.\n2. **Infinite Reversibility:** Press `C` tomorrow or next week, and the bounding handles immediately reveal the hidden scene around your frame.\n3. **Pan & Rotate Freedom:** You can pan the image inside the crop window or adjust the rotation angle at any time.",
+      "visual": {
+        "type": "callout",
+        "content": "To uncrop an image: Activate the Crop Tool (C) and drag the handles outward beyond the active boundary."
+      }
+    },
+    {
+      "id": "P01-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "The Crop Tool Context Toolbar",
+      "subtitle": "Aspect Ratios, Overlays & Horizon Leveling",
+      "contentMarkdown": "Press `C` to reveal the Crop Tool Context Bar:\n\n- **Mode Selector:** Unconstrained, Original Ratio, Custom Ratio (e.g. 16:9 cinematic, 4:5 Instagram, 1:1 square), or Resample.\n- **Straighten Button:** Drag a line along any tilted water horizon or building seam to auto-level the canvas.\n- **Composition Overlays:** Thirds grid, Golden Spiral (Fibonacci), Diagonals, and Triangles.\n- **Cycle Overlay (O):** Press `O` to cycle through orientation angles of the Golden Spiral.",
+      "actionBox": {
+        "label": "Straighten Gesture",
+        "text": "Click 'Straighten' and drag across any horizontal seam to level the frame instantly.",
+        "shortcut": { "win": "C -> Straighten", "mac": "C -> Straighten" }
+      }
+    },
+    {
+      "id": "P01-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Step-by-Step: Editorial 4:5 Re-Framing",
+      "subtitle": "Cropping with Compositional Overlays",
+      "contentMarkdown": "1. **Open File:** Launch `P01_starter.afphoto`.\n2. **Activate Crop Tool:** Press `C`.\n3. **Set Custom Ratio:** In the Mode dropdown, choose `Custom Ratio` and enter `4` in width and `5` in height.\n4. **Activate Golden Spiral:** Open the Overlay dropdown and select `Golden Spiral`. Press `O` to rotate the spiral until the eye lands on the primary subject.\n5. **Level Horizon:** Click `Straighten` and drag across the skyline.\n6. **Apply:** Press `Enter` to commit the framing.\n7. **Verify Non-Destructive Power:** Press `C` again. Notice your full scene remains available in the background!",
+      "visual": {
+        "type": "comparison",
+        "content": "Rule of Thirds (Clean Balance) vs Golden Spiral (Dynamic Organic Energy)"
+      }
+    },
+    {
+      "id": "P01-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Geometry Pitfalls & Common Mistakes",
+      "subtitle": "Preventing Unintended Blur and Scaling Errors",
+      "contentMarkdown": "### 1. Document Resize vs Canvas Resize Confusion\n- **Document Resize:** Interpolates and resamples pixels (changing pixel count).\n- **Canvas Resize:** Extends or trims the background matte (adding borders) without touching artwork pixels.\n\n### 2. Resample Checked When Changing DPI\n- **The Issue:** Leaving 'Resample' checked when changing from 72 to 300 DPI blurs the image.\n- **The Fix:** Uncheck 'Resample' in `Document > Resize Document` so only physical print size updates.\n\n### 3. Choosing the Wrong Resampling Method\n- **Use Lanczos 3:** For sharpest photographic downsampling.\n- **Use Nearest Neighbor:** Exclusively for pixel art or retro sprites.",
+      "actionBox": {
+        "label": "Print Rule",
+        "text": "Never resample when changing DPI unless you explicitly need to generate new physical pixels."
+      }
+    },
+    {
+      "id": "P01-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Knowledge Check: Geometry Mastery",
+      "subtitle": "Test Your Understanding",
+      "contentMarkdown": "Validate your grasp of crop and resize mechanics.",
+      "quizData": {
+        "id": "P01-03-Q1",
+        "question": "What happens to pixels that fall outside the active crop box when you press Enter in Affinity Photo?",
+        "options": [
+          "They are permanently deleted from the document to save disk space.",
+          "They remain preserved non-destructively in the document file; reactivating the Crop Tool at any time allows expanding or repositioning the crop frame to reveal them.",
+          "They are converted into vector clipping paths.",
+          "They are saved to a separate backup folder on your desktop."
+        ],
+        "correctIndex": 1,
+        "explanation": "Affinity Photo's Crop Tool is completely non-destructive. Applying a crop merely adjusts the visible viewport; zero pixel data is discarded."
+      }
+    },
+    {
+      "id": "P01-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Independent Challenge: Museum Mat Frame",
+      "subtitle": "Mastering Document & Canvas Expansion",
+      "contentMarkdown": "### Your Mission:\nPrepare `P01_starter.afphoto` for fine-art exhibition presentation:\n\n1. Go to `Document > Resize Document`. Uncheck 'Resample' and set DPI to `300 DPI`.\n2. Go to `Document > Resize Canvas`. Set Anchor to **Center**.\n3. Increase Width and Height by exactly `2.0 inches` (adding a 1-inch uniform border around all 4 sides).\n4. In the Layers panel, create a new Fill Layer set to `#111115` (Obsidian) positioned below the image.\n\n### Acceptance Criteria:\n- Image remains 300 DPI without resampling blur.\n- Canvas has an exact 1-inch museum mat border.\n- Original image layer is intact.",
+      "practiceData": {
+        "prompt": "Construct a 1-inch museum mat frame around P01_starter.afphoto without resampling blur.",
+        "starterAsset": {
+          "filename": "P01_starter.afphoto",
+          "filepath": "curriculum/assets/photo/P01_starter.afphoto",
+          "filesize": "1.65 MB",
+          "filetype": ".afphoto",
+          "assetStatus": "REAL_AFFINITY_FILE",
+          "isVerified": true,
+          "statusNote": "Verified practice document for retouching workspace challenge (REAL_AFFINITY_FILE)."
+        },
+        "checkpoints": [
+          "DPI set to 300 with Resample unchecked",
+          "Canvas extended by 2 inches centered",
+          "Museum mat background layer applied"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "D09",
+  "trackId": "designer",
+  "order": 9,
+  "title": "Pixel Persona Integration & Textured Vector Shading",
+  "subtitle": "Raster Brushes, Grain Shading, Child Pixel Layers & Non-Destructive Vector Masking",
+  "description": "Harness the hybrid creative superpower of Affinity Designer: switch seamlessly into the Pixel Persona, leverage pressure-sensitive raster grain brushes, clip textured shading non-destructively inside mathematical vector shells, and balance raster DPI with vector scalability for commercial print and digital workflows.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 90,
+  "prerequisites": [
+    "D01: Designer Interface, Personas & Canvas Setup",
+    "D04: Fill, Gradient, Stroke & Pressure Profiles",
+    "D05: Layer Organization, Masks & Clipping Paths"
+  ],
+  "learningOutcomes": [
+    "Switch fluidly between Designer Persona and Pixel Persona using verified keyboard shortcuts.",
+    "Master raster brush dynamics including Flow, Opacity, Hardness, Spacing, and Pressure Jitter.",
+    "Clip raster pixel layers non-destructively inside parent vector curves via child layer nesting.",
+    "Lock transparency using Protect Alpha to recolor existing texture passes without overspill.",
+    "Govern document DPI settings to prevent pixelation while maintaining infinite vector scalability."
+  ],
+  "capstoneProject": {
+    "title": "Retro-Futuristic Botanical Vector-Raster Masterpiece",
+    "description": "Construct an editorial illustration combining sharp vector silhouettes, parametric curves, and multi-pass analog grain shading clipped non-destructively within vector leaf and stem shells at 300 DPI.",
+    "deliverableAsset": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
+    "evaluationCriteria": [
+      "Document calibrated at 300 DPI for high-resolution raster reproduction.",
+      "Textured shading isolated onto child pixel layers inside parent vector curves.",
+      "Flow dynamics (15%–25%) utilized for velvety, non-banding grain gradients.",
+      "Vector curves remain editable with live clipping boundaries updating in real time."
+    ]
+  },
+  "lessons": [
+    {
+      "id": "D09-01",
+      "order": 1,
+      "title": "Pixel Persona & Raster Brush Dynamics in Designer",
+      "subtitle": "Persona Switching, Brush Categories, Flow vs Opacity & Jitter Engine",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D09-02",
+      "order": 2,
+      "title": "Non-Destructive Child Pixel Clipping & Masking",
+      "subtitle": "Insert Inside Selection, Protect Alpha & Blend Mode Shading",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "D09-03",
+      "order": 3,
+      "title": "Hybrid Vector-Raster Workflow & DPI Management",
+      "subtitle": "Resolution Boundaries, 300 DPI Print Standards & Visual Polish",
+      "durationMinutes": 30,
+      "difficulty": "Advanced"
+    }
+  ]
+}
