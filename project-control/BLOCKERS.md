@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `BLOCKERS-AFFINITY-001`
-- **Version:** `4.2.0` (Track 1 Technical Re-Audit + Phase 4 MVP Simulator Completed)
+- **Version:** `4.2.1` (Phase 5 Pages Integration & Code-Splitting Certified)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
 
 ---
@@ -13,7 +13,7 @@
 
 | Blocker ID | Description | Severity | Impacted Tasks | Mitigation / Resolution Action | Owner | Status |
 |---|---|---|---|---|---|---|
-| `BLK-005` | **Phase Gate: Awaiting User Review & Approval for Subsequent Phases**<br>Track 1 Technical Re-Audit, Audit Remediation (DEFECT-AUDIT-01 to 05), and Phase 4 MVP (Pen & Node Tool Bézier Simulator) are 100% complete, verified with 6/6 Playwright tests, 7 verified visual screenshots on disk, and signed off by Independent QA (`PHASE_4_MVP_SIGNOFF.md`). By explicit user instruction, the platform must halt at the Phase Gate. No development of Track 2 (Photo), Track 3 (Publisher), Track 4 (Scripting), Monaco Editor, or MCP Playground may proceed until user grants formal approval. | **High (Gatekeeper)** | Track 2 (`TASK-011`), Track 3 (`TASK-012`), Track 4 (`TASK-013`), Monaco Playground (`TASK-023`, `TASK-076`) | Present comprehensive completion report with test evidence; halt turn and wait for user's explicit command to proceed. | `Orchestrator` | **ACTIVE** |
+| `BLK-006` | **Phase Gate: Awaiting Authorization for Tracks 2–4 & Monaco/Live Playground**<br>With Phase 4 MVP and Phase 5 major pages (`SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`) fully operational and verified, remaining tracks (Track 2 Photo, Track 3 Publisher, Track 4 Scripting) and advanced cloud/IDE modules (Monaco Editor, Live Code Runner, Supabase auth/storage) await explicit Project Owner directive. | **High (Gatekeeper)** | Track 2 (`TASK-011`), Track 3 (`TASK-012`), Track 4 (`TASK-013`), Monaco Playground (`TASK-023`, `TASK-076`), Supabase (`TASK-030` to `033`) | Maintain modular stability; keep bundle lean with lazy-loading; wait for explicit PO directive to start authoring subsequent tracks. | `Orchestrator` | **ACTIVE** |
 
 ---
 
@@ -21,6 +21,7 @@
 
 | Blocker ID | Description | Resolved Date | Resolution Summary | Resolved By |
 |---|---|---|---|---|
+| `BLK-005` | Phase Gate: Authorization for Phase 5 major pages (Encyclopedia & Resource Library) | 2026-11-11 | User reviewed and approved `V4.2.1_DEV_AUDIT_REPORT.md`. Both `EncyclopediaPage` (401 API topics) and `ResourcesPage` (local bundled asset downloads) patched with zero TS errors, code-split via `React.lazy`, and verified. | User & `Orchestrator` | **RESOLVED** |
 | `BLK-000` | Gap in original requirements representation (missing 40-module structure, slide engine, simulator, encyclopedia, resource pack, 8 major pages, and MCP-first sequence) | 2026-11-09 | Performed comprehensive audit; expanded spec, requirements (49 reqs), tasks (49 original tasks, 50 task rows), and acceptance criteria in baseline v2.0.0. | `Orchestrator` | **RESOLVED** |
 | `BLK-001` | Phase 1 Gateway: Awaiting User Approval to Begin Phase 1 | 2026-11-09 | User explicitly approved Phase 1 execution under 8 strict conditions. All 8 conditions satisfied and QA signed off. | User & `Orchestrator` | **RESOLVED** |
 | `BLK-002` | Phase 2 Gateway: Awaiting User Approval to Begin Phase 2 | 2026-11-09 | User explicitly approved Phase 2 execution ("Mastero & Minimalism" tokens, 21 reusable components). All deliverables built, tested, and QA signed off. | User & `Orchestrator` | **RESOLVED** |

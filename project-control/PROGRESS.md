@@ -2,10 +2,10 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.2.0` (Track 1 Technical Re-Audit + Phase 4 MVP Simulator Completed & QA Signed Off)
+- **Version:** `4.2.1` (Phase 5 Pages Integration & Code-Splitting Certified)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Current Phase:** `Track 1 Technical Re-Audit & Phase 4 MVP Simulator Complete -> HALTED AT PHASE GATE`
-- **Last Updated:** `2026-11-09`
+- **Current Phase:** `Phase 5 Major Pages In Progress (Simulator, Encyclopedia, Resources Operational)`
+- **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -19,17 +19,17 @@
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 5 | 0 | 3 | **TRACK 1 RE-AUDITED & VERIFIED (30/120 Lessons, 10/40 Modules Done)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP COMPLETED (`SlidePlayer` & `PenNodeSimulator` Operational)** |
-| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 1 | 0 | 11 | `SimulatorPage.tsx Operational` |
+| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage, EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E Suite Initialized (5/5 Passing)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E Suite Operational (6/6 Passing)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **12** | **0** | **37** | **24.5% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **13** | **0** | **37** | **26.0% Completed** |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **0** | **35** | **28.6% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **15** | **0** | **35** | **30.0% Completed** |
 
 > [!NOTE]
 > **Giải trình Tiến độ Task (Progress Metrics Reconciliation):**
-> - **24.5% (12 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`).
-> - **26.0% (13 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
+> - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`).
+> - **30.0% (15 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
 
 ---
 
@@ -41,11 +41,11 @@
 | Affinity MCP Research & Automation (`REQ-MCP`) | 7 | 2 (`REQ-MCP-006`, `007`) | 5 | **28.6%** |
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 1 (`REQ-CURR-001`) | 7 | **12.5%** |
 | Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
-| Major Page Content & Functionality (`REQ-PAGE`) | 8 | 0 | 8 | 0.0% |
+| Major Page Content & Functionality (`REQ-PAGE`) | 8 | 3 (`REQ-PAGE-004`, `005`, `007`) | 5 | **37.5%** |
 | Backend Database, Auth & Storage (`REQ-BE`) | 4 | 0 | 4 | 0.0% |
 | Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
-| **TOTAL** | **49** | **8** | **41** | **16.3%** |
+| **TOTAL** | **49** | **11** | **38** | **22.4%** |
 
 ---
 

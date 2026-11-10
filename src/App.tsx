@@ -11,9 +11,12 @@ import { TrackCard } from './components/cards/TrackCard';
 import { ModuleCard } from './components/cards/ModuleCard';
 import { LessonCard } from './components/cards/LessonCard';
 import { SimulatorPage } from './pages/SimulatorPage';
-import { BookOpen, Terminal, Download, User, Play, Sparkles } from 'lucide-react';
+import { Terminal, User, Play, Sparkles } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
+
+const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
+const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
 
 export const App: React.FC = () => {
   const [activeRoute, setActiveRoute] = useState('home');
@@ -232,20 +235,7 @@ export const App: React.FC = () => {
       case 'simulator':
         return <SimulatorPage />;
       case 'encyclopedia':
-        return (
-          <div>
-            <PageHeader
-              title="Complete Tool Encyclopedia & Shortcuts Matrix"
-              description="Comprehensive reference dictionary for every tool, persona, and modifier key across Designer, Photo, and Publisher 3.0."
-              badge="Phase 5 Implementation"
-            />
-            <EmptyState
-              icon={<BookOpen className="w-5 h-5 text-rose-400" />}
-              title="Encyclopedia UI Scheduled for Phase 5"
-              description="Searchable matrix and detail modals will be assembled in Phase 5 based on verified tool database."
-            />
-          </div>
-        );
+        return <EncyclopediaPage />;
       case 'playground':
         return (
           <div>
@@ -262,20 +252,7 @@ export const App: React.FC = () => {
           </div>
         );
       case 'resources':
-        return (
-          <div>
-            <PageHeader
-              title="Resource Library & Asset Download Center"
-              description="Download verified Affinity color palettes, brushes, layout templates, vector assets, and shortcut cheat sheets."
-              badge="Phase 5 Implementation"
-            />
-            <EmptyState
-              icon={<Download className="w-5 h-5 text-blue-400" />}
-              title="Download Center Scheduled for Phase 5"
-              description="Asset cards and Supabase storage download triggers will be wired in Phase 5."
-            />
-          </div>
-        );
+        return <ResourcesPage />;
       case 'dashboard':
         return (
           <div>
@@ -308,7 +285,7 @@ export const App: React.FC = () => {
       theme={theme}
       onToggleTheme={handleToggleTheme}
       onOpenSearch={() => setIsSearchOpen(true)}
-      isMcpConnected={true}
+      isMcpConnected={false}
       sidebar={
         activeRoute === 'catalog' ? (
           <SidebarNavigation
@@ -331,7 +308,15 @@ export const App: React.FC = () => {
         ) : undefined
       }
     >
-      {renderContent()}
+      <React.Suspense
+        fallback={
+          <div className="flex items-center justify-center p-12 text-sm text-[var(--color-text-secondary)] font-mono">
+            Loading module...
+          </div>
+        }
+      >
+        {renderContent()}
+      </React.Suspense>
 
       {/* Global Command Palette */}
       <SearchCommand

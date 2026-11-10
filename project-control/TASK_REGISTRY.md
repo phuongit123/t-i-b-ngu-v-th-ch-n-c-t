@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.2.0` (Phase 4 MVP + Audit Remediation Certified)
+- **Version:** `4.2.1` (Phase 5 Pages Integration & Code-Splitting Certified)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-10`
+- **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (13 COMPLETED / 37 PENDING = 26.0%).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (15 COMPLETED / 35 PENDING = 30.0%).
 
 ---
 
@@ -70,7 +70,7 @@
 | `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx` | 4 tracks, 40 modules grid, search/filter, visual prerequisite path. | `PENDING` |
 | `TASK-073` | Major Page: Interactive Slide Lesson Player | `FrontendAgent` | `REQ-PAGE-003` | `TASK-022`, `TASK-026` | `src/pages/LessonPage.tsx` | Slide player stage, drawer outline, checklist, asset download trigger. | `PENDING` |
 | `TASK-074` | Major Page: Tool Simulator Sandbox | `FrontendAgent` | `REQ-PAGE-004` | `TASK-027` | `src/pages/SimulatorPage.tsx` | Full interactive simulator page with PageHeader, simulator integration, routing in AppShell, responsive across all viewports. | **COMPLETED** |
-| `TASK-075` | Major Page: Tool Encyclopedia & Shortcuts | `FrontendAgent` | `REQ-PAGE-005` | `TASK-028` | `src/pages/EncyclopediaPage.tsx` | Instant search, app/persona filters, tool detail modals with modifiers. | `PENDING` |
+| `TASK-075` | Major Page: Tool Encyclopedia & Shortcuts | `FrontendAgent` | `REQ-PAGE-005` | `TASK-028` | `src/pages/EncyclopediaPage.tsx` | Searchable browser with 401 SDK topics from AFFINITY_DOM_API_REFERENCE.json, live search, module filter, code examples, lazy-loaded chunk. | **COMPLETED** |
 | `TASK-076` | Major Page: Scripting & MCP Playground | `FrontendAgent` | `REQ-PAGE-006` | `TASK-023`, `TASK-024` | `src/pages/PlaygroundPage.tsx` | Split-pane IDE, Monaco editor, live render preview, run/render buttons. | `PENDING` |
-| `TASK-077` | Major Page: Resource Library Center | `FrontendAgent` | `REQ-PAGE-007` | `TASK-029` | `src/pages/ResourcesPage.tsx` | Categorized asset download hub, format badges, search and download. | `PENDING` |
+| `TASK-077` | Major Page: Resource Library Center | `FrontendAgent` | `REQ-PAGE-007` | `TASK-029` | `src/pages/ResourcesPage.tsx` | Categorized asset download hub scanning bundled curriculum assets with format badges, instant search, direct download, lazy-loaded chunk. | **COMPLETED** |
 | `TASK-078` | Major Page: Student Dashboard & Portfolio | `FrontendAgent` | `REQ-PAGE-008` | `TASK-033` | `src/pages/DashboardPage.tsx` | Profile summary, 40-module progress bars, project gallery, badges. | `PENDING` |
