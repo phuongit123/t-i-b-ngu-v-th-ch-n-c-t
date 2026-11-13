@@ -166,6 +166,11 @@ export function validateCurriculum(options = {}) {
       } else {
         try {
           const modData = JSON.parse(fs.readFileSync(moduleJsonPath, 'utf8'));
+          let moduleHasError = false;
+          const logModuleError = (message) => {
+            moduleHasError = true;
+            logError(message);
+          };
 
           // Required Module Metadata Fields
           const requiredModuleFields = [
@@ -179,7 +184,7 @@ export function validateCurriculum(options = {}) {
 
           for (const field of requiredModuleFields) {
             if (modData[field] === undefined || modData[field] === null || modData[field] === '') {
-              logError(`  [FAIL] module.json in ${mod} missing required field: "${field}"`);
+              logModuleError(`  [FAIL] module.json in ${mod} missing required field: "${field}"`);
             }
           }
 
@@ -189,7 +194,7 @@ export function validateCurriculum(options = {}) {
               ? modData.lessons.map((l) => (typeof l === 'string' ? l : l?.id))
               : null;
           if (!lessonList || lessonList.length === 0) {
-            logError(`  [FAIL] module.json in ${mod} must contain lessonIds or lessons array`);
+            logModuleError(`  [FAIL] module.json in ${mod} must contain lessonIds or lessons array`);
           } else {
             const normalizedLessonIds = lessonList.map((lessonEntry) => (
               typeof lessonEntry === 'string' ? lessonEntry : lessonEntry?.id
@@ -201,10 +206,10 @@ export function validateCurriculum(options = {}) {
               (lessonId, index) => normalizedLessonIds.indexOf(lessonId) !== index
             );
             if (!normalizedIdsAreValid) {
-              logError(`  [FAIL] module.json in ${mod} contains an invalid lesson ID entry`);
+              logModuleError(`  [FAIL] module.json in ${mod} contains an invalid lesson ID entry`);
             }
             if (duplicateModuleLessonIds.length > 0) {
-              logError(`  [FAIL] module.json in ${mod} contains duplicate lesson IDs: ${[...new Set(duplicateModuleLessonIds)].join(', ')}`);
+              logModuleError(`  [FAIL] module.json in ${mod} contains duplicate lesson IDs: ${[...new Set(duplicateModuleLessonIds)].join(', ')}`);
             }
             const sortedActualIds = [...normalizedLessonIds].sort();
             const sortedExpectedIds = [...expectedLessonIds].sort();
@@ -213,27 +218,31 @@ export function validateCurriculum(options = {}) {
               || sortedActualIds.length !== sortedExpectedIds.length
               || sortedActualIds.some((lessonId, index) => lessonId !== sortedExpectedIds[index])
             ) {
-              logError(`  [FAIL] module.json lesson IDs do not match manifest for ${track}/${mod}. Expected: ${expectedLessonIds.join(', ')}; got: ${normalizedLessonIds.join(', ')}`);
+              logModuleError(`  [FAIL] module.json lesson IDs do not match manifest for ${track}/${mod}. Expected: ${expectedLessonIds.join(', ')}; got: ${normalizedLessonIds.join(', ')}`);
             }
           }
 
           if (modData.id !== mod) {
-            logError(`  [FAIL] module.json ID mismatch in ${mod}: expected "${mod}", got "${modData.id}"`);
+            logModuleError(`  [FAIL] module.json ID mismatch in ${mod}: expected "${mod}", got "${modData.id}"`);
           }
 
           if (modData.trackId !== track) {
-            logError(`  [FAIL] module.json trackId mismatch in ${mod}: expected "${track}", got "${modData.trackId}"`);
+            logModuleError(`  [FAIL] module.json trackId mismatch in ${mod}: expected "${track}", got "${modData.trackId}"`);
           }
 
           if (!VALID_DIFFICULTIES.includes(modData.difficulty)) {
-            logError(`  [FAIL] Invalid difficulty in ${mod}/module.json: "${modData.difficulty}"`);
+            logModuleError(`  [FAIL] Invalid difficulty in ${mod}/module.json: "${modData.difficulty}"`);
           }
 
           if (typeof modData.estimatedMinutes !== 'number' || modData.estimatedMinutes <= 0) {
-            logError(`  [FAIL] Invalid estimatedMinutes in ${mod}/module.json: "${modData.estimatedMinutes}"`);
+            logModuleError(`  [FAIL] Invalid estimatedMinutes in ${mod}/module.json: "${modData.estimatedMinutes}"`);
           }
 
-          log(`  [PASS] module.json: "${modData.title}" (${modData.difficulty}, ${modData.estimatedMinutes} mins)`);
+          if (moduleHasError) {
+            log(`  [FAIL] module.json validation failed for ${track}/${mod}`);
+          } else {
+            log(`  [PASS] module.json: "${modData.title}" (${modData.difficulty}, ${modData.estimatedMinutes} mins)`);
+          }
         } catch (e) {
           logError(`  [FAIL] Invalid JSON in ${moduleJsonPath}: ${e.message}`);
         }
