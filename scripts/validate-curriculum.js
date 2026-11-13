@@ -35,6 +35,7 @@ export const EXPECTED_CURRICULUM = {
 
 // Non-track directories maintained alongside the curriculum tracks.
 export const ALLOWED_CURRICULUM_ROOT_ENTRIES = ['assets', 'schema'];
+export const ALLOWED_CURRICULUM_ROOT_FILES = ['README.md'];
 
 export const REQUIRED_SECTIONS = [
   'learningObjectives',
@@ -100,8 +101,13 @@ export function validateCurriculum(options = {}) {
       ...Object.keys(expectedStructure),
       ...ALLOWED_CURRICULUM_ROOT_ENTRIES,
     ]);
+    const allowedRootFiles = new Set(ALLOWED_CURRICULUM_ROOT_FILES);
     for (const entry of fs.readdirSync(curriculumDir, { withFileTypes: true })) {
-      if (!allowedRootEntries.has(entry.name)) {
+      if (allowedRootFiles.has(entry.name)) {
+        if (!entry.isFile()) {
+          logError(`[FAIL] Curriculum root entry must be a file: ${entry.name}`);
+        }
+      } else if (!allowedRootEntries.has(entry.name)) {
         logError(`[FAIL] Unexpected curriculum root entry: ${entry.name}`);
       } else if (!entry.isDirectory()) {
         logError(`[FAIL] Curriculum root entry must be a directory: ${entry.name}`);
