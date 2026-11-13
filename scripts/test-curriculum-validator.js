@@ -335,7 +335,7 @@ assertContainsError(
 );
 assertContainsError(
   invalidSlidesResult,
-  'slide #1 title must be a non-empty string',
+  'slide #1 title/contentMarkdown must be non-empty strings',
   'Malformed slide title is rejected'
 );
 
@@ -364,7 +364,7 @@ const emptySectionResult = runFixture(({ moduleDir }) => {
 });
 assertContainsError(
   emptySectionResult,
-  'standardSections.toolAndFeatureExplanation must be a non-empty object',
+  'standardSections.toolAndFeatureExplanation.toolName must be a non-empty string',
   'Empty required section object is rejected'
 );
 
