@@ -1,5 +1,5 @@
 # AFFINITY ACADEMY — PHASE 5 TRACK 3 IMPLEMENTATION PROPOSAL
-## Affinity Publisher (Track 3): 10-Module Editorial Curriculum & Interactive Simulator
+## Affinity Layout Studio (Track 3): 10-Module Editorial Curriculum & Interactive Simulator
 
 ## Document Control
 - **Document ID:** `PROPOSAL-PHASE5-TRACK3-001`
@@ -14,9 +14,9 @@
 
 ## 1. Executive Summary & Strategic Intent
 
-Following the certified release of Track 1 (Designer) and Track 2 (Photo), **Track 3: Affinity Publisher Mastery** represents the multi-page editorial, document automation, and commercial print production core of **AFFINITY ACADEMY**.
+Following the certified release of Track 1 (Designer) and Track 2 (Photo), **Track 3: Affinity Layout Studio Mastery** represents the multi-page editorial, document automation, and commercial print production core of **AFFINITY ACADEMY**.
 
-Affinity Publisher 3.0 introduces industry-defining editorial workflows—including the revolutionary **StudioLink** tri-app integration (seamlessly embedding Designer vector and Photo raster engines inside publication pages), advanced **Data Merge** layout generation, multi-tier **Master Page** inheritance, and **Live Preflight** pre-press diagnostics.
+The current Affinity desktop app brings page layout, vector design, and photo editing into one application and one `.af` document through **Layout**, **Vector**, and **Pixel** studios. Track 3 therefore teaches current in-document editing workflows, Data Merge, master pages, and preflight. A clearly labelled legacy note may compare these workflows with **StudioLink in Affinity V2**; StudioLink must not be presented as the architecture of the current all-in-one app.
 
 This proposal outlines the complete architectural, pedagogical, and technical plan to expand Track 3 from its current 1-module pilot (`B01`) to a full **10-module, 30-lesson production curriculum**, accompanied by an in-browser **Interactive Editorial Page & Text Layout Simulator**, 9 production practice specification guides, Rollup chunk partitioning, and an automated Playwright E2E verification suite.
 
@@ -26,7 +26,7 @@ This proposal outlines the complete architectural, pedagogical, and technical pl
 
 Track 3 retains the existing verified pilot module `B01` without modification, and introduces 9 subsequent modules (`B02` through `B10`) structured into three distinct pedagogical tiers:
 - **Foundations Tier (Modules B01–B03):** Document setup, multi-master pagination, and advanced text flow mechanics.
-- **Editorial Typography & In-Place Design Tier (Modules B04–B07):** Character/paragraph style hierarchies, StudioLink integration, financial table grids, and image resource management.
+- **Editorial Typography & In-Document Design Tier (Modules B04–B07):** Character/paragraph style hierarchies, integrated Vector and Pixel editing in Layout documents, financial table grids, and image resource management.
 - **Advanced Publishing & Commercial Pre-Press Tier (Modules B08–B10):** Data Merge variable automation, interactive document navigation (TOC/Index), and commercial press-ready PDF/X production.
 
 ```mermaid
@@ -37,9 +37,9 @@ flowchart TD
         B03["B03: Advanced Text Flow, Threading, Overflow & Text Wrap"]
     end
 
-    subgraph Tier2 ["Tier 2: Typography, StudioLink & Data Grids (Intermediate)"]
+    subgraph Tier2 ["Tier 2: Typography, Integrated Studios & Data Grids (Intermediate)"]
         B04["B04: Typographic Hierarchy: Character & Paragraph Styles Architecture"]
-        B05["B05: StudioLink Tri-App Integration & In-Place Creative Design"]
+        B05["B05: Integrated Vector & Pixel Editing in Layout Documents"]
         B06["B06: Tables, Data Grids & Information Design Architecture"]
         B07["B07: Picture Frames, Resource Management & High-Resolution Asset Pipeline"]
     end
@@ -77,10 +77,10 @@ flowchart TD
 - **B04-02:** *Character Style Overrides, Nested Styles & GREP-Style Formatting* (Inline bolding, run-in heads, web hyperlinks, optical kerning vs metric kerning; local format override clearing).
 - **B04-03:** *Advanced Micro-Typography: Keep Options, Hyphenation Dictionaries & Drop Caps* (Preventing single-line orphans and widows via Keep Lines Together; hyphenation zone tuning; multi-line decorative drop caps).
 
-#### Module B05: StudioLink Tri-App Integration & In-Place Creative Design
-- **B05-01:** *StudioLink Architecture: The Tri-App Unified Document Core* (How `.afpub`, `.afdesign`, and `.afphoto` share a unified binary model; one-click switching to Vector and Photo Personas without external file linking).
-- **B05-02:** *In-Place Vector Illustration on Page Spreads (Designer in Publisher)* (Drawing custom drop-shadow flourishes, vector decorative rules, corner frames, and spot illustrations directly on editorial spreads).
-- **B05-03:** *In-Place Photo Retouching & Live Filtering (Photo in Publisher)* (Inpainting dust/blemishes on placed portraits, applying live Curves/HSL adjustments, and non-destructive frequency separation without leaving the publication).
+#### Module B05: Integrated Vector & Pixel Editing in Layout Documents (Current Affinity)
+- **B05-01:** *Affinity's Unified Document and Studio Architecture* (Understand the current single-app workflow: Layout, Vector, and Pixel studios operate on the same `.af` document; distinguish this from the separate-app StudioLink workflow in legacy Affinity V2).
+- **B05-02:** *Vector Editing Directly in Layout Documents* (Create and refine vector flourishes, decorative rules, corner frames, and spot illustrations on editorial spreads without round-tripping to a separate application).
+- **B05-03:** *Pixel Editing and Photo Adjustments in Layout Documents* (Use the Pixel studio for in-document retouching, masks, and supported live adjustments; identify which operations remain non-destructive and which require rasterization or a separate source asset).
 
 #### Module B06: Tables, Data Grids & Information Design Architecture
 - **B06-01:** *Table Tool Mechanics: Grid Topology, Auto-Sizing & Multi-Page Continuity* (Inserting tables; row/column insertion; auto-fitting cell widths to text content; handling header row repetition on linked spreads).
@@ -145,6 +145,18 @@ Typographic excellence is central to the curriculum:
 
 ---
 
+
+### 3.3. Product-version scope and legacy StudioLink note
+
+This proposal targets the current Affinity desktop application documented by Affinity as one app containing Layout, Vector, and Pixel studios, working within one `.af` document. It does **not** assume the legacy `.afpub` / `.afdesign` / `.afphoto` three-app architecture.
+
+**Legacy-only note:** StudioLink belongs to the separate Affinity V2 application family. Any lesson or setup appendix that discusses V2 installation packaging (MSIX versus MSI/EXE) must be explicitly labelled V2 legacy guidance, cite the applicable Serif support documentation, and be validated against the exact V2 application builds being taught. Do not generalize those installer constraints to the current all-in-one Affinity application. This proposal does not assert a universal same-license or exact `3.3.3` build requirement.
+
+**Current-product references:**
+- Affinity, Page Layout: https://www.affinity.studio/page-layout-software
+- Affinity, Get Affinity: https://www.affinity.studio/get-affinity
+- Affinity, Switching to Affinity: https://www.affinity.studio/blog/switching-to-affinity-for-adobe-users
+
 ## 4. Practice Assets Architecture (B02–B10)
 
 Following ADR-016 and the proven methodology of Track 2, 9 production-grade practice guides (`GUIDE_DOCUMENT`) will be authored in `curriculum/assets/publisher/`:
@@ -154,7 +166,7 @@ Following ADR-016 and the proven methodology of Track 2, 9 production-grade prac
 | `B02_master_pages_pagination_guide.md` | B02 | 16-page magazine signature, frontmatter Roman folios, Chapter opener setup |
 | `B03_text_flow_text_wrap_guide.md` | B03 | 8-page feature article, multi-column Auto-Flow, wrap around silhouette cutouts |
 | `B04_typography_styles_guide.md` | B04 | Complete corporate editorial style sheet (H1, H2, Lead, Body, Pull-quote, Byline) |
-| `B05_studiolink_workflow_guide.md` | B05 | Mixed-media publication: vector crests & retouched author portraits on spread |
+| `B05_integrated_studios_workflow_guide.md` | B05 | Current Affinity `.af` mixed-media publication: vector artwork and pixel-edited portraits in one document; includes a clearly separated legacy V2 StudioLink comparison |
 | `B06_tables_data_grids_guide.md` | B06 | Corporate annual report: financial summary table, zebra-striping, leader tabs |
 | `B07_picture_frames_resources_guide.md` | B07 | Multi-image architecture magazine layout: picture frame crops, linked asset audit |
 | `B08_data_merge_catalog_guide.md` | B08 | Automated 12-page retail product catalog generated from structured CSV feed |
