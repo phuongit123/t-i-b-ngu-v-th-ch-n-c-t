@@ -2,10 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Status:** `ACTIVE / REAL-TIME`
-- **Current Phase:** `Phase 5 Track 2 (Affinity Photo) Completed — 66/66 Lessons Passing — 9/9 E2E Passing`
-- **Last Updated:** `2026-11-11`
+- **Version:** `4.2.2` (Track 1 Designer and Track 2 Photo curriculum; 6 pilot lessons also present)
+- **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
+- **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
+- **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
+- **Verification Evidence:** `66/66 curriculum validation and 9/9 Playwright E2E are historical local results; rerun on the current branch before sign-off`
+- **Last Updated:** `2026-11-13`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -79,5 +81,5 @@
 ## 4. Next Phase Gate & Status
 
 Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser, và 9/9 ca kiểm thử tự động Playwright E2E vượt qua thành công.
-- **Current Status:** Halted at Phase Gate awaiting user evaluation and authorization for Phase 6 / Track 3.
+- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
 - **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
