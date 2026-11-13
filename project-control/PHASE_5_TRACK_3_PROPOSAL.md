@@ -14,7 +14,7 @@
 
 ## 1. Executive Summary & Strategic Intent
 
-Following the certified release of Track 1 (Designer) and Track 2 (Photo), **Track 3: Affinity Layout Studio Mastery** represents the multi-page editorial, document automation, and commercial print production core of **AFFINITY ACADEMY**.
+Following the certified release of Track 1 (Designer) and Track 2 (Photo), **Track 3: Affinity Layout Studio Mastery** represents the multi-page editorial, document automation, and commercial print production core of **AFFINITY ACADEMY**. The existing `publisher` curriculum directory and Track 3 label are retained as internal identifiers for backward compatibility; they do not imply a separate current Publisher desktop application.
 
 The current Affinity desktop app brings page layout, vector design, and photo editing into one application and one `.af` document through **Layout**, **Vector**, and **Pixel** studios. Track 3 therefore teaches current in-document editing workflows, Data Merge, master pages, and preflight. A clearly labelled legacy note may compare these workflows with **StudioLink in Affinity V2**; StudioLink must not be presented as the architecture of the current all-in-one app.
 
@@ -120,7 +120,7 @@ The curriculum enforces commercial-standard production workflows:
    - *Perfect bound / Hardcover:* Gutter margin + 8mm to 12mm allowance for spine glue hinge.
 
 ### 3.2. Master Pages & Page Management
-Publisher's Master Pages architecture is taught through rigorous hierarchical modeling:
+Affinity Layout Studio's Master Pages architecture is taught through rigorous hierarchical modeling:
 - **Parent Master (`Master A - Base Spread`):** Holds global baseline grid, 3mm bleed margin reference, running folios, and outer margin chapter slug.
 - **Child Master (`Master B - 3-Column Editorial`):** Inherits Master A; adds 3 linked text frames with 4.5mm column gutters.
 - **Child Master (`Master C - Full Bleed Gallery`):** Inherits Master A; overrides folios to dark-mode white text and applies a full-bleed picture frame.
@@ -138,7 +138,7 @@ Typographic excellence is central to the curriculum:
 - **Resource Management:** Linked vs embedded file trade-offs, DPI recalculation on scaling, and pre-press asset relinking.
 
 ### 3.5. Preflight, PDF Export & Print Production
-- **Live Preflight:** The real-time background auditor in Affinity Publisher that flags overset text, missing fonts, RGB images in CMYK profiles, and artwork violating 3mm bleed.
+- **Live Preflight:** The real-time preflight workflow in the current Affinity Layout Studio that flags overset text, missing fonts, RGB images in CMYK profiles, and artwork violating 3mm bleed.
 - **PDF/X Standards:**
   - *PDF/X-1a:2001:* Complete flattening of transparency; all color converted strictly to CMYK + spot colors. Essential for legacy offset presses.
   - *PDF/X-4:* Preserves live transparencies, vector layers, and device-independent color for modern RIPs.
@@ -219,14 +219,14 @@ This guarantees:
 ## 7. QA Acceptance Criteria & Playwright Verification Plan
 
 ### Acceptance Criteria for Track 3 Sign-Off
-1. **Schema Validation:** `npm run validate:curriculum` must pass across all **93 lessons** (30 Designer + 30 Photo + 30 Publisher + 3 Scripting) with **0 errors**.
+1. **Schema Validation:** `npm run validate:curriculum` must pass across all **93 lessons** (30 Designer + 30 Photo + 30 Publisher-track (current Layout Studio) + 3 Scripting) with **0 errors**.
 2. **Type Safety:** `npm run typecheck` must pass with **0 TypeScript compiler errors**.
 3. **Build Integrity:** `npm run build` must complete cleanly with **0 chunk size warnings**.
 4. **Scripting Regression:** `npm run test:scripts` must pass **3/3 scripts**.
 5. **Playwright E2E Suite:** Must create `tests/e2e/publisher-curriculum.spec.ts` testing:
-   - `TC-PUB-01`: Course Catalog filters Publisher track to 10 modules and 30 lessons.
+   - `TC-PUB-01`: Course Catalog filters the Publisher curriculum track (internal key) to 10 modules and 30 lessons, labelled in the UI as Affinity Layout Studio.
    - `TC-PUB-02`: SlidePlayer launches and navigates a full Publisher lesson (`B02-01`).
-   - `TC-PUB-03`: Publisher Layout Simulator renders facing spread, baseline grid toggle, and interactive text wrap.
+   - `TC-PUB-03`: Layout Studio simulator renders facing spreads, baseline-grid toggle, and interactive text wrap.
    - Total Playwright test count increases from 9 to **12 passing tests**.
 
 ---
