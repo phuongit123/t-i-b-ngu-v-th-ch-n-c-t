@@ -114,22 +114,22 @@
 
 ## 4. Phase 5 Stabilization Follow-up — 2026-11-13
 
-The published branch \`fix/phase5-stabilization\` received follow-up commits to address issues found during independent review.
+The published branch `fix/phase5-stabilization` received follow-up commits to address issues found during independent review.
 
 ### Changes made
-- \`scripts/validate-curriculum.js\`: checks unexpected entries at the curriculum root, validates that each module's declared lesson IDs exactly match the independent manifest, rejects duplicate lesson IDs in lesson payloads, and checks exact allowed lesson filenames (so an extra file such as \`D01-99.json\` is rejected).
-- \`scripts/test-curriculum-validator.js\`: replaced broad repository-dependent negative cases with isolated temporary fixtures and explicit cases for unexpected tracks/root files, rogue lesson filenames, module lesson-list mismatch, duplicate payload IDs, duplicate metadata IDs, and invalid metadata. The real repository baseline remains a positive test.
-- \`project-control/PROGRESS.md\`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Prior local test claims are labelled historical pending rerun.
-- \`project-control/PHASE_5_TRACK_3_PROPOSAL.md\`: B05 is reframed for the current Affinity all-in-one app and its Layout, Vector, and Pixel studios. StudioLink is retained only as explicitly labelled Affinity V2 legacy context.
-- \`AFFINITY_MCP_CAPABILITY_REPORT.md\` and \`AGENTS.md\`: reconcile 11 upstream tools plus the \`affinity_status\` wrapper (12 inventory rows), and mark the \`topic\` schema vs \`filename\` runtime observation as historical pending live re-audit.
-- \`project-control/BLOCKERS.md\`: records validator verification as pending and prevents the old MCP observation from being treated as current runtime evidence.
+- `scripts/validate-curriculum.js`: checks unexpected entries at the curriculum root, validates that each module's declared lesson IDs exactly match the independent manifest, rejects duplicate lesson IDs in lesson payloads, and checks exact allowed lesson filenames (so an extra file such as `D01-99.json` is rejected). The root allow-list explicitly permits the existing `curriculum/README.md`, `assets/`, and `schema/` entries while rejecting unknown files and tracks.
+- `scripts/test-curriculum-validator.js`: replaced broad repository-dependent negative cases with isolated temporary fixtures and explicit cases for unexpected tracks/root files, rogue lesson filenames, module lesson-list mismatch, duplicate payload IDs, duplicate metadata IDs, and invalid metadata. The real repository baseline remains a positive test. The suite now has 14 named scenarios, including a positive test that the allowed curriculum root README does not cause a false failure.
+- `project-control/PROGRESS.md`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Prior local test claims are labelled historical pending rerun.
+- `project-control/PHASE_5_TRACK_3_PROPOSAL.md`: B05 is reframed for the current Affinity all-in-one app and its Layout, Vector, and Pixel studios. StudioLink is retained only as explicitly labelled Affinity V2 legacy context.
+- `AFFINITY_MCP_CAPABILITY_REPORT.md` and `AGENTS.md`: reconcile 11 upstream tools plus the `affinity_status` wrapper (12 inventory rows), and mark the `topic` schema vs `filename` runtime observation as historical pending live re-audit.
+- `project-control/BLOCKERS.md`: records validator verification as pending and prevents the old MCP observation from being treated as current runtime evidence. `BLK-007` remains locked; `RSK-008` tracks execution of the strengthened validator on the target working copy.
 
 ### Verification state
 - The files were updated on the published branch through GitHub's repository file API.
-- This remote editing session did **not** execute \`npm ci\`, \`npm run validate:curriculum\`, \`npm run test:validator\`, \`npm run lint\`, \`npm run typecheck\`, \`npm run build\`, or Playwright.
+- This remote editing session did **not** execute `npm ci`, `npm run validate:curriculum`, `npm run test:validator`, `npm run lint`, `npm run typecheck`, `npm run build`, or Playwright.
 - No test result should be reported as PASS until those commands are run in the repository working copy.
-- No live connection to the user's Affinity MCP server was available; the current \`read_sdk_documentation_topic\` schema/runtime contract remains unverified.
+- No live connection to the user's Affinity MCP server was available; the current `read_sdk_documentation_topic` schema/runtime contract remains unverified. The historical report and `AGENTS.md` now consistently record 11 upstream tools plus the `affinity_status` wrapper (12 inventory entries).
 - No GitHub Actions workflow exists in the inspected branch; CI evidence remains unavailable.
 
 ### Governance
-\`BLK-007\` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
+`BLK-007` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
