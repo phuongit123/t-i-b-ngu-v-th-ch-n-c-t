@@ -1,0 +1,22 @@
+{
+  "id": "P09",
+  "trackId": "photo",
+  "order": 9,
+  "moduleNumber": "P09",
+  "title": "RAW Development & Professional Photography Workflow",
+  "tagline": "Master 32-bit linear RAW decoding, Develop Persona, optical lens corrections, and batch automation.",
+  "description": "Learn professional digital darkroom workflows in Affinity Photo 3.0: 32-bit float sensor demosaicing, Develop Persona non-destructive raw development (Linked vs Embedded raw layers), optical lens distortion & chromatic aberration correction, and batch job processing with macros.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 90,
+  "prerequisites": ["P01", "P02", "P05"],
+  "primaryPersona": "Develop Persona",
+  "starterAsset": {
+    "filename": "P09_raw_develop_workflow_guide.md",
+    "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+  },
+  "lessonIds": ["P09-01", "P09-02", "P09-03"]
+}

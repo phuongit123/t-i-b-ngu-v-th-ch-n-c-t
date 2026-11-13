@@ -1,0 +1,281 @@
+{
+  "id": "P04-02",
+  "moduleId": "P04",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Clone Stamp, Healing Brush & Restoration Concepts",
+  "subtitle": "Sample Source Alignment, Texture Synthesis & Historic Photo Repair",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Làm chủ công cụ Clone Stamp Tool (S) với các chế độ định vị nguồn Alt-click và Aligned Sampling.",
+      "Hiểu sự khác biệt cơ bản giữa Clone Stamp (sao chép điểm ảnh nguyên bản) và Healing Brush (tự động hòa trộn ánh sáng và sắc thái).",
+      "Sử dụng Blemish Removal Tool để triệt tiêu các nốt mụn tròn chỉ bằng một cú nhấp chuột.",
+      "Áp dụng quy trình phục chế ảnh cổ: nối các nếp gấp gãy, xóa vết ố mốc và tái tạo các góc ảnh bị rách nát."
+    ],
+    "foundationalKnowledge": "Mặc dù các thuật toán tự động như Inpainting rất mạnh mẽ, nhưng trong nhiều tình huống phục chế cao cấp—như tái tạo hoa văn phức tạp của tấm vải dệt, kẻ lại sống mũi thẳng tắp, hay phục hồi con mắt bị mờ trong ảnh cổ—bạn bắt buộc phải có sự can thiệp thủ công có kiểm soát. Clone Stamp Tool (S) là công cụ sao chép điểm ảnh thuần túy: nó nhấc nguyên si một mảng pixel từ điểm nguồn (Source) và dập thẳng vào điểm đích (Destination). Ngược lại, Healing Brush Tool (J) thực hiện phép toán hòa trộn thông minh: nó lấy kết cấu vân bề mặt từ nguồn, nhưng giữ nguyên giá trị ánh sáng và màu sắc của vùng đích, giúp vùng sửa chữa liền mạch không tì vết.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Clone Stamp & Healing Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Clone Stamp Tool & Healing Brush Family",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "S (Clone Stamp Tool) / J (Healing Brush Tool & Blemish Removal Tool)",
+        "mac": "S (Clone Stamp Tool) / J (Healing Brush Tool & Blemish Removal Tool)"
+      },
+      "description": "Bộ đôi công cụ phục chế và cấy ghép điểm ảnh chuẩn mực của ngành nhiếp ảnh thương mại.",
+      "contextBarOptions": [
+        "Aligned: Duy trì khoảng cách tương đối cố định giữa điểm nguồn và điểm đích khi di chuyển cọ",
+        "Source: Current Layer, Current Layer & Below, All Layers",
+        "Rotation & Scale: Khả năng xoay hoặc phóng to/thu nhỏ mẫu lấy mẫu trước khi dập xuống canvas",
+        "Hardness: Độ mềm của mép cọ (nên đặt 0% - 20% để hòa tan vết cắt)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo layer làm việc phi phá hủy",
+        "instruction": "Tạo một Pixel Layer rỗng mới bên trên ảnh gốc, đặt tên là 'Restoration Touchup'.",
+        "shortcutTip": { "win": "Ctrl+Shift+N", "mac": "Cmd+Shift+N" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chọn Clone Stamp Tool và lấy mẫu nguồn",
+        "instruction": "Nhấn phím S. Trên Context Bar, đảm bảo Source đặt là 'Current Layer & Below'. Giữ phím Alt (Win) hoặc Option (Mac) và nhấp chuột vào vùng vân mẫu hoàn hảo.",
+        "shortcutTip": { "win": "Giữ Alt + Nhấp chuột", "mac": "Giữ Option + Nhấp chuột" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dập điểm ảnh và quan sát đường gióng",
+        "instruction": "Di chuyển chuột tới vùng bị rách hoặc thiếu chi tiết. Bạn sẽ thấy bản xem trước của điểm ảnh nguồn hiển thị ngay trong vòng tròn con trỏ cọ. Nhấp hoặc quét chuột để dập điểm ảnh.",
+        "shortcutTip": { "win": "Quét cọ dập mẫu", "mac": "Quét cọ dập mẫu" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Xử lý vùng biên da bằng Healing Brush",
+        "instruction": "Chuyển sang Healing Brush Tool (J). Alt-click lấy mẫu một vùng da mịn, quét lên các nếp nhăn sâu. Healing Brush sẽ tự động làm mịn nếp nhăn mà không làm sai lệch ánh sáng khối mặt.",
+        "shortcutTip": { "win": "Phím J", "mac": "Phím J" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh cơ chế hoạt động của Clone Stamp vs Healing Brush",
+        "description": "Hiểu rõ sự khác biệt để lựa chọn đúng công cụ trong từng tình huống.",
+        "visualType": "table",
+        "visualContent": "| Đặc tính | Clone Stamp Tool (S) | Healing Brush Tool (J) |\n|---|---|---|---|\n| Sao chép Texture (Vân bề mặt) | 100% nguyên bản | 100% nguyên bản |\n| Sao chép Color & Luminance | 100% nguyên bản (sao chép cả màu và sáng tối) | Tự động tính toán hòa trộn vào ánh sáng vùng đích |\n| Nguy cơ tạo vệt nhòe ở vùng biên | Hoàn toàn không (cắt sắc nét) | Có thể bị nhòe đen nếu lấy mẫu sát biên tương phản mạnh |\n| Ứng dụng tối ưu | Tái tạo cạnh cửa, đường sống mũi, tóc, hoa văn dệt | Xử lý da mặt, nếp nhăn, xóa đốm tàn nhang trên bề mặt phẳng |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Phục hồi vết gãy gập trên bức ảnh tài liệu cũ",
+      "taskDescription": "Mở một bức ảnh cũ có vệt gấp trắng chạy dọc qua nền trời và vạt áo nhân vật, sử dụng Clone Stamp để khôi phục hoàn hảo.",
+      "checkpoints": [
+        "Lớp làm việc là một Pixel Layer riêng có cấu hình Source đúng chuẩn.",
+        "Bật chế độ Aligned trên thanh Context Bar để các đường sọc áo khớp nhau khi dập cọ.",
+        "Mép viền áo thẳng tắp, không bị lệch răng cưa.",
+        "Màu sắc bầu trời đồng nhất, không xuất hiện các đốm vệt lặp lại."
+      ],
+      "expectedOutcome": "Vết nếp gấp gãy biến mất hoàn toàn, bức ảnh phục chế trông như bản in mới nguyên vẹn."
+    },
+    "independentChallenge": {
+      "title": "Khôi phục hoa văn kiến trúc bị mất một phần",
+      "prompt": "Sử dụng tính năng xoay mẫu nguồn (Rotation & Flip) trong Clone Sources Studio (`Window > Clone Sources`) để lật ngược một chi tiết hoa văn vòm cửa bên trái sang đắp vào góc vòm cửa bên phải bị sứt mẻ.",
+      "starterAsset": {
+        "filename": "P04_retouching_restoration_guide.md",
+        "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+        "filesize": "4.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn phục chế ảnh và thao tác Clone Stamp nâng cao trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Sử dụng bảng Clone Sources Studio để lật ngang mẫu lấy mẫu (Flip Horizontal).",
+        "Khớp góc nghiêng và đường cong của hoa văn đối xứng.",
+        "Không làm lộ dấu vết chắp vá khi phóng to 100%."
+      ],
+      "bonusGoal": "Sử dụng cọ mềm 0% Hardness để làm tan biến ranh giới giữa ảnh thật và phần clone."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Dùng Healing Brush sát mép tóc bị một quầng đen nhòe bẩn thỉu",
+        "cause": "Healing Brush cố gắng lấy mẫu cả màu đen của tóc và màu sáng của trán để hòa trộn, tạo ra hiệu ứng nhòe bẩn.",
+        "solution": "Tại các vùng sát mép tương phản mạnh, chuyển sang dùng Clone Stamp Tool để dập chính xác từng pixel."
+      },
+      {
+        "pitfall": "Mẫu dập bị nhảy lung tung không theo hướng vẽ",
+        "cause": "Tắt tùy chọn 'Aligned' trên Context Bar khiến mỗi lần nhấc chuột lên, điểm nguồn lại nhảy về vị trí Alt-click ban đầu.",
+        "solution": "Tích chọn ô 'Aligned' để điểm nguồn luôn di chuyển song song với nét cọ của bạn."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P04-02-Q1",
+        "question": "Phím tắt kết hợp chuột nào được dùng để xác định tọa độ điểm nguồn lấy mẫu (Sample Source) cho Clone Stamp Tool hoặc Healing Brush Tool?",
+        "options": [
+          "Giữ Shift + Click",
+          "Giữ Alt (Win) hoặc Option (Mac) + Click",
+          "Giữ Ctrl (Win) hoặc Cmd (Mac) + Click",
+          "Nhấp đúp chuột phải"
+        ],
+        "correctIndex": 1,
+        "explanation": "Thao tác Alt-click trên Windows hoặc Option-click trên macOS là thao tác tiêu chuẩn toàn cầu để ghim tọa độ lấy mẫu cho Clone Stamp và Healing Brush."
+      },
+      {
+        "id": "P04-02-Q2",
+        "question": "Tùy chọn 'Aligned' trên thanh Context Bar của Clone Stamp Tool có ý nghĩa gì?",
+        "options": [
+          "Tự động căn chỉnh hình ảnh vào giữa màn hình",
+          "Duy trì khoảng cách tọa độ tương đối cố định giữa điểm lấy mẫu và điểm vẽ kể cả khi bạn nhấc chuột và vẽ nét mới",
+          "Tự động xoay canvas về 0 độ",
+          "Khóa layer không cho di chuyển"
+        ],
+        "correctIndex": 1,
+        "explanation": "Khi bật Aligned, điểm nguồn sẽ luôn di chuyển đồng bộ song song với điểm cọ, giúp bạn vẽ liên tục một bức tranh mà không bị lặp lại điểm gốc ban đầu."
+      },
+      {
+        "id": "P04-02-Q3",
+        "question": "Khi nào bạn NÊN sử dụng Clone Stamp thay vì Healing Brush?",
+        "options": [
+          "Khi cần làm mờ da mặt",
+          "Khi thao tác sát các đường mép biên có độ tương phản cao (như mép tóc, chân mày, đường viền áo), nơi Healing Brush dễ gây nhòe bẩn",
+          "Khi cần đổi màu ảnh sang trắng đen",
+          "Khi muốn xuất ảnh ra định dạng PDF"
+        ],
+        "correctIndex": 1,
+        "explanation": "Healing Brush tính toán hòa trộn màu xung quanh nên sẽ kéo theo màu tối của tóc vào da gây ra vết nhòe đen. Clone Stamp giữ nguyên điểm ảnh thuần túy nên cho đường biên sắc sảo và sạch sẽ."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Alt-click là thao tác cốt lõi để ghim tọa độ nguồn cho Clone Stamp và Healing Brush.",
+        "Bật Aligned để duy trì vector khoảng cách cố định giữa nguồn và đích.",
+        "Healing Brush phù hợp cho bề mặt phẳng đồng màu; Clone Stamp là vũ khí tuyệt đối cho các cạnh biên tương phản.",
+        "Bảng Clone Sources Studio mở ra khả năng xoay, lật ngược và co dãn mẫu dập điểm ảnh."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P04-03 Frequency Separation & Professional Portrait Workflow",
+          "target": "P04-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P04_retouching_restoration_guide.md",
+          "target": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P04-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Làm Chủ Clone Stamp & Healing Brush Nâng Cao",
+      "subtitle": "Kỹ thuật cấy ghép điểm ảnh và phục chế tài liệu cổ",
+      "contentMarkdown": "Khi các thuật toán tự động gặp bế tắc trước những vết rách xé toạc khuôn mặt hay những hoa văn dệt phức tạp, người nghệ sĩ chỉnh sửa ảnh phải quay về với công cụ kinh điển nhất: **Clone Stamp Tool (S)** và **Healing Brush Tool (J)**.\n\nTrong bài học này, bạn sẽ nắm vững cách điều khiển điểm nguồn (Sample Source), cơ chế duy trì khoảng cách **Aligned**, và cách kết hợp hai công cụ này để phục hồi những bức ảnh tưởng chừng đã hỏng hoàn toàn.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Kiểm soát tuyệt đối từng pixel cấy ghép, xóa sạch nếp nhăn và vết rách mà không làm mất cấu trúc thật của hình ảnh."
+      }
+    },
+    {
+      "id": "P04-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Clone Stamp vs Healing Brush: Khác Nhau Ở Đâu?",
+      "subtitle": "Chọn đúng công cụ là 80% thành công",
+      "contentMarkdown": "Rất nhiều người nhầm lẫn giữa hai công cụ này:\n\n- 🎯 **Clone Stamp Tool (S):** Sao chép pixel **100% nguyên trạng**. Nguồn màu gì, sáng tối ra sao thì điểm đích nhận y hệt như vậy. Cực kỳ hoàn hảo để kẻ lại đường thẳng, cạnh tường, viền tóc.\n- 🩹 **Healing Brush Tool (J):** Sao chép **Kết Cấu (Texture)** từ nguồn, nhưng tự động **hòa trộn Ánh Sáng & Màu Sắc** theo vùng đích. Rất lý tưởng để làm phẳng da mặt, xóa nếp nhăn đuôi mắt mà không làm lệch tone màu da!",
+      "visual": {
+        "type": "callout",
+        "content": "Ghi nhớ: Vùng da phẳng rộng dùng Healing Brush; Mép tóc, cánh mũi, sống lưng dùng Clone Stamp!"
+      }
+    },
+    {
+      "id": "P04-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Alt-Click & Tính Năng Aligned",
+      "subtitle": "Hai thiết lập quyết định độ mượt của bàn tay retoucher",
+      "contentMarkdown": "Nhấn phím `S` chọn Clone Stamp Tool:\n\n- **Alt-Click (Win) / Option-Click (Mac):** Ghim tọa độ lấy mẫu. Vòng tròn con trỏ sẽ hiển thị ngay bản xem trước của điểm ảnh sắp dập xuống.\n- **Aligned (Tích chọn trên Context Bar):** Khi bạn nhấc chuột lên và vẽ nét tiếp theo, điểm nguồn vẫn di chuyển tịnh tiến song song theo cọ vẽ.\n- **Hardness (Độ cứng cọ):** Luôn để cọ mềm `0% - 15%` để mép dập tan chảy hòa vào các pixel xung quanh.",
+      "actionBox": {
+        "label": "Phím Tắt Ghim Nguồn",
+        "text": "Giữ phím Alt (Win) hoặc Option (Mac) và nhấp chuột vào vùng mẫu sạch.",
+        "shortcut": { "win": "Alt + Click", "mac": "Option + Click" }
+      }
+    },
+    {
+      "id": "P04-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Phục Chế Vết Rách Ảnh",
+      "subtitle": "Xóa tan nếp gập gãy trên tài liệu cũ",
+      "contentMarkdown": "1. **Tạo Pixel Layer rỗng:** Đặt tên `[Photo Restore]`, chọn Source: `Current Layer & Below`.\n2. **Chọn Clone Stamp (S):** Bật Aligned, chỉnh kích thước cọ vừa bằng bề rộng của vết rách.\n3. **Alt-click lấy mẫu:** Nhấp vào vùng giấy hoặc áo còn nguyên vẹn nằm sát vết rách.\n4. **Quét cọ theo đường nếp gấp:** Di chuyển cọ dọc theo vết rách. Pixel lành lặn sẽ đắp kín khoảng trống một cách hoàn hảo!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "New Layer | Source: Below | Alt-Click Sample | Aligned On | Seamless Repair"
+      }
+    },
+    {
+      "id": "P04-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Cạm Bẫy Quầng Đen Nhòe Khi Dùng Healing Brush",
+      "subtitle": "Tại sao da người mẫu lại xuất hiện vệt bẩn?",
+      "contentMarkdown": "### Sự cố quầng nhòe đen (Smudge Fringe):\n- Khi bạn dùng Healing Brush xóa mụn nằm sát chân tóc hoặc mép áo đen, vết xóa bị loang ra một vệt xám xịt nhơ nhuốc!\n- **Nguyên nhân:** Thuật toán Healing cố gom cả pixel đen của tóc vào phép tính hòa trộn.\n- **Khắc phục:** Chuyển sang dùng **Clone Stamp Tool** với cọ nhỏ, dập từng nhát chính xác. Clone Stamp không hòa trộn màu nên không bao giờ bị loang bẩn!",
+      "actionBox": {
+        "label": "Quy Tắc Biên Cạnh",
+        "text": "Càng sát vùng biên tương phản mạnh, càng phải dùng Clone Stamp thay vì Healing Brush."
+      }
+    },
+    {
+      "id": "P04-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Nhận Thức Phục Chế",
+      "subtitle": "Xác nhận độ hiểu sâu về Clone Stamp và Healing Brush",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P04-02-Q2",
+        "question": "Tùy chọn 'Aligned' trên thanh Context Bar của Clone Stamp Tool có ý nghĩa gì?",
+        "options": [
+          "Tự động căn chỉnh hình ảnh vào giữa màn hình",
+          "Duy trì khoảng cách tọa độ tương đối cố định giữa điểm lấy mẫu và điểm vẽ kể cả khi bạn nhấc chuột và vẽ nét mới",
+          "Tự động xoay canvas về 0 độ",
+          "Khóa layer không cho di chuyển"
+        ],
+        "correctIndex": 1,
+        "explanation": "Khi bật Aligned, điểm nguồn sẽ luôn di chuyển đồng bộ song song với điểm cọ, giúp bạn vẽ liên tục một bức tranh mà không bị lặp lại điểm gốc ban đầu."
+      }
+    },
+    {
+      "id": "P04-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Tái Tạo Vạt Áo Bị Rách",
+      "subtitle": "Phục hồi hoa văn sọc caro đối xứng",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P04_retouching_restoration_guide.md`.\n2. Xác định một góc vạt áo bị rách mất hoa văn.\n3. Sử dụng Clone Stamp Tool (S) với chế độ Aligned bật.\n4. Alt-click ghim nguồn vào một đường sọc áo nguyên vẹn, gióng thẳng hàng với đường sọc bị đứt đoạn.\n5. Dập cọ để nối liền đường sọc như chưa từng có vết rách.\n\n### Tiêu Chí Nghiệm Thu:\n- Đường sọc hoa văn thẳng hàng tuyệt đối, không bị lệch pha hay gãy nhịp.\n- Mọi thao tác lưu trên Pixel Layer riêng phi phá hủy.",
+      "practiceData": {
+        "prompt": "Sử dụng Clone Stamp nối liền hoa văn bị đứt đoạn trên layer rỗng.",
+        "starterAsset": {
+          "filename": "P04_retouching_restoration_guide.md",
+          "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "filesize": "4.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn phục chế ảnh và thao tác Clone Stamp nâng cao trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Tạo Pixel Layer rỗng",
+          "Bật Aligned trên Clone Stamp",
+          "Gióng thẳng hàng và dập nối hoa văn chính xác"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "id": "P05-02",
+  "moduleId": "P05",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Curves, Levels & Precision Tonal Control",
+  "subtitle": "Master Curves S-Shape, Per-Channel RGB Color Shifts & Levels Black/White Clipping",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu sâu sắc bản chất toán học của đồ thị Curves (Đường cong tương phản) từ trục đầu vào Input (0-255) đến trục đầu ra Output (0-255).",
+      "Xây dựng đường cong S-Curve kinh điển để gia tăng tương phản động mà không làm mất chi tiết vùng tối hay vùng sáng.",
+      "Làm chủ Curves trên từng kênh riêng biệt: Red, Green, Blue để uốn nắn sắc thái màu sắc theo ý đồ nghệ thuật.",
+      "Sử dụng Levels Adjustment để thiết lập lại điểm đen (Black Point), điểm trắng (White Point) và hệ số Gamma dải trung âm."
+    ],
+    "foundationalKnowledge": "Curves (Đường cong) là công cụ điều chỉnh hình ảnh quyền năng nhất trong toàn bộ lịch sử đồ họa kỹ thuật số. Nếu Levels chỉ cho phép bạn điều chỉnh 3 mốc cố định (Black Point, Midtones Gamma, White Point), thì Curves cung cấp cho bạn một hàm số liên tục phi tuyến tính với khả năng đặt vô số điểm neo trên đồ thị. Trục ngang của Curves đại diện cho độ sáng của các điểm ảnh gốc (Input), còn trục đứng đại diện cho độ sáng mới sau khi biến đổi (Output). Bằng việc đẩy một điểm neo lên trên đường chéo chuẩn 45 độ, bạn làm sáng dải tông đó; bằng việc kéo nó xuống dưới, bạn làm tối dải tông đó. Khi chuyển sang các kênh màu độc lập (Red, Green, Blue), Curves trở thành công cụ phối màu tinh vi nhất mà không công cụ nào sánh bằng.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Curves & Levels Adjustment Pipeline Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Curves & Levels Adjustment Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Ctrl+M (Curves) / Ctrl+L (Levels) trong Photo Persona",
+        "mac": "Cmd+M (Curves) / Cmd+L (Levels) trong Photo Persona"
+      },
+      "description": "Hai công cụ cốt lõi điều khiển toàn diện độ tương phản, dải sắc độ và cân bằng màu sắc vi mô của bức ảnh.",
+      "contextBarOptions": [
+        "Channel Selector: Master (tổng thể), Red, Green, Blue, Alpha",
+        "Node Placement: Nhấp chuột lên đồ thị để thêm điểm neo, nhấn Delete để xóa điểm",
+        "Picker Tool: Nhấp trực tiếp lên hình ảnh để tự động tạo điểm neo tương ứng trên đường cong Curves",
+        "Black Level / White Level / Gamma: 3 thanh trượt điều khiển dải động trong Levels"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở Curves Adjustment bằng phím tắt",
+        "instruction": "Chọn layer ảnh trong Layers Studio (F7), nhấn tổ hợp phím Ctrl+M (Win) / Cmd+M (Mac) để mở ngay hộp thoại Curves.",
+        "shortcutTip": { "win": "Ctrl+M", "mac": "Cmd+M" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tạo đường cong S-Curve tăng tương phản",
+        "instruction": "Nhấp chuột ở góc phần tư phía trên bên phải (Highlights), kéo nhẹ lên trên. Nhấp chuột ở góc phần tư phía dưới bên trái (Shadows), kéo nhẹ xuống dưới. Đường cong uốn lượn thành hình chữ S mềm mại, làm bức ảnh nổi khối rõ rệt.",
+        "shortcutTip": { "win": "Uốn đường cong chữ S", "mac": "Uốn đường cong chữ S" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Phối màu điện ảnh trên từng kênh RGB",
+        "instruction": "Trên thanh chọn kênh (Channel), chuyển từ 'Master' sang 'Blue'. Nhấp vào góc dưới bên trái của kênh Blue nâng nhẹ lên trên để phủ sắc xanh dương điện ảnh (Cool Shadows) vào vùng bóng tối.",
+        "shortcutTip": { "win": "Channel: Blue > Nâng góc dưới", "mac": "Channel: Blue > Nâng góc dưới" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thiết lập lại điểm đen bằng Levels",
+        "instruction": "Thêm lớp 'Levels Adjustment' (Ctrl+L / Cmd+L). Quan sát chân biểu đồ Histogram: kéo thanh trượt Black Level vào đúng vị trí bắt đầu có sóng dữ liệu để khử sạch lớp sương mờ đục (haze) của bức ảnh.",
+        "shortcutTip": { "win": "Ctrl+L", "mac": "Cmd+L" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Bản đồ phối màu đối kháng qua các kênh Curves RGB",
+        "description": "Quy luật kéo đường cong lên hoặc xuống ở từng kênh màu độc lập.",
+        "visualType": "table",
+        "visualContent": "| Kênh màu (Channel) | Kéo đường cong LÊN TRÊN | Kéo đường cong XUỐNG DƯỚI |\n|---|---|---|\n| Red Channel | Bơm thêm sắc Đỏ (Red) | Bơm thêm sắc Lục Lam (Cyan) |\n| Green Channel | Bơm thêm sắc Xanh Lá (Green) | Bơm thêm sắc Đỏ Tím (Magenta) |\n| Blue Channel | Bơm thêm sắc Xanh Dương (Blue) | Bơm thêm sắc Vàng (Yellow) |\n| Master Channel | Tăng độ sáng (Luminance) | Giảm độ sáng (Luminance) |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo phong cách ảnh phim nhựa cổ điển (Matte Film Look) bằng Curves",
+      "taskDescription": "Ứng dụng Curves để nâng sáng vùng đen tuyền (Faded Black Point) tạo cảm giác ảnh chụp bằng cuộn phim Kodak cổ điển.",
+      "checkpoints": [
+        "Mở một bức ảnh đường phố hoặc chân dung.",
+        "Thêm Curves Adjustment (`Ctrl+M` / `Cmd+M`).",
+        "Nắm điểm neo góc tận cùng bên trái dưới đáy (Black Point), kéo thẳng đứng lên khoảng 10-15%. Màu đen tuyền sẽ chuyển thành màu xám khói mộng mơ.",
+        "Tạo đường cong S-curve nhẹ ở phần thân đồ thị để giữ độ tương phản cho chủ thể."
+      ],
+      "expectedOutcome": "Bức ảnh mang phong cách hoài cổ đậm chất phim nhựa analog mà không bị nhợt nhạt."
+    },
+    "independentChallenge": {
+      "title": "Phối màu phong cách Teal & Orange điện ảnh hoàn toàn bằng Curves",
+      "prompt": "Không dùng các bộ lọc màu tự động, chỉ sử dụng 1 lớp Curves Adjustment duy nhất can thiệp vào cả 3 kênh Red, Green, Blue để tạo ra bảng màu Teal (xanh lơ ở vùng tối) và Orange (vàng cam ở vùng sáng) chuẩn Hollywood.",
+      "starterAsset": {
+        "filename": "P05_color_correction_grading_guide.md",
+        "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn phối màu chuyên sâu bằng đường cong Curves trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Kênh Blue: Nâng vùng tối (thêm xanh dương) và hạ vùng sáng (thêm vàng).",
+        "Kênh Red: Nâng vùng sáng (thêm đỏ) và hạ nhẹ vùng tối (thêm cyan).",
+        "Màu da nhân vật vẫn giữ được sắc hồng hào tự nhiên, không bị biến dạng thành màu xanh."
+      ],
+      "bonusGoal": "Sử dụng chế độ hòa trộn Luminosity trên Curves để chỉ tác động ánh sáng mà không làm bão hòa màu quá đà."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Tạo quá nhiều điểm neo trên đường cong Curves khiến màu bị gãy khúc",
+        "cause": "Nhấp chuột tạo 5-10 điểm neo trên cùng một đồ thị làm xuất hiện các đường lượn sóng bất thường.",
+        "solution": "Chỉ dùng tối đa 2 đến 3 điểm neo trên Curves (1 điểm cho Highlights, 1 điểm cho Shadows, 1 điểm cho Midtones)."
+      },
+      {
+        "pitfall": "Kéo thanh trượt Black Level trong Levels quá sâu làm bết đen da mặt",
+        "cause": "Kéo thanh trượt vượt qua chân của sóng Histogram, tiêu diệt toàn bộ chi tiết vùng tối.",
+        "solution": "Luôn dừng thanh trượt Black Level ngay sát chân của đồ thị dữ liệu đầu tiên."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P05-02-Q1",
+        "question": "Khi bạn chuyển sang kênh 'Blue' trong hộp thoại Curves và kéo đường cong XUỐNG DƯỚI đường chéo chuẩn, màu sắc nào sẽ được bù trừ tăng cường vào bức ảnh?",
+        "options": [
+          "Màu Xanh lá cây (Green)",
+          "Màu Vàng (Yellow)",
+          "Màu Đỏ tím (Magenta)",
+          "Màu Trắng"
+        ],
+        "correctIndex": 1,
+        "explanation": "Trong mô hình màu đối kháng RGB, màu đối diện của Blue (Xanh dương) là Yellow (Vàng). Kéo Blue xuống dưới đồng nghĩa với việc bơm thêm sắc Vàng vào bức ảnh."
+      },
+      {
+        "id": "P05-02-Q2",
+        "question": "Thao tác nào trên đường cong Curves Master giúp tạo ra hiệu ứng 'Faded / Matte Black' của ảnh phim nhựa cổ điển?",
+        "options": [
+          "Kéo điểm neo góc trên bên phải xuống dưới",
+          "Nắm điểm neo góc dưới cùng bên trái (Black Point) và kéo thẳng đứng lên trên một đoạn",
+          "Bấm nút Reset trên hộp thoại",
+          "Đổi chế độ hòa trộn sang Multiply"
+        ],
+        "correctIndex": 1,
+        "explanation": "Điểm neo góc dưới trái đại diện cho giá trị đen 0 (Input 0). Khi nâng điểm này lên Output 30, các điểm ảnh đen nhất cũng không thể đen hơn 30, tạo nên sắc xám mờ khói đặc trưng của ảnh phim nhựa."
+      },
+      {
+        "id": "P05-02-Q3",
+        "question": "Phím tắt chuẩn để mở lớp điều chỉnh Levels trong Affinity Photo là gì?",
+        "options": [
+          "Ctrl+L (Win) / Cmd+L (Mac)",
+          "Ctrl+Shift+L (Win) / Cmd+Shift+L (Mac)",
+          "Ctrl+Alt+L (Win) / Cmd+Option+L (Mac)",
+          "Phím F9"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tổ hợp phím chuẩn mở Levels Adjustment trong Affinity Photo là Ctrl+L trên Windows và Cmd+L trên macOS."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Curves là công cụ điều khiển dải tông và màu sắc mạnh mẽ nhất trong thiết kế đồ họa.",
+        "Đường cong S-Curve tăng cường độ tương phản và chiều sâu thị giác tức thì.",
+        "Kéo kênh RGB độc lập cho phép phối màu theo quy luật màu đối kháng: Red ↔ Cyan, Green ↔ Magenta, Blue ↔ Yellow.",
+        "Levels Adjustment giúp thiết lập lại điểm đen, điểm trắng và khử sương mờ nhanh chóng."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P05-03 Creative Color Grading, HSL, Gradient Maps & 3D LUTs",
+          "target": "P05-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P05_color_correction_grading_guide.md",
+          "target": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P05-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Làm Chủ Đường Cong Curves & Levels Chuyên Nghiệp",
+      "subtitle": "Khai phá công cụ quyền năng nhất lịch sử đồ họa kỹ thuật số",
+      "contentMarkdown": "Nếu chỉ được phép chọn duy nhất một công cụ chỉnh sửa màu sắc trong toàn bộ sự nghiệp làm đồ họa, mọi chuyên gia kỳ cựu đều sẽ chọn: **Curves (Đường cong tương phản)**.\n\nCurves không chỉ kiểm soát độ sáng tối, mà còn là trái tim của nghệ thuật phối màu điện ảnh. Trong bài học này, bạn sẽ nắm trọn quy luật **S-Curve**, cách phối màu qua từng kênh **Red, Green, Blue**, và cách dùng **Levels (Ctrl+L)** để khử sạch lớp sương đục trong ảnh.",
+      "actionBox": {
+        "label": "Tôn Chỉ Nghệ Sĩ",
+        "text": "Làm chủ Curves là làm chủ ánh sáng. Bất kỳ hiệu ứng màu sắc nào trên đời đều có thể tái tạo bằng Curves!"
+      }
+    },
+    {
+      "id": "P05-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Bản Chất Trục Input và Output Của Curves",
+      "subtitle": "Hàm số biến đổi độ sáng phi tuyến tính",
+      "contentMarkdown": "Hãy nhìn vào biểu đồ vuông của Curves khi nhấn `Ctrl+M` / `Cmd+M`:\n\n- ➡️ **Trục ngang (Input):** Biểu diễn độ sáng của ảnh gốc từ trái (Đen 0) sang phải (Trắng 255).\n- ⬆️ **Trục dọc (Output):** Biểu diễn độ sáng mới sau khi bạn uốn nắn.\n- 📐 **Đường chéo 45 độ:** Đại diện cho trạng thái ban đầu (Input = Output, chưa thay đổi gì).\n- Khi bạn nhấp chuột tạo một điểm và đẩy lên trên đường chéo: Điểm ảnh vùng đó sáng lên!\n- Khi bạn kéo nó xuống dưới đường chéo: Điểm ảnh vùng đó tối đi!",
+      "visual": {
+        "type": "callout",
+        "content": "Quy tắc S-Curve: Đẩy nhẹ vùng Highlights lên, kéo nhẹ vùng Shadows xuống. Ảnh sẽ lập tức nổi khối 3D!"
+      }
+    },
+    {
+      "id": "P05-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Phối Màu Qua 3 Kênh RGB Của Curves",
+      "subtitle": "Quy luật màu đối kháng trong không gian kỹ thuật số",
+      "contentMarkdown": "Đổi mục Channel từ 'Master' sang từng kênh màu:\n\n- 🔴 **Kênh Red:** Kéo LÊN ➔ Bơm thêm Đỏ (Red); Kéo XUỐNG ➔ Bơm thêm Xanh Lơ (Cyan).\n- 🟢 **Kênh Green:** Kéo LÊN ➔ Bơm thêm Xanh Lá (Green); Kéo XUỐNG ➔ Bơm thêm Đỏ Tím (Magenta).\n- 🔵 **Kênh Blue:** Kéo LÊN ➔ Bơm thêm Xanh Dương (Blue); Kéo XUỐNG ➔ Bơm thêm Vàng (Yellow).",
+      "actionBox": {
+        "label": "Công Thức Điện Ảnh",
+        "text": "Muốn vùng tối ám xanh dương huyền bí? Vào kênh Blue, nắm góc trái dưới kéo nhẹ lên trên!",
+        "shortcut": { "win": "Channel: Blue", "mac": "Channel: Blue" }
+      }
+    },
+    {
+      "id": "P05-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Tạo Tương Phản S-Curve",
+      "subtitle": "Uốn nắn đường cong hoàn hảo không làm cháy sáng",
+      "contentMarkdown": "1. **Mở Curves:** Nhấn `Ctrl+M` (Win) / `Cmd+M` (Mac).\n2. **Tạo điểm Highlights:** Nhấp chuột vào giao điểm 3/4 đồ thị bên phải, nhích lên trên một khoảng nhỏ.\n3. **Tạo điểm Shadows:** Nhấp chuột vào giao điểm 1/4 đồ thị bên trái, nhích xuống dưới một khoảng tương đương.\n4. **Kiểm tra Histogram:** Quan sát dải màu nở rộng sang hai phía. Bức ảnh trở nên sắc sảo, có chiều sâu không gian vượt trội!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Ctrl+M (Curves) | Highlights Up | Shadows Down | Perfect S-Shape | Rich Contrast"
+      }
+    },
+    {
+      "id": "P05-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Cạm Bẫy Phổ Biến Khi Dùng Curves",
+      "subtitle": "Tránh hiện tượng bết màu và vặn xoắn đồ thị",
+      "contentMarkdown": "### 1. Nhấp chuột tạo quá nhiều điểm neo vô nghĩa\n- **Hậu quả:** Đồ thị bị uốn lượn hình sin làm màu sắc bị đổi pha kỳ dị (mặt người bị xanh đen hoặc đốm vàng).\n- **Khắc phục:** Không bao giờ dùng quá 3 điểm neo trên một đường cong Curves.\n\n### 2. Kéo điểm sáng vượt ngưỡng trên cùng\n- **Hậu quả:** Bầu trời bị bẹp phẳng thành một mảng trắng bệch mất hết khối mây.\n- **Khắc phục:** Luôn giữ điểm neo nằm bên dưới đường biên trần của hộp thoại.",
+      "actionBox": {
+        "label": "Phương Châm Tối Giản",
+        "text": "Càng ít điểm neo trên Curves, dải chuyển sắc (gradient transition) trong ảnh của bạn càng mượt mà tự nhiên."
+      }
+    },
+    {
+      "id": "P05-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Curves",
+      "subtitle": "Xác nhận khả năng điều khiển dải tông",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P05-02-Q1",
+        "question": "Khi bạn chuyển sang kênh 'Blue' trong hộp thoại Curves và kéo đường cong XUỐNG DƯỚI đường chéo chuẩn, màu sắc nào sẽ được bù trừ tăng cường vào bức ảnh?",
+        "options": [
+          "Màu Xanh lá cây (Green)",
+          "Màu Vàng (Yellow)",
+          "Màu Đỏ tím (Magenta)",
+          "Màu Trắng"
+        ],
+        "correctIndex": 1,
+        "explanation": "Trong mô hình màu đối kháng RGB, màu đối diện của Blue (Xanh dương) là Yellow (Vàng). Kéo Blue xuống dưới đồng nghĩa với việc bơm thêm sắc Vàng vào bức ảnh."
+      }
+    },
+    {
+      "id": "P05-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Tạo Tone Màu Phim Nhựa Cổ Điển",
+      "subtitle": "Kỹ thuật Faded Black mộng mơ",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P05_color_correction_grading_guide.md`.\n2. Mở Curves Adjustment (`Ctrl+M` / `Cmd+M`).\n3. Nắm điểm neo dưới cùng bên trái (Black Point), kéo thẳng đứng lên trên `15%` để biến màu đen tuyền thành sắc xám khói hoài cổ.\n4. Chuyển sang kênh Blue, nâng nhẹ vùng tối để phủ sắc xanh dương vintage vào bóng râm.\n5. Chuyển sang kênh Red, kéo nhẹ vùng tối xuống để tạo sắc xanh lơ trầm lắng.\n\n### Tiêu Chí Nghiệm Thu:\n- Bức ảnh toát lên vẻ đẹp cổ điển của phim nhựa 35mm.\n- Vùng tối có độ mờ khói đặc trưng nhưng vẫn nhìn rõ chi tiết.",
+      "practiceData": {
+        "prompt": "Tạo tone ảnh phim nhựa Faded Black bằng Curves.",
+        "starterAsset": {
+          "filename": "P05_color_correction_grading_guide.md",
+          "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "filesize": "4.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn phối màu chuyên sâu bằng đường cong Curves trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Nâng Black Point tạo hiệu ứng Matte Faded",
+          "Phối màu kênh Blue và Red",
+          "Bảo toàn sắc thái biểu cảm của chủ thể"
+        ]
+      }
+    }
+  ]
+}

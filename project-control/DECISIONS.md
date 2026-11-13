@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `ADR-REGISTRY-001`
-- **Version:** `2.3.0` (Phase 3 Pilot Completed)
+- **Version:** `4.2.2` (Track 2 Affinity Photo & Photo Layer Simulator Certified)
 - **Status:** `ACTIVE / AUDITED & EXPANDED`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
 
 ---
@@ -156,3 +156,20 @@
   1. Configure `manualChunks` in `vite.config.ts` separating `curriculum-designer-foundations`, `curriculum-designer-advanced`, `curriculum-photo`, `curriculum-publisher`, `curriculum-scripting`, `vendor-react`, and `vendor-lucide`. This reduced the main entry bundle to 119 kB with zero chunk warnings.
   2. Configure `playwright.config.ts` targeting Microsoft Edge (`msedge` channel) and exact element-relative position clicking (`locator.click({ position: { x, y } })`), combined with `pointer-events: none` on ghost guidance overlays, ensuring 100% deterministic, flake-free headless test execution.
 - **Status:** **ACCEPTED** (Verified & Certified).
+
+---
+
+## ADR-021: Phase 5 Track 2 (Affinity Photo) Curriculum Expansion, Photo Layer Simulator & Rollup Chunk Partitioning
+- **Context:**
+  Expanding Affinity Academy to include Track 2 (Affinity Photo) required:
+  1. Authoring 10 comprehensive modules (P01–P10) with 30 production lessons adhering strictly to the 10-part standard content model and interactive slide deck schema.
+  2. Providing authentic, reproducible practice assets without fabricating non-functional binary `.afphoto` packages.
+  3. Designing an in-browser pedagogical simulator for Affinity Photo's core mechanics (non-destructive layer stack, dynamic mask painting with brush mechanics, and blend modes) without misleading learners into expecting a full desktop replacement.
+  4. Preventing bundle bloat from adding 30 richly detailed photo curriculum modules.
+- **Decision:**
+  1. *Curriculum Schema & Content:* Authored modules P01 through P10 covering Selections, Masking, Layers, Retouching & Restoration, Color Correction & Grading, Live Filters, Compositing, Typography Integration, RAW Develop Persona, and Export Persona. All 30 lessons adhere 100% to `src/types/curriculum.ts` and validated via `scripts/validate-curriculum.js` (66/66 total lessons pass).
+  2. *Genuine Practice Assets:* Authored 9 structured Markdown guides in `curriculum/assets/photo/P02_...` through `P10_...` specifying exact canvas setups, layer stacks, adjustment parameters, and challenge rubrics. Retained verified authentic binary `P01_starter.afphoto` (1.65 MB).
+  3. *In-Browser Photo Layer Simulator:* Built `src/components/simulator/PhotoLayerSimulator.tsx` featuring an HTML5 Canvas rendering engine, a 4-layer non-destructive stack (Background, Subject with live mask, Adjustment, Live Filter), brush controls (radius, hardness, Black conceals, White reveals), mask inversion (`Ctrl+I` / `Cmd+I`), reset, and 3 preset challenges. Included a prominent educational disclaimer badge. Integrated as a tab in `src/pages/SimulatorPage.tsx`.
+  4. *Rollup Chunk Partitioning:* Partitioned Photo curriculum in `vite.config.ts` into `curriculum-photo-foundations` (P01–P05: 262 kB) and `curriculum-photo-advanced` (P06–P10: 250 kB), maintaining all chunks below the 300 kB threshold with zero warnings.
+  5. *Automated Verification:* Added Playwright test suite `tests/e2e/photo-curriculum.spec.ts` covering Catalog track filtering, Lesson Player slide navigation, and Photo Simulator interactivity (3/3 pass, total E2E suite passes 9/9 in 18s).
+- **Status:** **ACCEPTED** (Track 2 Completed & QA Signed Off).

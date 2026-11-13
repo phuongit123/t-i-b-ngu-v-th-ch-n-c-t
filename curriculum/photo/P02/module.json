@@ -1,0 +1,21 @@
+{
+  "id": "P02",
+  "trackId": "photo",
+  "moduleNumber": "P02",
+  "title": "Selections, Edge Refinement & Layer Masking",
+  "tagline": "Master precision pixel selections, intelligent edge calculation, and non-destructive layer masks.",
+  "description": "Learn the art of isolating subjects with pinpoint accuracy in Affinity Photo 3.0: Selection Brush with edge snapping, Freehand Lasso polygonal modes, Refine Selection matte calculation for complex hair, and non-destructive pixel masking architectures.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 85,
+  "prerequisites": ["P01"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P02_selections_masking_guide.md",
+    "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+    "filesize": "4.5 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for selections, edge refinement and pixel masking in Affinity Photo."
+  },
+  "lessonIds": ["P02-01", "P02-02", "P02-03"]
+}

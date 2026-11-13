@@ -1,0 +1,280 @@
+{
+  "id": "P05-03",
+  "moduleId": "P05",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Creative Color Grading, HSL, Gradient Maps & 3D LUTs",
+  "subtitle": "Cinematic Palettes, 3D LUT Profiles (.cube) & Dual-Tone Gradient Remapping",
+  "durationMinutes": 35,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Làm chủ vòng tròn màu sắc HSL Color Wheel để cô lập và thay đổi từng dải màu riêng biệt (Hue, Saturation, Luminance).",
+      "Sử dụng Selective Color Adjustment để điều chỉnh lượng mực Cyan, Magenta, Yellow, Black trong từng nhóm màu mà không ảnh hưởng nhóm khác.",
+      "Ứng dụng Gradient Map kết hợp các chế độ hòa trộn Soft Light / Overlay để tạo bảng màu điện ảnh phong cách Hollywood.",
+      "Tải và quản lý các bảng tra cứu màu sắc 3D (3D LUTs định dạng `.cube`) trong quy trình hậu kỳ chuyên nghiệp."
+    ],
+    "foundationalKnowledge": "Phối màu sáng tạo (Creative Color Grading) là quá trình mang lại linh hồn, cảm xúc và cá tính thẩm mỹ cho bức ảnh. Nếu như Color Correction giúp bức ảnh trở nên 'đúng' về mặt kỹ thuật, thì Color Grading làm cho nó trở nên 'ấn tượng' về mặt nghệ thuật. Affinity Photo trang bị những vũ khí phối màu tối tân nhất của điện ảnh: HSL cho phép bạn nhấp chọn màu cỏ xanh để úa vàng thành mùa thu chỉ sau 1 giây; Gradient Map ánh xạ toàn bộ dải độ sáng từ tối đến sáng theo một dải màu tùy chọn; và 3D LUT (Look-Up Table) nạp các profile màu giải mã phức tạp từ định dạng công nghiệp `.cube`.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 HSL & 3D LUT Adjustment Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "HSL, Gradient Map & LUT Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Ctrl+U (HSL Adjustment) / Adjustments > Gradient Map / Adjustments > LUT",
+        "mac": "Cmd+U (HSL Adjustment) / Adjustments > Gradient Map / Adjustments > LUT"
+      },
+      "description": "Bộ ba công cụ phối màu thời trang và điện ảnh hàng đầu thế giới.",
+      "contextBarOptions": [
+        "HSL Color Wheels: 6 vòng màu độc lập (Red, Yellow, Green, Cyan, Blue, Magenta)",
+        "Gradient Map Stops: Thêm các điểm nút màu dọc theo trục ánh sáng 0% đến 100%",
+        "Load LUT...: Nạp tệp bảng tra cứu màu 3D chuẩn .cube từ máy tính",
+        "Selective Color: Điều chỉnh CMYK trong từng dải màu cơ bản"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Thêm lớp HSL Adjustment bằng phím tắt",
+        "instruction": "Nhấn Ctrl+U (Win) / Cmd+U (Mac) để mở hộp thoại HSL Adjustment.",
+        "shortcutTip": { "win": "Ctrl+U", "mac": "Cmd+U" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Cô lập và đổi màu lá cây với HSL",
+        "instruction": "Nhấp chọn vòng tròn màu Xanh Lá Cây (Green). Kéo thanh trượt Hue Shift sang trái. Quan sát toàn bộ cây cối trong ảnh đổi từ xanh mướt sang sắc vàng cam mùa thu rực rỡ, trong khi màu da và màu áo người mẫu hoàn toàn không suy suyển!",
+        "shortcutTip": { "win": "Chọn vòng Green > Kéo Hue Shift", "mac": "Chọn vòng Green > Kéo Hue Shift" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Tạo bảng màu điện ảnh Teal & Orange với Gradient Map",
+        "instruction": "Nhấn biểu tượng Adjustments, chọn 'Gradient Map'. Nhấp chọn điểm nút bên trái (Shadows) gán màu Xanh lơ (Teal: #0D3B4C), nhấp chọn điểm nút bên phải (Highlights) gán màu Cam ấm (#F5A623). Đổi Blend Mode của lớp này sang 'Soft Light' và hạ Opacity xuống 30%.",
+        "shortcutTip": { "win": "Gradient Map > Soft Light 30%", "mac": "Gradient Map > Soft Light 30%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Nạp LUT 3D (.cube) chuyên nghiệp",
+        "instruction": "Thêm lớp 'LUT Adjustment'. Nhấn nút 'Load LUT...' trên hộp thoại, duyệt đến tệp `.cube` được cung cấp trong gói khóa học. Toàn bộ tác phẩm được gán bảng màu điện ảnh hoàn chỉnh chỉ trong 1 tích tắc.",
+        "shortcutTip": { "win": "LUT > Load LUT...", "mac": "LUT > Load LUT..." }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cơ chế ánh xạ dải màu của Gradient Map",
+        "description": "Cách Gradient Map gán màu sắc mới dựa trên giá trị độ sáng của ảnh gốc.",
+        "visualType": "diagram",
+        "visualContent": "[Độ sáng pixel ảnh gốc] ──> [Ánh xạ qua Gradient Map] ──> [Màu hiển thị mới]\n--------------------------------------------------------------------------\nVùng bóng tối (0% - 25%)    ──> Gán màu Xanh Teal điện ảnh (#002B36)\nVùng trung âm (25% - 75%)   ──> Gán màu Tím than hoặc Xám khói (#586E75)\nVùng sáng cao (75% - 100%)  ──> Gán màu Vàng cam nắng ấm (#D33682)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Phối màu phong cách Cyberpunk thành phố đêm",
+      "taskDescription": "Mở ảnh đường phố ban đêm có nhiều đèn neon, sử dụng tổ hợp HSL và Gradient Map để tạo phong cách Cyberpunk (Tím Neon và Xanh Lơ) rực rỡ.",
+      "checkpoints": [
+        "Sử dụng HSL để tăng Saturation cho dải màu Magenta và Cyan.",
+        "Thêm Gradient Map dải màu Tím - Xanh lơ hòa trộn Soft Light.",
+        "Giữ cho màu đen của bầu trời đêm có độ sâu thẳm bằng Curves.",
+        "Các biển hiệu đèn neon phát quang rực rỡ và có độ tương phản điện ảnh."
+      ],
+      "expectedOutcome": "Khung cảnh đường phố đêm biến thành một tác phẩm nghệ thuật vị lai đậm chất khoa học viễn tưởng."
+    },
+    "independentChallenge": {
+      "title": "Xây dựng và xuất bản tệp 3D LUT của riêng bạn",
+      "prompt": "Tạo một công thức màu hoàn chỉnh gồm 4 lớp điều chỉnh: Curves, White Balance, HSL và Selective Color. Sau đó vào menu File > Export > LUT... để xuất công thức này thành một tệp `.cube` 3D LUT chuẩn công nghiệp 33-point hoặc 65-point có thể nạp vào Premiere, DaVinci Resolve hoặc Affinity Photo khác.",
+      "starterAsset": {
+        "filename": "P05_color_correction_grading_guide.md",
+        "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn sáng tạo và xuất bản tệp 3D LUT chuyên nghiệp trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Tổ hợp màu gồm ít nhất 3 lớp Adjustment khác nhau.",
+        "Xuất thành công tệp LUT định dạng `.cube` ra thư mục máy tính.",
+        "Thử tạo tài liệu mới và nạp lại tệp LUT vừa xuất để chứng minh độ tương thích."
+      ],
+      "bonusGoal": "Cấu hình độ phân giải LUT là 64-point (High Precision) để tối ưu độ chuyển sắc 16-bit."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Màu da người mẫu bị biến thành màu xanh lè khi áp dụng Gradient Map",
+        "cause": "Để chế độ hòa trộn của Gradient Map là 'Normal' ở 100% Opacity (làm đè bẹp toàn bộ màu gốc của ảnh).",
+        "solution": "BẮT BUỘC đổi Blend Mode của Gradient Map sang 'Soft Light', 'Overlay' hoặc 'Color', và hạ Opacity xuống mức 20% - 35%."
+      },
+      {
+        "pitfall": "Tệp LUT sau khi áp dụng làm bức ảnh bị gãy màu răng cưa (Color Banding)",
+        "cause": "Tệp ảnh gốc ở định dạng 8-bit JPEG chất lượng thấp, không chịu nổi các phép bẻ màu gắt gao của LUT.",
+        "solution": "Nên làm việc trên không gian màu 16-bit RGB hoặc giảm Opacity của lớp LUT xuống 60%."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P05-03-Q1",
+        "question": "Phím tắt chuẩn để mở lớp điều chỉnh HSL (Hue, Saturation, Luminance) trong Affinity Photo là gì?",
+        "options": [
+          "Ctrl+H (Win) / Cmd+H (Mac)",
+          "Ctrl+U (Win) / Cmd+U (Mac)",
+          "Ctrl+Shift+H (Win) / Cmd+Shift+H (Mac)",
+          "Ctrl+Alt+U (Win) / Cmd+Option+U (Mac)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Tổ hợp phím chuẩn mở HSL Adjustment là Ctrl+U trên Windows và Cmd+U trên macOS."
+      },
+      {
+        "id": "P05-03-Q2",
+        "question": "Khi sử dụng Gradient Map để phối màu điện ảnh, bạn nên thiết lập chế độ hòa trộn (Blend Mode) và độ mờ đục (Opacity) như thế nào để đạt hiệu quả thẩm mỹ tinh tế nhất?",
+        "options": [
+          "Normal ở 100% Opacity",
+          "Soft Light (hoặc Overlay) ở khoảng 20% - 35% Opacity",
+          "Difference ở 100% Opacity",
+          "Dissolve ở 50% Opacity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gradient Map ở chế độ Normal sẽ đè mất màu gốc. Chỉ khi đổi sang Soft Light/Overlay và giảm Opacity xuống 20-35%, dải màu mới hòa quyện nhịp nhàng vào ánh sáng ảnh gốc."
+      },
+      {
+        "id": "P05-03-Q3",
+        "question": "Tệp 3D LUT chuyên nghiệp dùng để nạp bảng tra cứu màu sắc trong Affinity Photo thường có phần mở rộng đuôi tệp là gì?",
+        "options": [
+          ".png",
+          ".cube",
+          ".psd",
+          ".obj"
+        ],
+        "correctIndex": 1,
+        "explanation": "Định dạng tệp tiêu chuẩn công nghiệp quốc tế cho bảng tra cứu màu 3D (Lookup Table) là định dạng `.cube`."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "HSL Adjustment (Ctrl+U) cho phép cô lập và đổi màu từng dải màu riêng biệt mà không chạm vào các màu khác.",
+        "Gradient Map ánh xạ dải sắc độ đen-trắng sang bảng màu mới; hòa trộn Soft Light 25% tạo màu phim kinh điển.",
+        "3D LUT (.cube) nạp các công thức màu chuẩn điện ảnh của các đạo diễn hình ảnh nổi tiếng thế giới.",
+        "Affinity Photo hỗ trợ xuất thẳng công thức màu của bạn thành tệp 3D LUT thông qua menu File > Export > LUT."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P06 Live Filters & Photographic Effects",
+          "target": "P06-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P05_color_correction_grading_guide.md",
+          "target": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P05-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Phối Màu Sáng Tạo & Đẳng Cấp 3D LUT Điện Ảnh",
+      "subtitle": "Biến bức ảnh bình thường thành thước phim điện ảnh Hollywood",
+      "contentMarkdown": "Bạn đã bao giờ tự hỏi: Tại sao các bộ phim bom tấn như *The Matrix*, *Blade Runner 2049* hay *Joker* lại có một phong cách màu sắc đặc trưng, ma mị và cuốn hút đến như vậy?\n\nĐó là sức mạnh của **Color Grading (Phối màu nghệ thuật)**.\n\nTrong bài học này, bạn sẽ làm chủ **HSL Color Wheel (Ctrl+U)** để đổi màu lá cây theo ý muốn, **Gradient Map** để tạo tone màu Teal & Orange kinh điển, và cách nạp cũng như xuất bản các bảng màu **3D LUT (.cube)** chuẩn Hollywood.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Tự tay sáng tạo và gán những bảng màu điện ảnh đỉnh cao cho tác phẩm của bạn chỉ trong vài cú click chuột."
+      }
+    },
+    {
+      "id": "P05-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Vòng Tròn Màu Sắc HSL (Hue, Saturation, Luminance)",
+      "subtitle": "Cô lập và điều khiển từng dải màu sắc độc lập",
+      "contentMarkdown": "Nhấn `Ctrl+U` (Win) / `Cmd+U` (Mac) để mở **HSL Adjustment**:\n\n- Thay vì đổi màu toàn bộ ảnh, bạn có 6 vòng màu chuyên biệt:\n  - 🔴 Đỏ (Red) | 🟡 Vàng (Yellow) | 🟢 Xanh lá (Green)\n  - 🔷 Lục lam (Cyan) | 🔵 Xanh dương (Blue) | 🟣 Đỏ tím (Magenta)\n- **Hue Shift:** Xoay đổi góc màu (ví dụ biến màu xanh lá thành vàng cam).\n- **Saturation:** Tăng độ rực rỡ hoặc làm nhạt màu về trắng đen.\n- **Luminance:** Tăng độ phát sáng hoặc dìm tối riêng dải màu đó.",
+      "visual": {
+        "type": "callout",
+        "content": "Bí quyết Pro: Muốn làm da người mẫu sáng bừng? Chọn vòng màu Đỏ/Vàng, tăng nhẹ Luminance lên +5%!"
+      }
+    },
+    {
+      "id": "P05-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Gradient Map & Nghệ Thuật Ánh Xạ Ánh Sáng",
+      "subtitle": "Tone màu Teal & Orange kinh điển của rạp chiếu phim",
+      "contentMarkdown": "Thêm một lớp **Gradient Map Adjustment**:\n\n- Thay vì vẽ màu lên pixel, Gradient Map 'nhìn' độ sáng của bức ảnh:\n  - Vùng tối nhất (Shadows bên trái): Gán màu Xanh lơ lạnh (Teal).\n  - Vùng sáng nhất (Highlights bên phải): Gán màu Vàng cam ấm (Orange).\n- ⚠️ **Bước tối quan trọng:** Đổi Blend Mode của lớp này sang **`Soft Light`** hoặc **`Overlay`**, sau đó hạ Opacity xuống **`25% - 35%`**!\n- Bức ảnh sẽ lập tức toát lên phong cách điện ảnh Hollywood sang trọng.",
+      "actionBox": {
+        "label": "Quy Tắc Vàng",
+        "text": "Tuyệt đối không để Gradient Map ở chế độ Normal 100%! Luôn đổi sang Soft Light và hạ Opacity."
+      }
+    },
+    {
+      "id": "P05-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Nạp Và Sử Dụng 3D LUT (.cube)",
+      "subtitle": "Gán phong cách màu quốc tế trong 1 tích tắc",
+      "contentMarkdown": "1. **Thêm lớp LUT:** Nhấn biểu tượng Adjustments ➔ chọn `LUT`.\n2. **Nạp tệp LUT:** Nhấp nút `Load LUT...` trên hộp thoại.\n3. **Chọn tệp .cube:** Duyệt tới tệp LUT trong máy tính và nhấn Open.\n4. **Tinh chỉnh Opacity:** Nếu màu sắc quá gắt, giảm Opacity của layer LUT xuống mức `60% - 80%` để màu hòa quyện êm ái vào ảnh gốc.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Add LUT | Load .cube File | Instant Grading | Tune Opacity | Movie Magic"
+      }
+    },
+    {
+      "id": "P05-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Cạm Bẫy Khi Phối Màu Nghệ Thuật",
+      "subtitle": "Tránh làm da người mẫu bị biến màu kỳ quái",
+      "contentMarkdown": "### 1. Phối màu làm mất sắc thái da tự nhiên\n- **Hậu quả:** Sau khi áp dụng tone màu lạnh, da người mẫu bị chuyển sang màu xanh tái như xác ướp!\n- **Khắc phục:** Dùng cọ mềm màu Đen vẽ lên mặt nạ của lớp màu đó để loại bỏ bớt hiệu ứng trên vùng da mặt.\n\n### 2. Hiện tượng gãy dải sắc (Banding)\n- **Hậu quả:** Trên bầu trời xuất hiện các đường sọc răng cưa đứt đoạn.\n- **Khắc phục:** Luôn làm việc trên chế độ `16-bit RGB` (`Document > Convert Format`) khi phối màu phức tạp.",
+      "actionBox": {
+        "label": "Mẹo Giữ Da Đẹp",
+        "text": "Mọi vật thể xung quanh có thể nhuộm màu xanh hay tím, nhưng da mặt người mẫu luôn phải giữ được sắc hồng tự nhiên!"
+      }
+    },
+    {
+      "id": "P05-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kiến Thức Phối Màu",
+      "subtitle": "Xác nhận năng lực cảm thụ và làm chủ công cụ",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P05-03-Q2",
+        "question": "Khi sử dụng Gradient Map để phối màu điện ảnh, bạn nên thiết lập chế độ hòa trộn (Blend Mode) và độ mờ đục (Opacity) như thế nào để đạt hiệu quả thẩm mỹ tinh tế nhất?",
+        "options": [
+          "Normal ở 100% Opacity",
+          "Soft Light (hoặc Overlay) ở khoảng 20% - 35% Opacity",
+          "Difference ở 100% Opacity",
+          "Dissolve ở 50% Opacity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gradient Map ở chế độ Normal sẽ đè mất màu gốc. Chỉ khi đổi sang Soft Light/Overlay và giảm Opacity xuống 20-35%, dải màu mới hòa quyện nhịp nhàng vào ánh sáng ảnh gốc."
+      }
+    },
+    {
+      "id": "P05-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Xuất Bản Tệp 3D LUT Của Riêng Bạn",
+      "subtitle": "Đóng gói công thức màu thành tệp .cube chuyên nghiệp",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P05_color_correction_grading_guide.md`.\n2. Thiết lập một công thức màu nghệ thuật gồm 3 lớp: Curves (S-curve), HSL (chỉnh màu lá vàng), và Gradient Map (Soft Light 25%).\n3. Vào menu `File > Export > LUT...`.\n4. Chọn định dạng `3D LUT (.cube)`, đặt tên là `My_Cinema_Grade.cube` và lưu ra máy tính.\n5. Tạo một bức ảnh mới và nạp lại tệp `.cube` vừa xuất để kiểm chứng!\n\n### Tiêu Chí Nghiệm Thu:\n- Xuất thành công tệp `.cube` hợp lệ.\n- Tệp LUT nạp vào ảnh mới tái hiện chính xác 100% phong cách màu đã thiết kế.",
+      "practiceData": {
+        "prompt": "Xây dựng công thức màu và xuất ra tệp 3D LUT .cube.",
+        "starterAsset": {
+          "filename": "P05_color_correction_grading_guide.md",
+          "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "filesize": "4.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn sáng tạo và xuất bản tệp 3D LUT chuyên nghiệp trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Tạo tổ hợp màu với Curves, HSL, Gradient Map",
+          "Xuất tệp 3D LUT .cube qua File > Export > LUT",
+          "Kiểm tra tính tương thích trên ảnh mới"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "P03",
+  "trackId": "photo",
+  "moduleNumber": "P03",
+  "title": "Layers, Adjustments & Non-Destructive Blend Modes",
+  "tagline": "Master multi-layer compositing, real-time shader adjustments, and blend mode mathematics.",
+  "description": "Understand the non-destructive layer stack of Affinity Photo 3.0: Pixel vs Image layers, child clipping masks, Adjustment layers (Curves, Levels, HSL, B&W), Live Filters, and the exact mathematics behind Multiply, Screen, Overlay, and Color Dodge blend modes.",
+  "difficulty": "Beginner",
+  "estimatedMinutes": 85,
+  "prerequisites": ["P01", "P02"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P03_layers_non_destructive_guide.md",
+    "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+    "filesize": "4.7 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for layer types, clipping adjustments and blend modes in Affinity Photo."
+  },
+  "lessonIds": ["P03-01", "P03-02", "P03-03"]
+}

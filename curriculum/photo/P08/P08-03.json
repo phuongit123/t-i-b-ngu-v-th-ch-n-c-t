@@ -1,0 +1,255 @@
+{
+  "id": "P08-03",
+  "moduleId": "P08",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Designing Promotional Commercial Compositions & Text Behind Subject",
+  "subtitle": "Create modern magazine covers, commercial key visuals, and dynamic text-behind-subject layouts.",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Xây dựng bố cục thương mại Key Visual kết hợp hài hòa giữa hình ảnh nhiếp ảnh và các yếu tố đồ họa chữ.",
+      "Làm chủ kỹ thuật 'Text Behind Subject' kinh điển trong thiết kế bìa tạp chí và poster quảng cáo.",
+      "Thiết lập bóng đổ tương tác giữa người mẫu và chữ cái phía sau để tạo chiều sâu thị giác 3D tự nhiên.",
+      "Hoàn thiện các chi tiết thương mại: Tag giá, huy hiệu chứng nhận (Badge), và nút kêu gọi hành động (CTA)."
+    ],
+    "foundationalKnowledge": "Kỹ thuật Text Behind Subject là minh chứng cho sự thăng hoa khi kết hợp nhuần nhuyễn kỹ năng tách nền chính xác với nghệ thuật bố cục chữ. Bằng cách đặt một tiêu đề ngoại cỡ nằm kẹp giữa ảnh nền gốc và bản sao chủ thể đã tách viền tóc, não bộ người xem tự động hoàn thiện các ký tự bị che khuất và cảm nhận được chiều sâu không gian 3 chiều sống động mà không cần dùng đến phần mềm 3D.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Editorial Cover Layout & Subject Masking Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Selection Brush, Refine Studio & Artistic Text",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "W (Selection Brush) / T (Text) / Ctrl + J (Duplicate) / X (Swap Black/White)",
+        "mac": "W (Selection Brush) / T (Text) / Cmd + J (Duplicate) / X (Swap Black/White)"
+      },
+      "description": "Tổ hợp công cụ bóc tách chân dung, thiết lập tiêu đề lớn và tạo mặt nạ đan xen.",
+      "contextBarOptions": [
+        "Refine Button: Kích hoạt studio tách viền tóc bằng cọ Matte chuyên sâu",
+        "Output to New Layer with Mask: Tạo bản sao đối tượng giữ nguyên độ trong suốt biên",
+        "Clip to Layer: Kéo layer bóng đổ thụt lề làm con của layer Text",
+        "Tracking: Điều chỉnh độ giãn ký tự để các con chữ nhô ra ngoài bờ vai"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tách lớp chủ thể chính (Subject Isolation)",
+        "instruction": "Mở ảnh chân dung thời trang. Dùng Selection Brush Tool (W) chọn toàn bộ người mẫu. Nhấp vào nút 'Refine' trên Context Toolbar để quét qua mép tóc bằng Matte brush. Chọn Output là 'New Layer with Mask' để tạo bản sao đối tượng sạch sẽ ở trên cùng.",
+        "shortcutTip": { "win": "W > Refine", "mac": "W > Refine" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chèn chữ tiêu đề lớn ở giữa các lớp",
+        "instruction": "Chọn layer ảnh nền gốc. Dùng Artistic Text Tool (T) gõ tiêu đề chữ hoa ngoại cỡ (ví dụ: 'ELEGANCE') với một font chữ đậm cá tính (như Futura Bold hoặc Bebas Neue). Vì layer text nằm bên dưới layer chân dung vừa tách, chữ sẽ tự động bị thân người che khuất một phần.",
+        "shortcutTip": { "win": "T (Artistic Text Tool)", "mac": "T (Artistic Text Tool)" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Tạo bóng đổ tương tác giữa người mẫu và chữ",
+        "instruction": "Tạo một Pixel Layer mới nằm ngay phía trên layer Text nhưng bên dưới layer chân dung. Đặt Blend Mode Multiply. Dùng Paint Brush mềm màu tối vẽ bóng nhẹ ở mép vai và đầu người mẫu lan tỏa lên bề mặt chữ cái, tạo cảm giác người mẫu đang thực sự đứng phía trước dòng chữ khổng lồ.",
+        "shortcutTip": { "win": "Brush Multiply 35%", "mac": "Brush Multiply 35%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bổ sung các yếu tố nhận diện thương mại",
+        "instruction": "Vẽ huy hiệu tròn (Circle Tool) ở góc trên với dòng chữ 'EXCLUSIVE EDITION'. Thêm mã vạch (Barcode) và các dòng phụ đề ở chân trang để hoàn thiện chuẩn định dạng bìa tạp chí.",
+        "shortcutTip": { "win": "Shape Tool (U)", "mac": "Shape Tool (U)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cấu trúc Layer Stack kinh điển của bố cục Text Behind Subject",
+        "description": "Thứ tự sắp xếp từ trên xuống dưới.",
+        "visualType": "table",
+        "visualContent": "| Thứ tự | Tên Layer | Thuộc tính | Mục đích thị giác |\n|---|---|---|---|\n| 1 (Trên cùng) | [Chân dung người mẫu] | Masked Layer | Che khuất phần thân chữ phía sau |\n| 2 | [Bóng đổ lên chữ] | Blend Mode: Multiply 35% | Gắn kết khoảng cách không gian giữa người và chữ |\n| 3 | [Tiêu đề ngoại cỡ] | Artistic Text (Headline) | Điểm nhấn typography trung tâm |\n| 4 (Đáy cùng) | [Ảnh nền phong cảnh] | Background Plate | Không gian môi trường tổng thể |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Thiết kế bìa tạp chí thời trang Vogue phong cách tối giản",
+      "taskDescription": "Thực hiện bố cục bìa tạp chí cao cấp với tiêu đề 'VOGUE' ẩn hiện sau mái tóc người mẫu và bóng đổ chân thực trên bề mặt con chữ.",
+      "checkpoints": [
+        "Người mẫu được tách viền tóc sạch sẽ với Refine Studio.",
+        "Dòng chữ 'VOGUE' chiếm 80% chiều ngang, chữ O và G lấp ló sau đầu.",
+        "Tạo layer bóng đổ kẹp vào chữ với màu sẫm của bóng râm tóc.",
+        "Bổ sung ngày phát hành và mã vạch ở góc dưới chuẩn bị ấn phẩm."
+      ],
+      "expectedOutcome": "Bìa tạp chí sang trọng, đạt chuẩn xuất bản editorial quốc tế."
+    },
+    "independentChallenge": {
+      "title": "Thiết kế poster vận động viên thể thao vượt khung hình",
+      "prompt": "Sử dụng tài liệu hướng dẫn P08, thiết kế poster một vận động viên bóng rổ đang úp rổ với tiêu đề 'CHAMPION' phía sau, tạo hiệu ứng cánh tay đan xen vươn ra phía trước mặt chữ cái.",
+      "starterAsset": {
+        "filename": "P08_typography_graphic_integration_guide.md",
+        "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Typography và đồ họa trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Vận động viên được tách nền hoàn hảo.",
+        "Chữ cái C và N lộ rõ hai bên; các chữ cái giữa bị cơ thể che khuất.",
+        "Cánh tay vươn về phía trước đè lên một chữ cái nhờ kỹ thuật đan xen mặt nạ.",
+        "Tông màu tổng thể được hòa sắc bằng Gradient Map Soft Light 15%."
+      ],
+      "bonusGoal": "Thêm hiệu ứng viền sáng Outer Glow màu cam neon cho quả bóng rổ."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Tiêu đề bị che mất quá nhiều ký tự khiến người xem không đọc được chữ",
+        "cause": "Vị trí đặt chữ chưa khéo léo hoặc cỡ chữ chưa đủ rộng để lộ các ký tự biên then chốt.",
+        "solution": "Nâng vị trí chữ lên cao hơn hoặc tăng Tracking để các ký tự đầu và cuối vươn ra ngoài thân người."
+      },
+      {
+        "pitfall": "Dòng chữ trông như một miếng decal phẳng dán đè lên ảnh",
+        "cause": "Thiếu bóng đổ tương tác giữa người mẫu và chữ cái, màu chữ xung đột với màu nền.",
+        "solution": "Vẽ bóng đổ nhẹ từ vai lên mặt chữ và hút màu sáng từ trang phục để tô màu chữ."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P08-03-Q1",
+        "question": "Thứ tự sắp xếp layer từ dưới lên trên nào là đúng để thực hiện kỹ thuật 'Text Behind Subject'?",
+        "options": [
+          "1. Ảnh nền gốc -> 2. Layer Text tiêu đề -> 3. Layer đối tượng đã tách nền kèm Mask",
+          "1. Layer Text tiêu đề -> 2. Ảnh nền gốc -> 3. Layer đối tượng",
+          "1. Layer đối tượng đã tách nền -> 2. Ảnh nền gốc -> 3. Layer Text tiêu đề",
+          "1. Layer Text tiêu đề -> 2. Layer đối tượng -> 3. Ảnh nền gốc"
+        ],
+        "correctIndex": 0,
+        "explanation": "Đúng quy luật: Ảnh nền nằm đáy cùng, Layer Text nằm ở giữa, và Layer đối tượng đã tách nền nằm ở lớp trên cùng để che khuất một phần con chữ."
+      },
+      {
+        "id": "P08-03-Q2",
+        "question": "Để làm cho dòng chữ phía sau không bị phẳng mà có cảm giác không gian 3D, thao tác nào nên được bổ sung?",
+        "options": [
+          "Tạo một layer bóng đổ từ đối tượng lên bề mặt chữ cái và kẹp (clip) vào layer chữ",
+          "Xóa bỏ hoàn toàn ảnh nền phía sau",
+          "Giảm cỡ chữ xuống thật nhỏ",
+          "Đổi font chữ sang font viết tay"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vẽ bóng đổ nhẹ từ bờ vai hoặc đầu người mẫu lên bề mặt chữ cái tạo cảm giác có khoảng cách không gian thực tế giữa đối tượng và dòng chữ."
+      },
+      {
+        "id": "P08-03-Q3",
+        "question": "Làm thế nào để một chữ cái luồn ra phía trước cánh tay trong khi phần còn lại của tiêu đề vẫn ở sau lưng người mẫu?",
+        "options": [
+          "Dùng Paint Brush màu đen tô lên mặt nạ của layer người mẫu tại vị trí cánh tay để chữ cái bên dưới lộ xuyên qua",
+          "Cắt rời cánh tay thành một file ảnh JPEG riêng biệt",
+          "Gõ chữ thành hai font khác nhau",
+          "Chuyển đổi toàn bộ tài liệu sang không gian màu CMYK"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tô màu đen lên mặt nạ của layer người mẫu ở trên cùng sẽ che tạm thời phần cánh tay, khiến chữ cái ở layer trung gian lộ ra phía trước một cách thần kỳ mà không phá hủy ảnh."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Kỹ thuật Text Behind Subject tạo ảo giác không gian 3D ấn tượng cho poster và bìa báo.",
+        "Tiêu đề lớn cần font chữ đậm, tracking phù hợp để lộ các ký tự nhận diện then chốt.",
+        "Bóng đổ từ người mẫu lên bề mặt chữ cái tạo sự tương tác không gian vật lý sống động.",
+        "Kỹ thuật đan xen mặt nạ (Intertwining) cho phép luồn lách chữ qua trước và sau chi thể."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P09-01 RAW Sensor Decoding & 32-bit Float Pipeline",
+          "target": "P09-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P08_typography_graphic_integration_guide.md",
+          "target": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P08_typography_graphic_integration_guide.md",
+    "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+    "filesize": "4.4 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p08-03-01",
+      "order": 1,
+      "title": "Nghệ thuật bìa tạp chí & Poster thương mại",
+      "subtitle": "Sức hút của bố cục lồng ghép đa tầng",
+      "type": "concept",
+      "content": "Các ấn phẩm thời trang hàng đầu như Vogue, GQ, Harper's Bazaar thường sử dụng kỹ thuật xếp chữ nằm lấp ló sau đầu người mẫu. Bố cục này tạo nên ảo giác chiều sâu 3D mạnh mẽ, khẳng định chủ thể là tâm điểm tự nhiên của khung hình.",
+      "tips": "Mắt người có khả năng tự điền khuyết (Gestalt psychology) để nhận diện trọn vẹn từ ngữ quen thuộc dù bị che một phần.",
+      "codeSnippet": "Layer Stack Architecture for Text Behind Subject:\n[Top Layer]: Subject Cutout (Refined Mask on Edges)\n[Middle Layer 2]: Shadow on Text (Multiply, 35% Opacity)\n[Middle Layer 1]: Huge Artistic Headline ('TITLE')\n[Bottom Layer]: Original Background Scene"
+    },
+    {
+      "id": "slide-p08-03-02",
+      "order": 2,
+      "title": "Tách nền chủ thể với Refine Studio",
+      "subtitle": "Đảm bảo viền tóc trong suốt hoàn hảo",
+      "type": "workflow",
+      "content": "Dùng Selection Brush (W) quét nhanh thân người. Nhấp 'Refine' trên Context Toolbar. Quét cọ Matte quanh mép tóc bồng bềnh để loại bỏ màu nền cũ. Chọn Output là 'New Layer with Mask' để giữ lại nguyên bản độ mờ quang học của sợi tóc.",
+      "tips": "Nếu mép tóc bị tối, hãy tăng thông số Ramp và Smooth lên nhẹ từ 1 đến 2px trong hộp thoại Refine.",
+      "visualDescription": "Mô phỏng chân dung người mẫu được bao bọc bởi vùng chọn màu đỏ ruby của Refine Studio và kết quả tách rời trên nền trong suốt."
+    },
+    {
+      "id": "slide-p08-03-03",
+      "order": 3,
+      "title": "Bố cục tiêu đề Headline ngoại cỡ",
+      "subtitle": "Kích thước khổng lồ và độ tương phản cao",
+      "type": "interaction",
+      "content": "Kéo Artistic Text Tool tạo dòng chữ chiếm từ 70% đến 90% chiều rộng canvas. Chọn các font sans-serif hình học mạnh mẽ (Heavy, Black) hoặc serif sang trọng có độ tương phản nét dày nét thanh cao.",
+      "tips": "Đảm bảo các chữ cái đầu và cuối vươn ra khỏi hai bên vai của người mẫu để tên thương hiệu hoặc chủ đề không bị đọc sai lệch.",
+      "codeSnippet": "Typographic Specs for Cover Headlines:\nFont Weight: Bold / Extra Bold / Black\nLetter Spacing (Tracking): -20‰ to +40‰ depending on width\nColor: Sampled from model's jewelry, eyes, or pure Off-White (#F4F4F6)"
+    },
+    {
+      "id": "slide-p08-03-04",
+      "order": 4,
+      "title": "Vẽ bóng đổ tương tác lên chữ cái",
+      "subtitle": "Chi tiết nhỏ quyết định tính chân thực",
+      "type": "detail",
+      "content": "Nếu người mẫu đứng phía trước chữ cái nhưng chữ lại sáng bóng đồng đều ngay sau gáy, bố cục sẽ thiếu sự kết nối không gian. Hãy thêm một layer ở giữa, tô bóng mờ đổ từ vai người mẫu lên bề mặt các con chữ bị che.",
+      "tips": "Kẹp (clip) layer bóng này vào bên trong layer Text để bóng không bị lem ra ngoài khoảng trống của ảnh nền.",
+      "visualDescription": "So sánh trước và sau khi thêm bóng: Bên trái chữ phẳng lỳ, bên phải chữ nhận bóng đổ mềm từ bờ vai người mẫu vô cùng chân thực."
+    },
+    {
+      "id": "slide-p08-03-05",
+      "order": 5,
+      "title": "Kỹ thuật đan xen chữ cái (Intertwined Text)",
+      "subtitle": "Luồn lách chữ qua trước và sau đối tượng",
+      "type": "layout",
+      "content": "Muốn một chữ cái vắt qua trước ngực nhưng chữ bên cạnh lại chui ra sau lưng? Rất đơn giản: Trên mặt nạ của layer chân dung trên cùng, dùng Paint Brush màu đen tô che đi phần tay áo nơi bạn muốn chữ cái lộ ra phía trước.",
+      "tips": "Nhấn phím X để hoán đổi cọ trắng/đen giúp bạn sửa sai mặt nạ tức thì.",
+      "codeSnippet": "Intertwining Trick:\n1. Subject sits on top -> hides whole text behind\n2. Paint Black on Subject's Mask at forearm area\n3. Foreground forearm disappears -> Text pops in front of forearm while remaining behind head!"
+    },
+    {
+      "id": "slide-p08-03-06",
+      "order": 6,
+      "title": "Bổ sung các chi tiết thương mại phụ",
+      "subtitle": "Hoàn thiện phong cách ấn phẩm chuyên nghiệp",
+      "type": "diagram",
+      "content": "Một ấn phẩm thương mại cần sự cân đối: Góc trên thường đặt Issue Date và Giá bán; mép dưới bên phải đặt Barcode giả lập; hai bên sườn đặt 2 đến 3 bài viết nổi bật (Sub-features) với kích thước chữ nhỏ gọn có tính tổ chức cao.",
+      "tips": "Sử dụng Snap to Guides để dóng thẳng hàng các khối chữ phụ cách đều lề tài liệu 50px.",
+      "visualDescription": "Sơ đồ hiển thị toàn bộ bố cục bìa tạp chí với đầy đủ các ô phân vùng nội dung chính và phụ."
+    },
+    {
+      "id": "slide-p08-03-07",
+      "order": 7,
+      "title": "Phân phối màu hòa hợp tổng thể (Color Unification)",
+      "subtitle": "Gắn kết hình ảnh và typography thành tác phẩm duy nhất",
+      "type": "summary",
+      "content": "Sau khi hoàn tất mọi chi tiết, đặt một Gradient Map Adjustment Layer hoặc LUT ở trên cùng của toàn bộ file. Giảm Opacity xuống 15-20% và chọn Blend Mode 'Soft Light'. Bước này phủ một lớp tone màu đồng nhất lên cả ảnh chụp lẫn chữ cái đồ họa.",
+      "tips": "Xuất file bằng Export Persona định dạng TIFF hoặc PNG-24 chất lượng cao nhất.",
+      "codeSnippet": "Final Polish Pipeline:\n1. Verify text readability at 50% zoom\n2. Check contact shadows on letters\n3. Top of stack: Curves Adjustment + Gradient Map (Soft Light 18%)\n4. File > Save -> Ready for high-res commercial distribution"
+    }
+  ]
+}

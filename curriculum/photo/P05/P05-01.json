@@ -1,0 +1,280 @@
+{
+  "id": "P05-01",
+  "moduleId": "P05",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Exposure, Dynamic Range & White Balance Calibration",
+  "subtitle": "Histogram Diagnostics, Clipping Warnings & Neutral Gray Eyedropper",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Đọc hiểu biểu đồ Histogram: Phân tích phân bố điểm ảnh vùng tối (Shadows), trung tính (Midtones) và vùng sáng (Highlights).",
+      "Kích hoạt và phân tích cảnh báo cháy sáng (Clipping Warnings) để tránh mất dữ liệu màu vĩnh viễn.",
+      "Sử dụng White Balance Adjustment kết hợp công cụ ống hút Eyedropper để cân bằng trắng chuẩn xác.",
+      "Hiểu sự khác biệt giữa Exposure Adjustment (thay đổi độ phơi sáng tuyến tính) và Brightness/Contrast."
+    ],
+    "foundationalKnowledge": "Hiệu chỉnh màu kỹ thuật (Technical Color Correction) là bước đi tiên quyết bắt buộc trước khi bạn nghĩ đến việc phối màu nghệ thuật (Color Grading). Một bức ảnh bị ám vàng (warm cast) hay ám xanh (cool cast) do nguồn sáng hỗn hợp của đèn huỳnh quang hoặc bóng râm sẽ làm sai lệch hoàn toàn sắc tố da người mẫu. Affinity Photo cung cấp biểu đồ Histogram thời gian thực và công cụ White Balance chuyên nghiệp. Bằng cách định vị một điểm xám trung tính (18% Neutral Gray) hoặc màu trắng không bị cháy sáng trong khung hình, bạn có thể thiết lập lại trục tọa độ màu sắc tự nhiên cho toàn bộ tác phẩm.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Color Management & Histogram Diagnostic Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Histogram Studio & White Balance Adjustment",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "View > Studio > Histogram / Biểu tượng Adjustments > White Balance",
+        "mac": "View > Studio > Histogram / Biểu tượng Adjustments > White Balance"
+      },
+      "description": "Bảng phân tích phổ quang học và công cụ cân chỉnh nhiệt độ màu khoa học.",
+      "contextBarOptions": [
+        "Temperature Slider: Điều chỉnh trục Vàng (Kê độ K cao) - Xanh dương (Kê độ K thấp)",
+        "Tint Slider: Điều chỉnh trục Xanh lá cây (Green) - Đỏ tím (Magenta)",
+        "Eyedropper Tool: Chấm chọn trực tiếp điểm xám trung tính trên ảnh để tự động cân bằng",
+        "Clipping Warnings (W/B): Hiển thị vùng cháy sáng màu đỏ và mất chi tiết tối màu xanh"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở Histogram Studio và quan sát phổ phân bố",
+        "instruction": "Mở menu Window > Histogram (hoặc View > Studio > Histogram). Quan sát đồ thị: nếu đồ thị bị dồn cứng sang mép trái (0), bức ảnh đang bị thiếu sáng; nếu tràn mép phải (255), bức ảnh đang bị cháy sáng.",
+        "shortcutTip": { "win": "Window > Histogram", "mac": "Window > Histogram" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Thêm White Balance Adjustment",
+        "instruction": "Nhấn vào biểu tượng Adjustments ở đáy Layers Studio, chọn 'White Balance'. Hộp thoại xuất hiện với thanh trượt Temperature và Tint.",
+        "shortcutTip": { "win": "Adjustments > White Balance", "mac": "Adjustments > White Balance" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dùng Eyedropper hút điểm xám trung tính",
+        "instruction": "Nhấp vào biểu tượng ống hút màu xám trên bảng White Balance. Di chuyển con trỏ và nhấp vào một mảng áo xám, mặt đường nhựa, hoặc bức tường bê tông trong ảnh. Quan sát bức ảnh lập tức trở về màu sắc trong trẻo tự nhiên.",
+        "shortcutTip": { "win": "Nhấp ống hút vào điểm xám", "mac": "Nhấp ống hút vào điểm xám" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Tinh chỉnh độ phơi sáng với Exposure Adjustment",
+        "instruction": "Nếu ảnh tổng thể bị tối, thêm một lớp 'Exposure Adjustment'. Kéo nhẹ thanh trượt Exposure lên +0.5 đến +1.2 EV để nâng sáng toàn khung hình mà không làm biến dạng sắc thái màu gốc.",
+        "shortcutTip": { "win": "Exposure Slider (+EV)", "mac": "Exposure Slider (+EV)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cách đọc biểu đồ Histogram chuẩn chuyên gia",
+        "description": "Nhận biết 3 tình trạng phơi sáng phổ biến của cảm biến máy ảnh.",
+        "visualType": "table",
+        "visualContent": "| Dạng đồ thị Histogram | Trạng thái kỹ thuật | Hậu quả thị giác | Giải pháp điều chỉnh |\n|---|---|---|---|\n| Lệch hẳn về bên trái (trục 0) | Thiếu sáng (Underexposed) | Ảnh tối tăm, vùng bóng bị bết đen mất chi tiết | Nâng Exposure hoặc kéo Shadows trong Curves |\n| Lệch hẳn về bên phải (trục 255) | Cháy sáng (Overexposed) | Mây trời và da bị trắng bệch, clipping | Hạ Highlights hoặc bù trừ EV âm |\n| Trải đều hình chuông ở giữa | Phơi sáng cân bằng (Balanced) | Đầy đủ chi tiết từ tối đến sáng, dải động rộng | Giữ nguyên hoặc tăng nhẹ tương phản S-curve |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Khử ám vàng nặng nề của ánh đèn sợi đốt trong nhà",
+      "taskDescription": "Mở một bức ảnh chụp trong quán cà phê hoặc phòng tiệc bị ánh đèn vàng làm cam gắt toàn bộ khung hình, đưa màu sắc trở về trạng thái trung thực.",
+      "checkpoints": [
+        "Mở Histogram để kiểm tra kênh Red đang bị thừa biên độ.",
+        "Áp dụng lớp White Balance Adjustment phi phá hủy.",
+        "Kéo Temperature sang phía Cool (Xanh dương) cho đến khi lòng trắng mắt và áo trắng trở về màu thật.",
+        "Tinh chỉnh Tint để khử sắc xanh lá hoặc tím còn sót."
+      ],
+      "expectedOutcome": "Màu da người mẫu hồng hào tự nhiên, các đồ vật trắng không còn bị ám vàng ố."
+    },
+    "independentChallenge": {
+      "title": "Cân bằng ánh sáng hỗn hợp (Mixed Lighting Correction)",
+      "prompt": "Xử lý bức ảnh chân dung chụp cạnh cửa sổ: Một nửa mặt được chiếu bởi ánh sáng trời ban ngày (ánh sáng lạnh 5500K), nửa mặt còn lại bị đèn vàng trong phòng hắt vào (ánh sáng ấm 2800K). Dùng 2 lớp White Balance kèm Mặt nạ cọ mềm để cân bằng đồng nhất sắc thái hai bên mặt.",
+      "starterAsset": {
+        "filename": "P05_color_correction_grading_guide.md",
+        "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật hiệu chỉnh màu sắc và cân bằng trắng trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Không gian màu da 2 bên khuôn mặt đồng nhất về sắc thái.",
+        "Sử dụng mặt nạ cọ mềm chuyển tiếp mượt mà dọc theo sống mũi.",
+        "Histogram hiển thị 3 kênh R, G, B phân bố hài hòa."
+      ],
+      "bonusGoal": "Lưu các thông số White Balance thành một Preset để áp dụng cho cả bộ ảnh chụp cùng buổi tiệc."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Dùng Eyedropper chấm vào vùng bị cháy sáng (White Clipping)",
+        "cause": "Vùng bị cháy sáng có giá trị RGB là 255, 255, 255 (không còn dữ liệu màu để tính toán độ ấm).",
+        "solution": "Chỉ chấm ống hút vào vùng màu xám trung tính hoặc màu trắng có độ phơi sáng vừa phải (vẫn nhìn thấy thớ vải áo)."
+      },
+      {
+        "pitfall": "Dùng Brightness/Contrast thay cho Exposure và Curves",
+        "cause": "Thanh trượt Brightness truyền thống kéo phẳng toàn bộ các pixel kể cả điểm đen, làm bức ảnh bị bạc màu mờ đục.",
+        "solution": "Luôn dùng Exposure Adjustment hoặc Curves để tăng sáng mà vẫn bảo tồn điểm đen sâu thẳm (True Black Point)."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P05-01-Q1",
+        "question": "Khi biểu đồ Histogram hiển thị các cột sóng đâm kịch trần vào trục 255 ở mép bên phải, điều đó biểu thị hiện tượng gì?",
+        "options": [
+          "Bức ảnh có độ tương phản hoàn hảo",
+          "Bức ảnh đang bị cháy sáng (Highlight Clipping), các pixel vùng này bị biến thành màu trắng tinh 255 và mất hoàn toàn chi tiết",
+          "Ảnh đang bị thiếu sáng",
+          "Ảnh đang ở hệ màu CMYK"
+        ],
+        "correctIndex": 1,
+        "explanation": "Cột sóng chạm kịch mép phải trục 255 thể hiện các pixel đã bị bão hòa trắng hoàn toàn, không thể cứu lại chi tiết bằng phần mềm nữa."
+      },
+      {
+        "id": "P05-01-Q2",
+        "question": "Vật thể nào trong khung hình là mục tiêu lý tưởng nhất để dùng công cụ ống hút (Eyedropper) của White Balance Adjustment?",
+        "options": [
+          "Mảng trời xanh ngắt",
+          "Vùng màu xám trung tính (18% Gray) hoặc vật thể màu xám/trắng không bị cháy sáng",
+          "Vùng bóng đổ đen tuyền",
+          "Mái tóc màu nâu hạt dẻ"
+        ],
+        "correctIndex": 1,
+        "explanation": "Màu xám trung tính mang giá trị R=G=B cân bằng. Khi chấm ống hút vào đây, phần mềm sẽ bù trừ nhiệt độ màu để đưa mẫu màu này về đúng R=G=B."
+      },
+      {
+        "id": "P05-01-Q3",
+        "question": "Điểm khác biệt cốt lõi giữa 'Color Correction' (Hiệu chỉnh màu) và 'Color Grading' (Phối màu) là gì?",
+        "options": [
+          "Color Correction dùng cho ảnh in, Color Grading dùng cho video",
+          "Color Correction là bước kỹ thuật đưa bức ảnh về ánh sáng và màu sắc chuẩn mực trung thực; Color Grading là bước nghệ thuật áp đặt phong cách và cảm xúc điện ảnh",
+          "Không có điểm khác biệt nào",
+          "Color Grading chỉ làm được trên máy tính cấu hình cao"
+        ],
+        "correctIndex": 1,
+        "explanation": "Color Correction là sửa lỗi kỹ thuật (phơi sáng, cân bằng trắng chuẩn). Color Grading là sáng tạo thẩm mỹ (tone Teal & Orange, vintage, cinematic look)."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Histogram là radar dẫn đường khách quan, giúp nhận biết chính xác tình trạng phơi sáng mà không bị đánh lừa bởi độ sáng màn hình.",
+        "White Balance Adjustment với công cụ ống hút là phương pháp nhanh nhất để sửa lỗi ám vàng hoặc ám xanh.",
+        "Luôn thực hiện Color Correction chuẩn xác trước khi chuyển sang bước Color Grading.",
+        "Tránh chạm ống hút vào vùng cháy sáng (RGB 255, 255, 255) vì không còn dữ liệu màu để thuật toán tính toán."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P05-02 Curves, Levels & Precision Tonal Control",
+          "target": "P05-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P05_color_correction_grading_guide.md",
+          "target": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P05-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Hiệu Chỉnh Phơi Sáng & Cân Bằng Trắng Chuẩn Xác",
+      "subtitle": "Bước chuẩn bị kỹ thuật mang tính sống còn trước khi phối màu điện ảnh",
+      "contentMarkdown": "Bạn có bao giờ cảm thấy bức ảnh của mình trông nhờ nhờ, đục ngầu hoặc ám vàng như chụp dưới bóng đèn dầu?\n\nĐó là lúc bạn cần đến **Kỹ Thuật Cân Bằng Trắng (White Balance) & Phơi Sáng Khoa Học**.\n\nMàn hình máy tính hay điện thoại của bạn có thể bị sai màu hoặc đặt độ sáng quá cao đánh lừa thị giác. Trong bài học này, bạn sẽ học cách đọc **Histogram**—chiếc la bàn trung thực tuyệt đối—và cách dùng ống hút cân bằng trắng để đưa màu sắc về chuẩn mực thị giác hoàn hảo.",
+      "actionBox": {
+        "label": "Nguyên Tắc Nền Tảng",
+        "text": "Không bao giờ phối màu (Color Grading) khi bức ảnh chưa được cân bằng trắng và phơi sáng chuẩn (Color Correction)!"
+      }
+    },
+    {
+      "id": "P05-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Cách Đọc Radar Histogram Như Chuyên Gia",
+      "subtitle": "Giải mã biểu đồ phân bố độ sáng từ 0 đến 255",
+      "contentMarkdown": "Mở bảng **Histogram Studio** (Window > Histogram):\n\n- 📉 **Trục hoành (Trục ngang):** Biểu diễn giá trị độ sáng từ `0` (Đen tuyệt đối bên trái) đến `255` (Trắng tuyệt đối bên phải).\n- 📊 **Trục tung (Trục đứng):** Biểu diễn số lượng điểm ảnh (pixel) mang giá trị độ sáng đó.\n- ⚠️ **Clipping (Tràn biên):**\n  - Nếu cột đồ thị đâm kịch trần vào trục 0 ➔ Vùng tối bị bết đen mất sạch chi tiết (Crushed Shadows).\n  - Nếu cột đồ thị tràn kịch trần vào trục 255 ➔ Bầu trời hoặc da bị cháy sáng trắng bệch (Blown Highlights).",
+      "visual": {
+        "type": "callout",
+        "content": "Một bức ảnh phơi sáng lý tưởng sẽ có đồ thị trải đều mềm mại như hình quả chuông ở trung tâm, chạm nhẹ 2 mép mà không bị đâm kịch trần."
+      }
+    },
+    {
+      "id": "P05-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "White Balance Adjustment & Công Cụ Ống Hút",
+      "subtitle": "Đưa màu sắc trở lại trung thực chỉ bằng một cú click",
+      "contentMarkdown": "Nhấn biểu tượng Adjustments (vòng tròn bán nguyệt) ➔ chọn **White Balance**:\n\n- **Temperature Slider (Nhiệt độ K):** Kéo sang trái (Cool / Xanh dương) để hạ nhiệt ảnh bị ám vàng; kéo sang phải (Warm / Vàng cam) để sưởi ấm ảnh bị lạnh lẽo.\n- **Tint Slider (Sắc thái):** Cân bằng giữa Xanh lá cây (Green) và Đỏ tím (Magenta).\n- 🧪 **Ống hút Eyedropper:** Nhấp vào biểu tượng ống hút trên hộp thoại, sau đó nhấp vào một điểm màu xám trung tính (18% Gray) trên ảnh. Phần mềm sẽ tự động tính toán và triệt tiêu sạch sẽ mọi sắc ám!",
+      "actionBox": {
+        "label": "Mẹo Tìm Điểm Xám",
+        "text": "Mặt đường bê tông, bức tường xi măng, áo thun xám hoặc vùng bóng râm trên tuyết trắng là những điểm mẫu lý tưởng nhất để chấm ống hút."
+      }
+    },
+    {
+      "id": "P05-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Cân Chỉnh Màu Chuẩn Xác",
+      "subtitle": "Đưa bức ảnh ám vàng về trạng thái trong trẻo",
+      "contentMarkdown": "1. **Kiểm tra Histogram:** Mở Histogram Studio để xem mức độ lệch màu của 3 kênh Red, Green, Blue.\n2. **Thêm White Balance:** Nhấn biểu tượng Adjustments ➔ chọn White Balance.\n3. **Chấm chọn điểm xám:** Dùng ống hút nhấp vào mảng áo xám hoặc tường gạch.\n4. **Nâng độ phơi sáng:** Thêm lớp `Exposure Adjustment`, tăng nhẹ `+0.7 EV` nếu cảm thấy bức ảnh hơi tối. Kiểm tra lại Histogram thấy dải sắc nở rộng hài hòa!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Open Histogram | Add White Balance | Eyedropper Sample | Tune Exposure | Crystal Clear"
+      }
+    },
+    {
+      "id": "P05-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Sai Lầm Thường Gặp Về Cân Bằng Màu",
+      "subtitle": "Tránh làm sai lệch màu da người mẫu",
+      "contentMarkdown": "### 1. Chấm ống hút vào vùng bị cháy sáng (White Clipping)\n- **Hậu quả:** Bức ảnh lập tức bị nhảy màu loạn xạ thành tím hoặc xanh lè kỳ dị!\n- **Nguyên nhân:** Điểm cháy sáng có R=G=B=255, hoàn toàn không còn dữ liệu màu gốc để phần mềm phân tích.\n- **Khắc phục:** Chỉ chấm ống hút vào vùng màu trắng có bóng mờ (vẫn nhìn thấy chi tiết thớ vải áo).\n\n### 2. Tin tưởng mù quáng vào mắt nhìn trên màn hình chưa hiệu chuẩn\n- **Hậu quả:** Xem trên laptop thấy đẹp, gửi cho khách hàng xem trên iPhone thì bị vàng khè hoặc tối om.\n- **Khắc phục:** Luôn đối chiếu với biểu đồ Histogram để đảm bảo tính chuẩn xác khách quan.",
+      "actionBox": {
+        "label": "Lời Khuyên Chuyên Gia",
+        "text": "Đôi mắt của bạn sẽ thích nghi với màu ám chỉ sau 30 giây nhìn màn hình! Hãy luôn tin tưởng vào con số trên Histogram."
+      }
+    },
+    {
+      "id": "P05-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Nhận Thức Histogram & Màu Sắc",
+      "subtitle": "Xác nhận kỹ năng đọc biểu đồ phơi sáng",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P05-01-Q1",
+        "question": "Khi biểu đồ Histogram hiển thị các cột sóng đâm kịch trần vào trục 255 ở mép bên phải, điều đó biểu thị hiện tượng gì?",
+        "options": [
+          "Bức ảnh có độ tương phản hoàn hảo",
+          "Bức ảnh đang bị cháy sáng (Highlight Clipping), các pixel vùng này bị biến thành màu trắng tinh 255 và mất hoàn toàn chi tiết",
+          "Ảnh đang bị thiếu sáng",
+          "Ảnh đang ở hệ màu CMYK"
+        ],
+        "correctIndex": 1,
+        "explanation": "Cột sóng chạm kịch mép phải trục 255 thể hiện các pixel đã bị bão hòa trắng hoàn toàn, không thể cứu lại chi tiết bằng phần mềm nữa."
+      }
+    },
+    {
+      "id": "P05-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Cứu Ảnh Chụp Tiệc Ám Vàng",
+      "subtitle": "Đưa tone da người mẫu về sắc hồng tự nhiên",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P05_color_correction_grading_guide.md`.\n2. Quan sát bức ảnh chân dung tiệc tối bị ám vàng cam nặng nề do đèn nhà hàng.\n3. Áp dụng White Balance Adjustment, dùng ống hút chấm vào chiếc đĩa trắng hoặc cổ áo sơ mi xám.\n4. Tinh chỉnh thanh trượt Temperature và Tint cho đến khi da người mẫu hết vàng bủng, trở nên hồng hào tự nhiên.\n5. Thêm Exposure Adjustment cân chỉnh độ sáng toàn cảnh.\n\n### Tiêu Chí Nghiệm Thu:\n- Da mặt hồng hào chân thực.\n- Histogram 3 kênh R, G, B cân bằng, không bị cháy sáng.",
+      "practiceData": {
+        "prompt": "Khử ám vàng bằng White Balance và Exposure trên tệp ảnh tiệc tối.",
+        "starterAsset": {
+          "filename": "P05_color_correction_grading_guide.md",
+          "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+          "filesize": "4.4 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật hiệu chỉnh màu sắc và cân bằng trắng trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Mở Histogram kiểm tra kênh màu",
+          "Khử ám màu bằng White Balance Adjustment",
+          "Cân bằng độ phơi sáng bằng Exposure Adjustment"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "P10",
+  "trackId": "photo",
+  "order": 10,
+  "moduleNumber": "P10",
+  "title": "Export, Delivery & Professional Production Masterclass",
+  "tagline": "Master Export Persona slices, color space management, multi-format compression, and complete capstone production.",
+  "description": "Learn professional delivery in Affinity Photo 3.0: Export Persona slicing (1x, 2x, 3x, WebP, SVG, AVIF, TIFF, PDF), color spaces and rendering intents (sRGB vs Display P3 vs Adobe RGB 1998 vs ProPhoto RGB), file compression & metadata preservation, and the comprehensive Track 2 Capstone master workflow.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 95,
+  "prerequisites": ["P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09"],
+  "primaryPersona": "Export Persona",
+  "starterAsset": {
+    "filename": "P10_export_delivery_production_guide.md",
+    "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for professional export, color management, and capstone workflow in Affinity Photo."
+  },
+  "lessonIds": ["P10-01", "P10-02", "P10-03"]
+}

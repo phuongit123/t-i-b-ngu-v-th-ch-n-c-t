@@ -1,0 +1,22 @@
+{
+  "id": "P06",
+  "trackId": "photo",
+  "order": 6,
+  "moduleNumber": "P06",
+  "title": "Live Filters, Sharpening & Optical Lighting Effects",
+  "tagline": "Master GPU live filters, multi-scale sharpening, sensor noise reduction, and 3D lighting.",
+  "description": "Learn professional optical effects in Affinity Photo 3.0: Live Filter non-destructive workflows, High Pass vs Clarity vs Unsharp Mask sharpening, dual-channel Luminance/Chrominance noise reduction, and Live Lighting filters with 3D bump maps.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 85,
+  "prerequisites": ["P01", "P02", "P03"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P06_live_filters_effects_guide.md",
+    "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+    "filesize": "4.3 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for live filters, sharpening and lighting effects in Affinity Photo."
+  },
+  "lessonIds": ["P06-01", "P06-02", "P06-03"]
+}

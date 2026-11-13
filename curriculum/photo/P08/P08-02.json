@@ -1,0 +1,254 @@
+{
+  "id": "P08-02",
+  "moduleId": "P08",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Vector Shape Integration & Quick FX / Studio Layer Effects",
+  "subtitle": "Enrich photo compositions with crisp vector shapes and non-destructive Quick FX layer styles.",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Vẽ và hiệu chỉnh các hình khối vector tham số (Rectangle, Ellipse, Star, Callout) trực tiếp trong Photo Persona.",
+      "Thiết lập các hiệu ứng Layer FX chuyên nghiệp: Outer Shadow, Inner Shadow, Outline, 3D / Bevel Emboss, Color Overlay.",
+      "Kích hoạt và hiểu rõ tầm quan trọng của tùy chọn 'Scale with Object' khi co giãn kích thước layer hiệu ứng.",
+      "Sử dụng Quick FX panel để lưu trữ, sao chép và đồng bộ phong cách đồ họa (Layer Styles) giữa các đối tượng."
+    ],
+    "foundationalKnowledge": "Khác với các phần mềm thuần raster, Affinity Photo tích hợp đầy đủ công cụ vẽ hình học vector tham số và hệ thống hiệu ứng Layer FX tính toán bằng GPU thời gian thực. Các hình khối vector luôn giữ độ nét 100% không vỡ hạt dù zoom phóng to bao nhiêu lần, còn hệ thống Layer FX cho phép thử nghiệm vô số kiểu đổ bóng, nổi viền 3D, và phát sáng mà không bao giờ làm hỏng dữ liệu gốc.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Vector Architecture & Quick FX Shaders",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Shape Tools & Layer Effects (Quick FX)",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Ctrl + Alt + V)",
+        "mac": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Cmd + Option + V)"
+      },
+      "description": "Kho công cụ hình học vector thông minh và hiệu ứng bề mặt đa dạng.",
+      "contextBarOptions": [
+        "Corner Radius: Bo tròn góc hình chữ nhật theo phần trăm hoặc giá trị tuyệt đối",
+        "Fill & Stroke: Màu tô vector và đường viền nét vẽ tùy biến áp lực",
+        "Scale with Object: Khóa tỉ lệ hiệu ứng fx tự động co giãn theo kích thước đối tượng",
+        "Layer FX Button: Biểu tượng 'fx' ở đáy panel Layers mở hộp thoại hiệu ứng chuyên sâu"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo khung huy hiệu bằng Shape Tool",
+        "instruction": "Chọn Rounded Rectangle Tool (U). Giữ phím Shift để vẽ một hình vuông bo góc cân đối phía sau cụm chữ giảm giá. Trên Context Toolbar, điều chỉnh Corner Radius theo tỷ lệ phần trăm để tạo độ bo tròn mượt mà.",
+        "shortcutTip": { "win": "U (Shape Tool) + Shift", "mac": "U (Shape Tool) + Shift" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Mở hộp thoại Layer Effects (Quick FX)",
+        "instruction": "Chọn layer hình khối vừa vẽ. Nhấp vào nút 'fx' ở chân panel Layers để mở bảng Layer Effects chuyên sâu. Tích chọn hiệu ứng 'Outer Shadow'.",
+        "shortcutTip": { "win": "Nhấp nút 'fx'", "mac": "Nhấp nút 'fx'" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Thiết lập đổ bóng Outer Shadow chuẩn điện ảnh",
+        "instruction": "Đặt Radius là 15px, Offset là 10px, góc Angle 90 độ (chiếu từ trên xuống). Đổi Blend Mode sang Multiply, giảm Opacity xuống 35% để bóng nhẹ nhàng hòa tan vào ảnh nền.",
+        "shortcutTip": { "win": "Outer Shadow Multiply 35%", "mac": "Outer Shadow Multiply 35%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thêm hiệu ứng Bevel & Emboss và Scale with Object",
+        "instruction": "Tích chọn mục 'Bevel / Emboss', chọn kiểu Pillow Emboss để tạo mép nổi 3D sang trọng cho huy hiệu. Đánh dấu vào ô kiểm 'Scale with Object' ở góc dưới hộp thoại để khi phóng to thu nhỏ huy hiệu, kích thước bóng và viền nổi tự động co giãn tương ứng.",
+        "shortcutTip": { "win": "Tích 'Scale with Object'", "mac": "Tích 'Scale with Object'" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Danh mục hiệu ứng Layer FX phổ biến nhất trong thiết kế Key Visual",
+        "description": "Các hiệu ứng bề mặt và công năng chuyên biệt.",
+        "visualType": "table",
+        "visualContent": "| Hiệu ứng | Công năng chính | Thiết lập khuyến nghị |\n|---|---|---|\n| Outer Shadow | Tách khối đối tượng khỏi ảnh nền | Multiply, Opacity 30-40%, Radius lớn |\n| Outline | Tạo đường viền nét ngoài sắc nhọn | Inside / Outside, Scale with Object ON |\n| Bevel / Emboss | Giả lập bề mặt kim loại vát gờ 3D | Smooth, Soften 0, Highlight Screen 75% |\n| Gradient Overlay | Đổ màu chuyển sắc phong phú phi phá hủy | Linear / Radial, Angle khớp Key Light |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo huy hiệu chứng nhận vàng kim (Gold Seal Badge)",
+      "taskDescription": "Vẽ một hình sao đa cánh bằng Star Tool, thêm viền Outline vàng và hiệu ứng Pillow Emboss để làm tem sản phẩm cao cấp.",
+      "checkpoints": [
+        "Vẽ hình ngôi sao 16 cánh cân đối bằng Star Tool.",
+        "Gán màu Fill Gradient màu vàng kim sang trọng.",
+        "Áp dụng Bevel / Emboss tạo gờ cạnh nổi 3D.",
+        "Bật 'Scale with Object' và copy FX sang nút CTA."
+      ],
+      "expectedOutcome": "Huy hiệu vàng óng 3D sắc nét, nổi bật ấn tượng trên nền ảnh quảng cáo."
+    },
+    "independentChallenge": {
+      "title": "Thiết kế bộ thẻ sản phẩm thương mại điện tử đồng bộ",
+      "prompt": "Sử dụng tài liệu hướng dẫn P08, tạo một khung card sản phẩm có bóng đổ mềm mại, sau đó dùng lệnh Edit > Paste FX để đồng bộ sang 4 thẻ sản phẩm khác.",
+      "starterAsset": {
+        "filename": "P08_typography_graphic_integration_guide.md",
+        "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Typography và đồ họa trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Card nền trắng bo tròn góc với viền Outline mảnh 1px xám nhạt.",
+        "Outer Shadow mềm mại, màu slate sẫm hòa trộn Multiply.",
+        "Toàn bộ 4 thẻ sản phẩm nhận phong cách đồng nhất qua Paste FX."
+      ],
+      "bonusGoal": "Kiểm tra thu nhỏ toàn bộ cụm thẻ xuống 50% để xác nhận 'Scale with Object' hoạt động chính xác."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Sau khi thu nhỏ hình ảnh, viền bóng trở nên quá dày làm che mất chi tiết",
+        "cause": "Tùy chọn 'Scale with Object' trong hộp thoại Layer Effects chưa được bật.",
+        "solution": "Mở lại hộp thoại Layer Effects (fx) và tích chọn ô 'Scale with Object' ở góc dưới bên trái."
+      },
+      {
+        "pitfall": "Canvas bị giật lag khi áp dụng Layer FX trên tài liệu kích thước lớn",
+        "cause": "Giá trị Gaussian Blur hoặc 3D Radius đặt quá cao trên độ phân giải siêu nét.",
+        "solution": "Kiểm tra Settings > Performance để chắc chắn đã bật phần cứng tăng tốc đồ họa (Hardware Acceleration)."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P08-02-Q1",
+        "question": "Tùy chọn 'Scale with Object' trong hộp thoại Layer Effects có tác dụng quan trọng nào?",
+        "options": [
+          "Tự động tăng giảm độ dày của viền, độ tỏa bóng và kích thước hiệu ứng tỉ lệ thuận theo kích thước của đối tượng khi co giãn",
+          "Tự động xuất ảnh ra nhiều tỉ lệ 1x, 2x, 3x",
+          "Khóa layer không cho phép thay đổi kích thước",
+          "Làm mờ ảnh khi phóng to"
+        ],
+        "correctIndex": 0,
+        "explanation": "Khi bật 'Scale with Object', các thông số pixel của hiệu ứng (Radius, Offset, Outline width) sẽ tự động nhân tỉ lệ tương ứng với độ biến dạng kích thước của hình khối."
+      },
+      {
+        "id": "P08-02-Q2",
+        "question": "Để sao chép toàn bộ thuộc tính hiệu ứng từ một layer sang các layer khác trong nháy mắt, lệnh nào được sử dụng?",
+        "options": [
+          "Copy layer (Ctrl+C / Cmd+C) rồi chọn Edit > Paste FX",
+          "File > Export",
+          "Edit > Duplicate",
+          "Layer > Rasterize"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lệnh Edit > Paste FX cho phép áp dụng toàn bộ cài đặt Layer Effects của đối tượng vừa copy vào các layer đang được chọn."
+      },
+      {
+        "id": "P08-02-Q3",
+        "question": "Để tạo cảm giác bóng đổ chìm êm dịu và tương tác tự nhiên với màu sắc của ảnh nền, Blend Mode nào của Outer Shadow là chuẩn mực nhất?",
+        "options": [
+          "Multiply",
+          "Screen",
+          "Color Dodge",
+          "Difference"
+        ],
+        "correctIndex": 0,
+        "explanation": "Blend Mode Multiply có đặc tính nhân các giá trị tối và giữ nguyên màu sắc nền, giúp bóng đổ hòa quyện và làm sẫm màu tự nhiên các chi tiết bên dưới."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Hình khối vector trong Photo Persona luôn sắc nét vô hạn ở mọi độ phóng đại.",
+        "Layer FX cung cấp 10 hiệu ứng bề mặt phi hủy diệt tính toán bằng GPU thời gian thực.",
+        "Luôn kích hoạt 'Scale with Object' để bảo vệ tỉ lệ hiệu ứng khi co giãn đồ họa.",
+        "Lệnh Paste FX cho phép sao chép công thức hiệu ứng cho hàng loạt phần tử tức thì."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P08-03 Designing Promotional Commercial Compositions & Text Behind Subject",
+          "target": "P08-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P08_typography_graphic_integration_guide.md",
+          "target": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P08_typography_graphic_integration_guide.md",
+    "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+    "filesize": "4.4 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p08-02-01",
+      "order": 1,
+      "title": "Thế mạnh của Vector trong môi trường Pixel",
+      "subtitle": "Độ sắc nét vô tận bên cạnh hình ảnh raster",
+      "type": "concept",
+      "content": "Trong Affinity Photo, các công cụ Shape (U) và Pen Tool (P) hoạt động hoàn toàn dưới dạng Vector. Bạn có thể phóng to hình khối lên 1000% mà không bao giờ bị vỡ hạt hay mờ mép, mang lại sự tương phản thị giác đắt giá khi đặt cạnh ảnh chụp.",
+      "tips": "Hình khối vector có thể làm mặt nạ clipping mask chứa các ảnh chụp bên trong cực kỳ mượt mà.",
+      "codeSnippet": "Vector in Photo Persona:\n- Shapes (Rectangle, Ellipse, Star, Donut, Callout)\n- Parametric Controls: Rounded corners, cog teeth, star points\n- Infinite Resolution: Re-renderable at any DPI without blur"
+    },
+    {
+      "id": "slide-p08-02-02",
+      "order": 2,
+      "title": "Khám phá danh mục Layer FX (Quick FX)",
+      "subtitle": "Hệ thống hiệu ứng bề mặt phong phú",
+      "type": "layout",
+      "content": "Hộp thoại Layer Effects cung cấp 10 hiệu ứng chuyên sâu: Gaussian Blur, Outer Shadow, Inner Shadow, Outer Glow, Inner Glow, Outline (Stroke FX), 3D, Bevel / Emboss, Color Overlay, Gradient Overlay.",
+      "tips": "Nhấp vào nút bánh răng hoặc biểu tượng 'fx' trên panel Layers để mở bảng điều khiển đầy đủ.",
+      "visualDescription": "Mô phỏng hộp thoại Layer Effects với danh sách kiểm tra các hiệu ứng bên trái và thanh trượt thông số bên phải."
+    },
+    {
+      "id": "slide-p08-02-03",
+      "order": 3,
+      "title": "Outer Shadow: Đổ bóng thẩm mỹ",
+      "subtitle": "Tách lớp đối tượng khỏi nền một cách thanh lịch",
+      "type": "interaction",
+      "content": "Đổ bóng chuyên nghiệp cần sự tiết chế: Không dùng màu đen đặc với Opacity 100%. Hãy sử dụng Opacity 25-45%, tăng Radius để bóng lan tỏa êm ái, và chỉnh Offset để xác định khoảng cách giữa đối tượng và mặt nền.",
+      "tips": "Hòa trộn bóng với Blend Mode Multiply để màu bóng tương tác với các sắc tố màu của ảnh nền phía dưới.",
+      "codeSnippet": "Professional Drop Shadow Settings:\nBlend Mode: Multiply\nColor: Dark Slate / Deep Ambient Tint (not pure #000000)\nOpacity: 30% - 40%\nRadius: 15px - 25px\nOffset: 8px - 12px\nIntensity: 0%"
+    },
+    {
+      "id": "slide-p08-02-04",
+      "order": 4,
+      "title": "Bevel & Emboss: Tạo khối và chiều sâu 3D",
+      "subtitle": "Biến chữ và hình khối thành chất liệu thực",
+      "type": "detail",
+      "content": "Các chế độ Bevel: Inner Bevel (khối nổi bên trong viền), Outer Bevel (khối nổi phía ngoài), Emboss (dập nổi hai chiều), Pillow Emboss (dập lõm viền mép). Bạn có thể chỉnh góc Highlight (vùng sáng) và Shadow (vùng tối) để khớp góc chiếu sáng của bức ảnh.",
+      "tips": "Giảm độ Soften xuống 0 để tạo hiệu ứng gờ viền vát cạnh cứng cáp như đá hoa cương hoặc kim loại.",
+      "visualDescription": "So sánh 4 phong cách Bevel trên cùng một logo hình huy hiệu vuông bo góc."
+    },
+    {
+      "id": "slide-p08-02-05",
+      "order": 5,
+      "title": "Quy tắc sống còn: Scale with Object",
+      "subtitle": "Bảo vệ tỉ lệ hiệu ứng khi thay đổi kích thước",
+      "type": "workflow",
+      "content": "Nếu bạn vẽ một nút bấm nhỏ với viền Outline 2px và đổ bóng 5px, khi bạn phóng to nút bấm này lên gấp 5 lần để làm biển quảng cáo, viền và bóng vẫn giữ nguyên 2px nếu bạn quên bật 'Scale with Object'. Bật tùy chọn này để các thông số fx tự động nhân đôi nhân ba.",
+      "tips": "Nút kiểm tra 'Scale with Object' nằm ở góc dưới cùng bên trái của hộp thoại Layer Effects.",
+      "codeSnippet": "Scale with Object Rule:\n[ ] OFF: 2px stroke remains 2px stroke when object scales from 100px to 1000px (looks thin!)\n[✓] ON:  2px stroke automatically expands to 20px stroke (maintains perfect proportions!)"
+    },
+    {
+      "id": "slide-p08-02-06",
+      "order": 6,
+      "title": "Tái sử dụng phong cách với Paste FX",
+      "subtitle": "Đồng bộ giao diện hàng loạt phần tử",
+      "type": "diagram",
+      "content": "Khi bạn đã tinh chỉnh xong một công thức đổ bóng và màu chuyển tuyệt đẹp trên một layer, chọn layer đó và nhấn Ctrl+C (Cmd+C). Sau đó chọn 10 layer khác và chọn Edit > Paste FX. Toàn bộ hiệu ứng sẽ được nhân bản tức thì.",
+      "tips": "Lệnh Paste FX chỉ sao chép các thuộc tính hiệu ứng, hoàn toàn không làm thay đổi nội dung chữ cái hay kích thước hình dạng.",
+      "visualDescription": "Sơ đồ hiển thị 1 đối tượng gốc truyền các thông số hiệu ứng sang 4 đối tượng khác nhau qua thao tác Paste FX."
+    },
+    {
+      "id": "slide-p08-02-07",
+      "order": 7,
+      "title": "Tóm lược hệ sinh thái đồ họa trong Photo",
+      "subtitle": "Cầu nối giữa chỉnh sửa ảnh và thiết kế truyền thông",
+      "type": "summary",
+      "content": "Khả năng xử lý vector và Layer FX ngay trong Photo Persona giúp bạn hoàn thiện các ấn phẩm banner, thumbnail YouTube, poster sự kiện mà không cần phải chuyển đổi qua lại giữa nhiều phần mềm khác nhau.",
+      "tips": "Sử dụng tính năng Studio Presets để lưu lại không gian làm việc vừa có công cụ ảnh vừa có công cụ text thuận tiện.",
+      "codeSnippet": "Graphic Integration Checklist:\n[✓] Vector shapes drawn with crisp anti-aliasing\n[✓] Layer FX applied with subtle opacities and matching light angle\n[✓] 'Scale with Object' enabled on all production assets\n[✓] Layer styles duplicated via Paste FX for consistency"
+    }
+  ]
+}

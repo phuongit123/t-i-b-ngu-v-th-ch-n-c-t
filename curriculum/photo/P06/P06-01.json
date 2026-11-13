@@ -1,0 +1,280 @@
+{
+  "id": "P06-01",
+  "moduleId": "P06",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Live Filters & Dynamic Filter Workflows",
+  "subtitle": "Hourglass Architecture, Live Perspective, Live Displace & Built-in Mask Shaders",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu kiến trúc phân bổ bộ lọc động (Live Filters) thông qua biểu tượng đồng hồ cát trong Layers Studio.",
+      "Làm chủ Live Perspective Filter để nắn chỉnh góc nhìn phối cảnh của biển quảng cáo hay tranh treo tường.",
+      "Sử dụng Live Displace Filter kết hợp bản đồ độ lồi lõm (Displacement Map) để uốn nắn logo ôm sát nếp gấp áo thun.",
+      "Khai thác tính năng Preserve Alpha để bảo vệ mép biên trong suốt của các đối tượng đã tách nền."
+    ],
+    "foundationalKnowledge": "Khác với các ứng dụng truyền thống nơi bộ lọc là một thao tác một chiều (One-way operation) làm thay đổi ma trận pixel gốc, Affinity Photo xem bộ lọc là một thực thể hình học độc lập (Geometric Layer Entity). Live Perspective và Live Mesh Warp là những minh chứng điển hình: thay vì kéo biến dạng vĩnh viễn các điểm ảnh, phần mềm áp dụng một lưới biến đổi ma trận 3D lên tọa độ hiển thị. Bạn có thể nắn một poster phẳng nằm nghiêng theo góc phối cảnh của một tòa nhà chọc trời, rồi một tuần sau vẫn có thể nhấp đúp chuột để căn chỉnh lại 4 góc nghiêng mà không bị nhòe vỡ một điểm ảnh nào.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Live Filter Architecture & Perspective Transform Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Live Filters Studio & Perspective Engine",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Layer > New Live Filter Layer / Biểu tượng đồng hồ cát đáy Layers Studio",
+        "mac": "Layer > New Live Filter Layer / Biểu tượng đồng hồ cát đáy Layers Studio"
+      },
+      "description": "Kho tàng các bộ lọc quang học, biến dạng và làm nét thời gian thực.",
+      "contextBarOptions": [
+        "Live Perspective: Điều chỉnh lưới 4 điểm neo phối cảnh (Single-plane hoặc Dual-plane)",
+        "Live Mesh Warp: Tạo lưới ma trận uốn lượn tự do",
+        "Preserve Alpha: Giữ nguyên vùng biên trong suốt, chống loang hiệu ứng ra ngoài",
+        "Built-in Mask: Vẽ cọ đen để xóa bớt hiệu ứng bộ lọc cục bộ"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở tệp và chọn layer cần nắn phối cảnh",
+        "instruction": "Kéo một hình ảnh poster hoặc logo đặt lên ảnh chụp góc phố có một biển hiệu nằm nghiêng. Chọn layer poster trong Layers Studio.",
+        "shortcutTip": { "win": "Chọn layer poster", "mac": "Chọn layer poster" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Thêm Live Perspective Filter",
+        "instruction": "Nhấn biểu tượng chiếc đồng hồ cát ở đáy Layers Studio, chọn Distort > Perspective. Một khung lưới phối cảnh 4 góc xuất hiện bao quanh layer poster.",
+        "shortcutTip": { "win": "Đồng hồ cát > Perspective", "mac": "Đồng hồ cát > Perspective" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Kéo 4 điểm neo khớp vào góc biển hiệu",
+        "instruction": "Kéo từng điểm neo ở 4 góc của poster thả chính xác vào 4 góc của biển hiệu trên tường. Poster sẽ uốn nghiêng theo đúng độ sâu không gian 3 chiều của tòa nhà.",
+        "shortcutTip": { "win": "Kéo 4 điểm góc", "mac": "Kéo 4 điểm góc" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Đổi Blend Mode để hòa vào chất liệu",
+        "instruction": "Đổi Blend Mode của poster sang 'Multiply' hoặc 'Overlay' để các vết xước và vân tường bên dưới hiện rõ qua lớp in.",
+        "shortcutTip": { "win": "Blend Mode: Multiply", "mac": "Blend Mode: Multiply" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Phân loại các Live Filter quan trọng nhất trong Affinity Photo",
+        "description": "Danh mục và công năng ứng dụng thực tế.",
+        "visualType": "table",
+        "visualContent": "| Nhóm Live Filter | Bộ lọc tiêu biểu | Công năng nổi bật |\n|---|---|---|\n| Distort (Biến dạng) | Live Perspective / Live Mesh Warp | Nắn hình ảnh khớp vào màn hình điện thoại, biển quảng cáo, nếp áo |\n| Sharpen (Làm nét) | Live Clarity / High Pass / Unsharp Mask | Tăng độ sắc nét và tương phản vi mô mà không sinh ra quầng sáng |\n| Blur (Làm mờ) | Live Gaussian / Depth of Field / Motion | Xóa phông ống kính, tạo cảm giác tốc độ chuyển động |\n| Light (Ánh sáng) | Live Lighting / Vignette | Giả lập nguồn sáng studio 3D, chiếu đèn rọi, làm tối 4 góc nghệ thuật |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Ghép hình ảnh hiển thị lên màn hình điện thoại nằm nghiêng (Screen Mockup)",
+      "taskDescription": "Sử dụng Live Perspective Filter để ghép giao diện ứng dụng lên màn hình một chiếc iPhone đặt nghiêng trên bàn làm việc.",
+      "checkpoints": [
+        "Ảnh chụp màn hình ứng dụng được đặt đúng vị trí.",
+        "Áp dụng Live Perspective Filter dưới dạng Child Layer.",
+        "4 góc của ảnh khớp chính xác từng pixel với 4 góc màn hình điện thoại.",
+        "Nhấp đúp chuột vào Live Filter kiểm tra khả năng tái tinh chỉnh góc nghiêng."
+      ],
+      "expectedOutcome": "Giao diện hiển thị tự nhiên, chuẩn phối cảnh như thể đang chạy thật trên điện thoại."
+    },
+    "independentChallenge": {
+      "title": "Uốn nắn logo ôm sát nếp gấp áo thun với Live Displace",
+      "prompt": "Sử dụng Live Displace Filter (Bản đồ dải lồi lõm) để làm cho một logo phẳng uốn lượn nhấp nhô theo từng nếp nhăn và thớ vải của chiếc áo thun người mẫu đang mặc.",
+      "starterAsset": {
+        "filename": "P06_live_filters_effects_guide.md",
+        "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+        "filesize": "4.3 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Live Filters và hiệu ứng quang học trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Sử dụng ảnh áo thun làm Displacement Map.",
+        "Logo bị bẻ cong theo các nếp nhăn vải chân thực.",
+        "Hòa trộn chế độ Multiply hoặc Linear Burn để lấy lại vân vải."
+      ],
+      "bonusGoal": "Thêm một lớp Live Gaussian Blur cực nhẹ (0.4px) để làm tan biến độ sắc nhọn vector của logo."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Sau khi nắn Perspective, hình ảnh bị răng cưa ở mép viền",
+        "cause": "Tắt tính năng Antialiasing trong tùy chọn hiển thị hoặc phóng to quá kích thước gốc.",
+        "solution": "Đảm bảo hình ảnh đưa vào có độ phân giải đủ lớn (tối thiểu bằng kích thước vùng hiển thị)."
+      },
+      {
+        "pitfall": "Hiệu ứng Live Filter bị tác động lan sang các layer khác",
+        "cause": "Đặt Live Filter ở tầng trên cùng tự do thay vì lồng làm con (Child Layer) của đối tượng.",
+        "solution": "Kéo thả Live Filter thụt lề vào bên dưới layer đối tượng cần áp dụng."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P06-01-Q1",
+        "question": "Live Filter nào trong Affinity Photo chuyên dùng để bẻ cong và nắn chỉnh một bức ảnh 2D khớp chính xác vào một mặt phẳng nghiêng 3 chiều (như màn hình laptop, biển quảng cáo trên tường)?",
+        "options": [
+          "Live Gaussian Blur",
+          "Live Perspective Filter",
+          "Live High Pass",
+          "Live Denoise"
+        ],
+        "correctIndex": 1,
+        "explanation": "Live Perspective Filter cung cấp lưới 4 điểm neo linh hoạt cho phép nắn phối cảnh không gian 3 chiều hoàn toàn phi phá hủy."
+      },
+      {
+        "id": "P06-01-Q2",
+        "question": "Tính năng 'Preserve Alpha' trên hộp thoại tham số của các bộ lọc Live Filter có tác dụng gì?",
+        "options": [
+          "Làm tăng độ phân giải của bức ảnh",
+          "Bảo vệ vùng biên trong suốt của layer, ngăn không cho hiệu ứng làm mờ hoặc biến dạng tràn ra ngoài vùng trong suốt",
+          "Tự động xuất ảnh sang định dạng PNG",
+          "Đổi màu ảnh sang đen trắng"
+        ],
+        "correctIndex": 1,
+        "explanation": "Preserve Alpha khóa chặt kênh Alpha (độ trong suốt), đảm bảo các hiệu ứng lọc chỉ xảy ra bên trong phạm vi có pixel, không làm nhòe lem ra phần nền trong suốt."
+      },
+      {
+        "id": "P06-01-Q3",
+        "question": "Khi muốn xóa bỏ tác dụng của một Live Filter trên một vùng nhỏ của bức ảnh mà không làm ảnh hưởng phần còn lại, bạn làm cách nào?",
+        "options": [
+          "Dùng Eraser Tool tẩy thẳng lên ảnh",
+          "Chọn Paint Brush Tool (B) với màu Đen, vẽ trực tiếp lên thumbnail của Live Filter đó",
+          "Xóa bỏ Live Filter và làm lại từ đầu",
+          "Giảm độ sáng màn hình"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mỗi Live Filter đều có sẵn một Built-in Mask. Dùng cọ màu Đen vẽ lên nó sẽ che giấu hiệu ứng bộ lọc cục bộ một cách dễ dàng."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Live Filters trong Affinity Photo biến đổi hình ảnh theo thời gian thực mà không làm biến dạng pixel gốc.",
+        "Live Perspective là công cụ hoàn hảo để tạo các bản mockup sản phẩm (Mockup Screen / Billboard).",
+        "Tùy chọn Preserve Alpha giúp bảo vệ mép viền trong suốt của các vật thể đã tách nền.",
+        "Mặt nạ tích hợp sẵn trên Live Filter cho phép khoanh vùng tác động chính xác đến từng nét cọ."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P06-02 Blur, Sharpening & Sensor Noise Reduction",
+          "target": "P06-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P06_live_filters_effects_guide.md",
+          "target": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P06-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Khám Phá Sức Mạnh Live Filters & Biến Đổi Phối Cảnh",
+      "subtitle": "Quy trình bộ lọc động chuyên nghiệp với kiến trúc Đồng Hồ Cát",
+      "contentMarkdown": "Bạn muốn ghép một poster quảng cáo lên bức tường gạch nằm nghiêng theo góc phố, hay muốn đưa giao diện trang web lên màn hình một chiếc MacBook đang mở hé?\n\nTrong các phần mềm cũ, bạn phải bẻ gãy hình ảnh vĩnh viễn. Nếu khách hàng muốn đổi ảnh khác, bạn phải căn chỉnh lại từ đầu!\n\nVới **Live Perspective** và hệ sinh thái **Live Filters** của Affinity Photo, mọi biến đổi hình học đều là **vector ma trận sống**. Bạn có thể thay đổi nội dung bên trong bất kỳ lúc nào mà góc phối cảnh 3D vẫn được bảo tồn trọn vẹn.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Làm chủ các bộ lọc biến dạng không gian 3 chiều phi phá hủy và tính năng khóa biên Preserve Alpha."
+      }
+    },
+    {
+      "id": "P06-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Nguyên Lý Ma Trận Phối Cảnh Của Live Perspective",
+      "subtitle": "Không làm suy hao pixel khi thay đổi góc nhìn",
+      "contentMarkdown": "Khi bạn áp dụng **Live Perspective Filter**:\n1. Phần mềm tạo ra một khung biến đổi 4 góc độc lập (Quad Transform Matrix).\n2. Mỗi góc neo đại diện cho một tọa độ không gian ảo `(X, Y, Z)`.\n3. Khi hiển thị, card đồ họa GPU ánh xạ lại tọa độ pixel theo luật phối cảnh xa gần (Perspective Foreshortening).\n4. Bạn có thể phóng to, thu nhỏ, xoay hoặc thay thế hình ảnh bên trong mà lưới phối cảnh không hề bị phá vỡ!",
+      "visual": {
+        "type": "callout",
+        "content": "Live Perspective có thể đặt ở chế độ Single-Plane (một mặt phẳng) hoặc Dual-Plane (hai mặt phẳng vuông góc như góc ngã tư đường phố)."
+      }
+    },
+    {
+      "id": "P06-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bảng Điều Khiển Live Perspective",
+      "subtitle": "4 điểm neo và chế độ bảo vệ biên Preserve Alpha",
+      "contentMarkdown": "Mở Live Perspective từ biểu tượng chiếc đồng hồ cát:\n\n- 🔲 **4 Điểm Neo (Corner Handles):** Kéo thả trực quan khớp vào 4 góc vật thể trong đời thực.\n- 🛡️ **Preserve Alpha:** Đảm bảo hiệu ứng không bị tràn nhòe qua ranh giới trong suốt của layer.\n- 🔄 **Mode Single Plane / Dual Plane:** Chuyển đổi giữa mặt phẳng đơn và góc tường chữ L.\n- 🎭 **Built-in Mask:** Có sẵn mặt nạ để vẽ cọ đen che bớt vùng thừa.",
+      "actionBox": {
+        "label": "Mẹo Bắt Điểm",
+        "text": "Phóng to lên 300% khi đặt 4 điểm neo vào góc màn hình điện thoại để đạt độ khít khao tuyệt đối đến từng pixel!"
+      }
+    },
+    {
+      "id": "P06-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Tạo Mockup Màn Hình Điện Thoại",
+      "subtitle": "Ghép ảnh giao diện vào điện thoại nằm nghiêng",
+      "contentMarkdown": "1. **Đặt ảnh giao diện:** Kéo ảnh chụp màn hình app đặt đè lên chiếc điện thoại trong ảnh chụp.\n2. **Thêm Live Perspective:** Nhấn biểu tượng đồng hồ cát ➔ Distort ➔ `Perspective`.\n3. **Kéo 4 góc:** Lần lượt kéo 4 góc của ảnh giao diện vào đúng 4 góc mép kính của màn hình điện thoại.\n4. **Đổi Blend Mode:** Đổi sang `Multiply` hoặc `Screen` tùy thuộc vào độ bóng sáng của mặt kính để ánh sáng phản chiếu thật hòa vào giao diện!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Import UI | Hourglass Icon | Perspective | Drag 4 Corners | Perfect Mockup"
+      }
+    },
+    {
+      "id": "P06-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Lỗi Phổ Biến Khi Dùng Live Perspective",
+      "subtitle": "Tránh làm ảnh hưởng các layer khác trong tài liệu",
+      "contentMarkdown": "### 1. Live Filter nắn phối cảnh luôn cả bức ảnh nền\n- **Nguyên nhân:** Đặt Live Filter ở ngoài cùng của layer stack thay vì lồng làm con của riêng layer giao diện.\n- **Khắc phục:** Kéo thả Live Perspective thụt lề vào ngay bên dưới layer giao diện (Child Layer).\n\n### 2. Kéo điểm neo bị méo hình chữ X\n- **Nguyên nhân:** Kéo chéo góc neo khiến lưới bị vặn xoắn 180 độ.\n- **Khắc phục:** Bấm nút Reset trên hộp thoại tham số và kéo lại theo đúng thứ tự 4 góc kim đồng hồ.",
+      "actionBox": {
+        "label": "Quy Tắc Lồng Lớp",
+        "text": "Luôn luôn kéo Live Filter làm Child Layer của đối tượng cần biến dạng!"
+      }
+    },
+    {
+      "id": "P06-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Live Filter",
+      "subtitle": "Xác nhận độ hiểu sâu về bộ lọc thời gian thực",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P06-01-Q1",
+        "question": "Live Filter nào trong Affinity Photo chuyên dùng để bẻ cong và nắn chỉnh một bức ảnh 2D khớp chính xác vào một mặt phẳng nghiêng 3 chiều (như màn hình laptop, biển quảng cáo trên tường)?",
+        "options": [
+          "Live Gaussian Blur",
+          "Live Perspective Filter",
+          "Live High Pass",
+          "Live Denoise"
+        ],
+        "correctIndex": 1,
+        "explanation": "Live Perspective Filter cung cấp lưới 4 điểm neo linh hoạt cho phép nắn phối cảnh không gian 3 chiều hoàn toàn phi phá hủy."
+      }
+    },
+    {
+      "id": "P06-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Tạo Biển Hiệu Quảng Cáo Đường Phố",
+      "subtitle": "Ghép poster nghệ thuật lên bức tường gạch cổ",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P06_live_filters_effects_guide.md`.\n2. Chọn một bức ảnh poster ca nhạc hoặc sự kiện.\n3. Áp dụng Live Perspective Filter để nắn nghiêng tấm poster khớp vào bức tường gạch của một con hẻm cổ điển.\n4. Đổi Blend Mode của poster sang `Multiply` hoặc `Linear Burn` để các hạt cát và đường vân gạch hiển thị xuyên qua poster.\n5. Thêm Live Gaussian Blur (0.5px) để tạo độ mềm mại cho mực in ngoài trời.\n\n### Tiêu Chí Nghiệm Thu:\n- Poster bám khít góc nghiêng phối cảnh của bức tường.\n- Vân gạch hiển thị tự nhiên, chân thực 100%.",
+      "practiceData": {
+        "prompt": "Tạo biển quảng cáo tường gạch bằng Live Perspective và Blend Mode.",
+        "starterAsset": {
+          "filename": "P06_live_filters_effects_guide.md",
+          "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "filesize": "4.3 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Tài liệu kỹ thuật hướng dẫn Live Filters và hiệu ứng quang học trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Nắn phối cảnh bằng Live Perspective",
+          "Lồng làm Child Layer của poster",
+          "Hòa trộn chất liệu tường bằng Multiply"
+        ]
+      }
+    }
+  ]
+}

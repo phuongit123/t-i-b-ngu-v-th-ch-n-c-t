@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.2.1` (Phase 5 Pages Integration & Code-Splitting Certified)
+- **Version:** `4.2.1` (Phase 5 Track 2 Affinity Photo Certified)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (15 COMPLETED / 35 PENDING = 30.0%).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (16 COMPLETED / 34 PENDING = 32.0%).
 
 ---
 
@@ -32,7 +32,7 @@
 | `TASK-006` | Live Rendering Latency & Performance Benchmark | `AffinityMCPAgent` | `REQ-MCP-007` | `TASK-005` | `docs/MCP_RENDERING_BENCHMARK.md` | `render_spread` (180ms) and `render_selection` (140ms) benchmarked live; 0 errors. QA sign-off. | **COMPLETED** |
 | `TASK-010` | Affinity Designer 10-Module Track Authoring | `CurriculumAgent` | `REQ-CURR-001` | `TASK-003`, `TASK-005` | `curriculum/designer/` (Modules D01-D10, 30 lessons) | 10 modules in slide format with theory, shortcuts, and challenges. Complete QA sign-off in QA_TRACK1_DESIGNER_SIGNOFF.md. | **COMPLETED** |
 | `TASK-010-REAUDIT` | Track 1 Technical Re-Audit & Bundle Splitting | `Orchestrator` | `REQ-CURR-001` | `TASK-010` | `project-control/TRACK_1_REAUDIT_REPORT.md`, `vite.config.ts`, 39 lessons updated | 5/5 technical items verified against Serif docs; bundle dropped to 119 kB, 0 chunk warnings. | **COMPLETED** |
-| `TASK-011` | Affinity Photo 10-Module Track Authoring | `CurriculumAgent` | `REQ-CURR-002` | `TASK-003`, `TASK-005` | `curriculum/photo/` (Modules P01-P10, 30 lessons) | 10 modules in slide format covering RAW, adjustments, frequency sep. (Pilot P01 QA Verified). | `IN_PROGRESS` |
+| `TASK-011` | Affinity Photo 10-Module Track Authoring | `CurriculumAgent` | `REQ-CURR-002` | `TASK-003`, `TASK-005` | `curriculum/photo/` (Modules P01-P10, 30 lessons) | 10 modules in slide format covering RAW develop, adjustments, frequency separation, masking, compositing, live filters, typography, export masterclass. Complete QA sign-off in QA_PHASE5_TRACK2_SIGNOFF.md. | **COMPLETED** |
 | `TASK-012` | Affinity Publisher 10-Module Track Authoring | `CurriculumAgent` | `REQ-CURR-003` | `TASK-003`, `TASK-005` | `curriculum/publisher/` (Modules B01-B10, 30 lessons) | 10 modules in slide format covering master pages, styles, bleed. (Pilot B01 QA Verified). | `IN_PROGRESS` |
 | `TASK-013` | Affinity JavaScript DOM Scripting 10-Module Track | `CurriculumAgent` | `REQ-CURR-004` | `TASK-005`, `TASK-006` | `curriculum/scripting/` (Modules S01-S10, 30 lessons) | 10 modules with working code strictly matching `AFFINITY_DOM_API_REFERENCE.json`. (Pilot S01 QA Verified). | `IN_PROGRESS` |
 | `TASK-014` | Project Starter Asset Packs (40 Modules) | `DesignAgent` | `REQ-CURR-005` | `TASK-010`, `TASK-011`, `TASK-012` | `curriculum/assets/*.af*` (40 starter files) | Valid `.afdesign`, `.afphoto`, `.afpub` files compatible with 3.0. | `PENDING` |

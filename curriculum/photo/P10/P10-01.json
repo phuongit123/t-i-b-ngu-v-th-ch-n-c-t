@@ -1,0 +1,254 @@
+{
+  "id": "P10-01",
+  "moduleId": "P10",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Export Persona Slices, Multi-Format 1x/2x/3x & Continuous Export",
+  "subtitle": "Master professional slice generation, responsive resolution scaling, and continuous automated export.",
+  "durationMinutes": 25,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Khai thác không gian làm việc Export Persona chuyên dụng cho xuất tài nguyên đồ họa số và in ấn.",
+      "Sử dụng Slice Tool (S) và tạo Slice tự động từ cấu trúc Layer (Create Slice from Layer).",
+      "Thiết lập cấu hình xuất đa độ phân giải (1x, 2x, 3x, Retina) và đa định dạng (PNG, WebP, JPEG, SVG) chỉ trong một thao tác.",
+      "Kích hoạt tính năng Continuous Export để tự động cập nhật file xuất ra ổ đĩa ngay khi tài liệu gốc được lưu hoặc thay đổi."
+    ],
+    "foundationalKnowledge": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Export Persona là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút. Đặc biệt, tính năng Continuous Export tự động đồng bộ tài sản ra đĩa mỗi khi bạn lưu tài liệu gốc, tạo cầu nối hoàn hảo tới quy trình phát triển website và thiết kế dàn trang.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Export Persona Slicing & Continuous Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Export Persona & Slice Tool",
+      "persona": "Export Persona",
+      "shortcut": {
+        "win": "S (Slice Tool trong Export Persona) / Ctrl + Alt + Shift + S (Export Dialog)",
+        "mac": "S (Slice Tool trong Export Persona) / Cmd + Option + Shift + S (Export Dialog)"
+      },
+      "description": "Môi trường cắt lát đa nhiệm và quản lý cấu hình bàn giao sản phẩm đồ họa.",
+      "contextBarOptions": [
+        "Create Slice from Layer: Tạo lát cắt bám khít 100% ranh giới pixel của layer",
+        "Continuous Checkbox: Tự động render lại các lát cắt ra ổ cứng khi file master lưu",
+        "Multi-Scale Recipes: Thêm các cấp số nhân độ phân giải 1x, 2x, 3x, 512w",
+        "Path Variables: Cú pháp tạo cây thư mục tự động như /{format}/{filename}_{scale}"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Chuyển sang Export Persona",
+        "instruction": "Nhấp vào biểu tượng Export Persona ở góc trên bên trái thanh công cụ. Toàn bộ giao diện chỉnh sửa ảnh sẽ chuyển sang môi trường quản lý cắt lát chuyên nghiệp.",
+        "shortcutTip": { "win": "Nhấp biểu tượng Export Persona", "mac": "Nhấp biểu tượng Export Persona" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tạo Slice tự động từ Layer",
+        "instruction": "Mở tab 'Layers' bên trong Export Persona. Chọn layer logo hoặc poster cần xuất, nhấp nút 'Create Slice' ở chân panel. Một lát cắt bao khít ranh giới pixel của đối tượng sẽ được tạo tự động trong tab Slices.",
+        "shortcutTip": { "win": "Nút 'Create Slice'", "mac": "Nút 'Create Slice'" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cấu hình xuất đa độ phân giải 1x, 2x, 3x",
+        "instruction": "Mở tab Slices, mở rộng mục cấu hình của slice vừa tạo. Nhấp dấu '+' để thêm các kích cỡ: Đặt dòng thứ nhất là '1x' đuôi '.png', dòng thứ hai là '2x' hậu tố '@2x.png', dòng thứ ba là định dạng WebP với scale '512w' tối ưu cho web.",
+        "shortcutTip": { "win": "Nhấp dấu '+' trên Slice", "mac": "Nhấp dấu '+' trên Slice" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bật Continuous Export và xuất thành phẩm",
+        "instruction": "Tích chọn ô 'Continuous' ở trên cùng panel Slices. Nhấp nút 'Export Slices', chọn thư mục đích. Kể từ lúc này, mỗi khi bạn quay lại Photo Persona vẽ thêm hoặc chỉnh màu và lưu file, Affinity Photo sẽ tự động tái render và ghi đè file xuất mà không cần bấm lệnh xuất lại.",
+        "shortcutTip": { "win": "Tích 'Continuous'", "mac": "Tích 'Continuous'" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Bảng công thức xuất lát cắt đa độ phân giải (Slice Export Recipe)",
+        "description": "Các thông số thiết lập trong panel Slices.",
+        "visualType": "table",
+        "visualContent": "| Hệ số Scale | Định dạng | Hậu tố (Suffix) | Mục đích sử dụng |\n|---|---|---|---|\n| 1x | PNG / WebP | (Để trống) | Màn hình máy tính chuẩn tiêu chuẩn |\n| 2x | PNG / WebP | @2x | Màn hình Retina / iPhone / Android HiDPI |\n| 3x | PNG / WebP | @3x | Màn hình siêu nét mật độ cao 450+ PPI |\n| 512w | WebP 85% | _thumb | Ảnh đại diện thumbnail danh mục web |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Đóng gói bộ icon ứng dụng và banner quảng cáo đa tỉ lệ",
+      "taskDescription": "Tạo các slice cho 3 icon vector và 1 banner quảng cáo trong Export Persona với các tỉ lệ 1x, 2x và WebP.",
+      "checkpoints": [
+        "Tạo Slice tự động cho từng icon từ layer tương ứng.",
+        "Thiết lập công thức xuất 1x PNG, 2x PNG và 1x WebP cho mỗi slice.",
+        "Tạo Slice bao trọn toàn bộ canvas cho banner quảng cáo.",
+        "Xuất thành phẩm vào thư mục /dist/assets/."
+      ],
+      "expectedOutcome": "Thư mục đầu ra chứa đầy đủ các file @1x, @2x sắc nét tuyệt đối cho lập trình viên."
+    },
+    "independentChallenge": {
+      "title": "Thiết lập đường ống Continuous Export cho dự án thương mại",
+      "prompt": "Sử dụng tài liệu hướng dẫn P10, kích hoạt tính năng Continuous Export cho một banner sản phẩm, sau đó quay lại Photo Persona đổi màu chữ và kiểm tra file trên ổ cứng.",
+      "starterAsset": {
+        "filename": "P10_export_delivery_production_guide.md",
+        "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+        "filesize": "4.9 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Tích chọn Continuous Export trên panel Slices.",
+        "File được tự động cập nhật thời gian sửa đổi trên ổ đĩa khi bấm Ctrl+S.",
+        "Sử dụng Path Template phân loại file vào hai thư mục con /png/ và /webp/."
+      ],
+      "bonusGoal": "Kiểm tra dung lượng file WebP giảm hơn 40% so với PNG tương ứng."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Lát cắt tự động bị thừa viền trong suốt quá rộng",
+        "cause": "Layer có hiệu ứng Outer Glow hoặc Drop Shadow lan tỏa xa ra ngoài hình học.",
+        "solution": "Dùng Slice Tool (S) kéo co lại khung viền chữ nhật theo ý muốn."
+      },
+      {
+        "pitfall": "Continuous Export không tự xuất file khi chỉnh sửa",
+        "cause": "Tài liệu gốc (.afphoto) chưa từng được lưu vào ổ cứng lần đầu.",
+        "solution": "Lưu file master bằng Ctrl+S (Cmd+S) trước, sau đó Continuous Export sẽ hoạt động bình thường."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P10-01-Q1",
+        "question": "Tính năng 'Continuous Export' trong Export Persona có tác dụng gì đặc biệt?",
+        "options": [
+          "Tự động xuất lại và ghi đè các file ảnh thành phẩm ngay khi người dùng chỉnh sửa và lưu tài liệu gốc",
+          "Tự động gửi ảnh qua email cho khách hàng mỗi 5 phút",
+          "Tự động nén ảnh thành file zip liên tục",
+          "Xóa các file ảnh cũ trên ổ cứng khi hết dung lượng"
+        ],
+        "correctIndex": 0,
+        "explanation": "Continuous Export theo dõi tài liệu và tự động tái xuất toàn bộ các slice mỗi khi có thay đổi được lưu, giúp tiết kiệm thời gian xuất thủ công."
+      },
+      {
+        "id": "P10-01-Q2",
+        "question": "Khi cần tạo một slice bao khít chính xác kích thước của một logo vector hoặc nút bấm, thao tác nào là nhanh nhất?",
+        "options": [
+          "Chọn layer đó trong tab Layers của Export Persona và bấm 'Create Slice'",
+          "Dùng Crop Tool cắt canvas",
+          "Dùng thước kẻ đo từng pixel rồi vẽ bằng tay",
+          "Xóa tất cả các layer khác đi"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lệnh Create Slice from Layer trong Export Persona sẽ tạo một slice khớp 100% với ranh giới hình học và hiệu ứng của layer được chọn."
+      },
+      {
+        "id": "P10-01-Q3",
+        "question": "Hậu tố nào thường được thêm vào tên file ảnh để phục vụ cho các màn hình có mật độ điểm ảnh gấp đôi thông thường (Retina)?",
+        "options": [
+          "@2x",
+          "_lowres",
+          ".draft",
+          "_backup"
+        ],
+        "correctIndex": 0,
+        "explanation": "Quy ước chuẩn trong phát triển web và di động là sử dụng hậu tố '@2x' cho các file ảnh có độ phân giải nhân đôi dành cho màn hình mật độ cao (Retina/HiDPI)."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Export Persona là không gian chuyên nghiệp để cắt lát và xuất bản đa kênh hàng loạt.",
+        "Create Slice from Layer tự động liên kết ranh giới lát cắt với chuyển động của layer.",
+        "Công thức đa tỉ lệ (1x, 2x, 3x) đáp ứng mọi mật độ hiển thị màn hình di động.",
+        "Continuous Export tự động cập nhật file xuất trên ổ đĩa ngay khi tài liệu gốc lưu lại."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P10-02 Color Spaces & File Compression",
+          "target": "P10-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P10_export_delivery_production_guide.md",
+          "target": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P10_export_delivery_production_guide.md",
+    "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for professional export, color management, and capstone workflow in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p10-01-01",
+      "order": 1,
+      "title": "Sức mạnh của Export Persona",
+      "subtitle": "Quy trình cắt lát và đóng gói thành phẩm chuyên sâu",
+      "type": "concept",
+      "content": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Export Persona là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút.",
+      "tips": "Biểu tượng Export Persona nằm trên thanh toolbar chính (icon hình trang giấy và mũi tên đi ra).",
+      "codeSnippet": "Export Persona Superpowers:\n1. Non-destructive slicing (Slice Tool)\n2. One-click multi-format outputs (PNG + WebP + JPEG)\n3. Responsive scaling (1x, 2x, 3x, 512w, 1024w)\n4. Continuous Auto-export on save"
+    },
+    {
+      "id": "slide-p10-01-02",
+      "order": 2,
+      "title": "Slice thủ công vs Slice tự động từ Layer",
+      "subtitle": "Lựa chọn phương thức cắt lát phù hợp",
+      "type": "workflow",
+      "content": "1) Slice Tool (S): Dùng chuột vẽ các khung chữ nhật tự do ở bất kỳ khu vực nào trên canvas; 2) Create Slice from Layer: Nhấp chọn một layer trong tab Layers của Export Persona và bấm nút tạo slice. Khung cắt sẽ tự động bám khít theo đúng kích thước pixel của layer đó.",
+      "tips": "Nếu layer đối tượng di chuyển vị trí, slice liên kết với layer đó sẽ tự động di chuyển theo.",
+      "visualDescription": "Mô phỏng canvas với các khung viền nét đứt màu cam của Slice Tool bao quanh các icon và nút bấm."
+    },
+    {
+      "id": "slide-p10-01-03",
+      "order": 3,
+      "title": "Cấu hình đa tỉ lệ hiển thị (Responsive Multi-Scale)",
+      "subtitle": "Phục vụ hoàn hảo màn hình Retina và thiết bị di động",
+      "type": "layout",
+      "content": "Màn hình điện thoại hiện đại có mật độ điểm ảnh 2x (@2x) hoặc 3x (@3x). Trong panel Slices, bạn có thể nhấn dấu '+' để thêm các kích cỡ mong muốn cho mỗi slice. Affinity Photo sẽ tự động tính toán nhân tỉ lệ pixel với độ sắc nét hoàn hảo.",
+      "tips": "Cú pháp '512w' hoặc '1080h' cho phép cố định chiều rộng hoặc chiều cao cụ thể bất kể kích cỡ gốc của slice.",
+      "codeSnippet": "Slice Recipe Setup:\nRow 1: [1x]      [PNG]  [Suffix: ]\nRow 2: [2x]      [PNG]  [Suffix: @2x]\nRow 3: [3x]      [PNG]  [Suffix: @3x]\nRow 4: [0.5x]    [JPEG] [Quality: 85%] [Suffix: _thumb]\nRow 5: [1x]      [WebP] [Quality: 90%] [Suffix: .webp]"
+    },
+    {
+      "id": "slide-p10-01-04",
+      "order": 4,
+      "title": "Continuous Export: Tự động hóa thời gian thực",
+      "subtitle": "Cầu nối trực tiếp tới môi trường lập trình và dàn trang",
+      "type": "interaction",
+      "content": "Bật tùy chọn 'Continuous' trên panel Slices. Bất cứ khi nào bạn quay lại chỉnh sửa chi tiết, sửa chữ hay đổi màu trong Photo Persona và nhấn Ctrl+S (Cmd+S), Affinity Photo sẽ âm thầm chạy render nền và cập nhật các file ảnh trên ổ cứng ngay tức thì.",
+      "tips": "Cực kỳ lý tưởng khi bạn làm việc cùng lúc với lập trình viên web hoặc dàn trang trên Publisher.",
+      "visualDescription": "Sơ đồ hiển thị vòng tròn tự động hóa: Edit in Photo -> Save -> Continuous Export renders files to folder in real-time."
+    },
+    {
+      "id": "slide-p10-01-05",
+      "order": 5,
+      "title": "Tùy biến đường dẫn xuất với Path Variables",
+      "subtitle": "Tự động phân loại thư mục theo định dạng",
+      "type": "detail",
+      "content": "Export Persona cho phép sử dụng các biến như {format}, {scale}, {width}, {height} trong đường dẫn lưu file. Bạn có thể thiết lập để toàn bộ file WebP tự động vào thư mục '/dist/webp/' và toàn bộ file JPEG vào '/dist/jpeg/'.",
+      "tips": "Mở rộng bảng Export Options để tùy chỉnh trường Path Template cho từng slice.",
+      "codeSnippet": "Path Template Syntax Examples:\nExport Path: deliverables/{format}/{filename}_{scale}\nOutputs:\n- deliverables/png/hero-banner_1x.png\n- deliverables/png/hero-banner_2x.png\n- deliverables/webp/hero-banner_1x.webp"
+    },
+    {
+      "id": "slide-p10-01-06",
+      "order": 6,
+      "title": "Thiết lập chất lượng nén chuyên sâu",
+      "subtitle": "Cân bằng giữa độ sắc nét và dung lượng nhẹ",
+      "type": "diagram",
+      "content": "Trong Export Options, bạn có thể chọn thuật toán nén: Resample method (Lanczos 3 Non-separable cho độ nét cao nhất, Bilinear cho ảnh mượt mà). Tinh chỉnh chất lượng JPEG từ 80-85% là điểm ngọt giúp giảm 60% dung lượng mà mắt thường không thể phân biệt suy giảm.",
+      "tips": "Tắt tùy chọn 'Embed ICC Profile' nếu muốn tối ưu file cực nhẹ cho icon web.",
+      "visualDescription": "Biểu đồ so sánh dung lượng file và độ sắc nét giữa các mức nén JPEG 100%, 85%, 60% và WebP 85%."
+    },
+    {
+      "id": "slide-p10-01-07",
+      "order": 7,
+      "title": "Quy trình xuất bản tài sản đóng gói hoàn chỉnh",
+      "subtitle": "Kiểm tra chất lượng trước khi bàn giao",
+      "type": "summary",
+      "content": "1) Kiểm tra tên các slice; 2) Rà soát công thức định dạng; 3) Nhấp 'Export Slices'; 4) Mở thư mục kết quả để kiểm tra file. Một quy trình chuyên nghiệp không chỉ tạo ra bức ảnh đẹp mà còn đem lại tài nguyên chuẩn mực cho toàn bộ chuỗi sản xuất.",
+      "tips": "Lưu các cấu hình slice vào tài liệu mẫu (.aftemplate) để tái sử dụng cho các dự án sau.",
+      "codeSnippet": "Slice Delivery Checklist:\n[✓] Slices cleanly bound to target assets\n[✓] Retina @2x and WebP variants specified\n[✓] Target output directory selected\n[✓] Batch Export button clicked -> 100% automated!"
+    }
+  ]
+}

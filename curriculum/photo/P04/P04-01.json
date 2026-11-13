@@ -1,0 +1,281 @@
+{
+  "id": "P04-01",
+  "moduleId": "P04",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Inpainting, Patch Tool & Smart Object Removal",
+  "subtitle": "Content-Aware Synthesis, Current & Below Sampling, and Non-Destructive Cleanup",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu thuật toán nội suy tổng hợp điểm ảnh ngữ cảnh (Content-Aware Inpainting) trong Affinity Photo.",
+      "Thực hiện quy trình xóa vật thể phi phá hủy bằng cách tạo New Pixel Layer với Source đặt là 'Current Layer & Below'.",
+      "Sử dụng công cụ Patch Tool để cấy ghép các mảng vân bề mặt lớn mà không để lại vết mờ nhòe.",
+      "Ứng dụng lệnh Edit > Fill > Inpainting để xóa các vật thể lớn sau khi đã tạo vùng chọn."
+    ],
+    "foundationalKnowledge": "Công cụ Inpainting Brush trong Affinity Photo là một trong những công cụ nội suy thuật toán tiên tiến nhất hiện nay. Thay vì chỉ đơn thuần làm mờ hoặc sao chép điểm ảnh từ một vị trí cố định, thuật toán Inpainting phân tích đa chiều toàn bộ cấu trúc vân bề mặt (Texture), hướng chiếu sáng (Luminance Gradient) và thông tin màu sắc (Chroma) từ các vùng lân cận để tự động 'vẽ' ra những điểm ảnh mới thay thế hoàn hảo cho vật thể bị xóa. Để bảo tồn ảnh gốc, kỹ thuật tiêu chuẩn của ngành là tạo một lớp Pixel Layer rỗng và yêu cầu công cụ lấy mẫu từ 'Current Layer & Below'.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Inpainting Brush & Patch Tool Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Inpainting Brush Tool & Patch Tool",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)",
+        "mac": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)"
+      },
+      "description": "Nhóm công cụ làm sạch điểm khuyết, loại bỏ người qua đường, dây điện và phục chế các vết rách trên ảnh cũ.",
+      "contextBarOptions": [
+        "Source: Current Layer (chỉ lớp hiện tại), Current Layer & Below (lấy mẫu cả lớp dưới), All Layers",
+        "Size, Flow & Hardness: Kích thước và độ sắc nét của đầu cọ inpainting",
+        "Patch Tool Source / Destination: Chế độ cấy ghép vùng lấy mẫu sang vùng đích",
+        "Edit > Fill > Inpainting: Lệnh lấp đầy vùng chọn tự động chỉ trong 1 giây"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Thiết lập lớp Pixel Layer rỗng làm việc phi phá hủy",
+        "instruction": "Mở tệp ảnh cần xóa rác hoặc người qua đường. Nhấn Ctrl+Shift+N (Win) / Cmd+Shift+N (Mac) để tạo một Pixel Layer rỗng mới. Đặt tên là 'Object Cleanup'.",
+        "shortcutTip": { "win": "Ctrl+Shift+N", "mac": "Cmd+Shift+N" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chọn Inpainting Brush Tool và cấu hình Source",
+        "instruction": "Nhấn phím J (hoặc giữ chuột ở nhóm cọ Healing để chọn Inpainting Brush Tool). Trên thanh Context Bar, bắt buộc chuyển mục 'Source' thành 'Current Layer & Below'.",
+        "shortcutTip": { "win": "Source: Current Layer & Below", "mac": "Source: Current Layer & Below" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Quét cọ bao trùm vật thể cần xóa",
+        "instruction": "Dùng phím [ và ] để chỉnh kích thước cọ lớn hơn vật thể một chút. Quét đè lên vật thể và thả chuột. Phần mềm sẽ tính toán và xóa sạch vật thể chỉ trong chớp mắt.",
+        "shortcutTip": { "win": "Quét và thả chuột", "mac": "Quét và thả chuột" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Xóa vật thể lớn bằng lệnh Edit > Fill > Inpainting",
+        "instruction": "Với những vật thể lớn, hãy dùng Freehand Lasso Tool (L) khoanh vùng đối tượng, sau đó vào menu Edit > Fill... Chọn mục 'Inpainting' và nhấn Apply.",
+        "shortcutTip": { "win": "Edit > Fill > Inpainting", "mac": "Edit > Fill > Inpainting" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cơ chế lấy mẫu phi phá hủy của Inpainting Brush Tool",
+        "description": "Dữ liệu mới được sinh ra trên lớp rỗng, bảo vệ 100% dữ liệu ảnh gốc bên dưới.",
+        "visualType": "diagram",
+        "visualContent": "[Layer 2: Object Cleanup (Pixel Layer rỗng)] ──> Chứa các mảng vá mới do thuật toán sinh ra\n  ↑ (Lấy mẫu dữ liệu hiển thị)\n[Layer 1: Background (Ảnh gốc nguyên bản)] ────> Hoàn toàn nguyên vẹn, không bị xóa điểm ảnh nào"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Xóa dây điện và người qua đường trong ảnh phong cảnh du lịch",
+      "taskDescription": "Mở một bức ảnh phong cảnh có dây điện chằng chịt và người lạ vô tình lọt vào khung hình, sử dụng Inpainting Brush để làm sạch hoàn hảo.",
+      "checkpoints": [
+        "Toàn bộ nét vẽ được lưu trên một Pixel Layer riêng có tên 'Cleanup'.",
+        "Tùy chọn Source đặt đúng 'Current Layer & Below'.",
+        "Các đường dây điện trên bầu trời và trên mái nhà được xóa sạch không để lại vệt mờ đục.",
+        "Đường chân trời và vân tường gạch thẳng hàng, không bị méo mó."
+      ],
+      "expectedOutcome": "Một bức ảnh phong cảnh trong trẻo, sạch sẽ như thể lúc chụp không hề có bất kỳ vật cản nào."
+    },
+    "independentChallenge": {
+      "title": "Phục chế bức ảnh cũ bị rách nát và ố mốc",
+      "prompt": "Sử dụng kết hợp Inpainting Brush Tool và Patch Tool để phục hồi một bức ảnh gia đình chụp từ thế kỷ trước bị nếp gấp gãy ngang mặt và các đốm ố vàng loang lổ.",
+      "starterAsset": {
+        "filename": "P04_retouching_restoration_guide.md",
+        "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+        "filesize": "4.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật phục chế ảnh và xóa vật thể thông minh trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Mọi vết gấp nếp ngang qua mặt nhân vật được phục hồi ăn khớp với vân da.",
+        "Không dùng tẩy Eraser làm thủng ảnh.",
+        "Tắt mở layer Cleanup chứng minh toàn bộ pixel gốc được bảo tồn nguyên trạng."
+      ],
+      "bonusGoal": "Sử dụng Patch Tool để cấy ghép mảng vân áo comple bị rách lớn với độ chính xác cao."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Quét Inpainting Brush trên layer rỗng nhưng không có hiện tượng gì xảy ra",
+        "cause": "Mục Source trên thanh Context Bar đang để mặc định là 'Current Layer' (mà layer hiện tại đang rỗng không có pixel nào để tính toán).",
+        "solution": "Chuyển ngay mục Source sang 'Current Layer & Below' hoặc 'All Layers'."
+      },
+      {
+        "pitfall": "Vùng bị xóa để lại các vết lặp lại giống hệt nhau như nhân bản",
+        "cause": "Vật thể cần xóa quá lớn hoặc nằm sát cạnh một chi tiết tương phản mạnh.",
+        "solution": "Xóa từng đoạn nhỏ một, hoặc dùng Patch Tool chỉ định thủ công vùng lấy mẫu sạch từ hướng khác."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P04-01-Q1",
+        "question": "Để thực hiện xóa vật thể bằng Inpainting Brush Tool trên một Pixel Layer rỗng mới tạo (quy trình phi phá hủy), bạn bắt buộc phải cấu hình tùy chọn nào trên thanh Context Bar?",
+        "options": [
+          "Bật Preserve Alpha",
+          "Chuyển mục 'Source' thành 'Current Layer & Below' (hoặc All Layers)",
+          "Đổi chế độ hòa trộn sang Multiply",
+          "Tăng Opacity lên 200%"
+        ],
+        "correctIndex": 1,
+        "explanation": "Nếu để Source là 'Current Layer', công cụ sẽ chỉ đọc lớp rỗng hiện tại và không làm gì cả. Bắt buộc phải chọn 'Current Layer & Below' để thuật toán đọc dữ liệu từ các lớp bên dưới."
+      },
+      {
+        "id": "P04-01-Q2",
+        "question": "Khi cần xóa một đối tượng tương đối lớn và phức tạp sau khi đã dùng Lasso khoanh vùng, lệnh menu tự động nào trong Affinity Photo thực hiện inpainting nhanh nhất?",
+        "options": [
+          "Layer > Rasterise",
+          "Edit > Fill... (chọn Inpainting)",
+          "Select > Invert",
+          "Document > Flatten"
+        ],
+        "correctIndex": 1,
+        "explanation": "Lệnh Edit > Fill... chọn chế độ Inpainting sẽ tự động tổng hợp thuật toán phủ lấp toàn bộ vùng chọn mà không cần phải dùng cọ quét thủ công."
+      },
+      {
+        "id": "P04-01-Q3",
+        "question": "Điểm mạnh vượt trội của Patch Tool so với Inpainting Brush thông thường là gì?",
+        "options": [
+          "Patch Tool chỉ dùng được cho ảnh 8-bit",
+          "Patch Tool cho phép người dùng kéo thả và chủ động chỉ định chính xác vùng kết cấu mẫu (Source Texture) muốn cấy ghép sang vùng lỗi",
+          "Patch Tool tự động chuyển ảnh thành vector",
+          "Patch Tool làm tăng tốc độ card đồ họa"
+        ],
+        "correctIndex": 1,
+        "explanation": "Patch Tool cho phép khoanh vùng lỗi rồi kéo chuột tới vùng có vân da hoặc hoa văn tương đồng nhất để cấy ghép texture có kiểm soát."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Inpainting Brush phân tích đa chiều vân bề mặt, ánh sáng và màu sắc để tự động xóa vật thể.",
+        "Luôn tạo New Pixel Layer và chọn Source: Current Layer & Below để đảm bảo tính phi phá hủy.",
+        "Lệnh Edit > Fill > Inpainting là cứu cánh thần tốc cho các vùng chọn lớn.",
+        "Patch Tool giúp bạn chủ động chọn vùng cấy ghép texture khi thuật toán tự động gặp khó khăn."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P04-02 Clone Stamp, Healing Brush & Restoration Concepts",
+          "target": "P04-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P04_retouching_restoration_guide.md",
+          "target": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P04-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Làm Sạch Vật Thể Thông Minh Với Inpainting & Patch Tool",
+      "subtitle": "Kỹ thuật biến người qua đường và dây điện biến mất không dấu vết",
+      "contentMarkdown": "Bạn chụp được một bức ảnh hoàng hôn tuyệt đẹp trên bãi biển, nhưng không may có một vài du khách vô tình đi ngang qua khung hình, hay những đường dây điện chằng chịt cắt ngang bầu trời?\n\nĐừng lo lắng! **Inpainting Brush Tool** của Affinity Photo là một trong những thuật toán xử lý hình ảnh ấn tượng nhất thế giới. Chỉ với một đường quét cọ, phần mềm sẽ 'nhìn' không gian xung quanh và tự động vẽ đắp lại bầu trời, mặt nước, bờ cát một cách hoàn toàn tự nhiên.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Xóa sạch mọi vật cản trong bức ảnh mà không để lại vết mờ nhòe hay sẹo ảnh, hoàn toàn trên một layer riêng biệt phi phá hủy."
+      }
+    },
+    {
+      "id": "P04-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Thuật Toán Content-Aware Inpainting Hoạt Động Ra Sao?",
+      "subtitle": "Giải mã bí mật đằng sau 'phép thuật' xóa vật thể",
+      "contentMarkdown": "Khi bạn quét cọ Inpainting đè lên một đối tượng:\n1. Thuật toán xác định đường ranh giới của nét cọ.\n2. Nó phân tích các vector hướng của các đường nét xung quanh (đường gờ tường, gợn sóng biển, vân gỗ).\n3. Nó trích xuất phổ tần số màu sắc và cấu trúc hạt nhiễu (noise).\n4. Sau đó, nó tổng hợp một mảng điểm ảnh hoàn toàn mới lấp đầy khoảng trống, đồng thời nối liền các đường nét bị đứt đoạn một cách liền mạch!",
+      "visual": {
+        "type": "callout",
+        "content": "Bí quyết Pro: Quét cọ hơi chườm ra ngoài mép vật thể từ 2-3 pixel để thuật toán lấy mẫu được cả màu sắc và chất liệu của phông nền xung quanh."
+      }
+    },
+    {
+      "id": "P04-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Inpainting Brush Tool & Tùy Chọn Cốt Tử: Source",
+      "subtitle": "Cách xóa vật thể mà không đụng chạm đến một pixel ảnh gốc",
+      "contentMarkdown": "Nhấn phím `J` để chọn Inpainting Brush Tool.\n\nNhìn lên thanh Context Bar:\n- **Source (Cực kỳ quan trọng!):** Mặc định là `Current Layer`. Bạn phải chuyển nó thành **`Current Layer & Below`**!\n- Khi chọn tùy chọn này, bạn có thể tạo một Pixel Layer rỗng ở trên, và mọi nét vẽ xóa rác sẽ được lưu trên layer rỗng đó.\n- Nếu khách hàng đổi ý? Bạn chỉ cần tắt hoặc xóa layer rỗng, ảnh gốc bên dưới vẫn nguyên vẹn 100%!",
+      "actionBox": {
+        "label": "Quy Tắc Bất Di Bất Dịch",
+        "text": "Tạo New Pixel Layer ➔ Đặt Source là Current Layer & Below ➔ Quét cọ Inpainting!",
+        "shortcut": { "win": "Source: Current Layer & Below", "mac": "Source: Current Layer & Below" }
+      }
+    },
+    {
+      "id": "P04-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Xóa Người Qua Đường Thần Tốc",
+      "subtitle": "Từ khoanh vùng đến lấp đầy thông minh",
+      "contentMarkdown": "1. **Tạo Layer rỗng:** Nhấn `Ctrl+Shift+N` (Win) / `Cmd+Shift+N` (Mac), đặt tên là `[Cleanup]`.\n2. **Chọn Inpainting Brush:** Nhấn phím `J`, đổi Source thành `Current Layer & Below`.\n3. **Quét cọ bao trùm:** Chỉnh size cọ lớn hơn bóng người một chút bằng phím `]`, quét một đường trùm kín từ đầu đến chân.\n4. **Thả chuột:** Đợi thanh tiến trình tính toán xong, bạn sẽ thấy người đó biến mất, để lại bãi cỏ phẳng phiu hoàn hảo!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "New Pixel Layer | Key J (Inpainting) | Source: Current & Below | Paint Over | Magic Disappear"
+      }
+    },
+    {
+      "id": "P04-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Lỗi Thường Gặp Khi Dùng Inpainting",
+      "subtitle": "Tránh các vết sẹo ảnh và méo mó đường thẳng",
+      "contentMarkdown": "### 1. Quét cọ trên layer rỗng nhưng không có tác dụng gì\n- **Nguyên nhân:** Quên đổi Source từ `Current Layer` sang `Current Layer & Below`.\n- **Giải pháp:** Nhìn lên Context Bar và đổi ngay tùy chọn Source.\n\n### 2. Đường chân trời bị cong vẹo sau khi xóa tàu bè trên biển\n- **Nguyên nhân:** Quét một nét cọ quá lớn làm thuật toán lấy mẫu lẫn lộn giữa bầu trời và mặt biển.\n- **Giải pháp:** Dùng cọ nhỏ xóa phần thân tàu trước, sau đó dùng Clone Stamp để gióng thẳng lại đường chân trời.",
+      "actionBox": {
+        "label": "Mẹo Xóa Thông Minh",
+        "text": "Với các vật thể cắt ngang đường thẳng kiến trúc, hãy xóa từng đoạn ngắn thay vì quét một đường dài ngoằng."
+      }
+    },
+    {
+      "id": "P04-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Inpainting",
+      "subtitle": "Xác nhận độ chuẩn xác trong thao tác phi phá hủy",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P04-01-Q1",
+        "question": "Để thực hiện xóa vật thể bằng Inpainting Brush Tool trên một Pixel Layer rỗng mới tạo (quy trình phi phá hủy), bạn bắt buộc phải cấu hình tùy chọn nào trên thanh Context Bar?",
+        "options": [
+          "Bật Preserve Alpha",
+          "Chuyển mục 'Source' thành 'Current Layer & Below' (hoặc All Layers)",
+          "Đổi chế độ hòa trộn sang Multiply",
+          "Tăng Opacity lên 200%"
+        ],
+        "correctIndex": 1,
+        "explanation": "Nếu để Source là 'Current Layer', công cụ sẽ chỉ đọc lớp rỗng hiện tại và không làm gì cả. Bắt buộc phải chọn 'Current Layer & Below' để thuật toán đọc dữ liệu từ các lớp bên dưới."
+      }
+    },
+    {
+      "id": "P04-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Làm Sạch Dây Điện Bầu Trời",
+      "subtitle": "Khôi phục vẻ đẹp tinh khôi của kiến trúc đô thị",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P04_retouching_restoration_guide.md`.\n2. Tạo một New Pixel Layer đặt tên là `[Wire Cleanup]`.\n3. Sử dụng Inpainting Brush Tool với kích thước cọ vừa bằng sợi dây điện.\n4. Giữ phím `Shift` nhấp điểm đầu và điểm cuối của sợi dây để xóa một đường thẳng tắp!\n5. Kiểm tra kết quả: Bầu trời mượt mà, không xuất hiện các vệt loang lổ.\n\n### Tiêu Chí Nghiệm Thu:\n- Toàn bộ dây điện biến mất 100%.\n- Lớp ảnh gốc bên dưới nguyên vẹn hoàn toàn.",
+      "practiceData": {
+        "prompt": "Sử dụng Inpainting Brush xóa sạch dây điện trên layer rỗng.",
+        "starterAsset": {
+          "filename": "P04_retouching_restoration_guide.md",
+          "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "filesize": "4.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật phục chế ảnh và xóa vật thể thông minh trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Tạo New Pixel Layer rỗng",
+          "Cấu hình Source: Current Layer & Below",
+          "Xóa sạch dây điện bằng Inpainting Brush"
+        ]
+      }
+    }
+  ]
+}

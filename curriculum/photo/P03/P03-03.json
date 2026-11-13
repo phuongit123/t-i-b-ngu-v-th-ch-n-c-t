@@ -1,0 +1,281 @@
+{
+  "id": "P03-03",
+  "moduleId": "P03",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Clipping, Grouping & Blend Mode Mathematics",
+  "subtitle": "Multiply, Screen, Overlay, Color Dodge & Child Layer Hierarchy",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu bản chất toán học của các nhóm chế độ hòa trộn: Làm tối (Multiply), Làm sáng (Screen), Tương phản (Overlay, Soft Light) và Rực màu (Color Dodge).",
+      "Sử dụng kỹ thuật Clipping (Lồng lớp con / Child Layer) để giới hạn phạm vi tác động của Adjustment và Filter lên một đối tượng cụ thể.",
+      "Khai thác chế độ Pass Through trong Group để kiểm soát cách ánh sáng xuyên qua các nhóm lớp.",
+      "Ứng dụng Blend Modes vào các tình huống thực tế: ghép texture chất liệu, thêm ánh sáng lens flare, tạo khói và bóng đổ."
+    ],
+    "foundationalKnowledge": "Mỗi chế độ hòa trộn (Blend Mode) trong Affinity Photo là một phương trình toán học giải tích xác định màu sắc hiển thị tại từng pixel dựa trên hai giá trị đầu vào: Màu nền bên dưới (Base Color - A) và Màu của lớp đang hòa trộn (Blend Color - B). Giá trị RGB của mỗi pixel được chuẩn hóa từ khoảng 0 - 255 thành một số thực từ 0.0 (Đen tuyệt đối) đến 1.0 (Trắng tuyệt đối). Hiểu được bản chất của các phép toán nhân (Multiplication), nghịch đảo (Inversion), và chia (Division) giúp bạn dự đoán chính xác kết quả màu sắc mà không cần phải chọn bừa từng mục trong danh sách sổ xuống.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Blend Mode Mathematics & Composite Graph Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Blend Mode Dropdown & Clipping Engine",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip",
+        "mac": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip"
+      },
+      "description": "Menu lựa chọn 30 chế độ hòa trộn và cơ chế phân cấp lớp con (Child Layer / Mask to Below).",
+      "contextBarOptions": [
+        "Normal: Hiển thị pixel đè lên lớp dưới theo tỷ lệ Opacity",
+        "Multiply: A × B (Màu trắng biến mất, màu tối đậm lên)",
+        "Screen: 1 - (1 - A) × (1 - B) (Màu đen biến mất, màu sáng giữ lại)",
+        "Overlay / Soft Light: Kết hợp giữa Multiply và Screen, màu xám 50% hoàn toàn tàng hình",
+        "Color Dodge: A / (1 - B) (Làm sáng rực rỡ và bão hòa màu, hiệu ứng tia lửa phát sáng)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Ghép kết cấu giấy cũ với chế độ Multiply",
+        "instruction": "Kéo một bức ảnh kết cấu giấy ố vàng (texture) đặt lên trên một hình ảnh minh họa. Mở menu Blend Mode ở góc trên bên trái Layers Studio, chuyển sang 'Multiply'. Toàn bộ màu trắng của trang giấy biến mất, chỉ còn lại những thớ sợi và vết ố nâu ăn sâu vào bức tranh.",
+        "shortcutTip": { "win": "Blend Mode: Multiply", "mac": "Blend Mode: Multiply" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Ghép tia sáng pháo hoa từ nền đen với Screen",
+        "instruction": "Kéo một bức ảnh tia sáng hoặc pháo hoa có phông nền đen tuyền đặt lên trên khung cảnh đêm. Đổi Blend Mode sang 'Screen'. Toàn bộ phông nền đen biến mất hoàn toàn không để lại vết tích, chỉ còn những tia sáng rực rỡ hòa vào bức tranh.",
+        "shortcutTip": { "win": "Blend Mode: Screen", "mac": "Blend Mode: Screen" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Kỹ thuật Clipping (Lồng lớp con)",
+        "instruction": "Tạo một lớp Curves Adjustment. Trong Layers Studio, giữ chuột kéo thumbnail của lớp Curves đặt vào ngay bên dưới và chếch sang phải tên của một đối tượng cụ thể. Bạn sẽ thấy lớp Curves thụt lề vào trong và trở thành lớp con của đối tượng đó.",
+        "shortcutTip": { "win": "Kéo thả thụt lề layer", "mac": "Kéo thả thụt lề layer" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Chế độ Pass Through của Group",
+        "instruction": "Khi bạn nhóm các layer vào một Group, Blend Mode mặc định của Group là 'Pass Through'—cho phép các layer bên trong Group tác động xuyên thấu xuống các layer bên ngoài Group. Nếu đổi sang 'Normal', các hiệu ứng hòa trộn bên trong sẽ bị cô lập trong nội bộ Group.",
+        "shortcutTip": { "win": "Group Blend Mode: Pass Through", "mac": "Group Blend Mode: Pass Through" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Bản đồ 4 họ chế độ hòa trộn cốt lõi trong Affinity Photo",
+        "description": "Các phương trình toán học và đặc tính tàng hình màu tương ứng.",
+        "visualType": "table",
+        "visualContent": "| Nhóm Blend Mode | Chế độ tiêu biểu | Công thức toán học (0.0 - 1.0) | Màu sắc tàng hình (Vô hình 100%) |\n|---|---|---|---|\n| Nhóm Làm Tối (Darken) | Multiply | Kết quả = A × B | Màu Trắng tinh (RGB 255 / 1.0) |\n| Nhóm Làm Sáng (Lighten) | Screen | Kết quả = 1 - (1 - A) × (1 - B) | Màu Đen tuyền (RGB 0 / 0.0) |\n| Nhóm Tương Phản (Contrast) | Overlay / Soft Light | Nếu A < 0.5: 2AB; Nếu A ≥ 0.5: 1 - 2(1-A)(1-B) | Màu Xám 50% (RGB 128 / 0.5) |\n| Nhóm Rực Màu (Color / Glow) | Color Dodge | Kết quả = A / (1 - B) | Màu Đen tuyền (RGB 0 / 0.0) |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo hiệu ứng chữ khắc chìm lên bề mặt gỗ với Overlay & Clipping",
+      "taskDescription": "Ứng dụng kỹ thuật Clipping một lớp chữ và lớp hiệu ứng hòa trộn vào một khối gỗ để tạo cảm giác chạm khắc tự nhiên.",
+      "checkpoints": [
+        "Mở một bức ảnh chụp vân gỗ cận cảnh.",
+        "Gõ một dòng chữ Artistic Text Tool (T), chọn font dày dặn.",
+        "Đổi Blend Mode của lớp Text sang 'Overlay' hoặc 'Soft Light'.",
+        "Lồng (Clip) một lớp Bevel FX và Curves vào riêng lớp Text để tạo độ lồi lõm ăn khớp với các đường thớ gỗ bên dưới."
+      ],
+      "expectedOutcome": "Dòng chữ hòa quyện tự nhiên như được thiêu đốt hoặc khắc chìm vào từng thớ gỗ thật."
+    },
+    "independentChallenge": {
+      "title": "Ghép ánh sáng ma thuật phát sáng bằng Color Dodge",
+      "prompt": "Tạo một hiệu ứng quả cầu năng lượng phát sáng rực rỡ trong lòng bàn tay người mẫu: Tạo một Pixel Layer, vẽ một vệt đốm màu cam/xanh lam nhạt trên nền đen, đổi Blend Mode sang 'Color Dodge', lồng mặt nạ để ánh sáng phản chiếu chân thực lên các ngón tay.",
+      "starterAsset": {
+        "filename": "P03_layers_non_destructive_guide.md",
+        "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+        "filesize": "4.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật hòa trộn và toán học blend modes trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Sử dụng đúng chế độ hòa trộn Color Dodge để tạo độ phát sáng cực đại mà không bị đục trắng.",
+        "Có ánh sáng tràn viền (Light Wrap) phản chiếu lên các ngón tay xung quanh.",
+        "Toàn bộ hiệu ứng được tổ chức thành một Group có tên 'Magic Energy Ball'."
+      ],
+      "bonusGoal": "Sử dụng thanh trượt Fill Opacity trong Layer Properties để kiểm soát độ chói của Color Dodge một cách tinh tế."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Lớp điều chỉnh Curves đổi màu luôn cả phông nền phía sau",
+        "cause": "Đặt lớp Curves ở tầng cao nhất của layer stack mà không Clip lồng vào riêng chủ thể.",
+        "solution": "Kéo thả lớp Curves thụt lề vào bên dưới lớp chủ thể để biến nó thành Child Layer."
+      },
+      {
+        "pitfall": "Ghép ảnh lửa trên nền đen bằng chế độ Screen bị nhợt nhạt, bạc màu",
+        "cause": "Screen chỉ làm sáng nhưng không gia tăng độ bão hòa màu.",
+        "solution": "Thử đổi sang chế độ 'Color Dodge' hoặc 'Add' (Linear Dodge) để ngọn lửa rực rỡ và phát quang sống động hơn."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P03-03-Q1",
+        "question": "Trong chế độ hòa trộn Multiply, màu sắc nào ở lớp hòa trộn sẽ trở nên hoàn toàn vô hình (trong suốt 100%) khi hiển thị lên lớp nền bên dưới?",
+        "options": [
+          "Màu Đen (RGB 0, 0, 0)",
+          "Màu Trắng (RGB 255, 255, 255)",
+          "Màu Xám 50% (RGB 128, 128, 128)",
+          "Màu Vàng chanh"
+        ],
+        "correctIndex": 1,
+        "explanation": "Trong toán học Multiply (A × B / 255), giá trị 255 (Trắng) nhân với bất kỳ số nào cũng giữ nguyên số đó, tức màu trắng trở nên hoàn toàn trong suốt."
+      },
+      {
+        "id": "P03-03-Q2",
+        "question": "Làm thế nào để giới hạn một lớp Curves Adjustment chỉ tác động lên duy nhất một đối tượng cụ thể thay vì đổi màu toàn bộ các layer bên dưới nó?",
+        "options": [
+          "Khóa (Lock) tất cả các layer khác lại",
+          "Kéo thả lớp Curves vào vị trí thụt lề bên dưới layer đối tượng đó để biến nó thành lớp con (Child / Clipping Layer)",
+          "Đổi độ phân giải màn hình sang 72 DPI",
+          "Xuất ảnh ra file PNG trước"
+        ],
+        "correctIndex": 1,
+        "explanation": "Kỹ thuật Clipping (Lồng lớp con) trong Affinity Photo giới hạn phạm vi tác động của bất kỳ Adjustment hay Live Filter nào chỉ áp dụng trong ranh giới của layer cha."
+      },
+      {
+        "id": "P03-03-Q3",
+        "question": "Chế độ hòa trộn nào là sự kết hợp hoàn hảo giữa Multiply (cho vùng tối) và Screen (cho vùng sáng), trong đó màu Xám trung tính 50% hoàn toàn tàng hình?",
+        "options": [
+          "Normal",
+          "Color",
+          "Overlay (hoặc Soft Light)",
+          "Difference"
+        ],
+        "correctIndex": 2,
+        "explanation": "Overlay và Soft Light thuộc họ Tương phản (Contrast Group), xem màu xám 50% là điểm vô hình, làm tối các vùng tối hơn xám và làm sáng các vùng sáng hơn xám."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Các chế độ hòa trộn là các phương trình toán học giải tích xác định sự tương tác giữa Base Color và Blend Color.",
+        "Multiply làm trắng tàng hình (tối ưu cho kết cấu texture, bóng đổ); Screen làm đen tàng hình (tối ưu cho tia sáng, pháo hoa, khói).",
+        "Overlay xem xám 50% là tàng hình, giúp tăng tương phản động mạnh mẽ.",
+        "Kỹ thuật Clipping (Child Layer) là chìa khóa để kiểm soát hiệu ứng cục bộ không bị lem sang các đối tượng khác."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P04 Retouching & Image Restoration",
+          "target": "P04-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P03_layers_non_destructive_guide.md",
+          "target": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P03-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Kỹ Thuật Clipping & Bản Chất Toán Học Của Blend Modes",
+      "subtitle": "Khám phá bí mật đằng sau các phép tính hòa trộn ánh sáng và lớp con",
+      "contentMarkdown": "Bạn đã bao giờ thắc mắc tại sao khi chọn **Multiply**, vết ố của tờ giấy cũ lại hòa nhịp hoàn hảo vào mặt bàn gỗ, hay khi chọn **Screen**, vệt sáng pháo hoa lại biến mất sạch sẽ nền đen tuyền mà không cần mất công dùng tẩy xóa nền?\n\nTrong bài học này, bạn sẽ làm chủ **bản chất toán học của 4 nhóm Blend Mode cốt lõi** và kỹ thuật **Clipping (Lồng lớp con)**—vũ khí tối thượng giúp bạn gán hiệu ứng chính xác cho từng chi tiết riêng biệt.",
+      "actionBox": {
+        "label": "Tư Duy Cao Cấp",
+        "text": "Đừng chọn bừa từng Blend Mode trong danh sách! Hãy hiểu toán học đằng sau nó để chọn chính xác ngay từ cú click đầu tiên."
+      }
+    },
+    {
+      "id": "P03-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Toán Học Của 4 Họ Chế Độ Hòa Trộn Cốt Lõi",
+      "subtitle": "Màu Trắng biến mất, Màu Đen biến mất, hay Màu Xám biến mất?",
+      "contentMarkdown": "Affinity Photo chia các chế độ hòa trộn thành các nhóm logic:\n\n- 🌑 **Họ Làm Tối (Multiply):** Công thức `A × B`. Bất cứ màu nào nhân với Màu Trắng (1.0) đều không đổi ➔ **Màu Trắng biến mất 100%!**\n- ☀️ **Họ Làm Sáng (Screen):** Nghịch đảo của Multiply. Bất cứ màu nào nhân với Màu Đen (0.0) đều không đổi ➔ **Màu Đen biến mất 100%!**\n- ⚖️ **Họ Tương Phản (Overlay / Soft Light):** Tối làm tối hơn, sáng làm sáng hơn ➔ **Màu Xám 50% biến mất 100%!**\n- 🔥 **Họ Phát Quang (Color Dodge):** Chia màu theo độ chói ➔ **Tạo hiệu ứng phát sáng rực rỡ điện ảnh.**",
+      "visual": {
+        "type": "callout",
+        "content": "Ghép khói trắng hoặc tia sét? Dùng Screen! Ghép hình xăm hoặc vết ố lên áo? Dùng Multiply! Tăng khối tương phản? Dùng Soft Light!"
+      }
+    },
+    {
+      "id": "P03-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Kỹ Thuật Lồng Lớp Con (Clipping / Child Layers)",
+      "subtitle": "Khóa chặt hiệu ứng trong ranh giới của một đối tượng",
+      "contentMarkdown": "Khi bạn thêm một lớp Curves hay HSL, mặc định nó sẽ đổi màu toàn bộ các layer nằm bên dưới.\n\nĐể 'giam lỏng' nó chỉ tác động lên riêng một chiếc xe hơi hoặc mái tóc:\n1. Chọn thumbnail lớp Curves trong Layers Studio.\n2. Kéo thả nó vào ngay bên dưới và chếch sang phải tên của layer Chiếc Xe Hơi.\n3. Nhận thấy layer Curves thụt lề vào trong.\n4. **Kết quả:** Curves giờ đây chỉ đổi màu chiếc xe, toàn bộ phông nền và con đường phía sau được bảo vệ an toàn 100%!",
+      "actionBox": {
+        "label": "Mẹo Thao Tác Nhanh",
+        "text": "Bạn có thể lồng bao nhiêu lớp con tùy thích vào một layer cha: Curves, HSL, Live Gaussian Blur, và thậm chí cả một Layer Mask riêng!"
+      }
+    },
+    {
+      "id": "P03-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Ghép Tia Sáng Nền Đen Vào Khung Cảnh",
+      "subtitle": "Ứng dụng sức mạnh của chế độ Screen trong 4 bước",
+      "contentMarkdown": "1. **Kéo ảnh tia sáng vào:** Đặt lớp ảnh tia sáng (chụp trên nền đen) lên trên bức ảnh phong cảnh của bạn.\n2. **Đổi Blend Mode sang Screen:** Mở menu hòa trộn, chọn `Screen`. Nền đen lập tức tàng hình hoàn toàn.\n3. **Cân bằng độ tương phản:** Thêm một lớp `Levels Adjustment`, Clip lồng nó vào layer tia sáng, kéo thanh trượt Black Point vào trong để triệt tiêu hoàn toàn các hạt sương xám còn sót.\n4. **Nhuộm màu ánh sáng:** Lồng thêm một lớp `HSL Adjustment` để đổi tia sáng trắng thành vàng nắng ấm áp.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Import Asset | Screen Mode | Clip Levels | Clip HSL | Cinematic Glow"
+      }
+    },
+    {
+      "id": "P03-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Cạm Bẫy Khi Sử Dụng Blend Modes",
+      "subtitle": "Cách kiểm soát độ phơi sáng và tránh cháy màu",
+      "contentMarkdown": "### 1. Hiệu ứng bị chói lóa quá mức khi dùng Color Dodge\n- **Hậu quả:** Các điểm sáng bị cháy thành mảng trắng bệt mất chi tiết.\n- **Giải pháp:** Giảm **Opacity** của layer xuống `40% - 60%`, hoặc nhấp vào bánh răng Layer Properties để giảm Fill Opacity.\n\n### 2. Group không chịu nhận hiệu ứng xuyên thấu\n- **Hậu quả:** Các layer hòa trộn bên trong Group bị mất tác dụng lên các layer bên ngoài.\n- **Giải pháp:** Kiểm tra Blend Mode của Group mẹ: Đảm bảo nó đang ở chế độ `Pass Through`, chứ không phải `Normal`.",
+      "actionBox": {
+        "label": "Chế Độ Pass Through",
+        "text": "Pass Through là chìa khóa để một Group cho phép các Blend Mode con bên trong nó tương tác xuyên thấu xuống các layer nằm dưới Group."
+      }
+    },
+    {
+      "id": "P03-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Toán Học Blend Mode",
+      "subtitle": "Xác nhận độ nhạy bén với các chế độ hòa trộn",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P03-03-Q1",
+        "question": "Trong chế độ hòa trộn Multiply, màu sắc nào ở lớp hòa trộn sẽ trở nên hoàn toàn vô hình (trong suốt 100%) khi hiển thị lên lớp nền bên dưới?",
+        "options": [
+          "Màu Đen (RGB 0, 0, 0)",
+          "Màu Trắng (RGB 255, 255, 255)",
+          "Màu Xám 50% (RGB 128, 128, 128)",
+          "Màu Vàng chanh"
+        ],
+        "correctIndex": 1,
+        "explanation": "Trong toán học Multiply (A × B / 255), giá trị 255 (Trắng) nhân với bất kỳ số nào cũng giữ nguyên số đó, tức màu trắng trở nên hoàn toàn trong suốt."
+      }
+    },
+    {
+      "id": "P03-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Tạo Hiệu Ứng Hình Xăm Khắc Lên Da",
+      "subtitle": "Kết hợp Multiply, Clipping và Live Displace Filter",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở một bức ảnh chân dung người mẫu có bờ vai hoặc cánh tay trần.\n2. Đặt một hình vẽ vector hoặc ảnh nét vẽ hình xăm màu đen trên nền trắng lên cánh tay.\n3. Đổi Blend Mode của hình xăm sang `Multiply` (nền trắng biến mất hoàn toàn).\n4. Giảm Opacity xuống `85%` để mực xăm hơi chìm vào sắc tố da thật.\n5. Thêm một lớp Live Filter `Displace` hoặc `Gaussian Blur` (0.8px) lồng vào hình xăm để mực xăm uốn lượn theo từng lỗ chân lông và thớ cơ bắp.\n\n### Tiêu Chí Nghiệm Thu:\n- Hình xăm trông như nằm bên dưới lớp biểu bì da thật, không bị phẳng lì như dán giấy.",
+      "practiceData": {
+        "prompt": "Tạo hình xăm khắc lên da bằng Multiply và Clipping.",
+        "starterAsset": {
+          "filename": "P03_layers_non_destructive_guide.md",
+          "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "filesize": "4.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật hòa trộn và toán học blend modes trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Đặt hình xăm vào cánh tay",
+          "Đổi sang Blend Mode Multiply",
+          "Lồng lớp điều chỉnh tạo độ hòa quyện tự nhiên"
+        ]
+      }
+    }
+  ]
+}

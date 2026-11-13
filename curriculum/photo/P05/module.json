@@ -1,0 +1,22 @@
+{
+  "id": "P05",
+  "trackId": "photo",
+  "order": 5,
+  "moduleNumber": "P05",
+  "title": "Color Correction, Tonal Control & Cinematic Grading",
+  "tagline": "Master scientific exposure calibration, Curves/Levels manipulation, and cinematic color palettes.",
+  "description": "Understand technical color correction versus creative color grading in Affinity Photo 3.0: Histogram dynamic range analysis, clipping warnings, 18% gray White Balance calibration, per-channel RGB Curves S-curves, HSL selective color wheel shifts, Gradient Maps, and importing 3D LUT (.cube) profiles.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": ["P01", "P02", "P03"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P05_color_correction_grading_guide.md",
+    "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
+    "filesize": "4.4 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for color correction, histogram reading and color grading in Affinity Photo."
+  },
+  "lessonIds": ["P05-01", "P05-02", "P05-03"]
+}

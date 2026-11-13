@@ -1,0 +1,280 @@
+{
+  "id": "P06-03",
+  "moduleId": "P06",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Live Lighting, Bump Maps & Atmospheric Effects",
+  "subtitle": "3D Shader Illuminations, Texture Relief Maps, Vignettes & Procedural Mist",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Khai thác bộ lọc Live Lighting Filter để bố trí các nguồn sáng 3 chiều giả lập studio: Spot Light, Point Light và Directional Light.",
+      "Ứng dụng tính năng Bump Map (Bản đồ độ gồ ghề) để ánh sáng bắt vào từng thớ vải, hạt da hoặc vân gỗ tạo chiều sâu thị giác ấn tượng.",
+      "Tạo hiệu ứng làm tối 4 góc (Vignette) quang học có kiểm soát để dẫn hướng ánh nhìn của người xem vào chủ thể chính.",
+      "Kết hợp các bộ lọc tạo mây sương khói thủ tục (Procedural Noise & Perlin Dust) để xây dựng bầu không khí điện ảnh."
+    ],
+    "foundationalKnowledge": "Ánh sáng là linh hồn của nhiếp ảnh. Trong môi trường chụp thực tế, nhiếp ảnh gia bị giới hạn bởi số lượng đèn studio và không gian vật lý. Tuy nhiên, trong Affinity Photo, Live Lighting Filter mang đến một hệ thống chiếu sáng 3D GPU thời gian thực hoàn chỉnh. Bộ lọc này không chỉ phủ một lớp màu sáng lên ảnh, mà thực sự tính toán vector pháp tuyến (Surface Normal Vector) và góc phản xạ ánh sáng (Specular Highlight). Khi kết hợp với Bump Map—biến độ tương phản của một layer thành thông tin độ cao 3D—ánh sáng giả lập sẽ thực sự uốn lượn và đổ bóng trên từng nếp nhăn của áo hoặc từng hạt cát trên bãi biển.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Live Lighting Engine & Bump Mapping Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Live Lighting Studio & Optical Effects",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Hourglass > Light > Lighting / Hourglass > Lens > Vignette",
+        "mac": "Hourglass > Light > Lighting / Hourglass > Lens > Vignette"
+      },
+      "description": "Hệ thống bố trí nguồn sáng studio 3D ảo và hiệu ứng thấu kính quang học thời gian thực.",
+      "contextBarOptions": [
+        "Light Type: Spot Light (Đèn rọi chóp nón), Point Light (Bóng đèn tỏa đều), Directional (Mặt trời chiếu song song)",
+        "Diffuse & Specular: Cường độ tán xạ ánh sáng và độ bóng bẩy chói lóa của điểm sáng",
+        "Bump Map Texture: Tùy chọn nạp hình ảnh làm bản đồ độ lồi lõm cho bề mặt bắt sáng",
+        "Interactive On-Screen Widget: Vòng tròn tay đòn điều hướng vị trí và góc chiếu trực tiếp trên canvas"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Thêm Live Lighting Filter",
+        "instruction": "Chọn layer ảnh trong Layers Studio, nhấn biểu tượng đồng hồ cát ➔ Light ➔ chọn 'Lighting'. Một quầng sáng hình nón cùng widget điều hướng xuất hiện trực tiếp trên màn hình.",
+        "shortcutTip": { "win": "Hourglass > Light > Lighting", "mac": "Hourglass > Light > Lighting" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chọn loại đèn và định hướng nguồn sáng",
+        "instruction": "Trong hộp thoại tham số, chọn Light Type là 'Spot Light'. Nhấp kéo tâm tròn của widget đặt vào vị trí nguồn sáng mong muốn (ví dụ góc trên bên trái chiếu xuống). Kéo các tay đòn để mở rộng góc chiếu nón sáng.",
+        "shortcutTip": { "win": "Kéo widget trực tiếp trên canvas", "mac": "Kéo widget trực tiếp trên canvas" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Kích hoạt hiệu ứng bề mặt 3D với Bump Map",
+        "instruction": "Kéo thanh trượt 'Bump' lên khoảng 10% - 20%. Quan sát bề mặt da hoặc vải áo: ánh sáng bắt đầu bắt dính vào từng nếp gấp và thớ vải gồ ghề, tạo nên chiều sâu khối 3D sống động lạ kỳ.",
+        "shortcutTip": { "win": "Kéo Bump 15%", "mac": "Kéo Bump 15%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thêm hiệu ứng Vignette dẫn hướng ánh nhìn",
+        "instruction": "Thêm một lớp 'Live Vignette Filter' (từ biểu tượng đồng hồ cát ➔ Lens ➔ Vignette). Giảm thanh trượt Exposure xuống -1.5 EV, tăng Hardness 0% để tạo một vùng tối mờ êm dịu bao quanh 4 góc bức ảnh.",
+        "shortcutTip": { "win": "Hourglass > Lens > Vignette", "mac": "Hourglass > Lens > Vignette" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Phân loại 3 nguồn sáng trong Live Lighting Filter",
+        "description": "Đặc tính vật lý và ứng dụng của từng loại đèn 3D ảo.",
+        "visualType": "table",
+        "visualContent": "| Loại nguồn sáng | Cơ chế chiếu sáng | Ứng dụng thực tế tối ưu |\n|---|---|---|\n| Spot Light (Đèn rọi) | Chiếu chùm sáng hình nón có điểm tụ và góc mở | Giả lập đèn sân khấu, đèn rọi studio, ánh sáng lọt qua khe cửa |\n| Point Light (Điểm sáng) | Tỏa ánh sáng đều ra 360 độ từ một tâm điểm | Giả lập ngọn nến, bóng đèn dây tóc, đốm lửa ma thuật trong đêm |\n| Directional (Định hướng) | Chiếu các tia sáng song song với góc nghiêng cố định | Giả lập ánh sáng mặt trời tự nhiên, ánh trăng chiếu rọi toàn cảnh |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Bố trí nguồn sáng Rembrandt kịch tính cho ảnh chân dung",
+      "taskDescription": "Mở một bức ảnh chân dung đơn giản, sử dụng Live Lighting Filter để tạo kiểu chiếu sáng Rembrandt kinh điển (hình tam giác sáng dưới gò má tối).",
+      "checkpoints": [
+        "Sử dụng Spot Light với góc chiếu 45 độ từ phía trên xuống.",
+        "Điều chỉnh màu đèn thành ánh sáng vàng cam ấm áp của đèn tóc vonfram.",
+        "Tăng nhẹ Bump map để nổi bật cấu trúc xương gò má.",
+        "Thêm Live Vignette dìm tối nhẹ 4 góc để hướng trọn vẹn sự chú ý vào đôi mắt nhân vật."
+      ],
+      "expectedOutcome": "Bức ảnh chân dung toát lên vẻ cổ điển, quý phái như những bức tranh sơn dầu của danh họa Rembrandt."
+    },
+    "independentChallenge": {
+      "title": "Tạo luồng ánh sáng ma mị lọt qua rèm cửa sổ (God Rays)",
+      "prompt": "Kết hợp Live Lighting (Spot Light hẹp), một lớp Perlin Noise thủ tục đặt chế độ Screen làm bụi không khí, và Live Motion Blur để tạo nên những luồng tia sáng mặt trời chiếu xuyên qua kẽ lá hoặc rèm cửa sổ huyền ảo.",
+      "starterAsset": {
+        "filename": "P06_live_filters_effects_guide.md",
+        "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+        "filesize": "4.3 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật ánh sáng 3D và hiệu ứng không gian trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Tia sáng có góc chiếu nhất quán với bóng đổ trong phòng.",
+        "Các hạt bụi li ti lơ lửng phát sáng trong luồng sáng (bằng Perlin Noise).",
+        "Toàn bộ hiệu ứng được nhóm trong Group có tên 'Volumetric Light'."
+      ],
+      "bonusGoal": "Sử dụng Gradient Mask làm mờ dần đuôi của các tia sáng khi chạm sàn nhà."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Tăng Bump map quá đà làm da người mẫu sần sùi như vỏ cam",
+        "cause": "Thanh trượt Bump khuếch đại độ tương phản vi mô; kéo quá 30% sẽ làm thô ráp mọi chi tiết nhỏ.",
+        "solution": "Chỉ đặt Bump ở mức nhẹ nhàng (5% - 15%) cho da người, chỉ tăng cao khi chiếu sáng chất liệu đá, gỗ hoặc kim loại gỉ."
+      },
+      {
+        "pitfall": "Vignette quá đen tạo thành một quầng tròn tối gắt như ống nhòm",
+        "cause": "Đặt Exposure quá thấp và Hardness quá cao.",
+        "solution": "Luôn giữ Hardness ở mức 0% để độ chuyển sắc nhung mịn tàng hình, Exposure chỉ giảm từ -0.8 đến -1.5 EV."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P06-03-Q1",
+        "question": "Loại nguồn sáng nào trong Live Lighting Filter tạo ra chùm tia sáng hình nón có thể điều chỉnh góc mở và hướng chiếu, lý tưởng nhất để giả lập đèn rọi sân khấu hoặc studio?",
+        "options": [
+          "Point Light",
+          "Spot Light",
+          "Directional Light",
+          "Ambient Only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Spot Light giả lập một nguồn sáng chiếu chùm nón (Cone) định hướng, cho phép kéo tay đòn trực quan để mở rộng hoặc thu hẹp góc tỏa sáng."
+      },
+      {
+        "id": "P06-03-Q2",
+        "question": "Thanh trượt 'Bump' trong hộp thoại Live Lighting của Affinity Photo có tác dụng kỳ diệu gì?",
+        "options": [
+          "Làm tăng tốc độ xoay canvas",
+          "Biến độ sáng tối của hình ảnh thành thông tin chiều cao 3D ảo, giúp nguồn sáng bắt dính vào từng thớ vải và nếp nhăn lồi lõm chân thực",
+          "Tự động xóa phông hậu cảnh",
+          "Đổi màu đèn sang màu đỏ"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bump Map tính toán độ lồi lõm từ độ tương phản pixel, tạo ra hiệu ứng nổi khối 3D giả lập trên bề mặt khi nguồn sáng quét qua."
+      },
+      {
+        "id": "P06-03-Q3",
+        "question": "Mục đích chính của việc áp dụng hiệu ứng làm tối 4 góc (Vignette) một cách tinh tế trong nhiếp ảnh là gì?",
+        "options": [
+          "Để tiết kiệm mực khi in",
+          "Để dìm bớt các chi tiết gây xao nhãng ở rìa mép và tự nhiên dẫn hướng ánh nhìn của người xem tập trung vào chủ thể ở trung tâm",
+          "Để che đi lỗi chụp rung tay ở góc ảnh",
+          "Bắt buộc cho mọi bức ảnh xuất ra web"
+        ],
+        "correctIndex": 1,
+        "explanation": "Vignette nhẹ nhàng hướng mắt người xem về trung tâm bức ảnh một cách vô thức, tạo cảm giác tập trung và đậm chất điện ảnh."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Live Lighting Filter mang lại cỗ máy chiếu sáng 3D GPU thời gian thực ngay trong không gian 2D.",
+        "Ba loại nguồn sáng Spot, Point, Directional đáp ứng mọi nhu cầu từ đèn studio đến ánh nắng tự nhiên.",
+        "Bump Map tạo chiều sâu khối nổi 3D chân thực trên thớ vải, hạt da và vân gỗ.",
+        "Live Vignette làm tối 4 góc êm ái là nét chấm phá cuối cùng giúp tôn vinh chủ thể chính."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P07 Image Compositing & Multi-Image Manipulation",
+          "target": "P07-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P06_live_filters_effects_guide.md",
+          "target": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P06-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Hệ Thống Ánh Sáng 3D & Hiệu Ứng Bề Mặt Bump Map",
+      "subtitle": "Bố trí nguồn sáng ảo và tạo chiều sâu không gian kịch tính",
+      "contentMarkdown": "Bạn có bao giờ cảm thấy bức ảnh của mình phẳng lì, thiếu sức sống vì ánh sáng lúc chụp quá bẹt và đơn điệu?\n\nTrong Affinity Photo, bạn không bị bó hẹp trong ánh sáng có sẵn lúc bấm máy. **Live Lighting Filter** mang cả một phòng thu studio với **đèn rọi 3D, bản đồ lồi lõm Bump Map và hiệu ứng thấu kính quang học** vào ngay trên bàn làm việc của bạn.\n\nTrong bài học này, bạn sẽ học cách đặt đèn rọi Rembrandt ảo, cách làm ánh sáng bắt vào từng thớ vải nhăn nheo, và cách dùng **Vignette** để hút trọn ánh nhìn vào người mẫu.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Tái thiết kế toàn bộ kịch bản ánh sáng cho bức ảnh bằng các nguồn sáng 3D thời gian thực."
+      }
+    },
+    {
+      "id": "P06-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "3 Nguồn Sáng Studio Trong Live Lighting",
+      "subtitle": "Spot Light, Point Light và Directional Light",
+      "contentMarkdown": "Khám phá 3 loại đèn chiếu sáng mạnh mẽ:\n\n- 🔦 **Spot Light (Đèn rọi):** Tạo chùm sáng hình chóp nón chiếu thẳng vào đối tượng. Bạn có thể kéo tay đòn trực quan để mở rộng hoặc bóp hẹp góc chiếu.\n- 💡 **Point Light (Bóng đèn tỏa tròn):** Nguồn sáng tỏa đều ra mọi hướng 360 độ từ một tâm điểm, như ngọn nến lung linh hay đốm lửa ma thuật.\n- ☀️ **Directional Light (Mặt trời):** Toàn bộ các tia sáng chiếu song song theo một góc nghiêng cố định, mô phỏng ánh nắng sớm bình minh hay trăng đêm rọi qua cửa sổ.",
+      "visual": {
+        "type": "callout",
+        "content": "Bạn có thể thêm nhiều nguồn sáng cùng lúc trong một bộ lọc duy nhất bằng nút 'Add Light'!"
+      }
+    },
+    {
+      "id": "P06-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bump Map: Phép Màu Tạo Khối Nổi 3D",
+      "subtitle": "Biến điểm ảnh phẳng lì thành bề mặt gồ ghề bắt sáng",
+      "contentMarkdown": "Điểm đắt giá nhất của Live Lighting chính là thanh trượt **Bump**:\n\n- Thay vì chỉ chiếu sáng phẳng, Bump Map phân tích sự chênh lệch sáng tối của các pixel.\n- Nó tính toán vector phản xạ góc nghiêng giống như trong các engine đồ họa game 3D (Unreal Engine).\n- Khi ánh sáng quét qua, bạn sẽ thấy từng lỗ chân lông, từng sợi chỉ thêu trên áo, từng đường vân gỗ nổi khối 3D rõ mồn một!",
+      "actionBox": {
+        "label": "Quy Tắc Tỷ Lệ",
+        "text": "Chỉ đặt Bump từ 5% đến 15% cho da người để tránh thô ráp. Với chất liệu đá hay gỗ, có thể tăng lên 30% - 50%!"
+      }
+    },
+    {
+      "id": "P06-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Bố Trí Ánh Sáng Chân Dung Kịch Tính",
+      "subtitle": "4 Bước tạo phong cách Rembrandt cổ điển",
+      "contentMarkdown": "1. **Thêm Live Lighting:** Bấm biểu tượng đồng hồ cát ➔ Light ➔ chọn `Lighting`.\n2. **Chọn Spot Light:** Nhấp chọn Spot Light, đổi màu ánh sáng thành vàng ấm nhẹ nhàng.\n3. **Kéo widget định vị:** Đặt tâm đèn ở góc trên bên trái 45 độ chiếu xuống trán và gò má người mẫu.\n4. **Tinh chỉnh Bump & Vignette:** Kéo Bump 10%, sau đó thêm lớp `Live Vignette` giảm -1.2 EV để dìm tối nhẹ 4 góc!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Add Lighting | Spot Light | 45 Degree Angle | Bump 10% | Vignette Glow"
+      }
+    },
+    {
+      "id": "P06-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Lỗi Thường Gặp Khi Đặt Đèn Ảo",
+      "subtitle": "Tránh các mảng sáng giả tạo và quá chói",
+      "contentMarkdown": "### 1. Đặt đèn ngược hướng bóng đổ tự nhiên\n- **Hậu quả:** Bức ảnh trông cực kỳ giả tạo vì bóng đổ ban đầu ngả sang phải nhưng đèn ảo lại chiếu từ bên phải sang!\n- **Khắc phục:** Luôn quan sát bóng mũi và bóng cằm của ảnh gốc để đặt hướng chiếu của đèn ảo trùng khớp 100%.\n\n### 2. Độ chói Specular quá gắt làm cháy trắng\n- **Hậu quả:** Da người mẫu xuất hiện các mảng trắng bóng nhẫy như bôi mỡ.\n- **Khắc phục:** Giảm thanh trượt `Specular` xuống dưới 20% và tăng nhẹ `Diffuse` để ánh sáng tán xạ êm ái.",
+      "actionBox": {
+        "label": "Quy Tắc Vật Lý",
+        "text": "Ánh sáng ảo phải tuân theo hướng ánh sáng thật đã có sẵn trong khung cảnh!"
+      }
+    },
+    {
+      "id": "P06-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Chiếu Sáng",
+      "subtitle": "Xác nhận khả năng làm chủ Live Lighting",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P06-03-Q2",
+        "question": "Thanh trượt 'Bump' trong hộp thoại Live Lighting của Affinity Photo có tác dụng kỳ diệu gì?",
+        "options": [
+          "Làm tăng tốc độ xoay canvas",
+          "Biến độ sáng tối của hình ảnh thành thông tin chiều cao 3D ảo, giúp nguồn sáng bắt dính vào từng thớ vải và nếp nhăn lồi lõm chân thực",
+          "Tự động xóa phông hậu cảnh",
+          "Đổi màu đèn sang màu đỏ"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bump Map tính toán độ lồi lõm từ độ tương phản pixel, tạo ra hiệu ứng nổi khối 3D giả lập trên bề mặt khi nguồn sáng quét qua."
+      }
+    },
+    {
+      "id": "P06-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Đánh Đèn Sân Khấu Kịch Tính",
+      "subtitle": "Tạo ánh sáng Spotlight lộng lẫy cho ca sĩ",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P06_live_filters_effects_guide.md`.\n2. Chọn một bức ảnh nghệ sĩ biểu diễn trên sân khấu.\n3. Thêm Live Lighting Filter, thiết lập một đèn Spot Light màu xanh lam chiếu từ trên đỉnh đầu xuống (Rim Light).\n4. Bấm nút 'Add Light' tạo thêm chiếc đèn thứ hai màu vàng ấm chiếu từ phía trước vào khuôn mặt (Key Light).\n5. Tinh chỉnh Bump 10% để nổi bật từng nếp nhăn trang phục.\n\n### Tiêu Chí Nghiệm Thu:\n- Hai nguồn sáng màu sắc tương phản hòa quyện ấn tượng.\n- Toàn bộ hiệu ứng được duy trì dưới dạng Live Filter phi phá hủy.",
+      "practiceData": {
+        "prompt": "Bố trí hệ thống 2 nguồn sáng ảo bằng Live Lighting Filter.",
+        "starterAsset": {
+          "filename": "P06_live_filters_effects_guide.md",
+          "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "filesize": "4.3 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật ánh sáng 3D và hiệu ứng không gian trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Bố trí Spot Light màu lạnh từ trên đỉnh",
+          "Thêm nguồn sáng thứ hai màu ấm chiếu mặt",
+          "Kiểm soát Bump map và độ chói hài hòa"
+        ]
+      }
+    }
+  ]
+}

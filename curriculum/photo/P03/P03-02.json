@@ -1,0 +1,280 @@
+{
+  "id": "P03-02",
+  "moduleId": "P03",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Adjustment Layers & Live Filter Architecture",
+  "subtitle": "Real-Time GPU Shaders, Built-In Masking & Infinite Parameter Tuning",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu rõ kiến trúc bộ lọc thời gian thực (Live Filters) và các lớp điều chỉnh (Adjustment Layers) chạy trên GPU.",
+      "Sử dụng thành thạo các bộ lọc Live Filter thiết yếu: Live Gaussian Blur, Live High Pass, Live Clarity, Live Perspective.",
+      "Làm chủ 22 lớp điều chỉnh màu: Curves, Levels, HSL, Black & White, White Balance, Selective Color.",
+      "Tận dụng kênh mặt nạ tích hợp sẵn (Built-in Mask) có mặt trong mọi Adjustment và Live Filter."
+    ],
+    "foundationalKnowledge": "Điểm ưu việt kỹ thuật của Serif Affinity Photo so với các phần mềm thế hệ trước nằm ở việc loại bỏ hoàn toàn cơ chế lọc phá hủy (Destructive Filtering). Thay vì nướng chết một hiệu ứng làm mờ (Blur) hay làm nét (Sharpen) trực tiếp vào mảng pixel của hình ảnh—khiến bạn vĩnh viễn không thể thay đổi lại bán kính lọc sau khi đã lưu tệp—Affinity Photo xử lý mọi bộ lọc dưới dạng Live Filter Layer. Một Live Filter là một chương trình đổ bóng GPU thời gian thực (GPU Shader Program). Nó nhận đầu vào là các pixel bên dưới, tính toán hiệu ứng trên card đồ họa khi hiển thị lên màn hình, và lưu giữ nguyên vẹn các tham số toán học (bán kính pixel, góc chiếu sáng, ngưỡng lọc) để bạn nhấp đúp chuột thay đổi bất kỳ lúc nào.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Live Filter Architecture & Adjustment Pipeline Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Live Filters & Adjustments Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Ctrl+M (Curves Adjustment) / Ctrl+L (Levels) / Biểu tượng đồng hồ cát (Live Filters)",
+        "mac": "Cmd+M (Curves Adjustment) / Cmd+L (Levels) / Biểu tượng đồng hồ cát (Live Filters)"
+      },
+      "description": "Trung tâm điều khiển các phép biến đổi màu sắc, độ tương phản và hiệu ứng quang học phi phá hủy.",
+      "contextBarOptions": [
+        "Opacity & Blend Mode: Mỗi Adjustment và Live Filter đều có chế độ hòa trộn riêng",
+        "Preserve Alpha: Giữ nguyên biên trong suốt không bị hiệu ứng làm mờ tràn ra ngoài",
+        "Merge / Delete / Reset: Các nút điều khiển trên hộp thoại tham số bộ lọc",
+        "Invert Built-in Mask: Đảo ngược mặt nạ tích hợp sẵn trên lớp điều chỉnh"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Thêm lớp điều chỉnh Curves từ Adjustments Studio",
+        "instruction": "Nhấn vào biểu tượng Adjustments (vòng tròn bán nguyệt) ở đáy Layers Studio hoặc nhấn Ctrl+M (Win) / Cmd+M (Mac). Chọn 'Curves'.",
+        "shortcutTip": { "win": "Ctrl+M", "mac": "Cmd+M" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tạo đường cong tương phản và tinh chỉnh",
+        "instruction": "Kéo nhẹ điểm sáng lên và điểm tối xuống tạo hình chữ S. Nhận thấy toàn bộ bức ảnh trở nên trong trẻo, có chiều sâu ngay tức thì.",
+        "shortcutTip": { "win": "Kéo điểm neo trên đồ thị", "mac": "Kéo điểm neo trên đồ thị" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Thêm Live Gaussian Blur từ biểu tượng đồng hồ cát",
+        "instruction": "Nhấn vào biểu tượng chiếc đồng hồ cát ở đáy Layers Studio, chọn 'Gaussian Blur'. Kéo thanh trượt Radius lên 8px. Quan sát hiệu ứng làm mờ mượt mà.",
+        "shortcutTip": { "win": "Biểu tượng đồng hồ cát > Gaussian Blur", "mac": "Biểu tượng đồng hồ cát > Gaussian Blur" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Vẽ cọ lên mặt nạ tích hợp để làm mờ cục bộ",
+        "instruction": "Không cần tạo thêm Mask! Chọn Paint Brush Tool (B) với màu Đen, vẽ trực tiếp lên khuôn mặt chủ thể để xóa hiệu ứng làm mờ, chỉ giữ mờ ở vùng hậu cảnh xung quanh.",
+        "shortcutTip": { "win": "B rồi vẽ màu Đen", "mac": "B rồi vẽ màu Đen" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh giữa Standard Filters (Menu) và Live Filters (Đồng hồ cát)",
+        "description": "Sự khác biệt mang tính sống còn đối với độ toàn vẹn của tệp dự án.",
+        "visualType": "table",
+        "visualContent": "| Tiêu chí so sánh | Standard Filters (Filters Menu) | Live Filter Layer (Đồng hồ cát) |\n|---|---|---|---|\n| Tính chất chỉnh sửa | Phá hủy vĩnh viễn (Destructive) | Phi phá hủy 100% (Non-Destructive) |\n| Khả năng sửa lại tham số | Không thể (chỉ có thể Undo lịch sử) | Nhấp đúp chuột sửa bất cứ lúc nào |\n| Mặt nạ tích hợp | Không có (phải tạo thủ công) | Có sẵn kênh Mask 8-bit riêng |\n| Chế độ hòa trộn riêng | Phụ thuộc vào layer chứa nó | Có Blend Mode và Opacity độc lập |\n| Chi phí bộ nhớ RAM | Bắt buộc nhân bản thêm layer pixel | Chỉ tốn vài kilobyte lưu mã shader |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo hiệu ứng chiều sâu trường ảnh giả lập (Tilt-Shift Depth of Field)",
+      "taskDescription": "Ứng dụng Live Depth of Field Filter để tạo hiệu ứng xóa phông hậu cảnh như ống kính khẩu lớn f/1.4.",
+      "checkpoints": [
+        "Mở một bức ảnh đường phố hoặc chân dung toàn thân.",
+        "Thêm Live Depth of Field Filter (Tilt-Shift mode).",
+        "Điều chỉnh tay đòn xác định vùng nét ở trung tâm và vùng mờ nhòe ở 2 cạnh.",
+        "Nhấp đúp vào thumbnail để kiểm tra khả năng thay đổi bán kính làm mờ bất kỳ lúc nào."
+      ],
+      "expectedOutcome": "Hậu cảnh bị xóa mờ mềm mại tôn vinh chủ thể chính mà dữ liệu pixel gốc không hề bị thay đổi."
+    },
+    "independentChallenge": {
+      "title": "Tổ hợp Live High Pass + Curves tạo hiệu ứng Glamour Glow",
+      "prompt": "Xây dựng hiệu ứng phát sáng mộng mơ (Glamour Glow / Orton Effect): Áp dụng Live Gaussian Blur bán kính lớn (20px), đổi Blend Mode sang Screen; bên dưới đặt Live High Pass (2px) hòa trộn Soft Light để giữ chi tiết sắc nét.",
+      "starterAsset": {
+        "filename": "P03_layers_non_destructive_guide.md",
+        "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+        "filesize": "4.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật kết hợp Live Filters và Adjustment layers trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Cả 2 bộ lọc đều là Live Filters (có biểu tượng đồng hồ cát).",
+        "Blend Mode của từng bộ lọc được thiết lập chính xác (Screen và Soft Light).",
+        "Dùng cọ đen trên Built-in Mask để giảm sáng ở vùng mắt và môi."
+      ],
+      "bonusGoal": "Lưu tổ hợp layer này thành một Asset trong Assets Studio để dùng lại chỉ với một cú kéo thả."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Vào menu Filters > Blur > Gaussian Blur khiến ảnh bị mờ vĩnh viễn",
+        "cause": "Dùng bộ lọc truyền thống từ thanh menu trên cùng thay vì dùng Live Filters.",
+        "solution": "Luôn tạo bộ lọc từ biểu tượng đồng hồ cát ở đáy Layers Studio hoặc menu 'Layer > New Live Filter Layer'."
+      },
+      {
+        "pitfall": "Thêm quá nhiều Live Filters phức tạp khiến máy tính bị chậm khung hình",
+        "cause": "Áp dụng hàng chục Live Filters độ phân giải cao cùng lúc trên card đồ họa yếu.",
+        "solution": "Tạm thời tắt bớt con mắt hiển thị của các Live Filter nặng trong khi đang chỉnh sửa các chi tiết khác."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P03-02-Q1",
+        "question": "Biểu tượng nào ở thanh công cụ dưới đáy Layers Studio trong Affinity Photo dùng để tạo các lớp bộ lọc thời gian thực (Live Filters)?",
+        "options": [
+          "Biểu tượng chiếc mặt nạ",
+          "Biểu tượng chiếc đồng hồ cát (Hourglass)",
+          "Biểu tượng hình chữ nhật có dấu cộng",
+          "Biểu tượng thùng rác"
+        ],
+        "correctIndex": 1,
+        "explanation": "Biểu tượng chiếc đồng hồ cát chính là lối tắt mở danh mục Live Filter Layers của Affinity Photo."
+      },
+      {
+        "id": "P03-02-Q2",
+        "question": "Mỗi lớp Live Filter hoặc Adjustment Layer trong Affinity Photo có đặc tính mặt nạ như thế nào?",
+        "options": [
+          "Không có mặt nạ, phải tạo thêm Mask Layer riêng bên ngoài",
+          "Mỗi lớp đều sở hữu sẵn một kênh mặt nạ tích hợp (Built-in Mask), chỉ cần dùng cọ vẽ màu Đen/Trắng trực tiếp lên thumbnail của nó",
+          "Chỉ có phiên bản trả phí mới có mặt nạ",
+          "Chỉ hỗ trợ mặt nạ vector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mọi Adjustment và Live Filter đều tích hợp sẵn một kênh mặt nạ 8-bit, cho phép che giấu hoặc hé lộ hiệu ứng cục bộ ngay tức khắc."
+      },
+      {
+        "id": "P03-02-Q3",
+        "question": "Phím tắt mặc định để mở nhanh lớp điều chỉnh đường cong tương phản Curves trong Affinity Photo là gì?",
+        "options": [
+          "Ctrl+C (Win) / Cmd+C (Mac)",
+          "Ctrl+M (Win) / Cmd+M (Mac)",
+          "Ctrl+Shift+U (Win) / Cmd+Shift+U (Mac)",
+          "Ctrl+Alt+C (Win) / Cmd+Option+C (Mac)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Phím tắt chuẩn để mở Curves Adjustment là Ctrl+M trên Windows và Cmd+M trên macOS."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Live Filters hoạt động như các chương trình shader GPU thời gian thực, cho phép chỉnh sửa tham số vô hạn lần.",
+        "Mọi Live Filter và Adjustment đều tích hợp sẵn mặt nạ built-in, tiết kiệm thời gian tạo mask thủ công.",
+        "Phím tắt Ctrl+M mở nhanh Curves, công cụ mạnh mẽ nhất để kiểm soát ánh sáng và màu sắc.",
+        "Tránh dùng bộ lọc destructive từ menu Filters; luôn ưu tiên Live Filters từ biểu tượng đồng hồ cát."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P03-03 Clipping, Grouping & Blend Mode Mathematics",
+          "target": "P03-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P03_layers_non_destructive_guide.md",
+          "target": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P03-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Kiến Trúc Live Filters & Lớp Điều Chỉnh Màu Sắc",
+      "subtitle": "Khai phóng sức mạnh GPU Shader thời gian thực trong Affinity Photo",
+      "contentMarkdown": "Trong các phần mềm đồ họa cổ điển, mỗi lần bạn áp dụng một hiệu ứng mờ nhòe hay làm nét, phần mềm sẽ tính toán và **nướng chết (bake)** vĩnh viễn kết quả đó vào các pixel của ảnh.\n\nAffinity Photo tái định nghĩa hoàn toàn cuộc chơi với **Live Filter Layer**:\n- Mọi bộ lọc chạy bằng GPU Shader trong thời gian thực.\n- Bán kính, cường độ, góc chiếu sáng có thể chỉnh sửa lại bất kỳ lúc nào.\n- Đi kèm sẵn một **Built-in Mask** giúp bạn áp dụng hiệu ứng cục bộ chỉ bằng vài nét cọ!",
+      "actionBox": {
+        "label": "Biểu Tượng Cốt Lõi",
+        "text": "Hãy ghi nhớ biểu tượng Chiếc Đồng Hồ Cát ở đáy Layers Studio — cánh cửa dẫn tới thế giới Live Filters phi phá hủy."
+      }
+    },
+    {
+      "id": "P03-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Bản Chất GPU Shader Của Live Filters",
+      "subtitle": "Lý do tệp dự án của bạn siêu nhẹ dù chứa hàng chục hiệu ứng",
+      "contentMarkdown": "Tại sao một tệp `.afphoto` chứa cả chục lớp làm mờ, khử nhiễu và làm nét lại chỉ nặng vài megabyte?\n\n- Thay vì lưu trữ hàng chục bản sao hình ảnh nặng nề, Affinity Photo chỉ lưu **công thức toán học** của bộ lọc trong tệp.\n- Khi mở tệp, card đồ họa (GPU) sẽ tính toán trực tiếp các thuật toán này ở tốc độ 60fps khi hiển thị lên màn hình.\n- Khi nhấp đúp vào layer, hộp thoại tham số xuất hiện lại nguyên vẹn như lúc ban đầu!",
+      "visual": {
+        "type": "callout",
+        "content": "Live Filters không tốn thêm pixel bộ nhớ, nhưng tiêu tốn sức mạnh GPU khi hiển thị. Đây là sự đánh đổi hoàn hảo cho chất lượng tối cao."
+      }
+    },
+    {
+      "id": "P03-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bảng Điều Khiển Live Filters & Hộp Thoại Tham Số",
+      "subtitle": "Mọi bộ lọc thiết yếu nằm gọn trong một cú click",
+      "contentMarkdown": "Nhấn biểu tượng chiếc đồng hồ cát để khám phá danh mục Live Filters:\n\n- **Sharpening:** Clarity (trong trẻo tương phản), High Pass (nét khối), Unsharp Mask.\n- **Blur:** Gaussian Blur (mờ đều), Depth of Field (xóa phông ống kính), Motion Blur, Radial Blur.\n- **Distort:** Perspective (nắn phối cảnh), Mesh Warp (uốn nắn lưới), Displace (bản đồ lồi lõm).\n- **Noise:** Denoise (khử hạt nhiễu ISO cao mà vẫn giữ nét chi tiết).",
+      "actionBox": {
+        "label": "Tích Hợp Sẵn Mặt Nạ",
+        "text": "Không cần tạo thêm Mask! Bạn chỉ việc cầm cọ Paint Brush (B) vẽ màu Đen lên Live Filter để xóa bớt hiệu ứng ở vùng không mong muốn."
+      }
+    },
+    {
+      "id": "P03-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Thêm Và Tinh Chỉnh Live Filter",
+      "subtitle": "Thực hành xóa phông nghệ thuật với Gaussian Blur",
+      "contentMarkdown": "1. **Chọn Layer ảnh chính:** Trong Layers Studio (F7).\n2. **Bấm biểu tượng đồng hồ cát:** Chọn `Gaussian Blur`.\n3. **Đặt bán kính:** Kéo thanh trượt Radius lên mức `10 px`. Toàn bộ ảnh sẽ mờ đi.\n4. **Vẽ cọ đen lên chủ thể:** Dùng cọ Paint Brush (B) màu Đen tô lên người mẫu. Hiệu ứng làm mờ biến mất trên người mẫu, để lại vùng hậu cảnh xóa phông lung linh!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Select Layer | Hourglass Icon | Radius Slider | Brush (B) Black | Perfect Bokeh"
+      }
+    },
+    {
+      "id": "P03-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Cạm Bẫy Phổ Biến Với Bộ Lọc Truyền Thống",
+      "subtitle": "Đừng bao giờ dùng menu Filters nếu không có lý do đặc biệt!",
+      "contentMarkdown": "### 1. Dùng nhầm menu Filters trên thanh đỉnh\n- **Hậu quả:** Bạn vào `Filters > Blur > Gaussian Blur`. Nó áp dụng trực tiếp lên pixel. Đến ngày hôm sau khi khách hàng muốn bớt mờ đi 20%, bạn hoàn toàn bất lực!\n- **Quy tắc vàng:** Luôn dùng `Live Filters` (biểu tượng đồng hồ cát).\n\n### 2. Quên kiểm tra ô 'Preserve Alpha'\n- **Hậu quả:** Khi làm mờ một đối tượng đã tách nền, mép viền bị loang rộng ra ngoài biên trong suốt.\n- **Giải pháp:** Tích chọn ô `Preserve Alpha` trong hộp thoại tham số bộ lọc để khóa chặt mép viền trong suốt.",
+      "actionBox": {
+        "label": "Quy Tắc Sống Còn",
+        "text": "Menu Filters trên thanh đỉnh là Destructive. Biểu tượng Đồng hồ cát trong Layers Studio là Non-Destructive!"
+      }
+    },
+    {
+      "id": "P03-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Độ Thấu Hiểu Live Filters",
+      "subtitle": "Xác nhận kiến thức về bộ lọc thời gian thực",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P03-02-Q2",
+        "question": "Mỗi lớp Live Filter hoặc Adjustment Layer trong Affinity Photo có đặc tính mặt nạ như thế nào?",
+        "options": [
+          "Không có mặt nạ, phải tạo thêm Mask Layer riêng bên ngoài",
+          "Mỗi lớp đều sở hữu sẵn một kênh mặt nạ tích hợp (Built-in Mask), chỉ cần dùng cọ vẽ màu Đen/Trắng trực tiếp lên thumbnail của nó",
+          "Chỉ có phiên bản trả phí mới có mặt nạ",
+          "Chỉ hỗ trợ mặt nạ vector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mọi Adjustment và Live Filter đều tích hợp sẵn một kênh mặt nạ 8-bit, cho phép che giấu hoặc hé lộ hiệu ứng cục bộ ngay tức khắc."
+      }
+    },
+    {
+      "id": "P03-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thử Thách: Tổ Hợp Live High Pass + Curves",
+      "subtitle": "Xây dựng công thức làm nét chân dung không tì vết",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P03_layers_non_destructive_guide.md`.\n2. Thêm một lớp **Curves Adjustment** (`Ctrl+M`) để tăng độ tương phản nhẹ.\n3. Thêm một lớp **Live High Pass Filter** (từ biểu tượng đồng hồ cát), đặt bán kính `1.5 px`.\n4. Đổi chế độ hòa trộn của lớp High Pass sang **Soft Light**.\n5. Dùng cọ màu Đen vẽ lên mặt nạ của High Pass để loại bỏ làm nét ở các vùng da trơn, chỉ giữ nét ở mắt, lông mi và nụ cười.\n\n### Tiêu Chí Nghiệm Thu:\n- Bức ảnh có độ nét đanh sắc sảo mà không làm thô ráp da mặt.\n- Nhấp đúp vào Live High Pass vẫn thay đổi được bán kính.",
+      "practiceData": {
+        "prompt": "Tạo tổ hợp Curves và Live High Pass Sharpening với chế độ Soft Light.",
+        "starterAsset": {
+          "filename": "P03_layers_non_destructive_guide.md",
+          "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "filesize": "4.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật kết hợp Live Filters và Adjustment layers trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Thêm Curves Adjustment tăng tương phản",
+          "Thêm Live High Pass hòa trộn Soft Light",
+          "Dùng cọ Đen trên Built-in Mask che chắn vùng da mịn"
+        ]
+      }
+    }
+  ]
+}

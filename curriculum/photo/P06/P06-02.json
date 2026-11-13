@@ -1,0 +1,280 @@
+{
+  "id": "P06-02",
+  "moduleId": "P06",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Blur, Sharpening & Sensor Noise Reduction",
+  "subtitle": "High Pass vs Clarity vs Unsharp Mask, Tilt-Shift Bokeh & Dual-Engine Denoise",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Phân biệt và lựa chọn chính xác giữa 3 kỹ thuật làm nét: Live Unsharp Mask, Live Clarity, và Live High Pass (Soft Light).",
+      "Hiểu cơ chế sinh ra quầng sáng giả tạo (Halo Artifacts) khi làm nét quá đà và cách triệt tiêu chúng.",
+      "Sử dụng Live Depth of Field để tạo hiệu ứng xóa phông quang học giả lập ống kính khẩu lớn f/1.2.",
+      "Làm chủ bộ lọc Live Denoise với 2 kênh khử hạt độc lập: Luminance Noise (hạt đen trắng) và Chrominance Noise (sạn màu đỏ xanh)."
+    ],
+    "foundationalKnowledge": "Làm nét (Sharpening) và Khử nhiễu (Denoising) là hai mặt đối lập của một bài toán xử lý tín hiệu hình ảnh (Signal-to-Noise Ratio). Khi bạn cố gắng làm nét một bức ảnh chụp thiếu sáng ở ISO cao, bạn vô tình làm nổi rõ cả những hạt sạn nhiễu cảm biến; ngược lại, khi khử nhiễu quá mạnh tay, bạn làm bệt mất các chi tiết quý giá như sợi lông mày hay lông mi. Affinity Photo giải quyết bài toán này bằng cơ chế phân giải đa tầng: Live Clarity can thiệp vào độ tương phản dải trung âm cục bộ (Local Midtone Contrast) để tạo cảm giác trong trẻo mà không sinh ra viền sáng; trong khi Live Denoise tách biệt hoàn toàn giữa việc làm mịn các đốm màu (Chrominance) và giữ lại độ sắc nét của chi tiết cạnh viền (Luminance).",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Sharpening & Denoise Algorithms Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Sharpening & Noise Reduction Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field",
+        "mac": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field"
+      },
+      "description": "Hệ thống các bộ lọc xử lý độ trong trẻo, kiểm soát độ sâu trường ảnh và độ sạch của tín hiệu cảm biến.",
+      "contextBarOptions": [
+        "Live High Pass Radius: Bán kính trích xuất chi tiết vi mô (thường 1.0 - 2.5px)",
+        "Live Denoise Luminance: Khử hạt sạn độ sáng (hạt muối tiêu)",
+        "Live Denoise Chrominance: Khử sạn màu loang lổ (đốm đỏ, xanh lá, xanh dương)",
+        "Depth of Field Mode: Circular (tròn), Tilt-Shift (hai dải song song)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Khử nhiễu hạt ISO cao với Live Denoise",
+        "instruction": "Mở ảnh chụp đêm có nhiều hạt sạn. Nhấn biểu tượng đồng hồ cát ➔ Noise ➔ 'Denoise'. Phóng to ảnh lên 100% để quan sát hạt nhiễu ở vùng tối.",
+        "shortcutTip": { "win": "Hourglass > Noise > Denoise", "mac": "Hourglass > Noise > Denoise" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tách bạch Luminance và Chrominance",
+        "instruction": "Kéo thanh trượt 'Chrominance' lên khoảng 40% - 60%. Toàn bộ các đốm màu xanh đỏ lốm đốm sẽ biến mất ngay lập tức. Sau đó kéo nhẹ thanh trượt 'Luminance' lên 15% - 25% vừa đủ làm phẳng hạt muối tiêu mà không làm mờ mắt nhân vật.",
+        "shortcutTip": { "win": "Chrominance 50%, Luminance 20%", "mac": "Chrominance 50%, Luminance 20%" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Làm nét đanh bằng Live High Pass Filter",
+        "instruction": "Thêm một lớp 'Live High Pass Filter'. Đặt Radius từ 1.2px đến 1.8px (chỉ vừa nhìn thấy đường viền mảnh của lông mi và mép áo). Đổi Blend Mode của lớp này sang 'Soft Light'.",
+        "shortcutTip": { "win": "High Pass 1.5px > Soft Light", "mac": "High Pass 1.5px > Soft Light" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Tạo hiệu ứng xóa phông Bokeh với Depth of Field",
+        "instruction": "Thêm 'Live Depth of Field Filter'. Chọn chế độ 'Tilt-Shift'. Kéo thanh điều hướng đặt vùng nét vào đôi mắt người mẫu, hai dải mờ nhạt dần ra hậu cảnh trên và dưới tạo cảm giác ống kính khẩu lớn f/1.4 đắt tiền.",
+        "shortcutTip": { "win": "Hourglass > Blur > Depth of Field", "mac": "Hourglass > Blur > Depth of Field" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh 3 phương pháp làm nét ảnh trong Affinity Photo",
+        "description": "Lựa chọn công nghệ làm nét tối ưu cho từng thể loại ảnh.",
+        "visualType": "table",
+        "visualContent": "| Phương pháp làm nét | Bản chất thuật toán | Nguy cơ viền sáng (Halos) | Thể loại áp dụng tối ưu |\n|---|---|---|---|\n| Live Clarity | Tăng tương phản dải trung âm (Local Midtone Contrast) | Không bao giờ có viền sáng | Ảnh phong cảnh, kiến trúc, chân dung nam tính |\n| Live High Pass (Soft Light) | Lọc tần số cao + hòa trộn ánh sáng tương phản | Rất thấp (kiểm soát được bằng Radius) | Chân dung beauty, mắt, lông mày, trang sức |\n| Live Unsharp Mask | Tăng độ tương phản ranh giới ngưỡng (Threshold) | Dễ bị viền trắng nếu kéo Amount quá cao | Ảnh in ấn công nghiệp, ảnh chụp từ máy bay |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Khôi phục và làm nét bức ảnh chụp chân dung thiếu sáng ISO 6400",
+      "taskDescription": "Xử lý một bức ảnh chân dung chụp đêm bị nhiều sạn màu bằng tổ hợp Live Denoise và Live High Pass Sharpening.",
+      "checkpoints": [
+        "Live Denoise triệt tiêu sạch sạn màu xanh đỏ trên nền tối.",
+        "Đôi mắt và sợi tóc giữ nguyên độ nét, không bị bết dính.",
+        "Live High Pass tăng độ sắc sảo cho chi tiết trang sức và lông mi.",
+        "Không xuất hiện viền sáng giả tạo (Halo) quanh mép áo."
+      ],
+      "expectedOutcome": "Bức ảnh chụp đêm trở nên trong trẻo, sạch sẽ, đạt chuẩn chất lượng xuất bản thương mại."
+    },
+    "independentChallenge": {
+      "title": "Tạo thế giới tí hon (Miniature Effect) bằng Live Tilt-Shift",
+      "prompt": "Mở một bức ảnh phong cảnh chụp thành phố từ trên cao (góc nhìn flycam hoặc từ ban công nhà cao tầng). Sử dụng Live Depth of Field Filter chế độ Tilt-Shift với bán kính làm mờ lớn (25px) kèm một lớp Curves tăng tương phản và bão hòa màu để biến toàn bộ thành phố trông như một mô hình đồ chơi tí hon (Diorama Effect).",
+      "starterAsset": {
+        "filename": "P06_live_filters_effects_guide.md",
+        "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+        "filesize": "4.3 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật làm mờ, khử nhiễu và làm nét trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Hiệu ứng Tilt-Shift chỉ giữ nét duy nhất một con đường hoặc góc phố ở trung tâm.",
+        "Tăng Saturation bằng HSL để màu sắc rực rỡ như đồ chơi nhựa.",
+        "Toàn bộ hiệu ứng được áp dụng phi phá hủy thông qua Live Filters."
+      ],
+      "bonusGoal": "Sử dụng mặt nạ tích hợp trên Depth of Field để giữ nét các ngọn tháp cao vượt lên khỏi dải mờ."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Bức ảnh trông như tranh vẽ sơn dầu sau khi khử nhiễu",
+        "cause": "Kéo thanh trượt Luminance trong Live Denoise quá cao (vượt quá 50%), tiêu diệt toàn bộ kết cấu vi mô.",
+        "solution": "Chỉ tăng mạnh thanh trượt Chrominance để khử màu loang, giữ Luminance ở mức tối thiểu vừa đủ (15% - 25%)."
+      },
+      {
+        "pitfall": "Mắt và tóc xuất hiện các viền trắng sáng sắc nhọn giả tạo",
+        "cause": "Đặt Radius của High Pass quá lớn (vượt quá 3.0px) hoặc kéo Amount trong Unsharp Mask quá đà.",
+        "solution": "Giảm Radius High Pass về mức 1.2px - 1.5px và dùng chế độ hòa trộn Soft Light thay vì Hard Light."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P06-02-Q1",
+        "question": "Khi khử hạt nhiễu (Denoise) cho một bức ảnh chụp thiếu sáng ở ISO cao, thanh trượt nào nên được ưu tiên tăng trước để loại bỏ các đốm xanh đỏ loang lổ mà KHÔNG làm mất độ sắc nét của chi tiết?",
+        "options": [
+          "Luminance",
+          "Chrominance",
+          "Frequency",
+          "Threshold"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chrominance kiểm soát sạn màu sắc. Khử Chrominance không làm ảnh hưởng đến độ sắc nét của các đường nét chi tiết hình ảnh."
+      },
+      {
+        "id": "P06-02-Q2",
+        "question": "Kỹ thuật làm nét nào dưới đây dựa trên việc can thiệp vào độ tương phản dải trung âm cục bộ (Local Midtone Contrast), giúp bức ảnh trong trẻo mà hoàn toàn không bao giờ sinh ra viền sáng giả tạo (Halo)?",
+        "options": [
+          "Unsharp Mask",
+          "Live Clarity Filter",
+          "Inpainting",
+          "Gaussian Blur"
+        ],
+        "correctIndex": 1,
+        "explanation": "Live Clarity tăng độ tương phản của các chi tiết trung âm cục bộ, tạo cảm giác ảnh trong suốt và sắc sảo mà không tạo ra các đường viền sáng sắc nhọn."
+      },
+      {
+        "id": "P06-02-Q3",
+        "question": "Khi sử dụng Live High Pass Filter để làm nét chân dung, chế độ hòa trộn (Blend Mode) nào mang lại độ nét mềm mại, tự nhiên nhất cho làn da và ánh mắt?",
+        "options": [
+          "Multiply",
+          "Screen",
+          "Soft Light",
+          "Difference"
+        ],
+        "correctIndex": 2,
+        "explanation": "Soft Light là chế độ hòa trộn êm dịu nhất trong họ Tương phản, làm màu xám 50% của High Pass trở nên vô hình và chỉ gia tăng độ sắc nét nhẹ nhàng cho các cạnh chi tiết."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Live Denoise với 2 kênh Luminance và Chrominance giúp làm sạch sạn cảm biến thông minh mà không làm bết da.",
+        "Live Clarity là vũ khí tối ưu cho độ trong trẻo không viền sáng (Zero-halo sharpening).",
+        "Live High Pass kết hợp hòa trộn Soft Light tạo độ nét khối đanh thép cho mắt và lông mi.",
+        "Live Depth of Field (Tilt-Shift) tạo hiệu ứng xóa phông bokeh ống kính khẩu lớn và thế giới tí hon."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P06-03 Live Lighting, Bump Maps & Atmospheric Effects",
+          "target": "P06-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P06_live_filters_effects_guide.md",
+          "target": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P06-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Nghệ Thuật Làm Nét, Xóa Phông & Khử Nhiễu Cảm Biến",
+      "subtitle": "Cân bằng hoàn hảo giữa độ trong trẻo và độ sạch của điểm ảnh",
+      "contentMarkdown": "Bạn chụp một bức ảnh trong điều kiện ánh sáng yếu và cảm thấy bất lực khi ảnh vừa bị **hạt sạn nhiễu loang lổ (Noise)**, vừa bị **mờ nhạt thiếu độ đanh sắc nét**?\n\nNếu xử lý sai cách, việc khử nhiễu sẽ biến người mẫu thành tượng sáp dính bết, còn làm nét sẽ tạo ra các **viền sáng giả tạo (Halo Artifacts)** xấu xí!\n\nTrong bài học này, bạn sẽ làm chủ bộ ba kỹ thuật đỉnh cao của Affinity Photo: **Live Denoise 2 kênh**, phương pháp làm nét không viền sáng **Live Clarity & High Pass**, và hiệu ứng xóa phông quang học **Live Depth of Field**.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Làm sạch hoàn toàn hạt nhiễu ISO cao và tăng cường độ sắc sảo cho ánh mắt mà không làm hỏng kết cấu tự nhiên."
+      }
+    },
+    {
+      "id": "P06-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Giải Mã Sạn Nhiễu: Luminance vs Chrominance",
+      "subtitle": "Bí quyết khử hạt mà không làm mất chi tiết sợi tóc",
+      "contentMarkdown": "Nhiễu cảm biến số (Digital Sensor Noise) thực chất gồm 2 thành phần độc lập:\n\n- 🔴🟢🔵 **Chrominance Noise (Sạn màu):** Các đốm điểm ảnh màu đỏ, xanh lá, tím lốm đốm ở vùng tối. Thành phần này hoàn toàn vô nghĩa và có thể khử mạnh tay `50% - 80%` mà **không làm mất một sợi lông mi nào**!\n- ⚪⚫ **Luminance Noise (Sạn độ sáng):** Các hạt muối tiêu li ti đen trắng. Thành phần này chứa thông tin cấu trúc vi mô. Bạn chỉ nên khử nhẹ `15% - 25%` để giữ cho bức ảnh có độ đanh chắc cơ học.",
+      "visual": {
+        "type": "callout",
+        "content": "Quy tắc vàng: Luôn kéo thanh trượt Chrominance lên trước để dọn sạch sạn màu, sau đó mới nhích nhẹ thanh trượt Luminance!"
+      }
+    },
+    {
+      "id": "P06-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bộ Ba Công Cụ Làm Nét Ảnh: Clarity, High Pass, Unsharp Mask",
+      "subtitle": "Chọn đúng vũ khí cho từng thể loại ảnh",
+      "contentMarkdown": "Nhấn biểu tượng đồng hồ cát ➔ chọn Sharpen:\n\n- ✨ **Live Clarity:** Tăng tương phản dải trung âm (Local Midtones). Làm bức ảnh trong vắt, khối nổi cuồn cuộn mà **hoàn toàn không có viền sáng giả tạo**.\n- 💎 **Live High Pass (Radius 1.5px ➔ Soft Light):** Trích xuất đường biên chi tiết vi mô, tối ưu cho mắt, lông mi, trang sức kim loại.\n- ⚙️ **Live Unsharp Mask:** Phương pháp truyền thống tăng tương phản viền, phù hợp chuẩn bị cho ảnh in ấn giấy mờ.",
+      "actionBox": {
+        "label": "Mẹo Làm Nét Mắt",
+        "text": "Áp dụng Live High Pass (Soft Light), sau đó nhấn Ctrl+I đảo ngược mặt nạ thành đen. Dùng cọ Trắng vẽ duy nhất lên tròng mắt và hàng mi!"
+      }
+    },
+    {
+      "id": "P06-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Khử Nhiễu & Làm Nét Chân Dung Chuyên Nghiệp",
+      "subtitle": "4 Bước đưa ảnh chụp đêm lên chuẩn thương mại",
+      "contentMarkdown": "1. **Phóng to 100%:** Nhấn `Ctrl+1` (Win) / `Cmd+1` (Mac) để soi rõ từng pixel.\n2. **Khử sạn màu (Live Denoise):** Kéo Chrominance 60%, Luminance 20% cho đến khi vùng tối phẳng mịn sạch sẽ.\n3. **Thêm Live High Pass:** Bán kính 1.5px, đổi Blend Mode sang `Soft Light`.\n4. **Xóa phông hậu cảnh (Live Depth of Field):** Thêm Depth of Field, chọn Tilt-Shift, giữ nét phần người mẫu và làm nhòe dần hậu cảnh phía sau!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Zoom 100% | Denoise Chrominance | High Pass 1.5px | Soft Light | Depth of Field"
+      }
+    },
+    {
+      "id": "P06-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Cạm Bẫy Phổ Biến Khi Làm Nét & Khử Nhiễu",
+      "subtitle": "Tránh các viền sáng và làn da bết dính",
+      "contentMarkdown": "### 1. Hiện tượng viền sáng Halo quá gắt\n- **Hậu quả:** Quanh người mẫu xuất hiện một đường viền trắng phát quang kỳ dị như ảnh ghép vụng về.\n- **Khắc phục:** Giảm Radius của High Pass xuống dưới 2.0px hoặc đổi sang dùng Live Clarity.\n\n### 2. Khuôn mặt biến thành 'tượng sáp'\n- **Hậu quả:** Da mặt phẳng lì không còn một lỗ chân lông nào do kéo Luminance Denoise quá 60%.\n- **Khắc phục:** Giảm Luminance Denoise xuống và phối hợp với Frequency Separation (ở module P04).",
+      "actionBox": {
+        "label": "Tiêu Chuẩn Đánh Giá",
+        "text": "Làm nét đẹp là người xem cảm nhận được độ trong trẻo của bức ảnh, chứ không nhìn thấy dấu vết của công cụ làm nét!"
+      }
+    },
+    {
+      "id": "P06-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Khử Nhiễu & Làm Nét",
+      "subtitle": "Xác nhận khả năng kiểm soát chất lượng điểm ảnh",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P06-02-Q1",
+        "question": "Khi khử hạt nhiễu (Denoise) cho một bức ảnh chụp thiếu sáng ở ISO cao, thanh trượt nào nên được ưu tiên tăng trước để loại bỏ các đốm xanh đỏ loang lổ mà KHÔNG làm mất độ sắc nét của chi tiết?",
+        "options": [
+          "Luminance",
+          "Chrominance",
+          "Frequency",
+          "Threshold"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chrominance kiểm soát sạn màu sắc. Khử Chrominance không làm ảnh hưởng đến độ sắc nét của các đường nét chi tiết hình ảnh."
+      }
+    },
+    {
+      "id": "P06-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Cứu Ảnh Chân Dung Thiếu Sáng ISO 3200",
+      "subtitle": "Làm sạch nền tối và tạo chiều sâu ánh mắt",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P06_live_filters_effects_guide.md`.\n2. Áp dụng Live Denoise để dọn sạch sạn màu trên phông nền đen.\n3. Thêm một lớp Live High Pass (1.4px) hòa trộn Soft Light, đảo ngược mặt nạ thành đen.\n4. Dùng cọ trắng vẽ lộ diện độ nét lên đôi mắt và mái tóc người mẫu.\n5. Thêm Live Clarity (+15%) áp dụng toàn khung hình.\n\n### Tiêu Chí Nghiệm Thu:\n- Nền tối sạch bóng không còn đốm xanh đỏ.\n- Đôi mắt trong veo, ánh nhìn sắc sảo, tự nhiên 100%.",
+      "practiceData": {
+        "prompt": "Khử nhiễu và làm nét mắt chân dung bằng Live Filters.",
+        "starterAsset": {
+          "filename": "P06_live_filters_effects_guide.md",
+          "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
+          "filesize": "4.3 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật làm mờ, khử nhiễu và làm nét trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Khử nhiễu sạn màu bằng Live Denoise",
+          "Làm nét cục bộ đôi mắt bằng Live High Pass và Inverted Mask",
+          "Tăng cường độ trong trẻo bằng Live Clarity"
+        ]
+      }
+    }
+  ]
+}

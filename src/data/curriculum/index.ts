@@ -62,6 +62,60 @@ import lessonP01_01 from '../../../curriculum/photo/P01/P01-01.json';
 import lessonP01_02 from '../../../curriculum/photo/P01/P01-02.json';
 import lessonP01_03 from '../../../curriculum/photo/P01/P01-03.json';
 
+// Photo P02
+import modP02 from '../../../curriculum/photo/P02/module.json';
+import lessonP02_01 from '../../../curriculum/photo/P02/P02-01.json';
+import lessonP02_02 from '../../../curriculum/photo/P02/P02-02.json';
+import lessonP02_03 from '../../../curriculum/photo/P02/P02-03.json';
+
+// Photo P03
+import modP03 from '../../../curriculum/photo/P03/module.json';
+import lessonP03_01 from '../../../curriculum/photo/P03/P03-01.json';
+import lessonP03_02 from '../../../curriculum/photo/P03/P03-02.json';
+import lessonP03_03 from '../../../curriculum/photo/P03/P03-03.json';
+
+// Photo P04
+import modP04 from '../../../curriculum/photo/P04/module.json';
+import lessonP04_01 from '../../../curriculum/photo/P04/P04-01.json';
+import lessonP04_02 from '../../../curriculum/photo/P04/P04-02.json';
+import lessonP04_03 from '../../../curriculum/photo/P04/P04-03.json';
+
+// Photo P05
+import modP05 from '../../../curriculum/photo/P05/module.json';
+import lessonP05_01 from '../../../curriculum/photo/P05/P05-01.json';
+import lessonP05_02 from '../../../curriculum/photo/P05/P05-02.json';
+import lessonP05_03 from '../../../curriculum/photo/P05/P05-03.json';
+
+// Photo P06
+import modP06 from '../../../curriculum/photo/P06/module.json';
+import lessonP06_01 from '../../../curriculum/photo/P06/P06-01.json';
+import lessonP06_02 from '../../../curriculum/photo/P06/P06-02.json';
+import lessonP06_03 from '../../../curriculum/photo/P06/P06-03.json';
+
+// Photo P07
+import modP07 from '../../../curriculum/photo/P07/module.json';
+import lessonP07_01 from '../../../curriculum/photo/P07/P07-01.json';
+import lessonP07_02 from '../../../curriculum/photo/P07/P07-02.json';
+import lessonP07_03 from '../../../curriculum/photo/P07/P07-03.json';
+
+// Photo P08
+import modP08 from '../../../curriculum/photo/P08/module.json';
+import lessonP08_01 from '../../../curriculum/photo/P08/P08-01.json';
+import lessonP08_02 from '../../../curriculum/photo/P08/P08-02.json';
+import lessonP08_03 from '../../../curriculum/photo/P08/P08-03.json';
+
+// Photo P09
+import modP09 from '../../../curriculum/photo/P09/module.json';
+import lessonP09_01 from '../../../curriculum/photo/P09/P09-01.json';
+import lessonP09_02 from '../../../curriculum/photo/P09/P09-02.json';
+import lessonP09_03 from '../../../curriculum/photo/P09/P09-03.json';
+
+// Photo P10
+import modP10 from '../../../curriculum/photo/P10/module.json';
+import lessonP10_01 from '../../../curriculum/photo/P10/P10-01.json';
+import lessonP10_02 from '../../../curriculum/photo/P10/P10-02.json';
+import lessonP10_03 from '../../../curriculum/photo/P10/P10-03.json';
+
 // Publisher B01
 import modB01 from '../../../curriculum/publisher/B01/module.json';
 import lessonB01_01 from '../../../curriculum/publisher/B01/B01-01.json';
@@ -108,6 +162,33 @@ export const ALL_PILOT_LESSONS: CurriculumLesson[] = [
   lessonP01_01 as unknown as CurriculumLesson,
   lessonP01_02 as unknown as CurriculumLesson,
   lessonP01_03 as unknown as CurriculumLesson,
+  lessonP02_01 as unknown as CurriculumLesson,
+  lessonP02_02 as unknown as CurriculumLesson,
+  lessonP02_03 as unknown as CurriculumLesson,
+  lessonP03_01 as unknown as CurriculumLesson,
+  lessonP03_02 as unknown as CurriculumLesson,
+  lessonP03_03 as unknown as CurriculumLesson,
+  lessonP04_01 as unknown as CurriculumLesson,
+  lessonP04_02 as unknown as CurriculumLesson,
+  lessonP04_03 as unknown as CurriculumLesson,
+  lessonP05_01 as unknown as CurriculumLesson,
+  lessonP05_02 as unknown as CurriculumLesson,
+  lessonP05_03 as unknown as CurriculumLesson,
+  lessonP06_01 as unknown as CurriculumLesson,
+  lessonP06_02 as unknown as CurriculumLesson,
+  lessonP06_03 as unknown as CurriculumLesson,
+  lessonP07_01 as unknown as CurriculumLesson,
+  lessonP07_02 as unknown as CurriculumLesson,
+  lessonP07_03 as unknown as CurriculumLesson,
+  lessonP08_01 as unknown as CurriculumLesson,
+  lessonP08_02 as unknown as CurriculumLesson,
+  lessonP08_03 as unknown as CurriculumLesson,
+  lessonP09_01 as unknown as CurriculumLesson,
+  lessonP09_02 as unknown as CurriculumLesson,
+  lessonP09_03 as unknown as CurriculumLesson,
+  lessonP10_01 as unknown as CurriculumLesson,
+  lessonP10_02 as unknown as CurriculumLesson,
+  lessonP10_03 as unknown as CurriculumLesson,
   lessonB01_01 as unknown as CurriculumLesson,
   lessonB01_02 as unknown as CurriculumLesson,
   lessonB01_03 as unknown as CurriculumLesson,
@@ -203,6 +284,78 @@ export const ALL_PILOT_MODULES: CurriculumModule[] = [
       lessonP01_01 as unknown as CurriculumLesson,
       lessonP01_02 as unknown as CurriculumLesson,
       lessonP01_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP02 as unknown as CurriculumModule),
+    lessons: [
+      lessonP02_01 as unknown as CurriculumLesson,
+      lessonP02_02 as unknown as CurriculumLesson,
+      lessonP02_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP03 as unknown as CurriculumModule),
+    lessons: [
+      lessonP03_01 as unknown as CurriculumLesson,
+      lessonP03_02 as unknown as CurriculumLesson,
+      lessonP03_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP04 as unknown as CurriculumModule),
+    lessons: [
+      lessonP04_01 as unknown as CurriculumLesson,
+      lessonP04_02 as unknown as CurriculumLesson,
+      lessonP04_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP05 as unknown as CurriculumModule),
+    lessons: [
+      lessonP05_01 as unknown as CurriculumLesson,
+      lessonP05_02 as unknown as CurriculumLesson,
+      lessonP05_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP06 as unknown as CurriculumModule),
+    lessons: [
+      lessonP06_01 as unknown as CurriculumLesson,
+      lessonP06_02 as unknown as CurriculumLesson,
+      lessonP06_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP07 as unknown as CurriculumModule),
+    lessons: [
+      lessonP07_01 as unknown as CurriculumLesson,
+      lessonP07_02 as unknown as CurriculumLesson,
+      lessonP07_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP08 as unknown as CurriculumModule),
+    lessons: [
+      lessonP08_01 as unknown as CurriculumLesson,
+      lessonP08_02 as unknown as CurriculumLesson,
+      lessonP08_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP09 as unknown as CurriculumModule),
+    lessons: [
+      lessonP09_01 as unknown as CurriculumLesson,
+      lessonP09_02 as unknown as CurriculumLesson,
+      lessonP09_03 as unknown as CurriculumLesson,
+    ],
+  },
+  {
+    ...(modP10 as unknown as CurriculumModule),
+    lessons: [
+      lessonP10_01 as unknown as CurriculumLesson,
+      lessonP10_02 as unknown as CurriculumLesson,
+      lessonP10_03 as unknown as CurriculumLesson,
     ],
   },
   {

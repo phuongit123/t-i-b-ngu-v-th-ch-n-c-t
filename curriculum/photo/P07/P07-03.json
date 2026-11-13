@@ -1,0 +1,255 @@
+{
+  "id": "P07-03",
+  "moduleId": "P07",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Multi-Image Edge Blending, Light Wrap & 2-Tier Shadow Systems",
+  "subtitle": "Master professional contact shadows, cast perspective shadows, edge light wrapping, and grain matching.",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Xây dựng hệ thống bóng đổ 2 tầng chân thực: Bóng tiếp xúc (Contact Shadow / AO) và Bóng đổ không gian (Cast Directional Shadow).",
+      "Áp dụng kỹ thuật Light Wrap để ánh sáng nền tràn tự nhiên qua viền đối tượng, loại bỏ cảm giác cắt dán viền sắc.",
+      "Xử lý viền màu ám (Color Decontamination) và viền trắng thừa bằng Defringe và Matte Brush.",
+      "Đồng bộ cấu trúc hạt quang học (Film Grain / Noise Matching) trên toàn bộ các plate ảnh ghép."
+    ],
+    "foundationalKnowledge": "Sự khác biệt giữa một tác phẩm ghép ảnh nghiệp dư và một poster điện ảnh đẳng cấp nằm ở chi tiết bóng 2 tầng và sự tương tác ánh sáng ở đường biên (Light Wrap). Trong quang học tự nhiên, không có bóng đổ nào đen tuyền và sắc nét từ đầu tới ngọn. Bóng tiếp xúc (Contact Shadow) rất đậm và hẹp nằm ngay điểm tiếp giáp, còn bóng đổ xa (Cast Shadow) sẽ nhạt và mềm dần do tán xạ ánh sáng.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Edge Matting, Ambient Occlusion & Light Wrap Pipeline",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Paint Brush Tool & Live Blur/Perspective",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "B (Paint Brush) / [ and ] (Brush Size) / Ctrl + J (Duplicate)",
+        "mac": "B (Paint Brush) / [ and ] (Brush Size) / Cmd + J (Duplicate)"
+      },
+      "description": "Tổ hợp công cụ vẽ bóng thủ công và nắn bóng đổ theo mặt sàn không gian.",
+      "contextBarOptions": [
+        "Hardness: Đặt 0% cho cọ mềm để vẽ viền bóng tán xạ tự nhiên",
+        "Lock Alpha: Khóa độ trong suốt pixel để tô màu nhanh bóng nhân bản",
+        "Multiply Blend Mode: Làm tối tự nhiên và hòa trộn sắc độ sàn",
+        "Layer FX Inner Shadow / Inner Glow: Dùng tạo vệt Light Wrap viền sáng"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo Contact Shadow (Bóng tiếp xúc cực hẹp)",
+        "instruction": "Tạo một Pixel Layer mới ngay bên dưới đối tượng. Đặt Blend Mode là Multiply. Dùng Paint Brush cọ mềm (Hardness 0%), màu đen (hoặc màu đất sẫm của mặt sàn), vẽ các nét mảnh nhỏ ngay sát ranh giới tiếp xúc giữa chân đối tượng và mặt đất. Giảm Opacity xuống 75-85%.",
+        "shortcutTip": { "win": "B (Paint Brush) > Hardness 0%", "mac": "B (Paint Brush) > Hardness 0%" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tạo Cast Directional Shadow (Bóng đổ định hướng)",
+        "instruction": "Nhân bản layer đối tượng (Ctrl+J / Cmd+J). Khóa Alpha và tô màu đen hoặc màu tối pha chút sắc xanh môi trường. Mở khóa Alpha, gán Live Perspective Filter để kéo ngả bóng nằm rạp xuống mặt đất theo hướng đối diện nguồn sáng chính. Gán Live Gaussian Blur tăng dần về phía đuôi bóng.",
+        "shortcutTip": { "win": "Ctrl + J > Perspective Filter", "mac": "Cmd + J > Perspective Filter" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Xây dựng hiệu ứng Light Wrap tràn viền",
+        "instruction": "Nhân bản layer ảnh nền, kéo lên trên cùng và đặt làm child layer (clipping mask) vào trong layer đối tượng chính. Áp dụng Live Gaussian Blur lớn (30-50px) cho layer nền này để nó biến thành vệt sáng nhòe. Dùng mặt nạ ẩn hết chỉ để lộ viền mép ngoài cùng (Edge Mask) đón sáng của đối tượng.",
+        "shortcutTip": { "win": "Screen Blend Mode + Mask", "mac": "Screen Blend Mode + Mask" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Đồng nhất hạt Film Grain toàn cảnh",
+        "instruction": "Thêm một layer Live Denoise hoặc Live Add Noise trên cùng với lượng hạt nhỏ (1-2%), phân bố hạt theo Gauss và đơn sắc (Monochrome) để liên kết toàn bộ các pixel trong bố cục thành một thể thống nhất.",
+        "shortcutTip": { "win": "Live Add Noise 1.5%", "mac": "Live Add Noise 1.5%" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Kiến trúc hệ thống bóng đổ 2 tầng (Two-Tier Shadow System)",
+        "description": "Nguyên lý vật lý phân rã bóng đổ tự nhiên.",
+        "visualType": "table",
+        "visualContent": "| Tầng bóng | Vị trí | Độ mờ viền | Màu sắc | Mục đích chính |\n|---|---|---|---|---|\n| Contact Shadow (AO) | Sát đế chân/vật thể (1-5px) | Rất sắc, Hardness cao | Rất tối, đen sẫm | Neo vật thể xuống mặt đất |\n| Cast Directional Shadow | Kéo dài theo hướng đối diện sáng | Mềm dần về phía đuôi | Nhạt hơn, nhận màu sàn | Thể hiện góc chiếu nguồn sáng |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo bóng đổ và hiệu ứng Light Wrap cho người mẫu hoàng hôn",
+      "taskDescription": "Ghép người mẫu đứng trên bờ biển hoàng hôn, tạo bóng đổ ngả dài trên cát ướt và ánh sáng vàng tràn viền tóc.",
+      "checkpoints": [
+        "Vẽ Contact Shadow sát đế giày người mẫu.",
+        "Dùng Live Perspective kéo bóng ngả chéo 60 độ về phía trước bên phải.",
+        "Dùng Gradient Mask làm mờ dần đuôi bóng trên mặt cát.",
+        "Tạo Light Wrap vàng kim ở viền vai và mái tóc người mẫu."
+      ],
+      "expectedOutcome": "Người mẫu hòa quyện như thể thực sự đứng dưới ánh hoàng hôn bãi biển rực rỡ."
+    },
+    "independentChallenge": {
+      "title": "Tạo bóng đổ cho robot cơ khí đứng trên nền nhà máy bê tông",
+      "prompt": "Sử dụng tài liệu hướng dẫn P07, thiết lập hệ thống bóng 2 tầng cho một robot chiến đấu kim loại nặng 2 tấn đứng trên sàn bê tông có nhiều vết nứt.",
+      "starterAsset": {
+        "filename": "P07_compositing_manipulation_guide.md",
+        "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn compositing, phối cảnh và bóng đổ trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Bóng tiếp xúc cực đậm dưới các khớp chân kim loại.",
+        "Bóng đổ xa ngả theo đèn trần nhà xưởng với độ mờ tăng dần.",
+        "Sử dụng Blend Ranges để các vết nứt sàn bê tông đâm xuyên qua bóng.",
+        "Khử hoàn toàn viền trắng quanh các khớp máy."
+      ],
+      "bonusGoal": "Thêm một lớp hạt Noise 2% đơn sắc ở trên cùng để đồng bộ chất liệu ảnh chụp thực địa."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Bóng đổ trông giả tạo như vết sơn đen xịt lên sàn",
+        "cause": "Dùng màu đen tuyền 100% với Blend Mode Normal và không nhận màu phản xạ môi trường.",
+        "solution": "Đổi Blend Mode sang Multiply, hút màu tối của sàn và giảm Opacity."
+      },
+      {
+        "pitfall": "Viền đối tượng bị bám dải màu xanh lá từ phông studio cũ",
+        "cause": "Tồn tại hiện tượng Color Spill chưa được khử sau bước tách nền.",
+        "solution": "Vào Layer > Matte > Defringe hoặc dùng Sponge Tool khử bão hòa màu viền mép."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P07-03-Q1",
+        "question": "Tại sao Contact Shadow (Bóng tiếp xúc) lại cực kỳ quan trọng trong kỹ thuật ghép ảnh?",
+        "options": [
+          "Vì nó định vị và neo vật thể vững chắc trên mặt sàn, ngăn hiện tượng vật thể trông như đang bay",
+          "Vì nó giúp tăng tốc độ render của Affinity Photo",
+          "Vì nó thay thế hoàn toàn cho bóng đổ xa (Cast Shadow)",
+          "Vì nó làm sáng vùng tối của ảnh"
+        ],
+        "correctIndex": 0,
+        "explanation": "Contact Shadow (Ambient Occlusion) nằm ngay sát điểm tiếp xúc giữa vật thể và bề mặt. Thiếu contact shadow khiến đối tượng bị tách rời khỏi không gian và trông như đang lơ lửng trên mặt đất."
+      },
+      {
+        "id": "P07-03-Q2",
+        "question": "Mục đích chính của kỹ thuật Light Wrap trong compositing là gì?",
+        "options": [
+          "Mô phỏng ánh sáng hậu cảnh mạnh tràn lấn qua viền đối tượng, giúp viền mép tự nhiên và hòa quyện vào môi trường",
+          "Bọc toàn bộ bức ảnh trong một khung màu trắng viền ngoài",
+          "Tăng độ tương phản của toàn bộ ảnh nền lên tối đa",
+          "Làm phẳng tất cả các layer thành một tấm ảnh duy nhất"
+        ],
+        "correctIndex": 0,
+        "explanation": "Light Wrap mô phỏng hiện tượng quang học tự nhiên khi ánh sáng mạnh từ hậu cảnh lan tỏa và ăn lấn nhẹ vào mép viền của đối tượng ở tiền cảnh, xóa tan cảm giác viền cắt dán nhân tạo."
+      },
+      {
+        "id": "P07-03-Q3",
+        "question": "Khi làm bóng đổ xa (Cast Shadow) kéo dài trên mặt đất, tính chất nào của bóng là đúng với quy luật tự nhiên?",
+        "options": [
+          "Càng xa điểm gốc của vật thể, bóng càng nhòe mềm và nhạt dần",
+          "Bóng phải luôn sắc nét và đen đặc 100% từ đầu tới đuôi",
+          "Bóng phải có màu trắng tinh khiết",
+          "Bóng không bao giờ đổi hướng theo nguồn sáng chính"
+        ],
+        "correctIndex": 0,
+        "explanation": "Do hiện tượng tán xạ ánh sáng tự nhiên (penumbra), bóng đổ càng cách xa vật thể thì càng mềm, mờ nhòe hơn và giảm dần độ đậm đặc."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Hệ thống bóng 2 tầng gồm Contact Shadow neo chân và Cast Shadow biểu thị hướng sáng.",
+        "Cast Shadow luôn mềm và nhạt dần theo khoảng cách xa.",
+        "Kỹ thuật Light Wrap xóa tan cảm giác viền cắt dán sắc lạnh khi hậu cảnh sáng mạnh.",
+        "Đồng bộ hạt ảnh (Grain Matching) là bước gắn kết quang học cuối cùng của composite."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P08-01 Typography & Graphic Integration",
+          "target": "P08-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P07_compositing_manipulation_guide.md",
+          "target": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P07_compositing_manipulation_guide.md",
+    "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+    "filesize": "4.5 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p07-03-01",
+      "order": 1,
+      "title": "Hệ thống bóng 2 tầng: Contact vs Cast Shadow",
+      "subtitle": "Nguyên lý vật lý ánh sáng thực tế",
+      "type": "concept",
+      "content": "Trong tự nhiên, bóng của bất kỳ vật thể nào cũng gồm hai thành phần: 1) Contact Shadow (Ambient Occlusion) nơi bề mặt tiếp xúc trực tiếp chặn hoàn toàn ánh sáng tán xạ; 2) Cast Shadow hình chiếu của vật thể vươn dài trên mặt sàn theo hướng ánh sáng.",
+      "tips": "Nếu chỉ làm bóng đổ dài mà quên bóng tiếp xúc hẹp, vật thể sẽ bị 'bồng bềnh' giữa không trung.",
+      "codeSnippet": "Two-Tier Shadow Mechanics:\n[Subject]\n  ├── Contact Shadow: 1-5px, Sharp edge, High opacity, Dark tone (Anchors subject)\n  └── Cast Shadow: Long, Directional, Blur increases with distance, Fades to floor"
+    },
+    {
+      "id": "slide-p07-03-02",
+      "order": 2,
+      "title": "Xây dựng Contact Shadow chuẩn xác",
+      "subtitle": "Neo chặt chủ thể vào bề mặt tiếp xúc",
+      "type": "workflow",
+      "content": "Dùng cọ tròn nhỏ với Hardness 0%. Đặt Blend Mode Multiply và chọn màu sẫm của mặt đất. Vẽ sát dưới đế giày, bánh xe hoặc đáy đồ vật. Bổ sung một vệt mỏng nữa với Opacity 90% ngay tại ranh giới tiếp xúc thực tế.",
+      "tips": "Độ dày của contact shadow tỷ lệ nghịch với khoảng cách vật thể đến mặt sàn.",
+      "visualDescription": "Mô phỏng cận cảnh chân người đứng trên sàn gỗ với vệt đen hẹp ngay đế giày và vùng tỏa nhẹ 2mm xung quanh."
+    },
+    {
+      "id": "slide-p07-03-03",
+      "order": 3,
+      "title": "Tạo Cast Shadow với Live Perspective & Blur",
+      "subtitle": "Uốn bóng theo mặt phẳng không gian 3D",
+      "type": "interaction",
+      "content": "Nhân bản layer chủ thể, tô đen hoàn toàn rồi dùng Live Perspective kéo bóng ngả trên mặt đất. Áp dụng Live Gaussian Blur kèm theo một Gradient Mask trên mặt nạ để bóng càng xa chân thì càng mờ và nhạt dần.",
+      "tips": "Luôn hút màu vùng tối của ảnh nền (Ambient Shadow Tint) thay vì dùng màu đen thuần 100%.",
+      "codeSnippet": "Cast Shadow Setup:\n1. Duplicate Subject -> Fill Dark Base Color\n2. Layer > New Live Filter Layer > Distort > Perspective\n3. Pull top handles to ground plane angle\n4. Add Live Gaussian Blur + Gradient Mask (Sharp at base, Blurred at tip)"
+    },
+    {
+      "id": "slide-p07-03-04",
+      "order": 4,
+      "title": "Kỹ thuật Light Wrap viền sáng",
+      "subtitle": "Mô phỏng hiện tượng quang học ánh sáng tràn viền",
+      "type": "layout",
+      "content": "Khi hậu cảnh phía sau rất sáng (như hoàng hôn, bầu trời tuyết hoặc đèn studio), ánh sáng sẽ bị nhiễu xạ và tràn lấn nhẹ qua mép viền của đối tượng ở tiền cảnh. Kỹ thuật Light Wrap mô phỏng chính xác hiệu ứng tự nhiên này.",
+      "tips": "Light Wrap giúp làm mềm viền cắt ghép sắc lạnh, kết nối chủ thể vào luồng sáng của môi trường xung quanh.",
+      "visualDescription": "Sơ đồ hiển thị viền tóc và vai người mẫu nhận ánh sáng vàng kim từ hậu cảnh hoàng hôn tràn nhẹ qua."
+    },
+    {
+      "id": "slide-p07-03-05",
+      "order": 5,
+      "title": "Các bước thiết lập Light Wrap trong Layers",
+      "subtitle": "Quy trình phi phá hủy trong Affinity Photo",
+      "type": "workflow",
+      "content": "1) Copy ảnh nền -> Blur 40px -> Kéo vào làm con của layer chủ thể (Mask to Below). 2) Đặt Blend Mode là Screen hoặc Color Dodge. 3) Thêm mặt nạ để che bớt, chỉ cho hiện một đường mảnh 3-5px ở mép đón ánh sáng.",
+      "tips": "Có thể dùng layer effect Inner Glow với màu ánh sáng môi trường thay thế cho các trường hợp composite đơn giản.",
+      "codeSnippet": "Light Wrap Layer Architecture:\n[Main Subject Layer] (Container Mask)\n   └── [Blurred Background Plate] (Blend: Screen, Opacity: 60%)\n        └── [Mask]: Inverted Black Mask -> Painted White on lit edges only"
+    },
+    {
+      "id": "slide-p07-03-06",
+      "order": 6,
+      "title": "Khử viền màu ám (Color Decontamination)",
+      "subtitle": "Làm sạch viền tóc và mép đồ vật",
+      "type": "detail",
+      "content": "Sau khi tách nền, viền tóc thường còn dính màu của phông chụp cũ. Hãy tạo một pixel layer ở chế độ Color hoặc Hue, đặt làm clipping mask vào đối tượng, rồi dùng cọ mềm hút màu tóc thật và tô đè lên mép viền ám màu.",
+      "tips": "Phương pháp này giữ nguyên độ chi tiết của sợi tóc nhưng chuyển màu sắc hoàn toàn sang màu tóc tự nhiên.",
+      "visualDescription": "So sánh trước và sau khi khử màu viền tóc: Trước bị viền xanh lá của phông, sau chuyển thành màu nâu trầm ăn khớp nền mới."
+    },
+    {
+      "id": "slide-p07-03-07",
+      "order": 7,
+      "title": "Đồng nhất hạt ảnh (Grain Matching)",
+      "subtitle": "Gắn kết toàn bộ các mảnh ghép quang học",
+      "type": "summary",
+      "content": "Mỗi cảm biến máy ảnh tạo ra một cấu trúc hạt ISO riêng. Nếu nền có hạt nhẹ nhưng chủ thể mịn như sáp, composite sẽ lộ tẩy. Thêm một lớp Live Add Noise hoặc sử dụng lớp Neutral Gray 50% với Blend Mode Overlay và noise để đồng bộ hạt.",
+      "tips": "Đây là bước cuối cùng trước khi chuyển sang phân phối màu tổng thể (Master Color Grade).",
+      "codeSnippet": "Master Grain Matching:\n1. Top of stack: New Pixel Layer filled with 50% Gray (#808080)\n2. Blend Mode: Overlay\n3. Layer > New Live Filter Layer > Noise > Add Noise (Uniform / Gaussian: 2-3%)\n4. Opacity tuned to match native camera ISO texture"
+    }
+  ]
+}

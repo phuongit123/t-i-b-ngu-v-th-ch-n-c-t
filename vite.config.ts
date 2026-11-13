@@ -25,7 +25,10 @@ export default defineConfig({
             return 'curriculum-designer-advanced';
           }
           if (id.includes('curriculum/photo')) {
-            return 'curriculum-photo';
+            if (/curriculum[\\/]photo[\\/]P0[1-5]/.test(id)) {
+              return 'curriculum-photo-foundations';
+            }
+            return 'curriculum-photo-advanced';
           }
           if (id.includes('curriculum/publisher')) {
             return 'curriculum-publisher';

@@ -1,0 +1,254 @@
+{
+  "id": "P09-02",
+  "moduleId": "P09",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Optical Lens Corrections, Chromatic Aberration & Defringing",
+  "subtitle": "Eliminate optical lens distortions, chromatic aberration fringes, and perspective keystone errors.",
+  "durationMinutes": 25,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Kích hoạt và tùy biến cấu hình hiệu chỉnh ống kính tự động (Lens Profiles) dựa trên thư viện Lensfun trong Develop Persona.",
+      "Xử lý méo hình quang học: Méo hình cầu (Barrel Distortion) trên ống góc rộng và méo hình gối (Pincushion Distortion) trên telephoto.",
+      "Triệt tiêu quang sai màu sắc (Chromatic Aberration) viền đỏ/lục lam và xanh lam/vàng ở các góc khung hình.",
+      "Sử dụng công cụ Defringe chuyên sâu để loại bỏ viền tím (Purple Fringing) trên cành cây hoặc mép kim loại ngược sáng."
+    ],
+    "foundationalKnowledge": "Không có thấu kính vật lý nào là hoàn hảo tuyệt đối. Mọi ống kính máy ảnh đều gặp phải hiện tượng méo hình hình học (Distortion), quang sai màu viền mép (Chromatic Aberration) do các bước sóng ánh sáng bị bẻ cong không đồng đều, và hiện tượng tối 4 góc (Vignetting). Affinity Photo tích hợp thư viện hồ sơ thấu kính Lensfun toàn cầu cùng công cụ Defringe vi mô để sửa chữa triệt để các khuyết tật quang học ngay trong giai đoạn giải mã RAW 32-bit.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Lensfun Database & Defringe Pipeline",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Lens Panel & Defringe Studio",
+      "persona": "Develop Persona",
+      "shortcut": {
+        "win": "Ctrl + 1 (Zoom 100%) / Ctrl + 2 (Zoom 200%) / Space (Pan)",
+        "mac": "Cmd + 1 (Zoom 100%) / Cmd + 2 (Zoom 200%) / Space (Pan)"
+      },
+      "description": "Bảng điều khiển các thông số trắc địa học quang sai thấu kính và khử viền màu.",
+      "contextBarOptions": [
+        "Automatic Lens Distortion: Tự động tra cứu profile ống kính trong cơ sở dữ liệu Lensfun",
+        "Chromatic Aberration: Khử dải viền màu đỏ/lục lam và xanh lam/vàng ở 4 góc",
+        "Defringe Eyedropper: Hút trực tiếp mẫu màu tím/xanh lơ ngược sáng để khử viền",
+        "Vertical Keystone: Nắn góc thẳng đứng các tòa nhà cao tầng chụp hất từ dưới lên"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở tab Lens trong Develop Persona",
+        "instruction": "Trong cột panel bên phải của Develop Persona, nhấp chuyển sang tab 'Lens'. Quan sát mục 'Lens Profile'. Affinity Photo sẽ đọc metadata EXIF và tự động nhận diện thương hiệu máy ảnh cùng ống kính sử dụng.",
+        "shortcutTip": { "win": "Tab Lens", "mac": "Tab Lens" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bật tính năng Auto Distortion Correction",
+        "instruction": "Tích chọn ô 'Automatic Lens Distortion'. Bức ảnh sẽ tức thì được làm phẳng, đường chân trời cong như mắt cá sẽ được nắn thẳng hàng theo hồ sơ trắc địa chuẩn của nhà sản xuất.",
+        "shortcutTip": { "win": "Tích 'Automatic Lens Distortion'", "mac": "Tích 'Automatic Lens Distortion'" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Triệt tiêu viền tím bằng Defringe",
+        "instruction": "Phóng to 200% vào mép cành cây ngược sáng trên nền trời. Tích chọn ô 'Defringe'. Nhấp vào biểu tượng Eyedropper hút trực tiếp dải viền màu tím (Purple/Magenta fringe). Kéo nhẹ thanh Radius lên 2-3px để làm sạch hoàn toàn viền mà không làm mất màu của các đối tượng khác.",
+        "shortcutTip": { "win": "Ctrl + 2 (Zoom 200%) > Defringe", "mac": "Cmd + 2 (Zoom 200%) > Defringe" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Hiệu chỉnh đổ nghiêng kiến trúc (Keystone Correction)",
+        "instruction": "Nếu chụp ảnh tòa nhà từ mặt đất khiến tòa nhà bị thu hẹp về phía nóc, cuộn xuống mục Transform. Kéo thanh trượt 'Vertical Keystone' sang trái để mở rộng đỉnh tòa nhà, đưa các cạnh tường trở về góc thẳng đứng 90 độ hoàn hảo.",
+        "shortcutTip": { "win": "Vertical Keystone", "mac": "Vertical Keystone" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Các dạng khuyết tật quang học và giải pháp xử lý trong Develop Persona",
+        "description": "Bảng tra cứu triệu chứng và công cụ sửa.",
+        "visualType": "table",
+        "visualContent": "| Khuyết tật quang học | Triệu chứng | Công cụ xử lý |\n|---|---|---|\n| Barrel Distortion | Phình to ở giữa khung hình, đường chân trời bị cong | Automatic Lens Distortion / Manual Slider (-) |\n| Pincushion Distortion | Lõm ở giữa, viền khung bị kéo giãn | Manual Distortion Slider (+) |\n| Lateral CA | Viền xanh đỏ tách rời ở 4 góc mép ngoài | Bật ô kiểm 'Chromatic Aberration' |\n| Purple Fringing | Viền tím gắt quanh cành cây hoặc mép kim loại ngược sáng | Công cụ Defringe Eyedropper + Radius |\n| Keystone Distortion | Tòa nhà bị đổ dốc nghiêng chóp nón | Slider Vertical / Horizontal Keystone |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Nắn thẳng kiến trúc và khử viền tím tòa nhà kính chọc trời",
+      "taskDescription": "Xử lý file RAW ảnh chụp một tòa nhà kính hiện đại bị cong do ống góc rộng 16mm và viền tím quanh mép khung thép ngược nắng.",
+      "checkpoints": [
+        "Khớp Lens Profile tự động của ống kính góc rộng.",
+        "Điều chỉnh Vertical Keystone đưa hai vách kính song song 90 độ.",
+        "Dùng Defringe Eyedropper hút viền tím trên gờ khung kính.",
+        "Tăng nhẹ thanh Scale để loại bỏ khoảng trống ở góc sau khi nắn."
+      ],
+      "expectedOutcome": "Tòa nhà đứng thẳng thớm, viền khung thép sắc nét không còn bất kỳ viền màu tím nào."
+    },
+    "independentChallenge": {
+      "title": "Phục hồi hình học nội thất khách sạn 5 sao",
+      "prompt": "Sử dụng tài liệu hướng dẫn P09, nắn thẳng các đường chỉ trần nhà và chân tường của một phòng khách sạn chụp bằng ống kính cơ thủ công (Manual Lens) không có EXIF profile.",
+      "starterAsset": {
+        "filename": "P09_raw_develop_workflow_guide.md",
+        "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+        "filesize": "4.9 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn RAW development và xử lý ảnh số trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Bật Guides lưới ô vuông (Grid) để làm chuẩn dóng.",
+        "Chỉnh thanh Manual Distortion triệt tiêu độ cong hình cầu của ống kính cơ.",
+        "Khử hiện tượng tối 4 góc bằng thanh Remove Lens Vignette."
+      ],
+      "bonusGoal": "Cân bằng lại độ sáng đều giữa tâm và 4 góc phòng."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Mục Lens Profile báo 'No matching profile found'",
+        "cause": "Ống kính cơ không có chip điện tử hoặc ống kính đời mới chưa cập nhật trong Lensfun.",
+        "solution": "Chuyển sang phần Manual Correction bên dưới và chỉnh thanh Distortion bằng mắt."
+      },
+      {
+        "pitfall": "Xuất hiện tam giác trong suốt ở 4 góc sau khi nắn Keystone",
+        "cause": "Thao tác nắn góc hình học làm co khung hình vượt ra ngoài phạm vi cảm biến.",
+        "solution": "Tăng nhẹ thanh Scale trong phần Transform để phóng to ảnh phủ kín khung."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P09-02-Q1",
+        "question": "Tính năng Lens Profile trong Affinity Photo dựa trên cơ sở dữ liệu mã nguồn mở nào để tự động nhận diện và sửa lỗi ống kính?",
+        "options": [
+          "Lensfun",
+          "OpenCV",
+          "FFmpeg",
+          "WebKit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Affinity Photo tích hợp cơ sở dữ liệu Lensfun để nhận diện mã ống kính từ EXIF và tự động bù sai số quang học chính xác theo tiêu cự."
+      },
+      {
+        "id": "P09-02-Q2",
+        "question": "Khi chụp tòa nhà cao tầng từ dưới mặt đất khiến hai cạnh tường bị nghiêng chụm lại ở đỉnh, thông số nào trong tab Lens cần được điều chỉnh?",
+        "options": [
+          "Vertical Keystone",
+          "Horizontal Keystone",
+          "Defringe Radius",
+          "Temperature"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vertical Keystone điều chỉnh góc nghiêng trục dọc, cho phép nắn mở rộng đỉnh tòa nhà để các cạnh trở về góc đứng song song 90 độ."
+      },
+      {
+        "id": "P09-02-Q3",
+        "question": "Để khử hiện tượng viền tím (Purple Fringing) trên các cành cây ngược sáng chói chang, công cụ chuyên biệt nào được sử dụng?",
+        "options": [
+          "Defringe kèm ống hút màu (Eyedropper)",
+          "Inpainting Brush Tool",
+          "Sharpen Tool",
+          "Red Eye Removal Tool"
+        ],
+        "correctIndex": 0,
+        "explanation": "Công cụ Defringe cho phép hút mẫu màu tím hoặc lục lam gây phiền toái và triệt tiêu dải màu này trên các mép tương phản vi mô."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Hồ sơ thấu kính Lensfun tự động sửa méo hình cầu và méo hình gối theo tiêu cự.",
+        "Chromatic Aberration căn chỉnh lại sự tán sắc các kênh màu ở rìa ngoài cảm biến.",
+        "Defringe Eyedropper triệt tiêu viền tím gắt trên mép tương phản ngược sáng.",
+        "Vertical Keystone đưa phối cảnh kiến trúc đổ nghiêng trở về các đường thẳng song song."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P09-03 Batch Processing, Macro Recording & Photography Presets",
+          "target": "P09-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P09_raw_develop_workflow_guide.md",
+          "target": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P09_raw_develop_workflow_guide.md",
+    "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p09-02-01",
+      "order": 1,
+      "title": "Khuyết tật quang học thấu kính trong nhiếp ảnh",
+      "subtitle": "Nguyên nhân vật lý và cách khắc phục số",
+      "type": "concept",
+      "content": "Ánh sáng khi đi qua hệ thấu kính cong thường gặp 3 vấn đề cố hữu: 1) Biến dạng hình học (Distortion); 2) Tán sắc quang sai màu (Chromatic Aberration); 3) Tối 4 góc (Vignetting). Affinity Photo xử lý triệt để các vấn đề này thông qua hồ sơ thấu kính toán học.",
+      "tips": "Sửa quang học ngay trong giai đoạn RAW sẽ cho kết quả sắc nét hơn nhiều so với việc nắn chỉnh lại trên file raster 8-bit.",
+      "codeSnippet": "Optical Defects Catalog:\n- Barrel Distortion: Bulging center (common in wide-angle)\n- Pincushion Distortion: Pinched center (common in telephoto)\n- Lateral Chromatic Aberration: Color fringing at extreme corners\n- Longitudinal CA / Purple Fringe: High-contrast edge dispersion"
+    },
+    {
+      "id": "slide-p09-02-02",
+      "order": 2,
+      "title": "Hồ sơ ống kính tự động (Lens Profiles)",
+      "subtitle": "Hợp tác cùng cơ sở dữ liệu Lensfun toàn cầu",
+      "type": "workflow",
+      "content": "Affinity Photo đọc mã định danh ống kính từ thẻ EXIF của file RAW và kích hoạt bộ lọc bù sai số tương ứng. Các đường thẳng bị cong như cánh cung sẽ được duỗi thẳng ngay khi bạn mở tab Lens.",
+      "tips": "Nếu bạn sử dụng ống kính zoom, phần mềm sẽ tự tính toán bù sai số tương ứng chính xác với tiêu cự bạn đã xoay lúc bấm máy.",
+      "visualDescription": "Mô phỏng giao diện tab Lens hiển thị tên ống kính (ví dụ: Sony FE 24-70mm F2.8 GM) và ô chọn kiểm tra xanh tự động."
+    },
+    {
+      "id": "slide-p09-02-03",
+      "order": 3,
+      "title": "Khắc phục biến dạng hình học thủ công",
+      "subtitle": "Nắn hình cầu (Barrel) và hình gối (Pincushion)",
+      "type": "interaction",
+      "content": "Khi sử dụng ống kính cổ hoặc chưa có profile, bật chế độ Manual Distortion. Kéo slider sang âm (-) để thu nhỏ vùng trung tâm phình to (sửa Barrel); kéo slider sang dương (+) để đẩy phồng vùng trung tâm lõm (sửa Pincushion).",
+      "tips": "Bật lưới Grid (Ctrl+; / Cmd+;) để căn các đường thẳng trong ảnh thẳng song song với các ô lưới.",
+      "codeSnippet": "Manual Geometric Correction:\nDistortion: -100 to +100\nHorizontal Keystone: Corrects off-axis horizontal yaw angle\nVertical Keystone: Corrects camera tilted up/down pitch angle"
+    },
+    {
+      "id": "slide-p09-02-04",
+      "order": 4,
+      "title": "Khử quang sai màu (Chromatic Aberration)",
+      "subtitle": "Căn chỉnh các bước sóng ánh sáng Red/Cyan và Blue/Yellow",
+      "type": "detail",
+      "content": "Do thấu kính bẻ cong các bước sóng ánh sáng đỏ, lục, lam ở các góc khác nhau, các chi tiết ở góc ảnh thường bị tách viền xanh/đỏ. Tích chọn 'Chromatic Aberration' để thuật toán tự động căn chỉnh lại các kênh màu trùng khớp.",
+      "tips": "Luôn soi ở mức zoom 100% hoặc 200% để thấy rõ các pixel viền màu biến mất.",
+      "visualDescription": "So sánh phóng to 400% góc tường: Bên trái có viền màu xanh lơ và đỏ tươi, bên phải sau khi bật CA viền trở nên xám đen sạch sẽ."
+    },
+    {
+      "id": "slide-p09-02-05",
+      "order": 5,
+      "title": "Triệt tiêu viền tím gắt với Defringe Studio",
+      "subtitle": "Giải cứu các chi tiết cành cây ngược sáng",
+      "type": "workflow",
+      "content": "Hiện tượng Purple Fringing xảy ra khi cảm biến bị quá tải ở các mép tương phản cực cao (như cành cây trước bầu trời chói chang). Bật Defringe, dùng ống hút màu chấm vào vệt tím, kéo Edge Threshold để khoanh vùng và xóa sạch màu tím.",
+      "tips": "Có thể chọn cả dải màu tím (Purple) và dải màu lục lam (Cyan) trong danh sách preset của Defringe.",
+      "codeSnippet": "Defringe Protocol:\n1. Zoom 200% on high-contrast backlight rim\n2. Enable 'Defringe'\n3. Pick Eyedropper -> Sample exact offending purple tone\n4. Radius: 2px, Threshold: 50% -> Pristine contrast edge restored!"
+    },
+    {
+      "id": "slide-p09-02-06",
+      "order": 6,
+      "title": "Nắn thẳng đổ nghiêng kiến trúc (Keystone)",
+      "subtitle": "Khôi phục vẻ uy nghi cho các công trình",
+      "type": "diagram",
+      "content": "Chụp từ mặt đất lên các tòa cao ốc luôn tạo ra hiện tượng phối cảnh đổ nghiêng (Keystone effect). Kéo thanh Vertical Keystone để mở rộng hai bên nóc nhà, biến các đường chéo hội tụ thành các đường thẳng đứng song song như chụp bằng ống kính trượt Tilt-Shift đắt tiền.",
+      "tips": "Sau khi nắn keystone, dùng thanh Scale để bù lại phần viền ảnh bị co hụt.",
+      "visualDescription": "Mô phỏng tòa nhà cao tầng từ hình dạng hình thang chóp nhọn được nắn thành hình chữ nhật đứng thẳng thớm."
+    },
+    {
+      "id": "slide-p09-02-07",
+      "order": 7,
+      "title": "Khử tối 4 góc (Lens Vignette Removal)",
+      "subtitle": "Làm sáng đồng đều quang phổ toàn khung hình",
+      "type": "summary",
+      "content": "Ống kính mở khẩu lớn (f/1.4 - f/2.8) thường làm 4 góc tối hơn trung tâm từ 1 đến 2 EV. Bật Remove Lens Vignette để cân bằng lại độ sáng phẳng phiu trước khi quyết định có thêm hiệu ứng tối góc nghệ thuật ở bước hậu kỳ hay không.",
+      "tips": "Đảm bảo độ sáng 4 góc bằng phẳng giúp các thao tác ghép nền sau đó không bị lộ vết ghép.",
+      "codeSnippet": "Lens Polish Verification:\n[✓] Auto profile matched or manual distortion corrected\n[✓] CA reduction active\n[✓] Backlit fringes cleaned via Defringe\n[✓] Keystone aligned & Vignette normalized"
+    }
+  ]
+}

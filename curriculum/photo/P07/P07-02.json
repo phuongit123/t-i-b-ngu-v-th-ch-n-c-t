@@ -1,0 +1,254 @@
+{
+  "id": "P07-02",
+  "moduleId": "P07",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Horizon Alignment, Live Perspective & Warp Groups",
+  "subtitle": "Correct plate angles, align perspective grids, and conform surfaces using non-destructive Warp Groups.",
+  "durationMinutes": 25,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Sử dụng công cụ Horizon Leveling trong Crop Tool để cân bằng mặt phẳng chân trời tuyệt đối.",
+      "Thiết lập bộ lọc Live Perspective Filter đơn điểm và đa diện (Dual Plane) để uốn nắn phối cảnh tấm biển hoặc mặt sàn.",
+      "Áp dụng Warp Groups (Mesh Warp, Quad, Arc) để bọc dán đồ họa và kết cấu lên bề mặt cong phức tạp.",
+      "Duy trì tính chất phi hủy diệt (Non-destructive) cho phép điều chỉnh lại các điểm lưới biến dạng bất kỳ lúc nào."
+    ],
+    "foundationalKnowledge": "Trong Affinity Photo, việc nắn phối cảnh không làm biến dạng phá hủy pixel. Live Perspective và Warp Groups giữ nguyên vector hoặc ảnh độ phân giải cao bên trong cấu trúc container, trong khi GPU shader tính toán lưới tọa độ ma trận thời gian thực. Nhờ đó, bạn có thể bọc nhãn mác lên chai lọ uốn lượn rồi tái hiệu chỉnh lưới Mesh Warp nhiều lần mà không bao giờ làm suy giảm chất lượng điểm ảnh.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Live Perspective Shader & Warp Group Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Live Perspective & Warp Groups",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Layer > New Live Filter Layer > Distort > Perspective / Layer > Warp Group",
+        "mac": "Layer > New Live Filter Layer > Distort > Perspective / Layer > Warp Group"
+      },
+      "description": "Hệ thống biến dạng phối cảnh và uốn cong bề mặt phi hủy diệt hàng đầu.",
+      "contextBarOptions": [
+        "Single Plane: Lưới phối cảnh 4 góc cơ bản cho biển hiệu và mặt sàn phẳng",
+        "Dual Plane: Lưới phối cảnh 6 điểm cho góc tòa nhà hai mặt tiền",
+        "Mesh Warp Group: Lưới uốn lượn đa nút cho bề mặt vải và chai lọ cong",
+        "Straighten Button: Nút cân bằng đường chân trời tự động trong Crop Tool (C)"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Cân bằng đường chân trời bằng Crop Straighten",
+        "instruction": "Chọn Crop Tool (C). Trên Context Toolbar, nhấp vào nút Straighten. Kéo một đường thẳng nối dọc theo đường chân trời biển hoặc mái nhà bị nghiêng. Affinity Photo sẽ tự động xoay và tính toán khung hình.",
+        "shortcutTip": { "win": "C (Crop Tool) > Straighten", "mac": "C (Crop Tool) > Straighten" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Gán Live Perspective cho plate đối tượng",
+        "instruction": "Chọn layer ảnh hoặc bảng hiệu cần ốp vào tường. Vào menu Layer > New Live Filter Layer > Distort > Perspective. Bốn chốt neo sẽ xuất hiện tại bốn góc của layer.",
+        "shortcutTip": { "win": "Perspective Filter", "mac": "Perspective Filter" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Căn chỉnh 4 chốt neo vào lưới phối cảnh thực tế",
+        "instruction": "Kéo từng chốt neo vào đúng 4 góc của bức tường hoặc mặt biển trong ảnh nền. Nhấp vào tùy chọn 'Dual Plane' trên thanh ngữ cảnh nếu bề mặt bao gồm hai bức tường vuông góc nhau.",
+        "shortcutTip": { "win": "Kéo 4 chốt góc", "mac": "Kéo 4 chốt góc" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Áp dụng Warp Group cho bề mặt cong",
+        "instruction": "Để dán nhãn lên chai lọ hình trụ hoặc vải nhăn, chọn layer đồ họa, vào Layer > Warp Group > Mesh. Nhấp đôi chuột trên lưới để tạo thêm điểm nút (nodes) và uốn cong thanh điều hướng theo hình khối vật thể.",
+        "shortcutTip": { "win": "Layer > Warp Group > Mesh", "mac": "Layer > Warp Group > Mesh" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh các chế độ biến dạng không gian trong Affinity Photo",
+        "description": "Lựa chọn phương thức tối ưu cho từng loại vật thể.",
+        "visualType": "table",
+        "visualContent": "| Chế độ | Loại đối tượng áp dụng | Khả năng biên tập lại |\n|---|---|---|\n| Live Perspective (Single) | Biển quảng cáo phẳng, màn hình TV, mặt sàn | Non-destructive, kéo 4 góc |\n| Live Perspective (Dual) | Góc phố hai mặt tiền, khối hộp lập phương | Non-destructive, chia sẻ trục giữa |\n| Warp Group (Arc/Quad) | Bọc nhãn chai hình trụ, banner uốn cong | Non-destructive, giữ nguyên vector |\n| Warp Group (Mesh) | Nếp nhăn áo thun, vải lụa, bề mặt hữu cơ | Non-destructive, thêm vô số nodes |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Ốp biển quảng cáo hai mặt phố bằng Dual Plane Perspective",
+      "taskDescription": "Gán một tấm poster đồ họa kéo dài qua góc cua của một tòa nhà cổ điển hai mặt đường.",
+      "checkpoints": [
+        "Kích hoạt Live Perspective ở chế độ Dual Plane.",
+        "Định vị trục giữa của lưới trùng với gờ tường trung tâm của tòa nhà.",
+        "Kéo hai cặp chốt hai bên bám sát phối cảnh của hai con phố.",
+        "Đổi Blend Mode và kích hoạt Blend Ranges để vân gạch tường đâm xuyên qua poster."
+      ],
+      "expectedOutcome": "Tấm biển trông như được vẽ trực tiếp lên hai mặt tường của tòa nhà với độ sâu quang học tuyệt đối."
+    },
+    "independentChallenge": {
+      "title": "Bọc tem nhãn sản phẩm lên chai rượu vang thủy tinh với Mesh Warp",
+      "prompt": "Sử dụng tài liệu hướng dẫn P07, đưa một nhãn tem vector vào Warp Group dạng Mesh và uốn cong theo thân chai rượu trụ tròn.",
+      "starterAsset": {
+        "filename": "P07_compositing_manipulation_guide.md",
+        "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn compositing, phối cảnh và bóng đổ trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Nhãn tem được uốn cong theo đường cong tự nhiên của chai thủy tinh.",
+        "Các đường biên trên và dưới của nhãn song song với vành chai.",
+        "Vùng phản xạ ánh sáng bóng (Specular Highlight) của thủy tinh chiếu qua bề mặt nhãn."
+      ],
+      "bonusGoal": "Sử dụng Blend Ranges kéo giảm vùng Highlight của Underlying Composition để tạo độ bóng chân thực."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Sau khi nắn phối cảnh xa, hình ảnh bị răng cưa mờ nhòe",
+        "cause": "Ảnh nguồn gốc có độ phân giải quá thấp hoặc bị kéo giãn vượt kích thước pixel thực tế.",
+        "solution": "Luôn dùng ảnh nguồn có độ phân giải bằng hoặc lớn hơn kích thước hiển thị trong composite."
+      },
+      {
+        "pitfall": "Không tìm thấy nút điều khiển lưới Warp sau khi nhấp ra ngoài",
+        "cause": "Đang chọn công cụ khác hoặc đang chọn layer con bên trong Warp Group.",
+        "solution": "Chọn layer chính Warp Group trong Layers panel và kích hoạt công cụ Node Tool (A)."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P07-02-Q1",
+        "question": "Tính năng nào trong Affinity Photo cho phép uốn nắn một đồ họa theo nếp vải cong hoặc thân chai mà vẫn cho phép biên tập lại nội dung nguyên bản?",
+        "options": [
+          "Warp Group (Layer > Warp Group)",
+          "Rasterize & Trim",
+          "Displace Filter phá hủy",
+          "Pencil Tool vẽ lại thủ công"
+        ],
+        "correctIndex": 0,
+        "explanation": "Warp Group là tính năng bao bọc phi hủy diệt, cho phép chứa các layer ảnh hoặc vector bên trong và uốn cong bằng lưới Mesh mà không phá vỡ cấu trúc gốc."
+      },
+      {
+        "id": "P07-02-Q2",
+        "question": "Khi cần gắn một tấm biển quảng cáo trải dài qua góc của tòa nhà hai mặt phố, chế độ nào trong Live Perspective Filter là tối ưu nhất?",
+        "options": [
+          "Chế độ Dual Plane",
+          "Chế độ Single Plane",
+          "Chế độ Polar Coordinates",
+          "Chế độ Twirl"
+        ],
+        "correctIndex": 0,
+        "explanation": "Chế độ Dual Plane cung cấp hai mặt phẳng phối cảnh độc lập nhưng chia sẻ chung cạnh tiếp giáp ở góc tòa nhà, hoàn hảo cho kiến trúc hai mặt tiền."
+      },
+      {
+        "id": "P07-02-Q3",
+        "question": "Nút 'Straighten' dùng để cân bằng đường chân trời bị nghiêng nằm trong công cụ nào trên thanh công cụ?",
+        "options": [
+          "Crop Tool (C)",
+          "Move Tool (V)",
+          "Pen Tool (P)",
+          "Hand Tool (H)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Nút Straighten xuất hiện trên thanh Context Toolbar khi kích hoạt Crop Tool (phím C), cho phép kẻ đường dóng dọc chân trời để cân bằng xoay tự động."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Live Perspective và Warp Groups bảo toàn nguyên vẹn độ sắc nét của hình ảnh gốc.",
+        "Crop Straighten giúp cân bằng đường chân trời bị nghiêng chỉ với một đường kẻ chuột.",
+        "Dual Plane Perspective giải quyết hoàn hảo các góc tường kiến trúc hai mặt tiền.",
+        "Blend Ranges cho phép các chi tiết vật liệu bên dưới xuyên thấu qua đồ họa vừa nắn."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P07-03 Multi-Image Edge Blending, Light Wrap & 2-Tier Shadow Systems",
+          "target": "P07-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P07_compositing_manipulation_guide.md",
+          "target": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P07_compositing_manipulation_guide.md",
+    "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+    "filesize": "4.5 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p07-02-01",
+      "order": 1,
+      "title": "Nguyên lý biến dạng không gian phi hủy diệt",
+      "subtitle": "Bảo tồn độ sắc nét của đồ họa gốc",
+      "type": "concept",
+      "content": "Trong quy trình đồ họa hiện đại, việc rasterize layer rồi nắn phối cảnh thủ công là một sai lầm vì bạn không thể lấy lại chi tiết khi khách hàng yêu cầu đổi góc. Live Perspective và Warp Groups giữ nguyên vector hoặc ảnh độ phân giải cao bên trong cấu trúc container.",
+      "tips": "Mọi thay đổi phối cảnh được tính toán trực tiếp qua GPU shader tại thời điểm render.",
+      "codeSnippet": "Non-destructive Transformation:\nSource Graphic (Unmodified Vector / 4K Photo)\n   └── Wrapped inside Warp Group / Live Perspective Filter\n        └── GPU renders distorted viewport\n        └── Double-click to edit underlying artwork at 100% fidelity!"
+    },
+    {
+      "id": "slide-p07-02-02",
+      "order": 2,
+      "title": "Cân bằng chân trời với Straighten Tool",
+      "subtitle": "Xóa bỏ độ nghiêng vô ý trong ảnh chụp thực địa",
+      "type": "interaction",
+      "content": "Crop Tool (C) tích hợp thuật toán đo góc nghiêng tự động. Bạn chỉ cần nhấp nút 'Straighten' trên thanh Context Toolbar và rê một đường dọc theo mép biển hoặc chân tường.",
+      "tips": "Giữ phím Shift trong khi kéo để khóa góc nghiêng theo bước 15 độ nếu cần xoay hình học cố định.",
+      "visualDescription": "Mô phỏng thao tác rê chuột kẻ đường thẳng song song với mặt hồ nước bị nghiêng và ảnh tự động xoay chuẩn 0 độ."
+    },
+    {
+      "id": "slide-p07-02-03",
+      "order": 3,
+      "title": "Live Perspective: Đơn diện vs Song diện",
+      "subtitle": "Khớp phối cảnh với 1 bức tường hoặc góc phố 2 mặt",
+      "type": "layout",
+      "content": "Chế độ Single Plane dùng 4 chốt góc để khớp mặt phẳng phẳng (biển quảng cáo, màn hình TV, mặt đường). Chế độ Dual Plane cho phép định vị góc cua của tòa nhà với hai mặt tường liền kề.",
+      "tips": "Kéo chốt trung tâm để điều chỉnh góc tiếp giáp giữa hai bức tường của tòa nhà.",
+      "codeSnippet": "Live Perspective Modes:\n- Single Plane: 4 corner handles -> fits flat billboards, screens, floors\n- Dual Plane: 6 handles -> fits building corners with 2 angled walls sharing center edge"
+    },
+    {
+      "id": "slide-p07-02-04",
+      "order": 4,
+      "title": "Warp Groups: Uốn cong theo bề mặt vật thể",
+      "subtitle": "Bọc nhãn dán lên chai lọ, lon nước và trang phục",
+      "type": "workflow",
+      "content": "Vào Layer > Warp Group. Affinity Photo cung cấp các kiểu bọc: Quad, Mesh, Arc, Arch, Twist, Fisheye. Mesh Warp cho phép thêm vô số cột và hàng để nắn theo nếp gấp vải áo một cách chuẩn xác.",
+      "tips": "Sử dụng Node Tool (A) để nhấp đúp tạo thêm giao điểm lưới tại những vị trí nếp gấp sâu.",
+      "visualDescription": "Sơ đồ hiển thị logo hình chữ nhật được uốn cong theo mặt trụ tròn của thân chai thủy tinh bằng Mesh Warp."
+    },
+    {
+      "id": "slide-p07-02-05",
+      "order": 5,
+      "title": "Tích hợp chất liệu bề mặt với Blend Ranges",
+      "subtitle": "Để kết cấu tường và vân vải xuyên thấu qua đồ họa",
+      "type": "detail",
+      "content": "Sau khi nắn chuẩn phối cảnh, hình ảnh vẫn trông như miếng decal nhựa nếu thiếu vân chất liệu bên dưới. Mở bánh răng Blend Ranges trên panel Layers để loại bỏ vùng sáng hoặc tối, để texture gạch đá bên dưới đâm xuyên tự nhiên.",
+      "tips": "Kéo điểm neo bên phải của biểu đồ Underlying Composition xuống 0% để vùng sáng bóng của vật liệu bên dưới chiếu qua.",
+      "codeSnippet": "Blend Ranges Configuration for Decals:\nUnderlying Composition Master Curve:\nLeft (Shadows): 100%\nRight (Highlights): Drag down to 20% -> specular highlights show through decal!"
+    },
+    {
+      "id": "slide-p07-02-06",
+      "order": 6,
+      "title": "Khử hiện tượng răng cưa khi nắn phối cảnh xa",
+      "subtitle": "Tối ưu hóa thuật toán nội suy Pixel",
+      "type": "diagram",
+      "content": "Khi nắn một tấm ảnh lùi sâu về điểm tụ ở chân trời, các pixel bị nén rất chặt. Nếu thuật toán resampling quá gắt, ảnh sẽ xuất hiện hiện tượng Moiré hoặc răng cưa lấp lánh.",
+      "tips": "Áp dụng một lớp Live Bilateral Blur hoặc Live Gaussian Blur siêu nhẹ (0.3px) ở phần đuôi xa của phối cảnh.",
+      "visualDescription": "Minh họa so sánh giữa viền răng cưa thô khi chưa lọc và viền mượt mà sau khi tinh chỉnh độ mờ tiêu cự."
+    },
+    {
+      "id": "slide-p07-02-07",
+      "order": 7,
+      "title": "Quy trình kiểm tra góc nhìn hoàn chỉnh",
+      "subtitle": "Đánh giá sự ăn khớp hình học toàn diện",
+      "type": "summary",
+      "content": "Bật Guides và kẻ các đường nối kéo dài từ các cạnh của đối tượng vừa nắn. Các đường này phải hội tụ chính xác tại cùng một điểm tụ (Vanishing Point) trên đường chân trời của bức ảnh gốc.",
+      "tips": "Nếu các đường hội tụ chạy song song hoặc lệch điểm tụ, hãy tiếp tục chỉnh chốt của Live Perspective.",
+      "codeSnippet": "Perspective Verification Checklist:\n[✓] Horizon line leveled via Crop Straighten\n[✓] Live Perspective corners pinned to background architecture\n[✓] Vanishing lines intersect at correct background vanishing points\n[✓] Texture surface conforms via Mesh Warp & Blend Ranges"
+    }
+  ]
+}

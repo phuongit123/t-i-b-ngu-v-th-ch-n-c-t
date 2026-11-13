@@ -2,10 +2,10 @@
 
 ## Document Control
 - **Document ID:** `ROADMAP-AFFINITY-001`
-- **Version:** `2.2.0` (Phase 2 Completed)
+- **Version:** `4.2.2` (Track 2 Affinity Photo & Photo Layer Simulator Certified)
 - **Status:** `ACTIVE / AUDITED & EXPANDED`
-- **Current Active Phase:** `PHASE 2 (COMPLETED) -> AWAITING APPROVAL FOR PHASE 3`
-- **Last Updated:** `2026-11-09`
+- **Current Active Phase:** `PHASE 5 TRACK 2 (COMPLETED) -> AWAITING APPROVAL FOR TRACK 3 (PUBLISHER) / PHASE 6`
+- **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
 
 ---
@@ -86,35 +86,35 @@ flowchart TD
 ### Phase 3: 40-Module Curriculum Development & Asset Authoring
 - **Goal:** Author all 40 modules (120 lessons) across Designer, Photo, Publisher, and Scripting tracks based on the ground truth MCP API reference; build tool encyclopedia dataset, starter assets (`.af*`), and challenge solutions.
 - **Prerequisites:** Phase 1 (MCP API Reference).
-- **Status:** **TRACK 1 COMPLETE & TECHNICAL RE-AUDIT VERIFIED** (10 Modules, 30 Lessons). Pilot modules for P01, B01, S01 verified.
-- **Associated Tasks:** `TASK-010`, `TASK-010-REAUDIT`, `TASK-011`, `TASK-012`, `TASK-013`, `TASK-014`, `TASK-015`, `TASK-016`, `TASK-017`
+- **Status:** **TRACK 1 & TRACK 2 COMPLETED & VERIFIED** (20 Modules, 60 Lessons). Modules D01–D10 and P01–P10 fully implemented and passing schema. Pilot modules B01 (Publisher) and S01 (Scripting) verified. Total 66/66 lessons passing.
+- **Associated Tasks:** `TASK-010` (Completed), `TASK-010-REAUDIT` (Completed), `TASK-011` (Completed), `TASK-012` (Pending), `TASK-013` (Pending), `TASK-014` (Completed for D01-P10), `TASK-015` (Completed for D01-P10), `TASK-016` (Pending), `TASK-017` (Pending)
 - **Governing Agents:** `CurriculumAgent`, `DesignAgent`, `AffinityMCPAgent`
-- **Exit Criteria:** All lessons pass `validate:curriculum`; technical claims verified in `TRACK_1_REAUDIT_REPORT.md`.
+- **Exit Criteria:** All lessons pass `validate:curriculum`; technical claims verified against official Serif Affinity documentation.
 
 ---
 
 ### Phase 4: Core Interactive Engine Development
-- **Goal:** Build the interactive engines: Interactive Slide-Based Lesson Engine, In-Browser Affinity Tool Simulator Sandbox (Pen, Node, Boolean, Curves), Monaco Script Editor, Live Render Preview Viewport, and MCP Client Bridge.
+- **Goal:** Build the interactive engines: Interactive Slide-Based Lesson Engine, In-Browser Affinity Tool Simulator Sandbox (Pen, Node, Boolean, Curves, Photo Layer & Masking), Monaco Script Editor, Live Render Preview Viewport, and MCP Client Bridge.
 - **Prerequisites:** Phase 1, Phase 2.
-- **Status:** **PHASE 4 MVP COMPLETED & SIGNED OFF** (`SlidePlayer.tsx` and `PenNodeSimulator.tsx` Operational; Monaco & MCP Playground deferred per phase gate).
+- **Status:** **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED & SIGNED OFF** (`SlidePlayer.tsx`, `PenNodeSimulator.tsx`, and `PhotoLayerSimulator.tsx` Operational; Monaco & MCP Playground deferred per phase gate).
 - **Associated Tasks:** `TASK-026` (Completed), `TASK-027` (Completed), `TASK-074` (Completed), `TASK-023` (Pending), `TASK-024` (Pending), `TASK-040` (Pending)
 - **Governing Agents:** `FrontendAgent`, `AffinityMCPAgent`, `QAAgent`
-- **Exit Criteria:** `PHASE_4_MVP_SIGNOFF.md` verified; 5/5 Playwright E2E tests pass; 0 regressions.
+- **Exit Criteria:** 9/9 Playwright E2E tests pass; 0 regressions; chunk sizes remain under 300 kB.
 
 ---
 
 ### Phase 5: 8 Major Pages Implementation (Web Platform)
 - **Goal:** Build the 8 dedicated major pages:
   - `PAGE-01`: Home / Landing Page (`TASK-071`)
-  - `PAGE-02`: Course Catalog & Tracks Browser (`TASK-072`)
-  - `PAGE-03`: Interactive Slide-Based Lesson Player (`TASK-073`)
-  - `PAGE-04`: Interactive Tool Simulator Sandbox (`TASK-074`)
-  - `PAGE-05`: Tool Encyclopedia & Shortcuts Matrix (`TASK-075`)
-  - `PAGE-06`: Live Scripting & MCP Automation Playground (`TASK-076`)
-  - `PAGE-07`: Resource Library & Asset Download Center (`TASK-077`)
-  - `PAGE-08`: Student Dashboard & Portfolio (`TASK-078`)
+  - `PAGE-02`: Course Catalog & Tracks Browser (`TASK-072`) — Wired with Track 1 (30 lessons) and Track 2 (30 lessons)
+  - `PAGE-03`: Interactive Slide-Based Lesson Player (`TASK-073`) — Operational for all 66 lessons
+  - `PAGE-04`: Interactive Tool Simulator Sandbox (`TASK-074`) — Operational with dual tabs (Vector Bézier + Photo Layer/Masking)
+  - `PAGE-05`: Tool Encyclopedia & Shortcuts Matrix (`TASK-075`) — Operational with 401 SDK topics
+  - `PAGE-06`: Live Scripting & MCP Automation Playground (`TASK-076`) — Deferred per phase gate
+  - `PAGE-07`: Resource Library & Asset Download Center (`TASK-077`) — Operational with bundled downloads
+  - `PAGE-08`: Student Dashboard & Portfolio (`TASK-078`) — Operational MVP
 - **Prerequisites:** Phase 2, Phase 3, Phase 4.
-- **Status:** `PENDING`
+- **Status:** `IN PROGRESS / PARTIALLY OPERATIONAL` (Pages 01, 02, 03, 04, 05, 07, 08 functional; Page 06 deferred pending Phase Gate)
 - **Associated Tasks:** `TASK-021`, `TASK-022`, `TASK-028`, `TASK-029`, `TASK-071` to `TASK-078`
 - **Governing Agents:** `FrontendAgent`, `DesignAgent`
 - **Exit Criteria:** All 8 pages navigable, responsive, adhering strictly to content specifications with zero broken routes.

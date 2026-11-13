@@ -1,0 +1,281 @@
+{
+  "id": "P02-03",
+  "moduleId": "P02",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Pixel Masks & Non-Destructive Masking Architectures",
+  "subtitle": "Black Conceals, White Reveals, Inverted Masks & Quick Mask Workflows",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu sâu sắc triết lý 'Black Conceals, White Reveals' trong kiến trúc mặt nạ pixel của Affinity Photo.",
+      "Sử dụng công cụ Paint Brush Tool (B) kết hợp phím tắt D/X để vẽ, xóa, phục hồi các chi tiết mặt nạ linh hoạt.",
+      "Làm chủ kỹ thuật đảo ngược mặt nạ (Invert Mask: Ctrl+I / Cmd+I) để tạo mặt nạ đen giấu toàn bộ và chỉ vẽ lộ diện cục bộ.",
+      "Phân biệt giữa Mask Layer thông thường, Vector Mask và Compound Mask trong các dự án phức tạp."
+    ],
+    "foundationalKnowledge": "Mặt nạ lớp (Layer Mask) là trụ cột quan trọng nhất của toàn bộ triết lý chỉnh sửa phi phá hủy (Non-Destructive Editing). Thay vì dùng công cụ tẩy (Eraser Tool) để xóa vĩnh viễn các điểm ảnh—hành động không thể đảo ngược một khi đã đóng tệp dự án—mặt nạ lớp áp đặt một bản đồ độ trong suốt trực tiếp lên layer. Mặt nạ này lưu trữ một hình ảnh đen trắng tỉ lệ 1:1 với kích thước layer. Khi bạn tô màu Đen lên mặt nạ, điểm ảnh của layer bị che khuất; khi bạn tô màu Trắng, điểm ảnh xuất hiện trở lại; và khi bạn tô màu Xám hoặc dùng cọ mềm, điểm ảnh hòa quyện bán trong suốt mượt mà vào các lớp bên dưới.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Masking Architecture & Raster Channel Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Layer Mask System & Paint Brush Tool",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Ctrl+I (Invert Mask)",
+        "mac": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Cmd+I (Invert Mask)"
+      },
+      "description": "Hệ thống mặt nạ cho phép điều khiển độ mờ đục của bất kỳ lớp pixel, hình ảnh, nhóm lớp (Group) hay lớp điều chỉnh (Adjustment) nào mà không làm biến đổi dữ liệu gốc.",
+      "contextBarOptions": [
+        "Opacity & Flow: Kiểm soát lượng màu cọ đen/trắng phủ lên mặt nạ",
+        "Hardness: Độ cứng của rìa cọ (0% cho chuyển tiếp nhung mịn, 100% cho cạnh sắc)",
+        "Mask to Below: Lệnh nhúng mặt nạ vào ngay lớp bên dưới từ menu Layer",
+        "Invert: Đảo ngược trắng thành đen và ngược lại qua menu Layer > Invert"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo mặt nạ cho lớp hình ảnh",
+        "instruction": "Chọn layer cần gắn mặt nạ trong bảng Layers Studio (F7). Nhấn vào biểu tượng Mask Layer (hình chữ nhật có vòng tròn ở giữa) tại thanh công cụ dưới đáy Layers panel.",
+        "shortcutTip": { "win": "Biểu tượng Mask Layer (đáy Layers panel)", "mac": "Biểu tượng Mask Layer (đáy Layers panel)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Thiết lập màu chuẩn và chọn Paint Brush Tool",
+        "instruction": "Nhấn phím D để đưa màu Color Studio về mặc định (Trắng và Đen). Nhấn phím B để kích hoạt Paint Brush Tool. Nhấn phím X để đổi màu vẽ Foreground thành Đen.",
+        "shortcutTip": { "win": "D rồi X rồi B", "mac": "D rồi X rồi B" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Tô vẽ che giấu vùng thừa",
+        "instruction": "Đảm bảo ô thumbnail nhỏ của Mask đang được chọn (có khung sáng viền quanh). Dùng cọ vẽ đen tô lên các vùng bạn muốn làm biến mất. Bạn sẽ thấy hậu cảnh lập tức lộ ra.",
+        "shortcutTip": { "win": "Cọ Đen = Che giấu", "mac": "Cọ Đen = Che giấu" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Phục hồi chi tiết và đảo ngược mặt nạ",
+        "instruction": "Nếu lỡ xóa quá tay, nhấn phím X để chuyển cọ sang màu Trắng và tô lại vùng đó để phục hồi pixel. Để đảo ngược toàn bộ mặt nạ, chọn thumbnail Mask và nhấn Ctrl+I (Win) / Cmd+I (Mac).",
+        "shortcutTip": { "win": "Ctrl+I", "mac": "Cmd+I" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Quy tắc vàng của Mặt Nạ Pixel trong Affinity Photo",
+        "description": "Mối quan hệ trực quan giữa sắc độ vẽ và độ trong suốt kết quả.",
+        "visualType": "diagram",
+        "visualContent": "[Màu Vẽ Trên Mặt Nạ]  →  [Hiệu Ứng Trên Layer]\n------------------------------------------------\nTrắng tinh (RGB 255)  →  Hiển thị 100% (Opaque)\nĐen tuyền (RGB 0)     →  Ẩn hoàn toàn 0% (Transparent)\nXám 50% (RGB 128)     →  Bán trong suốt 50% (Semi-transparent)\nGradient Đen → Trắng  →  Chuyển tiếp mờ dần mượt mà"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tạo hiệu ứng hòa quyện 2 hình ảnh bằng Gradient Mask",
+      "taskDescription": "Xếp chồng 2 bức ảnh phong cảnh khác nhau và dùng Fill Tool (G) kéo dải chuyển sắc đen-trắng trên Mask để hòa trộn 2 bức ảnh liền mạch.",
+      "checkpoints": [
+        "2 layer ảnh được xếp chồng lên nhau trong Layers Studio.",
+        "Layer phía trên được gắn một Mask Layer trống.",
+        "Công cụ Fill Tool (G) được kéo trên mặt nạ theo hướng ngang hoặc chéo.",
+        "Đường chân trời hoặc cảnh vật giữa 2 bức ảnh hòa quyện nhung mịn không để lại vết cắt."
+      ],
+      "expectedOutcome": "Một bức ảnh composite mộng mơ kết hợp hoàn hảo giữa 2 cảnh quan mà không cần dùng cọ vẽ thủ công."
+    },
+    "independentChallenge": {
+      "title": "Thử thách che giấu chọn lọc với Inverted Mask",
+      "prompt": "Thêm một lớp điều chỉnh Black & White Adjustment lên ảnh chân dung. Nhấn Ctrl+I / Cmd+I để đảo ngược mặt nạ thành Đen toàn bộ (ảnh trở lại màu bình thường). Sau đó dùng cọ mềm màu Trắng tô khéo léo để chỉ riêng đôi mắt hoặc trang phục giữ lại màu sắc rực rỡ, toàn bộ phần còn lại chuyển thành trắng đen nghệ thuật (Color Splash Effect).",
+      "starterAsset": {
+        "filename": "P02_selections_masking_guide.md",
+        "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật thực hành mặt nạ pixel và đảo ngược mặt nạ trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Hiệu ứng Black and White được áp dụng phi phá hủy thông qua Adjustment Layer.",
+        "Mặt nạ được đảo ngược thành công bằng Ctrl+I / Cmd+I.",
+        "Vùng chuyển sắc ranh giới giữa màu sắc và trắng đen mượt mà tự nhiên."
+      ],
+      "bonusGoal": "Giảm Flow của cọ vẽ xuống 20% để tạo độ chuyển sắc êm dịu ở các mép viền."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Vẽ màu đen nhưng màn hình xuất hiện vệt mực đen thay vì làm trong suốt",
+        "cause": "Đang chọn nhầm thumbnail của Layer ảnh chính thay vì chọn thumbnail của Mask con.",
+        "solution": "Nhấp chuột chính xác vào biểu tượng hình chữ nhật nhỏ đại diện cho Mask trong Layers Studio trước khi vẽ."
+      },
+      {
+        "pitfall": "Mặt nạ bị mất tác dụng khi di chuyển layer",
+        "cause": "Mặt nạ bị lôi ra ngoài trở thành một layer độc lập ngang cấp thay vì làm lớp con (Child Mask).",
+        "solution": "Kéo thả thumbnail của Mask vào ngay bên dưới thumbnail của layer cha để thiết lập lại quan hệ Mask to Below."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P02-03-Q1",
+        "question": "Khi vẽ cọ lên một Layer Mask trong Affinity Photo, màu sắc nào có tác dụng làm ẩn (trong suốt) các điểm ảnh của layer đó?",
+        "options": [
+          "Màu Trắng (RGB: 255, 255, 255)",
+          "Màu Đen (RGB: 0, 0, 0)",
+          "Màu Đỏ thuần",
+          "Màu Xanh dương"
+        ],
+        "correctIndex": 1,
+        "explanation": "Theo quy tắc 'Black Conceals, White Reveals', màu Đen hoàn toàn làm ẩn các pixel bên dưới mặt nạ."
+      },
+      {
+        "id": "P02-03-Q2",
+        "question": "Phím tắt chuẩn để đảo ngược toàn bộ màu sắc của một mặt nạ (Invert Mask: Trắng thành Đen, Đen thành Trắng) là gì?",
+        "options": [
+          "Ctrl+Shift+I (Win) / Cmd+Shift+I (Mac)",
+          "Ctrl+I (Win) / Cmd+I (Mac)",
+          "Phím X",
+          "Alt+Backspace"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chọn thumbnail Mask và nhấn Ctrl+I (Win) hoặc Cmd+I (Mac) sẽ đảo ngược toàn bộ sắc thái mặt nạ ngay lập tức."
+      },
+      {
+        "id": "P02-03-Q3",
+        "question": "Lợi thế vượt trội lớn nhất của việc dùng Layer Mask so với dùng Eraser Tool (Tẩy) là gì?",
+        "options": [
+          "Layer Mask làm giảm dung lượng tệp tin",
+          "Layer Mask cho phép khôi phục lại bất kỳ chi tiết nào bất cứ lúc nào chỉ bằng cọ Trắng, bảo toàn 100% dữ liệu pixel gốc",
+          "Layer Mask tự động tải lên đám mây",
+          "Eraser Tool chỉ dùng được cho ảnh 8-bit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Layer Mask là quy trình phi phá hủy (Non-destructive). Mọi pixel bị ẩn đều có thể phục hồi nguyên vẹn bằng cách tô lại màu trắng."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Mặt nạ lớp là linh hồn của biên tập ảnh phi phá hủy: Đen che giấu, Trắng hiển thị.",
+        "Phím tắt D đưa màu về Đen/Trắng mặc định, phím X hoán đổi nhanh giữa cọ hiển thị và cọ che giấu.",
+        "Lệnh Ctrl+I / Cmd+I giúp đảo ngược mặt nạ để thực hiện kỹ thuật Color Splash hoặc tạo vùng sáng có chủ đích.",
+        "Có thể dùng Fill Tool kéo Gradient trực tiếp lên Mask để hòa trộn ảnh mượt mà."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P03 Layers & Non-Destructive Editing",
+          "target": "P03-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P02_selections_masking_guide.md",
+          "target": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P02-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Mặt Nạ Pixel & Triết Lý 'Black Conceals, White Reveals'",
+      "subtitle": "Kỹ thuật tối thượng của trường phái biên tập phi phá hủy",
+      "contentMarkdown": "Bạn có biết sự khác biệt giữa một người chỉnh sửa ảnh nghiệp dư và một Retoucher chuyên nghiệp là gì không?\n\nNgười nghiệp dư dùng **Eraser Tool (Tẩy)** để xóa bỏ vĩnh viễn các pixel nền. Khi khách hàng yêu cầu lấy lại chi tiết đã xóa 3 ngày trước, họ phải làm lại từ đầu!\n\nNgười chuyên nghiệp dùng **Layer Mask (Mặt nạ lớp)**. Trong bài học này, bạn sẽ nắm trọn quy tắc vàng **Black Conceals, White Reveals** để làm chủ mọi kỹ thuật che giấu và hiển thị pixel theo ý muốn.",
+      "actionBox": {
+        "label": "Châm Ngôn Vàng",
+        "text": "Hãy vứt bỏ công cụ Tẩy (Eraser). Trong Affinity Photo chuyên nghiệp, Mặt nạ lớp mới là công cụ xóa duy nhất bạn được phép dùng!"
+      }
+    },
+    {
+      "id": "P02-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Giải Mã Quy Tắc 'Black Conceals, White Reveals'",
+      "subtitle": "Quy luật bất biến trong mọi phần mềm xử lý hình ảnh cao cấp",
+      "contentMarkdown": "Mặt nạ là một lớp kính lọc độ sáng gắn liền với layer của bạn:\n\n- ⚪ **Màu Trắng (White):** Cho phép ánh sáng xuyên qua 100%. Tất cả pixel trên layer đều hiển thị rõ ràng.\n- ⚫ **Màu Đen (Black):** Chặn đứng ánh sáng hoàn toàn. Các pixel bị che khuất, trở nên vô hình để lộ các layer bên dưới.\n- 🔘 **Màu Xám (Gray):** Cho ánh sáng xuyên qua một phần. Tạo nên các vùng bán trong suốt mờ ảo như sương mù, kính ướt hoặc bóng đổ.",
+      "visual": {
+        "type": "callout",
+        "content": "Nhớ nhanh bằng tiếng Anh: 'Black Conceals, White Reveals' — Đen che đi, Trắng hé mở!"
+      }
+    },
+    {
+      "id": "P02-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bộ Phím Tắt Thần Thánh Khi Làm Việc Với Mặt Nạ",
+      "subtitle": "Tối ưu tốc độ thao tác của bàn tay trái",
+      "contentMarkdown": "Khi vẽ mặt nạ, bạn không cần nhấp chuột vào bảng chọn màu. Hãy dùng các phím tắt siêu tốc này:\n\n- **Phím D (Default):** Đưa màu Foreground/Background về Trắng & Đen nguyên chất ngay lập tức.\n- **Phím X (Swap):** Đảo vị trí giữa màu Đen và Trắng. Đang xóa (cọ Đen) chỉ cần bấm `X` là chuyển sang phục hồi (cọ Trắng).\n- **Phím B (Brush):** Kích hoạt Paint Brush Tool.\n- **Phím [ và ]:** Thay đổi kích thước đầu cọ.\n- **Shift + [ hoặc ]:** Thay đổi độ cứng (Hardness) của cọ từ 0% (cực mềm) đến 100% (cực sắc).",
+      "actionBox": {
+        "label": "Combo Phím Tắt",
+        "text": "Bàn tay trái đặt sẵn ở cụm phím D, X, B, [, ]. Bạn có thể vừa vẽ vừa sửa mặt nạ mượt mà như họa sĩ!",
+        "shortcut": { "win": "D rồi X rồi B", "mac": "D rồi X rồi B" }
+      }
+    },
+    {
+      "id": "P02-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Tạo Và Điều Chỉnh Mặt Nạ",
+      "subtitle": "Thao tác chuẩn mực trên Layers Studio",
+      "contentMarkdown": "1. **Gắn Mặt Nạ:** Chọn layer ảnh, nhấn biểu tượng Mask ở đáy Layers Studio (F7).\n2. **Chuẩn bị cọ:** Bấm `D` để lấy màu chuẩn, bấm `X` lấy màu Đen, bấm `B` chọn Paint Brush.\n3. **Tô che giấu:** Quét cọ lên những phần thừa cần ẩn đi.\n4. **Đảo ngược mặt nạ (Kỹ thuật Pro):** Nhấn `Ctrl+I` (Win) / `Cmd+I` (Mac). Mặt nạ lập tức biến thành đen tuyền, giấu toàn bộ ảnh. Bây giờ bạn chỉ việc dùng cọ Trắng tô hé lộ đúng những điểm cần khoe!",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Add Mask | Key D & X | Paint Brush (B) | Invert Mask (Ctrl+I) | Restore with White"
+      }
+    },
+    {
+      "id": "P02-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Cạm Bẫy Chọn Nhầm Layer Khi Vẽ Mặt Nạ",
+      "subtitle": "Tại sao lại xuất hiện vệt mực đen trên mặt người mẫu?",
+      "contentMarkdown": "### Sự cố kinh điển nhất của học viên:\n- Bạn định xóa nền, nhưng khi quẹt cọ, trên màn hình lại xuất hiện một vệt mực đen sì đè lên mặt người mẫu!\n- **Nguyên nhân:** Bạn đang chọn ô hình ảnh chính (Image Thumbnail) thay vì ô mặt nạ (Mask Thumbnail).\n- **Cách nhận biết:** Ô nào đang có khung viền sáng bao quanh thì ô đó đang nhận lệnh cọ vẽ!\n- **Khắc phục:** Nhấn `Ctrl+Z`, sau đó nhấp chuột chính xác vào ô vuông Mask trước khi vẽ cọ.",
+      "actionBox": {
+        "label": "Quy Tắc Nhận Diện",
+        "text": "Luôn liếc nhìn bảng Layers Studio để chắc chắn rằng biểu tượng Mặt nạ đang được chọn trước khi hạ nét cọ."
+      }
+    },
+    {
+      "id": "P02-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Nhận Thức Về Mặt Nạ",
+      "subtitle": "Khẳng định mức độ thành thạo kỹ thuật",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P02-03-Q2",
+        "question": "Phím tắt chuẩn để đảo ngược toàn bộ màu sắc của một mặt nạ (Invert Mask: Trắng thành Đen, Đen thành Trắng) là gì?",
+        "options": [
+          "Ctrl+Shift+I (Win) / Cmd+Shift+I (Mac)",
+          "Ctrl+I (Win) / Cmd+I (Mac)",
+          "Phím X",
+          "Alt+Backspace"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chọn thumbnail Mask và nhấn Ctrl+I (Win) hoặc Cmd+I (Mac) sẽ đảo ngược toàn bộ sắc thái mặt nạ ngay lập tức."
+      }
+    },
+    {
+      "id": "P02-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành Độc Lập: Kỹ Thuật Color Splash",
+      "subtitle": "Tạo điểm nhấn màu sắc độc đáo với Inverted Mask",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở một bức ảnh chân dung hoặc đường phố rực rỡ sắc màu.\n2. Thêm một lớp điều chỉnh `Black and White Adjustment`.\n3. Chọn thumbnail của lớp điều chỉnh, nhấn `Ctrl+I` (Win) / `Cmd+I` (Mac) để đảo ngược mặt nạ thành đen.\n4. Dùng Paint Brush Tool (B) với màu Trắng, vẽ cẩn thận lên một chi tiết nổi bật (ví dụ: chiếc dù đỏ, đôi môi hoặc chiếc xe hơi cổ).\n5. Kết quả: Chỉ riêng chi tiết đó giữ được màu sắc rực rỡ, toàn bộ khung hình chuyển sang trắng đen hoài cổ.\n\n### Tiêu Chí Nghiệm Thu:\n- Mặt nạ được kiểm soát chính xác, không lem màu ra các chi tiết xung quanh.\n- Toàn bộ thao tác 100% phi phá hủy, có thể hủy bỏ chỉ bằng cách tắt con mắt layer.",
+      "practiceData": {
+        "prompt": "Tạo hiệu ứng Color Splash bằng Inverted Mask trên Black and White Adjustment.",
+        "starterAsset": {
+          "filename": "P02_selections_masking_guide.md",
+          "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "filesize": "4.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật thực hành mặt nạ pixel và đảo ngược mặt nạ trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Tạo Black and White Adjustment Layer",
+          "Invert Mask thành công bằng Ctrl+I / Cmd+I",
+          "Dùng cọ Trắng vẽ lộ diện màu sắc chi tiết mục tiêu"
+        ]
+      }
+    }
+  ]
+}

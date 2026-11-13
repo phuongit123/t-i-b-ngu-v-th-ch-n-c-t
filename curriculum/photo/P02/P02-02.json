@@ -1,0 +1,282 @@
+{
+  "id": "P02-02",
+  "moduleId": "P02",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Refining Selections & Complex Edge Detection",
+  "subtitle": "Matte Brush, Border Calculations, Feathering & Ramp Dynamics",
+  "durationMinutes": 30,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Làm chủ hộp thoại Refine Selection để xử lý các đường biên cực kỳ phức tạp như tóc mai, lông thú, sương mù.",
+      "Hiểu rõ vai trò của 4 tham số toán học cốt lõi: Border, Smooth, Feather và Ramp.",
+      "Sử dụng công cụ Matte Brush nội bộ để hướng dẫn thuật toán bóc tách màu nền khỏi từng sợi tóc.",
+      "Lựa chọn đúng định dạng xuất (Output): Selection, Mask, New Layer, hoặc New Layer with Mask."
+    ],
+    "foundationalKnowledge": "Khi tách nền những đối tượng có cạnh mềm hoặc bán trong suốt (như lọn tóc người, áo len xù, kính trong suốt), một đường biên chọn cứng 1-bit sẽ tạo ra cảm giác giả tạo thô thiển hoặc để lại viền sáng (halo) khó chịu. Hộp thoại Refine Selection trong Affinity Photo sử dụng thuật toán tính toán ma trận độ trong suốt (Matte Extraction Algorithm). Nó phân tích giá trị màu của vùng nền được đánh dấu (Foreground, Background và Unknown Matte) để giải phương trình hòa trộn màu sắc, qua đó bóc tách chính xác phần trăm đóng góp của màu chủ thể so với màu nền ở từng pixel riêng lẻ.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Refine Selection Studio & Matte Calculation Engine",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Refine Selection Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges...",
+        "mac": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges..."
+      },
+      "description": "Studio chuyên dụng tính toán biên chọn chuyển tiếp phức tạp với các chế độ hiển thị xem trước chuyên nghiệp (Overlay, Black & White, Transparent).",
+      "contextBarOptions": [
+        "Preview Mode: Overlay (Phủ đỏ), Black, White, Transparent (Bàn cờ trong suốt)",
+        "Matte Tool / Adjustment Brush: Cọ quét định hướng vùng biên tóc cần thuật toán phân tích",
+        "Border Width: Bề rộng vùng biên tính toán (px)",
+        "Smooth & Feather: Độ mượt đường cong và độ nhòe chuyển tiếp",
+        "Ramp: Co hẹp (-100%) hoặc nới rộng (+100%) đường ranh giới",
+        "Output: Selection, Mask, New Layer, New Layer with Mask"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo vùng chọn thô và mở Refine Selection",
+        "instruction": "Dùng Selection Brush Tool quét chọn phần thân người mẫu. Nhấn nút 'Refine...' trên Context Bar hoặc vào Select > Refine Edges...",
+        "shortcutTip": { "win": "Select > Refine Edges...", "mac": "Select > Refine Edges..." }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chọn chế độ Preview Overlay hoặc Black & White",
+        "instruction": "Trên góc trên hộp thoại Refine, đổi Preview sang 'Black & White' (phím tắt B) để nhìn rõ độ tương phản giữa vùng chọn trắng và nền đen.",
+        "shortcutTip": { "win": "Preview: Black & White", "mac": "Preview: Black & White" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dùng Adjustment Brush quét qua vùng tóc mai",
+        "instruction": "Chọn Adjustment Brush ở cạnh trái hộp thoại, quét một lượt qua các sợi tóc bay lòa xòa. Thuật toán sẽ phân tích và biến nền thành đen, giữ sợi tóc trắng nguyên vẹn.",
+        "shortcutTip": { "win": "Quét cọ qua sợi tóc", "mac": "Quét cọ qua sợi tóc" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thiết lập tham số và xuất kết quả ra Mask",
+        "instruction": "Đặt Smooth: 1px, Feather: 0.5px. Tại mục Output, chọn 'Mask' và nhấn Apply. Một mặt nạ lớp tinh tế sẽ lập tức gắn vào layer của bạn.",
+        "shortcutTip": { "win": "Output: Mask > Apply", "mac": "Output: Mask > Apply" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Ý nghĩa 4 thanh trượt toán học trong Refine Selection",
+        "description": "Phân tích tác động trực quan của các thanh trượt lên đường biên chọn.",
+        "visualType": "table",
+        "visualContent": "| Tham số | Đơn vị | Tác động vật lý | Khuyến nghị sử dụng |\n|---|---|---|---|\n| Border | Pixel | Mở rộng vùng tìm kiếm chuyển tiếp quanh biên | Tăng lên 5-15px khi tóc xù nhiều sợi nhỏ |\n| Smooth | Pixel | Khử các điểm gãy khúc, làm trơn tru đường cong | Đặt 1-2px cho cơ thể người, 0px cho tóc |\n| Feather | Pixel | Làm nhòe viền mờ dần theo hàm Gaussian | Đặt 0.5-1.0px để tránh mép sắc như dao cạo |\n| Ramp | Tỷ lệ % | Dịch chuyển vị trí ngưỡng phân cách (Shift Edge) | Kéo âm (-10% đến -20%) để triệt tiêu viền sáng |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Bóc tách chân dung tóc phức tạp với Refine Selection",
+      "taskDescription": "Thực hành tách nền một người mẫu có mái tóc xoăn bồng bềnh bằng Refine Selection Studio.",
+      "checkpoints": [
+        "Vùng chọn thô bao quanh toàn bộ cơ thể.",
+        "Hộp thoại Refine Selection được mở và chuyển sang chế độ Overlay.",
+        "Adjustment Brush quét đều qua các lọn tóc rối.",
+        "Kết quả xuất ra dưới dạng Mask, các sợi tóc mỏng được giữ trọn vẹn trên nền mới."
+      ],
+      "expectedOutcome": "Mái tóc được tách biệt hoàn hảo, không còn vết ố màu của phông nền cũ bám vào sợi tóc."
+    },
+    "independentChallenge": {
+      "title": "Tách vật thể trong suốt (Ly thủy tinh hoặc áo ren mỏng)",
+      "prompt": "Sử dụng tính năng Refine Selection để tách một đối tượng có chất liệu xuyên sáng hoặc vải ren mỏng, tạo ra một mặt nạ bán trong suốt (Semi-transparent Alpha Mask).",
+      "starterAsset": {
+        "filename": "P02_selections_masking_guide.md",
+        "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn kỹ thuật tinh chỉnh vùng chọn và tách biên trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Độ trong suốt của thủy tinh/vải ren thể hiện được màu sắc của lớp nền mới bên dưới.",
+        "Độ sắc nét của thành ly và bọt khí bên trong được bảo tồn.",
+        "Output được xuất thành 'New Layer with Mask'."
+      ],
+      "bonusGoal": "Sử dụng thanh trượt Ramp kéo âm để loại bỏ hoàn toàn viền halo phản quang màu trắng."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Tóc bị mất màu và chuyển sang màu xám nhờ nhờ sau khi Refine",
+        "cause": "Quét Adjustment Brush quá nhiều lần trên cùng một vùng khiến thuật toán hiểu nhầm tóc là nền.",
+        "solution": "Chỉ quét một nét dứt khoát qua phần giao thoa; nếu bị mất chi tiết, đổi sang cọ Foreground để đánh dấu lại màu tóc thật."
+      },
+      {
+        "pitfall": "Xuất ra 'New Layer' khiến mất khả năng chỉnh sửa mặt nạ",
+        "cause": "Chọn nhầm Output là New Layer thuần túy, thao tác này sẽ xóa vĩnh viễn các pixel nền.",
+        "solution": "Luôn chọn Output là 'Mask' hoặc 'New Layer with Mask' để duy trì quy trình phi phá hủy."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P02-02-Q1",
+        "question": "Trong hộp thoại Refine Selection, thanh trượt nào có tác dụng dịch chuyển ranh giới cắt vào trong hoặc ra ngoài để loại bỏ viền sáng (fringe/halo)?",
+        "options": [
+          "Smooth",
+          "Feather",
+          "Ramp",
+          "Border"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ramp đóng vai trò dịch chuyển vị trí ngưỡng biên chọn (Shift Edge). Giá trị âm sẽ co viền vào trong để loại bỏ viền sáng."
+      },
+      {
+        "id": "P02-02-Q2",
+        "question": "Để bảo toàn quy trình chỉnh sửa phi phá hủy (Non-Destructive) sau khi tinh chỉnh vùng chọn, bạn nên chọn tùy chọn Output nào?",
+        "options": [
+          "New Layer (Lớp mới đã cắt)",
+          "Selection (Chỉ trả về đường kiến bò)",
+          "Mask (Mặt nạ lớp) hoặc New Layer with Mask",
+          "Export to JPEG"
+        ],
+        "correctIndex": 2,
+        "explanation": "Chọn Mask hoặc New Layer with Mask giữ nguyên vẹn 100% pixel ảnh gốc, chỉ ẩn các pixel nền bằng mặt nạ có thể vẽ lại bất cứ lúc nào."
+      },
+      {
+        "id": "P02-02-Q3",
+        "question": "Chế độ xem trước (Preview) nào trong Refine Selection giúp phát hiện các lỗ thủng chưa được chọn bên trong chủ thể dễ nhất?",
+        "options": [
+          "Black & White (Trắng đen)",
+          "Overlay (Phủ đỏ)",
+          "Transparent (Bàn cờ caro)",
+          "Original Image"
+        ],
+        "correctIndex": 0,
+        "explanation": "Chế độ Black & White biến vùng chọn thành màu trắng tinh và vùng ngoài thành màu đen tuyền, làm lộ rõ mọi vết đốm xám hoặc lỗ thủng chưa chọn."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Refine Selection là công cụ bắt buộc khi xử lý các cạnh vi mô phức tạp như tóc mai và lông thú.",
+        "4 tham số Border, Smooth, Feather, Ramp kết hợp cùng Adjustment Brush giúp giải quyết bài toán tách nền khó nhất.",
+        "Luôn xuất kết quả về Mask để duy trì tính phi phá hủy tuyệt đối.",
+        "Ramp âm là vũ khí bí mật để xóa sạch viền sáng lem từ phông nền cũ."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P02-03 Pixel Masks & Non-Destructive Masking Architectures",
+          "target": "P02-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P02_selections_masking_guide.md",
+          "target": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P02-02-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Làm Chủ Refine Selection & Bóc Tách Biên Phức Tạp",
+      "subtitle": "Kỹ thuật tách sợi tóc và chi tiết bán trong suốt đỉnh cao",
+      "contentMarkdown": "Tách một khối hình học đơn giản như chiếc hộp hay điện thoại là việc dễ dàng. Nhưng tách một **mái tóc xoăn ngược sáng, một chú mèo lông xù hay làn khói mờ** đòi hỏi một đẳng cấp hoàn toàn khác.\n\nTrong bài học này, bạn sẽ khám phá **Refine Selection Studio**—trung tâm tính toán biên toán học của Affinity Photo, biến những ca tách nền 'bất khả thi' thành hiện thực chỉ sau vài đường cọ.",
+      "actionBox": {
+        "label": "Mục Tiêu Bài Học",
+        "text": "Bóc tách từng sợi tóc mảnh mai mà không làm lem màu nền cũ và không để lại viền trắng sắc lẹm."
+      }
+    },
+    {
+      "id": "P02-02-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Nguyên Lý Hoạt Động Của Matte Brush",
+      "subtitle": "Giải phương trình hòa trộn màu sắc ở cấp độ pixel",
+      "contentMarkdown": "Tại các sợi tóc bay trong không khí, mỗi pixel trên cảm biến máy ảnh là sự pha trộn giữa **Màu Tóc + Màu Phông Nền**.\n\nKhi bạn dùng cọ **Adjustment Brush** quét qua mép tóc trong Refine Selection:\n1. Phần mềm lấy mẫu màu tóc bên trong và mẫu màu nền bên ngoài.\n2. Thuật toán **Matte Extraction** giải phương trình phân rã màu để loại bỏ màu nền, chỉ giữ lại sắc tố tóc thật.\n3. Kết quả là một kênh Alpha chuyển sắc mượt mà đến từng phần mười pixel!",
+      "visual": {
+        "type": "callout",
+        "content": "Chỉ quét cọ đúng vào vùng chuyển tiếp (vùng có sợi tóc đan xen nền). Không quét cọ sâu vào lòng chủ thể!"
+      }
+    },
+    {
+      "id": "P02-02-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Bộ Tứ Tham Số Trong Refine Studio",
+      "subtitle": "Border, Smooth, Feather và Ramp",
+      "contentMarkdown": "Hãy làm chủ 4 thanh trượt này để kiểm soát mọi tình huống biên:\n\n- **Border:** Tăng vùng tìm kiếm quanh biên chọn (thường đặt `5 - 15 px` cho tóc).\n- **Smooth:** Làm mượt đường biên, loại bỏ các nốt gồ ghề (đặt `1 - 2 px` cho cơ thể).\n- **Feather:** Làm mờ nhòe nhẹ viền theo phân phối Gaussian (đặt `0.5 - 1.0 px`).\n- **Ramp:** Co hẹp (kéo âm) hoặc nới rộng (kéo dương) ranh giới chọn.",
+      "actionBox": {
+        "label": "Mẹo Khử Viền Sáng",
+        "text": "Nếu sau khi tách nền bạn thấy xuất hiện viền sáng bám quanh tóc, hãy kéo thanh trượt Ramp về mức -10% đến -15%."
+      }
+    },
+    {
+      "id": "P02-02-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Tinh Chỉnh Biên Chân Dung",
+      "subtitle": "Từng bước tách tóc chuyên nghiệp",
+      "contentMarkdown": "1. **Tạo vùng chọn thô:** Dùng Selection Brush (W) chọn phần người mẫu, chừa mép tóc bay ra.\n2. **Bấm nút Refine...:** Trên thanh Context Bar.\n3. **Đổi Preview sang Black & White:** Nhìn rõ các lỗ hổng chưa chọn bên trong.\n4. **Quét cọ Adjustment Brush:** Quét một đường lướt nhẹ qua toàn bộ rìa mái tóc.\n5. **Tinh chỉnh Ramp & Feather:** Kéo Ramp -10% để triệt tiêu halo, Feather 0.5px.\n6. **Chọn Output là Mask:** Nhấn Apply để nhận kết quả phi phá hủy.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Refine... | B/W Preview | Adjustment Brush | Ramp -10% | Output: Mask"
+      }
+    },
+    {
+      "id": "P02-02-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Cạm Bẫy Phổ Biến & Cách Khắc Phục",
+      "subtitle": "Giữ trọn chất lượng và màu sắc chủ thể",
+      "contentMarkdown": "### 1. Quét cọ Matte quá đà\n- **Hậu quả:** Toàn bộ mái tóc bị bạc màu, chuyển sang mờ đục hoặc trong suốt như thủy tinh.\n- **Giải pháp:** Nếu lỡ quét quá đà, chọn cọ **Foreground** quét lại để khẳng định đây là vùng tóc giữ lại 100%.\n\n### 2. Xuất nhầm sang New Layer\n- **Hậu quả:** Mất mặt nạ, sau này muốn chỉnh sửa thêm mép tóc sẽ không thể làm được.\n- **Giải pháp:** Luôn chọn `Mask` hoặc `New Layer with Mask`.",
+      "actionBox": {
+        "label": "Ghi Nhớ Vàng",
+        "text": "Chỉ dùng một nét cọ vừa đủ bao trùm sợi tóc ngoài rìa. Càng ít thao tác cọ thừa, thuật toán tính toán càng chuẩn."
+      }
+    },
+    {
+      "id": "P02-02-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Mức Độ Hiểu Biết",
+      "subtitle": "Xác nhận kỹ năng tinh chỉnh vùng chọn",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P02-02-Q1",
+        "question": "Trong hộp thoại Refine Selection, thanh trượt nào có tác dụng dịch chuyển ranh giới cắt vào trong hoặc ra ngoài để loại bỏ viền sáng (fringe/halo)?",
+        "options": [
+          "Smooth",
+          "Feather",
+          "Ramp",
+          "Border"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ramp đóng vai trò dịch chuyển vị trí ngưỡng biên chọn (Shift Edge). Giá trị âm sẽ co viền vào trong để loại bỏ viền sáng."
+      }
+    },
+    {
+      "id": "P02-02-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành Độc Lập: Bóc Tách Tóc Mai",
+      "subtitle": "Đưa chủ thể sang phông nền tối màu mới",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tệp chân dung và hướng dẫn `P02_selections_masking_guide.md`.\n2. Thực hiện chọn thô và mở hộp thoại Refine Selection.\n3. Quét cọ Matte Brush qua các lọn tóc rối ngoài rìa.\n4. Đặt Output là Mask, sau đó tạo một Pixel Layer màu xám đậm hoặc xanh biển đậm đặt bên dưới để kiểm tra xem có còn sót vệt sáng của nền cũ hay không.\n\n### Tiêu Chí Hoàn Thành:\n- Sợi tóc tự nhiên, không bị vón cục thành mảng.\n- Không xuất hiện viền sáng lem luốc trên nền tối.",
+      "practiceData": {
+        "prompt": "Sử dụng Refine Selection để tách tóc chân dung và đặt lên nền tối màu.",
+        "starterAsset": {
+          "filename": "P02_selections_masking_guide.md",
+          "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "filesize": "4.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn kỹ thuật tinh chỉnh vùng chọn và tách biên trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Dùng Refine Selection tách tóc",
+          "Output ra Mask",
+          "Kiểm tra trên nền màu tương phản mới"
+        ]
+      }
+    }
+  ]
+}

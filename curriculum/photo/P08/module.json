@@ -1,0 +1,22 @@
+{
+  "id": "P08",
+  "trackId": "photo",
+  "order": 8,
+  "moduleNumber": "P08",
+  "title": "Typography, Graphic Integration & Layer Effects",
+  "tagline": "Design commercial layouts, promotional key visuals, and integrated typography in Photo Persona.",
+  "description": "Learn typography and graphic design in Affinity Photo 3.0: Artistic vs Frame Text, Quick FX / Layer Effects (Bevel/Emboss, Shadows, Glows), vector shape integration, and creative commercial layouts such as text behind subject.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 80,
+  "prerequisites": ["P01", "P02", "P03"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P08_typography_graphic_integration_guide.md",
+    "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+    "filesize": "4.4 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+  },
+  "lessonIds": ["P08-01", "P08-02", "P08-03"]
+}

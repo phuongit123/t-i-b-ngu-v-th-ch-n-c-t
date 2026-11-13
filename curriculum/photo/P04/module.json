@@ -1,0 +1,22 @@
+{
+  "id": "P04",
+  "trackId": "photo",
+  "order": 4,
+  "moduleNumber": "P04",
+  "title": "Retouching, Object Removal & Image Restoration",
+  "tagline": "Master professional portrait blemish cleanup, smart inpainting, and frequency separation.",
+  "description": "Learn commercial retouching and photo restoration in Affinity Photo 3.0: Non-destructive object removal with the Inpainting Brush, Clone Stamp and Healing Brush source alignment, Patch tool texture transplantation, and the industry-standard Frequency Separation pipeline splitting texture from color tone.",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 90,
+  "prerequisites": ["P01", "P02", "P03"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P04_retouching_restoration_guide.md",
+    "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+    "filesize": "4.8 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for commercial portrait retouching and frequency separation in Affinity Photo."
+  },
+  "lessonIds": ["P04-01", "P04-02", "P04-03"]
+}

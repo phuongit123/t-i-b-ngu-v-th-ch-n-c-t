@@ -1,0 +1,22 @@
+{
+  "id": "P07",
+  "trackId": "photo",
+  "order": 7,
+  "moduleNumber": "P07",
+  "title": "Compositing, Perspective Matching & Photo Manipulation",
+  "tagline": "Master multi-image blending, perspective alignment, light wrapping, and realism integration.",
+  "description": "Advanced compositing in Affinity Photo 3.0: perspective matching, Live Perspective and Warp Groups, horizon alignment, edge light wrapping, contact shadows, and unified atmospheric color grading.",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 90,
+  "prerequisites": ["P01", "P02", "P03", "P05", "P06"],
+  "primaryPersona": "Photo Persona",
+  "starterAsset": {
+    "filename": "P07_compositing_manipulation_guide.md",
+    "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+    "filesize": "4.5 KB",
+    "filetype": ".md",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+  },
+  "lessonIds": ["P07-01", "P07-02", "P07-03"]
+}

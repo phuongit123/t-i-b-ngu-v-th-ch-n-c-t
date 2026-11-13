@@ -1,0 +1,254 @@
+{
+  "id": "P07-01",
+  "moduleId": "P07",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Visual Planning, Light Direction & Perspective Matching",
+  "subtitle": "Establish realistic compositing fundamentals by aligning light angle, color temperature, and perspective.",
+  "durationMinutes": 25,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Phân tích và xác định hướng nguồn sáng chính (Key Light), góc bóng đổ và nhiệt độ màu của Background plate.",
+      "Đo lường tiêu cự ống kính (Focal Length) và độ nén phối cảnh giữa các ảnh thành phần trong composite.",
+      "Thiết lập đường chân trời (Horizon Line) và các điểm tụ (Vanishing Points) chuẩn xác.",
+      "Chuẩn bị các plate thành phần với cấu trúc thư mục và đặt tên layer chuyên nghiệp."
+    ],
+    "foundationalKnowledge": "Một bức ảnh composite thành công 70% phụ thuộc vào giai đoạn lập kế hoạch ánh sáng và phối cảnh. Khi đường chân trời, góc nguồn sáng và nhiệt độ màu được đồng bộ từ đầu, các bước xử lý viền và bóng đổ sau đó sẽ đạt độ chân thực tự nhiên cao nhất. Ngược lại, nếu góc chụp giữa chủ thể (chụp ngang mắt) và ảnh nền (chụp từ trên cao) xung đột, không kỹ thuật tách ghép hay chỉnh màu nào có thể cứu vãn được ảo giác thị giác của người xem.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Multi-Plate Compositing & Horizon Alignment Architecture",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Move Tool & Guides Studio",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "V (Move Tool) / Ctrl + R (Rulers) / Ctrl + ; (Guides)",
+        "mac": "V (Move Tool) / Cmd + R (Rulers) / Cmd + ; (Guides)"
+      },
+      "description": "Bộ công cụ căn chỉnh vị trí, đường dóng phối cảnh và đo đạc không gian.",
+      "contextBarOptions": [
+        "Transform Panel: Đo đạc tọa độ X, Y, chiều rộng W, chiều cao H và góc quay R",
+        "Rulers: Kéo thước dóng ngang để xác định chính xác đường chân trời",
+        "Info Studio: Đặt điểm lấy mẫu đo RGB và Luminosity của vùng sáng/tối",
+        "Lock Children: Khóa layer con khi di chuyển hoặc co giãn khung chứa"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Phân tích Background Plate",
+        "instruction": "Mở ảnh nền trong Photo Persona. Nhấn Ctrl+R (Cmd+R) để hiện Rulers. Kéo một thước dóng ngang xuống đúng vị trí đường chân trời (Horizon Line) của ảnh nền.",
+        "shortcutTip": { "win": "Ctrl + R", "mac": "Cmd + R" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Xác định góc sáng và bóng đổ",
+        "instruction": "Quan sát bóng của các vật thể cố định trên nền. Xác định góc tới của mặt trời hoặc đèn chính (ví dụ: góc 45 độ từ phía trên bên trái). Ghi chú hướng bóng đổ và độ gắt của viền bóng.",
+        "shortcutTip": { "win": "Quan sát bóng đổ tự nhiên", "mac": "Quan sát bóng đổ tự nhiên" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Đưa đối tượng (Foreground Subject) vào tài liệu",
+        "instruction": "Dùng lệnh File > Place để chèn đối tượng cần ghép dưới dạng Image layer. Tạm thời giảm Opacity xuống 70% để căn chỉnh mắt đối tượng hoặc điểm tiếp đất với đường chân trời tham chiếu.",
+        "shortcutTip": { "win": "File > Place", "mac": "File > Place" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Kiểm tra tiêu cự và tỉ lệ phối cảnh",
+        "instruction": "So sánh kích thước tương đối của đối tượng với các phần tử xung quanh ở cùng độ sâu trường ảnh. Đảm bảo góc nhìn mắt người (Eye Level) trùng khớp giữa hai bức ảnh.",
+        "shortcutTip": { "win": "V (Move Tool)", "mac": "V (Move Tool)" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "4 Trụ cột sống còn trong kỹ thuật Photo Compositing",
+        "description": "Các tiêu chí đánh giá mức độ chân thực của bức ảnh ghép.",
+        "visualType": "table",
+        "visualContent": "| Tiêu chí | Bản chất thị giác | Phương pháp kiểm tra |\n|---|---|---|\n| Perspective | Độ cao đường chân trời & điểm tụ | Kéo Guides dóng cạnh đáy của vật thể |\n| Lighting Angle | Hướng nguồn sáng chính (Key Light) | Đối chiếu hướng bóng đổ giữa chủ thể và nền |\n| Black Levels | Độ sâu màu đen tối đa | Dùng Info Studio đo RGB vùng tối sâu nhất |\n| Optics & Grain | Độ mờ tiêu cự và hạt cảm biến ISO | Soi ở mức zoom 100% để thêm Live Add Noise |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Xác lập trục phối cảnh và cân bằng ánh sáng cho xe hơi thể thao",
+      "taskDescription": "Đưa một chiếc xe thể thao vào bối cảnh đường phố hoàng hôn, thiết lập đường chân trời và đo điểm đen.",
+      "checkpoints": [
+        "Xác định đường chân trời nền qua thước đo Rulers.",
+        "Đặt chiếc xe vào góc nhìn tiếp đất ăn khớp với mặt đường.",
+        "Cân đối Black Point của bánh xe với vùng tối của bóng râm đường phố.",
+        "Tạo Luminosity Check Layer để kiểm tra độ sáng tối đơn sắc."
+      ],
+      "expectedOutcome": "Chiếc xe trông gắn kết vào không gian đường phố, không có cảm giác bị chênh vênh góc nhìn."
+    },
+    "independentChallenge": {
+      "title": "Xây dựng bối cảnh phi hành gia khám phá sa mạc viễn tưởng",
+      "prompt": "Sử dụng tài liệu hướng dẫn P07, ghép một phi hành gia lên bối cảnh sa mạc sao Hỏa, đảm bảo hướng bóng đổ và màu sắc môi trường đồng bộ hoàn hảo.",
+      "starterAsset": {
+        "filename": "P07_compositing_manipulation_guide.md",
+        "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn compositing, phối cảnh và bóng đổ trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Chủ thể được dóng đúng Eye Level với đường chân trời cồn cát.",
+        "Góc chiếu sáng của mặt trời đỏ khớp với vệt sáng trên mũ bảo hiểm.",
+        "Tổ chức cấu trúc layer theo phân cấp 5 tầng chuyên nghiệp."
+      ],
+      "bonusGoal": "Thêm một lớp Black & White tạm thời trên cùng để kiểm chứng sự hài hòa độ sáng tối (Luminance balance)."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Đối tượng ghép vào trông như đang bay trên mặt đất",
+        "cause": "Đường chân trời của đối tượng lệch với đường chân trời của nền, hoặc thiếu bóng tiếp xúc.",
+        "solution": "Căn chỉnh lại chân đối tượng ngang với mặt phẳng phối cảnh nền và vẽ Contact Shadow."
+      },
+      {
+        "pitfall": "Đối tượng rời rạc dù cắt viền rất sạch",
+        "cause": "Nguồn sáng đối tượng ngược hướng hoàn toàn với nguồn sáng của ảnh nền.",
+        "solution": "Lật ngang đối tượng bằng Arrange > Flip Horizontal nếu phù hợp, hoặc chọn plate có cùng hướng sáng."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P07-01-Q1",
+        "question": "Yếu tố phối cảnh quan trọng nhất cần căn chỉnh trùng khớp giữa các ảnh thành phần trong composite là gì?",
+        "options": [
+          "Đường chân trời (Horizon Line / Camera Eye Level)",
+          "Độ phân giải DPI của ảnh",
+          "Kích thước file ảnh tính theo Megabytes",
+          "Không gian màu sRGB hay CMYK"
+        ],
+        "correctIndex": 0,
+        "explanation": "Đường chân trời đại diện cho độ cao và góc đặt máy ảnh (Eye Level). Nếu đường chân trời giữa các plate lệch nhau, phối cảnh sẽ xung đột không gian nghiêm trọng."
+      },
+      {
+        "id": "P07-01-Q2",
+        "question": "Tại sao các chuyên gia compositing thường tạo một layer Black & White tạm thời trên cùng?",
+        "options": [
+          "Để chuẩn bị xuất ảnh in ấn đen trắng",
+          "Để loại bỏ màu sắc và tập trung kiểm tra sự đồng nhất về độ sáng/tối (Luminance và Black Point)",
+          "Để tăng tốc độ render của card đồ họa",
+          "Để khóa các layer bên dưới không bị di chuyển nhầm"
+        ],
+        "correctIndex": 1,
+        "explanation": "Layer đen trắng tạm thời giúp mắt người không bị phân tâm bởi màu sắc, từ đó phát hiện ngay lập tức sự chênh lệch độ sáng, bóng tối và tương phản giữa chủ thể và nền."
+      },
+      {
+        "id": "P07-01-Q3",
+        "question": "Phím tắt chuẩn để bật/tắt thước đo (Rulers) nhằm kéo Guides căn phối cảnh trong Affinity Photo là gì?",
+        "options": [
+          "Ctrl+R (Windows) / Cmd+R (macOS)",
+          "Ctrl+H (Windows) / Cmd+H (macOS)",
+          "Ctrl+T (Windows) / Cmd+T (macOS)",
+          "Ctrl+Alt+1 (Windows) / Cmd+Option+1 (macOS)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ctrl+R (Windows) hoặc Cmd+R (macOS) là phím tắt bật/tắt thanh thước đo Rulers trên mép khung hình."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Lập kế hoạch phối cảnh và phân tích hướng sáng chiếm 70% thành bại của tác phẩm composite.",
+        "Đường chân trời đại diện cho độ cao của mắt người (Eye Level), phải được căn dóng trước tiên.",
+        "Info Studio và lớp kiểm tra đen trắng giúp phát hiện và cân bằng Black Point chính xác.",
+        "Cấu trúc layer theo thứ tự độ sâu giúp kiểm soát tài nguyên dễ dàng."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P07-02 Horizon Alignment, Live Perspective & Warp Groups",
+          "target": "P07-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P07_compositing_manipulation_guide.md",
+          "target": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P07_compositing_manipulation_guide.md",
+    "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
+    "filesize": "4.5 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p07-01-01",
+      "order": 1,
+      "title": "Bản chất của kỹ thuật Photo Compositing",
+      "subtitle": "Hợp nhất nhiều thành phần thị giác thành một bức ảnh thực tế",
+      "type": "concept",
+      "content": "Compositing chuyên nghiệp không đơn thuần là cắt dán pixel, mà là nghệ thuật đồng nhất 4 trụ cột thị giác: Phối cảnh (Perspective), Hướng sáng (Lighting), Cân bằng màu (Color Harmony) và Cấu trúc hạt quang học (Grain & Focus).",
+      "tips": "Nếu 4 trụ cột này đồng bộ, mắt người sẽ tin rằng bức ảnh được chụp từ một lần bấm máy duy nhất.",
+      "codeSnippet": "// 4 Trụ cột Compositing:\n1. Perspective & Horizon Line\n2. Light Angle & Shadow Dynamics\n3. Color Temperature & Black Levels\n4. Camera Optics (DOF & Film Grain)"
+    },
+    {
+      "id": "slide-p07-01-02",
+      "order": 2,
+      "title": "Xác định đường chân trời (Horizon Line)",
+      "subtitle": "Điểm mốc sống còn cho tỷ lệ không gian",
+      "type": "layout",
+      "content": "Đường chân trời chính là độ cao của máy ảnh (Camera Height / Eye Level). Nếu bạn chụp ảnh một người đứng ở góc máy ngang mắt và ghép vào phong cảnh chụp từ trên cao (Bird's Eye View), phối cảnh sẽ xung đột ngay lập tức.",
+      "tips": "Nhấn Ctrl+R (Cmd+R) để bật thước đo và kéo một Guide line cố định vị trí Horizon Line.",
+      "visualDescription": "Sơ đồ hiển thị đường chân trời nằm ngang với 2 điểm tụ ngoài mép khung hình và các tia dóng hội tụ."
+    },
+    {
+      "id": "slide-p07-01-03",
+      "order": 3,
+      "title": "Phân tích Key Light & Fill Light",
+      "subtitle": "Đồng bộ góc chiếu và độ gắt của bóng",
+      "type": "interaction",
+      "content": "Kiểm tra hướng nguồn sáng chính (Key Light) trên nền: Nắng gắt giữa trưa tạo bóng ngắn và viền sắc nét; nắng chiều tạo bóng dài và viền tán xạ mềm. Đối tượng ghép vào bắt buộc phải nhận nguồn sáng tương thích.",
+      "tips": "Nếu nguồn sáng đối tượng bị lệch 180 độ, hãy thử Flip Horizontal nếu cấu trúc cơ thể hoặc chữ viết trên áo không bị sai lệch.",
+      "codeSnippet": "Key Light: Hướng, Độ cao góc tới, Độ cứng viền (Hard vs Soft)\nFill Light: Ánh sáng môi trường phản xạ, tông màu vùng tối (Cool vs Warm)"
+    },
+    {
+      "id": "slide-p07-01-04",
+      "order": 4,
+      "title": "Đo đạc Black Point & White Point",
+      "subtitle": "Đồng nhất dải sắc độ động giữa các plate",
+      "type": "diagram",
+      "content": "Mỗi bức ảnh có một độ sâu màu đen và mức trắng cực đại khác nhau do điều kiện chụp. Đối tượng ghép thường có vùng đen quá đậm hoặc quá sáng so với nền, khiến chúng bị tách biệt rõ rệt.",
+      "tips": "Sử dụng Info Studio để đo RGB vùng đen sâu nhất của nền và dùng Levels / Curves điều chỉnh đối tượng cho trùng khớp.",
+      "visualDescription": "Biểu đồ so sánh Histogram giữa Foreground chưa cân bằng và Foreground đã được match Black Level với Background."
+    },
+    {
+      "id": "slide-p07-01-05",
+      "order": 5,
+      "title": "Cấu trúc thư mục Layer trong Composite",
+      "subtitle": "Tổ chức không gian làm việc chuyên nghiệp",
+      "type": "workflow",
+      "content": "Một file composite lớn có thể chứa hàng chục layer. Hãy nhóm thành các group có thứ tự từ dưới lên: [01_Background], [02_Midground_Elements], [03_Subject], [04_Foreground_Elements], [05_Atmosphere_FX], [06_Master_Grade].",
+      "tips": "Đặt tên rõ ràng và gán màu (Color Tag) cho layer giúp bạn dễ dàng quản lý khi dự án phức tạp.",
+      "codeSnippet": "Layer Stack Hierarchy:\n└── [Group] 06_Master_Color_Grade (LUTs, Grain, Vignette)\n└── [Group] 05_Atmospheric_Effects (Fog, Haze, Dust)\n└── [Group] 04_Foreground_Overlap\n└── [Group] 03_Main_Subject (Shadows, Subject, Light Wrap)\n└── [Group] 02_Midground_Extensions\n└── [Group] 01_Base_Background_Plate"
+    },
+    {
+      "id": "slide-p07-01-06",
+      "order": 6,
+      "title": "Kiểm tra độ sâu trường ảnh (Depth of Field)",
+      "subtitle": "Quy luật tiêu cự và độ mờ quang học",
+      "type": "detail",
+      "content": "Các phần tử ở hậu cảnh xa hoặc cận cảnh trước ống kính thường có độ mờ quang học tự nhiên (Lens Blur). Đưa một đối tượng sắc nét 100% vào hậu cảnh sẽ phá vỡ ảo giác quang học.",
+      "tips": "Sử dụng Live Gaussian Blur hoặc Live Depth of Field Filter để làm mềm đối tượng theo độ sâu tương ứng.",
+      "visualDescription": "Minh họa 3 lớp chiều sâu với tiền cảnh hơi mờ, chủ thể sắc nét, hậu cảnh có độ mờ bokeh mềm."
+    },
+    {
+      "id": "slide-p07-01-07",
+      "order": 7,
+      "title": "Lớp kiểm tra đơn sắc (Luminosity Check Layer)",
+      "subtitle": "Mẹo cao cấp của các nghệ sĩ VFX",
+      "type": "summary",
+      "content": "Đặt một Black & White Adjustment Layer ở trên cùng để loại bỏ hoàn toàn thông tin màu sắc. Lúc này mắt bạn chỉ quan sát độ sáng tối (Luminance). Nếu đối tượng hòa quyện trong ảnh đen trắng, bức ảnh ghép đã đạt chuẩn tương phản.",
+      "tips": "Tắt bật layer B&W này liên tục trong quá trình tinh chỉnh ánh sáng để kiểm soát độ trung thực.",
+      "codeSnippet": "Quick Luminosity Test:\n1. Add Black & White Adjustment Layer at top of stack\n2. Inspect: Does subject pop out like a sticker?\n3. Tweak Levels/Curves on subject until values blend into scene"
+    }
+  ]
+}

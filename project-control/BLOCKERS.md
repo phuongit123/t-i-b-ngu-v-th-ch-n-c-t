@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `BLOCKERS-AFFINITY-001`
-- **Version:** `4.2.1` (Phase 5 Pages Integration & Code-Splitting Certified)
+- **Version:** `4.2.2` (Track 2 Affinity Photo & Photo Layer Simulator Certified)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-11`
 - **Governing Agent:** `Orchestrator`
@@ -13,7 +13,7 @@
 
 | Blocker ID | Description | Severity | Impacted Tasks | Mitigation / Resolution Action | Owner | Status |
 |---|---|---|---|---|---|---|
-| `BLK-006` | **Phase Gate: Awaiting Authorization for Tracks 2–4 & Monaco/Live Playground**<br>With Phase 4 MVP and Phase 5 major pages (`SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`) fully operational and verified, remaining tracks (Track 2 Photo, Track 3 Publisher, Track 4 Scripting) and advanced cloud/IDE modules (Monaco Editor, Live Code Runner, Supabase auth/storage) await explicit Project Owner directive. | **High (Gatekeeper)** | Track 2 (`TASK-011`), Track 3 (`TASK-012`), Track 4 (`TASK-013`), Monaco Playground (`TASK-023`, `TASK-076`), Supabase (`TASK-030` to `033`) | Maintain modular stability; keep bundle lean with lazy-loading; wait for explicit PO directive to start authoring subsequent tracks. | `Orchestrator` | **ACTIVE** |
+| `BLK-007` | **Phase Gate: Awaiting Authorization for Track 3 (Publisher B02–B10), Track 4 (Scripting S02–S10) & Advanced Cloud/IDE Modules**<br>With Track 1 (Designer) and Track 2 (Photo) fully authored, integrated, and verified (60 lessons, 2 simulators, 9/9 E2E tests), remaining tracks (Track 3 Publisher, Track 4 Scripting) and advanced cloud/IDE modules (Monaco Editor, Live Code Runner, Supabase auth/storage) await explicit Project Owner directive. | **High (Gatekeeper)** | Track 3 (`TASK-012`), Track 4 (`TASK-013`), Monaco Playground (`TASK-023`, `TASK-076`), Supabase (`TASK-030` to `033`) | Maintain modular stability; keep bundle lean with chunk partitioning; wait for explicit PO directive to start authoring subsequent tracks. | `Orchestrator` | **ACTIVE** |
 
 ---
 
@@ -21,6 +21,7 @@
 
 | Blocker ID | Description | Resolved Date | Resolution Summary | Resolved By |
 |---|---|---|---|---|
+| `BLK-006` | Phase Gate: Authorization for Phase 5 Track 2 (Affinity Photo P01–P10) & Photo Simulator | 2026-11-11 | User issued Master Execution Prompt for Phase 5 — Track 2. All 10 modules (30 lessons), 9 practice guides, Photo Layer Simulator, and Playwright tests implemented, passing all 5 verification suites (66/66 lessons, 9/9 E2E). | User & `Orchestrator` | **RESOLVED** |
 | `BLK-005` | Phase Gate: Authorization for Phase 5 major pages (Encyclopedia & Resource Library) | 2026-11-11 | User reviewed and approved `V4.2.1_DEV_AUDIT_REPORT.md`. Both `EncyclopediaPage` (401 API topics) and `ResourcesPage` (local bundled asset downloads) patched with zero TS errors, code-split via `React.lazy`, and verified. | User & `Orchestrator` | **RESOLVED** |
 | `BLK-000` | Gap in original requirements representation (missing 40-module structure, slide engine, simulator, encyclopedia, resource pack, 8 major pages, and MCP-first sequence) | 2026-11-09 | Performed comprehensive audit; expanded spec, requirements (49 reqs), tasks (49 original tasks, 50 task rows), and acceptance criteria in baseline v2.0.0. | `Orchestrator` | **RESOLVED** |
 | `BLK-001` | Phase 1 Gateway: Awaiting User Approval to Begin Phase 1 | 2026-11-09 | User explicitly approved Phase 1 execution under 8 strict conditions. All 8 conditions satisfied and QA signed off. | User & `Orchestrator` | **RESOLVED** |

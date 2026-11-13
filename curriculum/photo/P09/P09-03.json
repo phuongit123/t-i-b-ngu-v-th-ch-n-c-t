@@ -1,0 +1,255 @@
+{
+  "id": "P09-03",
+  "moduleId": "P09",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Batch Processing, Macro Recording & Photography Presets",
+  "subtitle": "Automate high-volume darkroom production with recorded macros and parallel batch jobs.",
+  "durationMinutes": 25,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Ghi lại quy trình chỉnh sửa phức tạp thành Macro tự động hóa trong Macro Studio và lưu vào Library Studio.",
+      "Thiết lập các điểm dừng tương tác (Interactive Parameters) trong Macro để người dùng tùy biến giá trị khi chạy.",
+      "Sử dụng hộp thoại New Batch Job (File > New Batch Job) để xử lý đồng loạt hàng trăm file ảnh song song.",
+      "Tự động hóa thay đổi kích thước (Resize), chuyển đổi định dạng hàng loạt sang WebP/JPEG và chèn chữ ký bản quyền."
+    ],
+    "foundationalKnowledge": "Sau một buổi chụp sự kiện hoặc studio, việc lặp đi lặp lại thao tác cân màu, làm nét và đổi cỡ ảnh cho hàng trăm file là sự lãng phí tài nguyên to lớn. Macro Studio trong Affinity Photo ghi lại các thuật toán tham số thành kịch bản có thể chạy lại trong tích tắc. Kết hợp với New Batch Job đa luồng tận dụng toàn bộ nhân CPU của máy tính, bạn có thể xử lý cả ngàn bức ảnh chỉ trong vài phút nghỉ ngơi.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Macro Engine & Multi-threaded Batch Processing",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Macro Studio & Batch Job Manager",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Window > Macro / Window > Library / File > New Batch Job",
+        "mac": "Window > Macro / Window > Library / File > New Batch Job"
+      },
+      "description": "Trung tâm tự động hóa sản xuất và kịch bản hóa quy trình làm việc buồng tối số.",
+      "contextBarOptions": [
+        "Record Button: Nút tròn đỏ bắt đầu ghi lại chuỗi thao tác layer tham số",
+        "Interactive Gear: Biểu tượng bánh răng kích hoạt hộp thoại tương tác khi chạy kịch bản",
+        "Add to Library: Lưu macro vào danh mục phân loại trong Library Studio",
+        "Save into Directory: Chỉ định thư mục lưu trữ độc lập trong hộp thoại Batch Job"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở Macro Studio và bắt đầu ghi",
+        "instruction": "Vào Window > Macro để mở bảng Macro Studio. Mở một bức ảnh mẫu bất kỳ. Nhấp vào nút tròn màu đỏ 'Record' để bắt đầu ghi lại toàn bộ các thao tác bạn thực hiện trên phần mềm.",
+        "shortcutTip": { "win": "Window > Macro", "mac": "Window > Macro" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Thực hiện chuỗi thao tác tự động hóa mẫu",
+        "instruction": "Tạo một layer Curves để tăng nhẹ tương phản, thêm Live High Pass Sharpening với bán kính 1.2px và Blend Mode Soft Light, sau đó thêm một layer chỉnh màu HSL ấm áp. Nhấp vào nút vuông 'Stop' trên Macro Studio để kết thúc ghi.",
+        "shortcutTip": { "win": "Curves + High Pass + HSL", "mac": "Curves + High Pass + HSL" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Lưu Macro vào Library Studio",
+        "instruction": "Mở Window > Library. Trên panel Macro, nhấp vào biểu tượng 'Add to Library'. Đặt tên cho macro mới (ví dụ: 'Signature Cinematic Glow') và phân loại vào nhóm thư mục mong muốn.",
+        "shortcutTip": { "win": "Add to Library", "mac": "Add to Library" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Khởi động New Batch Job xử lý cả thư mục",
+        "instruction": "Vào File > New Batch Job. Nhấp nút 'Add' chọn 50 bức ảnh chụp trong cùng buổi chụp. Tại mục Output Format, chọn định dạng WebP và JPEG chất lượng 85%. Tích chọn macro 'Signature Cinematic Glow' vừa tạo, chọn thư mục đích và nhấn OK. Hệ thống sẽ xử lý song song thần tốc.",
+        "shortcutTip": { "win": "File > New Batch Job", "mac": "File > New Batch Job" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Các bước vận hành của một dây chuyền Batch Processing tự động",
+        "description": "Sơ đồ luồng dữ liệu từ file ảnh nguồn đến thư mục bàn giao.",
+        "visualType": "workflow",
+        "visualContent": "Thư mục Ảnh RAW/TIFF gốc (100 files)\n   └── Nạp vào File > New Batch Job\n        ├── Macro 1: Cân bằng màu & Tăng tương phản Curves\n        ├── Macro 2: Làm nét Live High Pass 1.0px (Soft Light)\n        ├── Tùy chọn Resize: Width = 2048px (Giữ tỷ lệ Proportions)\n        └── Xuất song song đa luồng:\n             ├── /Exports/WebP/ (WebP 85% cho website)\n             └── /Exports/JPEG/ (JPEG 90% cho mạng xã hội)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Ghi Macro làm mịn da và tăng độ sắc nét mắt chân dung",
+      "taskDescription": "Ghi một macro tự động hóa gồm High Pass Sharpening và Color Balance tone ấm, gắn cờ Interactive cho bán kính làm nét.",
+      "checkpoints": [
+        "Ghi thành công chuỗi thao tác Curves và High Pass trong Macro Studio.",
+        "Bật biểu tượng bánh răng Interactive trên bước High Pass.",
+        "Lưu macro vào danh mục 'Portrait Automation' trong Library Studio.",
+        "Chạy thử nghiệm macro trên một bức ảnh chân dung khác."
+      ],
+      "expectedOutcome": "Macro chạy mượt mà, bật popup cho phép tùy chỉnh độ nét mắt cho từng ảnh."
+    },
+    "independentChallenge": {
+      "title": "Xây dựng hệ thống Batch Job bàn giao 200 ảnh sự kiện",
+      "prompt": "Sử dụng tài liệu hướng dẫn P09, cấu hình một tác vụ Batch Job thu nhỏ 200 ảnh sự kiện về chiều rộng 1920px, áp dụng macro cân màu và xuất đồng thời hai định dạng WebP và JPEG.",
+      "starterAsset": {
+        "filename": "P09_raw_develop_workflow_guide.md",
+        "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+        "filesize": "4.9 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn RAW development và xử lý ảnh số trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Kích thước chiều rộng được khóa 1920px, chiều cao để trống tự động.",
+        "Định dạng WebP và JPEG xuất vào thư mục đích riêng biệt.",
+        "Không ghi đè lên các file ảnh gốc.",
+        "Thời gian xử lý đạt chuẩn đa luồng CPU."
+      ],
+      "bonusGoal": "Thêm một macro đóng dấu logo chìm (Watermark) vào góc dưới bên phải bức ảnh."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Thao tác chọn vùng tự do (Lasso) hoặc vẽ cọ không được ghi lại trong Macro",
+        "cause": "Macro Engine chỉ hỗ trợ các lệnh có tính tham số cố định, không ghi tọa độ chuột vẽ tự do.",
+        "solution": "Chỉ sử dụng Macro cho các thao tác tham số hóa như Live Filters, Levels, Curves, Sharpen, và Resize."
+      },
+      {
+        "pitfall": "Ảnh xuất hàng loạt từ Batch Job bị méo mó tỷ lệ khung hình",
+        "cause": "Đặt cả Width và Height cùng lúc mà không khóa tỷ lệ Aspect Ratio.",
+        "solution": "Chỉ điền một kích thước duy nhất (ví dụ: Width = 1920) và để trống trường Height."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P09-03-Q1",
+        "question": "Lệnh menu nào trong Affinity Photo dùng để mở hộp thoại xử lý hình ảnh hàng loạt?",
+        "options": [
+          "File > New Batch Job",
+          "Layer > Rasterize",
+          "Document > Resize Canvas",
+          "Edit > Clear"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lệnh File > New Batch Job mở hộp thoại cho phép chọn nhiều file ảnh, gán kích thước, áp dụng macro và xuất song song ra các định dạng mong muốn."
+      },
+      {
+        "id": "P09-03-Q2",
+        "question": "Tính năng nào của Macro trong Affinity Photo cho phép kịch bản tạm dừng lại ở một bước để người dùng điều chỉnh thanh trượt theo ý muốn trước khi tiếp tục?",
+        "options": [
+          "Interactive Parameters (bật biểu tượng bánh răng bên cạnh bước đó)",
+          "Lock Alpha",
+          "Solo Layer",
+          "Rasterize Step"
+        ],
+        "correctIndex": 0,
+        "explanation": "Khi kích hoạt biểu tượng cài đặt tương tác (Interactive) bên cạnh một bước trong Macro, phần mềm sẽ dừng lại và hiển thị hộp thoại điều khiển để người dùng tinh chỉnh giá trị."
+      },
+      {
+        "id": "P09-03-Q3",
+        "question": "Trong hộp thoại New Batch Job, để đảm bảo ảnh thu nhỏ kích thước không bị méo tỷ lệ giữa chiều ngang và chiều dọc, người dùng nên làm gì?",
+        "options": [
+          "Chỉ nhập một thông số (ví dụ chỉ nhập Width = 1920) và để trống trường Height",
+          "Nhập cả Width và Height cùng một con số giống hệt nhau",
+          "Tăng DPI lên 1000",
+          "Bỏ chọn tất cả các định dạng xuất"
+        ],
+        "correctIndex": 0,
+        "explanation": "Khi chỉ điền một kích thước (Width hoặc Height) và để trống ô còn lại, Affinity Photo sẽ tự động khóa tỷ lệ gốc của ảnh và tính toán kích thước còn lại tương ứng."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Macro Studio ghi lại chuỗi thao tác layer tham số thành kịch bản tự động hóa.",
+        "Interactive Parameters cho phép người dùng tùy biến slider khi kịch bản đang chạy.",
+        "Library Studio lưu trữ và phân loại các macro theo danh mục tái sử dụng.",
+        "New Batch Job xử lý đồng thời hàng trăm ảnh đa luồng trên CPU siêu tốc."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P10-01 Export Persona Slices & Continuous Export",
+          "target": "P10-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P09_raw_develop_workflow_guide.md",
+          "target": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P09_raw_develop_workflow_guide.md",
+    "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p09-03-01",
+      "order": 1,
+      "title": "Tự động hóa sản xuất trong buồng tối số",
+      "subtitle": "Giải phóng sức lao động thủ công lặp lại",
+      "type": "concept",
+      "content": "Sau một buổi chụp sự kiện hoặc thời trang, nhiếp ảnh gia thường đối mặt với 500 - 1000 file ảnh cần áp dụng cùng một tone màu, làm nét và xuất theo 3 kích thước khác nhau. Thay vì làm thủ công từng ảnh, Affinity Photo cung cấp giải pháp Macro & Batch Job chuyên nghiệp.",
+      "tips": "Macro ghi lại toàn bộ chuỗi thuật toán và áp dụng lại với tốc độ chỉ vài mili-giây trên mỗi file ảnh.",
+      "codeSnippet": "Automation Pipeline:\nRecord Macro in Studio\n  └── Save to Category in Library Studio\n       └── Attach to File > New Batch Job\n            └── Process 500 images across multi-core CPU in minutes!"
+    },
+    {
+      "id": "slide-p09-03-02",
+      "order": 2,
+      "title": "Macro Studio: Giao diện ghi kịch bản",
+      "subtitle": "Thu lại các bước thao tác tham số chuẩn",
+      "type": "workflow",
+      "content": "Mở Window > Macro. Nhấp nút tròn đỏ Record. Mọi thao tác như thêm Curves, Levels, Live High Pass, HSL, hay điều chỉnh Opacity đều được dịch thành một dòng lệnh tuần tự trong danh sách.",
+      "tips": "Các thao tác cọ vẽ tự do sẽ không được ghi; Macro chuyên dụng cho các hiệu ứng layer và toán học màu sắc.",
+      "visualDescription": "Mô phỏng bảng Macro Studio hiển thị danh sách các bước đã ghi: 1. Add Curves Adjustment, 2. Add Live High Pass, 3. Set Blend Mode Soft Light."
+    },
+    {
+      "id": "slide-p09-03-03",
+      "order": 3,
+      "title": "Tham số tương tác trong Macro (Interactive Prompts)",
+      "subtitle": "Tùy biến linh hoạt cho từng tình huống",
+      "type": "interaction",
+      "content": "Bên cạnh mỗi bước trong Macro có một biểu tượng con mắt hoặc bánh răng. Nhấp vào biểu tượng này để biến bước đó thành 'Interactive'. Khi kịch bản chạy đến bước đó, một hộp thoại sẽ bật lên để người dùng tinh chỉnh thông số cho phù hợp với từng ảnh cụ thể.",
+      "tips": "Ví dụ: Bước cân bằng sáng để tự động hoàn toàn, nhưng bước làm nét (Sharpen) bật tương tác để chỉnh bán kính theo cỡ ảnh.",
+      "codeSnippet": "Macro Step Configuration:\n[Step 1]: Add HSL Adjustment (Automated - Fixed values)\n[Step 2]: Add High Pass Filter [⚙ Interactive Enabled] -> Pops dialog for custom radius\n[Step 3]: Add Vignette (Automated - Fixed values)"
+    },
+    {
+      "id": "slide-p09-03-04",
+      "order": 4,
+      "title": "Library Studio: Quản lý thư viện Macro",
+      "subtitle": "Tổ chức và chia sẻ quy trình theo thể loại",
+      "type": "layout",
+      "content": "Window > Library là nơi lưu trữ vĩnh viễn các macro. Bạn có thể tạo các danh mục (Categories) như 'Portrait Retouch', 'Landscape Punch', 'Social Media Web Resizers'. Nhấp chuột phải để export file .afmacros chia sẻ cho đồng nghiệp.",
+      "tips": "Library Studio tự động đồng bộ hóa macro trên giao diện phần mềm mọi phiên làm việc.",
+      "visualDescription": "Mô phỏng panel Library với các thư mục danh mục có thể gập mở và các nút bấm macro tiện dụng."
+    },
+    {
+      "id": "slide-p09-03-05",
+      "order": 5,
+      "title": "Hộp thoại New Batch Job: Sức mạnh xử lý song song",
+      "subtitle": "Xử lý hàng loạt file đa luồng siêu tốc",
+      "type": "workflow",
+      "content": "Vào File > New Batch Job. Thêm danh sách ảnh nguồn, chọn thư mục lưu (Save to into directory), thiết lập kích thước chuẩn (ví dụ Max Width: 2048px). Affinity Photo sẽ phân chia các file ảnh vào toàn bộ các nhân vi xử lý của máy tính để render song song.",
+      "tips": "Có thể tích chọn cùng lúc nhiều Macro trong panel bên phải của hộp thoại Batch Job để chạy nối tiếp nhau.",
+      "codeSnippet": "Batch Job Setup Parameters:\nSource: 120 RAW / TIFF files\nDestination: C:\\Project\\Deliverables_Web\\\nDimensions: W: 1920 (H left blank to preserve aspect ratio)\nApplied Macros: [✓] Cinematic Grade  [✓] Web Sharpen\nFormats: JPEG 85% + WebP Lossless"
+    },
+    {
+      "id": "slide-p09-03-06",
+      "order": 6,
+      "title": "Xuất đa định dạng trong cùng một phiên chạy",
+      "subtitle": "Tối ưu hóa thời gian bàn giao dự án",
+      "type": "detail",
+      "content": "Hộp thoại New Batch Job cho phép chọn xuất đồng thời: 1) JPEG chất lượng 90% cho in ấn; 2) WebP nhẹ tối ưu cho web; 3) TIFF 16-bit cho lưu trữ master. Tất cả được tính toán trong một lần đọc file duy nhất mà không tốn công xuất nhiều lần.",
+      "tips": "WebP tiết kiệm từ 30% đến 50% dung lượng so với JPEG ở cùng chất lượng hình ảnh hiển thị.",
+      "visualDescription": "Mô phỏng cột định dạng xuất trong Batch Job với các tab JPEG, PNG, TIFF, OpenEXR, WebP được kích hoạt đồng thời."
+    },
+    {
+      "id": "slide-p09-03-07",
+      "order": 7,
+      "title": "Quy trình tổng thể chụp và xử lý sản lượng lớn",
+      "subtitle": "Bản thiết kế từ thẻ nhớ đến bàn giao khách hàng",
+      "type": "summary",
+      "content": "1) Copy ảnh RAW vào ổ cứng; 2) Mở 1 ảnh đại diện để tạo Develop Preset và ghi Macro tinh chỉnh; 3) Khởi động Batch Job nạp toàn bộ ảnh; 4) Thư giãn trong vài phút để máy hoàn tất hàng trăm tác phẩm đồng bộ chuẩn mực.",
+      "tips": "Luôn kiểm tra ngẫu nhiên 5 file xuất trong thư mục kết quả để đảm bảo không có file nào bị lỗi tỷ lệ.",
+      "codeSnippet": "High-Volume Production Checklist:\n[✓] Golden reference photo tuned and verified\n[✓] Macro tested and saved to Library Studio\n[✓] Output directory isolated from originals\n[✓] Batch Job executed with multi-format export enabled"
+    }
+  ]
+}

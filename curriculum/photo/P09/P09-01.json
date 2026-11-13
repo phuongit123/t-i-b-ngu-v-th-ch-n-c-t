@@ -1,0 +1,260 @@
+{
+  "id": "P09-01",
+  "moduleId": "P09",
+  "trackId": "photo",
+  "order": 1,
+  "title": "RAW Sensor Decoding, 32-bit Float Pipeline & Basic Panel Tone Mapping",
+  "subtitle": "Unleash maximum dynamic range with 32-bit linear RAW demosaicing and non-destructive RAW layers.",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu rõ bản chất dữ liệu cảm biến RAW (Bayer CFA) và kiến trúc xử lý 32-bit Floating Point trong Serif Labs RAW Engine.",
+      "Lựa chọn chính xác chế độ xuất file RAW trong Develop Persona: Pixel Layer, RAW Layer (Embedded) và RAW Layer (Linked).",
+      "Làm chủ bảng Basic: Cân bằng trắng nhiệt độ màu/sắc thái (Temp/Tint), cứu chi tiết vùng cháy sáng (Highlights) và vùng tối (Shadows).",
+      "Hiệu chỉnh đường cong tông màu (Tone Curve) và kiểm tra cảnh báo Clipping quá sáng/quá tối trước khi chuyển sang Photo Persona."
+    ],
+    "foundationalKnowledge": "Một file RAW không phải là ảnh xem được ngay, mà là ma trận điện tích thô 12-bit hoặc 14-bit (Bayer Pattern) thu thập từ hàng triệu photodiodes của cảm biến máy ảnh. Develop Persona trong Affinity Photo xử lý dữ liệu thô này ở không gian 32-bit tuyến tính (Linear Floating Point), mang lại dải tương phản động (Dynamic Range) rộng hơn gấp 64 lần so với ảnh JPEG 8-bit thông thường. Đặc biệt, kiến trúc RAW Layer cho phép nhúng file RAW gốc để mở lại tinh chỉnh phơi sáng bất cứ lúc nào.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Serif Labs RAW Engine & 32-bit Pipeline Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Develop Persona & Basic Panel",
+      "persona": "Develop Persona",
+      "shortcut": {
+        "win": "W (White Balance Tool) / Develop Button trên Context Toolbar",
+        "mac": "W (White Balance Tool) / Develop Button trên Context Toolbar"
+      },
+      "description": "Không gian phát triển file RAW chuyên dụng với khả năng cứu sáng và phục hồi dải màu thô.",
+      "contextBarOptions": [
+        "Output Selector: Chọn giữa Pixel Layer, RAW Layer (Embedded), và RAW Layer (Linked)",
+        "Show Highlight Clipping: Cảnh báo phủ màu đỏ trên các pixel bị cháy sáng cực đại",
+        "Show Shadow Clipping: Cảnh báo phủ màu xanh lam trên các pixel bị bết đen mất chi tiết",
+        "Tone Curve Panel: Đường cong sắc độ tác động trực tiếp lên dữ liệu 32-bit trước khi vào Photo"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở file RAW và chọn chế độ Output",
+        "instruction": "Kéo thả file RAW (.CR3, .NEF, .ARW, .DNG) vào Affinity Photo. Ứng dụng sẽ tự động kích hoạt Develop Persona. Trên Context Toolbar, tại mục 'Output', chọn 'RAW Layer (Embedded)' để cho phép quay lại chỉnh sửa RAW bất cứ lúc nào.",
+        "shortcutTip": { "win": "Output: RAW Layer (Embedded)", "mac": "Output: RAW Layer (Embedded)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bật các cảnh báo sắc độ Clipping Warnings",
+        "instruction": "Nhấp vào hai biểu tượng tam giác cảnh báo trên thanh công cụ: Show Highlight Clipping (hiện màu đỏ ở vùng cháy sáng) và Show Shadow Clipping (hiện màu xanh lam ở vùng đen bết).",
+        "shortcutTip": { "win": "Bật cảnh báo Clipping", "mac": "Bật cảnh báo Clipping" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cân bằng trắng chuẩn xác (White Balance)",
+        "instruction": "Chọn White Balance Tool (W), nhấp vào một điểm áo trắng hoặc bức tường xám trung tính trong ảnh. Tinh chỉnh nhẹ thanh Temperature (Kelvin) để tạo cảm giác ấm áp hoặc trong trẻo, và Tint để khử ám xanh lá/hồng tím.",
+        "shortcutTip": { "win": "W (White Balance)", "mac": "W (White Balance)" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Thu hồi dải sắc độ động trong Basic Panel",
+        "instruction": "Kéo thanh trượt Highlights sang trái (khoảng -30% đến -50%) để lấy lại chi tiết mây trên bầu trời cho đến khi cảnh báo đỏ biến mất. Kéo Shadows sang phải (+20% đến +35%) để chiếu sáng chi tiết trong bóng râm.",
+        "shortcutTip": { "win": "Highlights -40% / Shadows +25%", "mac": "Highlights -40% / Shadows +25%" }
+      },
+      {
+        "stepNumber": 5,
+        "title": "Bấm nút Develop chuyển sang Photo Persona",
+        "instruction": "Nhấp nút 'Develop' màu xanh ở góc trên bên trái. Tệp ảnh sẽ chuyển sang Photo Persona dưới dạng một RAW Layer có thể nhấp đúp để tái mở lại Develop Persona mọi lúc.",
+        "shortcutTip": { "win": "Nhấp nút 'Develop'", "mac": "Nhấp nút 'Develop'" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh 3 chế độ Output trong Develop Persona",
+        "description": "Lựa chọn cấu trúc lưu trữ phù hợp cho dự án.",
+        "visualType": "table",
+        "visualContent": "| Chế độ Output | Khả năng mở lại chỉnh sửa | Dung lượng file .afphoto | Trường hợp sử dụng |\n|---|---|---|---|\n| Pixel Layer | Không (Rasterize 1 chiều) | Rất nhẹ | Ảnh dùng một lần, ghép nhanh |\n| RAW Layer (Embedded) | Có (Mở lại Develop Persona 100%) | Tăng bằng kích cỡ file RAW | Ảnh master, chân dung quan trọng |\n| RAW Layer (Linked) | Có (Liên kết file ngoài ổ cứng) | Nhẹ, không nhúng RAW | Chụp studio hàng loạt hàng trăm file |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Cứu sáng bầu trời hoàng hôn ngược sáng từ file RAW",
+      "taskDescription": "Phát triển một bức ảnh chụp ngược sáng hoàng hôn với bầu trời cháy trắng và tiền cảnh tối đen.",
+      "checkpoints": [
+        "Kích hoạt cảnh báo Highlight Clipping màu đỏ.",
+        "Kéo Highlights về -60% để khôi phục vệt nắng vàng và mây ngũ sắc.",
+        "Kéo Shadows lên +40% để làm rõ chi tiết khuôn mặt người mẫu.",
+        "Thiết lập Output là RAW Layer (Embedded) và bấm Develop."
+      ],
+      "expectedOutcome": "Bức ảnh lấy lại toàn vẹn chi tiết bầu trời lẫn tiền cảnh mà không hề bị nhiễu hạt vỡ màu."
+    },
+    "independentChallenge": {
+      "title": "Hiệu chỉnh sắc độ 32-bit cho ảnh phong cảnh núi tuyết",
+      "prompt": "Sử dụng tài liệu hướng dẫn P09, cân bằng trắng chính xác trên nền tuyết trắng, tinh chỉnh Tone Curve tạo độ tương phản trong trẻo cho rặng núi.",
+      "starterAsset": {
+        "filename": "P09_raw_develop_workflow_guide.md",
+        "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+        "filesize": "4.9 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn RAW development và xử lý ảnh số trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Nền tuyết không bị ám xanh lam hay ám vàng.",
+        "Không còn vùng cảnh báo cháy sáng đỏ trên đỉnh núi tuyết.",
+        "Tone Curve dạng chữ S thanh mảnh tạo độ sâu hút hồn."
+      ],
+      "bonusGoal": "Nhấp đúp vào RAW Layer trong Photo Persona sau khi Develop để kiểm tra tính năng mở lại."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Sau khi bấm Develop, không thể quay lại chỉnh sửa thông số RAW",
+        "cause": "Tùy chọn Output trước khi Develop được để mặc định là 'Pixel Layer'.",
+        "solution": "Trước khi bấm Develop, luôn chọn Output là 'RAW Layer (Embedded)' hoặc 'RAW Layer (Linked)'."
+      },
+      {
+        "pitfall": "Kéo Highlights về -100% nhưng vùng trời chỉ biến thành màu xám đục",
+        "cause": "Cảm biến bị phơi sáng quá mức nghiêm trọng (Overexposed) vượt ngưỡng vật lý.",
+        "solution": "Kết hợp giảm Exposure tổng thể khoảng -0.5 EV trước khi kéo Highlights để tái tạo kênh màu."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P09-01-Q1",
+        "question": "Trong Develop Persona của Affinity Photo, tùy chọn Output nào cho phép nhấp đúp vào layer sau này để mở lại thông số điều chỉnh RAW ban đầu?",
+        "options": [
+          "RAW Layer (Embedded) hoặc RAW Layer (Linked)",
+          "Pixel Layer",
+          "Raster Layer",
+          "Vector Curves"
+        ],
+        "correctIndex": 0,
+        "explanation": "Chế độ RAW Layer (Embedded hoặc Linked) lưu giữ toàn bộ dữ liệu RAW gốc và các thông số phát triển, cho phép mở lại Develop Persona bất kỳ lúc nào mà không phá hủy ảnh."
+      },
+      {
+        "id": "P09-01-Q2",
+        "question": "Tính năng Highlight Clipping Warning hiển thị màu gì trên canvas để cảnh báo vùng pixel bị cháy sáng hoàn toàn?",
+        "options": [
+          "Màu đỏ",
+          "Màu xanh lá cây",
+          "Màu tím neon",
+          "Màu vàng chanh"
+        ],
+        "correctIndex": 0,
+        "explanation": "Highlight Clipping Warning phủ màu đỏ trên các pixel đạt mức sáng cực đại (255,255,255) bị mất hoàn toàn thông tin chi tiết."
+      },
+      {
+        "id": "P09-01-Q3",
+        "question": "Lợi thế vượt trội lớn nhất của việc chụp và chỉnh sửa file ảnh RAW so với ảnh JPEG 8-bit thông thường là gì?",
+        "options": [
+          "Dải tương phản động (Dynamic Range) rộng hơn nhiều và khả năng thay đổi Cân bằng trắng sau khi chụp mà không suy giảm chất lượng",
+          "Dung lượng file nhỏ gọn hơn gấp 10 lần",
+          "Không cần sử dụng thẻ nhớ máy ảnh",
+          "Tự động xóa sạch mọi vật thể thừa trong khung hình"
+        ],
+        "correctIndex": 0,
+        "explanation": "File RAW lưu trữ dữ liệu cảm biến tuyến tính 12-14 bit, cho phép khôi phục chi tiết vùng cháy sáng/vùng tối và đổi White Balance hoàn toàn không tổn hại chất lượng."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "File RAW chứa dữ liệu cảm biến 12-14 bit chưa nén, xử lý ở không gian 32-bit tuyến tính.",
+        "Kiến trúc RAW Layer Embedded biến Affinity Photo thành buồng tối số phi hủy diệt 100%.",
+        "Highlight & Shadow Clipping Warnings giúp kiểm soát độ phơi sáng chuẩn xác từng pixel.",
+        "Thuật toán cứu sáng Highlights của Serif Labs phục hồi ngoạn mục các vùng trời ngược sáng."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P09-02 Optical Lens Corrections, Chromatic Aberration & Defringing",
+          "target": "P09-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P09_raw_develop_workflow_guide.md",
+          "target": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P09_raw_develop_workflow_guide.md",
+    "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p09-01-01",
+      "order": 1,
+      "title": "Bản chất file ảnh RAW trong nhiếp ảnh số",
+      "subtitle": "Dữ liệu điện áp thô chưa nướng từ cảm biến",
+      "type": "concept",
+      "content": "Một file RAW không phải là ảnh xem được ngay, mà là ma trận điện tích thô 12-bit hoặc 14-bit (Bayer Pattern) thu thập từ hàng triệu photodiodes. Nó chứa dải tương phản động (Dynamic Range) rộng hơn gấp 64 lần so với ảnh JPEG 8-bit đã bị nén cố định.",
+      "tips": "Chụp ảnh RAW cho phép bạn thay đổi Cân bằng trắng (White Balance) sau khi chụp hoàn toàn không làm suy giảm chất lượng điểm ảnh.",
+      "codeSnippet": "RAW vs JPEG Architecture:\n- JPEG: 8-bit per channel (256 levels), Baked WB, Lossy compression, Narrow DR\n- RAW: 14-bit linear data (16,384 levels), Non-destructive WB, 32-bit float internal pipe"
+    },
+    {
+      "id": "slide-p09-01-02",
+      "order": 2,
+      "title": "Kiến trúc RAW Layer phi hủy diệt trong v3",
+      "subtitle": "Tùy chọn Output: Pixel vs Embedded vs Linked",
+      "type": "workflow",
+      "content": "Trên thanh Context Toolbar của Develop Persona, mục Output cung cấp 3 lựa chọn cốt lõi: 1) Pixel Layer (nướng raster thông thường); 2) RAW Layer (Embedded - nhúng file RAW vào trong .afphoto); 3) RAW Layer (Linked - liên kết tới file RAW ngoài ổ đĩa).",
+      "tips": "Chọn RAW Layer cho phép bạn nhấp đúp vào thumbnail layer bất kỳ lúc nào để mở lại Develop Persona và chỉnh lại thông số.",
+      "visualDescription": "Sơ đồ hiển thị luồng làm việc của RAW Layer Embedded: Nhấp đúp mở lại Develop Persona mà không mất các layer chỉnh sửa bên trên."
+    },
+    {
+      "id": "slide-p09-01-03",
+      "order": 3,
+      "title": "Hệ thống cảnh báo Clipping Sắc độ",
+      "subtitle": "Kiểm soát vùng cháy sáng và vùng đen bết",
+      "type": "interaction",
+      "content": "Nhấp hai biểu tượng tam giác trên toolbar: Show Highlight Clipping (vùng cháy sáng mất hoàn toàn chi tiết mây trời sẽ phủ màu đỏ); Show Shadow Clipping (vùng đen tuyệt đối mất chi tiết khối sẽ phủ màu xanh lam).",
+      "tips": "Mục tiêu khi căn chỉnh RAW là triệt tiêu các mảng cảnh báo đỏ trên các vùng quan trọng như da mặt hay mây trời.",
+      "codeSnippet": "Clipping Indicators:\n[▲ Red Overlay]: Highlights blown out (RGB = 255,255,255) -> Drag Highlights slider LEFT\n[▲ Blue Overlay]: Shadows crushed to pure black (RGB = 0,0,0) -> Drag Shadows slider RIGHT"
+    },
+    {
+      "id": "slide-p09-01-04",
+      "order": 4,
+      "title": "Hiệu chỉnh Cân bằng trắng & Nhiệt độ màu",
+      "subtitle": "Khôi phục màu sắc trung thực dưới mọi nguồn sáng",
+      "type": "detail",
+      "content": "Thanh Temperature điều chỉnh theo thang độ Kelvin (từ 2000K ánh nến vàng ấm đến 10000K bầu trời xanh lạnh). Thanh Tint tinh chỉnh cân bằng sắc xanh lá (Green) và hồng tím (Magenta). Dùng White Balance Tool (W) chấm vào mẫu xám để cân bằng tức thì.",
+      "tips": "Nếu chụp ảnh có dùng thẻ xám 18% ColorChecker, một cú nhấp chuột bằng phím W sẽ mang lại màu sắc chuẩn xác 100%.",
+      "visualDescription": "Mô phỏng bảng Cân bằng trắng với hai thanh trượt Temperature và Tint cùng trỏ chuột công cụ hình ống hút màu."
+    },
+    {
+      "id": "slide-p09-01-05",
+      "order": 5,
+      "title": "Phục hồi Dynamic Range: Highlights & Shadows",
+      "subtitle": "Cứu sáng bầu trời và thắp sáng góc tối",
+      "type": "layout",
+      "content": "Thuật toán phục hồi của Serif Labs trong Affinity Photo hoạt động ở không gian 32-bit tuyến tính (Linear float). Khi kéo giảm Highlights, phần mềm tái tạo thông tin chi tiết bằng cách đối chiếu gradient giữa các kênh màu chưa bị bão hòa.",
+      "tips": "Tránh kéo Shadows lên quá +60% trên các ảnh chụp ISO cao để tránh kéo theo hiện tượng nhiễu hạt cảm biến.",
+      "codeSnippet": "Basic Panel Balancing Formula:\nExposure: Adjust overall scene luminance (-0.3 to +0.3 EV)\nHighlights: -30% to -60% (recovers sky & cloud texture)\nShadows: +15% to +35% (opens dark foliage & hair)\nBlackpoint: Adjust right until shadows feel rich and grounded"
+    },
+    {
+      "id": "slide-p09-01-06",
+      "order": 6,
+      "title": "Đường cong Tone Curve trong Develop",
+      "subtitle": "Định hình độ tương phản cơ sở trước khi vào Photo",
+      "type": "diagram",
+      "content": "Tab Tone Curve cho phép bạn bẻ cong phân bố sắc độ. Tạo một đường cong chữ S nhẹ nhàng (nhấp điểm neo ở vùng 75% nâng nhẹ lên, nhấp điểm neo ở vùng 25% hạ nhẹ xuống) để bức ảnh có chiều sâu và độ trong trẻo ngay từ đầu.",
+      "tips": "Đường cong Tone Curve trong Develop Persona tác động trực tiếp lên dữ liệu 32-bit trước khi chuyển đổi không gian màu.",
+      "visualDescription": "Biểu đồ đường cong Tone Curve với dạng chữ S thanh mảnh trên nền Histogram sắc độ."
+    },
+    {
+      "id": "slide-p09-01-07",
+      "order": 7,
+      "title": "Chuyển giao chuyên nghiệp vào Photo Persona",
+      "subtitle": "Sẵn sàng cho các công đoạn chỉnh sửa chuyên sâu",
+      "type": "summary",
+      "content": "Sau khi đã tối ưu hóa Cân bằng trắng và phân bổ dải tương phản, nhấp nút 'Develop'. Nếu bạn đã chọn RAW Layer (Embedded), tài liệu sẵn sàng cho các bước Retouching, Masking, và Compositing với độ tin cậy tuyệt đối.",
+      "tips": "Giữ file .afphoto chứa RAW Layer để lưu trữ vĩnh viễn cấu hình phát triển gốc của bức ảnh.",
+      "codeSnippet": "Develop Hand-off Checklist:\n[✓] Output set to 'RAW Layer (Embedded)'\n[✓] Highlights & Shadow clipping inspected\n[✓] White balance neutral on gray reference\n[✓] Click 'Develop' -> Seamless transition to Photo Persona"
+    }
+  ]
+}

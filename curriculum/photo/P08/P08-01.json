@@ -1,0 +1,254 @@
+{
+  "id": "P08-01",
+  "moduleId": "P08",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Text Layers, Artistic vs Frame Text & Character/Paragraph Typography",
+  "subtitle": "Master professional typographic control, OpenType features, and text styling in Photo Persona.",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Phân biệt và lựa chọn chính xác giữa Artistic Text Tool và Frame Text Tool cho tiêu đề và đoạn văn.",
+      "Kiểm soát các thông số vi mô của Typography: Kerning, Tracking, Leading, Baseline Shift trong Character Studio.",
+      "Khai thác các tính năng cao cấp OpenType: Ligatures, Stylistic Alternates, Tabular Figures.",
+      "Chuyển đổi Text sang đường cong Vector (Convert to Curves) khi cần tinh chỉnh hình học chữ cái."
+    ],
+    "foundationalKnowledge": "Affinity Photo sở hữu engine Typography chuyên nghiệp tương đương với các phần mềm dàn trang vector. Phân biệt rành mạch giữa Artistic Text (dành cho tiêu đề đơn lẻ, co kéo kích thước trực quan theo thị giác) và Frame Text (dành cho khối văn bản tự động nhảy dòng theo khung) giúp bạn xây dựng các bố cục chữ thương mại hoàn hảo mà không bị biến dạng tỷ lệ font chữ gốc.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Typographic Engine & OpenType Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Artistic & Frame Text Tools",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "T (Text Tool) / Ctrl + B (Bold) / Ctrl + Enter (Convert to Curves)",
+        "mac": "T (Text Tool) / Cmd + B (Bold) / Cmd + Return (Convert to Curves)"
+      },
+      "description": "Bộ công cụ soạn thảo, định dạng chữ và điều khiển vi mô con chữ.",
+      "contextBarOptions": [
+        "Font Family & Weight: Lựa chọn kiểu chữ và độ dày nét chữ",
+        "Font Size: Cỡ chữ tính theo đơn vị points hoặc pixels",
+        "Tracking: Khoảng cách đồng đều giữa các ký tự trong dòng",
+        "OpenType Menu: Bật tắt Standard Ligatures và Stylistic Sets"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Tạo tiêu đề ấn tượng với Artistic Text Tool",
+        "instruction": "Nhấp và giữ chuột vào biểu tượng chữ A trên thanh công cụ, chọn Artistic Text Tool (T). Nhấp và kéo chuột trên canvas để xác định cỡ chữ ban đầu, sau đó gõ tiêu đề (ví dụ: 'SUMMER VIBES').",
+        "shortcutTip": { "win": "T (Artistic Text Tool)", "mac": "T (Artistic Text Tool)" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tinh chỉnh khoảng cách chữ trong Character Studio",
+        "instruction": "Mở panel Character (Window > Text > Character). Bôi đen chữ cái, điều chỉnh Tracking lên +50% để tạo cảm giác thoáng đãng, hoặc đặt con trỏ giữa hai chữ cái đặc biệt và chỉnh Kerning thủ công.",
+        "shortcutTip": { "win": "Window > Text > Character", "mac": "Window > Text > Character" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Tạo khối nội dung mô tả với Frame Text Tool",
+        "instruction": "Chuyển sang Frame Text Tool (T). Kéo một khung chữ nhật trên canvas. Dán nội dung đoạn văn vào. Mở Paragraph Studio để căn lề trái (Left Align), điều chỉnh Leading đạt 130-140% cỡ chữ để tối ưu độ dễ đọc.",
+        "shortcutTip": { "win": "T (Frame Text Tool)", "mac": "T (Frame Text Tool)" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Kích hoạt các ký tự OpenType mở rộng",
+        "instruction": "Trong Character Studio, nhấp vào mục Typography để mở bảng OpenType. Kích hoạt Standard Ligatures để nối các cặp chữ 'fi', 'fl', hoặc bật Stylistic Alternates để sử dụng các nét chữ uốn lượn nghệ thuật.",
+        "shortcutTip": { "win": "Typography Dialog", "mac": "Typography Dialog" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh Artistic Text Tool và Frame Text Tool",
+        "description": "Bản chất khác biệt và kịch bản ứng dụng.",
+        "visualType": "table",
+        "visualContent": "| Đặc tính | Artistic Text Tool | Frame Text Tool |\n|---|---|---|\n| Thao tác tạo | Nhấp kéo để chọn cỡ chữ trực tiếp | Kéo khung viền chữ nhật bao bọc |\n| Hành vi khi co giãn | Phóng to/thu nhỏ cỡ chữ theo tỷ lệ | Đổi kích thước khung chứa, chữ tự dồn dòng |\n| Ứng dụng lý tưởng | Headline, Logo, Slogan, Tagline | Body copy, Đoạn văn bản, Danh sách mô tả |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Thiết kế poster typography phong cách editorial",
+      "taskDescription": "Soạn thảo một tiêu đề thời trang lớn bằng Artistic Text với tracking rộng và một đoạn văn mô tả 3 dòng bằng Frame Text.",
+      "checkpoints": [
+        "Tiêu đề chính dùng Artistic Text, in hoa toàn bộ, Tracking +40%.",
+        "Khung mô tả dùng Frame Text căn lề trái với khoảng cách dòng Leading 1.4x.",
+        "Kích hoạt Standard Ligatures trong bảng OpenType.",
+        "Dóng hàng hai khối chữ thẳng hàng lề trái với Guides."
+      ],
+      "expectedOutcome": "Bố cục chữ sang trọng, cân đối, thể hiện phân cấp thị giác rõ ràng."
+    },
+    "independentChallenge": {
+      "title": "Tùy biến chữ cái nghệ thuật cho tiêu đề phim điện ảnh",
+      "prompt": "Sử dụng tài liệu hướng dẫn P08, soạn thảo tiêu đề phim, Convert to Curves và dùng Node Tool kéo dài đuôi chữ cái R và K lồng qua nhau.",
+      "starterAsset": {
+        "filename": "P08_typography_graphic_integration_guide.md",
+        "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+        "filesize": "4.4 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Typography và đồ họa trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Tiêu đề chuyển đổi thành Vector Curves thành công.",
+        "Các đường nối chữ uốn lượn mượt mà không bị gãy góc.",
+        "Bảo tồn tỉ lệ hình học cân xứng của các ký tự còn lại."
+      ],
+      "bonusGoal": "Áp dụng Layer FX Outer Shadow 30% để tạo độ tách lớp nhẹ trên nền ảnh poster."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Kéo khung Frame Text làm chữ bên trong bị méo mó",
+        "cause": "Người dùng kéo chốt outer scale dot ở góc dưới bên ngoài thay vì chốt cạnh viền xanh của khung.",
+        "solution": "Kéo các chốt hình vuông viền xanh trên cạnh khung để chỉnh kích cỡ khung chứa an toàn."
+      },
+      {
+        "pitfall": "Khung văn bản xuất hiện biểu tượng con mắt gạch chéo đỏ",
+        "cause": "Khung văn bản bị tràn chữ (Overflow Text) do kích thước khung nhỏ hơn khối lượng chữ.",
+        "solution": "Kéo rộng khung văn bản hoặc giảm cỡ chữ/khoảng cách dòng trong Paragraph Studio."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P08-01-Q1",
+        "question": "Công cụ nào trong Affinity Photo nên được chọn khi cần thiết kế tiêu đề lớn (Headline) với khả năng co kéo kích thước trực quan?",
+        "options": [
+          "Artistic Text Tool",
+          "Frame Text Tool",
+          "Pen Tool",
+          "Pencil Tool"
+        ],
+        "correctIndex": 0,
+        "explanation": "Artistic Text Tool được thiết kế tối ưu cho tiêu đề đơn dòng, cho phép bạn nhấp rê chuột để thay đổi cỡ chữ tức thì theo bố cục thị giác."
+      },
+      {
+        "id": "P08-01-Q2",
+        "question": "Thuật ngữ 'Tracking' trong thiết kế chữ đề cập đến thông số nào?",
+        "options": [
+          "Khoảng cách đồng đều giữa tất cả các ký tự trong một khối văn bản hoặc dòng chữ",
+          "Khoảng cách giữa hai dòng văn bản theo chiều dọc",
+          "Độ cao của các chữ cái in hoa",
+          "Độ dày của nét gạch chân"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tracking (Letter Spacing) là khoảng cách đều giữa các ký tự trong một đoạn text. Tăng tracking thường tạo cảm giác thoáng đãng và sang trọng cho tiêu đề in hoa."
+      },
+      {
+        "id": "P08-01-Q3",
+        "question": "Phím tắt để chuyển đổi một layer Text thành các đường vector độc lập (Convert to Curves) là gì?",
+        "options": [
+          "Ctrl + Enter (Windows) / Cmd + Return (macOS)",
+          "Ctrl + T (Windows) / Cmd + T (macOS)",
+          "Ctrl + Shift + C (Windows) / Cmd + Shift + C (macOS)",
+          "Alt + Enter (Windows) / Option + Return (macOS)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lệnh Convert to Curves có phím tắt chuẩn là Ctrl+Enter trên Windows hoặc Cmd+Return trên macOS, biến đổi văn bản thành các node vector có thể chỉnh sửa tự do."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Artistic Text phục vụ tiêu đề tự do; Frame Text phục vụ văn bản khối tự động nhảy dòng.",
+        "Tracking nới rộng khoảng cách chữ cái đem lại vẻ cao cấp cho tiêu đề in hoa.",
+        "OpenType Features cung cấp ký tự nối chữ (Ligatures) và biến thể nghệ thuật.",
+        "Convert to Curves cho phép chỉnh sửa hình học vector chữ khi cần thiết kế logo."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P08-02 Vector Shape Integration & Quick FX Layer Effects",
+          "target": "P08-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P08_typography_graphic_integration_guide.md",
+          "target": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P08_typography_graphic_integration_guide.md",
+    "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",
+    "filesize": "4.4 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p08-01-01",
+      "order": 1,
+      "title": "Hai công cụ Text cốt lõi trong Affinity Photo",
+      "subtitle": "Artistic Text Tool vs Frame Text Tool",
+      "type": "concept",
+      "content": "Affinity Photo cung cấp hai công cụ chữ chuyên biệt: 1) Artistic Text Tool dành cho tiêu đề, kéo dãn tự do kích thước theo thị giác; 2) Frame Text Tool dành cho nội dung văn bản khối, tự động bọc dòng theo ranh giới khung chữ nhật.",
+      "tips": "Nhấn phím T liên tục hoặc nhấp giữ chuột vào icon chữ T trên thanh công cụ để chuyển đổi giữa hai chế độ.",
+      "codeSnippet": "Text Tool Selection Rule:\n- Single Words / Big Headlines / Display Typography -> Artistic Text Tool\n- Paragraphs / Body Copy / Captions / Multi-line Lists -> Frame Text Tool"
+    },
+    {
+      "id": "slide-p08-01-02",
+      "order": 2,
+      "title": "Nắm vững Tracking, Kerning và Leading",
+      "subtitle": "Bộ ba thông số điều hòa nhịp điệu chữ",
+      "type": "layout",
+      "content": "Tracking điều chỉnh khoảng cách đồng đều giữa tất cả các ký tự trong dòng. Kerning chỉnh khoảng cách giữa một cặp hai chữ cái cụ thể (như AV, To, WA). Leading là khoảng cách giữa các dòng văn bản theo chiều dọc.",
+      "tips": "Tiêu đề in hoa (ALL CAPS) trông sẽ sang trọng và cao cấp hơn rất nhiều khi bạn tăng Tracking lên từ +30% đến +80%.",
+      "visualDescription": "Sơ đồ hiển thị 3 thông số với các mũi tên minh họa khoảng cách ký tự (Tracking), khe hở cặp chữ (Kerning) và khoảng cách dòng (Leading)."
+    },
+    {
+      "id": "slide-p08-01-03",
+      "order": 3,
+      "title": "Character Studio: Kiểm soát cấp độ ký tự",
+      "subtitle": "Căn chỉnh trục dọc và tỷ lệ hình học chữ",
+      "type": "interaction",
+      "content": "Trong panel Character, bạn có thể thiết lập Baseline Shift (dịch chuyển trục chân chữ lên/xuống), Horizontal/Vertical Scale (kéo dãn tỉ lệ chữ cái), All Caps, Small Caps, Superscript (chỉ số trên), và Subscript (chỉ số dưới).",
+      "tips": "Tránh dùng Horizontal Scale để bóp méo font chữ thiết kế chuẩn; hãy tìm các biến thể Condensed hoặc Extended nguyên bản của họ font.",
+      "codeSnippet": "Character Studio Metrics:\n- Font Family & Weight (Regular, Medium, Bold, Black)\n- Font Size (pt / px)\n- Tracking (‰)\n- Baseline Shift (pt)\n- Text Decoration (Underline, Strikethrough)"
+    },
+    {
+      "id": "slide-p08-01-04",
+      "order": 4,
+      "title": "Paragraph Studio: Bố cục văn bản khối",
+      "subtitle": "Canh lề, thụt đầu dòng và ngắt câu",
+      "type": "workflow",
+      "content": "Paragraph Studio kiểm soát cách khối văn bản hiển thị: Căn trái, Căn giữa, Căn phải, Căn đều hai bên (Justify). Thiết lập khoảng cách trước và sau đoạn (Space Before/After) thay vì nhấn Enter nhiều lần thủ công.",
+      "tips": "Trong thiết kế poster thương mại, căn lề trái (Flush Left) luôn đem lại nhịp đọc tự nhiên và dễ chịu nhất cho mắt người.",
+      "visualDescription": "Mô phỏng bảng Paragraph Studio với các tùy chọn căn lề và các trường nhập khoảng cách thụt lề dòng đầu (First Line Indent)."
+    },
+    {
+      "id": "slide-p08-01-05",
+      "order": 5,
+      "title": "Sức mạnh của OpenType Features",
+      "subtitle": "Ligatures nghệ thuật và chữ số Tabular",
+      "type": "detail",
+      "content": "Nhiều font cao cấp chứa các biến thể glyph ẩn. Mở Typography dialog trong panel Character để kích hoạt: Standard Ligatures (nối chữ 'fi', 'fl'), Discretionary Ligatures ('st', 'ct'), Swashes (nét vểnh đuôi hoa mỹ) và Stylistic Sets.",
+      "tips": "Tính năng Ligatures ngăn chặn các dấu chấm của chữ 'i' va đập vào móc cong của chữ 'f'.",
+      "codeSnippet": "OpenType Features in Affinity:\n- Standard Ligatures: fl, fi, ffi\n- Contextual Alternates: Natural handwriting variations\n- Stylistic Sets (ss01 - ss20): Alternate letter designs\n- Tabular Figures: Equal-width numbers for price tables"
+    },
+    {
+      "id": "slide-p08-01-06",
+      "order": 6,
+      "title": "Chuyển Text thành Vector Curves",
+      "subtitle": "Khi nào nên rasterize hoặc convert curves?",
+      "type": "diagram",
+      "content": "Lệnh Layer > Convert to Curves (Ctrl+Enter / Cmd+Return) sẽ biến toàn bộ chữ thành các vector path độc lập. Bạn có thể dùng Node Tool (A) để kéo dài đuôi chữ cái, khoét lỗ, hoặc tích hợp trực tiếp vào hình khối vector.",
+      "tips": "Một khi đã Convert to Curves, bạn sẽ không thể chỉnh sửa lại chính tả nội dung text bằng bàn phím.",
+      "visualDescription": "Minh họa chữ cái 'R' trước khi convert dạng text và sau khi convert hiển thị đầy đủ các điểm neo vector nodes xung quanh viền."
+    },
+    {
+      "id": "slide-p08-01-07",
+      "order": 7,
+      "title": "Quy tắc dàn trang chữ thương mại chuẩn",
+      "subtitle": "Hệ thống phân cấp thị giác (Typographic Hierarchy)",
+      "type": "summary",
+      "content": "Một thiết kế key visual tốt luôn tuân thủ nguyên tắc 3 cấp: 1) Cấp 1 (Hero Title): To, ấn tượng, tương phản cao; 2) Cấp 2 (Subhead / Slogan): Cỡ vừa, dẫn dắt thông điệp; 3) Cấp 3 (Details / Call-to-action): Nhỏ gọn, rõ ràng, dễ đọc.",
+      "tips": "Giới hạn thiết kế trong tối đa 2 họ font (Typeface Families) để tránh sự hỗn loạn thị giác.",
+      "codeSnippet": "Visual Hierarchy Blueprint:\nLevel 1: Big Bold Display (e.g. 72pt Sans Bold) -> 1-3 words\nLevel 2: Supporting Subhead (e.g. 24pt Sans Light Tracking +50%) -> 1 sentence\nLevel 3: Body & Disclaimers (e.g. 11pt Sans Regular Leading 140%)"
+    }
+  ]
+}

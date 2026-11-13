@@ -1,0 +1,281 @@
+{
+  "id": "P02-01",
+  "moduleId": "P02",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Selection Tools & Core Selection Principles",
+  "subtitle": "Selection Brush, Marquee, Lasso & Edge Snapping Architecture",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu rõ bản chất của vùng chọn pixel (Marching Ants) như một kênh độ mờ đục 8-bit (Alpha Channel) tạm thời.",
+      "Làm chủ Selection Brush Tool (W) với tính năng Snap to Edges thông minh dựa trên độ tương phản biên.",
+      "Kết hợp linh hoạt các chế độ New, Add, Subtract và Intersect khi xây dựng vùng chọn phức tạp.",
+      "Sử dụng Freehand Selection Tool (L) với các chế độ Freehand, Polygonal và Magnetic."
+    ],
+    "foundationalKnowledge": "Trong chỉnh sửa ảnh kỹ thuật số, một vùng chọn (Selection) không đơn thuần là một đường biên giới hạn tĩnh. Về bản chất toán học, vùng chọn trong Affinity Photo là một kênh mặt nạ 8-bit tạm thời (Greyscale Alpha Buffer), trong đó mỗi pixel mang giá trị từ 0 (hoàn toàn không được chọn) đến 255 (được chọn 100%). Các giá trị trung gian đại diện cho các cạnh chuyển tiếp mềm mại (Feathered edges). Khi một vùng chọn đang hoạt động, mọi thao tác vẽ cọ, áp dụng bộ lọc hay điều chỉnh màu sắc sẽ chỉ có tác dụng lên các pixel nằm trong giới hạn của vùng chọn đó.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Selection Tools & Edge Detection Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Selection Brush Tool & Selection Family",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)",
+        "mac": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)"
+      },
+      "description": "Nhóm công cụ chọn vùng pixel cho phép cô lập chủ thể dựa trên tương phản màu sắc, hình học cơ bản hoặc vẽ tay tự do.",
+      "contextBarOptions": [
+        "Mode: New (Vùng chọn mới), Add (Thêm vào vùng chọn), Subtract (Bớt vùng chọn)",
+        "Snap to Edges: Thuật toán nhận diện biên tương phản cục bộ tự động bám dính vào viền chủ thể",
+        "All Layers: Quét vùng chọn dựa trên tổng hòa mọi layer hiển thị hay chỉ layer đang chọn",
+        "Refine...: Mở studio tính toán biên tóc và cạnh mờ nâng cao"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở tệp thực hành và chọn Selection Brush Tool",
+        "instruction": "Mở tệp hướng dẫn 'P02_selections_masking_guide.md' hoặc ảnh mẫu. Nhấn phím W để kích hoạt Selection Brush Tool.",
+        "shortcutTip": { "win": "W", "mac": "W" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Thiết lập cọ và kích hoạt Snap to Edges",
+        "instruction": "Trên thanh Context Bar, tích chọn ô 'Snap to Edges'. Dùng phím [ và ] để thay đổi đường kính nét cọ phù hợp với kích thước chủ thể.",
+        "shortcutTip": { "win": "[ hoặc ]", "mac": "[ hoặc ]" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Quét vùng chọn và loại bỏ chi tiết thừa",
+        "instruction": "Kéo chuột bên trong thân chủ thể. Khi muốn loại bỏ vùng nền bị chọn lấn ra ngoài, giữ phím Alt (Win) hoặc Option (Mac) để tạm chuyển sang chế độ Subtract.",
+        "shortcutTip": { "win": "Giữ Alt + Kéo chuột", "mac": "Giữ Option + Kéo chuột" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Hủy hoặc lưu vùng chọn",
+        "instruction": "Nhấn Ctrl+D (Win) / Cmd+D (Mac) để hủy vùng chọn (Deselect). Để lưu vùng chọn dùng lại sau, vào Select > Save Selection > As Spare Channel.",
+        "shortcutTip": { "win": "Ctrl+D", "mac": "Cmd+D" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Bảng so sánh các công cụ chọn vùng pixel",
+        "description": "Đặc tính và trường hợp sử dụng tối ưu của từng công cụ trong Photo Persona.",
+        "visualType": "table",
+        "visualContent": "| Công cụ | Phím tắt | Thuật toán cốt lõi | Trường hợp sử dụng tối ưu |\n|---|---|---|---|\n| Selection Brush | W | Edge Snapping dựa trên contrast gradient | Chủ thể người, xe cộ, đồ vật tách biệt khỏi nền |\n| Freehand Lasso | L | Tọa độ điểm vector hoặc vẽ tay tự do | Cắt nhanh đa giác phẳng, kiến trúc, hình khối cơ học |\n| Flood Select | W | Dung sai màu (Tolerance) & Contiguous | Bầu trời phẳng, phông nền studio đơn sắc |\n| Marquee (Rect/Elliptical) | M | Hình học cơ bản kèm ràng buộc tỷ lệ | Cắt khung hình chữ nhật, hình tròn, tạo mặt nạ vignette |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tách biệt đối tượng sản phẩm với Selection Brush",
+      "taskDescription": "Sử dụng Selection Brush Tool để tạo vùng chọn bao quanh một vật thể tương phản cao.",
+      "checkpoints": [
+        "Kích hoạt Selection Brush Tool (W) với Snap to Edges bật.",
+        "Quét bao trọn toàn bộ chi tiết bên trong chủ thể.",
+        "Dùng phím Alt/Option để gọt sạch các vùng nền bị chọn lem.",
+        "Đường kiến bò (Marching Ants) ôm sát mép vật thể với độ sai lệch dưới 2 pixel."
+      ],
+      "expectedOutcome": "Một vùng chọn sắc nét sẵn sàng để chuyển đổi thành Layer Mask hoặc tinh chỉnh nâng cao."
+    },
+    "independentChallenge": {
+      "title": "Thử thách chọn chi tiết phức tạp kết hợp đa công cụ",
+      "prompt": "Tạo vùng chọn chính xác cho một bức ảnh bao gồm cả mảng hình học phẳng (dùng Polygonal Lasso) và đường cong hữu cơ (dùng Selection Brush). Lưu vùng chọn vào Spare Channel.",
+      "starterAsset": {
+        "filename": "P02_selections_masking_guide.md",
+        "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+        "filesize": "4.5 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn chi tiết quy trình tạo và quản lý vùng chọn trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Kết hợp ít nhất 2 công cụ chọn vùng khác nhau (W và L).",
+        "Lưu trữ thành công vào Select > Save Selection > As Spare Channel.",
+        "Không làm mất chi tiết góc nhọn hay cạnh mềm của đối tượng."
+      ],
+      "bonusGoal": "Sử dụng Quick Mask (phím Q) để kiểm tra độ mịn của vùng chọn bằng mắt thường."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Cọ quét bị lem ra toàn bộ hậu cảnh khi dùng Selection Brush",
+        "cause": "Tắt tính năng Snap to Edges hoặc độ tương phản giữa chủ thể và nền quá thấp.",
+        "solution": "Bật Snap to Edges trên Context Bar, giảm kích thước nét cọ nhỏ lại ở các góc hẹp, hoặc chuyển sang Polygonal Lasso để cắt dứt khoát."
+      },
+      {
+        "pitfall": "Vùng chọn xuất hiện đường răng cưa gồ ghề giả tạo",
+        "cause": "Không bật tính năng Antialias trên thanh Context Bar trước khi tạo vùng chọn.",
+        "solution": "Luôn tích chọn Antialias, hoặc sử dụng lệnh Select > Smooth / Feather để làm mềm biên 1-2 pixel."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P02-01-Q1",
+        "question": "Phím tắt mặc định để hủy hoàn toàn vùng chọn đang hiển thị (Deselect) trong Affinity Photo là gì?",
+        "options": [
+          "Ctrl+Shift+A (Win) / Cmd+Shift+A (Mac)",
+          "Ctrl+D (Win) / Cmd+D (Mac)",
+          "Phím Escape",
+          "Ctrl+Alt+D (Win) / Cmd+Option+D (Mac)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Tổ hợp phím chuẩn trong Affinity Photo để hủy vùng chọn là Ctrl+D trên Windows và Cmd+D trên macOS."
+      },
+      {
+        "id": "P02-01-Q2",
+        "question": "Khi đang sử dụng Selection Brush Tool, muốn tạm thời chuyển sang chế độ trừ bớt vùng chọn (Subtract), bạn giữ phím nào?",
+        "options": [
+          "Phím Shift",
+          "Phím Alt (Win) / Option (Mac)",
+          "Phím Ctrl (Win) / Cmd (Mac)",
+          "Phím Spacebar"
+        ],
+        "correctIndex": 1,
+        "explanation": "Giữ phím Alt (Win) hoặc Option (Mac) sẽ đảo ngược cọ từ chế độ Add (Cộng) sang Subtract (Trừ) tức thời."
+      },
+      {
+        "id": "P02-01-Q3",
+        "question": "Tính năng 'Snap to Edges' trên thanh Context Bar của Selection Brush Tool hoạt động dựa trên nguyên lý nào?",
+        "options": [
+          "Dựa trên nhận diện khuôn mặt bằng AI đám mây",
+          "Dựa trên sự biến thiên độ tương phản và màu sắc (contrast gradient) giữa các pixel liền kề",
+          "Dựa trên các vector đường cong Bézier có sẵn",
+          "Dựa trên siêu dữ liệu tiêu cự trong tệp EXIF"
+        ],
+        "correctIndex": 1,
+        "explanation": "Snap to Edges phân tích gradient tương phản ánh sáng và màu sắc cục bộ của các pixel để tự động bắt dính mép cọ vào đường viền chủ thể."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Vùng chọn pixel thực chất là kênh độ mờ đục 8-bit kiểm soát phạm vi tác động của mọi thao tác chỉnh sửa.",
+        "Selection Brush Tool (W) kết hợp Snap to Edges là phương pháp nhanh và chính xác nhất cho các chủ thể tự nhiên.",
+        "Phím tắt Alt/Option giúp chuyển nhanh sang chế độ Subtract để tinh chỉnh viền.",
+        "Vùng chọn có thể lưu trữ vĩnh viễn vào tài liệu thông qua tính năng Spare Channel."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P02-02 Refining Selections & Complex Edge Detection",
+          "target": "P02-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P02_selections_masking_guide.md",
+          "target": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P02-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Khám Phá Công Cụ & Nguyên Lý Vùng Chọn Pixel",
+      "subtitle": "Kỹ thuật cô lập chủ thể với độ chính xác đến từng điểm ảnh",
+      "contentMarkdown": "Chào mừng bạn đến với **Module P02 — Selections & Masking**.\n\nMọi tác vụ chỉnh sửa ảnh cao cấp—từ tách nền, đổi màu áo, làm mịn da đến ghép ảnh quảng cáo—đều bắt đầu từ một kỹ năng nền tảng: **Tạo vùng chọn chính xác**.\n\nTrong bài học này, bạn sẽ làm chủ các công cụ chọn vùng cốt lõi của Affinity Photo, cách hoạt động của thuật toán **Snap to Edges**, và cách kết hợp các chế độ Add/Subtract để làm việc với tốc độ cao.",
+      "actionBox": {
+        "label": "Tôn Chỉ Nghề Nghiệp",
+        "text": "Một vùng chọn chất lượng kém sẽ phá hủy toàn bộ tính chân thực của tác phẩm, bất kể bạn chỉnh màu hay ghép ảnh khéo léo đến đâu."
+      }
+    },
+    {
+      "id": "P02-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Bản Chất Toán Học Của Vùng Chọn Pixel",
+      "subtitle": "Từ 'Đường Kiến Bò' Đến Kênh Alpha 8-Bit",
+      "contentMarkdown": "Người dùng mới thường nghĩ vùng chọn chỉ là đường nét đứt nhấp nháy (Marching Ants) đóng khung một vật thể.\n\nNhưng trong kiến trúc đồ họa chuyên nghiệp của Affinity Photo:\n- Vùng chọn là một **mặt nạ xám 8-bit vô hình** (Greyscale Buffer) trong bộ nhớ.\n- **Pixel = 255 (Trắng):** Vùng chọn tuyệt đối 100%.\n- **Pixel = 0 (Đen):** Hoàn toàn nằm ngoài vùng chọn (0%).\n- **Pixel = 1-254 (Xám):** Vùng chuyển tiếp bán trong suốt (Feather). Đường kiến bò chỉ hiển thị ở ranh giới ngưỡng 50% opacity!",
+      "visual": {
+        "type": "callout",
+        "content": "Hiểu bản chất kênh Alpha 8-bit giúp bạn tự tin xử lý các vùng biên mờ như tóc, khói, thủy tinh và bóng đổ."
+      }
+    },
+    {
+      "id": "P02-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Selection Brush Tool & Thanh Context Bar",
+      "subtitle": "Cỗ máy bắt dính biên thần tốc",
+      "contentMarkdown": "Nhấn phím `W` để chọn **Selection Brush Tool**.\n\nQuan sát thanh Context Bar phía trên:\n- **Mode Add / Subtract:** Cộng thêm hoặc khoét bớt vùng chọn.\n- **Snap to Edges (Khuyên dùng):** Bắt dính mép vật thể dựa trên độ tương phản.\n- **Size (Kích thước cọ):** Phím tắt `[` thu nhỏ, `]` phóng to.\n- **All Layers:** Bật nếu muốn lấy mẫu từ toàn bộ các layer bên dưới, tắt nếu chỉ muốn chọn trên layer đang active.",
+      "actionBox": {
+        "label": "Mẹo Thao Tác",
+        "text": "Giữ phím Alt (Win) hoặc Option (Mac) khi kéo cọ để trừ bớt vùng chọn thừa mà không cần click chuột đổi Mode trên thanh Context Bar.",
+        "shortcut": { "win": "Alt + Drag", "mac": "Option + Drag" }
+      }
+    },
+    {
+      "id": "P02-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình Tạo Vùng Chọn Chuẩn Xác",
+      "subtitle": "4 Bước xây dựng vùng chọn chủ thể hoàn hảo",
+      "contentMarkdown": "1. **Kích hoạt công cụ:** Nhấn `W` để chọn Selection Brush Tool.\n2. **Bật Snap to Edges:** Đảm bảo ô kiểm này luôn bật trên thanh Context Bar.\n3. **Quét từ tâm ra biên:** Quét cọ bên trong lòng chủ thể, đẩy dần ra mép. Thuật toán sẽ tự động dừng lại ở đường ranh giới tương phản.\n4. **Gọt tỉa vùng lem:** Giữ `Alt`/`Option` quét nhẹ vào những chỗ bị lấn sang nền.\n5. **Kiểm tra Quick Mask:** Nhấn phím `Q` để hiển thị lớp phủ màu đỏ (Ruby overlay) kiểm tra độ chính xác, nhấn `Q` lần nữa để trở lại đường kiến bò.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "W (Selection Brush) | [ / ] (Chỉnh size cọ) | Alt/Opt (Subtract) | Q (Quick Mask) | Ctrl+D (Deselect)"
+      }
+    },
+    {
+      "id": "P02-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Sai Lầm Phổ Biến Khi Tạo Vùng Chọn",
+      "subtitle": "Nguyên nhân và giải pháp triệt để",
+      "contentMarkdown": "### 1. Nét cọ quá lớn ở vùng chi tiết nhỏ\n- **Hậu quả:** Cọ quét lấn qua cả các khe kẽ ngón tay, vành tai.\n- **Giải pháp:** Dùng phím `[` giảm kích thước cọ xuống bằng 1/3 bề rộng của khe kẽ cần chọn.\n\n### 2. Quên hủy vùng chọn (Stuck Selection)\n- **Hậu quả:** Sau khi chọn xong, bạn vẽ cọ hoặc chỉnh màu ở chỗ khác nhưng không thấy tác dụng gì vì vùng chọn cũ vẫn đang khóa tài liệu.\n- **Giải pháp:** Luôn nhớ phím tắt `Ctrl+D` (Win) / `Cmd+D` (Mac) để hủy vùng chọn sau khi hoàn thành mục đích.",
+      "actionBox": {
+        "label": "Quy Tắc An Toàn",
+        "text": "Nếu thấy phần mềm 'không chịu vẽ cọ', 90% nguyên nhân là đang có một vùng chọn vô hình ở góc màn hình! Hãy nhấn Ctrl+D."
+      }
+    },
+    {
+      "id": "P02-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Nhanh Kiến Thức",
+      "subtitle": "Xác nhận mức độ nắm vững công cụ chọn vùng",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây để tiếp tục.",
+      "quizData": {
+        "id": "P02-01-Q2",
+        "question": "Khi đang sử dụng Selection Brush Tool, muốn tạm thời chuyển sang chế độ trừ bớt vùng chọn (Subtract), bạn giữ phím nào?",
+        "options": [
+          "Phím Shift",
+          "Phím Alt (Win) / Option (Mac)",
+          "Phím Ctrl (Win) / Cmd (Mac)",
+          "Phím Spacebar"
+        ],
+        "correctIndex": 1,
+        "explanation": "Giữ phím Alt (Win) hoặc Option (Mac) sẽ đảo ngược cọ từ chế độ Add (Cộng) sang Subtract (Trừ) tức thời."
+      }
+    },
+    {
+      "id": "P02-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thử Thách Thực Hành Độc Lập",
+      "subtitle": "Tạo vùng chọn và lưu vào Spare Channel",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tệp hướng dẫn `P02_selections_masking_guide.md` trong thư mục `curriculum/assets/photo/`.\n2. Áp dụng Selection Brush Tool (W) để tạo vùng chọn bao quanh một chủ thể có hình dạng phức tạp.\n3. Dùng phím tắt `Alt` để tinh chỉnh các góc hẹp.\n4. Lưu vùng chọn vĩnh viễn vào tài liệu bằng lệnh `Select > Save Selection > As Spare Channel`.\n\n### Tiêu Chí Nghiệm Thu:\n- Đường viền bám khít đối tượng, không bị hụt hoặc thừa quá 2 pixel.\n- Vùng chọn hiển thị trong bảng Channels Studio dưới tên Spare Channel.",
+      "practiceData": {
+        "prompt": "Thực hiện tạo vùng chọn với Selection Brush Tool và lưu vào Spare Channel.",
+        "starterAsset": {
+          "filename": "P02_selections_masking_guide.md",
+          "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
+          "filesize": "4.5 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Tài liệu kỹ thuật hướng dẫn chi tiết quy trình tạo và quản lý vùng chọn trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Selection Brush Tool quét ôm trọn chủ thể",
+          "Snap to Edges hoạt động chính xác",
+          "Vùng chọn được lưu thành công vào Spare Channel"
+        ]
+      }
+    }
+  ]
+}

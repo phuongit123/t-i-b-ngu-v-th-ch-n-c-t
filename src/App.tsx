@@ -154,7 +154,7 @@ export const App: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono bg-emerald-950/20 px-3 py-1 rounded border border-emerald-500/20">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>3 Pilot Lessons Ready to Play</span>
+                  <span>{filteredModules.reduce((acc, m) => acc + m.lessons.length, 0)} Lessons Ready to Play</span>
                 </div>
               </div>
 

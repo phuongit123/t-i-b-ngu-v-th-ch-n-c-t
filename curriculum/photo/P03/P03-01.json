@@ -1,0 +1,281 @@
+{
+  "id": "P03-01",
+  "moduleId": "P03",
+  "trackId": "photo",
+  "order": 1,
+  "title": "Layer Types, Organization & Scene Hierarchy",
+  "subtitle": "Pixel Layers, Image Objects, Layer Locking & Opacity vs Flow",
+  "durationMinutes": 25,
+  "difficulty": "Beginner",
+  "standardSections": {
+    "learningObjectives": [
+      "Phân biệt chính xác giữa Pixel Layer và Image Layer trong Affinity Photo và khi nào cần Rasterise.",
+      "Tổ chức cây thư mục Layer thông minh: Đặt tên, gán nhãn màu sắc, nhóm Group (Ctrl+G / Cmd+G) và khóa Lock.",
+      "Hiểu sự khác biệt bản chất giữa Opacity của Layer và Opacity / Flow / Hardness của Brush.",
+      "Quản lý chế độ hiển thị Isolate Layer (Alt-click) để tập trung chỉnh sửa chi tiết."
+    ],
+    "foundationalKnowledge": "Trong Affinity Photo, không phải mọi lớp chứa hình ảnh đều là một lớp điểm ảnh thông thường. Khi bạn kéo một bức ảnh từ bên ngoài vào canvas, phần mềm khởi tạo nó dưới dạng một `(Image)` Layer. Image Layer hoạt động tương tự như Smart Object trong các phần mềm khác: nó bảo tồn nguyên vẹn độ phân giải gốc, bảng màu và dữ liệu sensor ban đầu dù bạn có thu nhỏ xuống 1% rồi phóng to lại 1000%. Tuy nhiên, bạn không thể dùng cọ vẽ, tẩy hoặc công cụ clone trực tiếp lên Image Layer cho đến khi chọn Rasterise để biến nó thành `(Pixel)` Layer. Nắm vững ranh giới này giúp bạn tránh suy hao chất lượng ảnh một cách đáng tiếc.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Layers Studio & Scene Graph Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Layers Studio & Layer Management",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "F7 (Toggle Layers Studio) / Ctrl+G (Group) / Ctrl+Shift+N (New Pixel Layer)",
+        "mac": "F7 (Toggle Layers Studio) / Cmd+G (Group) / Cmd+Shift+N (New Pixel Layer)"
+      },
+      "description": "Bảng điều khiển trung tâm quản lý cấu trúc phân tầng, thứ tự xếp chồng, chế độ hòa trộn và thuộc tính hiển thị của mọi thành phần trong dự án.",
+      "contextBarOptions": [
+        "Opacity: Thanh trượt độ mờ đục tổng thể của toàn bộ layer (0% - 100%)",
+        "Blend Mode Dropdown: Danh sách 30 chế độ hòa trộn chia theo nhóm ánh sáng",
+        "Lock / Unlock: Khóa vị trí và pixel ngăn ngừa vô tình xê dịch",
+        "Rasterise: Chuyển đổi Image/Vector layer thành Pixel layer"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở Layers Studio và nhận diện loại Layer",
+        "instruction": "Nhấn phím F7 nếu Layers Studio đang bị ẩn. Quan sát hậu tố nằm sau tên layer: nếu là '(Image)', đó là đối tượng nhúng bảo toàn; nếu là '(Pixel)', đó là lớp điểm ảnh có thể vẽ trực tiếp.",
+        "shortcutTip": { "win": "F7", "mac": "F7" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tạo Pixel Layer mới và gán nhãn màu",
+        "instruction": "Nhấn Ctrl+Shift+N (Win) / Cmd+Shift+N (Mac) để tạo một Pixel Layer trống. Nhấp chuột phải vào tên layer, chọn một màu sắc ở mục Color Tag để phân loại (ví dụ: Màu Đỏ cho Retouching, Màu Xanh cho Text).",
+        "shortcutTip": { "win": "Ctrl+Shift+N", "mac": "Cmd+Shift+N" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Nhóm các layer liên quan thành Group",
+        "instruction": "Giữ Shift nhấp chọn nhiều layer, nhấn Ctrl+G (Win) / Cmd+G (Mac). Nhấp đúp chuột vào chữ 'Group' để đổi tên thành một danh mục rõ ràng (ví dụ: 'Model Retouch').",
+        "shortcutTip": { "win": "Ctrl+G", "mac": "Cmd+G" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Chế độ cô lập Isolate Layer",
+        "instruction": "Giữ phím Alt (Win) hoặc Option (Mac) và nhấp chuột vào thumbnail của một layer trong Layers Studio. Toàn bộ các layer khác sẽ tạm thời ẩn đi, chỉ hiển thị duy nhất layer đó để bạn kiểm tra chi tiết.",
+        "shortcutTip": { "win": "Alt + Click Thumbnail", "mac": "Option + Click Thumbnail" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Cấu trúc phân tầng tiêu chuẩn của một dự án Photo chuyên nghiệp",
+        "description": "Thứ tự sắp xếp từ trên xuống dưới đảm bảo tính phi phá hủy tối ưu.",
+        "visualType": "diagram",
+        "visualContent": "[Layer 6]: Group [Color Grading] (Curves, LUT, Gradient Map - Đặt trên cùng)\n  ↓\n[Layer 5]: Group [Sharpening] (Live High Pass / Clarity - Hòa trộn Soft Light)\n  ↓\n[Layer 4]: Group [Dodge & Burn] (Curves sáng / tối có mặt nạ cục bộ)\n  ↓\n[Layer 3]: Group [Frequency Separation] (High Freq Texture + Low Freq Tone)\n  ↓\n[Layer 2]: Pixel Layer [Blemish Cleanup] (Inpainting & Clone nguồn All Layers)\n  ↓\n[Layer 1]: Image Layer [Original Background] (Khóa Lock, nguyên vẹn 100%)"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Tổ chức layer stack chuẩn studio cho dự án ảnh chân dung",
+      "taskDescription": "Mở tệp ảnh và cấu trúc lại toàn bộ hệ thống lớp với các Group chuyên biệt, nhãn màu và chế độ cô lập.",
+      "checkpoints": [
+        "Layer gốc được khóa (Lock) ở đáy cùng.",
+        "Tạo ít nhất 3 Group có tên rõ ràng: Cleanup, Retouching, Color Grading.",
+        "Mỗi Group được gắn một màu Color Tag khác nhau.",
+        "Thử nghiệm chế độ Isolate (Alt-click) để kiểm tra từng lớp độc lập."
+      ],
+      "expectedOutcome": "Một không gian làm việc khoa học, gọn gàng, bàn giao cho khách hàng hoặc đồng nghiệp mở ra hiểu ngay lập tức."
+    },
+    "independentChallenge": {
+      "title": "Xây dựng template Layer Hierarchy hoàn chỉnh",
+      "prompt": "Tạo một tài liệu trắng, thiết lập cấu trúc 5 tầng tiêu chuẩn cho chỉnh sửa thương mại. Lưu thành tệp mẫu `.aftemplate` hoặc tệp `.afphoto` để tái sử dụng cho các dự án sau.",
+      "starterAsset": {
+        "filename": "P03_layers_non_destructive_guide.md",
+        "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+        "filesize": "4.7 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn kiến trúc phân lớp phi phá hủy trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Đầy đủ 5 tầng phân cấp từ Background đến Grading.",
+        "Các lớp rỗng đều được cấu hình đúng loại (Pixel vs Adjustment).",
+        "Không có layer nào bị đặt tên mặc định vô nghĩa như 'Layer 1', 'Layer 2'."
+      ],
+      "bonusGoal": "Thiết lập phím tắt tùy biến cho lệnh Isolate Layer trong Preferences > Shortcuts."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Vẽ cọ lên ảnh nhưng xuất hiện biểu tượng con trỏ cấm (gạch chéo đỏ)",
+        "cause": "Đang thao tác trên một `(Image)` Layer chưa được Rasterise, hoặc layer đang bị khóa (Locked).",
+        "solution": "Nhấp chuột phải chọn 'Rasterise...' nếu muốn vẽ trực tiếp, hoặc tốt hơn: tạo một New Pixel Layer rỗng ở trên để vẽ phi phá hủy."
+      },
+      {
+        "pitfall": "Dự án có hàng chục layer lộn xộn khiến tìm kiếm chi tiết mất thời gian",
+        "cause": "Không đặt tên khi tạo layer và không gom nhóm Group.",
+        "solution": "Luôn tạo Group ngay khi hoàn thành một công đoạn (như xóa rác hay đánh sáng) và gán Color Tag phân biệt."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P03-01-Q1",
+        "question": "Điểm khác biệt quan trọng nhất giữa một `(Image)` Layer và một `(Pixel)` Layer trong Affinity Photo là gì?",
+        "options": [
+          "Image Layer chỉ hiển thị được màu đen trắng",
+          "Image Layer bảo tồn nguyên vẹn độ phân giải và dữ liệu gốc bất chấp phóng to thu nhỏ, trong khi Pixel Layer cho phép thao tác cọ vẽ và chỉnh sửa điểm ảnh trực tiếp",
+          "Pixel Layer có dung lượng tệp nhỏ hơn Image Layer",
+          "Image Layer không hỗ trợ chế độ hòa trộn Blend Mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "Image Layer giữ nguyên vẹn dữ liệu ảnh gốc (tương tự Smart Object), trong khi Pixel Layer là ma trận điểm ảnh raster có thể trực tiếp vẽ cọ, tẩy, dập clone."
+      },
+      {
+        "id": "P03-01-Q2",
+        "question": "Phím tắt chuẩn để gom các layer đang chọn vào chung một Group là gì?",
+        "options": [
+          "Ctrl+Shift+G (Win) / Cmd+Shift+G (Mac)",
+          "Ctrl+G (Win) / Cmd+G (Mac)",
+          "Ctrl+Alt+G (Win) / Cmd+Option+G (Mac)",
+          "Ctrl+E (Win) / Cmd+E (Mac)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Tổ hợp phím chuẩn toàn cầu để tạo Group là Ctrl+G trên Windows và Cmd+G trên macOS."
+      },
+      {
+        "id": "P03-01-Q3",
+        "question": "Muốn cô lập tạm thời duy nhất một layer để kiểm tra chi tiết và ẩn toàn bộ các layer khác, bạn thao tác như thế nào?",
+        "options": [
+          "Nhấp đúp chuột vào tên layer",
+          "Giữ phím Alt (Win) hoặc Option (Mac) và nhấp chuột vào thumbnail của layer",
+          "Nhấn phím Spacebar",
+          "Kéo layer đó ra khỏi khung canvas"
+        ],
+        "correctIndex": 1,
+        "explanation": "Alt-click (Win) hoặc Option-click (Mac) vào thumbnail layer sẽ kích hoạt chế độ Isolate Layer độc đáo của Affinity Photo."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Phân biệt rõ Image Layer (bảo toàn độ phân giải) và Pixel Layer (vẽ chỉnh trực tiếp).",
+        "Tổ chức Layer khoa học theo thứ tự: Gốc -> Cleanup -> Retouch -> Grading giúp quy trình rõ ràng.",
+        "Tận dụng phím tắt Ctrl+G (Group) và Color Tag để quản lý dự án hàng chục layer dễ dàng.",
+        "Alt-click vào thumbnail giúp cô lập layer tức thì để kiểm tra lỗi biên."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P03-02 Adjustment Layers & Live Filter Architecture",
+          "target": "P03-02",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P03_layers_non_destructive_guide.md",
+          "target": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P03-01-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Cấu Trúc Hệ Thống Layer & Tổ Chức Dự Án Chuyên Nghiệp",
+      "subtitle": "Xây dựng nền móng vững chắc cho quy trình biên tập phi phá hủy",
+      "contentMarkdown": "Bảng **Layers Studio (F7)** là trái tim của Affinity Photo.\n\nMột retoucher chuyên nghiệp không chỉ tạo ra bức ảnh đẹp, mà còn sở hữu một **Layer Stack khoa học, gãy gọn, có cấu trúc tầng bậc chuẩn mực** mà bất kỳ ai mở tệp ra cũng có thể tiếp quản và chỉnh sửa dễ dàng.\n\nTrong bài học này, bạn sẽ nắm vững sự khác biệt cốt tử giữa **Image Layer** và **Pixel Layer**, cách gom nhóm Group, phân loại nhãn màu và chế độ cô lập Isolate Layer.",
+      "actionBox": {
+        "label": "Tiêu Chuẩn Studio",
+        "text": "Một tệp thiết kế bàn giao chuyên nghiệp tuyệt đối không chứa những layer vô danh như 'Layer 1', 'Layer 2'!"
+      }
+    },
+    {
+      "id": "P03-01-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Image Layer vs Pixel Layer",
+      "subtitle": "Bảo toàn độ phân giải gốc so với quyền năng vẽ pixel",
+      "contentMarkdown": "Hãy nhìn vào hậu tố nằm sau tên layer trong Layers Studio:\n\n- 🖼️ **(Image) Layer:** Đối tượng hình ảnh nhúng nguyên bản. Giữ trọn độ phân giải gốc bất kể bạn co kéo thu phóng bao nhiêu lần. Tuy nhiên, nó ngăn chặn việc dùng cọ vẽ trực tiếp để bảo vệ bạn khỏi việc vô tình làm hỏng dữ liệu gốc.\n- 🎨 **(Pixel) Layer:** Lớp điểm ảnh raster thuần túy. Cho phép bạn thỏa sức dùng Paint Brush, Eraser, Clone Stamp, Inpainting để thao tác lên từng điểm ảnh.\n- 🔄 **Rasterise:** Khi cần chuyển Image thành Pixel, nhấp chuột phải chọn **Rasterise...**.",
+      "visual": {
+        "type": "callout",
+        "content": "Lời khuyên: Thay vì Rasterise ảnh gốc, hãy tạo một New Pixel Layer rỗng nằm trên để vẽ hoặc dập mụn phi phá hủy!"
+      }
+    },
+    {
+      "id": "P03-01-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Layers Studio & Các Nút Điều Khiển Cốt Lõi",
+      "subtitle": "Phím tắt F7 để đóng mở tức thời",
+      "contentMarkdown": "Khám phá các biểu tượng quan trọng ở thanh công cụ đáy Layers Studio:\n\n- 📁 **New Group (Ctrl+G / Cmd+G):** Gom các layer thành thư mục mẹ.\n- 📄 **New Pixel Layer (Ctrl+Shift+N / Cmd+Shift+N):** Tạo một lớp điểm ảnh rỗng.\n- 🎭 **Mask Layer:** Tạo mặt nạ che giấu/hiển thị.\n- ⏳ **Live Filters (Đồng hồ cát):** Thêm bộ lọc GPU thời gian thực.\n- 🌓 **Adjustments (Vòng tròn bán nguyệt):** Thêm lớp điều chỉnh Curves, Levels, HSL...\n- 🔒 **Lock:** Khóa layer chống xê dịch vị trí.",
+      "actionBox": {
+        "label": "Mẹo Cô Lập Layer",
+        "text": "Giữ phím Alt (Win) hoặc Option (Mac) và nhấp chuột vào thumbnail của một layer để Isolate (chỉ hiển thị duy nhất layer đó).",
+        "shortcut": { "win": "Alt + Click Thumbnail", "mac": "Option + Click Thumbnail" }
+      }
+    },
+    {
+      "id": "P03-01-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Chuẩn Hóa Cấu Trúc Layer",
+      "subtitle": "Áp dụng cho mọi dự án chân dung hoặc phong cảnh",
+      "contentMarkdown": "1. **Khóa ảnh gốc:** Khóa lớp Background ở đáy cùng để làm điểm tựa an toàn.\n2. **Tạo lớp Touchup:** Nhấn `Ctrl+Shift+N` tạo pixel layer `[Cleanup]` để xóa mụn, bụi bẩn.\n3. **Gom nhóm Group:** Chọn các layer cùng chức năng, nhấn `Ctrl+G`, đổi tên thành `[Retouching]`.\n4. **Gán nhãn màu Color Tag:** Nhấp chuột phải vào Group, gán màu Cam hoặc Xanh để mắt dễ dàng định vị khi dự án có hàng chục lớp.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Lock Base | New Pixel Layer | Group (Ctrl+G) | Rename Group | Color Tag"
+      }
+    },
+    {
+      "id": "P03-01-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Những Lỗi Tổ Chức Layer Khiến Bạn Chậm Trễ",
+      "subtitle": "Cách phòng ngừa trước khi quá muộn",
+      "contentMarkdown": "### 1. Vẽ cọ bị chặn với biểu tượng gạch chéo\n- **Nguyên nhân:** Đang chọn layer dạng `(Image)` hoặc layer đang bị khóa.\n- **Giải pháp:** Tạo New Pixel Layer ở trên để thao tác, hoặc Rasterise nếu thực sự cần biến thành pixel.\n\n### 2. Dung lượng tệp phình to mất kiểm soát\n- **Nguyên nhân:** Nhân bản lớp ảnh gốc (`Ctrl+J`) quá nhiều lần để thử nghiệm.\n- **Giải pháp:** Sử dụng Adjustment Layers và Live Filters thay vì copy nhân bản hàng loạt pixel layer!",
+      "actionBox": {
+        "label": "Tối Ưu Dung Lượng",
+        "text": "10 lớp Adjustment chỉ nặng vài kilobyte, nhưng 10 lớp Pixel nhân bản sẽ làm tệp tăng thêm hàng trăm megabyte!"
+      }
+    },
+    {
+      "id": "P03-01-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Nhanh Về Hệ Thống Layer",
+      "subtitle": "Xác nhận độ hiểu sâu về cấu trúc lớp",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P03-01-Q1",
+        "question": "Điểm khác biệt quan trọng nhất giữa một `(Image)` Layer và một `(Pixel)` Layer trong Affinity Photo là gì?",
+        "options": [
+          "Image Layer chỉ hiển thị được màu đen trắng",
+          "Image Layer bảo tồn nguyên vẹn độ phân giải và dữ liệu gốc bất chấp phóng to thu nhỏ, trong khi Pixel Layer cho phép thao tác cọ vẽ và chỉnh sửa điểm ảnh trực tiếp",
+          "Pixel Layer có dung lượng tệp nhỏ hơn Image Layer",
+          "Image Layer không hỗ trợ chế độ hòa trộn Blend Mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "Image Layer giữ nguyên vẹn dữ liệu ảnh gốc (tương tự Smart Object), trong khi Pixel Layer là ma trận điểm ảnh raster có thể trực tiếp vẽ cọ, tẩy, dập clone."
+      }
+    },
+    {
+      "id": "P03-01-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thử Thách: Thiết Lập Cây Thư Mục Layer Chuẩn",
+      "subtitle": "Xây dựng hệ thống phân tầng chuyên nghiệp",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P03_layers_non_destructive_guide.md`.\n2. Thiết lập cấu trúc layer gồm 3 tầng phân cấp rõ rệt: `[01_Base]`, `[02_Retouch]`, `[03_Color]`.\n3. Mỗi tầng là một Group có gán nhãn màu Color Tag riêng biệt.\n4. Thực hành chế độ Isolate (Alt-click) để kiểm tra từng nhóm.\n\n### Tiêu Chí Nghiệm Thu:\n- Không còn layer nào mang tên mặc định.\n- Các nhóm layer đóng mở gọn gàng, có tính logic cao.",
+      "practiceData": {
+        "prompt": "Tổ chức cây thư mục 3 Group có tên và nhãn màu rõ ràng.",
+        "starterAsset": {
+          "filename": "P03_layers_non_destructive_guide.md",
+          "filepath": "curriculum/assets/photo/P03_layers_non_destructive_guide.md",
+          "filesize": "4.7 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Tài liệu kỹ thuật hướng dẫn kiến trúc phân lớp phi phá hủy trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Tạo 3 Group chuyên biệt",
+          "Đặt tên và gán Color Tag phân loại",
+          "Kiểm tra thành công chế độ Isolate Layer"
+        ]
+      }
+    }
+  ]
+}

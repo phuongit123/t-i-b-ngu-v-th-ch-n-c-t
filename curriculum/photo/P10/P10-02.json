@@ -1,0 +1,254 @@
+{
+  "id": "P10-02",
+  "moduleId": "P10",
+  "trackId": "photo",
+  "order": 2,
+  "title": "Color Spaces (sRGB vs P3 vs Adobe RGB) & File Compression (WebP, JPEG XL, TIFF, PSD)",
+  "subtitle": "Master color management profiles, rendering intents, and next-generation file compression formats.",
+  "durationMinutes": 30,
+  "difficulty": "Advanced",
+  "standardSections": {
+    "learningObjectives": [
+      "Phân biệt và lựa chọn chính xác không gian màu (Color Gamut): sRGB, Display P3, Adobe RGB 1998, và ROMM RGB (ProPhoto).",
+      "Hiểu sự khác biệt sinh tử giữa 'Convert Format / ICC Profile' (chuyển đổi toán học bảo toàn màu) và 'Assign ICC Profile' (gán lại hồ sơ).",
+      "Làm chủ 4 cơ chế diễn giải màu sắc (Rendering Intents): Relative Colorimetric, Perceptual, Saturation, Absolute Colorimetric.",
+      "So sánh và tối ưu hóa các định dạng file nén thế hệ mới: WebP, JPEG XL, TIFF đa lớp không nén tổn hao và tính tương thích PSD."
+    ],
+    "foundationalKnowledge": "Quản trị màu sắc (Color Management) là ranh giới phân định giữa người dùng nghiệp dư và chuyên gia xử lý ảnh thực thụ. Mỗi thiết bị hiển thị và công nghệ in ấn chỉ có thể tái tạo một vùng màu giới hạn gọi là không gian màu (Gamut). Hiểu rõ khi nào dùng Convert Profile (tính toán lại giá trị RGB bảo toàn màu nhìn thấy) thay vì Assign Profile (đổi nhãn làm biến sắc màu) giúp đảm bảo tác phẩm hiển thị chuẩn xác nhất quán từ màn hình điện thoại đến bản in mỹ thuật triển lãm.",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Color Management Engine & ICC Architecture",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Color Management & Export Formats",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Document > Convert Format / ICC Profile / Ctrl + Alt + Shift + S",
+        "mac": "Document > Convert Format / ICC Profile / Cmd + Option + Shift + S"
+      },
+      "description": "Hệ thống quản lý không gian màu ICC và các bộ nén file thế hệ mới.",
+      "contextBarOptions": [
+        "Convert Profile: Chuyển đổi không gian màu bằng phép chiếu toán học bảo toàn cảm nhận mắt",
+        "Assign Profile: Gán lại nhãn ICC mà không đổi giá trị số RGB (chỉ dùng sửa lỗi file gốc)",
+        "Rendering Intent: Relative Colorimetric (mặc định ảnh chụp) hoặc Perceptual",
+        "Soft Proofing Layer: Giả lập kết quả màu sắc trên các máy in trước khi xuất bản"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Kiểm tra không gian màu hiện tại của tài liệu",
+        "instruction": "Quan sát thanh tiêu đề ở góc trên bên trái khung vẽ hoặc mở Document > Color Format. Xác định không gian màu đang làm việc (ví dụ: RGB/16 - Adobe RGB (1998) hoặc RGB/8 - sRGB IEC61966-2.1).",
+        "shortcutTip": { "win": "Document > Color Format", "mac": "Document > Color Format" }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Chuyển đổi sang sRGB để xuất bản web an toàn",
+        "instruction": "Nếu tài liệu đang ở Adobe RGB hoặc Display P3 và cần xuất cho mạng xã hội hoặc website thông thường, vào Document > Convert Format / ICC Profile. Chọn Profile đích là 'sRGB IEC61966-2.1'. Chọn Rendering Intent là 'Relative Colorimetric' kèm 'Black Point Compensation'. Nhấp Convert.",
+        "shortcutTip": { "win": "Convert Format / ICC Profile", "mac": "Convert Format / ICC Profile" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Kiểm tra màu sắc với Soft Proofing",
+        "instruction": "Trước khi gửi in ấn hoặc xuất bản rộng rãi, vào menu Layer > New Adjustment Layer > Soft Proof. Chọn profile máy in CMYK hoặc màn hình P3. Quan sát xem các màu đỏ thắm hoặc xanh ngọc có bị bết hoặc xỉn màu hay không (Out of Gamut warning).",
+        "shortcutTip": { "win": "Soft Proofing Layer", "mac": "Soft Proofing Layer" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Xuất file định dạng nén thế hệ mới (WebP & JPEG XL)",
+        "instruction": "Mở hộp thoại Export (Ctrl+Alt+Shift+S / Cmd+Option+Shift+S). Chọn định dạng WebP. Đặt Quality 85%, tích chọn 'Embed ICC profile'. Hoặc chọn TIFF với thuật toán nén ZIP để lưu trữ file master 16-bit đầy đủ layer cho khách hàng in ấn cao cấp.",
+        "shortcutTip": { "win": "Ctrl + Shift + Alt + S", "mac": "Cmd + Shift + Option + S" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "So sánh các không gian màu chuẩn trong đồ họa và nhiếp ảnh",
+        "description": "Phạm vi quang phổ và môi trường ứng dụng tối ưu.",
+        "visualType": "table",
+        "visualContent": "| Không gian màu | Độ phủ quang phổ mắt | Độ sâu màu khuyến nghị | Môi trường ứng dụng |\n|---|---|---|---|\n| sRGB | Hẹp (35% CIE) | 8-bit / 16-bit | Toàn bộ web, app di động, Facebook, Instagram |\n| Display P3 | Rộng hơn sRGB 25% | 8-bit / 16-bit | Màn hình Apple Retina, OLED cao cấp, video HDR |\n| Adobe RGB (1998) | Rộng (50% CIE) | 16-bit | In ấn thương mại cao cấp, tạp chí mỹ thuật |\n| ProPhoto RGB | Khổng lồ (90% CIE) | Bắt buộc 16-bit / 32-bit | Lưu trữ và chỉnh sửa file RAW master trong studio |"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Thiết lập quy trình Soft Proofing chuẩn bị in ấn brochure",
+      "taskDescription": "Chuyển đổi một bức ảnh thời trang RGB sang chế độ Soft Proof giả lập máy in CMYK chuẩn Fogra39 và điều chỉnh Curves cứu các vùng màu bị bết.",
+      "checkpoints": [
+        "Thêm Soft Proofing Adjustment Layer với Profile PSO Coated v3 / Fogra39.",
+        "Bật cảnh báo Gamut Check để bôi đỏ các vùng ngoài dải in.",
+        "Dùng HSL và Curves bên dưới layer Soft Proof để kéo các màu rực về vùng an toàn.",
+        "Tắt layer Soft Proof trước khi xuất file TIFF in ấn."
+      ],
+      "expectedOutcome": "Ảnh in thực tế trùng khớp 98% với những gì nhìn thấy trên màn hình."
+    },
+    "independentChallenge": {
+      "title": "Đóng gói bàn giao đa kênh cho chiến dịch truyền thông",
+      "prompt": "Sử dụng tài liệu hướng dẫn P10, xuất một bức ảnh Key Visual thành 3 phiên bản: 1) Master Print (TIFF 16-bit Adobe RGB); 2) Web Display (WebP 85% sRGB); 3) Photoshop PSD tương thích.",
+      "starterAsset": {
+        "filename": "P10_export_delivery_production_guide.md",
+        "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+        "filesize": "4.9 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "File web sRGB hiển thị rực rỡ và nhúng profile ICC chính xác.",
+        "File TIFF lưu giữ toàn vẹn 16-bit không vỡ dải màu Banding.",
+        "File PSD bảo toàn cấu trúc layer và hiệu ứng fx khi mở trên Photoshop."
+      ],
+      "bonusGoal": "Kiểm tra kích thước file WebP đạt dưới 300 KB với chiều rộng 1920px."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Ảnh tải lên mạng xã hội bị xỉn màu và nhợt nhạt",
+        "cause": "Tài liệu được tạo ở Adobe RGB hoặc Display P3 nhưng khi xuất không được chuyển sang sRGB và quên nhúng ICC profile.",
+        "solution": "Luôn dùng Document > Convert Format / ICC Profile chuyển sang sRGB IEC61966-2.1 trước khi xuất cho web."
+      },
+      {
+        "pitfall": "Màu sắc bị đảo lộn đột ngột khi dùng lệnh Assign Profile",
+        "cause": "Nhầm lẫn giữa Assign Profile (đổi nhãn không đổi số) và Convert Profile (tính toán lại số bảo toàn màu).",
+        "solution": "Chỉ dùng Convert Profile để chuyển đổi màu. Không dùng Assign Profile trừ trường hợp file bị mất profile gốc."
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P10-02-Q1",
+        "question": "Khi chuẩn bị xuất một bức ảnh để đăng tải lên website hoặc mạng xã hội (Facebook, Instagram), không gian màu chuẩn mực bắt buộc phải chuyển đổi sang là gì?",
+        "options": [
+          "sRGB IEC61966-2.1",
+          "ProPhoto RGB",
+          "Adobe RGB (1998)",
+          "Apple RGB"
+        ],
+        "correctIndex": 0,
+        "explanation": "sRGB là không gian màu tiêu chuẩn phổ quát cho tất cả các trình duyệt web, màn hình phổ thông và mạng xã hội. Không dùng sRGB sẽ khiến ảnh bị sai lệch hoặc nhợt nhạt màu sắc."
+      },
+      {
+        "id": "P10-02-Q2",
+        "question": "Để chuyển đổi tài liệu sang không gian màu mới mà vẫn bảo toàn màu sắc mắt người nhìn thấy thông qua việc tính toán lại giá trị pixel, lệnh nào là chính xác?",
+        "options": [
+          "Document > Convert Format / ICC Profile",
+          "Document > Assign ICC Profile",
+          "Layer > Rasterize",
+          "Edit > Cut"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lệnh Convert Format / ICC Profile tính toán lại các giá trị số RGB để bảo toàn màu sắc thị giác trung thực nhất trong không gian màu đích."
+      },
+      {
+        "id": "P10-02-Q3",
+        "question": "Hiện tượng 'Color Banding' (các vệt bậc thang loang lổ trên gradient bầu trời) thường xảy ra khi chỉnh sửa ở độ sâu màu nào?",
+        "options": [
+          "8-bit (chỉ có 256 sắc độ trên mỗi kênh màu)",
+          "16-bit",
+          "32-bit Floating Point",
+          "64-bit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ảnh 8-bit chỉ có 256 mức độ sáng trên mỗi kênh màu đỏ, lục, lam; khi tăng tương phản hoặc kéo sáng mạnh, các bước chuyển sắc bị đứt gãy tạo thành các dải sọc bậc thang."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "sRGB là chuẩn mực toàn cầu cho web; Adobe RGB là chuẩn mực cho in ấn mỹ thuật.",
+        "Convert Profile tính toán lại giá trị RGB bảo tồn màu mắt thấy; Assign Profile chỉ đổi nhãn.",
+        "Relative Colorimetric kèm Black Point Compensation là lựa chọn chuẩn cho nhiếp ảnh.",
+        "WebP và TIFF nén ZIP là hai định dạng bàn giao tối ưu nhất cho web và lưu trữ master."
+      ],
+      "relatedResources": [
+        {
+          "title": "Bài tiếp theo: P10-03 Capstone Project — End-to-End Master Workflow",
+          "target": "P10-03",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu thực hành: P10_export_delivery_production_guide.md",
+          "target": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "practiceAsset": {
+    "filename": "P10_export_delivery_production_guide.md",
+    "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
+    "filesize": "4.9 KB",
+    "filetype": ".md",
+    "assetStatus": "GUIDE_DOCUMENT",
+    "isVerified": true,
+    "statusNote": "Technical practice guide for professional export, color management, and capstone workflow in Affinity Photo."
+  },
+  "slides": [
+    {
+      "id": "slide-p10-02-01",
+      "order": 1,
+      "title": "Không gian màu (Color Gamut) là gì?",
+      "subtitle": "Hình nón màu sắc và giới hạn quang phổ vật lý",
+      "type": "concept",
+      "content": "Mắt người nhìn thấy hàng tỷ màu sắc trong biểu đồ CIE 1931 Chromaticity. Tuy nhiên, mỗi thiết bị (màn hình, máy in) chỉ có thể tái tạo một vùng màu giới hạn gọi là không gian màu (Gamut). Có 3 chuẩn màu chính trong nhiếp ảnh số: sRGB, Display P3 và Adobe RGB.",
+      "tips": "ProPhoto RGB có dải màu rộng nhất, bao phủ 90% quang phổ mắt người nhìn thấy.",
+      "codeSnippet": "Color Gamut Hierarchy:\nProPhoto RGB (Gigantic - Covers 90% visible spectrum, ideal for 16-bit RAW)\n  └── Adobe RGB 1998 (Wide - Rich cyans & greens, ideal for professional print)\n       └── Display P3 (Wide - Rich reds & greens on iPhone/Mac/Modern displays)\n            └── sRGB (Standard - Universal web standard, universally safe)"
+    },
+    {
+      "id": "slide-p10-02-02",
+      "order": 2,
+      "title": "Phân biệt Convert Profile vs Assign Profile",
+      "subtitle": "Quy tắc sống còn chống sai lệch màu sắc",
+      "type": "workflow",
+      "content": "1) Convert Format / Profile: Giữ nguyên màu sắc mắt người nhìn thấy bằng cách tự động tính toán lại các con số RGB tương ứng trong không gian màu mới (DÙNG LỆNH NÀY 99% THỜI GIAN); 2) Assign Profile: Giữ nguyên các con số RGB nhưng thay đổi nhãn profile, làm biến đổi toàn bộ màu sắc nhìn thấy.",
+      "tips": "Nếu bạn muốn đổi từ Adobe RGB sang sRGB để đăng Facebook, LUÔN chọn Convert Profile!",
+      "visualDescription": "Sơ đồ so sánh: Convert tính lại số RGB giữ nguyên cảm nhận màu; Assign giữ nguyên số làm thay đổi màu sắc nghiêm trọng."
+    },
+    {
+      "id": "slide-p10-02-03",
+      "order": 3,
+      "title": "4 Cơ chế diễn giải màu sắc (Rendering Intents)",
+      "subtitle": "Xử lý các màu sắc vượt ngưỡng (Out-of-Gamut)",
+      "type": "interaction",
+      "content": "Khi chuyển một bức ảnh từ không gian màu rộng sang không gian màu hẹp, các màu rực rỡ vượt ngưỡng sẽ được xử lý ra sao? 1) Relative Colorimetric (chuẩn phổ biến nhất, dịch chuyển các màu ngoài ngưỡng về mép giới hạn); 2) Perceptual (co cụm toàn bộ dải màu theo tỷ lệ để bảo tồn độ phân tách sắc thái); 3) Saturation; 4) Absolute.",
+      "tips": "Với ảnh phong cảnh rực rỡ có mây hoàng hôn đỏ gắt, thử nghiệm giữa Relative Colorimetric và Perceptual để chọn phương án giữ chi tiết tốt nhất.",
+      "codeSnippet": "Rendering Intents Guide:\n- Relative Colorimetric: Matches in-gamut colors exactly, clips out-of-gamut to gamut boundary (Default for photography)\n- Perceptual: Compresses all colors proportionally to preserve visual gradient relationships\n- Black Point Compensation: Prevents shadow crunch when converting profiles"
+    },
+    {
+      "id": "slide-p10-02-04",
+      "order": 4,
+      "title": "Soft Proofing: Giả lập kết quả trước khi xuất",
+      "subtitle": "Loại bỏ bất ngờ không mong muốn khi in ấn",
+      "type": "detail",
+      "content": "Lớp điều chỉnh Soft Proofing mô phỏng trực tiếp trên màn hình xem tác phẩm sẽ trông như thế nào khi in trên giấy bóng (Glossy), giấy nhám (Matte) hoặc khi xem trên màn hình điện thoại giá rẻ. Bạn có thể bật cảnh báo Gamut Check để bôi đỏ những màu máy in không thể in được.",
+      "tips": "Đặt layer Soft Proof ở trên cùng của layer stack, nhưng nhớ TẮT nó đi trước khi xuất file thật.",
+      "visualDescription": "Mô phỏng bức ảnh hoa sen hồng với các đốm xám cảnh báo vùng màu bị vượt ngưỡng của máy in giấy Couche."
+    },
+    {
+      "id": "slide-p10-02-05",
+      "order": 5,
+      "title": "So sánh các định dạng nén hiện đại",
+      "subtitle": "WebP vs JPEG XL vs TIFF vs PSD",
+      "type": "layout",
+      "content": "WebP: Tiêu chuẩn hiện đại cho web, hỗ trợ độ trong suốt và nén nhỏ hơn 35% so với JPEG. JPEG XL: Tương lai của ảnh chất lượng cao với dải động HDR và không suy giảm chi tiết. TIFF: Định dạng chuẩn cho in ấn cao cấp, hỗ trợ 16-bit và không nén tổn hao (Lossless LZW/ZIP).",
+      "tips": "Tránh dùng JPEG cho các logo có đường kẻ mảnh và chữ vì thuật toán DCT của JPEG gây hiện tượng nhòe viền chữ (ringing artifacts).",
+      "codeSnippet": "Format Decision Matrix:\n- Web & Mobile Apps -> WebP (Quality 85%) or PNG-24 for transparency\n- Fine Art Printing -> TIFF (16-bit, Adobe RGB 1998, LZW Compression)\n- Master Archival -> .afphoto (Native) or TIFF Multi-layer\n- Client Collaboration (Adobe users) -> PSD with compatibility enabled"
+    },
+    {
+      "id": "slide-p10-02-06",
+      "order": 6,
+      "title": "Độ sâu màu (Bit Depth): 8-bit vs 16-bit vs 32-bit",
+      "subtitle": "Bí quyết chống hiện tượng vỡ dải màu (Banding)",
+      "type": "diagram",
+      "content": "8-bit cung cấp 256 cấp độ mỗi kênh (16.7 triệu màu), dễ bị hiện tượng vỡ hạt vệt (Banding) khi kéo Curves gắt trên bầu trời mượt mà. 16-bit cung cấp 65,536 cấp độ mỗi kênh, đảm bảo các chuyển sắc gradient hoàn toàn mịn màng. 32-bit float dùng cho HDR và dữ liệu thấu kính quang học.",
+      "tips": "Luôn chỉnh sửa ở chế độ RGB/16 trong Document > Color Format, và chỉ chuyển về RGB/8 ở bước xuất file web cuối cùng.",
+      "visualDescription": "So sánh bầu trời hoàng hôn: Bên trái 8-bit bị các bậc thang phân tách dải màu rõ rệt, bên phải 16-bit mượt mà êm ái."
+    },
+    {
+      "id": "slide-p10-02-07",
+      "order": 7,
+      "title": "Quy chuẩn đóng gói bàn giao khách hàng chuyên nghiệp",
+      "subtitle": "Tiêu chuẩn ngành cho studio sáng tạo",
+      "type": "summary",
+      "content": "Một gói bàn giao thương mại chuẩn bao gồm: 1) Thư mục /Master_Archival/ (.afphoto và TIFF 16-bit Adobe RGB); 2) Thư mục /Print_HighRes/ (TIFF/JPEG 300DPI CMYK hoặc Adobe RGB); 3) Thư mục /Web_Social/ (WebP/JPEG 72-144DPI sRGB tối ưu nén kèm nhúng ICC profile).",
+      "tips": "Luôn giữ lại bản quyền metadata tác giả và bản quyền trong thẻ EXIF/IPTC khi xuất.",
+      "codeSnippet": "Delivery Quality Checklist:\n[✓] Color profile converted to sRGB for web / Adobe RGB for print\n[✓] ICC Profile embedded in file header\n[✓] Bit depth optimized (8-bit for web, 16-bit for master print)\n[✓] Clean folder structure with naming conventions applied"
+    }
+  ]
+}

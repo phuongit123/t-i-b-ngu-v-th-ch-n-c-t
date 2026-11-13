@@ -1,0 +1,281 @@
+{
+  "id": "P04-03",
+  "moduleId": "P04",
+  "trackId": "photo",
+  "order": 3,
+  "title": "Frequency Separation & High-End Portrait Workflow",
+  "subtitle": "Splitting Texture from Tone, Gaussian Blur Radius Tuning & Micro Dodge/Burn",
+  "durationMinutes": 35,
+  "difficulty": "Intermediate",
+  "standardSections": {
+    "learningObjectives": [
+      "Hiểu sâu sắc cơ chế phân tách tần số không gian (Spatial Frequency Separation) của Affinity Photo.",
+      "Làm chủ hộp thoại Filters > Frequency Separation... để tách bức ảnh thành 2 tầng: Tần số cao (High Frequency Texture) và Tần số thấp (Low Frequency Tone & Color).",
+      "Xử lý mịn da và loang lổ sắc tố trên lớp Low Frequency mà không làm mất lỗ chân lông hay kết cấu da thật.",
+      "Xóa mụn viêm, nếp nhăn sâu trên lớp High Frequency bằng Clone Stamp mà không làm đổi màu da xung quanh.",
+      "Kết hợp kỹ thuật Micro Dodge & Burn với Curves để tôn vinh cấu trúc xương mặt và sống mũi."
+    ],
+    "foundationalKnowledge": "Frequency Separation là tiêu chuẩn vàng của ngành công nghiệp nhiếp ảnh thời trang (High-End Beauty Retouching) toàn cầu. Trong một bức ảnh chân dung, thông tin thị giác thực chất là sự hòa trộn của hai dải tần số không gian: (1) Tần số cao (High Spatial Frequency) gồm các chi tiết vi mô sắc nét như lỗ chân lông, sợi lông mi, nếp nhăn mảnh, hạt bụi, đốm mụn; và (2) Tần số thấp (Low Spatial Frequency) gồm các mảng chuyển sắc ánh sáng, bóng đổ khối mặt, và sắc thái màu da tổng thể. Bằng cách dùng bộ lọc Gaussian Blur để bóc tách bức ảnh thành 2 layer độc lập (với lớp High Frequency đặt chế độ hòa trộn Linear Light), retoucher có thể chỉnh sửa màu da mà không làm mất vân da, hoặc gọt sạch mụn mà không làm đổi màu mảng da!",
+    "technicalEvidence": {
+      "classification": "VERIFIED",
+      "source": "Affinity Photo 3.3.3 Frequency Separation Engine Specification",
+      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+    },
+    "toolAndFeatureExplanation": {
+      "toolName": "Frequency Separation Filter & Portrait Suite",
+      "persona": "Photo Persona",
+      "shortcut": {
+        "win": "Filters > Frequency Separation... / B (Paint Brush) / S (Clone Stamp)",
+        "mac": "Filters > Frequency Separation... / B (Paint Brush) / S (Clone Stamp)"
+      },
+      "description": "Bộ công cụ tự động hóa quá trình tách dải tần số ảnh thành 2 lớp High/Low Frequency có thể chỉnh sửa độc lập.",
+      "contextBarOptions": [
+        "Radius Slider: Bán kính làm mờ Gaussian (px) quyết định ranh giới giữa chi tiết kết cấu và màu sắc",
+        "Low Frequency Layer: Dùng Paint Brush mềm (Opacity 15-25%) hoặc Mixer Brush để tán mịn sắc tố da",
+        "High Frequency Layer: Dùng Clone Stamp Tool (Current Layer) để nhặt mụn và sợi lông tơ thừa",
+        "Linear Light Blend Mode: Chế độ hòa trộn toán học tự động tái cấu trúc 2 lớp thành ảnh gốc nguyên bản"
+      ]
+    },
+    "stepByStepInstructions": [
+      {
+        "stepNumber": 1,
+        "title": "Mở hộp thoại Frequency Separation tự động",
+        "instruction": "Chọn layer ảnh chân dung trong Layers Studio (F7). Vào menu Filters > Frequency Separation... Hộp thoại chuyên dụng xuất hiện chia màn hình xem trước làm đôi.",
+        "shortcutTip": { "win": "Filters > Frequency Separation...", "mac": "Filters > Frequency Separation..." }
+      },
+      {
+        "stepNumber": 2,
+        "title": "Tinh chỉnh bán kính Radius vàng",
+        "instruction": "Kéo thanh trượt Radius (thường từ 2.0px đến 6.0px tùy độ phân giải cảm biến) sao cho trên ô xem trước Low Frequency, các đốm đỏ và vết thâm biến mất, nhưng hình dạng sống mũi và mắt vẫn rõ ràng. Nhấn Apply.",
+        "shortcutTip": { "win": "Radius: 2.5 - 5.0 px", "mac": "Radius: 2.5 - 5.0 px" }
+      },
+      {
+        "stepNumber": 3,
+        "title": "Làm mịn màu da trên lớp Low Frequency",
+        "instruction": "Chọn lớp 'Low Frequency' (lớp dưới). Dùng công cụ Paint Brush Tool (B) với cọ thật mềm (Hardness 0%), Flow 20%, giữ Alt hút màu da vùng sáng tán nhẹ sang vùng da bị loang lổ. Màu da sẽ mịn màng tuyệt đối mà toàn bộ lỗ chân lông ở lớp trên vẫn còn nguyên vẹn 100%!",
+        "shortcutTip": { "win": "Chọn Low Frequency > Brush Flow 20%", "mac": "Chọn Low Frequency > Brush Flow 20%" }
+      },
+      {
+        "stepNumber": 4,
+        "title": "Xóa mụn trên lớp High Frequency",
+        "instruction": "Chọn lớp 'High Frequency' (lớp trên). Chọn Clone Stamp Tool (S), lưu ý đặt Source là 'Current Layer'. Alt-click vào một mảng vân da sạch và dập lên nốt mụn. Nốt mụn biến mất ngay lập tức mà màu da xung quanh không hề bị biến đổi!",
+        "shortcutTip": { "win": "Chọn High Frequency > Clone Stamp", "mac": "Chọn High Frequency > Clone Stamp" }
+      }
+    ],
+    "visualExamples": [
+      {
+        "title": "Sơ đồ kiến trúc phân tách tần số không gian (Frequency Separation Architecture)",
+        "description": "Hai lớp độc lập kết hợp toán học thông qua Linear Light tái tạo chính xác 100% ảnh gốc.",
+        "visualType": "diagram",
+        "visualContent": "[Tác phẩm hoàn chỉnh (Hiển thị chân thực)]\n  ↑\n[High Frequency Layer (Chế độ Linear Light)]: Chỉ chứa vân da, nếp nhăn, lỗ chân lông, sợi tóc\n  ↑ (Cộng toán học)\n[Low Frequency Layer (Chế độ Normal)]: Chỉ chứa thông tin màu da, mảng sáng tối, sắc tố khối mặt\n  ↑ (Bộ lọc Gaussian Blur)\n[Ảnh gốc ban đầu]"
+      }
+    ],
+    "guidedPractice": {
+      "title": "Xử lý ảnh chân dung Beauty Retouching chuẩn bìa tạp chí",
+      "taskDescription": "Thực hiện toàn bộ quy trình Frequency Separation trên tệp ảnh chân dung cận cảnh, làm đều màu da và xóa mụn mà không tạo cảm giác da nhựa (plastic skin).",
+      "checkpoints": [
+        "Hộp thoại Frequency Separation được áp dụng với bán kính Radius chuẩn (3.0px - 4.5px).",
+        "Nhặt sạch các nốt mụn trứng cá trên lớp High Frequency bằng Clone Stamp.",
+        "Tán đều các vết quầng thâm mắt và mẩn đỏ trên lớp Low Frequency.",
+        "Phóng to 200%: Toàn bộ cấu trúc lỗ chân lông và vân da tự nhiên vẫn sắc nét hoàn hảo."
+      ],
+      "expectedOutcome": "Làn da người mẫu mịn màng, rạng rỡ, đạt tiêu chuẩn khắt khe của các ấn phẩm thời trang quốc tế."
+    },
+    "independentChallenge": {
+      "title": "Kết hợp Frequency Separation với Micro Dodge & Burn",
+      "prompt": "Sau khi hoàn thành Frequency Separation, tạo 2 lớp Curves Adjustment (1 lớp nâng sáng Highlights, 1 lớp dìm tối Shadows) đảo ngược mặt nạ thành đen (Invert Mask Ctrl+I). Dùng cọ mềm 10% Flow vẽ nhẹ lên sống mũi, gò má và xương quai xanh để tạo khối 3D kịch tính.",
+      "starterAsset": {
+        "filename": "P04_retouching_restoration_guide.md",
+        "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+        "filesize": "4.8 KB",
+        "filetype": ".md",
+        "assetStatus": "GUIDE_DOCUMENT",
+        "isVerified": true,
+        "statusNote": "Hướng dẫn thực hành Frequency Separation và Dodge & Burn chân dung trong Affinity Photo."
+      },
+      "challengeCriteria": [
+        "Frequency Separation được nhóm thành một Group riêng biệt.",
+        "Các lớp Dodge & Burn được tổ chức phi phá hủy bằng Curves và Mặt nạ đen.",
+        "Khuôn mặt nổi khối 3D rõ nét dưới ánh sáng studio."
+      ],
+      "bonusGoal": "Sử dụng chế độ hòa trộn Luminosity trên các lớp Curves Dodge & Burn để tránh làm biến đổi độ bão hòa màu da."
+    },
+    "commonPitfalls": [
+      {
+        "pitfall": "Da mặt trông giả tạo như búp bê nhựa sáp (Plastic Look)",
+        "cause": "Đặt bán kính Radius quá lớn khi tách tần số, hoặc dùng cọ dập xóa cả texture ở lớp High Frequency.",
+        "solution": "Chỉ đặt Radius vừa đủ làm mờ vết mụn trên Low Frequency (thường 2.5 - 4.5px). Tuyệt đối không dùng cọ mờ vẽ đè lên High Frequency."
+      },
+      {
+        "pitfall": "Dùng Clone Stamp trên lớp High Frequency nhưng xuất hiện mảng màu khác biệt",
+        "cause": "Đặt tùy chọn Source trên Context Bar là 'Current Layer & Below' (khiến nó sao chép cả màu của lớp dưới đắp lên).",
+        "solution": "Khi đang ở lớp High Frequency, BẮT BUỘC đặt Source là 'Current Layer'!"
+      }
+    ],
+    "knowledgeCheck": [
+      {
+        "id": "P04-03-Q1",
+        "question": "Trong kiến trúc Frequency Separation của Affinity Photo, lớp 'High Frequency' chứa đựng loại thông tin thị giác nào của bức ảnh?",
+        "options": [
+          "Thông tin màu da và ánh sáng khối mặt tổng thể",
+          "Thông tin chi tiết vi mô, kết cấu vân da, lỗ chân lông, sợi lông mi và nếp nhăn mảnh",
+          "Kênh mặt nạ vector",
+          "Thông tin siêu dữ liệu EXIF máy ảnh"
+        ],
+        "correctIndex": 1,
+        "explanation": "High Frequency đại diện cho các tần số không gian cao—tức các chi tiết vi mô sắc nét như lỗ chân lông, hạt da, sợi tóc và cạnh viền."
+      },
+      {
+        "id": "P04-03-Q2",
+        "question": "Khi sử dụng Clone Stamp Tool để nhặt mụn trên lớp 'High Frequency', tùy chọn Source trên thanh Context Bar bắt buộc phải đặt là gì?",
+        "options": [
+          "Current Layer & Below",
+          "All Layers",
+          "Current Layer",
+          "Clipboard"
+        ],
+        "correctIndex": 2,
+        "explanation": "Phải chọn 'Current Layer' để Clone Stamp chỉ sao chép kết cấu vân xám của riêng lớp High Frequency, không lấy mẫu màu sắc của lớp Low bên dưới."
+      },
+      {
+        "id": "P04-03-Q3",
+        "question": "Tại sao Frequency Separation lại vượt trội hoàn toàn so with việc làm mịn da bằng các bộ lọc làm mờ (Blur) thông thường?",
+        "options": [
+          "Vì nó chạy nhanh hơn trên CPU",
+          "Vì nó tách biệt hoàn toàn giữa cấu trúc vân da (Texture) và mảng màu sắc (Tone), cho phép làm đều màu da mà không làm mất đi lỗ chân lông tự nhiên",
+          "Vì nó tự động tải ảnh lên mạng xã hội",
+          "Vì nó chỉ áp dụng được cho ảnh định dạng RAW"
+        ],
+        "correctIndex": 1,
+        "explanation": "Làm mờ thông thường sẽ tiêu diệt toàn bộ kết cấu da biến người mẫu thành tượng sáp. Frequency Separation giữ trọn vẹn kết cấu da thật trên lớp High trong khi xử lý mịn màu trên lớp Low."
+      }
+    ],
+    "summaryAndResources": {
+      "summaryPoints": [
+        "Frequency Separation là tiêu chuẩn vàng của retouching chân dung thương mại quốc tế.",
+        "Tách bức ảnh thành 2 tầng: High Frequency (Vân bề mặt) và Low Frequency (Màu sắc & Ánh sáng).",
+        "Làm mịn da trên Low Frequency bằng cọ mềm hoặc cọ hòa màu; Nhặt mụn trên High Frequency bằng Clone Stamp (Current Layer).",
+        "Kết hợp Micro Dodge & Burn với Curves để tôn vinh đường nét giải phẫu khuôn mặt 3D hoàn hảo."
+      ],
+      "relatedResources": [
+        {
+          "title": "Module tiếp theo: P05 Color Correction & Creative Color Grading",
+          "target": "P05-01",
+          "type": "next-lesson"
+        },
+        {
+          "title": "Tài liệu kỹ thuật: P04_retouching_restoration_guide.md",
+          "target": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "type": "guide"
+        }
+      ]
+    }
+  },
+  "slides": [
+    {
+      "id": "P04-03-S1",
+      "slideNumber": 1,
+      "type": "intro",
+      "title": "Kỹ Thuật Tách Tần Số (Frequency Separation) Chuyên Nghiệp",
+      "subtitle": "Bí quyết làm da mịn màng chuẩn bìa tạp chí Vogue mà vẫn giữ trọn lỗ chân lông",
+      "contentMarkdown": "Bạn đã từng tự hỏi: Làm sao các nhiếp ảnh gia hàng đầu thế giới có thể làm cho làn da của người mẫu mịn màng, đều màu không tì vết, nhưng khi phóng to vào vẫn thấy từng **lỗ chân lông li ti, từng sợi lông tơ chân thực tuyệt đối**?\n\nCâu trả lời chính là: **Frequency Separation (Tách tần số không gian)**.\n\nTrong bài học này, bạn sẽ làm chủ quy trình tự động hóa của Affinity Photo để phân tách bức ảnh thành 2 tầng riêng biệt: **Tầng Màu Sắc (Tone)** và **Tầng Kết Cấu (Texture)**.",
+      "actionBox": {
+        "label": "Tiêu Chuẩn Vàng",
+        "text": "Xóa tan nỗi sợ 'da nhựa búp bê sáp'. Với Frequency Separation, da vừa mịn màng không tì vết, vừa chân thực 100%!"
+      }
+    },
+    {
+      "id": "P04-03-S2",
+      "slideNumber": 2,
+      "type": "theory",
+      "title": "Bản Chất Khoa Học Của Tách Tần Số",
+      "subtitle": "High Frequency Texture vs Low Frequency Tone",
+      "contentMarkdown": "Mỗi hình ảnh được cấu tạo từ 2 dải tần số sóng ánh sáng:\n\n- 🔬 **High Frequency (Tần số cao - Lớp trên):** Chứa đựng các chi tiết bề mặt siêu nhỏ: Lỗ chân lông, nếp nhăn đuôi mắt, đầu mụn, gân máu. Lớp này hiển thị dưới dạng một bản đồ xám tương tự High Pass với chế độ hòa trộn **Linear Light**.\n- 🎨 **Low Frequency (Tần số thấp - Lớp dưới):** Chứa đựng màu da, sắc tố đỏ loang lổ, quầng thâm mắt, ánh sáng khối mặt.\n- Khi xếp chồng 2 lớp này lại, card đồ họa cộng các giá trị toán học và hiển thị lại chính xác bức ảnh gốc ban đầu!",
+      "visual": {
+        "type": "callout",
+        "content": "Phép màu xuất hiện: Bạn có thể can thiệp làm mịn màu trên lớp Low mà lớp High không hề suy suyển, hoặc gọt sạch mụn trên lớp High mà màu sắc lớp Low không hề biến đổi!"
+      }
+    },
+    {
+      "id": "P04-03-S3",
+      "slideNumber": 3,
+      "type": "tool-anatomy",
+      "title": "Hộp Thoại Filters > Frequency Separation...",
+      "subtitle": "Tinh chỉnh tham số Radius chuẩn xác",
+      "contentMarkdown": "Vào menu `Filters > Frequency Separation...`:\n\n- Màn hình xuất hiện thanh trượt **Radius**.\n- Hãy quan sát ô xem trước của lớp Low Frequency:\n  - Kéo tăng Radius từ từ (`2.0 px` ➔ `4.5 px`).\n  - Dừng lại ngay khi các vết mụn đỏ và tàn nhang biến mất thành mảng mờ nhạt, nhưng **hình dáng mắt, sống mũi và môi vẫn định hình rõ ràng**.\n  - Nhấn nút **Apply** màu xanh. Phần mềm sẽ tự động sinh ra 2 layer được cấu hình sẵn trong Layers Studio!",
+      "actionBox": {
+        "label": "Quy Tắc Bán Kính",
+        "text": "Ảnh chân dung 24MP - 45MP thường dùng Radius từ 2.5px đến 4.5px. Đừng đặt Radius quá lớn kẻo làm lẫn texture vào lớp màu."
+      }
+    },
+    {
+      "id": "P04-03-S4",
+      "slideNumber": 4,
+      "type": "step-by-step",
+      "title": "Quy Trình 4 Bước Retouch Da Đỉnh Cao",
+      "subtitle": "Thực hành trên 2 tầng tách biệt",
+      "contentMarkdown": "1. **Áp dụng Frequency Separation:** Với bán kính chuẩn 3.0px.\n2. **Xử lý màu da trên Low Frequency:** Chọn layer Low, dùng Paint Brush mềm (`B`), Flow 20%, Alt-click hút màu da đều tán nhẹ qua các vùng thâm quầng và đốm đỏ.\n3. **Nhặt mụn trên High Frequency:** Chọn layer High, chọn Clone Stamp (`S`), đặt Source là **`Current Layer`**. Alt-click vào vùng da lành và dập bay nốt mụn!\n4. **Đánh giá kết quả:** Nhấp tắt mở Group Frequency Separation để chiêm ngưỡng làn da mịn màng mà vẫn giữ trọn vẹn kết cấu lỗ chân lông.",
+      "visual": {
+        "type": "badge-grid",
+        "content": "Freq Sep Filter | Low Freq: Brush Tone | High Freq: Clone Texture | Source: Current | Retouch Hoàn Hảo"
+      }
+    },
+    {
+      "id": "P04-03-S5",
+      "slideNumber": 5,
+      "type": "pitfalls",
+      "title": "Cạm Bẫy Chết Người Cần Tránh",
+      "subtitle": "Lỗi Source trên Clone Stamp và lỗi bán kính Radius",
+      "contentMarkdown": "### 1. Quên đổi Source khi ở lớp High Frequency\n- **Hậu quả:** Bạn đang ở lớp High, dùng Clone Stamp nhưng Context Bar lại để `Current Layer & Below`. Khi dập cọ, nó kéo theo cả màu của lớp Low đắp lên, tạo ra một mảng da loang lổ thâm tím!\n- **Khắc phục:** Ở lớp High Frequency, **BẮT BUỘC** đặt Source là `Current Layer`.\n\n### 2. Dùng cọ quá cứng trên lớp Low Frequency\n- **Hậu quả:** Xuất hiện các mảng màu loang như vệt phấn trang điểm bị mốc.\n- **Khắc phục:** Luôn để Hardness của cọ là 0%, Flow từ 15% - 25% và quét cọ từ tốn.",
+      "actionBox": {
+        "label": "Ghi Nhớ Thuộc Lòng",
+        "text": "High Frequency = Clone Stamp với Source: Current Layer! Low Frequency = Paint Brush cọ mềm Flow 20%!"
+      }
+    },
+    {
+      "id": "P04-03-S6",
+      "slideNumber": 6,
+      "type": "quiz",
+      "title": "Kiểm Tra Kỹ Năng Tách Tần Số",
+      "subtitle": "Xác nhận năng lực Retouching chuyên nghiệp",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây.",
+      "quizData": {
+        "id": "P04-03-Q2",
+        "question": "Khi sử dụng Clone Stamp Tool để nhặt mụn trên lớp 'High Frequency', tùy chọn Source trên thanh Context Bar bắt buộc phải đặt là gì?",
+        "options": [
+          "Current Layer & Below",
+          "All Layers",
+          "Current Layer",
+          "Clipboard"
+        ],
+        "correctIndex": 2,
+        "explanation": "Phải chọn 'Current Layer' để Clone Stamp chỉ sao chép kết cấu vân xám của riêng lớp High Frequency, không lấy mẫu màu sắc của lớp Low bên dưới."
+      }
+    },
+    {
+      "id": "P04-03-S7",
+      "slideNumber": 7,
+      "type": "challenge",
+      "title": "Thực Hành: Chân Dung Hoàn Hảo Với Frequency Separation",
+      "subtitle": "Thực hiện đồ án chân dung hoàn chỉnh",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\n1. Mở tài liệu thực hành `P04_retouching_restoration_guide.md`.\n2. Áp dụng Frequency Separation lên ảnh chân dung mẫu.\n3. Nhặt sạch mụn trứng cá và sợi tóc con rơi trên má bằng Clone Stamp trên High Frequency.\n4. Làm đều vùng da bóng dầu và quầng thâm dưới mắt trên Low Frequency.\n5. Thêm một lớp Curves Adjustment tăng sáng nhẹ vùng sống mũi và đôi mắt (Micro Dodge).\n\n### Tiêu Chí Nghiệm Thu:\n- Da mặt sạch mụn, đều màu, rạng ngời.\n- Giữ nguyên 100% kết cấu lỗ chân lông khi soi kính lúp 200%.",
+      "practiceData": {
+        "prompt": "Hoàn thiện quy trình Retouch chân dung với Frequency Separation.",
+        "starterAsset": {
+          "filename": "P04_retouching_restoration_guide.md",
+          "filepath": "curriculum/assets/photo/P04_retouching_restoration_guide.md",
+          "filesize": "4.8 KB",
+          "filetype": ".md",
+          "assetStatus": "GUIDE_DOCUMENT",
+          "isVerified": true,
+          "statusNote": "Hướng dẫn thực hành Frequency Separation và Dodge & Burn chân dung trong Affinity Photo."
+        },
+        "checkpoints": [
+          "Áp dụng bộ lọc Frequency Separation chuẩn",
+          "Làm sạch mụn trên High Frequency",
+          "Làm mịn sắc tố màu trên Low Frequency"
+        ]
+      }
+    }
+  ]
+}
