@@ -3,8 +3,8 @@
 ## Document Control
 - **Document ID:** `BLOCKERS-AFFINITY-001`
 - **Version:** `4.2.2` (Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-11`
+- **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
+- **Last Updated:** `2026-11-13`
 - **Governing Agent:** `Orchestrator`
 
 ---
@@ -39,6 +39,8 @@
 | `RSK-002` | Affinity DOM API Breaking Changes across versions | Low | Medium | Automated extraction script (`TASK-005`) validates live DOM classes against `AFFINITY_DOM_API_REFERENCE.json`. | Pass rate of `TASK-052` |
 | `RSK-003` | Monolithic Codebase Drift | Low | Medium | Strict modular directory structure separating curriculum, UI components, simulator, and automation libraries (`TASK-003`). | Static architecture linting |
 | `RSK-004` | Credential Leakage in Git | Low | Critical | Strict `.gitignore` including `.env`, `.env.local`, and automated scan before commits (`TASK-062`). | Git pre-commit audit |
-| `RSK-005` | Parameter Schema Inconsistencies in MCP | Medium | Low | Discrepancy in `read_sdk_documentation_topic` (`filename` vs `topic`) documented and reported via `report_sdk_issue`. | Client SDK uses `filename` parameter |
+| `RSK-005` | Parameter Schema Inconsistencies in MCP | Medium | Low | Historical 2026-11-09 discrepancy is documented; current server schema/runtime has not been revalidated. Inspect live schema and invoke the tool before changing client code. | Fresh schema + invocation evidence on target Windows machine |
 | `RSK-006` | Windows AppLocker / WDAC Block on Native Node Addons | Low | High | Resolved by `@rollup/wasm-node` fallback in `package.json` `postinstall` hook. Production builds run cleanly without native DLLs. | `npm run build` clean exit code 0 |
 | `RSK-007` | Sandboxed Desktop Write Restrictions on Practice Assets | Medium | Medium | Documented in ADR-016. Genuine `.afphoto` copied from user session; `.js` files executed via DOM; manual guides provided for `.afdesign` and `.afpub`. | Integrity verification via `scripts/validate-curriculum.js` |
+
+| `RSK-008` | Curriculum validator structural blind spots | Medium | Medium | Phase 5 follow-up adds root-entry allow-list, exact lesson filename checks, manifest-to-module lesson ID comparison, and duplicate lesson payload detection. Local test execution remains pending in this environment. | `npm run validate:curriculum` and `npm run test:validator` on target branch |
