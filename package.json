@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "check:env": "node scripts/check-affinity-env.js",
     "validate:curriculum": "node scripts/validate-curriculum.js",
+    "test:validator": "node scripts/test-curriculum-validator.js",
     "test:scripts": "node scripts/test-curriculum-scripts.js",
     "test:e2e": "playwright test",
     "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\""
