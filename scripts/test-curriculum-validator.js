@@ -49,17 +49,35 @@ function createFixture() {
   return { root, moduleDir };
 }
 
-function runFixture(mutator = () => {}, expectedCurriculum = SINGLE_MODULE_EXPECTATION) {
+function runFixture(
+  mutator = () => {},
+  expectedCurriculum = SINGLE_MODULE_EXPECTATION,
+  { silent = true } = {}
+) {
   const fixture = createFixture();
   try {
     mutator(fixture);
     return validateCurriculum({
       curriculumDir: fixture.root,
       expectedCurriculum,
-      silent: true,
+      silent,
     });
   } finally {
     fs.rmSync(fixture.root, { recursive: true, force: true });
+  }
+}
+
+function captureConsole(callback) {
+  const output = [];
+  const originalLog = console.log;
+  const originalError = console.error;
+  console.log = (...args) => output.push(args.join(' '));
+  console.error = (...args) => output.push(args.join(' '));
+  try {
+    return { result: callback(), output: output.join('\n') };
+  } finally {
+    console.log = originalLog;
+    console.error = originalError;
   }
 }
 
@@ -175,17 +193,52 @@ assertContainsError(duplicateMetadataLessonIdsResult, 'contains duplicate lesson
 
 // TEST 12: Invalid module metadata.
 console.log('\nTest 12: Invalid module metadata...');
-const invalidMetadataResult = runFixture(({ moduleDir }) => {
+const invalidMetadataCapture = captureConsole(() => runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
   const moduleData = readJson(modulePath);
   moduleData.title = '';
   moduleData.difficulty = 'ExpertLevelSuperHard';
   moduleData.estimatedMinutes = -10;
   writeJson(modulePath, moduleData);
-});
+}, SINGLE_MODULE_EXPECTATION, { silent: false }));
+const invalidMetadataResult = invalidMetadataCapture.result;
 assertContainsError(invalidMetadataResult, 'missing required field: "title"', 'Missing title is rejected');
 assertContainsError(invalidMetadataResult, 'Invalid difficulty', 'Invalid difficulty is rejected');
 assertContainsError(invalidMetadataResult, 'Invalid estimatedMinutes', 'Non-positive duration is rejected');
+assert(
+  !invalidMetadataCapture.output.includes('[PASS] module.json:'),
+  'Invalid module metadata is not reported as a module PASS'
+);
+
+// TEST 15: Accept the supported lessons: [{ id }] metadata representation.
+console.log('\nTest 15: Object-based module lessons metadata...');
+const objectLessonsResult = runFixture(({ moduleDir }) => {
+  const modulePath = path.join(moduleDir, 'module.json');
+  const moduleData = readJson(modulePath);
+  moduleData.lessons = moduleData.lessonIds.map((id) => ({ id }));
+  delete moduleData.lessonIds;
+  writeJson(modulePath, moduleData);
+});
+assert(
+  objectLessonsResult.errors === 0 && objectLessonsResult.passes === 3,
+  'Object-based lessons metadata validates all three expected lessons'
+);
+
+// TEST 16: Reject null/malformed entries in the lessons array without throwing.
+console.log('\nTest 16: Null entry in module lessons metadata...');
+const nullLessonEntryResult = runFixture(({ moduleDir }) => {
+  const modulePath = path.join(moduleDir, 'module.json');
+  const moduleData = readJson(modulePath);
+  moduleData.lessons = [{ id: 'D01-01' }, null, { id: 'D01-03' }];
+  delete moduleData.lessonIds;
+  writeJson(modulePath, moduleData);
+});
+assert(nullLessonEntryResult.errors > 0, 'Null lesson metadata entry fails validation');
+assertContainsError(
+  nullLessonEntryResult,
+  'contains an invalid lesson ID entry',
+  'Null lesson metadata entry receives a specific diagnostic'
+);
 
 // TEST 13: Unexpected loose entry at curriculum root.
 console.log('\nTest 13: Unexpected root file...');
