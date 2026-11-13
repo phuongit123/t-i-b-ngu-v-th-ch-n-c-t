@@ -210,6 +210,23 @@ assert(
   'Invalid module metadata is not reported as a module PASS'
 );
 
+// TEST 13: Unexpected loose entry at curriculum root.
+console.log('\nTest 13: Unexpected root file...');
+const unexpectedRootFileResult = runFixture(({ root }) => {
+  fs.writeFileSync(path.join(root, 'README-untracked.txt'), 'unexpected');
+});
+assertContainsError(unexpectedRootFileResult, 'Unexpected curriculum root entry: README-untracked.txt', 'Unexpected root file is rejected');
+
+// TEST 14: The documented curriculum root README is an allowed support file.
+console.log('\nTest 14: Allowed curriculum root README...');
+const allowedReadmeResult = runFixture(({ root }) => {
+  fs.writeFileSync(path.join(root, 'README.md'), '# Curriculum fixture\n');
+});
+assert(
+  allowedReadmeResult.errors === 0 && allowedReadmeResult.passes === 3,
+  'Allowed curriculum root README does not cause validation failure'
+);
+
 // TEST 15: Accept the supported lessons: [{ id }] metadata representation.
 console.log('\nTest 15: Object-based module lessons metadata...');
 const objectLessonsResult = runFixture(({ moduleDir }) => {
@@ -238,23 +255,6 @@ assertContainsError(
   nullLessonEntryResult,
   'contains an invalid lesson ID entry',
   'Null lesson metadata entry receives a specific diagnostic'
-);
-
-// TEST 13: Unexpected loose entry at curriculum root.
-console.log('\nTest 13: Unexpected root file...');
-const unexpectedRootFileResult = runFixture(({ root }) => {
-  fs.writeFileSync(path.join(root, 'README-untracked.txt'), 'unexpected');
-});
-assertContainsError(unexpectedRootFileResult, 'Unexpected curriculum root entry: README-untracked.txt', 'Unexpected root file is rejected');
-
-// TEST 14: The documented curriculum root README is an allowed support file.
-console.log('\nTest 14: Allowed curriculum root README...');
-const allowedReadmeResult = runFixture(({ root }) => {
-  fs.writeFileSync(path.join(root, 'README.md'), '# Curriculum fixture\n');
-});
-assert(
-  allowedReadmeResult.errors === 0 && allowedReadmeResult.passes === 3,
-  'Allowed curriculum root README does not cause validation failure'
 );
 
 console.log('\n======================================================');
