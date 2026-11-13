@@ -37,15 +37,16 @@ function assert(condition, message) {
   }
 }
 
-function createFixture() {
-  if (!fs.existsSync(SOURCE_MODULE)) {
-    throw new Error('Required fixture source is missing: ' + SOURCE_MODULE);
+function createFixture(sourceTrack = 'designer', sourceModuleId = 'D01') {
+  const sourceModule = path.join(CURRICULUM_ROOT, sourceTrack, sourceModuleId);
+  if (!fs.existsSync(sourceModule)) {
+    throw new Error('Required fixture source is missing: ' + sourceModule);
   }
 
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'curriculum-validator-'));
-  const moduleDir = path.join(root, 'designer', 'D01');
+  const moduleDir = path.join(root, sourceTrack, sourceModuleId);
   fs.mkdirSync(path.dirname(moduleDir), { recursive: true });
-  fs.cpSync(SOURCE_MODULE, moduleDir, { recursive: true });
+  fs.cpSync(sourceModule, moduleDir, { recursive: true });
 
   // Copy only assets referenced by this module into the isolated fixture.
   for (const entry of fs.readdirSync(moduleDir, { withFileTypes: true })) {
@@ -69,9 +70,9 @@ function createFixture() {
 function runFixture(
   mutator = () => {},
   expectedCurriculum = SINGLE_MODULE_EXPECTATION,
-  { silent = true } = {}
+  { silent = true, sourceTrack = 'designer', sourceModuleId = 'D01' } = {}
 ) {
-  const fixture = createFixture();
+  const fixture = createFixture(sourceTrack, sourceModuleId);
   try {
     mutator(fixture);
     return validateCurriculum({
@@ -404,6 +405,30 @@ assertContainsError(
 
 console.log('\n======================================================');
 console.log('TEST RESULTS: ' + testsPassed + ' passed, ' + testsFailed + ' failed');
+// TEST 24: Preserve the existing legacy D10 lesson format.
+console.log('\nTest 24: Legacy Designer D10 format...');
+const legacyD10Result = runFixture(
+  () => {},
+  { designer: { modules: ['D10'], lessonCountPerModule: 3 } },
+  { sourceTrack: 'designer', sourceModuleId: 'D10' }
+);
+assert(
+  legacyD10Result.errors === 0 && legacyD10Result.passes === 3,
+  'Legacy D10 successCriteria, keyTakeaways, pitfalls, and bullet slides remain valid'
+);
+
+// TEST 25: Preserve the existing legacy P10 lesson format.
+console.log('\nTest 25: Legacy Photo P10 format...');
+const legacyP10Result = runFixture(
+  () => {},
+  { photo: { modules: ['P10'], lessonCountPerModule: 3 } },
+  { sourceTrack: 'photo', sourceModuleId: 'P10' }
+);
+assert(
+  legacyP10Result.errors === 0 && legacyP10Result.passes === 3,
+  'Legacy P10 content slides, workflow visuals, and legacy resource types remain valid'
+);
+
 console.log('======================================================\n');
 
 if (testsFailed > 0) {
