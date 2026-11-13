@@ -194,6 +194,16 @@ const unexpectedRootFileResult = runFixture(({ root }) => {
 });
 assertContainsError(unexpectedRootFileResult, 'Unexpected curriculum root entry: README-untracked.txt', 'Unexpected root file is rejected');
 
+// TEST 14: The documented curriculum root README is an allowed support file.
+console.log('\nTest 14: Allowed curriculum root README...');
+const allowedReadmeResult = runFixture(({ root }) => {
+  fs.writeFileSync(path.join(root, 'README.md'), '# Curriculum fixture\n');
+});
+assert(
+  allowedReadmeResult.errors === 0 && allowedReadmeResult.passes === 3,
+  'Allowed curriculum root README does not cause validation failure'
+);
+
 console.log('\n======================================================');
 console.log('TEST RESULTS: ' + testsPassed + ' passed, ' + testsFailed + ' failed');
 console.log('======================================================\n');
