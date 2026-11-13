@@ -3,8 +3,8 @@
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Timestamp:** `2026-11-11T05:30:00+07:00`
-- **Current State:** `TRACK 1 (DESIGNER: 30 LESSONS) & TRACK 2 (PHOTO: 30 LESSONS) FULLY OPERATIONAL — 66/66 CURRICULUM LESSONS PASSING SCHEMA — 9/9 PLAYWRIGHT E2E TESTS PASSING — 0 TS COMPILATION ERRORS — DUAL IN-BROWSER SIMULATORS OPERATIONAL — HALTED AT PHASE GATE PENDING USER APPROVAL FOR TRACK 3`
+- **Timestamp:** `2026-11-13T12:00:00+07:00`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION BRANCH PUBLISHED — VALIDATOR HARDENING AND B05/MCP DOCUMENTATION FOLLOW-UPS COMMITTED — LOCAL TESTS NOT RUN IN THIS REMOTE SESSION — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -108,3 +108,28 @@
 > - **DO NOT** deploy Supabase Backend (`TASK-030` to `033`).
 >
 > All agents are idle, standing by awaiting user review, Git commit authorization, and next phase approval.
+
+
+---
+
+## 4. Phase 5 Stabilization Follow-up — 2026-11-13
+
+The published branch \`fix/phase5-stabilization\` received follow-up commits to address issues found during independent review.
+
+### Changes made
+- \`scripts/validate-curriculum.js\`: checks unexpected entries at the curriculum root, validates that each module's declared lesson IDs exactly match the independent manifest, rejects duplicate lesson IDs in lesson payloads, and checks exact allowed lesson filenames (so an extra file such as \`D01-99.json\` is rejected).
+- \`scripts/test-curriculum-validator.js\`: replaced broad repository-dependent negative cases with isolated temporary fixtures and explicit cases for unexpected tracks/root files, rogue lesson filenames, module lesson-list mismatch, duplicate payload IDs, duplicate metadata IDs, and invalid metadata. The real repository baseline remains a positive test.
+- \`project-control/PROGRESS.md\`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Prior local test claims are labelled historical pending rerun.
+- \`project-control/PHASE_5_TRACK_3_PROPOSAL.md\`: B05 is reframed for the current Affinity all-in-one app and its Layout, Vector, and Pixel studios. StudioLink is retained only as explicitly labelled Affinity V2 legacy context.
+- \`AFFINITY_MCP_CAPABILITY_REPORT.md\` and \`AGENTS.md\`: reconcile 11 upstream tools plus the \`affinity_status\` wrapper (12 inventory rows), and mark the \`topic\` schema vs \`filename\` runtime observation as historical pending live re-audit.
+- \`project-control/BLOCKERS.md\`: records validator verification as pending and prevents the old MCP observation from being treated as current runtime evidence.
+
+### Verification state
+- The files were updated on the published branch through GitHub's repository file API.
+- This remote editing session did **not** execute \`npm ci\`, \`npm run validate:curriculum\`, \`npm run test:validator\`, \`npm run lint\`, \`npm run typecheck\`, \`npm run build\`, or Playwright.
+- No test result should be reported as PASS until those commands are run in the repository working copy.
+- No live connection to the user's Affinity MCP server was available; the current \`read_sdk_documentation_topic\` schema/runtime contract remains unverified.
+- No GitHub Actions workflow exists in the inspected branch; CI evidence remains unavailable.
+
+### Governance
+\`BLK-007\` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
