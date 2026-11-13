@@ -60,6 +60,74 @@ export const VALID_ASSET_STATUSES = [
   'NOT_YET_AVAILABLE',
 ];
 
+const VALID_SLIDE_TYPES = [
+  'intro',
+  'theory',
+  'tool-anatomy',
+  'step-by-step',
+  'guided-practice',
+  'pitfalls',
+  'quiz',
+  'challenge',
+  'summary',
+];
+
+const VALID_VISUAL_EXAMPLE_TYPES = ['diagram', 'code', 'table', 'callout', 'comparison'];
+const VALID_RESOURCE_TYPES = ['doc', 'asset', 'next-lesson', 'mcp-api'];
+const VALID_TECHNICAL_CLASSIFICATIONS = ['VERIFIED', 'DOCUMENTED', 'UNVERIFIED', 'INCORRECT'];
+
+const isPlainObject = (value) => (
+  value !== null && typeof value === 'object' && !Array.isArray(value)
+);
+
+const isNonEmptyString = (value) => (
+  typeof value === 'string' && value.trim().length > 0
+);
+
+function resolveCurriculumAssetPath(curriculumDir, filepath) {
+  if (path.isAbsolute(filepath)) return filepath;
+  const relativePath = filepath.replace(/^curriculum[\\/]/, '');
+  return path.resolve(curriculumDir, relativePath);
+}
+
+function getQuizQuestionErrors(question, context) {
+  if (!isPlainObject(question)) {
+    return [`     [FAIL] ${context} must be an object`];
+  }
+
+  const errors = [];
+  if (!isNonEmptyString(question.id)) {
+    errors.push(`     [FAIL] ${context} id must be a non-empty string`);
+  }
+  if (!isNonEmptyString(question.question)) {
+    errors.push(`     [FAIL] ${context} question must be a non-empty string`);
+  }
+  if (
+    !Array.isArray(question.options)
+    || question.options.length < 2
+    || !question.options.every(isNonEmptyString)
+  ) {
+    errors.push(`     [FAIL] ${context} options must contain at least two non-empty strings`);
+  }
+
+  const correctIndex = Number.isInteger(question.correctIndex)
+    ? question.correctIndex
+    : question.correctOption;
+  if (
+    !Number.isInteger(correctIndex)
+    || !Array.isArray(question.options)
+    || correctIndex < 0
+    || correctIndex >= question.options.length
+  ) {
+    errors.push(`     [FAIL] ${context} correctIndex must be an integer within the options range`);
+  }
+  if (!isNonEmptyString(question.explanation)) {
+    errors.push(`     [FAIL] ${context} explanation must be a non-empty string`);
+  }
+
+  return errors;
+}
+
 /**
  * Core validation function. Can be called programmatically for negative testing.
  * @param {object} options
@@ -70,10 +138,15 @@ export const VALID_ASSET_STATUSES = [
  */
 export function validateCurriculum(options = {}) {
   const curriculumDir = path.resolve(options.curriculumDir || 'curriculum');
-  const expectedStructure = options.expectedCurriculum || EXPECTED_CURRICULUM;
+  const expectedStructure = options.expectedCurriculum ?? EXPECTED_CURRICULUM;
   const silent = Boolean(options.silent);
 
   const errorList = [];
+  if (!isPlainObject(expectedStructure)) {
+    const message = '[FAIL] Expected curriculum manifest must be an object';
+    if (!silent) console.error(message);
+    return { totalAudited: 0, passes: 0, errors: 1, errorList: [message] };
+  }
   const log = (msg) => { if (!silent) console.log(msg); };
   const logError = (msg) => {
     errorList.push(msg);
@@ -119,6 +192,14 @@ export function validateCurriculum(options = {}) {
   // 1. Structure Verification: Expected Tracks, Modules & Lessons
   // ---------------------------------------------------------
   for (const [track, trackConfig] of Object.entries(expectedStructure)) {
+    if (!isPlainObject(trackConfig)) {
+      logError(`[FAIL] Expected curriculum manifest for track ${track} must be an object`);
+      continue;
+    }
+    if (!isPlainObject(trackConfig)) {
+      logError(`[FAIL] Expected curriculum manifest for track ${track} must be an object`);
+      continue;
+    }
     const trackDir = path.join(curriculumDir, track);
 
     if (!Array.isArray(trackConfig.modules)) {
@@ -274,16 +355,25 @@ export function validateCurriculum(options = {}) {
           const content = fs.readFileSync(lessonPath, 'utf8');
           const lesson = JSON.parse(content);
 
+          if (!isPlainObject(lesson)) {
+            logError(`     [FAIL] Lesson ${expectedLessonId} must be a JSON object`);
+            continue;
+          }
+
           let lessonHasError = false;
+          const logLessonError = (message) => {
+            lessonHasError = true;
+            logError(message);
+          };
+
           if (typeof lesson.id === 'string' && lesson.id.trim()) {
             if (seenDeclaredLessonIds.has(lesson.id)) {
-              logError(`     [FAIL] Duplicate lesson ID found in lesson data: ${lesson.id}`);
-              lessonHasError = true;
+              logLessonError(`     [FAIL] Duplicate lesson ID found in lesson data: ${lesson.id}`);
             }
             seenDeclaredLessonIds.add(lesson.id);
           }
 
-          // 1. Core identification & required top-level metadata check
+          // 1. Required fields and primitive types, aligned with curriculum/schema/lesson-schema.json.
           const requiredLessonFields = [
             'id',
             'moduleId',
@@ -299,64 +389,127 @@ export function validateCurriculum(options = {}) {
 
           for (const field of requiredLessonFields) {
             if (lesson[field] === undefined || lesson[field] === null || lesson[field] === '') {
-              logError(`     [FAIL] Lesson ${expectedLessonId} missing required field: "${field}"`);
-              lessonHasError = true;
+              logLessonError(`     [FAIL] Lesson ${expectedLessonId} missing required field: "${field}"`);
+            }
+          }
+
+          for (const field of ['id', 'moduleId', 'trackId', 'title', 'subtitle']) {
+            if (!isNonEmptyString(lesson[field])) {
+              logLessonError(`     [FAIL] Lesson ${expectedLessonId} ${field} must be a non-empty string`);
             }
           }
 
           if (lesson.id !== expectedLessonId || lesson.moduleId !== mod || lesson.trackId !== track) {
-            logError(`     [FAIL] Identification mismatch in ${expectedLessonId} (id: ${lesson.id}, mod: ${lesson.moduleId}, track: ${lesson.trackId})`);
-            lessonHasError = true;
+            logLessonError(`     [FAIL] Identification mismatch in ${expectedLessonId} (id: ${lesson.id}, mod: ${lesson.moduleId}, track: ${lesson.trackId})`);
           }
 
-          if (lesson.order !== i) {
-            logError(`     [FAIL] Lesson ${expectedLessonId} order mismatch: expected ${i}, got ${lesson.order}`);
-            lessonHasError = true;
+          if (!Number.isInteger(lesson.order) || lesson.order !== i) {
+            logLessonError(`     [FAIL] Lesson ${expectedLessonId} order must be integer ${i}, got ${lesson.order}`);
           }
 
-          if (typeof lesson.durationMinutes !== 'number' || lesson.durationMinutes <= 0) {
-            logError(`     [FAIL] Lesson ${expectedLessonId} durationMinutes must be a positive number`);
-            lessonHasError = true;
+          if (!Number.isInteger(lesson.durationMinutes) || lesson.durationMinutes <= 0) {
+            logLessonError(`     [FAIL] Lesson ${expectedLessonId} durationMinutes must be a positive integer`);
           }
 
-          // 2. 10 Standard Sections Check
-          const missingSections = [];
-          for (const section of REQUIRED_SECTIONS) {
-            if (!lesson.standardSections || !lesson.standardSections[section]) {
-              missingSections.push(section);
+          if (!VALID_DIFFICULTIES.includes(lesson.difficulty)) {
+            logLessonError(`     [FAIL] Invalid lesson difficulty in ${expectedLessonId}: "${lesson.difficulty}"`);
+          }
+
+          // 2. Required standard sections must have the declared shapes and non-empty content.
+          const standardSections = isPlainObject(lesson.standardSections)
+            ? lesson.standardSections
+            : null;
+          if (!standardSections) {
+            logLessonError(`     [FAIL] Lesson ${expectedLessonId} standardSections must be an object`);
+          }
+
+          const requiredSectionShapes = [
+            ['learningObjectives', 'array'],
+            ['foundationalKnowledge', 'string'],
+            ['toolAndFeatureExplanation', 'object'],
+            ['stepByStepInstructions', 'array'],
+            ['visualExamples', 'array'],
+            ['guidedPractice', 'object'],
+            ['independentChallenge', 'object'],
+            ['commonPitfalls', 'array'],
+            ['knowledgeCheck', 'array'],
+            ['summaryAndResources', 'object'],
+          ];
+
+          for (const [sectionName, expectedType] of requiredSectionShapes) {
+            const value = standardSections?.[sectionName];
+            const validType = expectedType === 'array'
+              ? Array.isArray(value) && value.length > 0
+              : expectedType === 'object'
+                ? isPlainObject(value) && Object.keys(value).length > 0
+                : isNonEmptyString(value);
+            if (!validType) {
+              logLessonError(`     [FAIL] Lesson ${expectedLessonId} standardSections.${sectionName} must be a non-empty ${expectedType}`);
             }
           }
 
-          if (missingSections.length > 0) {
-            logError(`     [FAIL] Missing standard sections in ${expectedLessonId}: ${missingSections.join(', ')}`);
-            lessonHasError = true;
+          if (standardSections?.technicalEvidence !== undefined) {
+            const evidence = standardSections.technicalEvidence;
+            if (
+              !isPlainObject(evidence)
+              || !VALID_TECHNICAL_CLASSIFICATIONS.includes(evidence.classification)
+              || !isNonEmptyString(evidence.source)
+            ) {
+              logLessonError(`     [FAIL] Lesson ${expectedLessonId} technicalEvidence has invalid metadata`);
+            }
           }
 
-          // 3. Shortcuts Win & Mac distinction check
-          const shortcuts = lesson.standardSections?.toolAndFeatureExplanation?.shortcut;
-          if (!shortcuts || !shortcuts.win || !shortcuts.mac) {
-            logError(`     [FAIL] Shortcuts missing Win/Mac distinction in ${expectedLessonId}`);
-            lessonHasError = true;
+          // 3. Shortcuts Win/Mac distinction check.
+          const shortcuts = standardSections?.toolAndFeatureExplanation?.shortcut;
+          if (
+            !isPlainObject(shortcuts)
+            || !isNonEmptyString(shortcuts.win)
+            || !isNonEmptyString(shortcuts.mac)
+          ) {
+            logLessonError(`     [FAIL] Shortcuts missing Win/Mac distinction in ${expectedLessonId}`);
           }
 
-          // 4. Slide deck depth check
-          if (!Array.isArray(lesson.slides) || lesson.slides.length < 5) {
-            logError(`     [FAIL] Insufficient slides in ${expectedLessonId} (found ${lesson.slides ? lesson.slides.length : 0}, minimum 5 required)`);
-            lessonHasError = true;
-          }
-
-          // 5. Quiz questions check
-          const quiz = lesson.standardSections?.knowledgeCheck;
-          if (!Array.isArray(quiz) || quiz.length < 1) {
-            logError(`     [FAIL] Missing knowledge check quiz questions in ${expectedLessonId}`);
-            lessonHasError = true;
+          // 4. Slide deck shape and bounds check.
+          if (!Array.isArray(lesson.slides) || lesson.slides.length < 5 || lesson.slides.length > 15) {
+            logLessonError(`     [FAIL] Lesson ${expectedLessonId} slides must contain between 5 and 15 items (found ${Array.isArray(lesson.slides) ? lesson.slides.length : 0})`);
           } else {
-            quiz.forEach((q, qIdx) => {
-              const hasCorrectIndex = typeof q.correctIndex === 'number' || typeof q.correctOption === 'number';
-              if (!q.question || !Array.isArray(q.options) || q.options.length < 2 || !hasCorrectIndex) {
-                logError(`     [FAIL] Malformed quiz question #${qIdx + 1} in ${expectedLessonId}`);
-                lessonHasError = true;
+            lesson.slides.forEach((slide, slideIndex) => {
+              const slideContext = `Lesson ${expectedLessonId} slide #${slideIndex + 1}`;
+              if (!isPlainObject(slide)) {
+                logLessonError(`     [FAIL] ${slideContext} must be an object`);
+                return;
               }
+              if (!isNonEmptyString(slide.id)) {
+                logLessonError(`     [FAIL] ${slideContext} id must be a non-empty string`);
+              }
+              if (!Number.isInteger(slide.slideNumber) || slide.slideNumber < 1) {
+                logLessonError(`     [FAIL] ${slideContext} slideNumber must be a positive integer`);
+              }
+              if (!VALID_SLIDE_TYPES.includes(slide.type)) {
+                logLessonError(`     [FAIL] ${slideContext} has an invalid type: "${slide.type}"`);
+              }
+              if (!isNonEmptyString(slide.title)) {
+                logLessonError(`     [FAIL] ${slideContext} title must be a non-empty string`);
+              }
+              if (!isNonEmptyString(slide.contentMarkdown)) {
+                logLessonError(`     [FAIL] ${slideContext} contentMarkdown must be a non-empty string`);
+              }
+              if (slide.quizData !== undefined) {
+                getQuizQuestionErrors(slide.quizData, `${slideContext} quizData`).forEach(logLessonError);
+              }
+            });
+          }
+
+          // 5. Quiz question schema and answer-index bounds.
+          const quiz = standardSections?.knowledgeCheck;
+          if (!Array.isArray(quiz) || quiz.length < 1) {
+            logLessonError(`     [FAIL] Missing knowledge check quiz questions in ${expectedLessonId}`);
+          } else {
+            quiz.forEach((question, questionIndex) => {
+              getQuizQuestionErrors(
+                question,
+                `Lesson ${expectedLessonId} quiz question #${questionIndex + 1}`
+              ).forEach(logLessonError);
             });
           }
 
@@ -364,19 +517,19 @@ export function validateCurriculum(options = {}) {
           const asset = lesson.standardSections?.independentChallenge?.starterAsset;
           if (asset) {
             if (!asset.assetStatus || !VALID_ASSET_STATUSES.includes(asset.assetStatus)) {
-              logError(`     [FAIL] Invalid or missing assetStatus in ${expectedLessonId}: "${asset.assetStatus}"`);
+              logLessonError(`     [FAIL] Invalid or missing assetStatus in ${expectedLessonId}: "${asset.assetStatus}"`);
               lessonHasError = true;
             }
 
             if (asset.filepath) {
-              const fullAssetPath = path.resolve(asset.filepath);
+              const fullAssetPath = resolveCurriculumAssetPath(curriculumDir, asset.filepath);
               if (!fs.existsSync(fullAssetPath)) {
                 if (
                   asset.assetStatus === 'REAL_AFFINITY_FILE' ||
                   asset.assetStatus === 'GUIDE_DOCUMENT' ||
                   asset.assetStatus === 'JAVASCRIPT_SCRIPT'
                 ) {
-                  logError(`     [FAIL] Asset declared as ${asset.assetStatus} but file missing on disk: ${asset.filepath}`);
+                  logLessonError(`     [FAIL] Asset declared as ${asset.assetStatus} but file missing on disk: ${asset.filepath}`);
                   lessonHasError = true;
                 } else {
                   log(`     [WARN] Practice asset declared as ${asset.assetStatus} not on disk: ${asset.filepath}`);
