@@ -12,13 +12,13 @@
 
 ## 1. Executive Summary
 
-All 12 available tools of the Affinity Model Context Protocol (MCP) server were **actually invoked, executed, timed, and audited on the live Affinity 3.3.3 application**. Zero simulated results or assumed behaviors are reported.
+This is a **historical runtime audit snapshot dated 2026-11-09**, not a live verification performed by the Phase 5 stabilization branch. The report lists 11 upstream Affinity MCP tools plus the `affinity_status` wrapper, for 12 callable entries in the inventory. Current server schemas and behavior must be rechecked on the target machine before relying on these observations.
 
 ### Core Findings
-1. **100% Operational Health:** All 12 tools executed successfully.
-2. **Sub-200ms Execution Latency:** Script execution (`execute_script`), spread rendering (`render_spread`), and selection rendering (`render_selection`) complete within 85ms - 180ms.
-3. **Parameter Schema Discrepancy Discovered:** The JSON schema for `read_sdk_documentation_topic.json` declares the parameter as `topic`, whereas the live MCP implementation requires `filename`. When called with `filename`, it functions with 100% reliability. This discrepancy was formally logged via `report_sdk_issue`.
-4. **Rendering Output Characteristics:** Renders are delivered as JPEG format with maximum dimension capped at 1024px. Spread 0 rendered at 655x1011 px (107,806 bytes) with deterministic pixel reproduction.
+1. **Historical tool inventory:** 11 upstream tools were reported by `affinity_status`; the wrapper itself makes 12 entries in the report table when included.
+2. **Historical latency observations:** Script execution (`execute_script`), spread rendering (`render_spread`), and selection rendering (`render_selection`) were recorded within 85ms–180ms in the 2026-11-09 session. These are not current performance guarantees.
+3. **Historical parameter discrepancy:** The report records that the JSON schema declared `topic`, while the tested runtime accepted `filename` and rejected `topic`. This is a historical observation, not a claim about the current runtime schema. A fresh schema inspection and live call are required before updating client code.
+4. **Rendering observation:** The recorded JPEG output characteristics apply to the specific 2026-11-09 test session only.
 
 ---
 
@@ -41,6 +41,15 @@ All 12 available tools of the Affinity Model Context Protocol (MCP) server were 
 
 ---
 
+
+## 2.1. Verification status and re-audit requirement
+
+The schema/runtime discrepancy above is retained exactly as a **historical finding** from the 2026-11-09 audit record. The repository does not contain a fresh capture of the current server's tool schema or a new live invocation from this Phase 5 branch. Therefore:
+
+- Do not change `read_sdk_documentation_topic` callers from `filename` to `topic`, or vice versa, solely from this report.
+- On the target Windows machine, inspect the currently exposed MCP input schema, invoke the tool once with the schema-declared argument, record the exact request and response, and compare with the historical `filename` observation.
+- Update the SDK JSON schema, client wrapper, `AGENTS.md`, and this report together only after the live test confirms the current contract.
+- Tool-count wording is normalized: 11 upstream tools plus the `affinity_status` wrapper = 12 entries shown in this report. Recount after reconnecting to the server.
 ## 3. Curriculum Feasibility & Automation Analysis (Condition 5)
 
 ### 3.1. What CAN Be Fully Automated via MCP

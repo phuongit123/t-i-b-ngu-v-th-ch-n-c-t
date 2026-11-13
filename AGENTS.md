@@ -2,7 +2,7 @@
 
 ## 1. Project Context: AFFINITY ACADEMY
 
-**Affinity Academy** is an interactive, modern educational platform and structured curriculum dedicated to mastering Serif Affinity 3.0 suite (Affinity Designer, Affinity Photo, Affinity Publisher) combined with modern programmatic graphic automation via the **Affinity JavaScript DOM Scripting API** and **Affinity MCP Server**.
+**Affinity Academy** is an interactive educational platform for the current Affinity all-in-one desktop application (Layout, Vector, and Pixel studios), with explicitly labelled legacy material where Affinity V2 applications and StudioLink are discussed. Automation material uses the **Affinity JavaScript DOM Scripting API** and **Affinity MCP Server** where supported.
 
 The project workspace is located at `c:\affinity học`.
 
@@ -30,7 +30,7 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 > Tools and capabilities listed below reflect the exact, inspected runtime environment. No hallucinated or fictitious tools are permitted.
 
 ### 3.1. `affinity` / `affinity_affinity` MCP Server
-- **Transport / Endpoint:** Connected at `http://localhost:6767/sse` (11 upstream tools verified live).
+- **Transport / Endpoint:** Historical endpoint `http://localhost:6767/sse`; the 2026-11-09 audit recorded 11 upstream tools. Current availability and schemas must be checked on the target machine before use.
 - **Available Tools:**
   - `affinity_status`: Query live connection status and engine state.
   - `add_sdk_hint`: Record SDK operational hints and API notes.
@@ -44,6 +44,8 @@ To ensure separation of concerns, high engineering quality, and strict verificat
   - `render_selection`: Render currently selected layer/object to an image file.
   - `render_spread`: Render the current active spread/page to an image file.
   - `report_sdk_issue`: Log SDK inconsistencies or bugs.
+- **Inventory count:** 11 upstream tools are listed above; `affinity_status` is the status wrapper that reported the upstream count. The audit table has 12 rows only when the wrapper is counted alongside the 11 upstream tools.
+- **Historical schema note:** The 2026-11-09 audit recorded `read_sdk_documentation_topic` accepting `filename` at runtime while its JSON schema declared `topic`. This has not been revalidated in the current branch; inspect the live schema and invoke the tool before changing callers.
 - **Constraints & Limitations:**
   - Requires Affinity application to be running with the MCP listener active on localhost:6767.
   - Scripts execute synchronously or via Promise handling within the Affinity process context.

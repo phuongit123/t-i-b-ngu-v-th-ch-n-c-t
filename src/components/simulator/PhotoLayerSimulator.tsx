@@ -31,10 +31,80 @@ export interface SimLayer {
   color?: string;
 }
 
+// Canvas dimensions
+const CANVAS_WIDTH = 640;
+const CANVAS_HEIGHT = 420;
+
+// Convert Affinity Blend Mode string to Canvas globalCompositeOperation
+const getCanvasCompositeOp = (mode: BlendMode): GlobalCompositeOperation => {
+  switch (mode) {
+    case 'multiply':
+      return 'multiply';
+    case 'screen':
+      return 'screen';
+    case 'overlay':
+      return 'overlay';
+    case 'color-dodge':
+      return 'color-dodge';
+    case 'soft-light':
+      return 'soft-light';
+    default:
+      return 'source-over';
+  }
+};
+
+// Helper to draw a stylized subject silhouette / fashion figure
+const drawSubjectFigure = (ctx: CanvasRenderingContext2D, isGrayscale: boolean) => {
+  ctx.save();
+
+  // Center Subject coordinates
+  const cx = CANVAS_WIDTH * 0.38;
+  const cy = CANVAS_HEIGHT * 0.58;
+
+  // Body / Torso
+  ctx.fillStyle = isGrayscale ? '#4b5563' : '#0284c7';
+  ctx.beginPath();
+  ctx.moveTo(cx - 55, cy + 120);
+  ctx.lineTo(cx - 40, cy - 20);
+  ctx.lineTo(cx + 40, cy - 20);
+  ctx.lineTo(cx + 55, cy + 120);
+  ctx.closePath();
+  ctx.fill();
+
+  // Head
+  ctx.fillStyle = isGrayscale ? '#9ca3af' : '#fbcfe8';
+  ctx.beginPath();
+  ctx.arc(cx, cy - 65, 38, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Hair
+  ctx.fillStyle = isGrayscale ? '#1f2937' : '#92400e';
+  ctx.beginPath();
+  ctx.arc(cx, cy - 80, 42, Math.PI * 0.8, Math.PI * 2.2);
+  ctx.lineTo(cx + 52, cy - 25);
+  ctx.lineTo(cx + 35, cy - 10);
+  ctx.lineTo(cx - 35, cy - 10);
+  ctx.lineTo(cx - 52, cy - 25);
+  ctx.closePath();
+  ctx.fill();
+
+  // Sunglasses / Glasses
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(cx - 28, cy - 72, 22, 14);
+  ctx.fillRect(cx + 6, cy - 72, 22, 14);
+  ctx.fillRect(cx - 7, cy - 68, 14, 4);
+
+  // Collar / Gold Accent Chain
+  ctx.strokeStyle = isGrayscale ? '#d1d5db' : '#facc15';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(cx, cy - 20, 24, 0, Math.PI);
+  ctx.stroke();
+
+  ctx.restore();
+};
+
 export const PhotoLayerSimulator: React.FC = () => {
-  // Canvas dimensions
-  const CANVAS_WIDTH = 640;
-  const CANVAS_HEIGHT = 420;
 
   // Layer State
   const [layers, setLayers] = useState<SimLayer[]>([
@@ -100,60 +170,6 @@ export const PhotoLayerSimulator: React.FC = () => {
       maskCanvasRef.current = offscreen;
     }
   }, []);
-
-  // Invert mask (Ctrl+I / Cmd+I)
-  const invertMask = useCallback(() => {
-    const maskCanvas = maskCanvasRef.current;
-    if (!maskCanvas) return;
-    const ctx = maskCanvas.getContext('2d');
-    if (!ctx) return;
-
-    const imgData = ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    const d = imgData.data;
-    for (let i = 0; i < d.length; i += 4) {
-      d[i] = 255 - d[i]; // Invert R
-      d[i + 1] = 255 - d[i + 1]; // Invert G
-      d[i + 2] = 255 - d[i + 2]; // Invert B
-    }
-    ctx.putImageData(imgData, 0, 0);
-    renderCanvas();
-  }, []);
-
-  // Reset mask to pure white
-  const resetMask = useCallback(() => {
-    const maskCanvas = maskCanvasRef.current;
-    if (!maskCanvas) return;
-    const ctx = maskCanvas.getContext('2d');
-    if (!ctx) return;
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    renderCanvas();
-  }, []);
-
-  // Draw on mask
-  const paintOnMask = (x: number, y: number) => {
-    const maskCanvas = maskCanvasRef.current;
-    if (!maskCanvas) return;
-    const ctx = maskCanvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.save();
-    const color = brushMode === 'black' ? '0, 0, 0' : '255, 255, 255';
-    const gradient = ctx.createRadialGradient(x, y, 0, x, y, brushSize / 2);
-
-    const innerStop = brushHardness / 100;
-    gradient.addColorStop(0, `rgba(${color}, 1)`);
-    gradient.addColorStop(innerStop, `rgba(${color}, 1)`);
-    gradient.addColorStop(1, `rgba(${color}, 0)`);
-
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-
-    renderCanvas();
-  };
 
   // Render composite to visual canvas
   const renderCanvas = useCallback(() => {
@@ -280,73 +296,58 @@ export const PhotoLayerSimulator: React.FC = () => {
     }
   }, [layers, vignetteRadius]);
 
-  // Helper to draw a stylized subject silhouette / fashion figure
-  const drawSubjectFigure = (ctx: CanvasRenderingContext2D, isGrayscale: boolean) => {
-    ctx.save();
+  // Invert mask (Ctrl+I / Cmd+I)
+  const invertMask = useCallback(() => {
+    const maskCanvas = maskCanvasRef.current;
+    if (!maskCanvas) return;
+    const ctx = maskCanvas.getContext('2d');
+    if (!ctx) return;
 
-    // Center Subject coordinates
-    const cx = CANVAS_WIDTH * 0.38;
-    const cy = CANVAS_HEIGHT * 0.58;
-
-    // Body / Torso
-    ctx.fillStyle = isGrayscale ? '#4b5563' : '#0284c7';
-    ctx.beginPath();
-    ctx.moveTo(cx - 55, cy + 120);
-    ctx.lineTo(cx - 40, cy - 20);
-    ctx.lineTo(cx + 40, cy - 20);
-    ctx.lineTo(cx + 55, cy + 120);
-    ctx.closePath();
-    ctx.fill();
-
-    // Head
-    ctx.fillStyle = isGrayscale ? '#9ca3af' : '#fbcfe8';
-    ctx.beginPath();
-    ctx.arc(cx, cy - 65, 38, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Hair
-    ctx.fillStyle = isGrayscale ? '#1f2937' : '#92400e';
-    ctx.beginPath();
-    ctx.arc(cx, cy - 80, 42, Math.PI * 0.8, Math.PI * 2.2);
-    ctx.lineTo(cx + 52, cy - 25);
-    ctx.lineTo(cx + 35, cy - 10);
-    ctx.lineTo(cx - 35, cy - 10);
-    ctx.lineTo(cx - 52, cy - 25);
-    ctx.closePath();
-    ctx.fill();
-
-    // Sunglasses / Glasses
-    ctx.fillStyle = '#0f172a';
-    ctx.fillRect(cx - 28, cy - 72, 22, 14);
-    ctx.fillRect(cx + 6, cy - 72, 22, 14);
-    ctx.fillRect(cx - 7, cy - 68, 14, 4);
-
-    // Collar / Gold Accent Chain
-    ctx.strokeStyle = isGrayscale ? '#d1d5db' : '#facc15';
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.arc(cx, cy - 20, 24, 0, Math.PI);
-    ctx.stroke();
-
-    ctx.restore();
-  };
-
-  // Convert Affinity Blend Mode string to Canvas globalCompositeOperation
-  const getCanvasCompositeOp = (mode: BlendMode): GlobalCompositeOperation => {
-    switch (mode) {
-      case 'multiply':
-        return 'multiply';
-      case 'screen':
-        return 'screen';
-      case 'overlay':
-        return 'overlay';
-      case 'color-dodge':
-        return 'color-dodge';
-      case 'soft-light':
-        return 'soft-light';
-      default:
-        return 'source-over';
+    const imgData = ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    const d = imgData.data;
+    for (let i = 0; i < d.length; i += 4) {
+      d[i] = 255 - d[i]; // Invert R
+      d[i + 1] = 255 - d[i + 1]; // Invert G
+      d[i + 2] = 255 - d[i + 2]; // Invert B
     }
+    ctx.putImageData(imgData, 0, 0);
+    renderCanvas();
+  }, [renderCanvas]);
+
+  // Reset mask to pure white
+  const resetMask = useCallback(() => {
+    const maskCanvas = maskCanvasRef.current;
+    if (!maskCanvas) return;
+    const ctx = maskCanvas.getContext('2d');
+    if (!ctx) return;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    renderCanvas();
+  }, [renderCanvas]);
+
+  // Draw on mask
+  const paintOnMask = (x: number, y: number) => {
+    const maskCanvas = maskCanvasRef.current;
+    if (!maskCanvas) return;
+    const ctx = maskCanvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.save();
+    const color = brushMode === 'black' ? '0, 0, 0' : '255, 255, 255';
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, brushSize / 2);
+
+    const innerStop = brushHardness / 100;
+    gradient.addColorStop(0, `rgba(${color}, 1)`);
+    gradient.addColorStop(innerStop, `rgba(${color}, 1)`);
+    gradient.addColorStop(1, `rgba(${color}, 0)`);
+
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    renderCanvas();
   };
 
   // Re-render when layer parameters change

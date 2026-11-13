@@ -2,10 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Status:** `ACTIVE / REAL-TIME`
-- **Current Phase:** `Phase 5 Track 2 (Affinity Photo) Completed — 66/66 Lessons Passing — 9/9 E2E Passing`
-- **Last Updated:** `2026-11-11`
+- **Version:** `4.2.2` (Track 1 Designer and Track 2 Photo curriculum; 6 pilot lessons also present)
+- **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
+- **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
+- **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
+- **Verification Evidence:** `66/66 curriculum validation and 9/9 Playwright E2E are historical local results; rerun on the current branch before sign-off`
+- **Last Updated:** `2026-11-13`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -17,7 +19,7 @@
 | **Phase 0** | Project Control System & Pre-Phase Audit | 1 | 1 | 0 | 0 | **COMPLETED** |
 | **Phase 1** | Environment, Toolchain & MCP Capability Extraction | 5 | 5 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
-| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60/120 Lessons, 20/40 Modules Done)** |
+| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
@@ -27,9 +29,15 @@
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **16** | **0** | **34** | **32.0% Completed** |
 
 > [!NOTE]
-> **Giải trình Tiến độ Task (Progress Metrics Reconciliation):**
-> - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
-> - **32.0% (16 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
+> **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
+> - **Tiến độ Tác vụ (Task Progress):**
+>   - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
+>   - **32.0% (16 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
+> - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
+>   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
+>   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 100% đạt chuẩn schema validation (`npm run validate:curriculum` 66/66 PASS).
+>   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
 
 ---
 
@@ -72,6 +80,6 @@
 
 ## 4. Next Phase Gate & Status
 
-Track 1 (Designer) and Track 2 (Photo) are fully completed with 60 lessons, 2 interactive in-browser simulators, and 9/9 Playwright E2E automated tests passing.
-- **Current Status:** Halted at Phase Gate awaiting user evaluation and authorization for Phase 6 / Track 3.
-- **Deferred Work:** Track 3 (Publisher B02–B10, `TASK-012`), Track 4 (Scripting S02–S10, `TASK-013`), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), and Supabase Backend (`TASK-030` to `033`) remain held until approved.
+Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser, và 9/9 ca kiểm thử tự động Playwright E2E vượt qua thành công.
+- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
+- **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.

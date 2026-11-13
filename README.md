@@ -20,12 +20,16 @@ Dự án áp dụng tiêu chuẩn thẩm mỹ thị giác và trải nghiệm t�
 
 ## 🌟 2. Các Phân Hệ Đã Hoàn Thành (Key Implemented Subsystems)
 
-### 2.1. Phân Hệ Giáo Trình 66 Bài Học Chuẩn Hóa (`curriculum/`)
-- **Track 1 — Affinity Designer (10 Modules, 30 Bài học, D01–D10):** Đã hoàn thiện và kiểm định kỹ thuật 100%. Bao gồm Vector nodes, Pen/Node geometry, Boolean geometry, Gradients, Clipping paths, Swatches, True Isometric axonometry (30°/150°/90°), Symbols Studio synchronization, Pixel Persona shading, và Continuous Export Persona slices.
-- **Track 2 — Affinity Photo (10 Modules, 30 Bài học, P01–P10):** Đã hoàn thiện và kiểm định chất lượng độc lập. Bao gồm Selections, Quick Mask, Refine Edge, Non-destructive layer stacks, Inpainting, Frequency Separation, Curves/HSL/LUT grading, Live Filters, Advanced Compositing, Typography integration, RAW Develop Persona 32-bit HDR, và Batch export pre-flight.
-- **Track 3 Pilot — Affinity Publisher (Module B01, 3 Bài học):** Publication architecture, facing pages, 3mm bleed, Master Pages, Baseline Grid.
-- **Track 4 Pilot — Affinity Scripting (Module S01, 3 Bài học):** V8 JavaScript runtime, DOM API, ping MCP server trên cổng 6767.
-- **100% Tuân thủ Tiêu chuẩn Schema Sư phạm 10 Phần:** Xác thực thành công **66/66 bài học** qua `scripts/validate-curriculum.js`.
+### 2.1. Phân Hệ Giáo Trình (Curriculum Subsystem — 66/120 Lessons)
+Dự án duy trì sự phân định minh bạch giữa **bài học cốt lõi đã hoàn thành**, **bài học pilot**, và **kế hoạch tổng thể**:
+- **60 Bài học cốt lõi đã hoàn thành (Completed Core Lessons):**
+  - **Track 1 — Affinity Designer (10 Modules, 30 Bài học, D01–D10):** Đã hoàn thiện và kiểm định kỹ thuật 100%. Bao gồm Vector nodes, Pen/Node geometry, Boolean geometry, Gradients, Clipping paths, Swatches, True Isometric axonometry (30°/150°/90°), Symbols Studio synchronization, Pixel Persona shading, và Continuous Export Persona slices.
+  - **Track 2 — Affinity Photo (10 Modules, 30 Bài học, P01–P10):** Đã hoàn thiện và kiểm định chất lượng độc lập. Bao gồm Selections, Quick Mask, Refine Edge, Non-destructive layer stacks, Inpainting, Frequency Separation, Curves/HSL/LUT grading, Live Filters, Advanced Compositing, Typography integration, RAW Develop Persona 32-bit HDR, và Batch export pre-flight.
+- **6 Bài học Pilot kiểm nghiệm nền móng (Pilot Lessons):**
+  - **Track 3 Pilot — Affinity Publisher (Module B01, 3 Bài học):** Publication architecture, facing pages, 3mm bleed, Master Pages, Baseline Grid.
+  - **Track 4 Pilot — Affinity Scripting (Module S01, 3 Bài học):** V8 JavaScript runtime, DOM API, ping MCP server trên cổng 6767.
+- **66 Bài học hiện hữu trên repository (Total Existing Lessons):** 60 bài cốt lõi + 6 bài pilot, đạt **100% tỷ lệ xác thực schema** qua `scripts/validate-curriculum.js` (66/66 PASS).
+- **120 Bài học theo quy hoạch tổng thể (Planned Curriculum):** 40 modules × 3 bài học = 120 bài học. 54 bài học còn lại (Track 3 B02–B10: 27 bài; Track 4 S02–S10: 27 bài) đang chờ phê duyệt cổng Phase Gate.
 - **19 Bản thiết kế thực hành trung thực (`curriculum/assets/`):** 10 tài liệu Designer (`D01`–`D10`), 9 tài liệu Photo (`P02`–`P10`), và 1 tệp nhị phân gốc `P01_starter.afphoto` (1.65 MB).
 
 ### 2.2. Bộ Đôi Công Cụ Mô Phỏng Tương Tác Trên Trình Duyệt (In-Browser Simulators)
@@ -166,9 +170,16 @@ npm run build
 
 - **Trạng thái Cổng Kiểm Soát:** **`HALTED AT PHASE GATE` (Gatekeeper BLK-007 ACTIVE)**.
 - **Tiến độ Hệ thống:** **32.0%** (16/50 hàng tác vụ hoàn thành có kiểm định QA đầy đủ; tương ứng 15/49 tác vụ gốc = 30.6%).
+- **Thống kê Giáo trình (Curriculum Metrics):**
+  - **60/120 Bài học Cốt lõi Hoàn thành (50.0%):** Track 1 Designer (30 bài) + Track 2 Photo (30 bài).
+  - **6/120 Bài học Pilot Kiểm nghiệm (5.0%):** Track 3 Publisher (3 bài B01) + Track 4 Scripting (3 bài S01).
+  - **66/120 Tổng số bài học Hiện hữu (55.0%):** 66 bài học hoàn chỉnh vượt qua xác thực schema 100%.
+  - **54/120 Bài học Đang chờ Phê duyệt (45.0%):** B02–B10 (27 bài) và S02–S10 (27 bài).
 - **Hạng mục Đã Sẵn Sàng (Production-Ready):** 
-  - Track 1: Affinity Designer (`D01`–`D10`, 30 bài học).
-  - Track 2: Affinity Photo (`P01`–`P10`, 30 bài học).
+  - Track 1: Affinity Designer (`D01`–`D10`, 30 bài học cốt lõi).
+  - Track 2: Affinity Photo (`P01`–`P10`, 30 bài học cốt lõi).
+  - Track 3 Pilot: Affinity Publisher (`B01`, 3 bài học pilot).
+  - Track 4 Pilot: Affinity Scripting (`S01`, 3 bài học pilot).
   - In-Browser Vector Bézier Simulator & Photo Layer Masking Simulator.
   - Encyclopedia (401 SDK topics) & Resource Library (bundled downloads).
-- **Hạng mục Tiếp Theo Chờ Duyệt:** Track 3 (Publisher `B02`–`B10`), Track 4 (Scripting `S02`–`S10`), Monaco Code Editor, Live MCP Runner, và Supabase Cloud Backend.
+- **Hạng mục Tiếp Theo Chờ Duyệt:** Track 3 (Publisher `B02`–`B10`: 27 bài), Track 4 (Scripting `S02`–`S10`: 27 bài), Monaco Code Editor, Live MCP Runner, và Supabase Cloud Backend.

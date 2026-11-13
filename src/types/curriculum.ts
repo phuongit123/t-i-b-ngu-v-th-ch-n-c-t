@@ -7,7 +7,7 @@ export type AffinityTrackId = 'designer' | 'photo' | 'publisher' | 'scripting';
 
 export type LessonDifficulty = 'Beginner' | 'Intermediate' | 'Advanced';
 
-export type SlideType = 
+export type SlideType =
   | 'intro'
   | 'theory'
   | 'tool-anatomy'
@@ -16,7 +16,13 @@ export type SlideType =
   | 'pitfalls'
   | 'quiz'
   | 'challenge'
-  | 'summary';
+  | 'summary'
+  // Known legacy slide types retained by existing D10/P10 curriculum records.
+  | 'concept'
+  | 'workflow'
+  | 'interaction'
+  | 'layout'
+  | 'detail';
 
 export interface ShortcutKeycap {
   win: string;
@@ -33,7 +39,7 @@ export interface StepInstruction {
 export interface VisualExample {
   title: string;
   description: string;
-  visualType: 'diagram' | 'code' | 'table' | 'callout' | 'comparison';
+  visualType: 'diagram' | 'code' | 'table' | 'callout' | 'comparison' | 'workflow';
   visualContent: string;
 }
 
@@ -111,18 +117,27 @@ export interface StandardLessonSections {
     relatedResources: {
       title: string;
       target: string;
-      type: 'doc' | 'asset' | 'next-lesson' | 'mcp-api';
+      type: 'doc' | 'asset' | 'next-lesson' | 'mcp-api' | 'next-track' | 'guide';
     }[];
   };
 }
 
 export interface LessonSlide {
-  id: string;
-  slideNumber: number;
-  type: SlideType;
+  id?: string;
+  slideNumber?: number;
+  order?: number;
+  type?: SlideType;
   title: string;
   subtitle?: string;
-  contentMarkdown: string;
+  contentMarkdown?: string;
+  // Legacy curriculum fields retained for D10 and P10 lesson records.
+  content?: string;
+  bullets?: string[];
+  tips?: string;
+  proTip?: string;
+  callout?: string;
+  visualDescription?: string;
+  codeSnippet?: string;
   actionBox?: {
     label: string;
     text: string;
