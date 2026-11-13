@@ -186,7 +186,7 @@ export function validateCurriculum(options = {}) {
           const lessonList = Array.isArray(modData.lessonIds)
             ? modData.lessonIds
             : Array.isArray(modData.lessons)
-              ? modData.lessons.map((l) => (typeof l === 'string' ? l : l.id))
+              ? modData.lessons.map((l) => (typeof l === 'string' ? l : l?.id))
               : null;
           if (!lessonList || lessonList.length === 0) {
             logError(`  [FAIL] module.json in ${mod} must contain lessonIds or lessons array`);
