@@ -46,6 +46,23 @@ function createFixture() {
   const moduleDir = path.join(root, 'designer', 'D01');
   fs.mkdirSync(path.dirname(moduleDir), { recursive: true });
   fs.cpSync(SOURCE_MODULE, moduleDir, { recursive: true });
+
+  // Copy only assets referenced by this module into the isolated fixture.
+  for (const entry of fs.readdirSync(moduleDir, { withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith('.json') || entry.name === 'module.json') continue;
+    const lesson = readJson(path.join(moduleDir, entry.name));
+    const assetPath = lesson.standardSections?.independentChallenge?.starterAsset?.filepath;
+    if (typeof assetPath !== 'string' || !assetPath.trim()) continue;
+
+    const relativeAssetPath = assetPath.replace(/^curriculum[\\/]/, '');
+    const sourceAssetPath = path.resolve(PROJECT_ROOT, 'curriculum', relativeAssetPath);
+    const fixtureAssetPath = path.resolve(root, relativeAssetPath);
+    if (fs.existsSync(sourceAssetPath)) {
+      fs.mkdirSync(path.dirname(fixtureAssetPath), { recursive: true });
+      fs.copyFileSync(sourceAssetPath, fixtureAssetPath);
+    }
+  }
+
   return { root, moduleDir };
 }
 
@@ -255,6 +272,134 @@ assertContainsError(
   nullLessonEntryResult,
   'contains an invalid lesson ID entry',
   'Null lesson metadata entry receives a specific diagnostic'
+);
+
+// TEST 17: Reject a null track entry in a custom manifest without throwing.
+console.log('\nTest 17: Null track entry in manifest...');
+const nullTrackResult = runFixture(
+  () => {},
+  { designer: null }
+);
+assert(nullTrackResult.errors > 0, 'Null track manifest entry fails validation without throwing');
+assertContainsError(
+  nullTrackResult,
+  'Expected curriculum manifest for track designer must be an object',
+  'Null track manifest entry receives a specific diagnostic'
+);
+
+// TEST 18: Reject lesson metadata with incorrect primitive types and enum values.
+console.log('\nTest 18: Invalid lesson metadata types...');
+const invalidLessonMetadataResult = runFixture(({ moduleDir }) => {
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  lessonData.title = 123;
+  lessonData.difficulty = 'ExpertLevelSuperHard';
+  lessonData.durationMinutes = 2.5;
+  writeJson(lessonPath, lessonData);
+});
+assertContainsError(
+  invalidLessonMetadataResult,
+  'title must be a non-empty string',
+  'Numeric lesson title is rejected'
+);
+assertContainsError(
+  invalidLessonMetadataResult,
+  'Invalid lesson difficulty',
+  'Out-of-enum lesson difficulty is rejected'
+);
+assertContainsError(
+  invalidLessonMetadataResult,
+  'durationMinutes must be a positive integer',
+  'Fractional lesson duration is rejected'
+);
+
+// TEST 19: Enforce the slide maximum and validate required slide fields.
+console.log('\nTest 19: Slide count and item schema...');
+const invalidSlidesResult = runFixture(({ moduleDir }) => {
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  const firstSlide = lessonData.slides[0];
+  lessonData.slides = Array.from({ length: 16 }, (_, index) => ({
+    ...firstSlide,
+    id: 'D01-01-S' + (index + 1),
+    slideNumber: index + 1,
+  }));
+  lessonData.slides[0].title = 42;
+  writeJson(lessonPath, lessonData);
+});
+assertContainsError(
+  invalidSlidesResult,
+  'slides must contain between 5 and 15 items',
+  'More than 15 slides are rejected'
+);
+assertContainsError(
+  invalidSlidesResult,
+  'slide #1 title must be a non-empty string',
+  'Malformed slide title is rejected'
+);
+
+// TEST 20: A quiz correctIndex must point to an existing option.
+console.log('\nTest 20: Quiz correctIndex bounds...');
+const invalidQuizIndexResult = runFixture(({ moduleDir }) => {
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  lessonData.standardSections.knowledgeCheck[0].correctIndex =
+    lessonData.standardSections.knowledgeCheck[0].options.length;
+  writeJson(lessonPath, lessonData);
+});
+assertContainsError(
+  invalidQuizIndexResult,
+  'correctIndex must be an integer within the options range',
+  'Out-of-range quiz answer index is rejected'
+);
+
+// TEST 21: Required section objects cannot be empty.
+console.log('\nTest 21: Empty required standard section...');
+const emptySectionResult = runFixture(({ moduleDir }) => {
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  lessonData.standardSections.toolAndFeatureExplanation = {};
+  writeJson(lessonPath, lessonData);
+});
+assertContainsError(
+  emptySectionResult,
+  'standardSections.toolAndFeatureExplanation must be a non-empty object',
+  'Empty required section object is rejected'
+);
+
+// TEST 22: Asset paths resolve against the isolated fixture, not the real repository.
+console.log('\nTest 22: Fixture-local asset resolution...');
+const fixtureAssetResult = runFixture(({ root, moduleDir }) => {
+  const fixtureAssetPath = path.join(root, 'assets', 'designer', 'fixture-only.md');
+  fs.mkdirSync(path.dirname(fixtureAssetPath), { recursive: true });
+  fs.writeFileSync(fixtureAssetPath, '# Fixture-only guide\n');
+
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  lessonData.standardSections.independentChallenge.starterAsset.filepath =
+    'curriculum/assets/designer/fixture-only.md';
+  writeJson(lessonPath, lessonData);
+});
+assert(
+  fixtureAssetResult.errors === 0 && fixtureAssetResult.passes === 3,
+  'Fixture-local asset resolves successfully without reading repository assets'
+);
+
+// TEST 23: Missing required assets are detected inside the fixture.
+console.log('\nTest 23: Missing required asset...');
+const missingRequiredAssetResult = runFixture(({ moduleDir }) => {
+  const lessonPath = path.join(moduleDir, 'D01-01.json');
+  const lessonData = readJson(lessonPath);
+  lessonData.standardSections.independentChallenge.starterAsset.assetStatus = 'REAL_AFFINITY_FILE';
+  lessonData.standardSections.independentChallenge.starterAsset.filepath =
+    'curriculum/assets/designer/missing-required.afdesign';
+  writeJson(lessonPath, lessonData);
+});
+assert(missingRequiredAssetResult.errors > 0, 'Missing required asset fails validation');
+assertContainsError(
+  missingRequiredAssetResult,
+  'Asset declared as REAL_AFFINITY_FILE but file missing on disk',
+  'Missing required asset receives a specific diagnostic'
 );
 
 console.log('\n======================================================');
