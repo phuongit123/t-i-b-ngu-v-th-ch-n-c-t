@@ -228,10 +228,40 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             {currentSlide.title}
           </h1>
 
-          {/* Slide Markdown Content */}
+          {/* Current and legacy slide content */}
           <div className="prose prose-invert max-w-none text-sm md:text-base leading-relaxed text-[var(--color-text-primary)] opacity-95 space-y-4 mb-6 whitespace-pre-line font-sans">
-            {currentSlide.contentMarkdown}
+            {(currentSlide.contentMarkdown ?? currentSlide.content) && (
+              <p>{currentSlide.contentMarkdown ?? currentSlide.content}</p>
+            )}
+            {currentSlide.bullets && currentSlide.bullets.length > 0 && (
+              <ul className="list-disc pl-6 space-y-2">
+                {currentSlide.bullets.map((bullet, index) => (
+                  <li key={index}>{bullet}</li>
+                ))}
+              </ul>
+            )}
           </div>
+
+          {(currentSlide.tips || currentSlide.proTip || currentSlide.callout) && (
+            <div className="my-4 p-4 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-canvas)] text-sm text-[var(--color-text-primary)]">
+              <div className="text-[10px] uppercase tracking-wider font-semibold mb-1" style={{ color: accentColor }}>
+                {currentSlide.tips ? 'Practice Tip' : 'Pro Tip'}
+              </div>
+              {currentSlide.tips ?? currentSlide.proTip ?? currentSlide.callout}
+            </div>
+          )}
+
+          {currentSlide.codeSnippet && (
+            <pre className="my-4 p-4 rounded-lg bg-[#0a0a0d] border border-[var(--color-border-hairline)] overflow-x-auto whitespace-pre-wrap text-xs font-mono text-emerald-300">
+              {currentSlide.codeSnippet}
+            </pre>
+          )}
+
+          {currentSlide.visualDescription && (
+            <div className="my-4 p-4 rounded-lg bg-[var(--color-canvas)] border border-[var(--color-border-hairline)] text-xs text-[var(--color-text-secondary)]">
+              {currentSlide.visualDescription}
+            </div>
+          )}
 
           {/* Action Box Callout */}
           {currentSlide.actionBox && (
