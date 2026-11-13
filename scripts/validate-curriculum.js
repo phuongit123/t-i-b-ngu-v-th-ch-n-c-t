@@ -72,8 +72,8 @@ const VALID_SLIDE_TYPES = [
   'summary',
 ];
 
-const VALID_VISUAL_EXAMPLE_TYPES = ['diagram', 'code', 'table', 'callout', 'comparison'];
-const VALID_RESOURCE_TYPES = ['doc', 'asset', 'next-lesson', 'mcp-api'];
+const VALID_VISUAL_EXAMPLE_TYPES = ['diagram', 'code', 'table', 'callout', 'comparison', 'workflow'];
+const VALID_RESOURCE_TYPES = ['doc', 'asset', 'next-lesson', 'mcp-api', 'next-track', 'guide'];
 const VALID_TECHNICAL_CLASSIFICATIONS = ['VERIFIED', 'DOCUMENTED', 'UNVERIFIED', 'INCORRECT'];
 
 const isPlainObject = (value) => (
@@ -182,7 +182,10 @@ function getStandardSectionErrors(sections, context) {
     'independentChallenge'
   );
   if (challengeValid) {
-    expectStringArray(sections.independentChallenge.challengeCriteria, 'independentChallenge.challengeCriteria');
+    // Existing D10 lessons use successCriteria; current modules use challengeCriteria.
+    const challengeCriteria = sections.independentChallenge.challengeCriteria
+      ?? sections.independentChallenge.successCriteria;
+    expectStringArray(challengeCriteria, 'independentChallenge.challengeCriteria/successCriteria');
     const asset = sections.independentChallenge.starterAsset;
     if (asset !== undefined) {
       if (
@@ -204,7 +207,15 @@ function getStandardSectionErrors(sections, context) {
     errors.push(`     [FAIL] ${context}.commonPitfalls must be a non-empty array`);
   } else {
     sections.commonPitfalls.forEach((pitfall, index) => {
-      expectObjectFields(pitfall, ['pitfall', 'cause', 'solution'], `commonPitfalls[${index}]`);
+      const hasCurrentShape = isPlainObject(pitfall)
+        && isNonEmptyString(pitfall.pitfall)
+        && isNonEmptyString(pitfall.cause);
+      const hasLegacyShape = isPlainObject(pitfall)
+        && isNonEmptyString(pitfall.mistake)
+        && isNonEmptyString(pitfall.consequence);
+      if ((!hasCurrentShape && !hasLegacyShape) || !isNonEmptyString(pitfall?.solution)) {
+        errors.push(`     [FAIL] ${context}.commonPitfalls[${index}] has invalid current or legacy fields`);
+      }
     });
   }
 
@@ -218,18 +229,31 @@ function getStandardSectionErrors(sections, context) {
 
   const summaryValid = expectObjectFields(sections.summaryAndResources, [], 'summaryAndResources');
   if (summaryValid) {
-    expectStringArray(sections.summaryAndResources.summaryPoints, 'summaryAndResources.summaryPoints');
-    const resources = sections.summaryAndResources.relatedResources;
-    if (!Array.isArray(resources) || resources.length === 0) {
-      errors.push(`     [FAIL] ${context}.summaryAndResources.relatedResources must be a non-empty array`);
+    const summary = sections.summaryAndResources;
+    const hasCurrentSummary = Array.isArray(summary.summaryPoints)
+      && Array.isArray(summary.relatedResources);
+    const hasLegacySummary = Array.isArray(summary.keyTakeaways)
+      && isNonEmptyString(summary.nextSteps)
+      && isNonEmptyString(summary.officialDocsUrl);
+
+    if (hasCurrentSummary) {
+      expectStringArray(summary.summaryPoints, 'summaryAndResources.summaryPoints');
+      const resources = summary.relatedResources;
+      if (!Array.isArray(resources) || resources.length === 0) {
+        errors.push(`     [FAIL] ${context}.summaryAndResources.relatedResources must be a non-empty array`);
+      } else {
+        resources.forEach((resource, index) => {
+          const label = `summaryAndResources.relatedResources[${index}]`;
+          expectObjectFields(resource, ['title', 'target'], label);
+          if (!VALID_RESOURCE_TYPES.includes(resource?.type)) {
+            errors.push(`     [FAIL] ${context}.${label}.type is invalid`);
+          }
+        });
+      }
+    } else if (hasLegacySummary) {
+      expectStringArray(summary.keyTakeaways, 'summaryAndResources.keyTakeaways');
     } else {
-      resources.forEach((resource, index) => {
-        const label = `summaryAndResources.relatedResources[${index}]`;
-        expectObjectFields(resource, ['title', 'target'], label);
-        if (!VALID_RESOURCE_TYPES.includes(resource?.type)) {
-          errors.push(`     [FAIL] ${context}.${label}.type is invalid`);
-        }
-      });
+      errors.push(`     [FAIL] ${context}.summaryAndResources must use the current summaryPoints/relatedResources shape or the documented legacy keyTakeaways/nextSteps/officialDocsUrl shape`);
     }
   }
 
@@ -583,6 +607,7 @@ export function validateCurriculum(options = {}) {
           ).forEach(logLessonError);
 
           // 4. Slide deck shape and bounds check.
+          // Support current slides plus the two legacy shapes already present in D10 and P10.
           if (!Array.isArray(lesson.slides) || lesson.slides.length < 5 || lesson.slides.length > 15) {
             logLessonError(`     [FAIL] Lesson ${expectedLessonId} slides must contain between 5 and 15 items (found ${Array.isArray(lesson.slides) ? lesson.slides.length : 0})`);
           } else {
@@ -592,21 +617,61 @@ export function validateCurriculum(options = {}) {
                 logLessonError(`     [FAIL] ${slideContext} must be an object`);
                 return;
               }
-              if (!isNonEmptyString(slide.id)) {
-                logLessonError(`     [FAIL] ${slideContext} id must be a non-empty string`);
+
+              const isCurrentSlide = slide.contentMarkdown !== undefined;
+              const isLegacyD10Slide = slide.bullets !== undefined;
+              const isLegacyP10Slide = slide.content !== undefined;
+
+              if (isCurrentSlide) {
+                if (!isNonEmptyString(slide.id)) {
+                  logLessonError(`     [FAIL] ${slideContext} id must be a non-empty string`);
+                }
+                if (!Number.isInteger(slide.slideNumber) || slide.slideNumber < 1) {
+                  logLessonError(`     [FAIL] ${slideContext} slideNumber must be a positive integer`);
+                }
+                if (!VALID_SLIDE_TYPES.includes(slide.type)) {
+                  logLessonError(`     [FAIL] ${slideContext} has an invalid type: "${slide.type}"`);
+                }
+                if (!isNonEmptyString(slide.title) || !isNonEmptyString(slide.contentMarkdown)) {
+                  logLessonError(`     [FAIL] ${slideContext} title/contentMarkdown must be non-empty strings`);
+                }
+              } else if (isLegacyD10Slide) {
+                if (!Number.isInteger(slide.slideNumber) || slide.slideNumber < 1) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy slideNumber must be a positive integer`);
+                }
+                if (!isNonEmptyString(slide.title)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy title must be a non-empty string`);
+                }
+                if (!Array.isArray(slide.bullets) || slide.bullets.length === 0 || !slide.bullets.every(isNonEmptyString)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy bullets must be a non-empty array of strings`);
+                }
+                if (slide.subtitle !== undefined && !isNonEmptyString(slide.subtitle)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy subtitle must be a non-empty string when provided`);
+                }
+                if (
+                  (slide.proTip !== undefined && !isNonEmptyString(slide.proTip))
+                  || (slide.callout !== undefined && !isNonEmptyString(slide.callout))
+                ) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy callout must be a non-empty string when provided`);
+                }
+              } else if (isLegacyP10Slide) {
+                const legacyP10Types = ['concept', 'workflow', 'interaction', 'layout', 'detail', 'summary'];
+                if (!isNonEmptyString(slide.id) || !Number.isInteger(slide.order) || slide.order < 1) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy id/order are invalid`);
+                }
+                if (!legacyP10Types.includes(slide.type)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy type is invalid: "${slide.type}"`);
+                }
+                if (!isNonEmptyString(slide.title) || !isNonEmptyString(slide.content)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy title/content must be non-empty strings`);
+                }
+                if (slide.tips !== undefined && !isNonEmptyString(slide.tips)) {
+                  logLessonError(`     [FAIL] ${slideContext} legacy tips must be a non-empty string when provided`);
+                }
+              } else {
+                logLessonError(`     [FAIL] ${slideContext} does not match a supported current or legacy slide shape`);
               }
-              if (!Number.isInteger(slide.slideNumber) || slide.slideNumber < 1) {
-                logLessonError(`     [FAIL] ${slideContext} slideNumber must be a positive integer`);
-              }
-              if (!VALID_SLIDE_TYPES.includes(slide.type)) {
-                logLessonError(`     [FAIL] ${slideContext} has an invalid type: "${slide.type}"`);
-              }
-              if (!isNonEmptyString(slide.title)) {
-                logLessonError(`     [FAIL] ${slideContext} title must be a non-empty string`);
-              }
-              if (!isNonEmptyString(slide.contentMarkdown)) {
-                logLessonError(`     [FAIL] ${slideContext} contentMarkdown must be a non-empty string`);
-              }
+
               if (slide.quizData !== undefined) {
                 getQuizQuestionErrors(slide.quizData, `${slideContext} quizData`).forEach(logLessonError);
               }
