@@ -33,6 +33,9 @@ export const EXPECTED_CURRICULUM = {
   },
 };
 
+// Non-track directories maintained alongside the curriculum tracks.
+export const ALLOWED_CURRICULUM_ROOT_ENTRIES = ['assets', 'schema'];
+
 export const REQUIRED_SECTIONS = [
   'learningObjectives',
   'foundationalKnowledge',
@@ -85,6 +88,26 @@ export function validateCurriculum(options = {}) {
 
   const seenModuleIds = new Set();
   const seenLessonIds = new Set();
+  const seenDeclaredLessonIds = new Set();
+
+  // ---------------------------------------------------------
+  // 0. Curriculum root integrity: only known tracks and support directories
+  // ---------------------------------------------------------
+  if (!fs.existsSync(curriculumDir) || !fs.statSync(curriculumDir).isDirectory()) {
+    logError(`[FAIL] Curriculum root directory is missing or is not a directory: ${curriculumDir}`);
+  } else {
+    const allowedRootEntries = new Set([
+      ...Object.keys(expectedStructure),
+      ...ALLOWED_CURRICULUM_ROOT_ENTRIES,
+    ]);
+    for (const entry of fs.readdirSync(curriculumDir, { withFileTypes: true })) {
+      if (!allowedRootEntries.has(entry.name)) {
+        logError(`[FAIL] Unexpected curriculum root entry: ${entry.name}`);
+      } else if (!entry.isDirectory()) {
+        logError(`[FAIL] Curriculum root entry must be a directory: ${entry.name}`);
+      }
+    }
+  }
 
   // ---------------------------------------------------------
   // 1. Structure Verification: Expected Tracks, Modules & Lessons
@@ -92,19 +115,35 @@ export function validateCurriculum(options = {}) {
   for (const [track, trackConfig] of Object.entries(expectedStructure)) {
     const trackDir = path.join(curriculumDir, track);
 
-    if (!fs.existsSync(trackDir)) {
-      logError(`[FAIL] Track directory missing on disk: ${track} (${trackDir})`);
+    if (!Array.isArray(trackConfig.modules)) {
+      logError(`[FAIL] Expected curriculum manifest for track ${track} must define a modules array`);
+      continue;
+    }
+
+    if (!fs.existsSync(trackDir) || !fs.statSync(trackDir).isDirectory()) {
+      logError(`[FAIL] Track directory missing or is not a directory: ${track} (${trackDir})`);
       continue;
     }
 
     for (const mod of trackConfig.modules) {
       const moduleDir = path.join(trackDir, mod);
       const moduleJsonPath = path.join(moduleDir, 'module.json');
+      const expectedLessonCount = Number.isInteger(trackConfig.lessonCountPerModule)
+        && trackConfig.lessonCountPerModule > 0
+        ? trackConfig.lessonCountPerModule
+        : 3;
+      if (trackConfig.lessonCountPerModule !== undefined && expectedLessonCount !== trackConfig.lessonCountPerModule) {
+        logError(`[FAIL] Invalid lessonCountPerModule for ${track}/${mod}: ${trackConfig.lessonCountPerModule}`);
+      }
+      const expectedLessonIds = Array.from(
+        { length: expectedLessonCount },
+        (_, index) => `${mod}-${String(index + 1).padStart(2, '0')}`
+      );
 
       log(`Auditing Track [${track.toUpperCase()}] Module [${mod}]...`);
 
       // A. Verify Module Directory
-      if (!fs.existsSync(moduleDir)) {
+      if (!fs.existsSync(moduleDir) || !fs.statSync(moduleDir).isDirectory()) {
         logError(`  [FAIL] Missing required module directory: ${track}/${mod}`);
         continue;
       }
@@ -145,6 +184,31 @@ export function validateCurriculum(options = {}) {
               : null;
           if (!lessonList || lessonList.length === 0) {
             logError(`  [FAIL] module.json in ${mod} must contain lessonIds or lessons array`);
+          } else {
+            const normalizedLessonIds = lessonList.map((lessonEntry) => (
+              typeof lessonEntry === 'string' ? lessonEntry : lessonEntry?.id
+            ));
+            const normalizedIdsAreValid = normalizedLessonIds.every(
+              (lessonId) => typeof lessonId === 'string' && lessonId.trim().length > 0
+            );
+            const duplicateModuleLessonIds = normalizedLessonIds.filter(
+              (lessonId, index) => normalizedLessonIds.indexOf(lessonId) !== index
+            );
+            if (!normalizedIdsAreValid) {
+              logError(`  [FAIL] module.json in ${mod} contains an invalid lesson ID entry`);
+            }
+            if (duplicateModuleLessonIds.length > 0) {
+              logError(`  [FAIL] module.json in ${mod} contains duplicate lesson IDs: ${[...new Set(duplicateModuleLessonIds)].join(', ')}`);
+            }
+            const sortedActualIds = [...normalizedLessonIds].sort();
+            const sortedExpectedIds = [...expectedLessonIds].sort();
+            if (
+              !normalizedIdsAreValid
+              || sortedActualIds.length !== sortedExpectedIds.length
+              || sortedActualIds.some((lessonId, index) => lessonId !== sortedExpectedIds[index])
+            ) {
+              logError(`  [FAIL] module.json lesson IDs do not match manifest for ${track}/${mod}. Expected: ${expectedLessonIds.join(', ')}; got: ${normalizedLessonIds.join(', ')}`);
+            }
           }
 
           if (modData.id !== mod) {
@@ -170,7 +234,6 @@ export function validateCurriculum(options = {}) {
       }
 
       // D. Verify Expected Lessons in Module
-      const expectedLessonCount = trackConfig.lessonCountPerModule || 3;
       for (let i = 1; i <= expectedLessonCount; i++) {
         const orderStr = String(i).padStart(2, '0');
         const expectedLessonId = `${mod}-${orderStr}`;
@@ -197,6 +260,13 @@ export function validateCurriculum(options = {}) {
           const lesson = JSON.parse(content);
 
           let lessonHasError = false;
+          if (typeof lesson.id === 'string' && lesson.id.trim()) {
+            if (seenDeclaredLessonIds.has(lesson.id)) {
+              logError(`     [FAIL] Duplicate lesson ID found in lesson data: ${lesson.id}`);
+              lessonHasError = true;
+            }
+            seenDeclaredLessonIds.add(lesson.id);
+          }
 
           // 1. Core identification & required top-level metadata check
           const requiredLessonFields = [
@@ -326,7 +396,11 @@ export function validateCurriculum(options = {}) {
   log('\nScanning for unexpected curriculum files or directories...');
   for (const [track, trackConfig] of Object.entries(expectedStructure)) {
     const trackDir = path.join(curriculumDir, track);
-    if (!fs.existsSync(trackDir)) continue;
+    if (
+      !Array.isArray(trackConfig.modules)
+      || !fs.existsSync(trackDir)
+      || !fs.statSync(trackDir).isDirectory()
+    ) continue;
 
     const actualEntries = fs.readdirSync(trackDir, { withFileTypes: true });
     for (const entry of actualEntries) {
@@ -334,12 +408,21 @@ export function validateCurriculum(options = {}) {
         if (!trackConfig.modules.includes(entry.name)) {
           logError(`  [FAIL] Unexpected module directory found: ${track}/${entry.name}`);
         } else {
-          // Check inside module for rogue files
+          // Check exact expected filenames; a well-shaped but unplanned ID is still rogue.
+          const expectedCount = Number.isInteger(trackConfig.lessonCountPerModule)
+            && trackConfig.lessonCountPerModule > 0
+            ? trackConfig.lessonCountPerModule
+            : 3;
+          const allowedModuleFiles = new Set([
+            'module.json',
+            ...Array.from(
+              { length: expectedCount },
+              (_, index) => `${entry.name}-${String(index + 1).padStart(2, '0')}.json`
+            ),
+          ]);
           const modFiles = fs.readdirSync(path.join(trackDir, entry.name));
           for (const file of modFiles) {
-            if (file === 'module.json') continue;
-            const isExpectedLesson = file.match(new RegExp(`^${entry.name}-\\d{2}\\.json$`));
-            if (!isExpectedLesson) {
+            if (!allowedModuleFiles.has(file)) {
               logError(`  [FAIL] Unexpected file in module ${track}/${entry.name}: ${file}`);
             }
           }
