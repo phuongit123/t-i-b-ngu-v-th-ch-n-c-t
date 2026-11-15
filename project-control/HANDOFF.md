@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.7` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.8` (latest desktop version scope accepted; last completed Quality Gate #43738438116 passed on prior reviewed head)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
 - **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
@@ -268,7 +268,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Evidence artifact: `affinity-academy-quality-evidence` (ID `14169703842`). This proves the web academy's technical checks at that commit, not Affinity desktop version compatibility or inventory completeness.
 - `TASK-079` / `REQ-LEARN-001`: COMPLETED, supported by independent 66/66 lesson mapping review and its verified Quality Gate. No learner A5 attainment is implied.
 - `TASK-080` / `REQ-LEARN-002`: IN_PROGRESS; `TASK-081`: PENDING; `BLK-007`: ACTIVE — LOCKED.
-- PR #6 remains Draft and unmerged. Quality Gate #43738438116 now passes on exact current head `b85956e`; no merge was performed.
+- PR #6 remains Draft and unmerged. Quality Gate #43738438116 passed on exact commit `b85956e` while it was the PR head; later documentation commits moved the head. The latest current-head gate is tracked in Section 16. No merge was performed.
 
 
 ## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
@@ -295,3 +295,11 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - `P05-01` contains real guided practice reading the Red histogram channel and an RGB-distribution challenge; narrowed `PIX-012` to those supported uses. Clipping alerts and color-space constraints remain unverified.
 - Current source distribution: 38 direct official feature-matched pages with body content reviewed, 2 official Help Center page-title matches with body review pending, 9 broad/version-limited URLs, and 1 project-local MCP-only record.
 - Latest documentation head triggered Quality Gate #43739465667; its result is still pending in the CI status record. PR #6 stays Draft and unmerged.
+
+
+## 16. Latest PR Head / CI State (2026-11-16)
+
+- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
+- Quality Gate #43740066423 (run 57) is attached to this exact commit and is IN_PROGRESS. At last inspection, package installation was running after checkout succeeded; remaining checks were not yet complete.
+- Run #43739829124 on the previous head `a441f19...` was cancelled when the branch advanced. The successful #43738438116 remains valid only for its exact older commit `b85956e...`.
+- PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS, TASK-081 PENDING, and BLK-007 ACTIVE — LOCKED.
