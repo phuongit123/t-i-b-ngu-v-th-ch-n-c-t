@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.3.0` (Learning outcomes and tool coverage work registered)
+- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
