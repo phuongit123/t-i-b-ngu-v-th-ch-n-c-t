@@ -43,8 +43,8 @@ They are recorded in Section 14.5 of `AFFINITY_TOOL_COVERAGE_MATRIX.md` as a dis
 2. **P4 teaching evidence:** all 50 P4 claims still need a row-by-row check that the linked lesson actually explains the named tool, includes it in guided practice, and provides observable check criteria. A lesson reference alone is insufficient.
 3. **Current build confirmation:** repository lessons cite Affinity 3.3.3.5004, but this remote review did not inspect the user's installed desktop build. Do not treat the repository string as live machine evidence.
 4. **Denominator completeness:** the current 68 is an internally consistent submitted baseline, not yet an independently established exhaustive inventory. Reconcile the current release discovery queue and any shared-tool applicability before certification.
-5. **Progress and handoff consistency:** Version 4.4.0 status lines, the 32.0% legacy task-count note, Phase 8 counters, and older CI statements need to be reconciled.
-6. **CI:** the reported local tests on `e65b9fd` have not yet been independently confirmed by a GitHub Actions run on the same commit.
+5. **Progress and handoff consistency:** The first review found stale Version 4.4.0 / 32.0% / Phase 8 values. These have now been reconciled in the Version 4.4.1 Progress, Handoff and Task Registry documents. Confirm their status lines remain synchronized when the PR is reviewed.
+6. **CI:** the reported local tests on `e65b9fd` have not yet been independently confirmed by a GitHub Actions run on this branch.
 
 ## 5. Current disposition
 
