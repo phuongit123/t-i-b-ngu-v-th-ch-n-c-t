@@ -15,7 +15,7 @@ test.describe('Phase 5 — Track 2: Affinity Photo Learning Subsystem', () => {
     await page.locator('button:has-text("Tracks")').click();
 
     // Click Photo Track Card
-    await page.locator('h3:has-text("Affinity Photo")').click();
+    await page.locator('h3:has-text("Pixel Studio")').click();
 
     // Verify track title and lessons ready badge
     await expect(page.locator('h2')).toContainText('photo Track Curriculum');
@@ -34,7 +34,7 @@ test.describe('Phase 5 — Track 2: Affinity Photo Learning Subsystem', () => {
   test('TC-PHOTO-02: SlidePlayer launches and navigates a full Photo lesson', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Affinity Photo")').click();
+    await page.locator('h3:has-text("Pixel Studio")').click();
 
     // Click on P02-01 Selection Tools lesson
     const p02Lesson = page.locator('h5:has-text("Selection Tools & Core Selection Principles")').first();
@@ -58,7 +58,7 @@ test.describe('Phase 5 — Track 2: Affinity Photo Learning Subsystem', () => {
   test('TC-PHOTO-04: Legacy P10 slides render their content and tips', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Affinity Photo")').click();
+    await page.locator('h3:has-text("Pixel Studio")').click();
 
     // Open the existing P10 capstone module and its third lesson.
     await page.locator(
