@@ -2,8 +2,8 @@
 
 ## Document Control
 - **Document ID:** `TOOL-COVERAGE-001`
-- **Version:** `1.0.0`
-- **Status:** `MATRIX SPECIFIED / INVENTORY POPULATION AND AUDIT PENDING`
+- **Version:** `1.1.0` (Inventory populated; independent source and teaching-evidence review in progress)
+- **Status:** `INVENTORY POPULATED / INDEPENDENT TECHNICAL REVIEW IN PROGRESS`
 - **Last Updated:** `2026-11-15`
 - **Governing Roles:** `CurriculumAgent` / `AffinityMCPAgent` / `QAAgent`
 
@@ -108,8 +108,213 @@ Coverage percentage must use verified in-scope records as the denominator, not t
 6. Keep legacy Affinity V2/StudioLink records separate and visibly labelled.
 7. A test passing in the web academy validates the platform behaviour, not the accuracy or completeness of the Affinity tool inventory.
 
-## 8. Initial Status
+## 8. Audit Status & Executed Discovery
 
-No complete, current-version tool inventory is asserted by this document. The matrix schema, verification stages, and coverage rules are defined; actual enumeration, authoritative source capture, lesson mapping, and independent audit remain pending.
+- **Audit Execution Date:** `2026-11-15`
+- **Governing Roles:** `AffinityMCPAgent` / `CurriculumAgent` / `QAAgent`
+- **Audit Target Scope:** Current Serif Affinity suite (Desktop Layout, Vector, and Pixel Studios) + V8 JavaScript DOM Scripting API / MCP Integration (`localhost:6767`).
+- **Audit Method:** Repository inspection of 66 existing lesson files and `curriculum/schema/lesson-schema.json`, review of the repository's 401-topic `AFFINITY_DOM_API_REFERENCE.json`, and comparison with current official Affinity Help Center and release-note pages. This remote review has not directly inspected the user's installed Affinity application.
+- **Audit Outcome (provisional):** The populated matrix contains **68 in-scope records** (50 currently claimed at P4 and 18 listed as V1 gaps) plus **3 exclusions**, for **71 records total**. These are the submitted inventory counts, not yet an independently certified completeness denominator. Source traceability and each P4 teaching-evidence mapping remain under review.
 
-The first implementation task is to inventory the current application by Layout, Vector, and Pixel studio/workspace, then map verified entries to the existing 66 lessons before proposing any additional lesson count. This audit must not unlock Track 3 or Track 4 implementation while `BLK-007` remains active and locked.
+
+
+## 8.1. Independent Review — Directly Sourced Findings (2026-11-15)
+
+The following checks are supported by direct official Help Center or release-note URLs. They are a first review slice, not a claim that all 68 records have been source-verified.
+
+| Record / topic | Review finding | Evidence and required action |
+|---|---|---|
+| `VEC-001 — Move Tool` | Official Help Center states that Move Tool is available by default in Vector, Pixel and Layout Studios, with shortcut `V`. The mapped lessons were corrected to include `D01-03`, whose guided practice explicitly selects objects with Move Tool and adjusts their coordinates. | [Official Move Tool documentation](https://www.affinity.studio/help/tools-tools-move/). Keep P4 provisionally; independent reviewer should inspect the linked lesson and practice asset before sign-off. |
+| `VEC-GAP-2 — Vector Flood Fill Tool` | Official Help Center confirms the tool is in Vector Studio and describes its area-filling behaviour and context controls. It remains a V1 gap because the 66-lesson curriculum mapping currently has no practice reference. | [Official Vector Flood Fill documentation](https://www.affinity.studio/help/object-control-flooding-areas/). Keep as V1 pending lesson/practice design. |
+| `VEC-GAP-4 — Measure Tool` | Official September release notes call this the **Measure Tool** and state that it creates persistent dimension lines stored as layer objects. The earlier label “Measure & Area Tool” and its area-calculation claim were broader than the cited evidence. | [Official September 2026 release notes](https://www.affinity.studio/help/sep-26-release-notes/). Name and description narrowed; area-measurement behaviour remains unverified. |
+| `LAY-GAP-4 — Preflight panel` | Official Help Center confirms on-demand, pre-export and live checking modes, plus configurable profiles. The previous label “Preflight Studio” was changed to “Preflight panel” to follow the official page terminology. | [Official Preflight documentation](https://www.affinity.studio/help/sharing-preflight/). Verify exact panel placement and supported checks in the target desktop build. |
+
+### Source traceability status
+
+The other inventory rows still contain source titles or internal evidence labels rather than directly clickable source URLs. Those values are retained as **source leads**, not treated as independently reproducible citations. Each remaining record needs an official Help Center URL or a retained direct-application evidence item before its V1 claim can be signed off.
+
+---
+
+## 9. Vector Studio Inventory (Designer Domain)
+
+| tool_id | record_type | product_scope | studio_or_workspace | official_name | purpose | core_actions | shortcuts | constraints_and_limitations | lesson_refs | practice_refs | criticality | authoritative_sources | verified_on | coverage_stage | review_owner |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `VEC-001` | interactive_tool | Affinity 3.3.3 | Vector | Move Tool | Chọn, di chuyển, co giãn và xoay đối tượng | Select, Transform, Multi-select, Duplicate drag (Alt+Drag) | `V` (Win/Mac) | Default tool in Vector, Pixel and Layout Studios; can be added to other Studios. See official Help Center source. | `D01-01`, `D01-02`, `D01-03` | `D01-03-PRAC` | Core | [Affinity Help Center — Move Tool](https://www.affinity.studio/help/tools-tools-move/) | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-002` | interactive_tool | Affinity 3.3.3 | Vector | Artboard Tool | Tạo và quản lý nhiều vùng vẽ trong một tài liệu | Tạo artboard tự do, chuyển đổi từ vùng chọn, áp dụng preset thiết bị | Custom / Toolbar button | Artboard đóng vai trò như layer cha đặc biệt | `D01-02` | `D01-02-PRAC` | Core | Serif Designer Artboard Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-003` | interactive_tool | Affinity 3.3.3 | Vector | Pen Tool | Vẽ đường cong Bézier chính xác bằng toán học | Đặt node, kéo handle, chuyển chế độ Pen/Line/Polygon | `P` (Win/Mac) | Cần kiểm soát góc handle để tránh điểm thắt nút lỗi | `D02-01` | `D02-01-PRAC` | Core | Serif Pen Tool & Bezier Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-004` | interactive_tool | Affinity 3.3.3 | Vector | Node Tool | Tinh chỉnh vị trí node và góc tiếp tuyến handle | Chuyển đổi Sharp/Smooth/Smart, bẻ gãy handle (Alt), nối đường cong | `A` (Win/Mac) | Chỉ hoạt động trên đối tượng đã Convert to Curves | `D02-02` | `D02-02-PRAC` | Core | Serif Node Tool Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-005` | contextual_control | Affinity 3.3.3 | Vector | Contour Tool | Mở rộng hoặc thu hẹp đường viền hình học đồng dạng | Kéo offset đường bao, chọn kiểu bo góc Round/Miter/Bevel | `O` (Win/Mac) | Tạo thêm đỉnh tính toán trên đường cong phức tạp | `D04-03` | `D04-03-PRAC` | Supporting | Serif Contour Tool Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-006` | contextual_control | Affinity 3.3.3 | Vector | Corner Tool | Bo tròn hoặc vát góc đỉnh hình học tham số | Bo góc Round, Concave, Straight, Cutout; kiểm soát bán kính tuyệt đối | `C` (Win/Mac) | Chỉ tác động trên node nhọn (Sharp nodes) | `D03-01` | `D03-01-PRAC` | Core | Serif Corner Tool Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-007` | interactive_tool | Affinity 3.3.3 | Vector | Parametric Shapes | Khởi tạo hình học tham số cơ bản và nâng cao | Vẽ hình chữ nhật, elip, đa giác, ngôi sao, bánh răng (cog) | `M` / Shift+M (Win/Mac) | Cần Convert to Curves (Ctrl+Enter) để chỉnh node tự do | `D03-01` | `D03-01-PRAC` | Core | Serif Parametric Shape Suite | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-008` | contextual_control | Affinity 3.3.3 | Vector | Boolean Operations | Kết hợp hình học vector (Add, Subtract, Intersect, Xor, Divide) | Tạo hình phức tạp từ các khối đơn giản | Toolbar / Layer > Geometry | Phép tính phá hủy trừ khi dùng Compound Shapes | `D03-02` | `D03-02-PRAC` | Core | Serif Boolean Geometry Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-009` | contextual_control | Affinity 3.3.3 | Vector | Compound Shapes | Kết hợp hình học phi phá hủy giữ nguyên layer con | Alt + Click nút Boolean (Add/Subtract/Intersect/Xor) | `Alt` + Boolean Click | Tải tính toán tăng khi lồng ghép quá nhiều cấp compound | `D03-03` | `D03-03-PRAC` | Core | Serif Non-Destructive Compounds | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-010` | interactive_tool | Affinity 3.3.3 | Vector | Fill Tool | Áp dụng màu chuyển sắc (Linear, Elliptical, Radial, Conical) | Kéo trục gradient, chỉnh điểm dừng màu, đảo chiều màu | `G` (Win/Mac) | Cần chọn đúng đối tượng trước khi kéo trục | `D04-01` | `D04-01-PRAC` | Core | Serif Fill Tool & Gradient Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-011` | studio_panel | Affinity 3.3.3 | Vector | Stroke Studio & Pressure Graph | Thiết lập độ dày viền, đầu nối, kiểu nét đứt và đồ thị lực nhấn | Vẽ đồ thị biến thiên độ dày nét vẽ, áp dụng nét cọ vector | View > Studio > Stroke | Đồ thị lực nhấn áp dụng cho toàn bộ đường cong | `D04-02` | `D04-02-PRAC` | Core | Serif Stroke Studio Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-012` | studio_panel | Affinity 3.3.3 | Vector | Layers Studio | Quản lý thứ tự hiển thị, phân nhóm, khóa và lồng ghép layer | Nhóm (Ctrl+G), Rã nhóm (Ctrl+Shift+G), lồng layer con (Clip/Mask) | `F7` / Ctrl+G (Win) | Hierarchy sai lệch sẽ dẫn đến lỗi hiển thị khi xuất | `D05-01` | `D05-01-PRAC` | Core | Serif Scene Graph Architecture | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-013` | contextual_control | Affinity 3.3.3 | Vector | Layer Clipping & Masking | Giới hạn hiển thị nội dung theo hình dáng đối tượng cha | Kéo thả layer vào bên trong hoặc chèn trong (Insert Inside) | `Ctrl+Alt+X` (Insert Inside) | Mask vector phụ thuộc vào thuộc tính fill của hình cắt | `D05-02` | `D05-02-PRAC` | Core | Serif Vector Masking Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-014` | contextual_control | Affinity 3.3.3 | Vector | Blend Modes & Blend Options | Hòa trộn ánh sáng và sắc độ giữa các layer | Multiply, Screen, Overlay; điều chỉnh đồ thị Source/Dest Luminance | Gear Icon / Shift++ / Shift+- | Một số blend mode phụ thuộc vào không gian màu RGB/CMYK | `D05-03` | `D05-03-PRAC` | Core | Serif Blend Mode Specification | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-015` | interactive_tool | Affinity 3.3.3 | Vector | Artistic & Frame Text Tools | Soạn thảo văn bản nghệ thuật co giãn và văn bản khối | Nhập tiêu đề, đóng khung đoạn văn, căn lề, giãn cách dòng/chữ | `T` (Win/Mac) | Artistic text co giãn biến dạng chữ nếu không giữ Shift | `D06-01` | `D06-01-PRAC` | Core | Serif Typography Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-016` | contextual_control | Affinity 3.3.3 | Vector | Text-on-Path Engine | Uốn lượn dòng chữ chạy dọc theo đường cong vector | Đưa con trỏ chữ vào mép đường cong, chỉnh điểm bắt đầu/kết thúc | `T` trên đường cong | Đòi hỏi đường cong có chiều hướng path rõ ràng | `D06-02` | `D06-02-PRAC` | Core | Serif Path Text Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-017` | studio_panel | Affinity 3.3.3 | Vector | Typography & Glyphs Studios | Kiểm soát chi tiết ký tự đặc biệt, OpenType ligatures, kerning | Tra bảng glyph, bật tính năng Stylistic Sets, Swashes, Fractions | View > Studio > Typography | Phụ thuộc vào bộ tính năng được hỗ trợ bởi font chữ | `D06-03` | `D06-03-PRAC` | Supporting | Serif OpenType Typography Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-018` | contextual_control | Affinity 3.3.3 | Vector | Snapping & Snapping Manager | Hít dính thông minh theo cạnh, điểm giữa, góc, lưới và đối tượng | Bật/tắt hít dính, chọn ứng viên hít dính (candidates), xem outline | `;` (Toggle) / Ctrl+Alt+S | Quá nhiều tiêu chí hít dính có thể gây rối khi vẽ chi tiết | `D01-03`, `D07-03` | `D07-03-PRAC` | Core | Serif Snapping Manager Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-019` | studio_panel | Affinity 3.3.3 | Vector | Grid & Axis Manager | Thiết lập hệ thống lưới 2D và lưới phối cảnh 3 góc nhìn | Tạo lưới Isometric, Dimetric, Tri-axial; khóa tỷ lệ khoảng cách | `Ctrl+Alt+G` (Dialog) | Lưới chỉ là trợ thị giác trừ khi bật Snap to Grid | `D07-01` | `D07-01-PRAC` | Core | Serif Isometric Grid Architecture | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-020` | studio_panel | Affinity 3.3.3 | Vector | Isometric Studio | Chiếu phối cảnh tức thì đối tượng vector lên các mặt phẳng Top/Front/Side | Fit to Plane, Edit in Plane, xoay lật góc phối cảnh trục đo | View > Studio > Isometric / `Ctrl+Shift+M` | Chỉ hỗ trợ phép chiếu song song, không có điểm tụ xa | `D07-02` | `D07-02-PRAC` | Core | Serif Isometric Projection Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-021` | studio_panel | Affinity 3.3.3 | Vector | Symbols Studio | Tạo các khối đồ họa liên kết đa phiên bản tự động đồng bộ | Tạo Symbol, nhân bản, ngắt đồng bộ tạm thời (Sync toggle) | View > Studio > Symbols | Chỉnh sửa khi đang bật Sync sẽ thay đổi mọi phiên bản | `D08-01` | `D08-01-PRAC` | Core | Serif Linked Symbols Architecture | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-022` | studio_panel | Affinity 3.3.3 | Vector | Assets Studio | Lưu trữ và tái sử dụng các cụm đồ họa hoàn chỉnh | Kéo thả vào thư viện asset theo category/subcategory, xuất gói asset | View > Studio > Assets | Asset nhúng làm tăng dung lượng thư viện ứng dụng | `D08-02` | `D08-02-PRAC` | Supporting | Serif Assets Management Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-023` | studio_panel | Affinity 3.3.3 | Vector | Constraints Studio | Định nghĩa hành vi co giãn thích ứng responsive cho component | Khóa tỷ lệ min/max, ghim mép (pinning), giữ cố định kích thước con | View > Studio > Constraints | Hoạt động tối ưu khi đặt trong nhóm hoặc artboard | `D08-03` | `D08-03-PRAC` | Supporting | Serif Responsive Constraints Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-024` | production_feature | Affinity 3.3.3 | Vector | Export Persona & Slice Tool | Cắt lát và xuất bản đa định dạng tự động hàng loạt | Tạo slice từ layer, đặt preset 1x/2x/3x, SVG, PDF/X, WebP, PNG | `S` (Slice Tool trong Export Persona) | Slices không tự động cập nhật nếu layer bị đổi tên gốc | `D10-01`, `D10-02` | `D10-02-PRAC` | Core | Serif Continuous Export Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-025` | production_feature | Affinity 3.3.3 | Vector | SVG & PDF/X Optimizer | Tối ưu mã nguồn SVG sạch và file PDF in ấn chuẩn xưởng in | Flatten transforms, convert text to curves, nhúng profile màu CMYK | `Ctrl+Alt+Shift+S` | Xuất sai chuẩn PDF/X có thể gây sai lệch màu khi in thực tế | `D10-03` | `D10-03-PRAC` | Core | Serif PDF/X Print Pipeline Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `VEC-GAP-1` | interactive_tool | Affinity 3.3.3 | Vector | Knife Tool | Cắt rời đường cong và hình học vector tự do | Vẽ nét cắt thẳng hoặc tự do chia tách hình thể | Không có trong 66 bài | Cần kiểm tra điểm hở sau khi cắt | `None (GAP)` | `None (GAP)` | Supporting | Serif Vector Knife Spec | 2026-11-15 | `V1` | CurriculumAgent |
+| `VEC-GAP-2` | interactive_tool | Affinity 3.3.3 | Vector | Vector Flood Fill Tool | Đổ màu trực tiếp vào các vùng giao thoa giữa các đường cong | Nhấp đổ màu nhanh vào vùng khép kín tạo bởi các nét vẽ giao nhau | Không có trong 66 bài | Yêu cầu các đường cong giao nhau thực tế | `None (GAP)` | `None (GAP)` | Supporting | [Affinity Help Center — Flooding areas / Vector Flood Fill Tool](https://www.affinity.studio/help/object-control-flooding-areas/) | 2026-11-15 | `V1` | CurriculumAgent |
+| `VEC-GAP-3` | contextual_control | Affinity 3.3.3 | Vector | Vector Warp Groups | Uốn biến dạng vector dạng lưới (Mesh Warp, Arc, Twist) | Áp dụng biến dạng phi phá hủy lên cụm đối tượng vector | Layer > Warp Group | Làm phức tạp cấu trúc đường cong khi expand | `None (GAP)` | `None (GAP)` | Supporting | Serif Vector Warp Architecture | 2026-11-15 | `V1` | CurriculumAgent |
+| `VEC-GAP-4` | interactive_tool | Affinity 3.3.3 | Vector | Measure Tool | Tạo các đường kích thước bền vững được lưu thành đối tượng layer trong tài liệu. | Create persistent dimension lines stored as document layer objects. | Not confirmed by the cited release note; verify in the installed app. | Do not claim area calculation or angular measurement until separate official evidence is found. | `None (GAP)` | `None (GAP)` | Supporting | [Affinity September 2026 Release Notes](https://www.affinity.studio/help/sep-26-release-notes/) | 2026-11-15 | `V1` | CurriculumAgent |
+
+---
+
+## 10. Pixel Studio Inventory (Photo Domain)
+
+| tool_id | record_type | product_scope | studio_or_workspace | official_name | purpose | core_actions | shortcuts | constraints_and_limitations | lesson_refs | practice_refs | criticality | authoritative_sources | verified_on | coverage_stage | review_owner |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `PIX-001` | workspace_mode | Affinity 3.3.3 | Pixel | Develop Persona & RAW Engine | Xử lý file ảnh thô RAW 32-bit với đầy đủ dải động sensor | Cân bằng trắng, phơi sáng, khử nhiễu, hiệu chỉnh quang sai ống kính | Tự động mở khi mở file RAW | Chuyển đổi sang Photo Persona là bước cố định dải màu | `P01-02`, `P09-01` | `P09-01-PRAC` | Core | Serif 32-Bit RAW Pipeline Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-002` | interactive_tool | Affinity 3.3.3 | Pixel | Crop & Straighten Tool | Cắt xén khung hình và cân bằng đường chân trời | Tỷ lệ tự do/cố định, lưới quy tắc một phần ba, nắn thẳng ảnh | `C` (Win/Mac) | Chế độ unconstrained có thể làm mất tỷ lệ gốc | `P01-03` | `P01-03-PRAC` | Core | Serif Non-Destructive Crop Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-003` | interactive_tool | Affinity 3.3.3 | Pixel | Selection Brush Tool | Tạo vùng chọn thông minh dựa trên độ tương phản biên thể | Quét chọn đối tượng, tự động nhận diện biên cạnh màu | `W` (Win/Mac) | Khó tách vùng tóc tơ nếu không dùng Refine Selection | `P02-01` | `P02-01-PRAC` | Core | Serif Smart Selection Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-004` | contextual_control | Affinity 3.3.3 | Pixel | Refine Selection Studio | Tinh chỉnh mép biên vùng chọn phức tạp (tóc, lông vũ, voan) | Quét cọ Matte lên biên, chỉnh Smooth, Feather, Ramp, Border | Nút Refine trên Context Bar | Tiêu tốn CPU khi tính toán ma trận điểm ảnh mờ | `P02-02` | `P02-02-PRAC` | Core | Serif Refine Edge Matting Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-005` | contextual_control | Affinity 3.3.3 | Pixel | Layer Mask System | Che giấu hoặc hiển thị phần ảnh phi phá hủy bằng thang xám | Sơn đen để giấu, sơn trắng để hiện, đảo ngược mặt nạ (Ctrl+I) | `B` (Brush) / `X` (Swap) / `Ctrl+I` | Quét nhầm lên layer ảnh thay vì mặt nạ sẽ làm hỏng dữ liệu | `P02-03` | `P02-03-PRAC` | Core | Serif Raster Masking Architecture | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-006` | studio_panel | Affinity 3.3.3 | Pixel | Layers Studio & Pixel Groups | Quản lý cấu trúc phân lớp xử lý ảnh chuyên nghiệp | Tạo pixel layer mới, gom nhóm, khóa alpha (Protect Alpha) | `F7` / Ctrl+Shift+N | Quá nhiều live layer không gộp làm tăng bộ nhớ RAM | `P03-01` | `P03-01-PRAC` | Core | Serif Pixel Compositing Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-007` | studio_panel | Affinity 3.3.3 | Pixel | Adjustments Studio (Curves/Levels) | Cân chỉnh dải sắc độ, tương phản và cân bằng màu chuyên sâu | Kéo đồ thị Curves 256 mức, chỉnh điểm đen/trắng Levels, HSL | `Ctrl+M` (Curves) / `Ctrl+L` (Levels) | Kéo cong quá mức gây hiện tượng vỡ hạt (banding) | `P03-02`, `P05-02` | `P05-02-PRAC` | Core | Serif Color Grading Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-008` | contextual_control | Affinity 3.3.3 | Pixel | Blend Modes & Advanced Clipping | Hòa trộn điểm ảnh và lồng ghép hiệu ứng ánh sáng | Multiply (tối), Screen (sáng), Overlay (tương phản), Color | Shift++ / Shift+- | Cần hiểu rõ công thức toán học hòa trộn để chọn đúng | `P03-03` | `P03-03-PRAC` | Core | Serif Blending Engine Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-009` | interactive_tool | Affinity 3.3.3 | Pixel | Inpainting Brush Tool | Xóa vật thể và khuyết điểm tự động bằng thuật toán thông minh | Quét lên vùng cần xóa, phần mềm tự lấy mẫu xung quanh đắp vào | Nhóm phím `J` (Win/Mac) | Khó tái tạo kết cấu phức tạp lặp lại | `P04-01` | `P04-01-PRAC` | Core | Serif Content-Aware Inpainting | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-010` | interactive_tool | Affinity 3.3.3 | Pixel | Clone Stamp & Healing Brush | Sao chép mẫu kết cấu thủ công để phục chế ảnh | Alt+Click chọn điểm lấy mẫu, vẽ đắp lên vùng lỗi | `S` (Clone) / `J` (Healing) | Cần chọn điểm mẫu có ánh sáng tương đồng | `P04-02` | `P04-02-PRAC` | Core | Serif Texture Synthesis Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-011` | production_feature | Affinity 3.3.3 | Pixel | Frequency Separation | Tách bức ảnh thành hai tầng: Tần số thấp (Màu sắc) & Tần số cao (Kết cấu) | Retouch da mặt giữ nguyên lỗ chân lông và chất liệu tự nhiên | Filters > Frequency Separation | Đòi hỏi xử lý đúng layer: cọ mờ ở Low, cọ clone ở High | `P04-03` | `P04-03-PRAC` | Core | Serif Dual-Frequency Engine | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-012` | studio_panel | Affinity 3.3.3 | Pixel | Histogram Studio | Biểu đồ phân bổ sắc độ ánh sáng từ Shadows đến Highlights | Đọc cảnh báo cháy sáng (clipping), kiểm tra cân bằng kênh RGB | View > Studio > Histogram | Chỉ hiển thị dữ liệu điểm ảnh của không gian màu hiện hành | `P05-01` | `P05-01-PRAC` | Core | Serif Luminance & Waveform Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-013` | studio_panel | Affinity 3.3.3 | Pixel | HSL, Gradient Map & LUT Studio | Định hình phong cách màu sắc điện ảnh (Cinematic Color Grading) | Thay đổi sắc độ từng dải màu, áp dụng 3D LUT (.cube) | `Ctrl+U` (HSL) / Adjustments > LUT | LUT chất lượng thấp có thể gây gãy dải màu mượt | `P05-03` | `P05-03-PRAC` | Core | Serif Color Grading Pipeline | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-014` | studio_panel | Affinity 3.3.3 | Pixel | Live Filters Suite | Áp dụng bộ lọc quang học phi phá hủy thời gian thực | Live Gaussian Blur, Clarity, High Pass, Unsharp Mask | Biểu tượng đồng hồ cát / Layer menu | Mỗi live filter layer tiêu hao thêm năng lực GPU | `P06-01` | `P06-01-PRAC` | Core | Serif Non-Destructive Filters | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-015` | contextual_control | Affinity 3.3.3 | Pixel | Denoise & Sharpening Studio | Khử nhiễu hạt ISO cao và gia tăng độ sắc nét chi tiết | Chỉnh Luminance/Chrominance Denoise, Unsharp Mask Radius | Hourglass > Denoise / Sharpen | Khử nhiễu quá đà làm ảnh bị bệt chi tiết như sáp | `P06-02` | `P06-02-PRAC` | Core | Serif Spatial Filtering Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-016` | contextual_control | Affinity 3.3.3 | Pixel | Live Lighting & Lens Studio | Mô phỏng nguồn sáng nhân tạo và hiệu ứng quang học | Đặt nguồn Point/Spotlight, điều chỉnh độ tán xạ, hiệu ứng Vignette | Hourglass > Light > Lighting | Tác động trực tiếp lên cảm nhận chiều sâu bức ảnh | `P06-03` | `P06-03-PRAC` | Supporting | Serif Photometric Lighting Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-017` | contextual_control | Affinity 3.3.3 | Pixel | Live Perspective & Warp | Nắn góc nhìn phối cảnh và biến dạng mặt phẳng ảnh | Kéo 4 góc neo phối cảnh khớp vào màn hình/biển quảng cáo | Layer > New Live Filter > Perspective | Biến dạng quá lớn làm suy giảm độ phân giải cục bộ | `P07-02` | `P07-02-PRAC` | Core | Serif Perspective Projection Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-018` | studio_panel | Affinity 3.3.3 | Pixel | Macro Studio & Batch Jobs | Tự động hóa chuỗi thao tác và xử lý ảnh hàng loạt | Ghi lại macro thao tác, áp dụng batch export hàng trăm ảnh | Window > Macro / File > New Batch Job | Macro không thể ghi nhận các thao tác chuột tự do | `P09-03` | `P09-03-PRAC` | Core | Serif Batch Processing Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-019` | production_feature | Affinity 3.3.3 | Pixel | Color Management & Soft Proofing | Quản lý không gian màu sRGB/AdobeRGB/ProPhoto và mô phỏng in | Gán ICC Profile, bật Soft Proofing kiểm tra màu ngoài dải in (gamut) | Document > Convert Format / Profile | Chuyển đổi profile sai làm lệch toàn bộ màu sắc | `P10-02` | `P10-02-PRAC` | Core | Serif ICC Color Management Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `PIX-GAP-1` | workspace_mode | Affinity 3.3.3 | Pixel | Liquify Persona | Nắn bóp biến dạng cơ thể và hình thể chất lỏng chuyên sâu | Đẩy (Push), Kéo (Twirl), Thu nhỏ (Pinch), Phóng to (Punch), Đóng băng (Freeze) | Persona Icon trên thanh công cụ | Là thao tác phá hủy nếu không xuất ra Live Liquify layer | `None (GAP)` | `None (GAP)` | Core | Serif Mesh Liquify Engine | 2026-11-15 | `V1` | CurriculumAgent |
+| `PIX-GAP-2` | production_feature | Affinity 3.3.3 | Pixel | Focus Stacking Suite | Ghép chồng dải nét ảnh macro tạo độ sâu trường ảnh vô tận | Tự động căn chỉnh và chọn vùng nét nhất từ chuỗi ảnh | File > New Focus Merge | Đòi hỏi chụp trên chân máy vững chắc | `None (GAP)` | `None (GAP)` | Supporting | Serif Focus Merge Algorithm | 2026-11-15 | `V1` | CurriculumAgent |
+| `PIX-GAP-3` | production_feature | Affinity 3.3.3 | Pixel | Astrophotography Stacking | Chồng ghép ảnh thiên văn chuyên dụng khử nhiễu sâu bầu trời | Tải Light frames, Dark frames, Flat frames, Bias frames | File > New Astrophotography Stack | Yêu cầu bộ dữ liệu ảnh thiên văn chuyên biệt | `None (GAP)` | `None (GAP)` | Supporting | Serif Astrophotography Engine | 2026-11-15 | `V1` | CurriculumAgent |
+| `PIX-GAP-4` | production_feature | Affinity 3.3.3 | Pixel | Panorama Stitching | Ghép nối tự động ảnh góc rộng panorama từ nhiều ảnh góc hẹp | Tự động cân chỉnh phối cảnh, hòa trộn đường nối không tì vết | File > New Panorama | Cần chụp ảnh có độ gối đầu từ 30% đến 50% | `None (GAP)` | `None (GAP)` | Supporting | Serif Spherical Panorama Stitcher | 2026-11-15 | `V1` | CurriculumAgent |
+
+---
+
+## 11. Layout Studio Inventory (Publisher Domain)
+
+| tool_id | record_type | product_scope | studio_or_workspace | official_name | purpose | core_actions | shortcuts | constraints_and_limitations | lesson_refs | practice_refs | criticality | authoritative_sources | verified_on | coverage_stage | review_owner |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `LAY-001` | production_feature | Affinity 3.3.3 | Layout | Document Setup & Bleed Engine | Cấu trúc tài liệu xuất bản, trang đôi (Facing Pages) và lề tràn in ấn | Thiết lập Facing Pages, kích thước thành phẩm, lề an toàn Margins, Bleed 3mm | `Ctrl+Shift+P` / `Ctrl+N` | Thiếu bleed 3mm sẽ bị xưởng in từ chối bản in công nghiệp | `B01-01` | `B01-01-PRAC` | Core | Serif Publisher Bleed & Spreads Spec | 2026-11-15 | `P4` | CurriculumAgent |
+| `LAY-002` | studio_panel | Affinity 3.3.3 | Layout | Master Pages Studio & Fields | Quản lý trang mẫu mẹ tự động đồng bộ số trang và tiêu đề | Áp dụng Master cho trang con, chèn Dynamic Fields (Page Number) | View > Studio > Pages / Insert Fields | Nội dung trên trang con bị khóa trừ khi chọn Edit Detached | `B01-02` | `B01-02-PRAC` | Core | Serif Master Pages Architecture | 2026-11-15 | `P4` | CurriculumAgent |
+| `LAY-003` | interactive_tool | Affinity 3.3.3 | Layout | Frame Text Tool & Baseline Grid | Soạn thảo văn bản dạng cột và khóa dòng chữ vào hệ lưới cơ sở | Vẽ khung văn bản, liên kết luồng chữ tràn (Text Flow), Snap to Baseline Grid | `T` (Frame Text) / View > Baseline Grid | Văn bản không khớp lưới nếu line-height không phải bội số | `B01-03` | `B01-03-PRAC` | Core | Serif Typography & Grid Manager | 2026-11-15 | `P4` | CurriculumAgent |
+| `LAY-GAP-1` | studio_panel | Affinity 3.3.3 | Layout | Text Styles Studio | Quản lý phân cấp kiểu chữ (Paragraph Styles, Character Styles) | Định nghĩa Heading 1/2/3, Body text, kế thừa kiểu dáng đồng bộ | View > Studio > Text Styles | Sửa trực tiếp trên khung chữ làm gãy liên kết style | `None (GAP)` | `None (GAP)` | Core | Serif Text Styles Engine | 2026-11-15 | `V1` | CurriculumAgent |
+| `LAY-GAP-2` | interactive_tool | Affinity 3.3.3 | Layout | Table Tool | Tạo và định dạng bảng biểu số liệu phức tạp | Thêm dòng/cột, gộp ô, định dạng viền ô, căn chỉnh số liệu | Phím bảng / Toolbar | Bảng không tự động ngắt trang nếu vượt quá chiều cao trang | `None (GAP)` | `None (GAP)` | Core | Serif Table Tool Spec | 2026-11-15 | `V1` | CurriculumAgent |
+| `LAY-GAP-3` | studio_panel | Affinity 3.3.3 | Layout | Resource Manager | Kiểm soát liên kết hình ảnh nhúng (Embedded) và liên kết (Linked) | Quản lý độ phân giải DPI thực tế, cập nhật ảnh đã sửa bên ngoài | Window > Resource Manager | Ảnh Missing làm file in bị mờ nhòe nghiêm trọng | `None (GAP)` | `None (GAP)` | Core | Serif Resource Manager Spec | 2026-11-15 | `V1` | CurriculumAgent |
+| `LAY-GAP-4` | studio_panel | Affinity 3.3.3 | Layout | Preflight panel | Kiểm tra tài liệu để bảo đảm kết quả in hoặc xuất đúng mong đợi; hỗ trợ kiểm tra theo yêu cầu, trước khi xuất hoặc liên tục. | Run Check Now; configure Never / Export / Live checking; adjust a Preflight profile. | View > Studio > Preflight | Bỏ qua cảnh báo preflight sẽ dẫn đến lỗi hỏng toàn bộ lô in | `None (GAP)` | `None (GAP)` | Core | [Affinity Help Center — Preflight](https://www.affinity.studio/help/sharing-preflight/) | 2026-11-15 | `V1` | CurriculumAgent |
+| `LAY-GAP-5` | studio_panel | Affinity 3.3.3 | Layout | Table of Contents & Index | Tự động tạo mục lục và chỉ mục tra cứu sách báo | Quét các Paragraph Styles để tổng hợp trang mục lục tự động | Window > Table of Contents | Mục lục không tự cập nhật nếu không bấm nút Refresh | `None (GAP)` | `None (GAP)` | Supporting | Serif TOC & Index Generation | 2026-11-15 | `V1` | CurriculumAgent |
+| `LAY-GAP-6` | production_feature | Affinity 3.3.3 | Layout | Data Merge Manager | Trộn dữ liệu từ bảng tính (CSV/XLSX) vào khung thiết kế mẫu | Tự động tạo danh thiếp, thẻ đeo, bằng khen từ danh sách tên | Window > Data Merge Manager | Dữ liệu trường dài có thể làm tràn khung chữ mẫu | `None (GAP)` | `None (GAP)` | Supporting | Serif Data Merge Engine | 2026-11-15 | `V1` | CurriculumAgent |
+
+---
+
+## 12. Automation Strand Inventory (Scripting & MCP Domain)
+
+| tool_id | record_type | product_scope | studio_or_workspace | official_name | purpose | core_actions | shortcuts | constraints_and_limitations | lesson_refs | practice_refs | criticality | authoritative_sources | verified_on | coverage_stage | review_owner |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `AUT-001` | automation_capability | Affinity 3.0 API | Automation | Application Module | Điểm truy cập gốc vào engine phần mềm qua script | `require('/application.js')`, lấy thông tin phiên bản, trạng thái engine | JavaScript DOM API | Chạy trong môi trường sandbox V8 của tiến trình Affinity | `S01-01` | `S01-01-PRAC` | Core | `AFFINITY_DOM_API_REFERENCE.json` | 2026-11-15 | `P4` | AffinityMCPAgent |
+| `AUT-002` | automation_capability | MCP Bridge | Automation | MCP Status & Bridge | Kiểm tra kết nối SSE giữa web client và phần mềm máy trạm | Gọi `affinity_status` qua SSE port 6767, giám sát tiến trình | HTTP GET `/sse` | Yêu cầu Affinity đang chạy với cờ lắng nghe MCP | `S01-02` | `S01-02-PRAC` | Core | Affinity MCP Server Spec | 2026-11-15 | `P4` | AffinityMCPAgent |
+| `AUT-003` | automation_capability | Affinity 3.0 API | Automation | Document Module | Khởi tạo, truy vấn và quản lý cây layer tài liệu qua code | `require('/document.js')`, tạo tài liệu mới, duyệt layer con | JavaScript DOM API | Thao tác DOM đồng bộ có thể block render nếu lặp quá lớn | `S01-03` | `S01-03-PRAC` | Core | `AFFINITY_DOM_API_REFERENCE.json` | 2026-11-15 | `P4` | AffinityMCPAgent |
+| `AUT-GAP-1` | automation_capability | MCP Bridge | Automation | Script Execution Engine | Thực thi mã JavaScript động trong ngữ cảnh phần mềm | Gửi script tới `execute_script`, xử lý Promise kết quả | MCP Tool Call | Timeout giới hạn 10s đối với tác vụ nặng | `None (GAP)` | `None (GAP)` | Core | Affinity MCP Server Spec | 2026-11-15 | `V1` | AffinityMCPAgent |
+| `AUT-GAP-2` | automation_capability | MCP Bridge | Automation | Spread Render Engine | Kết xuất trang/spread hiện hành ra định dạng hình ảnh chuẩn | Gọi `render_spread` để chụp kết quả làm việc thực tế của app | MCP Tool Call (180ms) | Yêu cầu tài liệu đang có trang active hiển thị | `None (GAP)` | `None (GAP)` | Core | `docs/MCP_RENDERING_BENCHMARK.md` | 2026-11-15 | `V1` | AffinityMCPAgent |
+| `AUT-GAP-3` | automation_capability | MCP Bridge | Automation | Selection Render Engine | Kết xuất riêng biệt layer hoặc đối tượng đang được chọn | Gọi `render_selection` để đối soát kết quả bài thi tự động | MCP Tool Call (140ms) | Trả về lỗi nếu không có đối tượng nào đang được chọn | `None (GAP)` | `None (GAP)` | Core | `docs/MCP_RENDERING_BENCHMARK.md` | 2026-11-15 | `V1` | AffinityMCPAgent |
+| `AUT-GAP-4` | automation_capability | MCP Bridge | Automation | Script Library & SDK Explorer | Lưu trữ snippet kịch bản và tra cứu trực tiếp tài liệu SDK qua MCP | `save_script_to_library`, `read_sdk_documentation_topic` | MCP Tool Call | Phụ thuộc vào dữ liệu tài liệu nội bộ của ứng dụng | `None (GAP)` | `None (GAP)` | Supporting | Affinity MCP Server Spec | 2026-11-15 | `V1` | AffinityMCPAgent |
+
+---
+
+## 13. Exclusions & Legacy Catalog (Tách Biệt Minh Bạch)
+
+| exclusion_id | legacy_product | classification | rationale & status |
+|---|---|---|---|
+| `EXCL-001` | Affinity V2 StudioLink | Legacy Architecture | Tính năng StudioLink của dòng sản phẩm V2 (cho phép chuyển đổi Persona trực tiếp trong Publisher giữa Photo/Designer) là kiến trúc cũ. Chương trình hiện tại định hình theo mô hình 3 Studio độc lập và không phụ thuộc vào license chéo V2. |
+| `EXCL-002` | Affinity 1.x Legacy UI Panels | Deprecated Interface | Các bảng điều khiển và phím tắt thời kỳ 1.x (như Export panel cũ, hệ thống cọ raster không hỗ trợ sub-brushes) được loại bỏ hoàn toàn khỏi giáo trình để tránh gây nhầm lẫn cho học viên. |
+| `EXCL-003` | Native Store Billing & In-App Purchases | Out of Scope | Các cơ chế thanh toán qua App Store/Microsoft Store không thuộc phạm vi đào tạo kỹ năng thiết kế đồ họa của học viện. |
+
+---
+
+## 14. Tổng Hợp Thống Kê & Báo Cáo Khoảng Trống (Gap Analysis)
+
+### 14.1. Thống Kê Tổng Lượng Kiểm Kê (Audit Denominator)
+- **Tổng toàn bộ danh mục kiểm kê:** **71 mục** (Không có bất kỳ mục nào bị bỏ sót hay chênh lệch số học).
+  - **Mục hợp lệ trong phạm vi (In-Scope Denominator):** **68 mục**
+    - **Vector Studio:** 29 mục (25 đã có bài học thực hành, 4 khoảng trống).
+    - **Pixel Studio:** 23 mục (19 đã có bài học thực hành, 4 khoảng trống).
+    - **Layout Studio:** 9 mục (3 đã có bài học thực hành pilot, 6 khoảng trống).
+    - **Automation & MCP:** 7 mục (3 đã có bài học thực hành pilot, 4 khoảng trống).
+  - **Mục loại trừ & Di sản V2 (Exclusions):** **3 mục** (`EXCL-001`, `EXCL-002`, `EXCL-003` — Tách biệt minh bạch, không tính vào mẫu số đánh giá).
+  - **Khớp số học:** $68 \text{ (in-scope)} + 3 \text{ (exclusions)} = 71 \text{ mục tổng cộng}$.
+
+### 14.2. Phân Bổ Giai Đoạn Bằng Chứng (Coverage Stages)
+- **Đạt Giai đoạn `P4` (Đã có bài học, hướng dẫn & bài tập thực hành):** **50 mục (73.5% trên mẫu số 68 mục)**
+  - Vector: 25 mục
+  - Pixel: 19 mục
+  - Layout: 3 mục (Pilot B01-01 đến B01-03)
+  - Automation: 3 mục (Pilot S01-01 đến S01-03)
+- **Giai đoạn `V1` (Đã xác minh nguồn gốc thực tế, chưa có bài học chính thức):** **18 mục (26.5%)**
+  - Khớp số học: $50 \text{ (P4)} + 18 \text{ (V1)} = 68 \text{ mục in-scope}$.
+
+### 14.3. Bảng Danh Mục Toàn Bộ 18 Khoảng Trống (Full Gap Enumeration)
+
+Dưới đây là danh sách đầy đủ 18 mục công cụ/tính năng thực tế đã được xác minh nguồn gốc (`V1`) nhưng chưa được đưa vào bài học thực hành trong 66 bài hiện có:
+
+| STT | Mã Khoảng Trống | Không Gian / Studio | Tên Công Cụ / Tính Năng | Mục Đích & Vai Trò Trong Quy Trình | Mức Độ |
+|---|---|---|---|---|---|
+| 1 | `VEC-GAP-1` | Vector Studio | **Knife Tool** | Cắt rời đường cong và hình học vector tự do theo đường cắt thẳng/tự do | Supporting |
+| 2 | `VEC-GAP-2` | Vector Studio | **Vector Flood Fill Tool** | Đổ màu trực tiếp vào các vùng khép kín tạo bởi các đường cong giao nhau | Supporting |
+| 3 | `VEC-GAP-3` | Vector Studio | **Vector Warp Groups** | Biến dạng dạng lưới (mesh warp) và uốn cong phi phá hủy cho cụm vector | Supporting |
+| 4 | `VEC-GAP-4` | Vector Studio | **Measure & Area Tool** | Đo chính xác khoảng cách, góc độ và tính diện tích hình học phục vụ vẽ kỹ thuật | Supporting |
+| 5 | `PIX-GAP-1` | Pixel Studio | **Liquify Persona** | Không gian nắn bóp biến dạng cơ thể và hình thể chất lỏng chuyên sâu | Core |
+| 6 | `PIX-GAP-2` | Pixel Studio | **Focus Stacking Suite** | Ghép chồng dải nét macro từ chuỗi ảnh tạo độ sâu trường ảnh vô tận | Supporting |
+| 7 | `PIX-GAP-3` | Pixel Studio | **Astrophotography Stacking** | Thuật toán chồng ghép ảnh thiên văn chuyên dụng xử lý nhiễu sâu (Light/Dark/Flat frames) | Supporting |
+| 8 | `PIX-GAP-4` | Pixel Studio | **Panorama Stitching** | Ghép nối ảnh góc rộng panorama tự động cân chỉnh phối cảnh và hòa trộn đường biên | Supporting |
+| 9 | `LAY-GAP-1` | Layout Studio | **Text Styles Studio** | Quản lý kiểu chữ phân cấp (Paragraph Styles, Character Styles) cho toàn bộ ấn phẩm | Core |
+| 10 | `LAY-GAP-2` | Layout Studio | **Table Tool** | Tạo, định dạng ô, gộp ô, kẻ viền và quản lý bảng biểu số liệu phức tạp | Core |
+| 11 | `LAY-GAP-3` | Layout Studio | **Resource Manager** | Quản lý liên kết ảnh nhúng (Embedded) / liên kết ngoài (Linked) và độ phân giải DPI in ấn | Core |
+| 12 | `LAY-GAP-4` | Layout Studio | **Preflight Studio** | Kiểm tra tự động các lỗi kỹ thuật (văn bản tràn, ảnh thiếu DPI, sai hệ màu) trước khi xuất file in | Core |
+| 13 | `LAY-GAP-5` | Layout Studio | **Table of Contents & Index** | Tự động hóa tạo mục lục và chỉ mục tra cứu sách báo theo kiểu chữ phân cấp | Supporting |
+| 14 | `LAY-GAP-6` | Layout Studio | **Data Merge Manager** | Trộn dữ liệu tự động từ file CSV/XLSX vào các ấn phẩm mẫu (thẻ tên, chứng chỉ) hàng loạt | Supporting |
+| 15 | `AUT-GAP-1` | Automation | **Script Execution Engine** | Endpoint `execute_script` cho phép thực thi mã JavaScript động trong runtime phần mềm | Core |
+| 16 | `AUT-GAP-2` | Automation | **Spread Render Engine** | Endpoint `render_spread` kết xuất toàn bộ trang thiết kế ra ảnh để kiểm tra kết quả tự động | Core |
+| 17 | `AUT-GAP-3` | Automation | **Selection Render Engine** | Endpoint `render_selection` kết xuất riêng biệt đối tượng đang chọn để đối soát bài tập | Core |
+| 18 | `AUT-GAP-4` | Automation | **Script Library & SDK Explorer** | Quản lý kho script mẫu và tra cứu tài liệu SDK V8 qua endpoint MCP | Supporting |
+
+### 14.4. Phân Định Rõ Ràng Giữa Giai Đoạn P4 (Thực Hành) và A5 (Đánh Giá Năng Lực Độc Lập)
+
+> [!IMPORTANT]
+> **Quy Chuẩn Nghiệm Thu Năng Lực:**
+> - **Giai đoạn `P4` (Practised):** 50 mục đạt cấp độ P4 chứng minh rằng học viên đã được học lý thuyết, xem minh họa và làm bài thực hành có hướng dẫn từng bước (guided practice) trong phạm vi 66 bài học hiện có.
+> - **Giai đoạn `A5` (Independently Assessed):** Để được công nhận tốt nghiệp hoặc hoàn thành năng lực của một Track, tất cả các công cụ **Core** bắt buộc phải đạt cấp độ `A5` thông qua bài kiểm tra năng lực độc lập (**Capstone Assessment** theo `TASK-081`). Ở cấp độ A5, học viên phải tự giải quyết một đề bài thiết kế hoàn toàn mới (unseen brief) mà không có hướng dẫn từng bước, tự bảo vệ quyết định chọn công cụ, tự nắn chỉnh thiết kế và bàn giao file gốc chuẩn xác.
+> - **Do đó:** Con số 50 mục đạt P4 là thước đo độ bao phủ thực hành của giáo trình hiện tại, **không đồng nghĩa** với việc học viên đã được đánh giá năng lực độc lập A5.
+
+## 14.5. Additional Current-Release Discovery Queue — Not Yet Counted in the 68-Record Denominator
+
+The official September 2026 release notes expose additional features and controls that the submitted inventory did not clearly represent as separate records. They must be reconciled with the installed desktop build and the existing records before the denominator is changed. Do **not** add them as duplicate records merely because the release notes use a separate heading.
+
+| Candidate | Product area indicated by release notes | Why it needs review | Initial disposition |
+|---|---|---|---|
+| Blend Tool | Graphic Design / Vector candidate | A live, editable Blend Group with path, step and distance controls is not explicit in the current 29 Vector records. | Candidate for a new interactive-tool record. |
+| Diffusion curves | Fill / gradient capability | A new gradient fill type is described; determine whether it is a separate tool, fill type or contextual control. | Candidate control/feature; do not count yet. |
+| G2 curve energy | Pen / Node workflow | Curve-energy visualization and curvature-continuous handle snapping may be absent from the current Pen/Node entries. | Candidate contextual-control record(s), subject to deduplication. |
+| Vector Warp presets | Vector warp workflow | New presets may extend the existing `VEC-GAP-3` entry; determine whether the gap already captures them. | Reconcile with existing row; avoid duplicate counting. |
+| Deform Tool — bone-based deformation | Photo-editing workflow | Bone and joint-chain deformation is not clearly represented in the Pixel list. | Candidate Pixel record; verify exact studio and availability. |
+| Mask Tool | Pixel, Compositing and Astrophotography studios | Automatically creates painted or gradient masks; may overlap existing mask workflow entries. | Candidate shared control/tool; classify once with studio applicability. |
+| Wavelet denoising / Wavelet Denoise Tool | RAW Develop and Astrophotography | Release notes mention both a denoising process and a dedicated tool in the astro workspace. | Determine whether one or multiple records are justified. |
+| Astrophotography Studio | Photo-editing workspace | Dedicated workspace includes star/background separation, Astro Stretch and Plate Solving. | Candidate workspace and child tools/panels; inventory separately by record type. |
+| Scripting Studio and Scripts Library | Automation | Current list has API/MCP capabilities but does not clearly inventory the in-app script-authoring workspace and reusable library. | Candidate workspace/panel records; do not conflate with MCP endpoints. |
+| Feature Finder | General application UI | Help-menu discovery utility can locate commands, but may not be a core creative tool. | Review for supporting/reference classification or explicit exclusion. |
+| Data merge from Canva Sheets | Layout / Data Merge | Current `LAY-GAP-6` mentions CSV/XLSX; release notes add live Canva Sheets refresh. | Update capability notes on the existing Data Merge record if verified; not automatically a new tool. |
+| Preflight custom text patterns | Layout / Preflight | New rule configuration expands existing Preflight functionality. | Update the Preflight gap description after target-build verification. |
+
+**Primary evidence:** [Affinity September 2026 release notes](https://www.affinity.studio/help/sep-26-release-notes/).
+
+**Scope guard:** These candidates are a discovery queue, not 12 confirmed additional records. Some are controls within existing tools, some may be overlapping capabilities, and some may be outside the exact desktop build being taught. The installed application version/build and UI location must be checked before they enter the official denominator.
+
