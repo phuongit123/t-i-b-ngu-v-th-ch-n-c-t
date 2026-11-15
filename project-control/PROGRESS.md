@@ -6,7 +6,7 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Latest CI evidence:** `Quality Gate run 43730666138 passed on exact PR #4 head 7f8d7898bac5388abca2c34d2999d84e1c32b384: static checks, curriculum and translation validation, production build, and 20/20 Microsoft Edge Playwright E2E. TASK-080 stacked PR CI is pending.`
+- **Latest CI evidence:** `Quality Gate run 43734389889 passed on exact stacked PR #5 head ed18dfd3fa7998b8378c007469cbbea164024657: ESLint, TypeScript, 66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translation keys, build, and 20/20 Microsoft Edge Playwright E2E (41.5s). This evidence applies to the tested head; subsequent changes require a new run.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -170,3 +170,11 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Added the native Scripting Studio / Script Editor / Scripts Library candidate separately from the Academy's MCP integration endpoints.
 - September 2026 release candidates remain under de-duplication and target-build verification. Desktop build 3.3.3.5004 remains curriculum-declared only; the installed user build has not been inspected.
 - `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING until both TASK-079 and TASK-080 are complete; `BLK-007` remains ACTIVE — LOCKED.
+
+
+### Stacked PR / CI evidence update
+
+- Draft PR #5: https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/5
+- Base: `feat/task-079-learning-outcome-mapping` (PR #4); head branch: `qa/task-080-independent-evidence-audit-stacked`.
+- Quality Gate #43734389889 passed on head `ed18dfd3fa7998b8378c007469cbbea164024657`: 66/66 curriculum, 41/41 validator assertions, 3/3 scripts, 66/66 translations, production build and 20/20 Edge E2E.
+- PR #5 remains Draft/unmerged and stacked; merge only after PR #4 is accepted.
