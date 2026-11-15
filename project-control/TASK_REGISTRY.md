@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.2.1` (Phase 5 Track 2 Affinity Photo Certified)
+- **Version:** `4.3.0` (Learning outcomes and tool coverage work registered)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-11`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) = 50 total registry task rows (16 COMPLETED / 34 PENDING = 32.0%).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (16 COMPLETED / 37 PENDING = 30.2%).
 
 ---
 
@@ -74,3 +74,8 @@
 | `TASK-076` | Major Page: Scripting & MCP Playground | `FrontendAgent` | `REQ-PAGE-006` | `TASK-023`, `TASK-024` | `src/pages/PlaygroundPage.tsx` | Split-pane IDE, Monaco editor, live render preview, run/render buttons. | `PENDING` |
 | `TASK-077` | Major Page: Resource Library Center | `FrontendAgent` | `REQ-PAGE-007` | `TASK-029` | `src/pages/ResourcesPage.tsx` | Categorized asset download hub scanning bundled curriculum assets with format badges, instant search, direct download, lazy-loaded chunk. | **COMPLETED** |
 | `TASK-078` | Major Page: Student Dashboard & Portfolio | `FrontendAgent` | `REQ-PAGE-008` | `TASK-033` | `src/pages/DashboardPage.tsx` | Profile summary, 40-module progress bars, project gallery, badges. | `PENDING` |
+
+
+| `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md` plus lesson/track outcome mapping | Every in-scope lesson and track maps to observable outcomes and evidence; independent QA approves the mapping. | `PENDING` |
+| `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` and populated evidence-backed inventory | Current Layout, Vector, and Pixel tool/feature inventory is independently verified; every in-scope entry is classified, sourced, and mapped to lesson/practice evidence; exclusions and V2 legacy items are explicit. | `PENDING` |
+| `TASK-081` | Independent Design Assessment & Graduation Capstone | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-003` | `TASK-079`, `TASK-080` | Track-level project briefs, common design rubric, programme capstone and QA protocol | New briefs assess independent tool choice, design reasoning, iteration, editable source, correct exports, and reflection; rubric and pass threshold receive independent QA approval. | `PENDING` |
