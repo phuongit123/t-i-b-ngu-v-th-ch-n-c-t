@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
+- **Version:** `4.4.2` (TASK-079 PLO mapping draft and TASK-080 inventory review in progress)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 IN-SCOPE TOOLS DISCOVERED, 50 AT STAGE P4, 18 AT STAGE V1 GAPS; 3 EXCLUSIONS = 71 TOTAL) — HOMEPAGE REFINED WITH VIETNAMESE DESIGN-THINKING COPYWRITING — LOCAL E2E 20/20 REPORTED BY ANTIGRAVITY (NOT YET CONFIRMED BY CI ON e65b9fd) — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 PLO MAP DRAFTED (66/66 LESSON IDS) AND INDEPENDENT QA PENDING — TASK-080 INVENTORY INDEPENDENT REVIEW IN PROGRESS (68 IN-SCOPE / 18 V1 GAPS / 3 EXCLUSIONS) — PR #3 MERGED TO MAIN AT d311506; QUALITY GATE 43720320594 PASS — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -146,7 +146,7 @@ The Project Owner approved a product-level goal: learners must understand and co
 - `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
 - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
 - Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
-- `REQ-LEARN-001`–`003` and `TASK-079`–`081` are registered as PENDING. No new lesson count is claimed.
+- `TASK-079` and `REQ-LEARN-001` are IN_PROGRESS with an initial 66-lesson mapping draft; `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING. No new lesson count is claimed.
 
 ### Next implementation sequence
 1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
@@ -179,7 +179,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 1. Open the repository root containing `AGENTS.md`, `package.json`, and `.agents/`.
 2. Confirm the governance rule and six skills appear in the Customizations view.
 3. Invoke `/academy-session-orientation` and ask it to report branch, working-tree state, blockers, next eligible task, and governing files read.
-4. For the next learning work, invoke `/affinity-tool-audit` to begin `TASK-080` against the installed current Affinity build and map the existing lessons. Do not author the locked B02–B10 or S02–S10 lessons.
+4. For the next learning work, invoke `/curriculum-lesson-design` and review `project-control/LEARNING_OUTCOME_MAPPING.md` against all 66 lesson JSON files. Do not author the locked B02–B10 or S02–S10 lessons.
 
 ### Safety and status
 
@@ -231,3 +231,17 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - The remaining inventory rows still require source traceability checks; all 50 P4 claims require lesson evidence review. Do not infer acceptance from structural checks.
 - Antigravity reports local tests on `e65b9fd`; GitHub Actions must run against the branch/PR before recording CI PASS.
 - `TASK-080` stays IN_PROGRESS and `BLK-007` stays ACTIVE — LOCKED.
+
+---
+
+## 9. TASK-079 — Programme Outcome Mapping Handoff (2026-11-15)
+
+- New branch: `feat/task-079-learning-outcome-mapping`, based on `main` after PR #3 merge commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Mapping draft: `project-control/LEARNING_OUTCOME_MAPPING.md`.
+- Coverage: 66 existing lesson IDs represented exactly once; each row lists mapped PLOs and evidence notations T/G/X*.
+- Outcome counts are overlapping lesson alignment counts, not mastery or coverage percentages. X* is an independent-challenge opportunity that still needs reviewer confirmation and is not A5.
+- Main mapping gaps: explicit brief interpretation (PLO-07), structured critique/iteration evidence (PLO-08), genuinely novel independent transfer assessment (PLO-10), and limited Scripting scope (PLO-11).
+- `TASK-079` and `REQ-LEARN-001` are IN_PROGRESS; independent QA of the 66 mappings remains outstanding.
+- `TASK-080` remains IN_PROGRESS pending separate inventory source and P4 review. `TASK-081` remains PENDING.
+- PR #3 merged into `main` at `d31150666787100d1c87332f7b7564eb43498025`; its workflow `43720320594` passed all checks including 20/20 Edge E2E. This evidence applies to PR #3's tested SHA, not this new TASK-079 branch.
+- `BLK-007` remains ACTIVE — LOCKED.
