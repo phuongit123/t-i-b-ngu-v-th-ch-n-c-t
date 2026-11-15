@@ -20,28 +20,28 @@ const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
 
 const trackInfoVi: Record<AffinityTrackId, { name: string; label: string; tagline: string; description: string }> = {
   designer: {
-    name: 'Affinity Designer',
-    label: 'Đồ họa Vector',
-    tagline: 'Đường cong Vector & Artboard',
-    description: 'Làm chủ độ chính xác vector, các Persona và artboard linh hoạt.',
+    name: 'Vector Studio',
+    label: 'Lộ trình học tập Designer',
+    tagline: 'Bézier, Node & hình học',
+    description: 'Thực hành đường cong, node, hình học vector và artboard.',
   },
   photo: {
-    name: 'Affinity Photo',
-    label: 'Xử lý Ảnh Chuyên nghiệp',
-    tagline: 'Xử lý RAW, 32-bit HDR & Retouching',
-    description: 'Làm chủ chỉnh sửa ảnh phi phá hủy và dải màu 32-bit.',
+    name: 'Pixel Studio',
+    label: 'Lộ trình học tập Photo',
+    tagline: 'Layers, masks & retouching',
+    description: 'Thực hành layer, vùng chọn, mask và chỉnh sửa ảnh phi phá hủy.',
   },
   publisher: {
-    name: 'Affinity Publisher',
-    label: 'Dàn trang & Xuất bản',
-    tagline: 'Dàn trang Tạp chí & Trang Master',
-    description: 'Làm chủ trang đôi tạp chí, lề tràn 3mm và hệ lưới.',
+    name: 'Layout Studio',
+    label: 'Lộ trình học tập Publisher',
+    tagline: 'Typography, grids & pages',
+    description: 'Thực hành cấu trúc trang, hệ lưới, phân cấp thị giác và xuất bản.',
   },
   scripting: {
-    name: 'Scripting & MCP',
-    label: 'Tự động hóa & Lập trình DOM',
-    tagline: 'V8 JavaScript DOM & Cổng 6767',
-    description: 'Làm chủ lập trình tự động hóa và công cụ điều khiển MCP.',
+    name: 'Automation & MCP',
+    label: 'Nhánh học tập tự động hóa',
+    tagline: 'Scripting & integration',
+    description: 'Tìm hiểu scripting, quy trình lặp lại và giới hạn tích hợp MCP.',
   },
 };
 
@@ -63,7 +63,7 @@ export const App: React.FC = () => {
     lessonCount: m.lessons.length,
     estimatedMinutes: m.estimatedMinutes,
     difficulty: m.difficulty,
-    progressPercentage: m.id === 'D01' ? 100 : 0,
+    progressPercentage: 0,
   }));
 
   const handleToggleTheme = () => {
@@ -120,20 +120,22 @@ export const App: React.FC = () => {
           <div className="space-y-8">
             <PageHeader
               title="Danh Mục Khóa Học & Lộ Trình Đào Tạo"
-              description="Khám phá chương trình 40 module toàn diện trên hệ sinh thái Serif Affinity & tự động hóa MCP."
-              badge="Giai Đoạn Pilot (Đã Kiểm Định 66 Bài Học)"
+              description="Kế hoạch gồm 40 module / 120 bài. Hiện có 66 bài: 60 bài cốt lõi và 6 bài pilot; danh mục phân biệt rõ nội dung hiện có với phạm vi còn dự kiến."
+              badge="66 bài hiện có · 60 cốt lõi + 6 pilot · 120 bài theo kế hoạch"
             />
 
             {/* 4 Track Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <TrackCard
                 id="designer"
-                name="Affinity Designer"
+                name="Vector Studio"
                 tagline={trackInfoVi.designer.tagline}
                 description={trackInfoVi.designer.description}
                 moduleCount={10}
                 lessonCount={30}
-                progressPercentage={30}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={100}
                 onClick={() => {
                   setActiveTrack('designer');
                   setActiveModuleId('D01');
@@ -141,12 +143,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="photo"
-                name="Affinity Photo"
+                name="Pixel Studio"
                 tagline={trackInfoVi.photo.tagline}
                 description={trackInfoVi.photo.description}
                 moduleCount={10}
                 lessonCount={30}
-                progressPercentage={30}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={100}
                 onClick={() => {
                   setActiveTrack('photo');
                   setActiveModuleId('P01');
@@ -154,12 +158,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="publisher"
-                name="Affinity Publisher"
+                name="Layout Studio"
                 tagline={trackInfoVi.publisher.tagline}
                 description={trackInfoVi.publisher.description}
-                moduleCount={10}
-                lessonCount={30}
-                progressPercentage={30}
+                moduleCount={1}
+                lessonCount={3}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={10}
                 onClick={() => {
                   setActiveTrack('publisher');
                   setActiveModuleId('B01');
@@ -167,12 +173,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="scripting"
-                name="Scripting & MCP"
+                name="Automation & MCP"
                 tagline={trackInfoVi.scripting.tagline}
                 description={trackInfoVi.scripting.description}
-                moduleCount={10}
-                lessonCount={30}
-                progressPercentage={30}
+                moduleCount={1}
+                lessonCount={3}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={10}
                 onClick={() => {
                   setActiveTrack('scripting');
                   setActiveModuleId('S01');
