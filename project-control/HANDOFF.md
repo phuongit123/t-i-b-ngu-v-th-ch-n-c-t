@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.3` (Vietnamese translations verified & synchronized; TASK-079 PLO independent review drafted; TASK-080 inventory review in progress)
+- **Version:** `4.4.4` (Full 66/66 TASK-079 independent QA audit completed; TASK-080 source verification in progress; TASK-081 prerequisites reaffirmed)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 PLO MAP (66/66 LESSON IDS) & INDEPENDENT QA AUDIT DRAFTED (TASK-079_INDEPENDENT_REVIEW.md) — TASK-080 INVENTORY INDEPENDENT REVIEW IN PROGRESS (68 IN-SCOPE / 18 V1 GAPS / 3 EXCLUSIONS) — PR #4 DRAFT OPEN ON BRANCH feat/task-079-learning-outcome-mapping AT COMMIT 2100866 — LOCAL QUALITY GATE PASS (20/20 EDGE E2E, 66/66 CURRICULUM, 41/41 VALIDATOR, 3/3 SCRIPTS, test:translations PASS) — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 PLO MAP & COMPLETE 66/66 ROW-BY-ROW INDEPENDENT QA AUDIT (TASK-079_INDEPENDENT_REVIEW.md) — TASK-080 INVENTORY INDEPENDENT REVIEW IN PROGRESS (68 IN-SCOPE / 18 V1 GAPS / 3 EXCLUSIONS) — PR #4 DRAFT OPEN ON BRANCH feat/task-079-learning-outcome-mapping — LOCAL QUALITY GATE PASS (20/20 EDGE E2E, 66/66 CURRICULUM, 41/41 VALIDATOR, 3/3 SCRIPTS, test:translations PASS) — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -234,14 +234,14 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 
 ---
 
-## 9. TASK-079 — Programme Outcome Mapping Handoff (2026-11-15)
+## 9. TASK-079 — Programme Outcome Mapping & Complete 66/66 QA Audit (2026-11-15)
 
-- New branch: `feat/task-079-learning-outcome-mapping`, based on `main` after PR #3 merge commit `d31150666787100d1c87332f7b7564eb43498025`.
-- Mapping draft: `project-control/LEARNING_OUTCOME_MAPPING.md`.
+- Active branch: `feat/task-079-learning-outcome-mapping`, based on `main` after PR #3 merge commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Mapping file: `project-control/LEARNING_OUTCOME_MAPPING.md` (`PLO-MAP-001`).
 - Coverage: 66 existing lesson IDs represented exactly once; each row lists mapped PLOs and evidence notations T/G/X*.
-- Outcome counts are overlapping lesson alignment counts, not mastery or coverage percentages. X* is an independent-challenge opportunity that still needs reviewer confirmation and is not A5.
-- Main mapping gaps: explicit brief interpretation (PLO-07), structured critique/iteration evidence (PLO-08), genuinely novel independent transfer assessment (PLO-10), and limited Scripting scope (PLO-11).
-- `TASK-079` and `REQ-LEARN-001` are IN_PROGRESS; independent QA of the 66 mappings remains outstanding.
-- `TASK-080` remains IN_PROGRESS pending separate inventory source and P4 review. `TASK-081` remains PENDING.
-- PR #3 merged into `main` at `d31150666787100d1c87332f7b7564eb43498025`; its workflow `43720320594` passed all checks including 20/20 Edge E2E. This evidence applies to PR #3's tested SHA, not this new TASK-079 branch.
-- `BLK-007` remains ACTIVE — LOCKED.
+- Independent QA Audit: `project-control/TASK-079_INDEPENDENT_REVIEW.md` (`TASK-079-REV-001`). Completed full 66/66 row-by-row verification table cross-examining declared tools, guided practice checkpoints, independent challenges, and rubric criteria against lesson JSON definitions.
+- Outcome distribution & confirmed deficiencies: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); **PLO-07 (4/66 - critical brief interpretation deficit)**; **PLO-08 (15/66 - critique/iteration deficit)**; PLO-09 (23); PLO-10 (55); PLO-11 (3).
+- Disposition: `TASK-079` full audit complete (66/66 PASS). Recommended for sign-off upon Project Owner review of PR #4.
+- Governance Invariant: `TASK-081` strictly depends on BOTH `TASK-079` and `TASK-080`. Even after `TASK-079` is signed off, `TASK-081` remains PENDING until `TASK-080` (Tool Coverage Matrix) completes independent source verification and P4 practice audits.
+- `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING.
+- `BLK-007` remains ACTIVE — LOCKED. No new Publisher B02–B10 or Scripting S02–S10 authoring is authorized.

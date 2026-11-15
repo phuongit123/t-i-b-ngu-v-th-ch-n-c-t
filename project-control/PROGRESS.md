@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.3` (Vietnamese translations verified & synchronized; TASK-079 independent review drafted; TASK-080 independent inventory review in progress)
+- **Version:** `4.4.4` (Full 66/66 TASK-079 independent QA audit completed; TASK-080 source verification in progress; TASK-081 prerequisites reaffirmed)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
@@ -144,12 +144,14 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 ---
 
-## 9. TASK-079 — Initial 66-Lesson PLO Mapping (2026-11-15)
+## 9. TASK-079 — Comprehensive 66-Lesson PLO Mapping & Full QA Audit (2026-11-15)
 
 - Created `project-control/LEARNING_OUTCOME_MAPPING.md` on branch `feat/task-079-learning-outcome-mapping`.
-- The initial mapping includes all 66 current lesson IDs exactly once and maps them to the 11 approved PLOs with evidence tags: T (taught), G (guided practice), X* (independent-challenge opportunity; not A5).
-- Initial lesson-row counts by PLO: PLO-01 15; PLO-02 26; PLO-03 66; PLO-04 29; PLO-05 40; PLO-06 21; PLO-07 4; PLO-08 15; PLO-09 23; PLO-10 55; PLO-11 3. Counts overlap and are alignment counts, not completion percentages.
-- The map identifies programme-level gaps in explicit brief interpretation, critique/iteration, independent transfer assessment, production handoff evidence and the narrow Scripting pilot scope.
-- `TASK-079` and `REQ-LEARN-001` are now IN_PROGRESS. `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING.
-- Independent QA has not yet verified all 66 mappings. No A5 claim or learner mastery claim is made from this mapping.
+- The mapping includes all 66 current lesson IDs exactly once and maps them to the 11 approved PLOs with evidence tags: T (taught), G (guided practice), X* (independent-challenge opportunity; not A5).
+- Lesson-row counts by PLO: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); PLO-07 (4); PLO-08 (15); PLO-09 (23); PLO-10 (55); PLO-11 (3). Counts are alignment counts, not completion percentages.
+- Critical deficiencies identified: severe under-representation of brief interpretation (PLO-07, 4/66) and structured critique/iteration loops (PLO-08, 15/66).
+- Independent QA completed a 100% full audit across all 66 lesson JSON files, recording individual lesson titles, tool evidence, guided checkpoints, challenge criteria counts, QA dispositions (66/66 PASS), and transfer evaluation notes in `project-control/TASK-079_INDEPENDENT_REVIEW.md`.
+- `TASK-079` is recommended for sign-off upon Project Owner review of PR #4.
+- Governance note: `TASK-081` (Capstone Assessment Framework) strictly requires BOTH `TASK-079` AND `TASK-080` to be completed and signed off before it can begin.
+- `TASK-080` remains IN_PROGRESS pending separate Help Center source validation and P4 practice audits. `TASK-081` remains PENDING.
 - `BLK-007` remains ACTIVE — LOCKED; no new Publisher/Scripting lessons are authorized.
