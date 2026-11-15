@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.2` (TASK-080 P4 lesson cross-check and source-traceability review in progress; denominator provisional)
+- **Version:** `4.4.3` (TASK-080 Round 4; 68-row provisional register split into 63 native capabilities + 5 project MCP integrations; audit open)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
@@ -25,8 +25,8 @@
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
 | **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Quality Gate #8 passed on 8f6ef74; does not verify e65b9fd` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-080** | **53** | **16** | **1** | **36** | **30.2% Completed** |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **15** | **3** | **35** | **28.3% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
@@ -121,7 +121,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Deliverables Prepared:**
   - `src/pages/HomePage.tsx`: 100% refined with Vietnamese text, keeping Figma Interia typography and preserving all `.sr-only` accessibility tags.
   - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Fully populated with 71 total entries (68 in-scope: 50 at stage P4, 18 gaps at stage V1; 3 legacy exclusions).
-  - `project-control/TASK_REGISTRY.md`: `TASK-080` transitioned to **IN_PROGRESS** awaiting review (16 completed / 1 in-progress / 36 pending).
+  - `project-control/TASK_REGISTRY.md`: `TASK-080` transitioned to **IN_PROGRESS** awaiting review (15 completed / 3 in-progress / 35 pending, recomputed from all 53 task rows).
 - **Verification Evidence:**
   - `npm run lint` & `npm run typecheck`: 0 errors, 0 warnings.
   - `npm run validate:curriculum`: 66/66 lessons valid.
@@ -135,7 +135,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 ## 8. TASK-080 Independent Review — 2026-11-15
 
 - Submitted branch `feat/task-080-affinity-tool-inventory`, commit `e65b9fd`, contains 68 inventory rows, 3 exclusions and 18 listed gap records.
-- A first independent structure check reproduced 68 unique IDs, 16 columns per row, and 50 P4 + 18 V1 = 68. This verifies table integrity, not exhaustive product discovery.
+- The Round 3/4 review reproduced 68 unique inventory IDs (63 native Affinity capabilities + 5 project-local MCP integrations), 16 fields per row, and 50 P4 + 17 V1 + 1 U0 = 68. This verifies inventory structure and stage arithmetic, not exhaustive product discovery.
 - A direct lesson spot check corrected the Move Tool mapping to include `D01-03`, whose guided practice uses the Move Tool.
 - Direct official URLs have been added for Move Tool, Vector Flood Fill Tool, Measure Tool release-note evidence, and Preflight.
 - The September 2026 release notes exposed additional discovery candidates; they are recorded separately and are not yet included in the denominator.
@@ -148,10 +148,21 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 ## 10. TASK-080 Independent Review — Round 2 (2026-11-15)
 
 - Independent review branch: `qa/task-080-independent-evidence-audit`, based on merged TASK-080 baseline commit `d31150666787100d1c87332f7b7564eb43498025`.
-- Reproduced the submitted baseline: 68 in-scope records, 50 P4 claims, 18 V1 claims, and 3 exclusions (71 total submitted rows). The denominator remains provisional.
-- Cross-checked the 50 P4 records against 53 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
+- Reproduced the reclassified baseline: 68 in-scope records (63 native Affinity capabilities + 5 project-local MCP integrations), 50 P4 claims, 17 V1 candidates, 1 U0 candidate, and 3 exclusions (71 total submitted rows). The denominator remains provisional.
+- Cross-checked the 50 P4 records against 52 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
 - Corrected over-broad or mismatched evidence mappings: VEC-001 narrowed to D01-03; PIX-007 narrowed to P05-02; PIX-006 renamed to Layer Groups; PIX-014 additionally maps to P03-02; PIX-016 no longer claims a Lens Studio.
-- Added official source URLs where located. Of the 50 P4 rows, 35 have a source URL without an explicit caveat in the matrix, 9 are URL-linked but broad/compatibility-limited, and 6 still lack a direct URL. This is traceability progress, not P4 acceptance.
+- Added official source URLs where located. Of the 50 P4 rows, 35 have a source URL without an explicit caveat, 9 are URL-linked but broad/compatibility-limited, 5 native Affinity rows lack a direct vendor URL, and 1 project-MCP row is supported by project-local evidence only. This is traceability progress, not P4 acceptance.
 - The curriculum-declared desktop target is Affinity 3.3.3.5004; the user's installed build has not been inspected. Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
 - Official September 2026 desktop release notes expose candidate tools/controls not represented clearly in the original matrix. The 2 November 2026 official announcement is for Affinity for iPad and is not mixed into the desktop denominator.
 - `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING until TASK-079 and TASK-080 are completed. `BLK-007` remains ACTIVE — LOCKED.
+
+
+## 11. TASK-080 Independent Evidence Audit — Round 4 (2026-11-15)
+
+- Reclassified the inventory into 63 native Affinity capabilities and 5 project-local MCP integrations; do not mix their denominators. The combined register remains 68 records, plus 3 exclusions.
+- Stage counts reconcile as 50 P4 claims, 17 V1 candidates and 1 U0 candidate. P4 claims comprise 49 native Affinity entries and one project MCP integration.
+- The 50 P4 rows reference 52 distinct lesson JSON files, each with tool explanation, guided task, checkpoints, expected outcome, challenge title and challenge criteria. This remains structural evidence; operation-level semantic and target-build checks are open.
+- Source traceability across P4: 35 official URLs without explicit caveat, 9 broad/compatibility-limited URLs, 5 native claims with no direct vendor URL, and one project-local MCP evidence-only record.
+- Official September 2026 release notes support the separate native Scripting Studio/Script Editor/Scripts Library record. Blend Tool, Mask Tool, Deform Tool, Wavelet/astro features and GLB 3D model placement stay in the discovery queue until the target build is verified.
+- Current desktop build `3.3.3.5004` remains repository-declared only; the user's installed application has not been inspected.
+- `TASK-080` remains IN_PROGRESS; `REQ-LEARN-002` is IN_PROGRESS; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED.
