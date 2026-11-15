@@ -6,8 +6,8 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Latest completed Quality Gate #43740202800 passed on exact commit 5f7cdc87a15fba0e8b0b389278c176d26be2a1a1 (the PR head at that run's time): ESLint, TypeScript, curriculum 66/66, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. The following documentation synchronization advances PR #6 to a new head and requires a fresh Quality Gate; this prior pass does not certify the new SHA. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
-- **Last Updated:** `2026-11-15`
+- **Verification boundary:** `Quality Gate #43740779791 passed on exact PR #6 head 45177bcedf63540a33cf5698597fa9abe1215555: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, production build, and Microsoft Edge Playwright E2E 20/20. This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
+- **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Quality Gate #8 passed on 8f6ef74; does not verify e65b9fd` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Gate #8 is not current-head evidence; PR #6 Quality Gate #43740779791 passed on 45177bcedf63540a33cf5698597fa9abe1215555 (web academy scope only)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
