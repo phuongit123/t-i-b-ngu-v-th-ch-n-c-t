@@ -191,3 +191,15 @@ npm run build
   - In-Browser Vector Bézier Simulator & Photo Layer Masking Simulator.
   - Encyclopedia (401 SDK topics) & Resource Library (bundled downloads).
 - **Hạng mục Tiếp Theo Chờ Duyệt:** Track 3 (Publisher `B02`–`B10`: 27 bài), Track 4 (Scripting `S02`–`S10`: 27 bài), Monaco Code Editor, Live MCP Runner, và Supabase Cloud Backend.
+
+---
+
+## 🤖 Antigravity Workspace Instructions
+
+Antigravity's project-specific instructions and reusable agent procedures are committed to this repository:
+
+- [Antigravity operating guide](project-control/ANTIGRAVITY_OPERATING_GUIDE.md) — workspace setup, source-of-truth documents, branch safety, and first-session checklist.
+- [Always-on governance rule](.agents/rules/affinity-academy-governance.md) — learning outcome, evidence, product terminology, and phase-gate invariants.
+- Workspace customizations live in `.agents/rules/` and `.agents/skills/`; see the six `SKILL.md` manifests for focused procedures.
+
+In Antigravity, open the repository root as the workspace, confirm the rule and skills are visible in **Customizations**, then invoke `/academy-session-orientation` before substantive work. The next eligible learning task is evidence-backed inventory and mapping of the existing lessons; `BLK-007` remains locked.
