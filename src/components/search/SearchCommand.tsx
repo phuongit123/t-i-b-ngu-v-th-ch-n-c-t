@@ -94,14 +94,14 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search modules, tools, or MCP APIs..."
+            placeholder="Tìm kiếm module, công cụ hoặc lệnh API MCP..."
             className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
             autoFocus
           />
           <button
             onClick={onClose}
             className="text-zinc-500 hover:text-zinc-300 p-1"
-            aria-label="Close search"
+            aria-label="Đóng bảng tìm kiếm"
           >
             <X className="w-4 h-4" />
           </button>
@@ -111,7 +111,7 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
         <div className="max-h-80 overflow-y-auto p-2">
           {filtered.length === 0 ? (
             <div className="py-8 text-center text-xs text-zinc-500">
-              No matching modules or tools found.
+              Không tìm thấy module hoặc công cụ phù hợp.
             </div>
           ) : (
             <div className="flex flex-col gap-1">
@@ -150,8 +150,8 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
 
         {/* Footer info */}
         <div className="px-4 py-2 border-t border-hairline bg-zinc-950/40 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-          <span>Navigate with mouse or arrow keys</span>
-          <span>ESC to close</span>
+          <span>Điều hướng bằng chuột hoặc phím mũi tên</span>
+          <span>Nhấn ESC để đóng</span>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 export interface TabItem {
   id: string;
   label: string;
+  srText?: string;
   badge?: string | number;
   icon?: React.ReactNode;
 }
@@ -54,6 +55,7 @@ export const Tabs: React.FC<TabsProps> = ({
           >
             {tab.icon}
             <span>{tab.label}</span>
+            {tab.srText && <span className="sr-only">{tab.srText}</span>}
             {tab.badge !== undefined && (
               <span
                 className={cn(

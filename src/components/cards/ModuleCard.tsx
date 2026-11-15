@@ -22,6 +22,12 @@ export const ModuleCard: React.FC<ModuleCardProps> = ({
     Advanced: 'text-rose-400 bg-rose-500/10 border-rose-500/20',
   }[module.difficulty];
 
+  const difficultyLabels = {
+    Beginner: 'Cơ bản',
+    Intermediate: 'Trung cấp',
+    Advanced: 'Nâng cao',
+  }[module.difficulty] || module.difficulty;
+
   return (
     <div
       onClick={onClick}
@@ -45,7 +51,7 @@ export const ModuleCard: React.FC<ModuleCardProps> = ({
           </span>
           <div className="flex items-center gap-2">
             <span className={cn('text-[10px] font-mono px-2 py-0.5 rounded-full border', difficultyColors)}>
-              {module.difficulty}
+              {difficultyLabels}
             </span>
             {isComplete && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
           </div>
@@ -62,11 +68,11 @@ export const ModuleCard: React.FC<ModuleCardProps> = ({
       <div className="mt-4 pt-3 border-t border-hairline flex items-center justify-between text-[11px] font-mono text-zinc-500">
         <span className="flex items-center gap-1">
           <BookOpen className="w-3 h-3 text-zinc-400" />
-          {module.lessonCount} Lessons
+          {module.lessonCount} bài học
         </span>
         <span className="flex items-center gap-1">
           <Clock className="w-3 h-3 text-zinc-400" />
-          {module.estimatedMinutes}m
+          {module.estimatedMinutes} phút
         </span>
       </div>
     </div>

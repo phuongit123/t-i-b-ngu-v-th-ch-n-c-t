@@ -104,7 +104,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             <button
               onClick={onBackToCatalog}
               className="p-1.5 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-colors"
-              title="Back to Catalog"
+              title="Quay lại Danh mục Khóa học"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -118,7 +118,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 {lesson.id}
               </span>
               <span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wider">
-                {lesson.trackId} Track &bull; {lesson.difficulty}
+                Lộ trình {lesson.trackId === 'designer' ? 'Vector' : lesson.trackId === 'photo' ? 'Pixel' : lesson.trackId === 'publisher' ? 'Layout' : 'Scripting'} &bull; {lesson.difficulty === 'Beginner' ? 'Cơ bản' : lesson.difficulty === 'Intermediate' ? 'Trung cấp' : 'Nâng cao'}
               </span>
             </div>
             <h2 className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-md">
@@ -131,7 +131,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
         <div className="flex items-center gap-4">
           <div className="text-right">
             <span className="text-xs font-mono font-semibold text-[var(--color-text-primary)]">
-              Slide {currentSlideIndex + 1}
+              Trang {currentSlideIndex + 1}
+              <span className="sr-only">Slide {currentSlideIndex + 1}</span>
             </span>
             <span className="text-xs font-mono text-[var(--color-text-secondary)]">
               {' '}/ {totalSlides}
@@ -156,7 +157,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 style={{
                   backgroundColor: idx === currentSlideIndex ? accentColor : 'var(--color-border-subtle)',
                 }}
-                title={`Jump to Slide ${idx + 1}: ${s.title}`}
+                title={`Chuyển đến trang ${idx + 1}: ${s.title}`}
               />
             ))}
           </div>
@@ -182,7 +183,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 {currentSlide.type === 'tool-anatomy' && <Keyboard className="w-3 h-3" />}
                 {currentSlide.type === 'quiz' && <HelpCircle className="w-3 h-3" />}
                 {currentSlide.type === 'challenge' && <Sparkles className="w-3 h-3" />}
-                {currentSlide.type}
+                {currentSlide.type === 'intro' ? 'Tổng quan' : currentSlide.type === 'tool-anatomy' ? 'Cấu tạo công cụ' : currentSlide.type === 'quiz' ? 'Trắc nghiệm' : currentSlide.type === 'challenge' ? 'Thử thách độc lập' : currentSlide.type}
               </span>
               {currentSlide.subtitle && (
                 <span className="text-xs text-[var(--color-text-secondary)]">
@@ -197,21 +198,21 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 {currentSlide.practiceData.starterAsset.assetStatus === 'NOT_YET_AVAILABLE' ? (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono rounded border border-[var(--color-border-hairline)] bg-[var(--color-surface)] text-[var(--color-text-secondary)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    <span>Project File: In Development</span>
+                    <span>Tệp thực hành: Đang hoàn thiện</span>
                   </span>
                 ) : (
                   <a
                     href={`/${currentSlide.practiceData.starterAsset.filepath}`}
                     download
                     className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono rounded border border-[var(--color-border-subtle)] bg-[var(--color-canvas)] hover:border-[var(--color-accent-scripting)] transition-colors text-[var(--color-text-primary)]"
-                    title={`Download ${currentSlide.practiceData.starterAsset.filename}`}
+                    title={`Tải về ${currentSlide.practiceData.starterAsset.filename}`}
                   >
                     <Download className="w-3.5 h-3.5 text-[var(--color-accent-scripting)]" />
                     <span className="font-semibold text-[10px] uppercase px-1.5 py-0.5 rounded bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border-hairline)]">
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'REAL_AFFINITY_FILE' && 'Native Project'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'GUIDE_DOCUMENT' && 'Guide Spec'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'JAVASCRIPT_SCRIPT' && 'DOM Script'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'EXTERNAL_RESOURCE' && 'External'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'REAL_AFFINITY_FILE' && 'File Affinity gốc'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'GUIDE_DOCUMENT' && 'Tài liệu hướng dẫn'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'JAVASCRIPT_SCRIPT' && 'Kịch bản DOM'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'EXTERNAL_RESOURCE' && 'Tài nguyên ngoài'}
                     </span>
                     <span>{currentSlide.practiceData.starterAsset.filename}</span>
                     <span className="text-[10px] text-[var(--color-text-secondary)]">
@@ -245,7 +246,17 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
           {(currentSlide.tips || currentSlide.proTip || currentSlide.callout) && (
             <div className="my-4 p-4 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-canvas)] text-sm text-[var(--color-text-primary)]">
               <div className="text-[10px] uppercase tracking-wider font-semibold mb-1" style={{ color: accentColor }}>
-                {currentSlide.tips ? 'Practice Tip' : 'Pro Tip'}
+                {currentSlide.tips ? (
+                  <>
+                    <span>Mẹo thực hành</span>
+                    <span className="sr-only">Practice Tip</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Mẹo chuyên gia</span>
+                    <span className="sr-only">Pro Tip</span>
+                  </>
+                )}
               </div>
               {currentSlide.tips ?? currentSlide.proTip ?? currentSlide.callout}
             </div>
@@ -354,7 +365,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                     disabled={selectedQuizOption === null}
                     onClick={() => setIsQuizSubmitted(true)}
                   >
-                    Submit Answer
+                    Nộp câu trả lời
                   </Button>
                 </div>
               ) : (
@@ -362,11 +373,11 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                   <div className="font-semibold mb-1 flex items-center gap-1.5">
                     {selectedQuizOption === currentSlide.quizData.correctIndex ? (
                       <span className="text-emerald-400 flex items-center gap-1">
-                        <CheckCircle2 className="w-4 h-4" /> Correct Answer!
+                        <CheckCircle2 className="w-4 h-4" /> Chính xác! Hoàn thành xuất sắc.
                       </span>
                     ) : (
                       <span className="text-rose-400">
-                        Incorrect. Option {String.fromCharCode(65 + currentSlide.quizData.correctIndex)} is correct.
+                        Chưa chính xác. Đáp án đúng là {String.fromCharCode(65 + currentSlide.quizData.correctIndex)}.
                       </span>
                     )}
                   </div>
@@ -383,7 +394,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             <div className="my-6 p-5 rounded-lg bg-[var(--color-canvas)] border border-[var(--color-border-hairline)]">
               <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Hands-on Practice Checkpoints</span>
+                <span>Các bước kiểm tra thực hành có hướng dẫn</span>
               </h3>
 
               <div className="space-y-2">

@@ -11,7 +11,7 @@ const assetUrls = import.meta.glob('../../curriculum/assets/**/*', {
 
 type ResourceCategory = 'all' | 'designer' | 'photo' | 'publisher' | 'scripting';
 const categoryLabels: Record<Exclude<ResourceCategory, 'all'>, string> = {
-  designer: 'Designer', photo: 'Photo', publisher: 'Publisher', scripting: 'Scripting',
+  designer: 'Vector Studio', photo: 'Pixel Studio', publisher: 'Layout Studio', scripting: 'Automation',
 };
 const getCategory = (path: string): Exclude<ResourceCategory, 'all'> => {
   const segment = path.split('/').at(-2) ?? 'designer';
@@ -34,10 +34,10 @@ export const ResourcesPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Resource Library" description="Download the real learning assets bundled with this project. The library is generated from files present in the repository; no placeholder downloads are shown." badge={`${resources.length} local assets`} />
+      <PageHeader title="Thư Viện Tài Nguyên & Học Liệu" description="Tải về các tệp bài tập và tài nguyên thực tế đi kèm trong kho dự án. Thư viện phản ánh chính xác các tệp có sẵn, không chứa liên kết ảo." badge={`${resources.length} tài nguyên đi kèm`} />
       <div className="flex flex-col sm:flex-row gap-3">
-        <label className="relative flex-1"><Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search guides, scripts, starter files…" className="w-full rounded-md border border-[var(--color-border-hairline)] bg-[var(--color-surface)] py-2.5 pl-9 pr-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-cyan-500" /></label>
-        <select value={category} onChange={(event) => setCategory(event.target.value as ResourceCategory)} className="rounded-md border border-[var(--color-border-hairline)] bg-[var(--color-surface)] px-3 py-2.5 text-sm text-[var(--color-text-primary)]"><option value="all">All tracks</option>{Object.entries(categoryLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
+        <label className="relative flex-1"><Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm kiếm tài liệu hướng dẫn, tệp mẫu, kịch bản…" className="w-full rounded-md border border-[var(--color-border-hairline)] bg-[var(--color-surface)] py-2.5 pl-9 pr-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-cyan-500" /></label>
+        <select value={category} onChange={(event) => setCategory(event.target.value as ResourceCategory)} className="rounded-md border border-[var(--color-border-hairline)] bg-[var(--color-surface)] px-3 py-2.5 text-sm text-[var(--color-text-primary)]"><option value="all">Tất cả lộ trình</option>{Object.entries(categoryLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
         {filtered.map((item) => {
@@ -46,12 +46,12 @@ export const ResourcesPage: React.FC = () => {
             <div className="flex items-start justify-between gap-3"><div className="rounded-md bg-[var(--color-canvas)] p-2 text-cyan-400"><Icon className="w-5 h-5" /></div><span className="rounded border border-[var(--color-border-hairline)] px-2 py-1 text-[10px] uppercase font-mono text-[var(--color-text-secondary)]">.{item.extension}</span></div>
             <h2 className="mt-3 text-sm font-semibold capitalize text-[var(--color-text-primary)]">{item.title}</h2>
             <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{categoryLabels[item.category]} · {item.filename}</p>
-            <div className="mt-auto pt-4"><a href={item.url} download={item.filename} className="inline-flex items-center gap-2 rounded-md border border-[var(--color-border-hairline)] px-3 py-2 text-xs font-medium text-[var(--color-text-primary)] hover:border-cyan-500 hover:text-cyan-400"><Download className="w-3.5 h-3.5" />Download file</a></div>
+            <div className="mt-auto pt-4"><a href={item.url} download={item.filename} className="inline-flex items-center gap-2 rounded-md border border-[var(--color-border-hairline)] px-3 py-2 text-xs font-medium text-[var(--color-text-primary)] hover:border-cyan-500 hover:text-cyan-400"><Download className="w-3.5 h-3.5" />Tải tệp về</a></div>
           </article>;
         })}
       </div>
-      {filtered.length === 0 && <div className="rounded-lg border border-dashed border-[var(--color-border-hairline)] p-10 text-center text-sm text-[var(--color-text-secondary)]">No bundled resources match your filters.</div>}
-      <p className="text-xs text-[var(--color-text-secondary)]">Files are served from the app bundle. Cloud uploads, user submissions, and download analytics are not enabled in this release.</p>
+      {filtered.length === 0 && <div className="rounded-lg border border-dashed border-[var(--color-border-hairline)] p-10 text-center text-sm text-[var(--color-text-secondary)]">Không tìm thấy tài nguyên nào phù hợp với bộ lọc.</div>}
+      <p className="text-xs text-[var(--color-text-secondary)]">Tệp được phục vụ trực tiếp từ ứng dụng. Tính năng tải lên đám mây và thống kê tải về chưa được kích hoạt trong phiên bản này.</p>
     </div>
   );
 };
