@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
+- **Version:** `4.4.2` (TASK-080 P4 lesson cross-check and source-traceability review in progress; denominator provisional)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Antigravity reports local checks passing on e65b9fd; no GitHub Actions run is yet recorded for that exact commit. The previous CI run applies only to its tested SHA.`
+- **Verification boundary:** `TASK-080 review branch is documentation/evidence-only so far; GitHub Actions must pass against the PR head before this branch is recorded as CI-verified.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -141,3 +141,17 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - The September 2026 release notes exposed additional discovery candidates; they are recorded separately and are not yet included in the denominator.
 - A detailed review report is available at `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
 - `TASK-080` remains IN_PROGRESS. The 50 P4 claims, remaining sources, exact installed build, and denominator completeness require further review. Antigravity's reported local checks are not GitHub Actions evidence for commit e65b9fd.
+
+
+---
+
+## 10. TASK-080 Independent Review — Round 2 (2026-11-15)
+
+- Independent review branch: `qa/task-080-independent-evidence-audit`, based on merged TASK-080 baseline commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Reproduced the submitted baseline: 68 in-scope records, 50 P4 claims, 18 V1 claims, and 3 exclusions (71 total submitted rows). The denominator remains provisional.
+- Cross-checked the 50 P4 records against 53 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
+- Corrected over-broad or mismatched evidence mappings: VEC-001 narrowed to D01-03; PIX-007 narrowed to P05-02; PIX-006 renamed to Layer Groups; PIX-014 additionally maps to P03-02; PIX-016 no longer claims a Lens Studio.
+- Added official source URLs where located. Of the 50 P4 rows, 35 have a source URL without an explicit caveat in the matrix, 9 are URL-linked but broad/compatibility-limited, and 6 still lack a direct URL. This is traceability progress, not P4 acceptance.
+- The curriculum-declared desktop target is Affinity 3.3.3.5004; the user's installed build has not been inspected. Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
+- Official September 2026 desktop release notes expose candidate tools/controls not represented clearly in the original matrix. The 2 November 2026 official announcement is for Affinity for iPad and is not mixed into the desktop denominator.
+- `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING until TASK-079 and TASK-080 are completed. `BLK-007` remains ACTIVE — LOCKED.
