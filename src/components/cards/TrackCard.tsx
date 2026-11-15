@@ -10,6 +10,8 @@ export interface TrackCardProps {
   description: string;
   moduleCount: number;
   lessonCount: number;
+  plannedModuleCount?: number;
+  plannedLessonCount?: number;
   progressPercentage?: number;
   onClick: () => void;
   className?: string;
@@ -22,6 +24,8 @@ export const TrackCard: React.FC<TrackCardProps> = ({
   description,
   moduleCount,
   lessonCount,
+  plannedModuleCount = moduleCount,
+  plannedLessonCount = lessonCount,
   progressPercentage = 0,
   onClick,
   className,
@@ -97,8 +101,8 @@ export const TrackCard: React.FC<TrackCardProps> = ({
       {/* Progress & Lesson Metrics */}
       <div className="mt-6 pt-4 border-t border-hairline flex flex-col gap-3">
         <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-          <span>{moduleCount} Module &bull; {lessonCount} Bài học</span>
-          <span className="font-semibold text-zinc-200">{progressPercentage}%</span>
+          <span>{moduleCount}/{plannedModuleCount} module &bull; {lessonCount}/{plannedLessonCount} bài</span>
+          <span className="font-semibold text-zinc-200">{progressPercentage}% nội dung</span>
         </div>
 
         {/* Progress Bar */}
