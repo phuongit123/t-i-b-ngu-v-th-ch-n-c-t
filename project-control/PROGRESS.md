@@ -6,7 +6,7 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification Evidence:** `Quality Gate #8 on 8f6ef74 (2026-11-15): 66/66 lessons validated; validator 41 assertions passed / 0 failed; script checks 3/3; Microsoft Edge E2E 20/20; lint, TypeScript and production build passed. Evidence: run 43710131279.`
+- **Latest Code Verification:** `Code-bearing HEAD baec6c5 (2026-11-15): Quality Gate workflow 43711760405 succeeded; 66/66 lessons, validator 41/41, script checks 3/3, Edge E2E 20/20 (38.2s), lint, TypeScript and production build all passed. Subsequent commits in this branch are documentation/Antigravity customizations; verify the current exact HEAD before making a fresh CI claim.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -95,3 +95,15 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
+
+---
+
+## 6. Antigravity Workspace Customizations — 2026-11-15
+
+- **Always-on instructions:** root `AGENTS.md` now includes the Project Owner's approved learning outcome, design-thinking cycle, current Affinity product terminology, evidence rules, task traceability, and repository/phase safety.
+- **Always-on workspace rule:** `.agents/rules/affinity-academy-governance.md` uses the supported `trigger: always_on` format.
+- **Six reusable workspace skills:** `academy-session-orientation`, `academy-product-implementation`, `affinity-tool-audit`, `curriculum-lesson-design`, `independent-capstone-assessment`, and `quality-gate-handoff`, each with a `SKILL.md` manifest.
+- **Onboarding guide:** `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` documents discovery paths, setup, first-session verification, skill invocation, branch safety, and current eligible learning work.
+- **README / handoff:** linked and described how to open the repository root, verify workspace customizations, and start with `/academy-session-orientation`.
+- **Verification boundary:** the documented code-bearing HEAD `baec6c5bfe8de22d9c46546dbf2216a2ba276560` passed Quality Gate workflow `43711760405` (all steps success; 66/66, 41/41, 3/3, 20/20 Edge E2E in 38.2s). Antigravity rules/skills are Markdown and frontmatter files; the remote session can verify their committed contents but cannot assert that the user's local Antigravity instance has loaded them. Verify in the Customizations panel on the user's machine.
+- **Governance:** `TASK-079`–`TASK-081` remain PENDING; `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons are eligible work; Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
