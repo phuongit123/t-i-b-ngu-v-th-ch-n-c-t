@@ -1,159 +1,153 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 2)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 3)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — P4 EVIDENCE CROSS-CHECKED; SOURCE, BUILD AND DENOMINATOR AUDIT OPEN`
-- **Submitted baseline:** `main` after PR #3 merge `d31150666787100d1c87332f7b7564eb43498025`
+- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; SOURCE, TARGET-BUILD AND DISCOVERY AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-15`
 - **Governing requirement:** `REQ-LEARN-002`
 - **Phase gate:** `BLK-007 ACTIVE — LOCKED`
+- **Baseline source:** merged PR #3 / commit `d31150666787100d1c87332f7b7564eb43498025`
 
-This is an independent review continuation. It improves traceability and tests the current P4 claims against the lesson JSON. It does **not** approve the 68-row denominator or complete TASK-080.
+This review improves the inventory's evidence chain, separates vendor-native Affinity capabilities from the Academy's own MCP integration, and reconciles new official September 2026 capabilities. It does **not** claim that the user's installed application build was inspected or that TASK-080 is complete.
 
-## 1. Reproduced baseline
+## 1. Reconciled inventory baseline
 
-| Check | Reproduced result |
+| Check | Current review result |
 |---|---:|
-| Inventory records | 50 |
-| Unique record IDs | 50 |
-| P4-stage claims | 50 |
-| Other in-scope records | 0 |
-| Exclusion records | 3 (outside the 68 in-scope rows) |
-| Lesson IDs referenced by P4 records | 53 unique lesson IDs |
-| P4 rows with old synthetic `*-PRAC` practice IDs | 0 after this update |
+| In-scope inventory records | **68** |
+| Unique record IDs | **68** |
+| P4-labelled records | **50** |
+| V1 source-verified candidates | **17** |
+| U0 / unverified candidates retained for follow-up | **1** |
+| Exclusions | **3** |
+| Total including exclusions | **71** |
 
-The submitted arithmetic (68 in-scope + 3 exclusions = 71 total; 50 P4 claims + 18 V1 claims = 68) is internally consistent. It remains a **submitted baseline**, not independently proven exhaustive product coverage.
+### Separate the native product inventory from project integrations
+
+The matrix contains two distinct capability sets. Do not merge their percentages.
+
+| Capability set | Records | P4 labels | V1 labels | U0 |
+|---|---:|---:|---:|---:|
+| Native Affinity capabilities (Vector, Pixel, Layout and native scripting/API) | **63** | 49 | 13 | 1 |
+| Project-local MCP integrations | **5** | 1 | 4 | 0 |
+| **Combined register** | **68** | **50** | **17** | **1** |
+
+The five Project MCP records are Academy integration capabilities, not Affinity desktop tools. They are retained because they matter to the learning platform, but must not inflate a desktop tool-coverage percentage.
+
+The reclassification also adds the in-app Scripting Studio / Script Editor / Scripts Library as a native Affinity capability and removes one unsupported candidate from the verified denominator. The remaining unverified Layout candidate is explicitly U0, not V1.
 
 ## 2. P4 lesson-evidence cross-check
 
-All 50 P4 record rows reference 53 distinct lesson JSON files. The previous row-by-row inspection established that these referenced lesson definitions contain:
-- `standardSections.toolAndFeatureExplanation`;
-- non-empty `standardSections.guidedPractice` with observable checkpoints and an expected outcome;
-- an `independentChallenge` with criteria.
+The 50 P4-labelled rows reference **52 distinct lesson JSON files**. All 52 files were fetched from this branch and parsed successfully.
 
-This proves the lesson JSON includes practice structures. It does not, by itself, prove that every named tool action is precisely exercised or that it matches the current installed application. The matrix now replaces synthetic `D01-03-PRAC`-style tokens with exact paths to `#standardSections.guidedPractice` and `#standardSections.independentChallenge` for each referenced lesson.
+| Evidence field | Result |
+|---|---:|
+| P4 inventory records | 50 |
+| Unique referenced lesson JSON files | 52 |
+| JSON files successfully fetched and parsed | **52/52** |
+| Tool explanation present | 52/52 |
+| Guided task present | 52/52 |
+| Guided checkpoints present | 52/52 |
+| Guided expected outcome present | 52/52 |
+| Independent challenge title present | 52/52 |
+| Challenge criteria present | 52/52 |
 
-### Row-level corrections made
+The matrix now links practice references to exact file anchors:
 
-| Record | Correction | Reason |
+- `curriculum/<track>/<module>/<lesson>.json#standardSections.guidedPractice`
+- `curriculum/<track>/<module>/<lesson>.json#standardSections.independentChallenge`
+
+This confirms that the referenced lesson JSON contains the required practice structures. It does **not** establish that every claimed tool function is fully taught, that an exact feature is available in the user's installed desktop build, or that learners have achieved A5 competence.
+
+### P4 mapping corrections carried forward
+
+| Record | Correction | Audit rationale |
 |---|---|---|
-| `VEC-001` Move Tool | Narrowed lesson references to `D01-03` only; narrowed the claimed actions | D01-03's guided checkpoints explicitly select and reposition/snap objects with Move Tool. D01-01 and D01-02 are not direct Move Tool guided-practice evidence. |
-| `PIX-007` Curves & Levels | Removed `P03-02`; retained `P05-02` | P03-02 guides Live Depth of Field, not Curves/Levels. P05-02 explicitly guides Curves tonal work. |
-| `PIX-006` Layers | Renamed from “Layers Studio & Pixel Groups” to “Layers Studio & Layer Groups” | P03-01 teaches grouping and layer hierarchy; the mapped practice does not establish the narrower “Pixel Groups” claim. |
-| `PIX-014` Live Filters | Added `P03-02` alongside `P06-01` | P03-02 guided practice explicitly uses a Live Depth of Field Filter. |
-| `PIX-016` Live Lighting | Renamed from “Live Lighting & Lens Studio” to “Live Lighting & Optical Effects” | The mapped lesson identifies Live Lighting Studio & Optical Effects; “Lens Studio” was not supported by the lesson evidence. |
+| `VEC-001` Move Tool | Narrowed practice reference to `D01-03` | The former references included lessons that did not directly guide the claimed Move Tool practice. |
+| `PIX-007` Curves & Levels | Narrowed to `P05-02` | `P03-02` teaches a Live Depth of Field filter workflow, not Curves/Levels practice. |
+| `PIX-006` Layers | Changed “Pixel Groups” to “Layer Groups” | The mapped lesson supports grouping and layer hierarchy, not the narrower unsupported label. |
+| `PIX-014` Live Filters | Added `P03-02` alongside `P06-01` | `P03-02` guided practice uses a Live Depth of Field Filter. |
+| `PIX-016` Live Lighting | Removed the unsupported “Lens Studio” wording | The mapped lesson's tool explanation identifies Live Lighting Studio & Optical Effects. |
 
-These corrections narrow over-claimed coverage and add a supported Live Filter mapping. They do not increase the 68-record denominator.
+These are alignment corrections, not newly certified coverage. A second semantic review is still required for each tool action against the target desktop application.
 
 ## 3. P4 source provenance
 
-P4 source fields were normalized to direct official links where a relevant page was located. Sources without a retrievable official URL are explicitly marked as requiring direct-app evidence rather than being represented by an internal source title.
-
-| Source status | P4 records |
+| Source disposition | P4 records |
 |---|---:|
-| No direct URL located in this pass | 6 |
-| URL linked but broad or version/compatibility-limited | 9 |
-| URL linked without a specific caveat in the matrix | 35 |
-| **Total P4 records** | **50** |
+| Official URL with no explicit caveat in the matrix | **35** |
+| URL present, but broad / version-limited / exact behaviour caveat recorded | **9** |
+| No direct vendor URL located for a native desktop claim | **5** |
+| Project-local MCP evidence only | **1** |
+| **Total** | **50** |
 
-Records still lacking a direct URL: `VEC-002`, `VEC-011`, `VEC-020`, `VEC-022`, `PIX-012`, `AUT-002`.
+The five native claims without direct vendor URLs remain source gaps. The MCP row is supported by project code/docs, not by an Affinity vendor page. A URL alone is not full verification: broad feature pages and release notes do not prove every toolbar control, shortcut or edge condition.
 
-A URL link is not automatic verification. Broad feature pages are marked as partial where they do not specify the exact panel or operation. The two SDK-linked Automation records cite the public **Affinity JavaScript SDK 3.3.1** documentation; that does not establish compatibility with the curriculum-declared desktop build 3.3.3.5004. The project-local MCP bridge is not an Affinity vendor-native feature and is identified separately.
+## 4. V1 source checks and terminology corrections
 
-### P4 record register
+The 17 V1 rows have been normalized with official source links where a source was found, or explicitly labelled as project-local integration evidence.
 
-| Record | Inventory name | Lesson refs | Source disposition |
-|---|---|---|---|
-| `VEC-001` | Move Tool | D01-03 | URL linked |
-| `VEC-002` | Artboard Tool | D01-02 | No direct URL |
-| `VEC-003` | Pen Tool | D02-01 | URL linked |
-| `VEC-004` | Node Tool | D02-02 | URL linked |
-| `VEC-005` | Contour Tool | D04-03 | URL linked |
-| `VEC-006` | Corner Tool | D03-01 | Partial / compatibility-limited |
-| `VEC-007` | Parametric Shapes | D03-01 | URL linked |
-| `VEC-008` | Boolean Operations | D03-02 | URL linked |
-| `VEC-009` | Compound Shapes | D03-03 | URL linked |
-| `VEC-010` | Fill Tool | D04-01 | URL linked |
-| `VEC-011` | Stroke Studio & Pressure Graph | D04-02 | No direct URL |
-| `VEC-012` | Layers Studio | D05-01 | URL linked |
-| `VEC-013` | Layer Clipping & Masking | D05-02 | URL linked |
-| `VEC-014` | Blend Modes & Blend Options | D05-03 | URL linked |
-| `VEC-015` | Artistic & Frame Text Tools | D06-01 | URL linked |
-| `VEC-016` | Text-on-Path Engine | D06-02 | URL linked |
-| `VEC-017` | Typography & Glyphs Studios | D06-03 | URL linked |
-| `VEC-018` | Snapping & Snapping Manager | D01-03, D07-03 | URL linked |
-| `VEC-019` | Grid & Axis Manager | D07-01 | Partial / compatibility-limited |
-| `VEC-020` | Isometric Studio | D07-02 | No direct URL |
-| `VEC-021` | Symbols Studio | D08-01 | Partial / compatibility-limited |
-| `VEC-022` | Assets Studio | D08-02 | No direct URL |
-| `VEC-023` | Constraints Studio | D08-03 | Partial / compatibility-limited |
-| `VEC-024` | Export Persona & Slice Tool | D10-01, D10-02 | URL linked |
-| `VEC-025` | SVG & PDF/X Optimizer | D10-03 | URL linked |
-| `PIX-001` | Develop Persona & RAW Engine | P01-02, P09-01 | URL linked |
-| `PIX-002` | Crop & Straighten Tool | P01-03 | Partial / compatibility-limited |
-| `PIX-003` | Selection Brush Tool | P02-01 | Partial / compatibility-limited |
-| `PIX-004` | Refine Selection Studio | P02-02 | URL linked |
-| `PIX-005` | Layer Mask System | P02-03 | URL linked |
-| `PIX-006` | Layers Studio & Layer Groups | P03-01 | URL linked |
-| `PIX-007` | Curves & Levels Adjustment Studio | P05-02 | URL linked |
-| `PIX-008` | Blend Modes & Advanced Clipping | P03-03 | URL linked |
-| `PIX-009` | Inpainting Brush Tool | P04-01 | URL linked |
-| `PIX-010` | Clone Stamp & Healing Brush | P04-02 | URL linked |
-| `PIX-011` | Frequency Separation | P04-03 | URL linked |
-| `PIX-012` | Histogram Studio | P05-01 | No direct URL |
-| `PIX-013` | HSL, Gradient Map & LUT Studio | P05-03 | URL linked |
-| `PIX-014` | Live Filters Suite | P03-02, P06-01 | URL linked |
-| `PIX-015` | Denoise & Sharpening Studio | P06-02 | URL linked |
-| `PIX-016` | Live Lighting & Optical Effects | P06-03 | Partial / compatibility-limited |
-| `PIX-017` | Live Perspective & Warp | P07-02 | URL linked |
-| `PIX-018` | Macro Studio & Batch Jobs | P09-03 | URL linked |
-| `PIX-019` | Color Management & Soft Proofing | P10-02 | URL linked |
-| `LAY-001` | Document Setup & Bleed Engine | B01-01 | URL linked |
-| `LAY-002` | Master Pages Studio & Fields | B01-02 | URL linked |
-| `LAY-003` | Frame Text Tool & Baseline Grid | B01-03 | URL linked |
-| `AUT-001` | Application Module | S01-01 | Partial / compatibility-limited |
-| `AUT-002` | MCP Status & Bridge | S01-02 | No direct URL |
-| `AUT-003` | Document Module | S01-03 | Partial / compatibility-limited |
+| Area | V1 records | Important evidence / terminology notes |
+|---|---:|---|
+| Vector | 3 | Vector Flood Fill Help Center; Vector Warp Group reference and September release notes; Measure Tool persistent dimension lines in September release notes. |
+| Pixel | 4 | Liquify Studio and Focus Merge appear in official product/help materials; Astrophotography Studio, Astro Stretch, Wavelet Denoise and Plate Solving appear in September release notes; panorama stitching appears in current product overview. |
+| Layout | 5 | Text-style support is only broadly evidenced; Resource Manager is described in the print guide; Preflight has a Help Center page and custom-pattern release note; TOC/index is referenced in release notes; Data Merge supports CSV and September 2026 Canva Sheets refresh. |
+| Native Affinity Automation | 1 | Added Scripting Studio / Script Editor / Scripts Library as a distinct native capability, separate from MCP endpoints. |
+| Project-local MCP integration | 4 | Script execution, spread render, selection render and SDK documentation bridge are explicitly marked as Academy integration endpoints, not vendor-native tools. |
 
-## 4. Version and product-boundary findings
+Terminology and unsupported claims corrected:
+- The image-warping workspace is labelled **Liquify Studio**, not a Persona.
+- The focus-stacking production capability is labelled **Focus Merge**, rather than an invented suite label.
+- The Resource Manager evidence is limited to what the official print guide supports (linked-image resources and DPI information).
+- Measure Tool is only claimed to create persistent dimension-line layer objects; no area-measurement claim is made.
+- Preflight is named as a panel, not a separate “Preflight Studio”.
+- Data Merge is named as a feature; the 2026 release note's Canva Sheets live-refresh support is noted separately.
+- The MCP bridge is separated from Affinity's in-app Scripting Studio and Scripts Library.
 
-- The curriculum JSON and inventory declare **Affinity desktop 3.3.3.5004**. This remote review did not inspect the user's installed application. Matrix product-scope fields now label the build as curriculum-declared and explicitly mark the local installation unverified.
-- The public SDK page presently identifies its reference as **Affinity SDK 3.3.1**. SDK documentation version and desktop application build are separate facts; do not infer compatibility without a runtime check.
-- Official desktop release information located in this review includes the 15 September 2026 desktop update. The official 2 November 2026 announcement concerns **Affinity for iPad**, a separate platform. The current inventory remains scoped to desktop until the owner explicitly expands the target platform.
-- `AUT-002` is a project-local MCP bridge. The `execute_script`, `render_spread`, and `render_selection` calls are MCP integration endpoints, not automatically native tools in the Affinity desktop app.
+## 5. Official current-release discoveries
 
-## 5. Current-release discovery queue
+The official [September 2026 release notes](https://www.affinity.studio/help/sep-26-release-notes/) identify additional candidates which are not silently counted as new inventory rows until the target desktop build and overlaps are checked.
 
-The official September 2026 release notes identify candidates that need reconciliation before the 68-row denominator can be treated as complete. The list includes:
-- Blend Tool (distinct interactive tool);
-- diffusion curves (fill type/control, not necessarily a separate tool);
-- G2 curve-energy display and snapping (contextual control on Pen/Node);
-- extended Vector Warp presets (likely an update to an existing gap);
-- Deform Tool (new tool candidate);
-- Mask Tool (multi-studio tool; deduplicate with existing masking records);
-- Wavelet denoising (feature/tool classification still to settle);
-- Astrophotography Studio, Astro Stretch, Wavelet Denoise and Plate Solving (workspace plus child tools/panels);
-- Scripting Studio and Scripts Library (native in-app workspace/library, distinct from local MCP);
-- Feature Finder (supporting discovery utility);
-- Canva Sheets live refresh and custom Preflight text patterns (updates to existing records, not automatic new rows).
+Candidates requiring reconciliation:
+- **Blend Tool** — interactive tool and live Blend Group; likely a new Vector record.
+- **Mask Tool** — creates painted/gradient masks across Pixel, Compositing and Astrophotography; deduplicate with existing mask rows.
+- **Deform Tool** — bone/joint deformation; confirm exact studio and target build.
+- **Wavelet denoising / Astro Stretch / Plate Solving** — determine which are separate tools, adjustments or panels under Astrophotography/Develop.
+- **Diffusion curves** — classify as fill type, not automatically a standalone tool.
+- **G2 curve energy and snapping** — contextual Pen/Node controls, not automatically separate tools.
+- **Additional Vector Warp presets** — reconcile with the existing Vector Warp row.
+- **Feature Finder** — likely a supporting discovery utility rather than a core design tool.
+- **Canva Sheets live refresh** and **custom Preflight text patterns** — updates to existing Data Merge / Preflight rows, not new tools.
 
-The official release notes are the discovery source, not proof that each item is present in the curriculum's installed target build. Reconcile names, studio placement, record types and overlap before adding any denominator rows.
+The native **Scripting Studio / Script Editor / Scripts Library** is already represented as `AUT-GAP-5`, based on the official release notes and [Affinity's scripting feature page](https://www.affinity.studio/features/scripting).
 
-## 6. Remaining acceptance work
+The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affinity.studio/blog/affinity-update-ipad-2026), a separate platform. iPad-only workspaces and behaviours must not be added to the desktop denominator.
 
-1. **Exact source verification:** resolve the six P4 records with no direct URL, and replace any broad source references that do not support the exact claimed behaviour with target-app evidence or a precise official page.
-2. **App/build verification:** obtain direct evidence for the exact desktop build being taught (Help/About or equivalent) and verify relevant tool names and studios in that build.
-3. **Gap-row V1 verification:** re-check all 18 V1 labels. Four rows had initial direct-source checks, but all 18 have not yet been exhaustively verified against the current build.
-4. **Denominator completeness:** reconcile the September desktop release candidates, deduplicate controls against existing records, and preserve a separate desktop/iPad scope.
-5. **Automation boundary:** separate native Affinity scripting Studio/Library and SDK capabilities from this project's MCP server endpoints.
-6. **CI:** run the repository Quality Gate against this review branch and record the exact tested SHA before closing TASK-080.
+## 6. Version and platform boundaries
 
-## 7. Disposition
+- The curriculum and matrix declare desktop build **3.3.3.5004**. The installed desktop application on the user's machine has **not** been inspected during this remote review.
+- The public Affinity JavaScript SDK reference identifies version **3.3.1**. This is distinct from desktop build 3.3.3.5004; runtime compatibility is not established by version labels alone.
+- The native in-app Scripting Studio and SDK capabilities are tracked separately from the project-local MCP bridge.
+- The matrix currently scopes the product inventory to desktop Vector, Pixel and Layout studios plus native Affinity scripting/API capabilities. The iPad app remains a separate platform scope.
+
+## 7. Remaining acceptance work
+
+1. Obtain direct evidence of the exact installed desktop build (Help/About or equivalent) and confirm studio/tool availability against that build.
+2. Resolve the five native P4 claims without direct vendor URLs or supply direct target-app evidence.
+3. Complete operation-level semantic verification of all 50 P4 claims; the present 52-file check establishes practice structure, not every named control/action.
+4. Verify all 17 V1 candidates against the exact desktop build and separate tools, panels, contextual controls and workflow features correctly.
+5. Reconcile the September 2026 discovery candidates, including Blend Tool, Mask Tool, Deform Tool, Wavelet Denoise and Astro features, without double-counting controls.
+6. Confirm that all 16 required matrix fields are populated accurately and consistently.
+7. Run the Quality Gate on the exact review PR head and retain logs/artifacts.
+
+## 8. Disposition
 
 - Keep `TASK-080` **IN_PROGRESS**.
-- Treat 50 P4 as **provisional claims**, not a certified 73.5% tool-coverage result.
-- Do not mark `TASK-081` active until both TASK-079 and TASK-080 are formally complete.
-- Keep `BLK-007` **ACTIVE — LOCKED**.
+- Treat 50 P4 labels as provisional; do not report them as certified 73.5% Affinity desktop tool coverage.
+- Use the split denominators: 63 native Affinity capabilities and 5 project-local MCP integrations.
+- Keep the one U0 candidate outside the V1-verified count.
+- `TASK-081` remains **PENDING** until both TASK-079 and TASK-080 are formally complete.
+- `BLK-007` remains **ACTIVE — LOCKED**.
 - Do not author Publisher B02–B10 or Scripting S02–S10.
