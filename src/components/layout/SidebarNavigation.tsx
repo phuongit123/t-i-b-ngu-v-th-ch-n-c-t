@@ -21,10 +21,10 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
   className,
 }) => {
   const tracks: { id: AffinityTrackId; label: string; icon: React.ReactNode; colorClass: string }[] = [
-    { id: 'designer', label: 'Affinity Designer', icon: <PenTool className="w-3.5 h-3.5" />, colorClass: 'text-cyan-400' },
-    { id: 'photo', label: 'Affinity Photo', icon: <Image className="w-3.5 h-3.5" />, colorClass: 'text-blue-400' },
-    { id: 'publisher', label: 'Affinity Publisher', icon: <BookOpen className="w-3.5 h-3.5" />, colorClass: 'text-rose-400' },
-    { id: 'scripting', label: 'Lập trình & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
+    { id: 'designer', label: 'Vector Studio', icon: <PenTool className="w-3.5 h-3.5" />, colorClass: 'text-cyan-400' },
+    { id: 'photo', label: 'Pixel Studio', icon: <Image className="w-3.5 h-3.5" />, colorClass: 'text-blue-400' },
+    { id: 'publisher', label: 'Layout Studio', icon: <BookOpen className="w-3.5 h-3.5" />, colorClass: 'text-rose-400' },
+    { id: 'scripting', label: 'Automation & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
   ];
 
   const filteredModules = modules.filter((m) => m.trackId === activeTrackId);
