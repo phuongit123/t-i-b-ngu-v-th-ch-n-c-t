@@ -1,4 +1,4 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 4)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 5)
 
 ## Review status
 
@@ -73,17 +73,19 @@ This confirms that the referenced lesson JSON contains the required practice str
 
 These are alignment corrections, not newly certified coverage. A second semantic review is still required for each tool action against the target desktop application.
 
-## 3. P4 source provenance
+## 3. P4 source provenance — Round 5
 
 | Source disposition | P4 records |
 |---|---:|
-| Official URL with no explicit caveat in the matrix | **35** |
+| Direct official Help Center / release-note URL with a specific feature match (includes 3 Simplified Chinese locale pages) | **38** |
 | URL present, but broad / version-limited / exact behaviour caveat recorded | **9** |
-| No direct vendor URL located for a native desktop claim | **5** |
+| No direct vendor URL located for a native desktop claim | **2** |
 | Project-local MCP evidence only | **1** |
 | **Total** | **50** |
 
-The five native claims without direct vendor URLs remain source gaps. The MCP row is supported by project code/docs, not by an Affinity vendor page. A URL alone is not full verification: broad feature pages and release notes do not prove every toolbar control, shortcut or edge condition.
+Three source gaps were resolved with official Affinity Help Center pages: `VEC-011` Stroke panel and pressure profile, `VEC-020` Isometric panel and grid, and `VEC-022` Assets panel. Their records were renamed to the official panel terminology and their core actions/limitations were narrowed to what the sources actually describe. The pages are served in the official Simplified Chinese locale; English UI wording and target-build shortcuts remain to be checked directly.
+
+The two remaining native claims without direct vendor URLs are `VEC-002` Artboard Tool and `PIX-012` Histogram panel. The MCP row remains supported by Academy project code/docs, not an Affinity vendor page. A URL alone is not full verification: broad feature pages and release notes do not prove every toolbar control, shortcut or edge condition.
 
 ## 4. V1 source checks and terminology corrections
 
@@ -136,7 +138,7 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 ## 7. Remaining acceptance work
 
 1. Obtain direct evidence of the exact installed desktop build (Help/About or equivalent) and confirm studio/tool availability against that build.
-2. Resolve the five native P4 claims without direct vendor URLs or supply direct target-app evidence: Artboard Tool, Stroke Studio/Pressure Graph, Isometric Studio, Assets Studio, and Histogram Studio.
+2. Resolve the two remaining native P4 source gaps or retain direct target-app evidence: Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`).
 3. Complete operation-level semantic verification of all 50 P4 claims; the present 52-file check establishes practice structure, not every named control/action.
 4. Verify all 17 V1 candidates against the exact desktop build and separate tools, panels, contextual controls and workflow features correctly.
 5. Reconcile the September 2026 discovery candidates, including Blend Tool, Mask Tool, Deform Tool, Wavelet Denoise and Astro features, without double-counting controls.
@@ -152,3 +154,12 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - `TASK-081` remains **PENDING** until both TASK-079 and TASK-080 are formally complete.
 - `BLK-007` remains **ACTIVE — LOCKED**.
 - Do not author Publisher B02–B10 or Scripting S02–S10.
+
+
+## 8. Round 5 Source Discovery Update (2026-11-15)
+
+- Added official Help Center sources for `VEC-011` Stroke panel/pressure profile, `VEC-020` Isometric panel/grid, and `VEC-022` Assets panel.
+- Corrected the matrix's official terminology from “Stroke Studio”, “Isometric Studio”, and “Assets Studio” to the documented panel names; narrowed core actions and limitations to match the source text.
+- Updated P4 provenance to 38 direct official feature-matched URLs (including three Simplified Chinese locale pages), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
+- `VEC-002` Artboard Tool and `PIX-012` Histogram panel remain unresolved source gaps; do not promote their evidence status.
+- Source review does not verify the user's installed Affinity build, shortcuts, or operation semantics.
