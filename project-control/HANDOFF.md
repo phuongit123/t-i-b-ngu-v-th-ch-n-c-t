@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.4` (Full 66/66 TASK-079 independent QA audit completed; TASK-080 source verification in progress; TASK-081 prerequisites reaffirmed)
+- **Version:** `4.4.5` (TASK-079 completed after full 66/66 independent QA; TASK-080 source and P4 evidence review active)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 PLO MAP & COMPLETE 66/66 ROW-BY-ROW INDEPENDENT QA AUDIT (TASK-079_INDEPENDENT_REVIEW.md) — TASK-080 INVENTORY INDEPENDENT REVIEW IN PROGRESS (68 IN-SCOPE / 18 V1 GAPS / 3 EXCLUSIONS) — PR #4 DRAFT OPEN ON BRANCH feat/task-079-learning-outcome-mapping — LOCAL QUALITY GATE PASS (20/20 EDGE E2E, 66/66 CURRICULUM, 41/41 VALIDATOR, 3/3 SCRIPTS, test:translations PASS) — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (independent 66/66 row audit) — TASK-080 IN_PROGRESS (68 provisional in-scope / 18 V1 gaps / 3 exclusions; source, denominator and 50 P4 claims under review) — PR #4 DRAFT OPEN — QUALITY GATE #43728990588 PASS ON PR #4 HEAD (66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translations, build, 20/20 Edge E2E) — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -146,7 +146,7 @@ The Project Owner approved a product-level goal: learners must understand and co
 - `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
 - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
 - Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
-- `TASK-079` and `REQ-LEARN-001` are IN_PROGRESS with an initial 66-lesson mapping draft; `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING. No new lesson count is claimed.
+- `TASK-079` and `REQ-LEARN-001` are COMPLETED following independent audit of all 66 lesson mappings; TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until both TASK-079 and TASK-080 are formally complete. No new lesson count is claimed.
 
 ### Next implementation sequence
 1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
@@ -241,7 +241,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Coverage: 66 existing lesson IDs represented exactly once; each row lists mapped PLOs and evidence notations T/G/X*.
 - Independent QA Audit: `project-control/TASK-079_INDEPENDENT_REVIEW.md` (`TASK-079-REV-001`). Completed full 66/66 row-by-row verification table cross-examining declared tools, guided practice checkpoints, independent challenges, and rubric criteria against lesson JSON definitions.
 - Outcome distribution & confirmed deficiencies: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); **PLO-07 (4/66 - critical brief interpretation deficit)**; **PLO-08 (15/66 - critique/iteration deficit)**; PLO-09 (23); PLO-10 (55); PLO-11 (3).
-- Disposition: `TASK-079` full audit complete (66/66 PASS). Recommended for sign-off upon Project Owner review of PR #4.
+- Disposition: `TASK-079` COMPLETED following Project Owner direction to proceed and the independent 66/66 source-row audit. No learner mastery/A5 claim is made.
 - Governance Invariant: `TASK-081` strictly depends on BOTH `TASK-079` and `TASK-080`. Even after `TASK-079` is signed off, `TASK-081` remains PENDING until `TASK-080` (Tool Coverage Matrix) completes independent source verification and P4 practice audits.
 - `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING.
 - `BLK-007` remains ACTIVE — LOCKED. No new Publisher B02–B10 or Scripting S02–S10 authoring is authorized.
