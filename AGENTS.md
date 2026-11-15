@@ -34,7 +34,7 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 - **Available Tools:**
   - `affinity_status`: Query live connection status and engine state.
   - `add_sdk_hint`: Record SDK operational hints and API notes.
-  - `execute_script`: Run JavaScript code in the running Affinity 3.0 application DOM context.
+  - `execute_script`: Run JavaScript code in the running Affinity application DOM context; always verify the installed application build before relying on version-specific API claims.
   - `list_library_scripts`: Retrieve stored library scripts.
   - `read_library_script`: Inspect a specific library script content.
   - `save_script_to_library`: Save a reusable script snippet into the library.
@@ -117,7 +117,7 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 
 ## 5. Operational Governance & Communication Rules
 
-1. **Strict Phased Execution**: No agent may proceed to implementation (Phase 1+) without explicit user approval.
+1. **Strict Phased Execution**: Implement only tasks within the Project Owner's currently authorized scope. Any locked phase, track, deployment, merge, or destructive operation still requires the relevant explicit approval; authorized work already in scope may proceed under its registered task and acceptance criteria.
 2. **Truth in Documentation**: No task may be marked `COMPLETED` merely because its design or documentation was created. A task is completed only when its deliverables exist and pass acceptance criteria.
 3. **Traceability**: Every code change, design asset, and lesson plan must trace back to a specific `TASK-xxx` and `REQ-xxx`.
 4. **Handoff Discipline**: Every agent working session must terminate with an updated `project-control/PROGRESS.md` and `project-control/HANDOFF.md`.
