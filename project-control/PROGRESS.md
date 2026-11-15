@@ -2,12 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.2.2` (Track 1 Designer and Track 2 Photo curriculum; 6 pilot lessons also present)
+- **Version:** `4.3.0` (Learning outcomes and tool coverage governance specified; implementation pending)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
 - **Verification Evidence:** `66/66 curriculum validation and 9/9 Playwright E2E are historical local results; rerun on the current branch before sign-off`
-- **Last Updated:** `2026-11-13`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -83,3 +83,15 @@
 Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser, và 9/9 ca kiểm thử tự động Playwright E2E vượt qua thành công.
 - **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
 - **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
+
+
+---
+
+## 5. Learning Outcomes & Tool Coverage Direction (2026-11-15)
+
+- **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
+- **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
+- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. These tasks remain PENDING; the specifications do not count as a completed inventory, lesson mapping, capstone implementation, or QA sign-off.
+- **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
+- **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
+- **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.

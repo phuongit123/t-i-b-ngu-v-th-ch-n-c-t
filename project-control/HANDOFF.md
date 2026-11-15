@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Timestamp:** `2026-11-13T12:00:00+07:00`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION BRANCH PUBLISHED — VALIDATOR HARDENING AND B05/MCP DOCUMENTATION FOLLOW-UPS COMMITTED — LOCAL TESTS NOT RUN IN THIS REMOTE SESSION — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
+- **Version:** `4.3.0` (Learning outcomes and tool coverage standards registered)
+- **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION PR OPEN — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS REGISTERED ON A STACKED DOCS BRANCH — INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -133,3 +133,27 @@ The published branch `fix/phase5-stabilization` received follow-up commits to ad
 
 ### Governance
 `BLK-007` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
+
+
+---
+
+## 5. Learning Outcomes & Tool Coverage Handoff (2026-11-15)
+
+### New approved direction
+The Project Owner approved a product-level goal: learners must understand and competently use the in-scope Affinity tools and develop independent design thinking. Course completion counts alone are not graduation evidence.
+
+### Documentation added on `docs/learning-outcomes-tool-mastery`
+- `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
+- `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
+- Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
+- `REQ-LEARN-001`–`003` and `TASK-079`–`081` are registered as PENDING. No new lesson count is claimed.
+
+### Next implementation sequence
+1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
+2. Review and merge the Phase 5 stabilization PR only after evidence is attached to the exact pushed HEAD.
+3. Populate the version-scoped Layout, Vector, and Pixel inventory from official sources and direct application evidence; do not claim full coverage before independent audit.
+4. Map existing lessons to verified tools and programme outcomes; record omissions and propose content changes without bypassing `BLK-007`.
+5. Author and QA-review independent design briefs, rubrics, and capstone requirements before enabling graduation claims.
+
+### Verification and governance
+This documentation-only branch has not run npm, TypeScript, ESLint, build, validator, or Playwright commands. Do not report software tests as passed because Markdown files were added. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.

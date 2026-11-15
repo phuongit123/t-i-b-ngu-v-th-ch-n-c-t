@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `REQ-REGISTRY-001`
-- **Version:** `2.0.0` (Audited Baseline)
+- **Version:** `2.1.0` (Programme learning requirements added)
 - **Status:** `ACTIVE / AUDITED & EXPANDED`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
 
 ---
@@ -23,6 +23,7 @@ Categories:
 - **`REQ-BE`**: Backend Database, Authentication, API & Storage
 - **`REQ-QA`**: Quality Assurance, Independent Verification & Automated Testing
 - **`REQ-OPS`**: DevOps, Deployment, CI/CD & Operations
+- **`REQ-LEARN`**: Programme Learning Outcomes, Design Thinking, Tool Coverage & Graduation Assessment
 
 Priority Levels:
 - **P0**: Critical / Blocker — Core to system function
@@ -136,3 +137,14 @@ Priority Levels:
 | `REQ-OPS-001` | Production Build & Netlify Deployment | P0 | Configure `netlify.toml`, build commands, SPA redirects, and automated deployment pipeline. | Reliable hosting and public availability. | `TASK-060` | `PENDING` |
 | `REQ-OPS-002` | Local Development Setup Documentation | P0 | Comprehensive `README.md` and onboarding guide detailing prerequisites (Node.js, Affinity 3.0, MCP configuration). | Smooth developer onboarding. | `TASK-061` | `PENDING` |
 | `REQ-OPS-003` | Environment Variables & Security Audit | P0 | Define `.env.example`, secure Supabase credentials, and enforce zero credential leaks in git. | Security hardening. | `TASK-062` | `PENDING` |
+
+
+---
+
+## 10. Programme Learning, Tool Coverage & Graduation Requirements (`REQ-LEARN`)
+
+| Requirement ID | Title | Priority | Description | Rationale | Associated Task | Status |
+|---|---|---|---|---|---|---|
+| `REQ-LEARN-001` | Observable Programme Learning Outcomes & Competency Framework | P0 | Define measurable outcomes across tool literacy, workflow selection, design principles, brief interpretation, iteration, production readiness, and independent transfer; map each lesson and track to evidence. | Prevents the Academy from becoming a click-by-click tutorial library without demonstrable learner competence. | `TASK-079` | `PENDING` |
+| `REQ-LEARN-002` | Version-Scoped Affinity Tool Coverage Inventory | P0 | Independently enumerate current in-scope Layout, Vector, and Pixel tools/features, verify names/behaviour/shortcuts and constraints, map all entries to lessons and practice, and separate legacy V2 material. | Ensures no in-scope tool is silently omitted or taught using outdated product assumptions. | `TASK-080` | `PENDING` |
+| `REQ-LEARN-003` | Independent Design Assessment & Graduation Capstone | P0 | Define practical rubrics and authentic new-brief assessments that test design reasoning, tool choice, technical craft, iteration, and production delivery. | Verifies that learners can design independently rather than merely reproduce demonstrations. | `TASK-081` | `PENDING` |
