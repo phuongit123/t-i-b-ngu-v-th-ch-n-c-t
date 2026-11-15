@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.2` (TASK-079 lesson-to-PLO mapping drafted; TASK-080 independent inventory review in progress)
+- **Version:** `4.4.3` (Vietnamese translations verified & synchronized; TASK-079 independent review drafted; TASK-080 independent inventory review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Latest CI evidence:** `Quality Gate run 43720320594 passed on the exact PR #3 head 5d40d8200f54bc379465b7548a61e06119ab479d: 66/66 curriculum, 41/41 validator assertions, 3/3 script checks, lint, TypeScript, build, and 20/20 Edge E2E (46.7s). This does not verify the new TASK-079 branch.`
+- **Latest CI evidence:** `Quality Gate run 43725494652 passed on commit 84cfb97; run 43726221028 passed translation coverage on commit 210086658268914f2917a476e3d1ee9d9bd133e0; local quality gate verified PASS across all 66 curriculum lessons, 41/41 validator assertions, 3/3 scripts, test:translations, lint, typecheck, production build, and 20/20 Edge Playwright E2E tests (47.8s).`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
