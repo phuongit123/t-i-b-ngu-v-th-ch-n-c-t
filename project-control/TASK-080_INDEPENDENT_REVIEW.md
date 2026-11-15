@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 3)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 4)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; SOURCE, TARGET-BUILD AND DISCOVERY AUDIT OPEN`
+- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; P4 JSON STRUCTURE AUDITED; TARGET-BUILD AND SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-15`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -87,7 +87,7 @@ The five native claims without direct vendor URLs remain source gaps. The MCP ro
 
 ## 4. V1 source checks and terminology corrections
 
-The 17 V1 rows have been normalized with official source links where a source was found, or explicitly labelled as project-local integration evidence.
+The 17 V1 rows have been normalized with official source links where a source was found, or explicitly labelled as project-local integration evidence. Additional source checks in this round confirmed the official desktop Help Center references Liquify Studio, and official product materials describe Focus Merge and panorama stitching. The exact installed target build remains uninspected.
 
 | Area | V1 records | Important evidence / terminology notes |
 |---|---:|---|
@@ -112,6 +112,7 @@ The official [September 2026 release notes](https://www.affinity.studio/help/sep
 
 Candidates requiring reconciliation:
 - **Blend Tool** — interactive tool and live Blend Group; likely a new Vector record.
+- **Place 3D Models / Model Tool** — GLB 3D Model layer and on-page transforms; candidate production/tool record, not yet counted.
 - **Mask Tool** — creates painted/gradient masks across Pixel, Compositing and Astrophotography; deduplicate with existing mask rows.
 - **Deform Tool** — bone/joint deformation; confirm exact studio and target build.
 - **Wavelet denoising / Astro Stretch / Plate Solving** — determine which are separate tools, adjustments or panels under Astrophotography/Develop.
@@ -121,7 +122,7 @@ Candidates requiring reconciliation:
 - **Feature Finder** — likely a supporting discovery utility rather than a core design tool.
 - **Canva Sheets live refresh** and **custom Preflight text patterns** — updates to existing Data Merge / Preflight rows, not new tools.
 
-The native **Scripting Studio / Script Editor / Scripts Library** is already represented as `AUT-GAP-5`, based on the official release notes and [Affinity's scripting feature page](https://www.affinity.studio/features/scripting).
+The native **Scripting Studio / Script Editor / Scripts Library** is already represented as `AUT-GAP-5`, based on the official release notes and [Affinity's scripting feature page](https://www.affinity.studio/features/scripting). The release notes also confirm a Blend Tool, Mask Tool, bone-based Deform Tool, Measure Tool, G2 curve aids, Wavelet Denoise, a dedicated Astrophotography Studio, Data Merge from Canva Sheets, Preflight text patterns and GLB 3D-model placement; candidates remain uncounted until build and overlap checks are complete.
 
 The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affinity.studio/blog/affinity-update-ipad-2026), a separate platform. iPad-only workspaces and behaviours must not be added to the desktop denominator.
 
@@ -135,7 +136,7 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 ## 7. Remaining acceptance work
 
 1. Obtain direct evidence of the exact installed desktop build (Help/About or equivalent) and confirm studio/tool availability against that build.
-2. Resolve the five native P4 claims without direct vendor URLs or supply direct target-app evidence.
+2. Resolve the five native P4 claims without direct vendor URLs or supply direct target-app evidence: Artboard Tool, Stroke Studio/Pressure Graph, Isometric Studio, Assets Studio, and Histogram Studio.
 3. Complete operation-level semantic verification of all 50 P4 claims; the present 52-file check establishes practice structure, not every named control/action.
 4. Verify all 17 V1 candidates against the exact desktop build and separate tools, panels, contextual controls and workflow features correctly.
 5. Reconcile the September 2026 discovery candidates, including Blend Tool, Mask Tool, Deform Tool, Wavelet Denoise and Astro features, without double-counting controls.
@@ -145,8 +146,8 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 ## 8. Disposition
 
 - Keep `TASK-080` **IN_PROGRESS**.
-- Treat 50 P4 labels as provisional; do not report them as certified 73.5% Affinity desktop tool coverage.
-- Use the split denominators: 63 native Affinity capabilities and 5 project-local MCP integrations.
+- Treat 50 P4 labels as provisional (49 native Affinity / 1 project MCP); do not report them as certified 73.5% Affinity desktop tool coverage.
+- Use the split denominators: 63 native Affinity capabilities and 5 project-local MCP integrations (68 combined in-scope records).
 - Keep the one U0 candidate outside the V1-verified count.
 - `TASK-081` remains **PENDING** until both TASK-079 and TASK-080 are formally complete.
 - `BLK-007` remains **ACTIVE — LOCKED**.
