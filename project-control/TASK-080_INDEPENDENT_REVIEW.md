@@ -1,4 +1,4 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 5)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 6)
 
 ## Review status
 
@@ -160,8 +160,8 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 
 - Added official Help Center sources for `VEC-011` Stroke panel/pressure profile, `VEC-020` Isometric panel/grid, and `VEC-022` Assets panel.
 - Corrected the matrix's official terminology from “Stroke Studio”, “Isometric Studio”, and “Assets Studio” to the documented panel names; narrowed core actions and limitations to match the source text.
-- Updated P4 provenance to 38 direct official feature-matched URLs (including three Simplified Chinese locale pages), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
-- `VEC-002` Artboard Tool and `PIX-012` Histogram panel remain unresolved source gaps; do not promote their evidence status.
+- **Historical Round 5 snapshot (superseded by Round 6 below):** P4 provenance was then recorded as 38 direct official feature-matched URLs, 9 broad/version-limited URLs, 2 presumed native source gaps, and 1 project-local MCP-only row. Round 6 located the two official Help Center page titles and reclassified them as article-body review pending.
+- **Historical Round 5 snapshot (superseded by Round 6 below):** `VEC-002` Artboard Tool and `PIX-012` Histogram panel were still treated as source gaps. Round 6 located their official Help Center page titles but did not extract the article bodies.
 - Source review does not verify the user's installed Affinity build, shortcuts, or operation semantics.
 
 
