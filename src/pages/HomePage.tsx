@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, ChevronRight, Star, ArrowUpRight, Check } from 'lucide-react';
+import React from 'react';
+import { Play, ChevronRight, ArrowUpRight } from 'lucide-react';
 import type { AffinityTrackId } from '@/types/design-system';
 
 export interface HomePageProps {
@@ -13,20 +13,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectTrack,
   onLaunchLesson,
 }) => {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setIsSubscribed(true);
-      setTimeout(() => {
-        setIsSubscribed(false);
-        setEmail('');
-      }, 4000);
-    }
-  };
-
   const handleTrackClick = (trackId: AffinityTrackId) => {
     if (onSelectTrack) {
       onSelectTrack(trackId);
@@ -124,7 +110,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               We engineer your creative mastery
             </h1>
             <p className="font-nunito font-normal text-[16px] sm:text-[18px] text-zinc-300 leading-relaxed">
-              Master the unified Serif Affinity 3.0 suite with in-browser Bézier simulators, non-destructive pixel masking, and embedded V8 JavaScript DOM scripting automation.
+              Learn Affinity through its Layout, Vector, and Pixel studios. Build tool fluency, visual judgement, and a repeatable design process — then apply those skills to new briefs.
             </p>
 
             {/* Play Button & Interactive Lab CTA (Figma 101:185) */}
@@ -172,10 +158,10 @@ export const HomePage: React.FC<HomePageProps> = ({
             ABOUT
           </p>
           <h2 className="font-kanit font-normal text-[32px] sm:text-[40px] text-white leading-tight max-w-[950px]">
-            The premier precision learning academy for modern digital creators &amp; AI agents
+            From learning the tools to thinking like a designer
           </h2>
           <p className="font-nunito text-[16px] text-[#6d7d7d] leading-relaxed max-w-[620px] pt-2">
-            Engineered from first principles for professional illustrators, retouchers, editorial layout artists, and AI automation developers. Every module connects real in-browser tool mechanisms with production desktop scripting.
+            A structured learning path for understanding what each tool does, choosing an appropriate workflow, testing visual decisions, and improving work through critique and iteration.
           </p>
         </div>
       </section>
@@ -191,7 +177,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="h-[360px] sm:h-[442px] overflow-hidden bg-zinc-900 group">
               <img
                 src="/assets/interia/about-img1.png"
-                alt="Affinity Designer Vector Precision"
+                alt="Vector design practice"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -199,7 +185,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="h-[360px] sm:h-[442px] overflow-hidden bg-zinc-900 group">
               <img
                 src="/assets/interia/about-img2.png"
-                alt="Affinity Photo Retouching"
+                alt="Pixel editing practice"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -228,28 +214,28 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="grid grid-cols-3 gap-4 border-t border-[#6d7d7d]/30 pt-8">
               <div>
                 <p className="font-kanit text-[#6d7d7d] text-[36px] sm:text-[40px] leading-none">
-                  66+
+                  66
                 </p>
                 <p className="font-kanit text-white text-[13px] sm:text-[14px] tracking-[4px] uppercase mt-2">
-                  LESSONS DONE
+                  EXISTING LESSONS
                 </p>
               </div>
 
               <div>
                 <p className="font-kanit text-[#6d7d7d] text-[36px] sm:text-[40px] leading-none">
-                  40
+                  120
                 </p>
                 <p className="font-kanit text-white text-[13px] sm:text-[14px] tracking-[4px] uppercase mt-2">
-                  FULL MODULES
+                  PLANNED LESSONS
                 </p>
               </div>
 
               <div>
                 <p className="font-kanit text-[#6d7d7d] text-[36px] sm:text-[40px] leading-none">
-                  100%
+                  3
                 </p>
                 <p className="font-kanit text-white text-[13px] sm:text-[14px] tracking-[4px] uppercase mt-2">
-                  VERIFIED MCP
+                  CORE STUDIOS
                 </p>
               </div>
             </div>
@@ -282,223 +268,117 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
+
       {/* ─────────────────────────────────────────────────────────────
-          6. SECTION 4: INSTRUCTORS & REVIEWS (Figma node 101:120)
+          6. SECTION 4: THE DESIGN-THINKING PROCESS
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative w-full bg-[#131616] py-24 border-y border-white/5">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Title, Description & Social Proof */}
-            <div className="lg:col-span-5 space-y-6">
-              <p className="font-kanit text-[#6d7d7d] text-[16px] tracking-[6.88px] uppercase">
-                STUDIOS
-              </p>
-              <h2 className="font-kanit font-normal text-[32px] sm:text-[40px] text-white leading-tight">
-                Curriculum engineered by verified studio directors
-              </h2>
-              <p className="font-nunito text-[16px] text-zinc-400 leading-relaxed">
-                Every lesson is thoroughly audited across desktop schemas, Playwright visual tests, and live MCP server introspection on localhost:6767.
-              </p>
-
-              {/* Social Proof: Avatars & 5-Star Rating */}
-              <div className="pt-6 space-y-4">
-                <div className="flex items-center">
-                  <div className="flex -space-x-3 overflow-hidden">
-                    <img src="/assets/interia/avatar-1.png" alt="Creator" className="inline-block size-[48px] rounded-full ring-2 ring-[#131616]" />
-                    <img src="/assets/interia/avatar-2.png" alt="Creator" className="inline-block size-[48px] rounded-full ring-2 ring-[#131616]" />
-                    <img src="/assets/interia/avatar-3.png" alt="Creator" className="inline-block size-[48px] rounded-full ring-2 ring-[#131616]" />
-                    <img src="/assets/interia/avatar-4.png" alt="Creator" className="inline-block size-[48px] rounded-full ring-2 ring-[#131616]" />
-                  </div>
-                  <div className="ml-5 flex items-center gap-1.5">
-                    <div className="flex text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="size-4 fill-amber-400" />
-                      ))}
-                    </div>
-                    <span className="font-nunito text-zinc-300 text-[15px] ml-1">
-                      (4.9 / 5.0)
-                    </span>
-                  </div>
-                </div>
-
-                <p className="font-kanit text-[#6d7d7d] text-[14px] sm:text-[15px] tracking-[6.88px] uppercase">
-                  TRUSTED BY DIGITAL CREATORS
-                </p>
-
-                <div className="pt-2">
-                  <button
-                    onClick={() => onNavigate('resources')}
-                    className="px-7 py-2.5 rounded-[100px] border border-[#6d7d7d] text-white font-kanit text-[14px] tracking-[6.88px] uppercase hover:bg-white hover:text-[#191d1d] transition-all duration-300"
-                  >
-                    LEARN TEAMS
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: 3 Studio Lead Cards */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-5">
-              <div className="group overflow-hidden bg-zinc-900 border border-white/5">
-                <div className="h-[260px] overflow-hidden">
-                  <img
-                    src="/assets/interia/team-1.png"
-                    alt="Vector Studio Director"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4 bg-[#191d1d]">
-                  <p className="font-kanit text-white text-[16px] tracking-wide">Marcus Vance</p>
-                  <p className="font-nunito text-[#6d7d7d] text-[13px]">Vector Studio Lead</p>
-                </div>
-              </div>
-
-              <div className="group overflow-hidden bg-zinc-900 border border-white/5">
-                <div className="h-[260px] overflow-hidden">
-                  <img
-                    src="/assets/interia/team-2.png"
-                    alt="Pixel Retouch Specialist"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4 bg-[#191d1d]">
-                  <p className="font-kanit text-white text-[16px] tracking-wide">Elena Rostova</p>
-                  <p className="font-nunito text-[#6d7d7d] text-[13px]">HDR Retouch Lead</p>
-                </div>
-              </div>
-
-              <div className="group overflow-hidden bg-zinc-900 rounded-br-[50px] border border-white/5">
-                <div className="h-[260px] overflow-hidden rounded-br-[50px]">
-                  <img
-                    src="/assets/interia/team-3.png"
-                    alt="DOM Scripting Lead"
-                    className="w-full h-full object-cover rounded-br-[50px] group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4 bg-[#191d1d] rounded-br-[50px]">
-                  <p className="font-kanit text-white text-[16px] tracking-wide">Julian Thorne</p>
-                  <p className="font-nunito text-[#6d7d7d] text-[13px]">V8 &amp; MCP Engineer</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="relative w-full max-w-[1200px] mx-auto px-6 sm:px-12 py-24">
+        <div className="max-w-[760px] space-y-4 mb-12">
+          <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[6px] uppercase">A repeatable way to work</p>
+          <h2 className="font-kanit text-[32px] sm:text-[40px] text-white leading-tight">Design thinking, not just button memorisation</h2>
+          <p className="font-nunito text-[16px] text-zinc-400 leading-relaxed">
+            Each project should move from understanding the brief to delivering a considered result. Learners practise explaining their choices, checking the outcome, and revising when the design does not solve the problem.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            ['01', 'Discover', 'Understand the audience, context, and constraints.'],
+            ['02', 'Define', 'Turn the brief into a clear design problem.'],
+            ['03', 'Explore', 'Compare directions before committing to one.'],
+            ['04', 'Plan', 'Choose tools, assets, and a workable sequence.'],
+            ['05', 'Create', 'Build with control over layers, objects, and layout.'],
+            ['06', 'Evaluate', 'Check hierarchy, clarity, consistency, and output.'],
+            ['07', 'Iterate', 'Use critique and evidence to improve the work.'],
+            ['08', 'Deliver', 'Package editable files and the required exports.'],
+          ].map(([step, title, description]) => (
+            <article key={step} className="min-h-[170px] border border-white/10 bg-[#202626] p-5 sm:p-6">
+              <span className="font-mono text-xs text-[#9aa9a7]">{step}</span>
+              <h3 className="font-kanit text-xl text-white mt-4">{title}</h3>
+              <p className="font-nunito text-sm text-zinc-400 leading-relaxed mt-2">{description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
+
       {/* ─────────────────────────────────────────────────────────────
-          7. SECTION 5: ECOSYSTEM PARTNERS (Figma node 101:100)
+          7. SECTION 5: CURRENT AFFINITY STUDIOS
       ───────────────────────────────────────────────────────────── */}
       <section className="relative w-full max-w-[1200px] mx-auto px-6 sm:px-12 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-80 hover:opacity-100 transition-opacity">
-          <div className="flex flex-col items-center justify-center p-4 border border-white/5 rounded-lg w-full text-center">
-            <span className="font-kanit text-[#6d7d7d] text-[18px] tracking-[4px] uppercase">
-              SERIF AFFINITY
-            </span>
-            <span className="text-[11px] text-zinc-500 font-mono mt-1">3.0 UNIFIED SUITE</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+          <div className="space-y-3">
+            <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[6px] uppercase">The application workspace</p>
+            <h2 className="font-kanit text-[30px] sm:text-[36px] text-white">Three studios, distinct jobs</h2>
           </div>
-
-          <div className="flex flex-col items-center justify-center p-4 border border-white/5 rounded-lg w-full text-center">
-            <span className="font-kanit text-[#6d7d7d] text-[18px] tracking-[4px] uppercase">
-              CANVA CREATIVE
-            </span>
-            <span className="text-[11px] text-zinc-500 font-mono mt-1">AFFINITY ECOSYSTEM</span>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 border border-white/5 rounded-lg w-full text-center">
-            <span className="font-kanit text-[#6d7d7d] text-[18px] tracking-[4px] uppercase">
-              GOOGLE V8 DOM
-            </span>
-            <span className="text-[11px] text-zinc-500 font-mono mt-1">JAVASCRIPT RUNTIME</span>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 border border-white/5 rounded-lg w-full text-center">
-            <span className="font-kanit text-[#6d7d7d] text-[18px] tracking-[4px] uppercase">
-              ANTIGRAVITY MCP
-            </span>
-            <span className="text-[11px] text-zinc-500 font-mono mt-1">LOCALHOST:6767 ENGINE</span>
-          </div>
+          <p className="font-nunito text-sm text-zinc-400 max-w-[440px] leading-relaxed">
+            Layout, Vector, and Pixel are the three core studios in the current learning scope. Scripting and MCP are treated as a separate automation strand.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { number: '01', title: 'Layout', subtitle: 'Pages & publication', detail: 'Structure pages, grids, type hierarchy, and multi-page documents.' },
+            { number: '02', title: 'Vector', subtitle: 'Shapes & geometry', detail: 'Create and edit paths, nodes, curves, and geometric forms.' },
+            { number: '03', title: 'Pixel', subtitle: 'Images & masks', detail: 'Work with pixel layers, selections, masks, and image adjustments.' },
+            { number: '04', title: 'Automation', subtitle: 'Scripting & MCP', detail: 'Understand supported scripting workflows and their limits.' },
+          ].map((studio) => (
+            <article key={studio.number} className="border border-white/10 bg-[#202626] p-6 min-h-[210px]">
+              <span className="font-mono text-xs text-[#9aa9a7]">{studio.number}</span>
+              <h3 className="font-kanit text-2xl text-white mt-4">{studio.title}</h3>
+              <p className="font-kanit text-[11px] tracking-[2px] text-[#9aa9a7] uppercase mt-1">{studio.subtitle}</p>
+              <p className="font-nunito text-sm text-zinc-400 leading-relaxed mt-4">{studio.detail}</p>
+            </article>
+          ))}
         </div>
       </section>
 
+
       {/* ─────────────────────────────────────────────────────────────
-          8. SECTION 6: SERVICES / THE 3 PILLARS (Figma node 101:75)
+          8. SECTION 6: LEARNING PATHS
       ───────────────────────────────────────────────────────────── */}
       <section className="relative w-full max-w-[1200px] mx-auto px-6 sm:px-12 pb-24">
+        <div className="mb-8 space-y-3">
+          <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[6px] uppercase">Learning paths</p>
+          <h2 className="font-kanit text-[30px] sm:text-[36px] text-white">Choose a domain, then learn to transfer the skill</h2>
+        </div>
         <div className="divide-y divide-[#6d7d7d]/30">
-          {/* Pillar 01: Designer */}
-          <div className="py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-            <div className="md:col-span-6">
-              <h3 className="font-kanit font-normal text-[32px] sm:text-[40px] text-white leading-tight group-hover:text-amber-200/90 transition-colors">
-                01. Affinity Designer
-              </h3>
-              <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[4px] uppercase mt-2">
-                VECTOR CURVES &amp; GEOMETRY
-              </p>
+          <div className="py-9 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group">
+            <div className="md:col-span-5">
+              <h3 className="font-kanit text-[28px] sm:text-[34px] text-white group-hover:text-amber-100 transition-colors">01. Vector design</h3>
+              <p className="font-kanit text-[#9aa9a7] text-[12px] tracking-[3px] uppercase mt-2">Vector studio · Designer learning track</p>
             </div>
-            <div className="md:col-span-6 space-y-4">
-              <p className="font-nunito text-[16px] text-[#6d7d7d] leading-relaxed">
-                Master pen curve geometry, isometric grids, dynamic boolean operations, and multi-resolution responsive artboards across 10 structured modules.
-              </p>
-              <div>
-                <button
-                  onClick={() => handleTrackClick('designer')}
-                  className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-                >
-                  <span>LEARN MORE</span>
-                  <ChevronRight className="size-4 text-white" />
-                </button>
-              </div>
+            <div className="md:col-span-7 space-y-4">
+              <p className="font-nunito text-[15px] text-zinc-400 leading-relaxed">Practise Bézier curves, nodes, geometry, Boolean operations, and artboards. Learn why a tool fits a shape-building problem rather than following steps by rote.</p>
+              <button onClick={() => handleTrackClick('designer')} className="inline-flex items-center gap-3 font-kanit text-sm text-white tracking-[3px] uppercase hover:gap-4 transition-all">Explore vector path <ChevronRight className="size-4" /></button>
             </div>
           </div>
-
-          {/* Pillar 02: Photo */}
-          <div className="py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-            <div className="md:col-span-6">
-              <h3 className="font-kanit font-normal text-[32px] sm:text-[40px] text-white leading-tight group-hover:text-blue-200/90 transition-colors">
-                02. Affinity Photo
-              </h3>
-              <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[4px] uppercase mt-2">
-                32-BIT HDR &amp; PIXEL RETOUCH
-              </p>
+          <div className="py-9 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group">
+            <div className="md:col-span-5">
+              <h3 className="font-kanit text-[28px] sm:text-[34px] text-white group-hover:text-blue-100 transition-colors">02. Pixel editing</h3>
+              <p className="font-kanit text-[#9aa9a7] text-[12px] tracking-[3px] uppercase mt-2">Pixel studio · Photo learning track</p>
             </div>
-            <div className="md:col-span-6 space-y-4">
-              <p className="font-nunito text-[16px] text-[#6d7d7d] leading-relaxed">
-                Develop 32-bit linear HDR, non-destructive live filter stacks, frequency separation retouching, and luminosity masking across 30 verified lessons.
-              </p>
-              <div>
-                <button
-                  onClick={() => handleTrackClick('photo')}
-                  className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-                >
-                  <span>LEARN MORE</span>
-                  <ChevronRight className="size-4 text-white" />
-                </button>
-              </div>
+            <div className="md:col-span-7 space-y-4">
+              <p className="font-nunito text-[15px] text-zinc-400 leading-relaxed">Work with layers, selections, masks, tonal and colour adjustments, and non-destructive editing. Explain the workflow and inspect the result at each stage.</p>
+              <button onClick={() => handleTrackClick('photo')} className="inline-flex items-center gap-3 font-kanit text-sm text-white tracking-[3px] uppercase hover:gap-4 transition-all">Explore pixel path <ChevronRight className="size-4" /></button>
             </div>
           </div>
-
-          {/* Pillar 03: Publisher & Scripting */}
-          <div className="py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-            <div className="md:col-span-6">
-              <h3 className="font-kanit font-normal text-[32px] sm:text-[40px] text-white leading-tight group-hover:text-purple-200/90 transition-colors">
-                03. Publisher &amp; Automation
-              </h3>
-              <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[4px] uppercase mt-2">
-                EDITORIAL SPREADS &amp; MCP DOM
-              </p>
+          <div className="py-9 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group">
+            <div className="md:col-span-5">
+              <h3 className="font-kanit text-[28px] sm:text-[34px] text-white group-hover:text-purple-100 transition-colors">03. Layout &amp; publishing</h3>
+              <p className="font-kanit text-[#9aa9a7] text-[12px] tracking-[3px] uppercase mt-2">Layout studio · Publisher learning track</p>
             </div>
-            <div className="md:col-span-6 space-y-4">
-              <p className="font-nunito text-[16px] text-[#6d7d7d] leading-relaxed">
-                Engineered publication spreads, 3mm professional bleed, master pages, and headless automation via localhost:6767 MCP server scripting.
-              </p>
-              <div>
-                <button
-                  onClick={() => handleTrackClick('publisher')}
-                  className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-                >
-                  <span>LEARN MORE</span>
-                  <ChevronRight className="size-4 text-white" />
-                </button>
-              </div>
+            <div className="md:col-span-7 space-y-4">
+              <p className="font-nunito text-[15px] text-zinc-400 leading-relaxed">Explore page structure, grids, typography, master pages, and export requirements. This domain currently has pilot lessons; further authoring remains behind the project phase gate.</p>
+              <button onClick={() => handleTrackClick('publisher')} className="inline-flex items-center gap-3 font-kanit text-sm text-white tracking-[3px] uppercase hover:gap-4 transition-all">Explore layout path <ChevronRight className="size-4" /></button>
+            </div>
+          </div>
+          <div className="py-9 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group">
+            <div className="md:col-span-5">
+              <h3 className="font-kanit text-[28px] sm:text-[34px] text-white group-hover:text-emerald-100 transition-colors">04. Scripting &amp; automation</h3>
+              <p className="font-kanit text-[#9aa9a7] text-[12px] tracking-[3px] uppercase mt-2">Separate automation learning strand</p>
+            </div>
+            <div className="md:col-span-7 space-y-4">
+              <p className="font-nunito text-[15px] text-zinc-400 leading-relaxed">Understand supported scripting concepts, repeatable production tasks, and MCP integration boundaries. Treat scripts as an aid to design work, not a replacement for design judgement.</p>
+              <button onClick={() => handleTrackClick('scripting')} className="inline-flex items-center gap-3 font-kanit text-sm text-white tracking-[3px] uppercase hover:gap-4 transition-all">Explore automation path <ChevronRight className="size-4" /></button>
             </div>
           </div>
         </div>
@@ -517,7 +397,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
           <div className="absolute bottom-6 left-6 right-6">
             <span className="font-kanit text-white text-[14px] tracking-[4px] uppercase bg-black/60 px-3 py-1.5 backdrop-blur-sm">
-              VECTOR SIMULATOR
+              VECTOR PRACTICE
             </span>
           </div>
         </div>
@@ -531,7 +411,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
           <div className="absolute bottom-6 left-6 right-6">
             <span className="font-kanit text-white text-[14px] tracking-[4px] uppercase bg-black/60 px-3 py-1.5 backdrop-blur-sm">
-              PIXEL MASKING
+              PIXEL MASKING PRACTICE
             </span>
           </div>
         </div>
@@ -545,7 +425,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
           <div className="absolute bottom-6 left-6 right-6">
             <span className="font-kanit text-white text-[14px] tracking-[4px] uppercase bg-black/60 px-3 py-1.5 backdrop-blur-sm">
-              EDITORIAL SPREADS
+              LAYOUT PRACTICE
             </span>
           </div>
         </div>
@@ -553,141 +433,64 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="relative h-full overflow-hidden group">
           <img
             src="/assets/interia/gallery-4.png"
-            alt="V8 JavaScript DOM Automation"
+            alt="Automation learning concept"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-95"
           />
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
           <div className="absolute bottom-6 left-6 right-6">
             <span className="font-kanit text-white text-[14px] tracking-[4px] uppercase bg-black/60 px-3 py-1.5 backdrop-blur-sm">
-              MCP DOM RUNNER
+              AUTOMATION PRACTICE
             </span>
           </div>
         </div>
       </section>
 
+
       {/* ─────────────────────────────────────────────────────────────
-          10. SECTION 8: ARTICLES / BLOG (Figma node 101:45)
+          10. SECTION 8: HOW TO USE THE ACADEMY
       ───────────────────────────────────────────────────────────── */}
       <section className="relative w-full max-w-[1200px] mx-auto px-6 sm:px-12 py-24">
-        <div className="text-center space-y-3 mb-16">
-          <p className="font-kanit text-[#6d7d7d] text-[16px] tracking-[6.88px] uppercase">
-            BLOG
+        <div className="text-center space-y-3 mb-12">
+          <p className="font-kanit text-[#6d7d7d] text-[14px] tracking-[6px] uppercase">From lesson to independent work</p>
+          <h2 className="font-kanit text-[30px] sm:text-[36px] text-white">A learning loop with evidence</h2>
+          <p className="font-nunito text-zinc-400 max-w-[680px] mx-auto leading-relaxed">
+            Read the concept, practise with guidance, solve a fresh challenge, then review the choices and improve the result.
           </p>
-          <h2 className="font-kanit font-normal text-[36px] sm:text-[40px] text-white">
-            The latest article
-          </h2>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Article 1 */}
-          <div className="space-y-4 group">
-            <div className="h-[268px] overflow-hidden bg-zinc-900 border border-white/5">
-              <img
-                src="/assets/interia/article-1.png"
-                alt="Affinity 3.0 Architecture"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <p className="font-nunito text-[#6d7d7d] text-[16px] leading-relaxed line-clamp-2">
-              Mastering V8 JavaScript DOM Scripting and automated batch pipelines in Affinity 3.0.
-            </p>
-            <div>
-              <button
-                onClick={() => onNavigate('encyclopedia')}
-                className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-              >
-                <span>LEARN MORE</span>
-                <ChevronRight className="size-4 text-white" />
-              </button>
-            </div>
-          </div>
-
-          {/* Article 2 */}
-          <div className="space-y-4 group">
-            <div className="h-[268px] overflow-hidden bg-zinc-900 border border-white/5">
-              <img
-                src="/assets/interia/article-2.png"
-                alt="Non-destructive Masking"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <p className="font-nunito text-[#6d7d7d] text-[16px] leading-relaxed line-clamp-2">
-              Non-destructive live mask hierarchies and 32-bit linear tone mapping workflows.
-            </p>
-            <div>
-              <button
-                onClick={() => onNavigate('encyclopedia')}
-                className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-              >
-                <span>LEARN MORE</span>
-                <ChevronRight className="size-4 text-white" />
-              </button>
-            </div>
-          </div>
-
-          {/* Article 3 */}
-          <div className="space-y-4 group">
-            <div className="h-[268px] overflow-hidden bg-zinc-900 border border-white/5">
-              <img
-                src="/assets/interia/article-3.png"
-                alt="Publication Pre-press Bleed"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <p className="font-nunito text-[#6d7d7d] text-[16px] leading-relaxed line-clamp-2">
-              Editorial 3mm bleed standards, master page propagation, and PDF/X-4 print readiness.
-            </p>
-            <div>
-              <button
-                onClick={() => onNavigate('encyclopedia')}
-                className="inline-flex items-center gap-3 font-kanit text-[15px] text-white tracking-[6.88px] uppercase hover:gap-4 transition-all"
-              >
-                <span>LEARN MORE</span>
-                <ChevronRight className="size-4 text-white" />
-              </button>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <article className="border border-white/10 bg-[#202626] p-7">
+            <span className="font-mono text-xs text-[#9aa9a7]">01 / UNDERSTAND</span>
+            <h3 className="font-kanit text-xl text-white mt-4">Know what the tool does</h3>
+            <p className="font-nunito text-sm text-zinc-400 leading-relaxed mt-3">Learn the tool's purpose, core controls, strengths, limitations, and when another method is more suitable.</p>
+          </article>
+          <article className="border border-white/10 bg-[#202626] p-7">
+            <span className="font-mono text-xs text-[#9aa9a7]">02 / PRACTISE</span>
+            <h3 className="font-kanit text-xl text-white mt-4">Build fluency through practice</h3>
+            <p className="font-nunito text-sm text-zinc-400 leading-relaxed mt-3">Move from demonstrations to guided exercises and independent tasks with clear success criteria.</p>
+          </article>
+          <article className="border border-white/10 bg-[#202626] p-7">
+            <span className="font-mono text-xs text-[#9aa9a7]">03 / TRANSFER</span>
+            <h3 className="font-kanit text-xl text-white mt-4">Solve a new design brief</h3>
+            <p className="font-nunito text-sm text-zinc-400 leading-relaxed mt-3">Select a workflow, justify design decisions, respond to critique, and deliver editable work with the required exports.</p>
+          </article>
         </div>
-
-        {/* Hairline Separator */}
-        <div className="w-full h-px bg-[#6d7d7d]/30 mt-20" />
+        <div className="text-center mt-10">
+          <button onClick={() => onNavigate('encyclopedia')} className="inline-flex items-center gap-3 font-kanit text-sm text-white tracking-[3px] uppercase hover:gap-4 transition-all">Explore the tool encyclopedia <ChevronRight className="size-4" /></button>
+        </div>
       </section>
 
+
       {/* ─────────────────────────────────────────────────────────────
-          11. SECTION 9: NEWSLETTER (Figma node 101:37)
+          11. SECTION 9: START LEARNING
       ───────────────────────────────────────────────────────────── */}
       <section className="relative w-full max-w-[1200px] mx-auto px-6 sm:px-12 pb-24">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div className="min-w-[260px]">
-            <h3 className="font-kanit font-normal text-[36px] sm:text-[40px] text-white">
-              Newsletter
-            </h3>
+        <div className="bg-[#212828] border border-white/10 rounded-[28px] p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="max-w-[650px] space-y-3">
+            <p className="font-kanit text-[#9aa9a7] text-[13px] tracking-[4px] uppercase">Start with the foundations</p>
+            <h2 className="font-kanit text-[30px] sm:text-[38px] text-white leading-tight">Build skill you can use on a brief you have never seen before</h2>
+            <p className="font-nunito text-[15px] text-zinc-400 leading-relaxed">Begin with a foundational lesson, practise in the sandbox, and keep a record of the choices you make and why you made them.</p>
           </div>
-
-          <form onSubmit={handleSubscribe} className="flex-1 max-w-[760px] w-full flex flex-col sm:flex-row items-center gap-6">
-            <div className="relative flex-1 w-full">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="w-full bg-transparent border-b border-[#6d7d7d] py-3 text-[16px] text-white placeholder:text-zinc-500 focus:outline-none focus:border-white transition-colors"
-              />
-              {isSubscribed && (
-                <span className="absolute left-0 -bottom-6 text-xs text-emerald-400 flex items-center gap-1 font-mono">
-                  <Check className="size-3" /> Thank you for subscribing!
-                </span>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-8 py-3 rounded-[100px] border border-[#6d7d7d] text-white font-kanit text-[15px] tracking-[6.88px] uppercase hover:bg-white hover:text-[#191d1d] hover:border-white transition-all duration-300"
-            >
-              SUBSCRIBE
-            </button>
-          </form>
+          <button onClick={() => onNavigate('catalog')} className="shrink-0 px-8 py-3 rounded-full border border-[#9aa9a7] text-white font-kanit text-sm tracking-[3px] uppercase hover:bg-white hover:text-[#191d1d] transition-all">Open the curriculum</button>
         </div>
       </section>
 
@@ -723,7 +526,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </span>
               <div className="h-4 w-px bg-zinc-700" />
               <span className="font-mono text-xs text-zinc-500">
-                SERIF 3.0 &bull; V8 SCRIPTING &bull; MCP ENGINE
+                LAYOUT &bull; VECTOR &bull; PIXEL &bull; AUTOMATION
               </span>
             </div>
 
@@ -740,10 +543,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               &copy; 2026 Affinity Academy &mdash; All rights reserved.
             </p>
 
-            <div className="flex items-center gap-8 font-kanit text-[14px] tracking-[4px] uppercase text-[#6d7d7d]">
-              <span className="hover:text-white transition-colors cursor-pointer">TERMS</span>
-              <span className="hover:text-white transition-colors cursor-pointer">PRIVACY</span>
-            </div>
+            <p className="font-nunito text-xs text-zinc-500">Phạm vi công cụ và phiên bản được cập nhật theo tiến độ kiểm chứng của giáo trình.</p>
           </div>
         </div>
       </footer>
