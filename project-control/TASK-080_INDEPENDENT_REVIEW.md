@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 8)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 9)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; OFFICIAL TERMINOLOGY NORMALIZED; SOURCE/SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; PRACTICE CLAIMS NARROWED; SOURCE/SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -257,3 +257,23 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) URLs are found, but their article bodies still cannot be read by the available retrieval path. Preserve the status **official page located / body review pending**.
 - Five P4 claims remain dependent on broad product-feature sources for exact controls: `VEC-006`, `VEC-021`, `VEC-023`, `PIX-003`, `PIX-016`.
 - Keep `TASK-080` **IN_PROGRESS**; 50 P4 labels are not yet certified coverage. Keep `TASK-081` **PENDING** and `BLK-007` **ACTIVE — LOCKED**.
+
+
+## 13. Round 9 — narrow P4 claims to observed lesson practice (2026-11-16)
+
+### Latest completed technical gate
+
+- Last completed Quality Gate before this documentation-only commit: `#43751182383` on exact PR #6 HEAD `6bfaf2a154a3fc13cd34816a84cca83a04e4f04b`.
+- ESLint, TypeScript, curriculum 66/66, validator 41/41, scripts 3/3, Vietnamese translations 66/66, production build, and Microsoft Edge Playwright 20/20 all passed. This does not certify Affinity desktop semantics or inventory completeness.
+
+### Lesson-level claim narrowing
+
+- **`VEC-019 — Grid & Axis Manager`:** The matrix previously listed Isometric, Dimetric and Tri-axial grid creation as core actions. The mapped lesson `D07-01` guided practice configures **Advanced Isometric**, sets 64px major spacing / 4 subdivisions, builds isometric rhombuses and checks grid alignment. Core P4 wording is now limited to those observed actions. Dimetric/Tri-axial options remain mentioned in the lesson explanation but do not have a mapped guided exercise or separate current-source review in this pass.
+- **`VEC-023 — Constraints`:** The matrix previously listed Min/Max size limits and general dimension locks. The mapped lesson `D08-03` guided practice explicitly uses **Pin Left**, **Pin Right** and **Fixed Width**, then resizes the component. The P4 core-action wording is now limited to these practised operations. Min/Max limits and other lock modes remain unverified as P4 evidence.
+- These are conservative inventory wording corrections, not claims that the unpractised options are absent from Affinity. No lesson JSON, UI code or tool inventory denominator was changed.
+
+### Remaining disposition
+
+- Keep 50 P4 labels provisional. Continue checking all named controls, shortcuts and product/build semantics against current Help Center content or direct target-build evidence.
+- Artboard Tool and Histogram panel official pages remain located / article body review pending. Five P4 rows continue to depend on broad feature sources for exact controls (`VEC-006`, `VEC-021`, `VEC-023`, `PIX-003`, `PIX-016`); `VEC-023` wording is now narrowed to practice evidence but source verification remains open.
+- TASK-080 remains **IN_PROGRESS**; TASK-081 remains **PENDING**; BLK-007 remains **ACTIVE — LOCKED**.
