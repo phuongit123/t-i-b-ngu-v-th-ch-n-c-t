@@ -6,7 +6,7 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification Evidence:** `66/66 curriculum validation and 9/9 Playwright E2E are historical local results; rerun on the current branch before sign-off`
+- **Verification Evidence:** `66/66 and 9/9 are historical baseline results; owner reports a subsequent 10/10 Edge run, but current pushed HEAD defines 20 E2E tests across three specs (6 Pen/Node + 4 Photo + 10 UI Capture); the full current suite remains unverified`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E Suite Operational (9/9 Passing: 6 Vector + 3 Photo)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E suite defined (20 tests across 3 specs); current pushed-HEAD execution pending` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **16** | **0** | **34** | **32.0% Completed** |
@@ -36,7 +36,7 @@
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
->   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 100% đạt chuẩn schema validation (`npm run validate:curriculum` 66/66 PASS).
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was recorded historically; rerun on current pushed HEAD before sign-off.
 >   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
 
 ---
@@ -70,17 +70,17 @@
 - [x] Independent QA Sign-off (Phase 2): Performed by `QAAgent` in `project-control/QA_PHASE2_SIGNOFF.md` — 100% compliant, 0 TS errors, clean Vite build.
 - [x] `TASK-010`: Affinity Designer 10-Module Track Authoring (`DesignerCurriculumAgent`) — Modules D01 through D10 (30 lessons, 236 interactive slides, 10 production asset guides, 90 quiz questions; 299 total slides across all 39 curriculum lessons).
 - [x] `TASK-010-REAUDIT`: Track 1 Technical Accuracy Re-Audit (`Orchestrator` / `ResearchVerificationAgent`) — 5/5 technical items verified against official Serif docs in `TRACK_1_REAUDIT_REPORT.md`; Vite code-splitting implemented (entry dropped from 995 kB to 119 kB, 0 chunk warnings).
-- [x] `TASK-011`: Affinity Photo 10-Module Track Authoring (`PhotoCurriculumAgent`) — Modules P01 through P10 (30 lessons, 66/66 total curriculum lessons passing schema, 9 production practice guides, 90 quiz questions, interactive `PhotoLayerSimulator.tsx` with dynamic mask painting and blend mode engine, 3 Playwright E2E tests, 9/9 E2E passing).
+- [x] `TASK-011`: Affinity Photo 10-Module Track Authoring (`PhotoCurriculumAgent`) — Modules P01 through P10 (30 lessons, 66/66 total curriculum lessons passing schema in historical baseline, 9 production practice guides, 90 quiz questions, interactive `PhotoLayerSimulator.tsx` with dynamic mask painting and blend mode engine, 3 Playwright E2E tests in the historical baseline; not a current-head result).
 - [x] `TASK-026`: Interactive Slide-Based Lesson Engine (`FrontendAgent`) — `SlidePlayer.tsx` with card carousel, progress persistence, and quiz verification.
 - [x] `TASK-027`: In-Browser Affinity Tool Simulator Sandbox MVP (`FrontendAgent`) — `src/components/simulator/` (Pen, Node, Math, Exercises, Evaluation Scorer, Photo Layer Simulator).
 - [x] `TASK-074`: Major Page: Tool Simulator Sandbox (`FrontendAgent`) — `src/pages/SimulatorPage.tsx` integrated with AppShell navigation, supporting both Vector Bézier and Photo Layer/Masking simulators.
-- [x] Independent QA Sign-off (Phase 4 MVP & Track 2): Performed by `QAAgent` — 9/9 Playwright tests passed, 10 verified screenshots generated on disk.
+- [x] Independent QA Sign-off (Phase 4 MVP & Track 2): Performed by `QAAgent` — 9/9 Playwright tests passed in the historical baseline; later test additions require a new full-suite run.
 
 ---
 
 ## 4. Next Phase Gate & Status
 
-Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser, và 9/9 ca kiểm thử tự động Playwright E2E vượt qua thành công.
+Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser. Kết quả 9/9 E2E là historical baseline; owner later reported a 10/10 local Edge run, but the current branch now defines 20 test cases and needs a complete rerun.
 - **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
 - **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
 

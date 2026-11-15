@@ -160,7 +160,7 @@ The platform consists of **8 major pages**, each with explicit functional bounda
 - **Real-time Feedback:** Accuracy scoring, node count evaluator, and hint system.
 
 ### `PAGE-05`: Tool Encyclopedia & Shortcuts Matrix
-- **Search & Filter:** Instant search input, filter by App (Designer/Photo/Publisher) and Persona (Vector, Pixel, Export, Develop, Liquify).
+- **Search & Filter:** Instant search input, filter by learning domain and current studio/workspace (Layout, Vector, Pixel); any legacy Affinity V2 material is visibly labelled and excluded from current-product instructions.
 - **Tool Cards Grid:** Displays all tools with shortcut badges.
 - **Detail View:** Deep dive into tool behavior, modifier keys (Ctrl/Cmd, Alt/Opt, Shift), and context options.
 

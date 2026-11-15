@@ -24,7 +24,7 @@
      - `P09`: RAW Develop Persona Workflow & 32-bit HDR Pipeline
      - `P10`: Export Persona, Batch Processing & Web/Print Pre-flight
    - **Schema & Quality Adherence:** 100% compliant with the 10-part standard content model and slide deck schema.
-   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors**.
+   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors (historical baseline; re-run required on current pushed HEAD)**.
 
 2. **Authentic Practice Assets for Photo Track:**
    - Authored 9 production-grade practice guides (`GUIDE_DOCUMENT`) in `curriculum/assets/photo/`:
@@ -62,15 +62,15 @@
      - `TC-PHOTO-01`: Course Catalog filters Photo track to 10 modules and 30 lessons.
      - `TC-PHOTO-02`: SlidePlayer launches and navigates a full Photo lesson (`P02-01`).
      - `TC-PHOTO-03`: Photo Layer Simulator renders with disclaimer and interactive controls.
-   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge**.
+   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge (historical baseline; not current after test additions)**.
    - Captured 10 verified screenshot artifacts in `tests/screenshots/` (65 kB to 142 kB).
 
 6. **Full Verification Matrix:**
    - `npm run typecheck`: **0 errors**
-   - `npm run validate:curriculum`: **66/66 PASS**
+   - `npm run validate:curriculum`: **66/66 PASS (historical baseline; current-head rerun pending)**
    - `npm run test:scripts`: **3/3 PASS**
    - `npm run build`: **PASS (6.26s)**
-   - `npm run test:e2e`: **9/9 PASS (18.1s)**
+   - `npm run test:e2e`: **9/9 PASS (18.1s, historical baseline; current suite now defines 20 cases and awaits rerun)**
 
 ---
 
@@ -157,3 +157,7 @@ The Project Owner approved a product-level goal: learners must understand and co
 
 ### Verification and governance
 This documentation-only branch has not run npm, TypeScript, ESLint, build, validator, or Playwright commands. Do not report software tests as passed because Markdown files were added. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.
+
+
+### Test-count clarification for the latest pushed code
+The repository currently defines 20 Playwright tests across three spec files: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. The Project Owner supplied a later local report of 10/10 Edge tests (21.9s), but that report is not tied to the exact latest commit SHA and does not establish that the added UI Capture suite was included. Do not report 20/20 until the complete suite is run on the exact pushed HEAD and the output/log is retained. No hosted CI status is currently recorded for that commit.
