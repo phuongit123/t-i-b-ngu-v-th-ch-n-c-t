@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.6` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.7` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
 - **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
@@ -274,8 +274,8 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 ## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
 
 - Added official Affinity Help Center references for the Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix's names from unsupported “Studio” labels to documented panel terminology.
-- P4 provenance now stands at 38 direct official feature-matched URLs (including three Simplified Chinese locale pages), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
-- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain open source gaps. The user's latest-stable version confirmation is accepted as the target scope; exact UI labels, shortcuts and operation semantics still require evidence where documentation is insufficient.
+- **Historical Round 5 snapshot (superseded by Section 15):** P4 provenance was 38 direct official feature-matched URLs, 9 broad/version-limited URLs, 2 presumed native source gaps, and 1 project-local MCP-only row.
+- **Round 6 update:** official Help Center URLs are now located for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`); their bodies were not extractable, so the remaining status is article-body review pending, not missing URL. The user's latest-stable version confirmation is accepted as the target scope; exact UI labels, shortcuts and operation semantics still require evidence where documentation is insufficient.
 
 
 ## 14. TASK-080 Version Scope & Exact-Head CI Confirmation (2026-11-16)
