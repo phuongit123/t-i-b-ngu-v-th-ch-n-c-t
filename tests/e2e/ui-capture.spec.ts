@@ -46,7 +46,7 @@ test.describe('Affinity Academy UI Gallery Capture', () => {
   test('04 - Lesson P01-01 Photo Interface', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Affinity Photo")').click();
+    await page.locator('h3:has-text("Pixel Studio")').click();
     await page.waitForTimeout(300);
     await page.locator('h5:has-text("Photo Interface, Toolbars & Studio Panels")').first().click();
     await expect(page.locator('h1')).toBeVisible();
@@ -57,7 +57,7 @@ test.describe('Affinity Academy UI Gallery Capture', () => {
   test('05 - Lesson P05-01 Curves & Color Calibration', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Affinity Photo")').click();
+    await page.locator('h3:has-text("Pixel Studio")').click();
     await page.waitForTimeout(300);
     await page.locator('h5:has-text("Exposure, Dynamic Range & White Balance Calibration")').first().click();
     await expect(page.locator('h1')).toBeVisible();
@@ -68,7 +68,7 @@ test.describe('Affinity Academy UI Gallery Capture', () => {
   test('06 - Lesson B01-01 Publisher Bleed Standards', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Affinity Publisher")').click();
+    await page.locator('h3:has-text("Layout Studio")').click();
     await page.waitForTimeout(300);
     await page.locator('h5:has-text("Publication Architecture, Facing Pages, Slug & Bleed Standards")').first().click();
     await expect(page.locator('h1')).toBeVisible();
