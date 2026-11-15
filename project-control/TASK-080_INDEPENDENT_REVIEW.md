@@ -169,7 +169,7 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 
 - The user confirms the installed Affinity desktop application is the latest stable version and explicitly accepts that as sufficient target-version identification. Record the project scope as the latest stable desktop release as of 2026-11-16; do not request a Help/About build string solely to restate this.
 - Public November 2026 distribution metadata identifies desktop release **3.3.3**, updated 2 November 2026; a contemporaneous Affinity community release discussion identifies build **5004**. These references corroborate the release label but are not a direct readout from the user's local executable: [Chocolatey package/version history](https://community.chocolatey.org/packages/canva-affinity/3.3.3) and [Affinity community release discussion](https://creofora.com/forum/index.php?postID=13866&thread%2F1289-affinity-3-3-3-landed-today-for-pc-mac%2F=).
-- Quality Gate **#43738438116** completed **SUCCESS** on the exact current PR head `b85956ef5830e757ae870a8843410de3a4fb14d5`. ESLint, TypeScript, curriculum validation (**66/66**), validator regression (**41 assertions passed, 0 failed**), script checks (**3/3**), production build, and Playwright E2E (**20 passed**) all completed successfully.
+- Quality Gate **#43738438116** completed **SUCCESS** on commit `b85956ef5830e757ae870a8843410de3a4fb14d5` (the PR head at that run's time; later documentation commits advanced the branch). ESLint, TypeScript, curriculum validation (**66/66**), validator regression (**41 assertions passed, 0 failed**), script checks (**3/3**), production build, and Playwright E2E (**20 passed**) all completed successfully.
 - Evidence artifact: [affinity-academy-quality-evidence](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43738438116/artifacts/14171164280), artifact ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
 - This Quality Gate validates the web academy at that exact commit. It does not certify every Affinity feature claim, the 68-record denominator, SDK/runtime compatibility, or learner A5 attainment.
 - `TASK-080` remains **IN_PROGRESS**; `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft and unmerged.
@@ -182,3 +182,11 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Cross-checked `P05-01`: guided practice checks Red-channel distribution during white-balance calibration; the independent challenge checks the R/G/B distribution. This supports basic histogram-reading practice, but not claims about clipping alerts or all channel/color-space limitations.
 - Matrix wording was narrowed accordingly: `VEC-002` no longer asserts unverified preset/conversion controls; `PIX-012` now uses the official term “Histogram panel” and limits actions to the lesson-supported channel-distribution workflow.
 - P4 source disposition now separates 38 content-reviewed direct official feature URLs, 2 official Help Center page-title matches with unread article bodies, 9 broad/version-limited sources, and 1 project-local MCP-only source. TASK-080 remains IN_PROGRESS.
+
+
+## 11. Current PR head and CI state (2026-11-16)
+
+- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
+- Quality Gate **#43740066423** (run 57) is attached to this exact SHA and is **IN_PROGRESS**. At the last inspection, checkout and dependency installation had completed/started; later checks had not all run. No current-head pass is claimed.
+- The preceding run #43739829124 on `a441f19...` was cancelled when the branch advanced. An earlier exact-head run #43739465667 on `b98e817...` succeeded, but is not a pass for the latest SHA.
+- PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
