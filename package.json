@@ -14,7 +14,8 @@
     "test:validator": "node scripts/test-curriculum-validator.js",
     "test:scripts": "node scripts/test-curriculum-scripts.js",
     "test:e2e": "playwright test",
-    "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\""
+    "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\"",
+    "test:translations": "node scripts/test-vietnamese-translations.js"
   },
   "dependencies": {
     "@rollup/wasm-node": "^4.68.1",
