@@ -3,14 +3,14 @@
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; P4 JSON STRUCTURE AUDITED; TARGET-BUILD AND SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; P4 JSON STRUCTURE AUDITED; LATEST VERSION SCOPE ACCEPTED; SOURCE/SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-15`
 - **Governing requirement:** `REQ-LEARN-002`
 - **Phase gate:** `BLK-007 ACTIVE — LOCKED`
 - **Baseline source:** merged PR #3 / commit `d31150666787100d1c87332f7b7564eb43498025`
 
-This review improves the inventory's evidence chain, separates vendor-native Affinity capabilities from the Academy's own MCP integration, and reconciles new official September 2026 capabilities. It does **not** claim that the user's installed application build was inspected or that TASK-080 is complete.
+This review improves the inventory's evidence chain, separates vendor-native Affinity capabilities from the Academy's own MCP integration, and reconciles current-release capabilities. The user confirms the installed desktop app is the latest stable release as of November 2026; that is accepted as the target-version scope. The local executable/build metadata and app UI have not been directly introspected, and TASK-080 is not complete.
 
 ## 1. Reconciled inventory baseline
 
@@ -89,7 +89,7 @@ The two remaining native claims without direct vendor URLs are `VEC-002` Artboar
 
 ## 4. V1 source checks and terminology corrections
 
-The 17 V1 rows have been normalized with official source links where a source was found, or explicitly labelled as project-local integration evidence. Additional source checks in this round confirmed the official desktop Help Center references Liquify Studio, and official product materials describe Focus Merge and panorama stitching. The exact installed target build remains uninspected.
+The 17 V1 rows have been normalized with official source links where a source was found, or explicitly labelled as project-local integration evidence. Additional source checks in this round confirmed the official desktop Help Center references Liquify Studio, and official product materials describe Focus Merge and panorama stitching. The user confirms the installed desktop app is the latest stable release; this is accepted as the version target. The local executable/build metadata has not been independently introspected.
 
 | Area | V1 records | Important evidence / terminology notes |
 |---|---:|---|
@@ -130,14 +130,14 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 
 ## 6. Version and platform boundaries
 
-- The curriculum and matrix declare desktop build **3.3.3.5004**. The installed desktop application on the user's machine has **not** been inspected during this remote review.
+- **Target-version decision (2026-11-16):** accept the user's confirmation that the installed desktop app is the latest stable release. The current November 2026 desktop release is identified in public distribution metadata as **Affinity 3.3.3 / build 5004**; the exact local executable metadata has not been directly read. Do not request a Help/About screenshot solely to restate the user's version.
 - The public Affinity JavaScript SDK reference identifies version **3.3.1**. This is distinct from desktop build 3.3.3.5004; runtime compatibility is not established by version labels alone.
 - The native in-app Scripting Studio and SDK capabilities are tracked separately from the project-local MCP bridge.
 - The matrix currently scopes the product inventory to desktop Vector, Pixel and Layout studios plus native Affinity scripting/API capabilities. The iPad app remains a separate platform scope.
 
 ## 7. Remaining acceptance work
 
-1. Obtain direct evidence of the exact installed desktop build (Help/About or equivalent) and confirm studio/tool availability against that build.
+1. **Version-scope gate resolved:** use the latest stable Affinity desktop release as of 2026-11-16, per user confirmation (release identifier 3.3.3.5004). Do not block TASK-080 on a local Help/About readout; retain direct UI/semantic checks where feature behaviour or labels are not source-verifiable.
 2. Resolve the two remaining native P4 source gaps or retain direct target-app evidence: Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`).
 3. Complete operation-level semantic verification of all 50 P4 claims; the present 52-file check establishes practice structure, not every named control/action.
 4. Verify all 17 V1 candidates against the exact desktop build and separate tools, panels, contextual controls and workflow features correctly.
@@ -163,3 +163,13 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Updated P4 provenance to 38 direct official feature-matched URLs (including three Simplified Chinese locale pages), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
 - `VEC-002` Artboard Tool and `PIX-012` Histogram panel remain unresolved source gaps; do not promote their evidence status.
 - Source review does not verify the user's installed Affinity build, shortcuts, or operation semantics.
+
+
+## 9. User-confirmed target version and exact-head CI (2026-11-16)
+
+- The user confirms the installed Affinity desktop application is the latest stable version and explicitly accepts that as sufficient target-version identification. Record the project scope as the latest stable desktop release as of 2026-11-16; do not request a Help/About build string solely to restate this.
+- Public November 2026 distribution metadata identifies desktop release **3.3.3**, updated 2 November 2026; a contemporaneous Affinity community release discussion identifies build **5004**. These references corroborate the release label but are not a direct readout from the user's local executable: [Chocolatey package/version history](https://community.chocolatey.org/packages/canva-affinity/3.3.3) and [Affinity community release discussion](https://creofora.com/forum/index.php?postID=13866&thread%2F1289-affinity-3-3-3-landed-today-for-pc-mac%2F=).
+- Quality Gate **#43738438116** completed **SUCCESS** on the exact current PR head `b85956ef5830e757ae870a8843410de3a4fb14d5`. ESLint, TypeScript, curriculum validation (**66/66**), validator regression (**41 assertions passed, 0 failed**), script checks (**3/3**), production build, and Playwright E2E (**20 passed**) all completed successfully.
+- Evidence artifact: [affinity-academy-quality-evidence](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43738438116/artifacts/14171164280), artifact ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
+- This Quality Gate validates the web academy at that exact commit. It does not certify every Affinity feature claim, the 68-record denominator, SDK/runtime compatibility, or learner A5 attainment.
+- `TASK-080` remains **IN_PROGRESS**; `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft and unmerged.
