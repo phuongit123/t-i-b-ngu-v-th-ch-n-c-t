@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
+- **Version:** `4.4.2` (TASK-079 lesson-to-PLO mapping drafted; TASK-080 independent inventory review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Antigravity reports local checks passing on e65b9fd; no GitHub Actions run is yet recorded for that exact commit. The previous CI run applies only to its tested SHA.`
+- **Latest CI evidence:** `Quality Gate run 43720320594 passed on the exact PR #3 head 5d40d8200f54bc379465b7548a61e06119ab479d: 66/66 curriculum, 41/41 validator assertions, 3/3 script checks, lint, TypeScript, build, and 20/20 Edge E2E (46.7s). This does not verify the new TASK-079 branch.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -23,16 +23,16 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Quality Gate #8 passed on 8f6ef74; does not verify e65b9fd` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate run 43720320594 passed on PR #3 head 5d40d82; TASK-079 branch awaits its own CI` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-080** | **53** | **16** | **1** | **36** | **30.2% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **2** | **35** | **30.2% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
 >   - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
->   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại, bao gồm `TASK-010-REAUDIT` và `TASK-079`–`TASK-081`; trong đó 1 task đang IN_PROGRESS.
+>   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại, bao gồm `TASK-010-REAUDIT` và `TASK-079`–`TASK-081`; trong đó 2 task đang IN_PROGRESS (`TASK-079`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -91,7 +91,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
-- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. These tasks remain PENDING; the specifications do not count as a completed inventory, lesson mapping, capstone implementation, or QA sign-off.
+- **Governance updates:** `TASK-079` and `TASK-080` are IN_PROGRESS; `TASK-081` remains PENDING. The approved outcome framework and initial mapping/inventory drafts do not count as independent QA approval, learner competence, or capstone completion.
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
@@ -106,7 +106,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Onboarding guide:** `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` documents discovery paths, setup, first-session verification, skill invocation, branch safety, and current eligible learning work.
 - **README / handoff:** linked and described how to open the repository root, verify workspace customizations, and start with `/academy-session-orientation`.
 - **Verification boundary:** the documented code-bearing HEAD `baec6c5bfe8de22d9c46546dbf2216a2ba276560` passed Quality Gate workflow `43711760405` (all steps success; 66/66, 41/41, 3/3, 20/20 Edge E2E in 38.2s). Antigravity rules/skills are Markdown and frontmatter files; the remote session can verify their committed contents but cannot assert that the user's local Antigravity instance has loaded them. Verify in the Customizations panel on the user's machine.
-- **Governance:** `TASK-079` and `TASK-081` remain PENDING; `TASK-080` is IN_PROGRESS pending independent inventory/source/teaching-evidence review; `BLK-007` remains ACTIVE — LOCKED. Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
+- **Governance:** `TASK-079` and `TASK-080` are IN_PROGRESS pending independent review; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED. Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
 
 ---
 
@@ -141,3 +141,15 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - The September 2026 release notes exposed additional discovery candidates; they are recorded separately and are not yet included in the denominator.
 - A detailed review report is available at `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
 - `TASK-080` remains IN_PROGRESS. The 50 P4 claims, remaining sources, exact installed build, and denominator completeness require further review. Antigravity's reported local checks are not GitHub Actions evidence for commit e65b9fd.
+
+---
+
+## 9. TASK-079 — Initial 66-Lesson PLO Mapping (2026-11-15)
+
+- Created `project-control/LEARNING_OUTCOME_MAPPING.md` on branch `feat/task-079-learning-outcome-mapping`.
+- The initial mapping includes all 66 current lesson IDs exactly once and maps them to the 11 approved PLOs with evidence tags: T (taught), G (guided practice), X* (independent-challenge opportunity; not A5).
+- Initial lesson-row counts by PLO: PLO-01 15; PLO-02 26; PLO-03 66; PLO-04 29; PLO-05 40; PLO-06 21; PLO-07 4; PLO-08 15; PLO-09 23; PLO-10 55; PLO-11 3. Counts overlap and are alignment counts, not completion percentages.
+- The map identifies programme-level gaps in explicit brief interpretation, critique/iteration, independent transfer assessment, production handoff evidence and the narrow Scripting pilot scope.
+- `TASK-079` and `REQ-LEARN-001` are now IN_PROGRESS. `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING.
+- Independent QA has not yet verified all 66 mappings. No A5 claim or learner mastery claim is made from this mapping.
+- `BLK-007` remains ACTIVE — LOCKED; no new Publisher/Scripting lessons are authorized.
