@@ -13,6 +13,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import type { CurriculumLesson, LessonSlide } from '../../types/curriculum.ts';
+import { lessonTranslationsVi } from '../../data/curriculum/translationsVi.ts';
 import { Button } from '../ui/Button.tsx';
 
 export interface SlidePlayerProps {
@@ -122,7 +123,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               </span>
             </div>
             <h2 className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-md">
-              {lesson.title}
+              {lessonTranslationsVi[lesson.id] || lesson.title}
+              <span className="sr-only" aria-hidden="true">{lesson.title}</span>
             </h2>
           </div>
         </div>
