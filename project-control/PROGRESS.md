@@ -196,3 +196,12 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Artifact:** `affinity-academy-quality-evidence`, ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
 - CI is evidence for the web academy at the exact commit only; it does not certify Affinity operation semantics, completeness of the denominator, or runtime SDK compatibility.
 - PR #6 stays Draft and unmerged. TASK-080 stays IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 15. TASK-080 Artboard / Histogram Source and Practice Recheck (2026-11-16)
+
+- Located official Help Center pages for Artboard Tool and Histogram panel. The extractor returned page title/navigation only, so exact article-body claims remain pending; record them as official URL found / body not reviewed, not as missing URLs.
+- Rechecked `D01-02`: multi-artboard creation, dimensions and naming are practised; unverified preset/conversion claims were removed from `VEC-002`.
+- Rechecked `P05-01`: Red-channel and R/G/B histogram reading are practised; unverified clipping alerts and color-space constraints were removed from `PIX-012`.
+- P4 provenance reconciles to 38 official content-reviewed URLs + 2 official page-title/body-review-pending URLs + 9 broad/version-limited URLs + 1 project-local MCP row = 50.
+- TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
