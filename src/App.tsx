@@ -11,7 +11,7 @@ import { TrackCard } from './components/cards/TrackCard';
 import { LessonCard } from './components/cards/LessonCard';
 import { SimulatorPage } from './pages/SimulatorPage';
 import { HomePage } from './pages/HomePage';
-import { Terminal, User, Play, Sparkles, Clock, BookOpen, CheckCircle2 } from 'lucide-react';
+import { Terminal, User, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 
