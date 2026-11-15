@@ -3,10 +3,10 @@
 ## Document Control
 - **Document ID:** `LEARNING-OUTCOMES-001`
 - **Version:** `1.0.0`
-- **Status:** `APPROVED FRAMEWORK / INITIAL 66-LESSON MAP DRAFTED / INDEPENDENT QA PENDING`
+- **Status:** `APPROVED FRAMEWORK / 66-LESSON MAP QA-APPROVED / TASK-079 COMPLETED`
 - **Last Updated:** `2026-11-15`
 - **Governing Roles:** `CurriculumAgent` / `QAAgent` / `Orchestrator`
-- **Lesson-level mapping:** `project-control/LEARNING_OUTCOME_MAPPING.md` (initial authoring pass; not QA-approved)
+- **Lesson-level mapping:** `project-control/LEARNING_OUTCOME_MAPPING.md` (66-row mapping independently checked against lesson JSON and QA-approved)
 
 ---
 
@@ -135,6 +135,6 @@ This document defines the approved direction and acceptance model. It does **not
 
 ## 9. Lesson-Level Mapping Status
 
-An initial lesson-to-PLO mapping for all 66 existing lessons is maintained in `project-control/LEARNING_OUTCOME_MAPPING.md`. It records lesson-level outcome alignment, the type of evidence present (taught, guided practice, or independent-challenge opportunity), track-level interpretation, and programme gaps.
+The lesson-to-PLO mapping for all 66 existing lessons is maintained in `project-control/LEARNING_OUTCOME_MAPPING.md` and has been independently audited row-by-row against the corresponding curriculum JSON. The audit checked lesson identity/title, named tool, guided-practice checkpoint count, independent-challenge title, and success-criteria count; all 66 rows matched.
 
-This mapping is an initial authoring pass. It is **not** independent QA approval, learner performance evidence, A5 evidence, or proof that the programme has achieved the PLOs. TASK-079 remains IN_PROGRESS until an independent reviewer verifies all 66 lesson mappings and approves the track-level gap analysis.
+TASK-079 is **COMPLETED**. This sign-off approves the mapping and gap analysis, not learner mastery, A5 attainment, or complete tool coverage. `X*` remains an in-lesson practice opportunity rather than independent graduation evidence.
