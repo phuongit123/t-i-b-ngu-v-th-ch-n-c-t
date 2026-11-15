@@ -21,10 +21,10 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
   className,
 }) => {
   const tracks: { id: AffinityTrackId; label: string; icon: React.ReactNode; colorClass: string }[] = [
-    { id: 'designer', label: 'Designer Track', icon: <PenTool className="w-3.5 h-3.5" />, colorClass: 'text-cyan-400' },
-    { id: 'photo', label: 'Photo Track', icon: <Image className="w-3.5 h-3.5" />, colorClass: 'text-blue-400' },
-    { id: 'publisher', label: 'Publisher Track', icon: <BookOpen className="w-3.5 h-3.5" />, colorClass: 'text-rose-400' },
-    { id: 'scripting', label: 'Scripting & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
+    { id: 'designer', label: 'Affinity Designer', icon: <PenTool className="w-3.5 h-3.5" />, colorClass: 'text-cyan-400' },
+    { id: 'photo', label: 'Affinity Photo', icon: <Image className="w-3.5 h-3.5" />, colorClass: 'text-blue-400' },
+    { id: 'publisher', label: 'Affinity Publisher', icon: <BookOpen className="w-3.5 h-3.5" />, colorClass: 'text-rose-400' },
+    { id: 'scripting', label: 'Lập trình & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
   ];
 
   const filteredModules = modules.filter((m) => m.trackId === activeTrackId);
@@ -34,7 +34,7 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       {/* Track Selector */}
       <div className="flex flex-col gap-1">
         <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 mb-1">
-          Learning Track
+          Lộ Trình Đào Tạo
         </span>
         {tracks.map((track) => {
           const isSelected = track.id === activeTrackId;
@@ -59,7 +59,7 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       {/* Modules List */}
       <div className="flex flex-col gap-1 flex-1 overflow-y-auto">
         <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 mb-1">
-          Modules ({filteredModules.length})
+          Danh Sách Module ({filteredModules.length})
         </span>
         {filteredModules.map((m) => {
           const isActive = m.id === activeModuleId;

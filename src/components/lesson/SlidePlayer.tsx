@@ -428,7 +428,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             disabled={currentSlideIndex === 0}
             leftIcon={<ChevronLeft className="w-4 h-4" />}
           >
-            Previous Slide
+            <span>Slide Trước</span>
+            <span className="sr-only">Previous Slide</span>
           </Button>
 
           {/* Completion Button on Final Slide */}
@@ -439,7 +440,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               onClick={handleManualComplete}
               leftIcon={<CheckCircle2 className="w-4 h-4 text-emerald-400" />}
             >
-              {isCompleted ? 'Lesson Completed ✓' : 'Mark as Completed'}
+              {isCompleted ? 'Đã hoàn thành bài học ✓' : 'Đánh dấu hoàn thành'}
             </Button>
           ) : (
             <Button
@@ -448,7 +449,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               onClick={goToNextSlide}
               rightIcon={<ChevronRight className="w-4 h-4" />}
             >
-              Next Slide
+              <span>Slide Tiếp Theo</span>
+              <span className="sr-only">Next Slide</span>
             </Button>
           )}
         </div>
@@ -459,10 +461,10 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
         <span className="flex items-center gap-1.5">
           <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">&larr;</kbd>
           <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">&rarr;</kbd>
-          <span>Use Arrow keys or buttons to navigate slides</span>
+          <span>Sử dụng phím mũi tên hoặc các nút để điều hướng slide</span>
         </span>
         <span className="font-mono">
-          Affinity 3.0 Curriculum &bull; 10-Part Standard Model
+          Giáo trình Affinity 3.0 &bull; Mô hình Chuẩn 10 Phần
         </span>
       </div>
     </div>

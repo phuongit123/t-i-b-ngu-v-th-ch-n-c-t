@@ -97,7 +97,7 @@ export const TrackCard: React.FC<TrackCardProps> = ({
       {/* Progress & Lesson Metrics */}
       <div className="mt-6 pt-4 border-t border-hairline flex flex-col gap-3">
         <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-          <span>{moduleCount} Modules &bull; {lessonCount} Lessons</span>
+          <span>{moduleCount} Module &bull; {lessonCount} Bài học</span>
           <span className="font-semibold text-zinc-200">{progressPercentage}%</span>
         </div>
 
@@ -111,7 +111,7 @@ export const TrackCard: React.FC<TrackCardProps> = ({
 
         {/* Action Link */}
         <div className="flex items-center justify-between text-xs font-medium text-zinc-300 pt-1 group-hover:text-white transition-colors">
-          <span>Explore Track</span>
+          <span>Khám phá Lộ trình</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
