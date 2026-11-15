@@ -216,8 +216,6 @@ export const App: React.FC = () => {
                   Advanced: 'Nâng cao',
                 }[mod.difficulty] || mod.difficulty;
 
-                const isComplete = mod.id === 'D01';
-
                 return (
                   <div
                     key={mod.id}
@@ -242,11 +240,7 @@ export const App: React.FC = () => {
                             <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
                             {mod.lessons.length} bài học
                           </span>
-                          {isComplete && (
-                            <span className="text-xs px-2.5 py-0.5 rounded-full font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 flex items-center gap-1">
-                              <CheckCircle2 className="w-3 h-3" /> Đã hoàn thành
-                            </span>
-                          )}
+
                         </div>
 
                         {/* Title: Full width, no narrow wrapping */}
