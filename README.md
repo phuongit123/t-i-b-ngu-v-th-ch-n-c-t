@@ -1,11 +1,10 @@
 # 🎨 AFFINITY ACADEMY (v4.2.2)
 ### Interactive Learning Platform & Design Thinking for the Current Affinity Desktop Application
 
-[![Build Status](https://img.shields.io/badge/build-current%20head%20verification%20pending-yellow.svg)](vite.config.ts)
-[![TypeScript](https://img.shields.io/badge/typescript-current%20head%20verification%20pending-yellow.svg)](tsconfig.json)
+[![Build Status](https://img.shields.io/badge/build-verified%20(PASS)-brightgreen.svg)](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43710131279)
+[![TypeScript](https://img.shields.io/badge/typescript-verified%20(PASS)-brightgreen.svg)](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43710131279)
 [![Curriculum Schema](https://img.shields.io/badge/curriculum-66%20existing%20%2F%20120%20planned-blue.svg)](scripts/validate-curriculum.js)
-[![Playwright E2E](https://img.shields.io/badge/playwright-current%20head%20verification%20pending-yellow.svg)](tests/e2e/)
-[![Bundle Reduction](https://img.shields.io/badge/entry%20bundle-139.20%20kB%20(Code--Split)-purple.svg)](dist/assets/)
+[![Playwright E2E](https://img.shields.io/badge/playwright-20%2F20%20PASS-brightgreen.svg)](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43710131279)
 [![Phase Gate](https://img.shields.io/badge/phase%20gate-HALTED%20(BLK--007)-yellow.svg)](project-control/BLOCKERS.md)
 
 ---
@@ -25,7 +24,7 @@ Affinity Academy's approved graduation goal is independent Affinity tool compete
 - [Programme learning outcomes, competency scale, and capstone rubric](project-control/LEARNING_OUTCOMES.md)
 - [Version-scoped Affinity Tool Coverage Matrix and audit rules](project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md)
 - Current inventory population, lesson mapping, and graduation assessment remain pending. No exhaustive tool-coverage claim is made yet.
-- Build, TypeScript, curriculum, and Playwright badges are intentionally pending until verification is tied to the exact current branch head.
+- Quality Gate run #8 verified commit `8f6ef74` (2026-11-15): build, TypeScript, lint, curriculum validation (66/66), validator regression assertions (41/41), script checks (3/3), and Microsoft Edge E2E (20/20) all passed. The badge links point to that retained run; rerun after subsequent code changes.
 
 ## 🌟 2. Các Phân Hệ Đã Hoàn Thành (Key Implemented Subsystems)
 
