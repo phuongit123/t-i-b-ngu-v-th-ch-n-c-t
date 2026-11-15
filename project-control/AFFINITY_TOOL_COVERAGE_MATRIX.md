@@ -164,7 +164,6 @@ The other inventory rows still contain source titles or internal evidence labels
 | `VEC-023` | studio_panel | Affinity desktop 3.3.3.5004 (curriculum-declared; target installation not independently inspected) | Vector | Constraints Studio | Định nghĩa hành vi co giãn thích ứng responsive cho component | Khóa tỷ lệ min/max, ghim mép (pinning), giữ cố định kích thước con | View > Studio > Constraints | Hoạt động tối ưu khi đặt trong nhóm hoặc artboard | `D08-03` | curriculum/designer/D08/D08-03.json#standardSections.guidedPractice; curriculum/designer/D08/D08-03.json#standardSections.independentChallenge | Supporting | [Affinity — Graphic design software](https://www.affinity.studio/graphic-design-software) (broad reference; exact Constraints Studio behaviour still needs target-app check) | 2026-11-15 (remote JSON cross-check; not live-app verification) | `P4` | CurriculumAgent |
 | `VEC-024` | production_feature | Affinity desktop 3.3.3.5004 (curriculum-declared; target installation not independently inspected) | Vector | Export Persona & Slice Tool | Cắt lát và xuất bản đa định dạng tự động hàng loạt | Tạo slice từ layer, đặt preset 1x/2x/3x, SVG, PDF/X, WebP, PNG | `S` (Slice Tool trong Export Persona) | Slices không tự động cập nhật nếu layer bị đổi tên gốc | `D10-01`, `D10-02` | curriculum/designer/D10/D10-01.json#standardSections.guidedPractice; curriculum/designer/D10/D10-01.json#standardSections.independentChallenge; curriculum/designer/D10/D10-02.json#standardSections.guidedPractice; curriculum/designer/D10/D10-02.json#standardSections.independentChallenge | Core | [Affinity Help Center — Export Settings](https://www.affinity.studio/help/sharing-export-settings/) | 2026-11-15 (remote JSON cross-check; not live-app verification) | `P4` | CurriculumAgent |
 | `VEC-025` | production_feature | Affinity desktop 3.3.3.5004 (curriculum-declared; target installation not independently inspected) | Vector | SVG & PDF/X Optimizer | Tối ưu mã nguồn SVG sạch và file PDF in ấn chuẩn xưởng in | Flatten transforms, convert text to curves, nhúng profile màu CMYK | `Ctrl+Alt+Shift+S` | Xuất sai chuẩn PDF/X có thể gây sai lệch màu khi in thực tế | `D10-03` | curriculum/designer/D10/D10-03.json#standardSections.guidedPractice; curriculum/designer/D10/D10-03.json#standardSections.independentChallenge | Core | [Affinity Help Center — Export Settings](https://www.affinity.studio/help/sharing-export-settings/) | 2026-11-15 (remote JSON cross-check; not live-app verification) | `P4` | CurriculumAgent |
-| `VEC-GAP-1` | interactive_tool | Affinity desktop 3.3.3.5004 (not verified on target installation) | Vector | Knife Tool | Candidate record retained for scope investigation only; current-product identity and availability are not verified. | No behaviour asserted pending authoritative source or direct target-app evidence. | Không có trong 66 bài | Do not treat as a confirmed current Affinity feature until evidence is obtained. | `None (GAP)` | `None (GAP)` | Supporting | No authoritative current Affinity source located in this pass; target-app evidence required. | 2026-11-15 (unverified candidate) | `U0` | CurriculumAgent |
 | `VEC-GAP-2` | interactive_tool | Affinity 3.3.3 | Vector | Vector Flood Fill Tool | Đổ màu trực tiếp vào các vùng giao thoa giữa các đường cong | Nhấp đổ màu nhanh vào vùng khép kín tạo bởi các nét vẽ giao nhau | Không có trong 66 bài | Yêu cầu các đường cong giao nhau thực tế | `None (GAP)` | `None (GAP)` | Supporting | [Affinity Help Center — Vector Flood Fill Tool](https://www.affinity.studio/help/object-control-flooding-areas/) | 2026-11-15 (official desktop help checked; target installation not inspected) | `V1` | CurriculumAgent |
 | `VEC-GAP-3` | contextual_control | Affinity 3.3.3 | Vector | Vector Warp Groups | Vector Warp Groups provide non-destructive vector warping; September 2026 notes add further presets. | Official documentation references Warp Group functionality; exact full preset set must be checked in target build. | Layer > Warp Group | Làm phức tạp cấu trúc đường cong khi expand | `None (GAP)` | `None (GAP)` | Supporting | [Affinity Help Center — Live Perspective (references Vector Warp Groups)](https://www.affinity.studio/help/filters-filter-perspective/); [September 2026 release notes](https://www.affinity.studio/help/sep-26-release-notes/) | 2026-11-15 (official help and release notes; target installation not inspected) | `V1` | CurriculumAgent |
 | `VEC-GAP-4` | interactive_tool | Affinity 3.3.3 | Vector | Measure Tool | Tạo các đường kích thước bền vững được lưu thành đối tượng layer trong tài liệu. | Create persistent dimension lines stored as document layer objects. | Not confirmed by the cited release note; verify in the installed app. | Do not claim area calculation or angular measurement until separate official evidence is found. | `None (GAP)` | `None (GAP)` | Supporting | [Affinity September 2026 release notes — Measure Tool](https://www.affinity.studio/help/sep-26-release-notes/) | 2026-11-15 (official release note checked; exact current build not inspected) | `V1` | CurriculumAgent |
@@ -247,22 +246,22 @@ The other inventory rows still contain source titles or internal evidence labels
 ## 14. Tổng Hợp Thống Kê & Báo Cáo Khoảng Trống (Gap Analysis)
 
 ### 14.1. Thống Kê Tổng Lượng Kiểm Kê (Independent Audit Baseline)
-- **Tổng bản ghi sau vòng audit 2:** **69 mục in-scope** + **3 exclusions** = **72 mục**.
-  - **Vector Studio:** 29 records (25 P4 claims, 3 V1 gaps, 1 U0 candidate).
+- **Tổng bản ghi sau vòng audit 3:** **68 mục in-scope** + **3 exclusions** = **71 mục**.
+  - **Vector Studio:** 28 records (25 P4 claims, 3 V1 gaps).
   - **Pixel Studio:** 23 records (19 P4 claims, 4 V1 gaps).
   - **Layout Studio:** 9 records (3 P4 claims, 5 V1 gaps, 1 U0 candidate).
-  - **Automation:** 8 records (native Affinity SDK/scripting plus project-local MCP integrations).
-- **Native Affinity capability denominator:** **64 records** = 61 desktop Vector/Pixel/Layout records + 3 native Affinity automation/API records.
+  - **Automation / Project MCP:** 8 records (3 native Affinity SDK/in-app scripting capabilities and 5 project-local MCP integrations).
+- **Native Affinity capability denominator:** **63 records** = 60 Vector/Pixel/Layout records + 3 native Affinity automation/API records.
 - **Project-local MCP integration register:** **5 records** (1 P4 integration claim + 4 V1 integration claims). These are not vendor-native tools and are excluded from the native Affinity capability percentage.
 - **Legacy / out-of-scope exclusions:** 3 (`EXCL-001` to `EXCL-003`).
 
 ### 14.2. Phân Bổ Giai Đoạn Bằng Chứng (Provisional Claims)
-- **P4 claims:** **50/69 inventory records** (72.5% of the mixed in-scope register). This is not a certified tool-coverage percentage.
-  - Native Affinity capabilities: **49 P4 / 64**.
+- **P4 claims:** **50/68 inventory records** (73.5% of the mixed in-scope register). This is not a certified tool-coverage percentage.
+  - Native Affinity capabilities: **49 P4 / 63**.
   - Project-local MCP integrations: **1 P4 / 5**.
-- **V1 claims:** **17/69** (24.6%); 13 native Affinity capability candidates and 4 project-local integration candidates.
-- **U0 candidates:** **2/69** (2.9%): `VEC-GAP-1` and `LAY-GAP-2`; identity/behaviour/current-build presence not independently established.
-- **Arithmetic:** $50 + 17 + 2 = 69$ in-scope inventory records.
+- **V1 claims:** **17/68** (25.0%); 13 native Affinity capability candidates and 4 project-local integration candidates.
+- **U0 candidates:** **1/68** (1.5%): one Layout candidate whose exact official feature source has not been verified; it is not included in V1.
+- **Arithmetic:** $50 + 17 + 1 = 68$ in-scope inventory records.
 
 ### 14.3. Bảng Danh Mục 17 Khoảng Trống V1 (Source-verified candidates; not yet practised)
 
@@ -288,7 +287,7 @@ The following rows have official source evidence sufficient for V1 candidate sta
 | 16 | `AUT-GAP-4` | Project MCP | **MCP SDK Documentation Bridge** | Project integration capability, separate from Affinity's native Scripts Library. |
 | 17 | `AUT-GAP-5` | Affinity Automation | **Scripting Studio / Script Editor / Scripts Library** | Official release notes and feature page confirm the in-app scripting workspace and script reuse. |
 
-**U0 candidates:** `VEC-GAP-1` (no authoritative current-product evidence located) and `LAY-GAP-2` (no exact official Table Tool reference located). They must not be described as V1 verified.
+**U0 candidate:** one Layout record remains a candidate without an exact official source. It is kept visible for follow-up but excluded from V1-verified gaps.
 
 ### 14.4. Phân Định Rõ Ràng Giữa Giai Đoạn P4 (Thực Hành) và A5 (Đánh Giá Năng Lực Độc Lập)
 
@@ -296,9 +295,9 @@ The following rows have official source evidence sufficient for V1 candidate sta
 
 > [!IMPORTANT]
 > **Quy Chuẩn Nghiệm Thu Năng Lực:**
-> - **Giai đoạn `P4` (Practised):** 50 mục đạt cấp độ P4 chứng minh rằng học viên đã được học lý thuyết, xem minh họa và làm bài thực hành có hướng dẫn từng bước (guided practice) trong phạm vi 66 bài học hiện có.
+> - **Các tuyên bố `P4` (Practised):** 50 dòng hiện được gắn nhãn P4; trong đó 49 là năng lực Affinity native và 1 là tích hợp MCP dự án. Đối soát JSON chứng minh có cấu trúc thực hành trong bài học, không tự động chứng minh hành vi công cụ trên bản cài đặt mục tiêu.
 > - **Giai đoạn `A5` (Independently Assessed):** Để được công nhận tốt nghiệp hoặc hoàn thành năng lực của một Track, tất cả các công cụ **Core** bắt buộc phải đạt cấp độ `A5` thông qua bài kiểm tra năng lực độc lập (**Capstone Assessment** theo `TASK-081`). Ở cấp độ A5, học viên phải tự giải quyết một đề bài thiết kế hoàn toàn mới (unseen brief) mà không có hướng dẫn từng bước, tự bảo vệ quyết định chọn công cụ, tự nắn chỉnh thiết kế và bàn giao file gốc chuẩn xác.
-> - **Do đó:** Con số 50 mục đạt P4 là thước đo độ bao phủ thực hành của giáo trình hiện tại, **không đồng nghĩa** với việc học viên đã được đánh giá năng lực độc lập A5.
+> - **Do đó:** Con số 50 dòng được gắn nhãn P4 là thước đo độ bao phủ thực hành của giáo trình hiện tại, **không đồng nghĩa** với việc học viên đã được đánh giá năng lực độc lập A5.
 
 ## 14.5. Additional Current-Release Discovery Queue — Not Yet Counted in the 68-Record Denominator
 
@@ -314,7 +313,12 @@ The official September 2026 release notes expose additional features and control
 | Mask Tool | Pixel, Compositing and Astrophotography studios | Automatically creates painted or gradient masks; may overlap existing mask workflow entries. | Candidate shared control/tool; classify once with studio applicability. |
 | Wavelet denoising / Wavelet Denoise Tool | RAW Develop and Astrophotography | Release notes mention both a denoising process and a dedicated tool in the astro workspace. | Determine whether one or multiple records are justified. |
 | Astrophotography Studio | Photo-editing workspace | Dedicated workspace includes star/background separation, Astro Stretch and Plate Solving. | Candidate workspace and child tools/panels; inventory separately by record type. |
-| Scripting Studio and Scripts Library | Automation | Current list has API/MCP capabilities but does not clearly inventory the in-app script-authoring workspace and reusable library. | Candidate workspace/panel records; do not conflate with MCP endpoints. |
+| Blend Tool | Vector | The September 2026 release notes describe an interactive Blend Tool and editable Blend Group; not represented as a dedicated tool record in the curriculum map. | Candidate V1 record; confirm target desktop build before adding. |
+| Mask Tool | Pixel / Compositing / Astrophotography | Release notes describe automatic painted/gradient mask creation; may overlap existing mask records. | Candidate tool; deduplicate by function/studio and check build. |
+| Deform Tool | Pixel | Bone/joint deformation appears in September 2026 notes; the exact studio and scope need confirmation. | Candidate tool; verify target build. |
+| Wavelet denoising and Astro Stretch | Pixel / Develop / Astrophotography | Release notes list Wavelet denoising, Astro Stretch and an Astro workspace; decide whether to model them as separate tools or features. | Candidate records; deduplicate with current Develop/denoise rows. |
+| Plate Solving panel | Astrophotography | Listed as part of the dedicated Astrophotography Studio. | Candidate panel; separate from the broader Astro Studio record. |
+| Feature Finder | General UI | Help-menu command discovery utility; may be supporting navigation rather than a creative tool. | Candidate supporting record or explicit exclusion. |
 | Feature Finder | General application UI | Help-menu discovery utility can locate commands, but may not be a core creative tool. | Review for supporting/reference classification or explicit exclusion. |
 | Data merge from Canva Sheets | Layout / Data Merge | Current `LAY-GAP-6` mentions CSV/XLSX; release notes add live Canva Sheets refresh. | Update capability notes on the existing Data Merge record if verified; not automatically a new tool. |
 | Preflight custom text patterns | Layout / Preflight | New rule configuration expands existing Preflight functionality. | Update the Preflight gap description after target-build verification. |
