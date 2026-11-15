@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.4.3` (TASK-079 closed on verified evidence; TASK-080 Round 4 Quality Gate passed; TASK-080 remains in progress)
+- **Version:** `4.4.9` (TASK-079 completed on verified evidence; TASK-080 Round 6 independent review remains in progress)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-15`
+- **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator`
 - **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (16 COMPLETED / 3 IN_PROGRESS / 34 PENDING = 30.2% completed; counts recomputed from 53 status rows).
 
