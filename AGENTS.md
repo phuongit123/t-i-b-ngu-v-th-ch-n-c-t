@@ -122,3 +122,23 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 3. **Traceability**: Every code change, design asset, and lesson plan must trace back to a specific `TASK-xxx` and `REQ-xxx`.
 4. **Handoff Discipline**: Every agent working session must terminate with an updated `project-control/PROGRESS.md` and `project-control/HANDOFF.md`.
 5. **Language**: Technical documentation is kept in clear Markdown (English / Vietnamese where specified by user). User communication follows user language preferences (Vietnamese).
+
+---
+
+## 6. Project Owner's Learning Outcome — Non-Negotiable Direction
+
+Affinity Academy's final outcome is that learners can **understand and use the in-scope Affinity tools independently and think like designers**. The programme is not successful merely because it contains or delivers 120 tutorials.
+
+All agents must apply these invariants:
+
+1. **Design thinking before button sequences:** teach Discover → Define → Explore → Plan → Create → Evaluate → Iterate → Deliver. Explain why a method/tool fits the problem, the alternatives, limitations, and how to judge the result.
+2. **Observable outcomes:** map lessons, exercises, and assessments to `PLO-01`–`PLO-11` in `project-control/LEARNING_OUTCOMES.md`. Preserve the ten-section lesson contract and current lesson schema.
+3. **Complete, evidence-based tool coverage:** use `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` as the source of truth. Establish the current product/build and enumerate Layout, Vector, and Pixel tools/features from current official sources and direct app evidence. Never invent shortcuts or claim full coverage before independent audit.
+4. **Accurate product language:** Layout, Vector, and Pixel are the current studios/workspaces. Designer, Photo, and Publisher are learning-domain labels. Affinity V2 / StudioLink is legacy-only. Scripting/API/MCP is a separate automation strand.
+5. **Independent transfer:** guided lessons must lead to materially different independent tasks. Capstones must assess brief interpretation, tool choice, design reasoning, iteration, editable source, exports, and reflection.
+6. **Truthful evidence:** platform test success, curriculum coverage, and learner competence are three different things. Never claim that one proves another. Lesson completion is not mastery.
+7. **Governed execution:** map substantive work to `TASK-xxx` / `REQ-xxx`, respect dependencies, and require independent QA. `TASK-079`–`TASK-081` remain pending until real deliverables pass their acceptance criteria.
+8. **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons may proceed as explicitly scoped; do not author Publisher B02–B10, Scripting S02–S10, or deferred cloud/IDE modules until the Project Owner explicitly unlocks them.
+9. **Repository safety:** do not merge PR #1 into `main`, force-push, rewrite shared history, discard a dirty working tree, deploy, or perform destructive system operations without the applicable explicit authorization.
+
+Before substantial work, read `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` and use the relevant skill in `.agents/skills/`. The root `AGENTS.md` and the focused skills are deliberately committed so Antigravity can apply the same direction in a fresh workspace session.
