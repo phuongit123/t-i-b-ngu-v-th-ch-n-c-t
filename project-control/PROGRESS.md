@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.6` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.7` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Quality Gate #43738438116 passed on exact current PR head b85956ef5830e757ae870a8843410de3a4fb14d5: ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. This verifies the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
+- **Verification boundary:** `Latest completed Quality Gate #43738438116 passed on commit b85956ef5830e757ae870a8843410de3a4fb14d5: ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. Subsequent documentation updates advanced PR #6 to a441f19a41c915d8a2f957d657a360b2eabba94a; its Quality Gate #43739829124 is in progress. No pass is claimed for the newer head until that run completes. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -184,8 +184,8 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 ## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
 
 - Located official Help Center sources for Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix terminology and narrowed the associated claims.
-- P4 source disposition is now 38 direct official feature-matched URLs (3 Simplified Chinese locale pages included), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
-- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain unresolved native source gaps. The denominator remains provisional; latest-stable desktop version scope is accepted per user confirmation.
+- **Historical Round 5 snapshot (superseded by Section 15):** P4 source disposition was recorded as 38 direct official feature-matched URLs, 9 broad/version-limited URLs, 2 presumed native source gaps, and 1 project-local MCP-only row.
+- **Round 6 update:** official Help Center page titles/URLs were found for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`); article-body extraction remains pending. The denominator remains provisional; latest-stable desktop version scope is accepted per user confirmation.
 
 
 ## 14. TASK-080 Version Scope & Current-Head Quality Gate (2026-11-16)
