@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.3` (TASK-080 Round 4; native Affinity and project MCP denominators separated; source/build review active)
+- **Version:** `4.4.4` (TASK-079 closed; TASK-080 Round 4 Quality Gate passed; inventory acceptance remains open)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 combined in-scope records: 63 native Affinity + 5 project MCP; 50 provisional P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 35 official URLs without caveat, 9 broad/compatibility-limited, 5 native URL gaps, 1 project-MCP evidence-only — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING BOTH TASK-079 AND TASK-080 — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 35 official URLs without caveat, 9 broad/compatibility-limited, 5 native URL gaps, 1 project-MCP evidence-only — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -258,3 +258,14 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Official September 2026 release notes confirm native scripting, Blend Tool, Measure Tool, G2 curve aids, more Vector Warp presets, Mask Tool, Deform Tool, Wavelet/astro features, Canva Sheets Data Merge, Preflight text patterns and GLB 3D model placement. New features remain a discovery queue, not denominator rows, pending target-build checks.
 - Installed target version remains unverified; curriculum declaration is Affinity desktop 3.3.3.5004. Public JavaScript SDK docs are version 3.3.1 and compatibility is not assumed.
 - `TASK-080` / `REQ-LEARN-002` remain IN_PROGRESS, `TASK-081` remains PENDING, and `BLK-007` remains ACTIVE — LOCKED.
+
+
+---
+
+## 12. TASK-080 Round 4 CI & Governance Update (2026-11-15)
+
+- Quality Gate #43736054933 passed on exact commit `58c508da9011f0a2cf89f07819d0bab90a575b18`: ESLint, TypeScript, 66/66 curriculum validation, validator regression, script checks, production build, and Microsoft Edge Playwright 20/20.
+- Evidence artifact: `affinity-academy-quality-evidence` (ID `14169703842`). This proves the web academy's technical checks at that commit, not Affinity desktop version compatibility or inventory completeness.
+- `TASK-079` / `REQ-LEARN-001`: COMPLETED, supported by independent 66/66 lesson mapping review and its verified Quality Gate. No learner A5 attainment is implied.
+- `TASK-080` / `REQ-LEARN-002`: IN_PROGRESS; `TASK-081`: PENDING; `BLK-007`: ACTIVE — LOCKED.
+- PR #6 remains Draft and unmerged. The Quality Gate result was recorded in a PR conversation comment; no merge was performed.
