@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.4.3` (TASK-079 completed after independent 66/66 row audit; TASK-080 independent inventory review in progress)
+- **Version:** `4.4.4` (TASK-079 completed; TASK-080 independent scope, source and P4 review in progress)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
@@ -77,5 +77,5 @@
 
 
 | `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md`, `project-control/LEARNING_OUTCOME_MAPPING.md`, `project-control/TASK-079_INDEPENDENT_REVIEW.md` | All 66 existing lessons are mapped to observable PLOs; independent QA cross-checked all 66 rows against lesson JSON evidence and approved the track-level gap analysis. | **COMPLETED** |
-| `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` and populated evidence-backed inventory | Current Layout, Vector, and Pixel tool/feature inventory is populated with 16 fields across 68 in-scope records (50 at stage P4, 18 gaps at stage V1) + 3 legacy exclusions; awaiting independent peer review before final COMPLETED sign-off. | `IN_PROGRESS` |
+| `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` / `QAAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`, `project-control/TASK-080_INDEPENDENT_REVIEW.md` | Provisional 68-record register: 63 native Affinity capabilities + 5 project-local MCP integrations; 50 P4 labels, 17 V1 candidates and 1 U0 candidate. Independent review is still verifying target-build scope, all operation-level claims, source provenance and 2026 release discoveries. | `IN_PROGRESS` |
 | `TASK-081` | Independent Design Assessment & Graduation Capstone | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-003` | `TASK-079`, `TASK-080` | Track-level project briefs, common design rubric, programme capstone and QA protocol | New briefs assess independent tool choice, design reasoning, iteration, editable source, correct exports, and reflection; rubric and pass threshold receive independent QA approval. | `PENDING` |
