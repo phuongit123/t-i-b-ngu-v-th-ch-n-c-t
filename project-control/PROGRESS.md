@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.3` (TASK-080 Round 4; 68-row provisional register split into 63 native capabilities + 5 project MCP integrations; audit open)
+- **Version:** `4.4.4` (TASK-080 Round 4; exact-head Quality Gate passed; governance reconciliation in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `TASK-080 review branch is documentation/evidence-only so far; GitHub Actions must pass against the PR head before this branch is recorded as CI-verified.`
+- **Verification boundary:** `Quality Gate #43736054933 passed on exact audited commit 58c508da9011f0a2cf89f07819d0bab90a575b18: ESLint, TypeScript, 66/66 curriculum, validator regression, script checks, production build, and 20/20 Microsoft Edge E2E. This verifies the web academy commit, not Affinity inventory completeness or installed desktop behaviour.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -26,13 +26,13 @@
 | **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Quality Gate #8 passed on 8f6ef74; does not verify e65b9fd` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **15** | **3** | **35** | **28.3% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
->   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại, bao gồm `TASK-010-REAUDIT` và `TASK-079`–`TASK-081`; trong đó 1 task đang IN_PROGRESS.
+>   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). Hai tác vụ gốc đang IN_PROGRESS là `TASK-012` và `TASK-013`.
+>   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại, bao gồm `TASK-010-REAUDIT` và `TASK-079`–`TASK-081`; trong đó 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -91,7 +91,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
-- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. These tasks remain PENDING; the specifications do not count as a completed inventory, lesson mapping, capstone implementation, or QA sign-off.
+- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. `TASK-079` is COMPLETED after the 66/66 independent mapping review and exact-head Quality Gate evidence; `TASK-080` remains IN_PROGRESS and `TASK-081` remains PENDING. The specifications do not count as a completed inventory or capstone implementation.
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
@@ -120,8 +120,8 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   5. Keep `TASK-080` in `IN_PROGRESS` until peer review and acceptance on GitHub; `BLK-007` remains **ACTIVE — LOCKED**.
 - **Deliverables Prepared:**
   - `src/pages/HomePage.tsx`: 100% refined with Vietnamese text, keeping Figma Interia typography and preserving all `.sr-only` accessibility tags.
-  - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Fully populated with 71 total entries (68 in-scope: 50 at stage P4, 18 gaps at stage V1; 3 legacy exclusions).
-  - `project-control/TASK_REGISTRY.md`: `TASK-080` transitioned to **IN_PROGRESS** awaiting review (15 completed / 3 in-progress / 35 pending, recomputed from all 53 task rows).
+  - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Populated with 71 submitted rows (68 provisional in-scope: 50 P4, 17 V1, 1 U0; 3 exclusions).
+  - `project-control/TASK_REGISTRY.md`: `TASK-079` is **COMPLETED**; `TASK-080` is **IN_PROGRESS** (16 completed / 3 in-progress / 34 pending across all 53 task rows).
 - **Verification Evidence:**
   - `npm run lint` & `npm run typecheck`: 0 errors, 0 warnings.
   - `npm run validate:curriculum`: 66/66 lessons valid.
@@ -166,3 +166,16 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Official September 2026 release notes support the separate native Scripting Studio/Script Editor/Scripts Library record. Blend Tool, Mask Tool, Deform Tool, Wavelet/astro features and GLB 3D model placement stay in the discovery queue until the target build is verified.
 - Current desktop build `3.3.3.5004` remains repository-declared only; the user's installed application has not been inspected.
 - `TASK-080` remains IN_PROGRESS; `REQ-LEARN-002` is IN_PROGRESS; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED.
+
+
+---
+
+## 12. TASK-080 Round 4 Quality Gate & Governance Reconciliation (2026-11-15)
+
+- Exact audited commit: `58c508da9011f0a2cf89f07819d0bab90a575b18` on `qa/task-080-independent-evidence-audit`.
+- Quality Gate workflow `43736054933`: **SUCCESS**. ESLint, TypeScript, curriculum validation (66/66), validator regression, script checks, production build, and Microsoft Edge Playwright (20/20) all passed.
+- Evidence artifact: `affinity-academy-quality-evidence`, artifact ID `14169703842`.
+- This CI result verifies the web academy at the exact commit only. It does not validate the installed Affinity build, prove semantic correctness of all 50 P4 operations, or certify denominator completeness.
+- Reconciled programme-learning governance: `TASK-079` / `REQ-LEARN-001` COMPLETED based on the independent 66/66 mapping audit and its exact-head Quality Gate; `TASK-080` / `REQ-LEARN-002` remain IN_PROGRESS; `TASK-081` remains PENDING.
+- Registry arithmetic: 53 rows = 16 COMPLETED / 3 IN_PROGRESS / 34 PENDING. The 49 original tasks remain 14 COMPLETED / 2 IN_PROGRESS / 33 PENDING.
+- PR #6 remains Draft and unmerged. `BLK-007` remains ACTIVE — LOCKED.
