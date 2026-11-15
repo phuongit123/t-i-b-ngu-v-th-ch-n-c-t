@@ -11,6 +11,7 @@ import { TrackCard } from './components/cards/TrackCard';
 import { ModuleCard } from './components/cards/ModuleCard';
 import { LessonCard } from './components/cards/LessonCard';
 import { SimulatorPage } from './pages/SimulatorPage';
+import { HomePage } from './pages/HomePage';
 import { Terminal, User, Play, Sparkles } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
@@ -75,6 +76,18 @@ export const App: React.FC = () => {
 
     switch (activeRoute) {
       case 'home':
+        return (
+          <HomePage
+            onNavigate={setActiveRoute}
+            onSelectTrack={(trackId) => {
+              setActiveTrack(trackId);
+              setActiveRoute('catalog');
+            }}
+            onLaunchLesson={handleLaunchLesson}
+          />
+        );
+      case 'preview':
+      case 'design-system':
         return <DesignSystemPreview />;
       case 'catalog':
         return (

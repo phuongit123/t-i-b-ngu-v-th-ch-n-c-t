@@ -26,6 +26,8 @@ export const AppShell: React.FC<AppShellProps> = ({
   onOpenSearch,
   className,
 }) => {
+  const isHome = activeRoute === 'home';
+
   return (
     <div className={cn('min-h-screen bg-canvas text-primary flex flex-col', className)} data-theme={theme}>
       <MainNavigation
@@ -37,19 +39,21 @@ export const AppShell: React.FC<AppShellProps> = ({
         onOpenSearch={onOpenSearch}
       />
 
-      <div className="flex-1 flex max-w-7xl w-full mx-auto">
+      <div className={cn('flex-1 flex w-full mx-auto', isHome ? 'max-w-none p-0' : 'max-w-7xl')}>
         {sidebar}
-        <main className="flex-1 p-6 md:p-8 overflow-x-hidden min-w-0">
+        <main className={cn('flex-1 overflow-x-hidden min-w-0', isHome ? 'p-0' : 'p-6 md:p-8')}>
           {children}
         </main>
       </div>
 
-      <footer className="border-t border-hairline py-6 text-center text-xs text-zinc-500 font-mono">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>AFFINITY ACADEMY &copy; 2026 &mdash; MASTERO &amp; MINIMALISM</span>
-          <span>SERIF AFFINITY 3.0 &bull; JAVASCRIPT DOM SCRIPTING &bull; MCP ENGINE</span>
-        </div>
-      </footer>
+      {!isHome && (
+        <footer className="border-t border-hairline py-6 text-center text-xs text-zinc-500 font-mono">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span>AFFINITY ACADEMY &copy; 2026 &mdash; MASTERO &amp; MINIMALISM</span>
+            <span>SERIF AFFINITY 3.0 &bull; JAVASCRIPT DOM SCRIPTING &bull; MCP ENGINE</span>
+          </div>
+        </footer>
+      )}
     </div>
   );
 };
