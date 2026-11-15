@@ -320,3 +320,10 @@ The official September 2026 release notes expose additional features and control
 
 **Scope guard:** These candidates are a discovery queue, not 12 confirmed additional records. Some are controls within existing tools, some may be overlapping capabilities, and some may be outside the exact desktop build being taught. The installed application version/build and UI location must be checked before they enter the official denominator.
 
+
+
+### 14.6. Desktop / iPad platform boundary
+
+The official announcement dated 2 November 2026 is for **Affinity for iPad**. This inventory's declared target remains the Windows/macOS desktop application (lesson-declared build 3.3.3.5004). Do not mix iPad-only workflows or controls into the desktop denominator. If the Academy later adds iPad learning outcomes, create a separate platform scope and verify platform-specific tool availability and interactions.
+
+Source: [Affinity for iPad is here — 2 November 2026](https://www.affinity.studio/blog/affinity-update-ipad-2026).
