@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.4` (TASK-080 Round 4; exact-head Quality Gate passed; governance reconciliation in progress)
+- **Version:** `4.4.5` (TASK-080 Round 5 source discovery; 3 official panel sources added; 2 native source gaps remain)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
@@ -151,7 +151,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Reproduced the reclassified baseline: 68 in-scope records (63 native Affinity capabilities + 5 project-local MCP integrations), 50 P4 claims, 17 V1 candidates, 1 U0 candidate, and 3 exclusions (71 total submitted rows). The denominator remains provisional.
 - Cross-checked the 50 P4 records against 52 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
 - Corrected over-broad or mismatched evidence mappings: VEC-001 narrowed to D01-03; PIX-007 narrowed to P05-02; PIX-006 renamed to Layer Groups; PIX-014 additionally maps to P03-02; PIX-016 no longer claims a Lens Studio.
-- Added official source URLs where located. Of the 50 P4 rows, 35 have a source URL without an explicit caveat, 9 are URL-linked but broad/compatibility-limited, 5 native Affinity rows lack a direct vendor URL, and 1 project-MCP row is supported by project-local evidence only. This is traceability progress, not P4 acceptance.
+- Added official source URLs where located. Of the 50 P4 rows, 38 have a direct official feature-matched URL (including 3 Simplified Chinese locale pages), 9 are URL-linked but broad/compatibility-limited, 2 native Affinity rows lack a direct vendor URL, and 1 project-MCP row is supported by project-local evidence only. This is traceability progress, not P4 acceptance.
 - The curriculum-declared desktop target is Affinity 3.3.3.5004; the user's installed build has not been inspected. Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
 - Official September 2026 desktop release notes expose candidate tools/controls not represented clearly in the original matrix. The 2 November 2026 official announcement is for Affinity for iPad and is not mixed into the desktop denominator.
 - `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING until TASK-079 and TASK-080 are completed. `BLK-007` remains ACTIVE — LOCKED.
@@ -162,7 +162,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Reclassified the inventory into 63 native Affinity capabilities and 5 project-local MCP integrations; do not mix their denominators. The combined register remains 68 records, plus 3 exclusions.
 - Stage counts reconcile as 50 P4 claims, 17 V1 candidates and 1 U0 candidate. P4 claims comprise 49 native Affinity entries and one project MCP integration.
 - The 50 P4 rows reference 52 distinct lesson JSON files, each with tool explanation, guided task, checkpoints, expected outcome, challenge title and challenge criteria. This remains structural evidence; operation-level semantic and target-build checks are open.
-- Source traceability across P4: 35 official URLs without explicit caveat, 9 broad/compatibility-limited URLs, 5 native claims with no direct vendor URL, and one project-local MCP evidence-only record.
+- Source traceability across P4: 38 direct official feature-matched URLs (including 3 Simplified Chinese locale pages), 9 broad/compatibility-limited URLs, 2 native claims with no direct vendor URL, and one project-local MCP evidence-only record.
 - Official September 2026 release notes support the separate native Scripting Studio/Script Editor/Scripts Library record. Blend Tool, Mask Tool, Deform Tool, Wavelet/astro features and GLB 3D model placement stay in the discovery queue until the target build is verified.
 - Current desktop build `3.3.3.5004` remains repository-declared only; the user's installed application has not been inspected.
 - `TASK-080` remains IN_PROGRESS; `REQ-LEARN-002` is IN_PROGRESS; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED.
@@ -179,3 +179,10 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Reconciled programme-learning governance: `TASK-079` / `REQ-LEARN-001` COMPLETED based on the independent 66/66 mapping audit and its exact-head Quality Gate; `TASK-080` / `REQ-LEARN-002` remain IN_PROGRESS; `TASK-081` remains PENDING.
 - Registry arithmetic: 53 rows = 16 COMPLETED / 3 IN_PROGRESS / 34 PENDING. The 49 original tasks remain 14 COMPLETED / 2 IN_PROGRESS / 33 PENDING.
 - PR #6 remains Draft and unmerged. `BLK-007` remains ACTIVE — LOCKED.
+
+
+## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
+
+- Located official Help Center sources for Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix terminology and narrowed the associated claims.
+- P4 source disposition is now 38 direct official feature-matched URLs (3 Simplified Chinese locale pages included), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
+- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain unresolved native source gaps. The denominator and target desktop build remain unverified.
