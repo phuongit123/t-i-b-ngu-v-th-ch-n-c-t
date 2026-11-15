@@ -3,8 +3,8 @@
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.4.9` (latest desktop version scope accepted; last completed Quality Gate #43738438116 passed on prior reviewed head)
-- **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — PR #6 head `45177bcedf63540a33cf5698597fa9abe1215555` passed Quality Gate #43740779791 (web academy scope only) — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -139,6 +139,8 @@ The published branch `fix/phase5-stabilization` received follow-up commits to ad
 
 ## 5. Learning Outcomes & Tool Coverage Handoff (2026-11-15)
 
+> **Historical snapshot:** the initial status statements and sequence below predate the independent TASK-079 sign-off and TASK-080 Round 6 audit. Use the current status at the top of this file and Sections 10–18 for current decisions.
+
 ### New approved direction
 The Project Owner approved a product-level goal: learners must understand and competently use the in-scope Affinity tools and develop independent design thinking. Course completion counts alone are not graduation evidence.
 
@@ -165,6 +167,8 @@ The repository defines 20 Playwright tests across three specs: 6 Pen/Node tests,
 ---
 
 ## 6. Antigravity Workspace Integration — 2026-11-15
+
+> **Historical snapshot:** workspace setup notes remain useful, but the task-status and next-action statements below are superseded by Sections 10–18.
 
 The Project Owner requested that Antigravity (the workspace builder agent) follow the same approved Affinity Academy direction as the other agents. Workspace customizations are now committed on `fix/phase5-stabilization`:
 
@@ -193,6 +197,8 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 
 ## 7. Next Session Continuity & TASK-080 Independent Review — 2026-11-15
 
+> **Historical snapshot:** the original `18 V1` count and the initial next-action list below are superseded by the Round 6 classification (`17 V1 + 1 U0`) and current governance in Sections 10–18. Current next eligible learning work is to finish TASK-080; TASK-081 remains blocked by its dependency on TASK-080.
+
 1. **TASK-080 Population & Staging (`REQ-LEARN-002`):**
    - Populated `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` with **71 total entries** (68 in-scope records, 3 legacy exclusions) using the complete 16-field schema including `review_owner`.
    - Mapped **50 tools** at stage `P4` (guided practice in 66 lessons).
@@ -214,10 +220,11 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
    - `npm run build`: Production build succeeded in 7.28s.
    - `npm run test:e2e`: 20/20 Playwright E2E passed on Microsoft Edge (46.6s).
 
-4. **Next Eligible Actions:**
-   - `TASK-079` (Programme Learning Outcomes & Competency Framework mapping).
-   - `TASK-081` (Independent Design Assessment & Graduation Capstone rubric design).
-   - `BLK-007` remains **ACTIVE — LOCKED**. Do not author Publisher B02–B10 or Scripting S02–S10 until explicit Project Owner approval.
+4. **Current next-step correction (supersedes this historical snapshot):**
+   - `TASK-079`: COMPLETED, based on the 66/66 independent mapping review and exact-head CI evidence.
+   - `TASK-080`: IN_PROGRESS; continue the operation-level semantic review, V1/U0 checks, and denominator reconciliation.
+   - `TASK-081`: PENDING until TASK-080 is formally completed and signed off.
+   - `BLK-007`: ACTIVE — LOCKED. Do not author Publisher B02–B10 or Scripting S02–S10 without explicit Project Owner approval.
 
 ---
 
@@ -308,4 +315,12 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Quality Gate #43740202800 (run 59) completed **SUCCESS** on exact commit `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`, then the PR head.
 - ESLint, TypeScript, curriculum validation 66/66, validator regression 41/41, script checks 3/3, production build, Microsoft Edge install, and Playwright E2E 20/20 passed.
 - Evidence artifact: `affinity-academy-quality-evidence`, ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
-- The next documentation synchronization commit advances the PR head and requires its own CI. PR #6 remains Draft/unmerged; TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+- **Superseded CI snapshot:** this gate passed on the earlier PR head `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`. The later exact PR #6 head `45177bcedf63540a33cf5698597fa9abe1215555` also passed Quality Gate #43740779791; see Section 18. PR #6 remains Draft/unmerged; TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 18. Latest Exact-Head Quality Gate (2026-11-16)
+
+- PR #6 current head at this review: `45177bcedf63540a33cf5698597fa9abe1215555`.
+- Quality Gate workflow `#43740779791`: **SUCCESS** on that exact head; ESLint, TypeScript, curriculum validation 66/66, validator regression 41/41, script checks 3/3, production build, and Microsoft Edge Playwright E2E 20/20 passed.
+- This is web-academy technical evidence only. It does not close TASK-080, certify Affinity tool semantics or denominator completeness, or establish learner A5 competence.
+- PR #6 remains Draft and unmerged. TASK-079 is COMPLETED on the PR review branch; TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING; BLK-007 remains ACTIVE — LOCKED.
