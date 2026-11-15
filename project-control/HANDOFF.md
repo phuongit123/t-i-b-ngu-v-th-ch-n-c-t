@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.5` (TASK-080 Round 5 source discovery; 3 official panel sources added; 2 native source gaps remain)
+- **Version:** `4.4.6` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 native URL gaps, 1 project-MCP evidence-only — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 native URL gaps, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -268,11 +268,21 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Evidence artifact: `affinity-academy-quality-evidence` (ID `14169703842`). This proves the web academy's technical checks at that commit, not Affinity desktop version compatibility or inventory completeness.
 - `TASK-079` / `REQ-LEARN-001`: COMPLETED, supported by independent 66/66 lesson mapping review and its verified Quality Gate. No learner A5 attainment is implied.
 - `TASK-080` / `REQ-LEARN-002`: IN_PROGRESS; `TASK-081`: PENDING; `BLK-007`: ACTIVE — LOCKED.
-- PR #6 remains Draft and unmerged. The Quality Gate result was recorded in a PR conversation comment; no merge was performed.
+- PR #6 remains Draft and unmerged. Quality Gate #43738438116 now passes on exact current head `b85956e`; no merge was performed.
 
 
 ## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
 
 - Added official Affinity Help Center references for the Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix's names from unsupported “Studio” labels to documented panel terminology.
 - P4 provenance now stands at 38 direct official feature-matched URLs (including three Simplified Chinese locale pages), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
-- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain open source gaps. The installed desktop build, target-build UI labels and shortcuts remain unverified.
+- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain open source gaps. The user's latest-stable version confirmation is accepted as the target scope; exact UI labels, shortcuts and operation semantics still require evidence where documentation is insufficient.
+
+
+## 14. TASK-080 Version Scope & Exact-Head CI Confirmation (2026-11-16)
+
+- User confirmed the installed Affinity desktop app is the latest stable release; accepted as sufficient to set the target scope. Use the latest stable desktop release as of 2026-11-16. Public November release identifiers indicate 3.3.3 / build 5004; local executable metadata was not directly introspected.
+- Exact current PR #6 head: `b85956ef5830e757ae870a8843410de3a4fb14d5`.
+- Quality Gate #43738438116: **SUCCESS** — ESLint, TypeScript, 66/66 curriculum validation, 41/41 validator assertions, 3/3 script checks, production build, and 20/20 Playwright E2E passed.
+- Evidence artifact: `affinity-academy-quality-evidence`, ID `14171164280`; SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
+- CI success is web-academy evidence only; it does not certify Affinity tool semantics, inventory completeness, or SDK/runtime compatibility.
+- PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
