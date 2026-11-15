@@ -161,3 +161,30 @@ This branch has now run the full Quality Gate #8 on commit 8f6ef74: npm ci, ESLi
 
 ### Test-count clarification for the latest pushed code
 The repository defines 20 Playwright tests across three specs: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. Quality Gate #8 ran the complete suite on Microsoft Edge at commit 8f6ef74 and recorded **20 passed (48.3s), 0 failed**. The full job conclusion is `success`; the log and screenshots are retained in artifact `affinity-academy-quality-evidence` (artifact ID `14159993282`).
+
+---
+
+## 6. Antigravity Workspace Integration — 2026-11-15
+
+The Project Owner requested that Antigravity (the workspace builder agent) follow the same approved Affinity Academy direction as the other agents. Workspace customizations are now committed on `fix/phase5-stabilization`:
+
+- Root `AGENTS.md`: always-on repository direction, evidence discipline, task traceability, and phase-gate rules.
+- `.agents/rules/affinity-academy-governance.md`: Antigravity always-on rule with `trigger: always_on`.
+- `.agents/skills/`: six focused skills — `academy-session-orientation`, `academy-product-implementation`, `affinity-tool-audit`, `curriculum-lesson-design`, `independent-capstone-assessment`, and `quality-gate-handoff`.
+- `project-control/ANTIGRAVITY_OPERATING_GUIDE.md`: setup, discovery verification, slash-command entry points, source-of-truth file order, branch safety, and first-session checklist.
+- README now links to the operating guide and explains how to activate the workspace instructions.
+
+### First action in Antigravity
+
+1. Open the repository root containing `AGENTS.md`, `package.json`, and `.agents/`.
+2. Confirm the governance rule and six skills appear in the Customizations view.
+3. Invoke `/academy-session-orientation` and ask it to report branch, working-tree state, blockers, next eligible task, and governing files read.
+4. For the next learning work, invoke `/affinity-tool-audit` to begin `TASK-080` against the installed current Affinity build and map the existing lessons. Do not author the locked B02–B10 or S02–S10 lessons.
+
+### Safety and status
+
+- These are workspace instructions shared through Git; they do not configure Antigravity globally and do not prove that Antigravity has already loaded them on the user's machine.
+- The owner must open this branch/workspace and verify the rule and skills are visible in Antigravity's Customizations panel.
+- PR #1 remains open against `main`; no merge was performed by this work.
+- `BLK-007` remains ACTIVE — LOCKED. Tool audit and existing-lesson mapping are the next eligible learning tasks; curriculum expansion and deferred platform modules remain gated.
+- Antigravity's first session must re-check live GitHub state and the local working tree; this handoff is not a substitute for those checks.
