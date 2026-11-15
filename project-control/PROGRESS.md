@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.9` (TASK-079 merged to main; TASK-080 Round 6 evidence review in progress)
+- **Version:** `4.5.0` (TASK-079 merged to main; TASK-080 Round 6 evidence review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Quality Gate #43740779791 passed on exact PR #6 head 45177bcedf63540a33cf5698597fa9abe1215555: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, production build, and Microsoft Edge Playwright E2E 20/20. This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
+- **Verification boundary:** `Quality Gate #43749162173 passed on exact PR #6 head 09bf0fdc67242c3182dcf8fd4e80e38b92d33f17: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20 (33.5s). This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #43730666138 passed on PR #4 and merged to main; PR #6 Quality Gate #43740779791 passed on 45177bcedf63540a33cf5698597fa9abe1215555 (web academy scope only)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate #43749162173 passed on exact HEAD 09bf0fdc67242c3182dcf8fd4e80e38b92d33f17 (web academy scope only)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
@@ -236,3 +236,17 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Results: ESLint PASS; TypeScript PASS; curriculum validation **66/66**; validator regression **41 assertions / 0 failed**; scripts **3/3**; production build PASS; Edge setup PASS; Playwright E2E **20/20**.
 - Artifact `affinity-academy-quality-evidence`, ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
 - This is evidence for `5f7cdc8...` only. The synchronization commit that adds this record will become a new PR head and needs a new Quality Gate; use the PR Checks tab for the current exact SHA. PR #6 remains Draft/unmerged; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 18. TASK-080 Round 7 — Post-merge sync and reproducible evidence audit (2026-11-16)
+
+- PR #4 is merged to `main` at `628f7619176fc2e85a50613654f46416975bd0cd`. PR #6 now targets `main` at that exact base commit; compare result at review time: 45 commits ahead, 0 behind, merge base equal to `628f761...`.
+- Exact PR #6 head after the sync and screenshot refresh: `09bf0fdc67242c3182dcf8fd4e80e38b92d33f17`.
+- Quality Gate `#43749162173` completed **SUCCESS** on that exact HEAD. ESLint, TypeScript, curriculum 66/66, validator 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build and Microsoft Edge Playwright E2E **20/20** passed (33.5s). Artifact ID: `14175825803`.
+- Reproduced matrix structure: 68 unique in-scope IDs; all 16 fields are populated; stage counts are 50 P4, 17 V1 and 1 U0; 63 native Affinity capabilities + 5 project-local MCP integrations; 3 exclusions. The 68-record denominator remains provisional, not exhaustive.
+- Re-fetched and parsed the 52 distinct lesson JSON files referenced by the 50 P4 rows. All 52 include tool explanation, a guided-practice task with checkpoints and expected outcome, an independent-challenge title, and a non-empty assessment-criteria array. The criteria field is not uniform: 43 use `challengeCriteria`; 9 use `successCriteria`. This confirms linked evidence structures, not every named control/action or current-build behaviour.
+- Current official Help Center content reviewed in this pass confirms the Move Tool's default availability in Vector, Pixel and Layout and its documented selection/transform behaviour; the matrix deliberately retains only actions supported by mapped D01-03 practice. The current Layers panel page documents layer hierarchy, blend mode, masking, groups, live filters and adjustments. These source checks support bounded claims, not every detailed shortcut or workflow assertion.
+- Official Help Center page URLs for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) are located, but the page bodies still return only an unsupported-browser shell/navigation in the available extraction. Keep them classified as **official page located / article body review pending**. `D01-02` supports artboard creation, sizing and naming; `P05-01` supports basic Red-channel and RGB-distribution reading. Do not add unverified preset/conversion, clipping-alert or colour-space claims.
+- Five P4 records still rely on broad rather than feature-specific official product pages for exact operation details: `VEC-006` Corner Tool, `VEC-021` Symbols, `VEC-023` Constraints, `PIX-003` Selection Brush and `PIX-016` Live Lighting. Keep their P4 status provisional until exact 3.3.3 feature controls/behaviour are verified. Older Serif Help mirror pages found during research are not treated as proof of current 3.3.3 behaviour.
+- `AUT-002` remains an Academy project-local MCP integration supported by repository evidence, not a vendor-native Affinity capability. Native SDK documentation is version 3.3.1; runtime compatibility with desktop 3.3.3 is not asserted.
+- `TASK-080` remains **IN_PROGRESS**; `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**.

@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `TOOL-COVERAGE-001`
-- **Version:** `1.2.4` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
+- **Version:** `1.2.5` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
 - **Status:** `PROVISIONAL INVENTORY / INDEPENDENT SOURCE, SCOPE AND P4 REVIEW IN PROGRESS`
-- **Last Updated:** `2026-11-15`
+- **Last Updated:** `2026-11-16`
 - **Governing Roles:** `CurriculumAgent` / `AffinityMCPAgent` / `QAAgent`
 
 ---

@@ -1,11 +1,11 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 6)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 7)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — INVENTORY RECLASSIFIED; P4 JSON STRUCTURE AUDITED; LATEST VERSION SCOPE ACCEPTED; SOURCE/SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; SOURCE/SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
-- **Review date:** `2026-11-15`
+- **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
 - **Phase gate:** `BLK-007 ACTIVE — LOCKED`
 - **Baseline source:** merged PR #3 / commit `d31150666787100d1c87332f7b7564eb43498025`
@@ -197,3 +197,41 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Artifact: [affinity-academy-quality-evidence](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43740202800/artifacts/14172242049), ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
 - This success is scoped to commit `5f7cdc8...` and the web academy. It does not certify Affinity operation semantics, SDK compatibility, or completeness of the provisional 68-record inventory.
 - The next documentation synchronization commit is a new PR head and therefore requires its own Quality Gate. PR #6 remains Draft/unmerged; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 11. Round 7 — Post-PR-4 sync, exact-head CI and reproducible P4 evidence (2026-11-16)
+
+### Branch integration state
+
+- PR #4 merged into `main` at `628f7619176fc2e85a50613654f46416975bd0cd`; this integrates the 66-row `LEARNING_OUTCOME_MAPPING.md`, `TASK-079_INDEPENDENT_REVIEW.md` and application localization/UI changes.
+- PR #6 (`qa/task-080-independent-evidence-audit`) now targets `main` at that merge commit. GitHub compare at review time reports 45 commits ahead, 0 behind; merge base equals `628f761...`. No force push was used in the reported synchronization.
+- Current PR #6 HEAD: `09bf0fdc67242c3182dcf8fd4e80e38b92d33f17`.
+
+### Exact-head Quality Gate
+
+- Quality Gate `#43749162173` completed **SUCCESS** on the exact HEAD above.
+- Verified: ESLint; TypeScript; curriculum validation **66/66**; validator regression **41/41 assertions**; scripts **3/3**; Vietnamese translation mapping **66/66 unique lesson IDs, 0 missing/extra/duplicate**; production build; Microsoft Edge Playwright E2E **20/20 passed (33.5s)**.
+- Evidence artifact: `affinity-academy-quality-evidence`, ID `14175825803`.
+- This gate proves the web academy commit only. It does not certify Affinity desktop operation semantics, inventory completeness, SDK/runtime compatibility, or learner A5 competence.
+
+### Reproduced structural and lesson-reference checks
+
+- Re-parsed the matrix on the synchronized branch: **68 unique in-scope IDs**, all **16 required fields** populated; stage labels reconcile to **50 P4 + 17 V1 + 1 U0**; split remains **63 native Affinity capabilities + 5 Academy MCP integrations**, plus 3 exclusions.
+- Re-fetched and parsed all **52 distinct lesson JSON files** linked by the **50 P4 records**. All 52 contain `standardSections.toolAndFeatureExplanation`, `guidedPractice.taskDescription`, non-empty guided checkpoints, guided expected outcome, `independentChallenge.title`, and non-empty independent assessment criteria.
+- Assessment criteria property is not uniform: **43** linked files use `challengeCriteria`; **9** use `successCriteria`. Both are present and non-empty in the fetched JSON. Do not rewrite one key to the other solely to make labels uniform; validator compatibility includes legacy `successCriteria` records.
+- This is a structural and reference audit. It does **not** establish that every individual matrix action, shortcut, control label, or limitation is accurate on the latest stable desktop build.
+
+### Source and semantic recheck
+
+- Current official Move Tool Help Center content confirms default availability in Vector, Pixel and Layout and documents selection, move, resize, rotate and shear. Matrix `VEC-001` remains deliberately narrower because the mapped D01-03 exercise is the evidence for its P4 practice claim.
+- Current official Layers panel Help Center content documents layer hierarchy, blend mode, mask layer, groups, live filters and adjustments; these sources support bounded claims in the relevant rows.
+- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) official Help Center URLs are found. Direct page fetch in the available browser returned an unsupported-browser shell; article bodies/controls remain **not reviewed**. Keep source status as official page located / body review pending, not “no URL”. D01-02 supports creating, sizing and naming artboards; P05-01 supports reading the Red channel and R/G/B distribution. Do not add unverified presets, selection conversion, clipping alerts or colour-space claims.
+- Five P4 claims still rely on broad rather than feature-specific official product pages for their exact controls: `VEC-006` Corner Tool, `VEC-021` Symbols, `VEC-023` Constraints, `PIX-003` Selection Brush and `PIX-016` Live Lighting. Keep those details provisional until exact feature documentation or direct target-build evidence is available. Older Serif Help mirror pages found during research are not accepted as proof of current desktop 3.3.3 behaviour.
+- `AUT-002` remains project-local MCP integration evidence, not a native Affinity tool. Public SDK documentation remains version 3.3.1; runtime compatibility with desktop 3.3.3 is not asserted.
+
+### Disposition
+
+- Keep `TASK-080` **IN_PROGRESS**; the 50 P4 labels are not certified coverage.
+- Keep the denominator provisional until the release discovery queue and remaining scope entries are reconciled.
+- Keep `TASK-081` **PENDING** until TASK-080 is formally completed and signed off.
+- Keep `BLK-007` **ACTIVE — LOCKED**. No Publisher B02–B10 or Scripting S02–S10 authoring is included or authorized.
