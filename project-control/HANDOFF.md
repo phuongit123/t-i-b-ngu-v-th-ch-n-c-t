@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.2` (TASK-080 independent P4 evidence cross-check underway; source/build/denominator review remains open)
+- **Version:** `4.4.3` (TASK-080 Round 4; native Affinity and project MCP denominators separated; source/build review active)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 submitted in-scope records / 50 provisional P4 / 18 provisional V1 / 3 exclusions) — 50 P4 records mapped to 53 lesson JSON refs; 44 official URL links (35 without caveat, 9 partial), 6 no direct URL — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING BOTH TASK-079 AND TASK-080 — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 combined in-scope records: 63 native Affinity + 5 project MCP; 50 provisional P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 35 official URLs without caveat, 9 broad/compatibility-limited, 5 native URL gaps, 1 project-MCP evidence-only — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING BOTH TASK-079 AND TASK-080 — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -239,10 +239,22 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 
 - Review branch: `qa/task-080-independent-evidence-audit`, based on the merged baseline commit `d31150666787100d1c87332f7b7564eb43498025`.
 - Detailed findings: `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
-- Reproduced the provisional inventory baseline: 68 submitted in-scope records + 3 exclusions; 50 P4 claims and 18 V1 claims. Do not claim this is exhaustive product coverage yet.
-- Reconciled 50 P4 records against 53 distinct lesson JSON references. The practice references now use exact `standardSections.guidedPractice` and `standardSections.independentChallenge` anchors, not synthetic `*-PRAC` IDs.
+- Reproduced the reclassified baseline: 68 in-scope records (63 native Affinity capabilities + 5 project-local MCP integrations), plus 3 exclusions; 50 P4 claims, 17 V1 candidates and 1 U0 candidate. Do not claim this is exhaustive product coverage yet.
+- Reconciled 50 P4 records against 52 distinct lesson JSON references. The practice references now use exact `standardSections.guidedPractice` and `standardSections.independentChallenge` anchors, not synthetic `*-PRAC` IDs.
 - Narrowed/corrected the P4 mappings where guided practice did not support the submitted claim: VEC-001, PIX-007, PIX-006, PIX-014 and PIX-016.
-- Source traceability: 35/50 P4 records now have a direct URL without an explicit caveat; 9/50 have broad/compatibility-limited URLs; 6/50 still lack direct URLs. URL presence alone does not establish the current application's exact behavior.
+- Source traceability: 35 P4 records have a URL without explicit caveat; 9 have broad/compatibility-limited URLs; 5 native P4 claims have no direct vendor URL; one project-MCP row uses project-local evidence only. URL presence alone does not establish the current application's exact behavior.
 - Current build caveat: lessons declare desktop Affinity 3.3.3.5004, but the installed user build was not inspected. Official SDK docs are version 3.3.1; runtime compatibility needs separate confirmation.
 - The official desktop September 2026 release notes expose additional candidates; they remain a discovery queue and are not yet counted. The official 2 November iPad announcement is a separate platform scope.
 - TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until both TASK-079 and TASK-080 are completed; BLK-007 remains ACTIVE — LOCKED.
+
+
+## 11. TASK-080 Independent Evidence Audit — Round 4 (2026-11-15)
+
+- Review branch: `qa/task-080-independent-evidence-audit`, based on main after PR #3 merge `d31150666787100d1c87332f7b7564eb43498025`.
+- Matrix record split: 63 native Affinity capabilities + 5 project-local MCP integrations = 68 in-scope records; 3 separate exclusions.
+- Stage claims: 50 P4 (49 native + 1 project-MCP), 17 V1 (13 native + 4 project-MCP), and 1 U0 native Layout candidate.
+- P4 record rows link 52 unique lesson JSON files to exact guided-practice and challenge sections. All 52 contain the required JSON structure; tool-operation semantics and installed-build compatibility remain open.
+- Source trail: 35 P4 URLs without caveat, 9 broad/compatibility-limited URLs, 5 native P4 claims with no direct vendor URL, and 1 project-MCP evidence-only row.
+- Official September 2026 release notes confirm native scripting, Blend Tool, Measure Tool, G2 curve aids, more Vector Warp presets, Mask Tool, Deform Tool, Wavelet/astro features, Canva Sheets Data Merge, Preflight text patterns and GLB 3D model placement. New features remain a discovery queue, not denominator rows, pending target-build checks.
+- Installed target version remains unverified; curriculum declaration is Affinity desktop 3.3.3.5004. Public JavaScript SDK docs are version 3.3.1 and compatibility is not assumed.
+- `TASK-080` / `REQ-LEARN-002` remain IN_PROGRESS, `TASK-081` remains PENDING, and `BLK-007` remains ACTIVE — LOCKED.
