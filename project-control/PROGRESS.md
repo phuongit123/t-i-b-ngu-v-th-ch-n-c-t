@@ -6,7 +6,7 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification Evidence:** `66/66 and 9/9 are historical baseline results; owner reports a subsequent 10/10 Edge run, but current pushed HEAD defines 20 E2E tests across three specs (6 Pen/Node + 4 Photo + 10 UI Capture); the full current suite remains unverified`
+- **Verification Evidence:** `Quality Gate #8 on 8f6ef74 (2026-11-15): 66/66 lessons validated; validator 41 assertions passed / 0 failed; script checks 3/3; Microsoft Edge E2E 20/20; lint, TypeScript and production build passed. Evidence: run 43710131279.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E suite defined (20 tests across 3 specs); current pushed-HEAD execution pending` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #8: 20/20 Microsoft Edge E2E passed on 8f6ef74; full workflow passed` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **16** | **0** | **34** | **32.0% Completed** |
@@ -36,7 +36,7 @@
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
->   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was recorded historically; rerun on current pushed HEAD before sign-off.
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was confirmed again by Quality Gate #8 on 8f6ef74; this verifies schema/content integrity, not learner competency or complete tool coverage.
 >   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
 
 ---
@@ -80,7 +80,7 @@
 
 ## 4. Next Phase Gate & Status
 
-Track 1 (Designer) và Track 2 (Photo) đã hoàn thiện 100% với 60 bài học cốt lõi, cộng với 6 bài học pilot Publisher (B01) và Scripting (S01), đạt tổng cộng 66 bài học hiện hữu (trên tổng số 120 bài học dự kiến), 2 bộ mô phỏng tương tác in-browser. Kết quả 9/9 E2E là historical baseline; owner later reported a 10/10 local Edge run, but the current branch now defines 20 test cases and needs a complete rerun.
+Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher (B01) và Scripting (S01) có thêm 6 bài pilot, tổng cộng 66/120 bài theo kế hoạch. Quality Gate #8 đã xác nhận lại 66/66 bài hợp lệ và chạy thành công toàn bộ 20/20 E2E trên Microsoft Edge tại commit 8f6ef74. Kết quả này xác nhận chất lượng kỹ thuật của nhánh, không phải bằng chứng rằng người học đã đạt chuẩn tốt nghiệp.
 - **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
 - **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
 
