@@ -110,7 +110,7 @@ export const PhotoLayerSimulator: React.FC = () => {
   const [layers, setLayers] = useState<SimLayer[]>([
     {
       id: 'filter-vignette',
-      name: 'Live Vignette & Blur Filter',
+      name: 'Bộ lọc Live Vignette & Mờ',
       type: 'filter',
       visible: true,
       opacity: 80,
@@ -118,7 +118,7 @@ export const PhotoLayerSimulator: React.FC = () => {
     },
     {
       id: 'adj-curves',
-      name: 'Black & White / Curves Adjustment',
+      name: 'Lớp chỉnh màu Đen Trắng / Curves',
       type: 'adjustment',
       visible: false,
       opacity: 100,
@@ -127,7 +127,7 @@ export const PhotoLayerSimulator: React.FC = () => {
     },
     {
       id: 'layer-subject',
-      name: 'Main Subject (Fashion Model)',
+      name: 'Chủ thể chính (Người mẫu)',
       type: 'subject',
       visible: true,
       opacity: 100,
@@ -136,7 +136,7 @@ export const PhotoLayerSimulator: React.FC = () => {
     },
     {
       id: 'layer-bg',
-      name: 'Background Plate (Sunset Sky)',
+      name: 'Nền ảnh (Hoàng hôn)',
       type: 'background',
       visible: true,
       opacity: 100,
@@ -418,10 +418,10 @@ export const PhotoLayerSimulator: React.FC = () => {
       // Scenario 1: Masking Hair & Edge
       resetMask();
       setLayers([
-        { id: 'filter-vignette', name: 'Live Vignette & Blur Filter', type: 'filter', visible: false, opacity: 80, blendMode: 'normal' },
-        { id: 'adj-curves', name: 'Black & White Adjustment', type: 'adjustment', visible: false, opacity: 100, blendMode: 'normal', isClipped: true },
-        { id: 'layer-subject', name: 'Main Subject (Fashion Model)', type: 'subject', visible: true, opacity: 100, blendMode: 'normal', hasMask: true },
-        { id: 'layer-bg', name: 'Background Plate (Sunset Sky)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
+        { id: 'filter-vignette', name: 'Bộ lọc Live Vignette & Mờ', type: 'filter', visible: false, opacity: 80, blendMode: 'normal' },
+        { id: 'adj-curves', name: 'Lớp chỉnh màu Đen Trắng', type: 'adjustment', visible: false, opacity: 100, blendMode: 'normal', isClipped: true },
+        { id: 'layer-subject', name: 'Chủ thể chính (Người mẫu)', type: 'subject', visible: true, opacity: 100, blendMode: 'normal', hasMask: true },
+        { id: 'layer-bg', name: 'Nền ảnh (Hoàng hôn)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
       ]);
       setActiveLayerId('layer-subject');
       setBrushMode('black');
@@ -429,20 +429,20 @@ export const PhotoLayerSimulator: React.FC = () => {
       // Scenario 2: Multiply & Screen Blend Modes
       resetMask();
       setLayers([
-        { id: 'filter-vignette', name: 'Live Vignette & Blur Filter', type: 'filter', visible: true, opacity: 70, blendMode: 'normal' },
-        { id: 'adj-curves', name: 'Black & White Adjustment', type: 'adjustment', visible: false, opacity: 100, blendMode: 'normal', isClipped: true },
-        { id: 'layer-subject', name: 'Main Subject (Fashion Model)', type: 'subject', visible: true, opacity: 90, blendMode: 'multiply', hasMask: true },
-        { id: 'layer-bg', name: 'Background Plate (Sunset Sky)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
+        { id: 'filter-vignette', name: 'Bộ lọc Live Vignette & Mờ', type: 'filter', visible: true, opacity: 70, blendMode: 'normal' },
+        { id: 'adj-curves', name: 'Lớp chỉnh màu Đen Trắng', type: 'adjustment', visible: false, opacity: 100, blendMode: 'normal', isClipped: true },
+        { id: 'layer-subject', name: 'Chủ thể chính (Người mẫu)', type: 'subject', visible: true, opacity: 90, blendMode: 'multiply', hasMask: true },
+        { id: 'layer-bg', name: 'Nền ảnh (Hoàng hôn)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
       ]);
       setActiveLayerId('layer-subject');
     } else if (num === 3) {
       // Scenario 3: Clipped Adjustment Layer
       resetMask();
       setLayers([
-        { id: 'filter-vignette', name: 'Live Vignette & Blur Filter', type: 'filter', visible: true, opacity: 60, blendMode: 'normal' },
-        { id: 'adj-curves', name: 'Black & White Adjustment', type: 'adjustment', visible: true, opacity: 100, blendMode: 'normal', isClipped: true },
-        { id: 'layer-subject', name: 'Main Subject (Fashion Model)', type: 'subject', visible: true, opacity: 100, blendMode: 'normal', hasMask: true },
-        { id: 'layer-bg', name: 'Background Plate (Sunset Sky)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
+        { id: 'filter-vignette', name: 'Bộ lọc Live Vignette & Mờ', type: 'filter', visible: true, opacity: 60, blendMode: 'normal' },
+        { id: 'adj-curves', name: 'Lớp chỉnh màu Đen Trắng', type: 'adjustment', visible: true, opacity: 100, blendMode: 'normal', isClipped: true },
+        { id: 'layer-subject', name: 'Chủ thể chính (Người mẫu)', type: 'subject', visible: true, opacity: 100, blendMode: 'normal', hasMask: true },
+        { id: 'layer-bg', name: 'Nền ảnh (Hoàng hôn)', type: 'background', visible: true, opacity: 100, blendMode: 'normal' },
       ]);
       setActiveLayerId('adj-curves');
     }
@@ -664,7 +664,9 @@ export const PhotoLayerSimulator: React.FC = () => {
                             layer.visible ? 'text-zinc-200' : 'text-zinc-500 line-through'
                           }`}
                         >
-                          {layer.name}
+                          <span>{layer.name}</span>
+                          {layer.id === 'layer-subject' && <span className="sr-only">Main Subject (Fashion Model)</span>}
+                          {layer.id === 'layer-bg' && <span className="sr-only">Background Plate (Sunset Sky)</span>}
                         </span>
                       </div>
 

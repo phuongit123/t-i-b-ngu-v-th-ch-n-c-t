@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.9` (latest desktop version scope accepted; last completed Quality Gate #43738438116 passed on prior reviewed head)
+- **Version:** `4.4.9` (TASK-079 merged into main; TASK-080 Round 6 review active on PR #6)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — PR #6 head `45177bcedf63540a33cf5698597fa9abe1215555` passed Quality Gate #43740779791 (web academy scope only) — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — PR #6 rebased onto main — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -148,7 +148,7 @@ The Project Owner approved a product-level goal: learners must understand and co
 - `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
 - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
 - Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
-- `REQ-LEARN-001`–`003` and `TASK-079`–`081` are registered as PENDING. No new lesson count is claimed.
+- `TASK-079` and `REQ-LEARN-001` are COMPLETED following independent audit of all 66 lesson mappings; TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until both TASK-079 and TASK-080 are formally complete. No new lesson count is claimed.
 
 ### Next implementation sequence
 1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
@@ -183,7 +183,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 1. Open the repository root containing `AGENTS.md`, `package.json`, and `.agents/`.
 2. Confirm the governance rule and six skills appear in the Customizations view.
 3. Invoke `/academy-session-orientation` and ask it to report branch, working-tree state, blockers, next eligible task, and governing files read.
-4. For the next learning work, invoke `/affinity-tool-audit` to begin `TASK-080` against the installed current Affinity build and map the existing lessons. Do not author the locked B02–B10 or S02–S10 lessons.
+4. For the next learning work, invoke `/curriculum-lesson-design` and review `project-control/LEARNING_OUTCOME_MAPPING.md` against all 66 lesson JSON files. Do not author the locked B02–B10 or S02–S10 lessons.
 
 ### Safety and status
 
@@ -239,6 +239,19 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Antigravity reports local tests on `e65b9fd`; GitHub Actions must run against the branch/PR before recording CI PASS.
 - `TASK-080` stays IN_PROGRESS and `BLK-007` stays ACTIVE — LOCKED.
 
+---
+
+## 9. TASK-079 — Programme Outcome Mapping & Complete 66/66 QA Audit (2026-11-15)
+
+- Active branch: `feat/task-079-learning-outcome-mapping`, based on `main` after PR #3 merge commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Mapping file: `project-control/LEARNING_OUTCOME_MAPPING.md` (`PLO-MAP-001`).
+- Coverage: 66 existing lesson IDs represented exactly once; each row lists mapped PLOs and evidence notations T/G/X*.
+- Independent QA Audit: `project-control/TASK-079_INDEPENDENT_REVIEW.md` (`TASK-079-REV-001`). Completed full 66/66 row-by-row verification table cross-examining declared tools, guided practice checkpoints, independent challenges, and rubric criteria against lesson JSON definitions.
+- Outcome distribution & confirmed deficiencies: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); **PLO-07 (4/66 - critical brief interpretation deficit)**; **PLO-08 (15/66 - critique/iteration deficit)**; PLO-09 (23); PLO-10 (55); PLO-11 (3).
+- Disposition: `TASK-079` COMPLETED and merged into `main` following Project Owner approval and the independent 66/66 source-row audit. No learner mastery/A5 claim is made.
+- Governance Invariant: `TASK-081` strictly depends on BOTH `TASK-079` and `TASK-080`. Even after `TASK-079` is signed off, `TASK-081` remains PENDING until `TASK-080` (Tool Coverage Matrix) completes independent source verification and P4 practice audits.
+- `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING.
+- `BLK-007` remains ACTIVE — LOCKED. No new Publisher B02–B10 or Scripting S02–S10 authoring is authorized.
 
 ---
 

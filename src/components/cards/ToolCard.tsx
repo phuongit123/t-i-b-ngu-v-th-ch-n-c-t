@@ -63,9 +63,9 @@ export const ToolCard: React.FC<ToolCardProps> = ({
       </div>
 
       <div className="mt-4 pt-2.5 border-t border-hairline flex items-center justify-between text-[11px] font-mono text-zinc-500">
-        <span className="uppercase tracking-wider">Persona: {tool.persona}</span>
+        <span className="uppercase tracking-wider">Không gian: {tool.persona}</span>
         {tool.modifiers && tool.modifiers.length > 0 && (
-          <span className="text-zinc-400">{tool.modifiers.length} Modifiers</span>
+          <span className="text-zinc-400">{tool.modifiers.length} phím bổ trợ</span>
         )}
       </div>
     </div>

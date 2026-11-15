@@ -22,19 +22,20 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
 }) => {
   const [query, setQuery] = useState('');
 
-  // Sample index for searching
+  // Search examples reference modules that exist in the current 66-lesson curriculum.
+  // Product/tool and API identifiers remain in their official English form where useful.
   const searchableItems: SearchResultItem[] = [
-    { id: 'D01', category: 'module', title: 'D01: Designer Workspace & Personas', subtitle: 'Affinity Designer Track', badge: 'Module' },
-    { id: 'D02', category: 'module', title: 'D02: Pen Tool & Vector Nodes', subtitle: 'Affinity Designer Track', badge: 'Module' },
-    { id: 'P01', category: 'module', title: 'P01: RAW Develop & Color Spaces', subtitle: 'Affinity Photo Track', badge: 'Module' },
-    { id: 'P06', category: 'module', title: 'P06: Frequency Separation', subtitle: 'Affinity Photo Track', badge: 'Module' },
-    { id: 'B02', category: 'module', title: 'B02: Master Pages & Multi-Section', subtitle: 'Affinity Publisher Track', badge: 'Module' },
-    { id: 'S08', category: 'module', title: 'S08: Affinity MCP Server Architecture', subtitle: 'Affinity Scripting Track', badge: 'Module' },
-    { id: 'tool-pen', category: 'tool', title: 'Pen Tool', subtitle: 'Shortcut: P (Win / Mac)', badge: 'Designer' },
-    { id: 'tool-node', category: 'tool', title: 'Node Tool', subtitle: 'Shortcut: A (Win / Mac)', badge: 'Designer' },
-    { id: 'tool-inpainting', category: 'tool', title: 'Inpainting Brush Tool', subtitle: 'Shortcut: J (Win / Mac)', badge: 'Photo' },
-    { id: 'api-render-spread', category: 'doc', title: 'render_spread(uuid, spreadIndex)', subtitle: 'Affinity MCP Visual Render API', badge: 'MCP API' },
-    { id: 'api-execute-script', category: 'doc', title: 'execute_script(script)', subtitle: 'Affinity 3.0 JS DOM Execution API', badge: 'MCP API' },
+    { id: 'D01', category: 'module', title: 'D01: Giao diện Vector và các Persona', subtitle: 'Lộ trình Vector Studio', badge: 'Mô-đun' },
+    { id: 'D02', category: 'module', title: 'D02: Pen Tool và các node Vector', subtitle: 'Lộ trình Vector Studio', badge: 'Mô-đun' },
+    { id: 'P01', category: 'module', title: 'P01: Giao diện Pixel và các bảng Studio', subtitle: 'Lộ trình Pixel Studio', badge: 'Mô-đun' },
+    { id: 'P06', category: 'module', title: 'P06: Live Filters và bộ lọc động', subtitle: 'Lộ trình Pixel Studio', badge: 'Mô-đun' },
+    { id: 'B01', category: 'module', title: 'B01: Dàn trang ấn phẩm và lưới văn bản', subtitle: 'Lộ trình Layout Studio — bài học thử nghiệm', badge: 'Mô-đun' },
+    { id: 'S01', category: 'module', title: 'S01: Runtime JavaScript V8 và máy chủ MCP', subtitle: 'Nhánh Tự động hóa — bài học thử nghiệm', badge: 'Mô-đun' },
+    { id: 'tool-pen', category: 'tool', title: 'Công cụ Pen Tool', subtitle: 'Phím tắt: P (Windows / macOS)', badge: 'Vector' },
+    { id: 'tool-node', category: 'tool', title: 'Công cụ Node Tool', subtitle: 'Phím tắt: A (Windows / macOS)', badge: 'Vector' },
+    { id: 'tool-inpainting', category: 'tool', title: 'Công cụ Inpainting Brush Tool', subtitle: 'Phím tắt: J (Windows / macOS)', badge: 'Pixel' },
+    { id: 'api-render-spread', category: 'doc', title: 'render_spread(uuid, spreadIndex)', subtitle: 'API kết xuất trang trong Affinity MCP', badge: 'API MCP' },
+    { id: 'api-execute-script', category: 'doc', title: 'execute_script(script)', subtitle: 'API thực thi JavaScript trong Affinity', badge: 'API MCP' },
   ];
 
   useEffect(() => {
@@ -94,14 +95,14 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search modules, tools, or MCP APIs..."
+            placeholder="Tìm kiếm module, công cụ hoặc lệnh API MCP..."
             className="w-full bg-transparent text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
             autoFocus
           />
           <button
             onClick={onClose}
             className="text-zinc-500 hover:text-zinc-300 p-1"
-            aria-label="Close search"
+            aria-label="Đóng bảng tìm kiếm"
           >
             <X className="w-4 h-4" />
           </button>
@@ -111,7 +112,7 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
         <div className="max-h-80 overflow-y-auto p-2">
           {filtered.length === 0 ? (
             <div className="py-8 text-center text-xs text-zinc-500">
-              No matching modules or tools found.
+              Không tìm thấy module hoặc công cụ phù hợp.
             </div>
           ) : (
             <div className="flex flex-col gap-1">
@@ -150,8 +151,8 @@ export const SearchCommand: React.FC<SearchCommandProps> = ({
 
         {/* Footer info */}
         <div className="px-4 py-2 border-t border-hairline bg-zinc-950/40 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-          <span>Navigate with mouse or arrow keys</span>
-          <span>ESC to close</span>
+          <span>Điều hướng bằng chuột hoặc phím mũi tên</span>
+          <span>Nhấn ESC để đóng</span>
         </div>
       </div>
     </div>

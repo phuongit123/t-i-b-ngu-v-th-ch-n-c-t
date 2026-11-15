@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.9` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.9` (TASK-079 merged to main; TASK-080 Round 6 evidence review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Historical Gate #8 is not current-head evidence; PR #6 Quality Gate #43740779791 passed on 45177bcedf63540a33cf5698597fa9abe1215555 (web academy scope only)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #43730666138 passed on PR #4 and merged to main; PR #6 Quality Gate #43740779791 passed on 45177bcedf63540a33cf5698597fa9abe1215555 (web academy scope only)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
@@ -31,8 +31,8 @@
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). Hai tác vụ gốc đang IN_PROGRESS là `TASK-012` và `TASK-013`.
->   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại, bao gồm `TASK-010-REAUDIT` và `TASK-079`–`TASK-081`; trong đó 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
+>   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
+>   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`), còn `TASK-079` đã COMPLETED và merged vào main.
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -91,7 +91,11 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
+<<<<<<< HEAD
 - **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. `TASK-079` is COMPLETED after the 66/66 independent mapping review and exact-head Quality Gate evidence; `TASK-080` remains IN_PROGRESS and `TASK-081` remains PENDING. The specifications do not count as a completed inventory or capstone implementation.
+=======
+- **Governance updates:** `TASK-079` is COMPLETED after independent 66/66 row-by-row QA. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
+>>>>>>> main
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
@@ -106,7 +110,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Onboarding guide:** `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` documents discovery paths, setup, first-session verification, skill invocation, branch safety, and current eligible learning work.
 - **README / handoff:** linked and described how to open the repository root, verify workspace customizations, and start with `/academy-session-orientation`.
 - **Verification boundary:** the documented code-bearing HEAD `baec6c5bfe8de22d9c46546dbf2216a2ba276560` passed Quality Gate workflow `43711760405` (all steps success; 66/66, 41/41, 3/3, 20/20 Edge E2E in 38.2s). Antigravity rules/skills are Markdown and frontmatter files; the remote session can verify their committed contents but cannot assert that the user's local Antigravity instance has loaded them. Verify in the Customizations panel on the user's machine.
-- **Governance:** `TASK-079` and `TASK-081` remain PENDING; `TASK-080` is IN_PROGRESS pending independent inventory/source/teaching-evidence review; `BLK-007` remains ACTIVE — LOCKED. Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
+- **Governance:** `TASK-079` is COMPLETED; `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING until both dependencies are completed; `BLK-007` remains ACTIVE — LOCKED. Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
 
 ---
 
@@ -142,6 +146,19 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - A detailed review report is available at `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
 - `TASK-080` remains IN_PROGRESS. The 50 P4 claims, remaining sources, exact installed build, and denominator completeness require further review. Antigravity's reported local checks are not GitHub Actions evidence for commit e65b9fd.
 
+---
+
+## 9. TASK-079 — Comprehensive 66-Lesson PLO Mapping & Full QA Audit (2026-11-15)
+
+- Created `project-control/LEARNING_OUTCOME_MAPPING.md` on branch `feat/task-079-learning-outcome-mapping`.
+- The mapping includes all 66 current lesson IDs exactly once and maps them to the 11 approved PLOs with evidence tags: T (taught), G (guided practice), X* (independent-challenge opportunity; not A5).
+- Lesson-row counts by PLO: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); PLO-07 (4); PLO-08 (15); PLO-09 (23); PLO-10 (55); PLO-11 (3). Counts are alignment counts, not completion percentages.
+- Critical deficiencies identified: severe under-representation of brief interpretation (PLO-07, 4/66) and structured critique/iteration loops (PLO-08, 15/66).
+- Independent QA completed a 100% full audit across all 66 lesson JSON files, recording individual lesson titles, tool evidence, guided checkpoints, challenge criteria counts, QA dispositions (66/66 PASS), and transfer evaluation notes in `project-control/TASK-079_INDEPENDENT_REVIEW.md`.
+- `TASK-079` is COMPLETED and merged into `main` following Project Owner approval and the independent 66/66 source-row audit.
+- Governance note: `TASK-081` (Capstone Assessment Framework) strictly requires BOTH `TASK-079` AND `TASK-080` to be completed and signed off before it can begin.
+- `TASK-080` remains IN_PROGRESS pending separate Help Center source validation and P4 practice audits. `TASK-081` remains PENDING.
+- `BLK-007` remains ACTIVE — LOCKED; no new Publisher/Scripting lessons are authorized.
 
 ---
 

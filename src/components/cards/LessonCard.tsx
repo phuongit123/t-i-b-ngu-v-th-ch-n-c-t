@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { PlayCircle, CheckCircle2, Clock } from 'lucide-react';
 import type { LessonSummary } from '@/types/design-system';
+import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
 
 export interface LessonCardProps {
   lesson: LessonSummary;
@@ -16,6 +17,8 @@ export const LessonCard: React.FC<LessonCardProps> = ({
   onClick,
   className,
 }) => {
+  const displayTitle = lessonTranslationsVi[lesson.id] || lesson.title;
+
   return (
     <div
       onClick={onClick}
@@ -48,7 +51,8 @@ export const LessonCard: React.FC<LessonCardProps> = ({
             Bài {lesson.lessonNumber}
           </span>
           <h5 className="text-xs font-semibold text-zinc-200 truncate group-hover:text-white">
-            {lesson.title}
+            <span>{displayTitle}</span>
+            <span className="sr-only">{lesson.title}</span>
           </h5>
         </div>
       </div>

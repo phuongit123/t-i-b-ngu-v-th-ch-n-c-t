@@ -11,7 +11,7 @@ export interface ErrorStateProps {
 }
 
 export const ErrorState: React.FC<ErrorStateProps> = ({
-  title = 'Something went wrong',
+  title = 'Đã xảy ra lỗi',
   message,
   onRetry,
   className,
@@ -40,7 +40,7 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
             onClick={onRetry}
             className="border-rose-500/30 text-rose-300 hover:bg-rose-500/10"
           >
-            Retry Operation
+            Thử lại thao tác
           </Button>
         </div>
       )}

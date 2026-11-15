@@ -4,7 +4,7 @@ import { Breadcrumbs } from '../ui/Breadcrumbs';
 import type { BreadcrumbItem } from '@/types/design-system';
 
 export interface PageHeaderProps {
-  title: string;
+  title: React.ReactNode;
   description?: string;
   badge?: string;
   breadcrumbs?: BreadcrumbItem[];

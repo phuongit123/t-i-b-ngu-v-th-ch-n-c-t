@@ -72,7 +72,7 @@ export const Modal: React.FC<ModalProps> = ({
           <button
             onClick={onClose}
             className="text-zinc-500 hover:text-zinc-200 transition-colors p-1 rounded-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
-            aria-label="Close dialog"
+            aria-label="Đóng hộp thoại"
           >
             <X className="w-4 h-4" />
           </button>

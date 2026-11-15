@@ -33,6 +33,9 @@ dist-ssr
 # Test artifacts
 test-results/
 
+# Temporary scratch files
+scratch/
+
 # Archives
 *.zip
 

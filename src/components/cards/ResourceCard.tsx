@@ -50,7 +50,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
         <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
           <span>{resource.fileSize}</span>
           <span>&bull;</span>
-          <span>{resource.downloadsCount} downloads</span>
+          <span>{resource.downloadsCount} lượt tải</span>
         </div>
 
         <Button
@@ -60,7 +60,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
           onClick={onDownload}
           className="text-xs"
         >
-          Download
+          Tải về
         </Button>
       </div>
     </div>

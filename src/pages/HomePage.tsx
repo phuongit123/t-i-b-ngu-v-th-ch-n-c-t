@@ -41,42 +41,42 @@ export const HomePage: React.FC<HomePageProps> = ({
         <nav className="hidden md:flex items-center gap-8 lg:gap-12">
           <button
             onClick={() => onNavigate('home')}
-            className="font-nunito text-[16px] text-white transition-colors hover:text-zinc-300 lowercase"
+            className="font-nunito text-[16px] text-white transition-colors hover:text-zinc-300 capitalize"
           >
-            home
+            Trang chủ
           </button>
           <button
             onClick={() => onNavigate('catalog')}
-            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white lowercase"
+            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white capitalize"
           >
-            curriculum
+            Lộ trình học
           </button>
           <button
             onClick={() => onNavigate('simulator')}
-            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white lowercase"
+            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white capitalize"
           >
-            sandbox
+            Phòng thực hành
           </button>
           <button
             onClick={() => onNavigate('encyclopedia')}
-            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white lowercase"
+            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white capitalize"
           >
-            encyclopedia
+            Bách khoa thư
           </button>
           <button
             onClick={() => onNavigate('resources')}
-            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white lowercase"
+            className="font-nunito text-[16px] text-zinc-400 transition-colors hover:text-white capitalize"
           >
-            resources
+            Tài nguyên
           </button>
         </nav>
 
         {/* Header Right Action Button */}
         <button
           onClick={() => onNavigate('catalog')}
-          className="px-7 py-2.5 rounded-[100px] border border-[#6d7d7d] text-white font-kanit text-[14px] sm:text-[15px] tracking-[6.88px] uppercase hover:bg-white hover:text-[#191d1d] hover:border-white transition-all duration-300"
+          className="px-7 py-2.5 rounded-[100px] border border-[#6d7d7d] text-white font-kanit text-[14px] sm:text-[15px] tracking-[4px] uppercase hover:bg-white hover:text-[#191d1d] hover:border-white transition-all duration-300"
         >
-          GET STARTED
+          BẮT ĐẦU NGAY
         </button>
       </header>
 

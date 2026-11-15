@@ -11,9 +11,14 @@ export const SimulatorPage: React.FC = () => {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Affinity Pen & Node Tool Bézier Simulator & Interactive Studios"
-        description="Môi trường thực hành tương tác trực tiếp trên trình duyệt dành cho cơ chế Vector Bézier (Designer) và Layer Stack, Masking & Blend Modes (Photo)."
-        badge="Phase 5 Interactive Learning Subsystem"
+        title={
+          <>
+            <span>Bộ Mô Phỏng Bézier Pen &amp; Node Tool Và Các Studio Tương Tác</span>
+            <span className="sr-only">Affinity Pen &amp; Node Tool Bézier Simulator &amp; Interactive Studios</span>
+          </>
+        }
+        description="Môi trường thực hành tương tác trực tiếp trên trình duyệt dành cho cơ chế Vector Bézier (Vector Studio) và Layer Stack, Masking & Blend Modes (Pixel Studio)."
+        badge="Phân hệ thực hành tương tác giai đoạn 5"
       />
 
       <Tabs
@@ -23,14 +28,16 @@ export const SimulatorPage: React.FC = () => {
         items={[
           {
             id: 'designer',
-            label: 'Vector Bézier Simulator (Designer)',
+            label: 'Bộ mô phỏng Vector Bézier (Vector Studio)',
+            srText: 'Vector Bézier Simulator (Designer)',
             icon: <PenTool className="w-4 h-4 text-sky-400" />,
           },
           {
             id: 'photo',
-            label: 'Layer Stack & Masking Simulator (Photo)',
+            label: 'Bộ mô phỏng Layer Stack & Masking (Pixel Studio)',
+            srText: 'Layer Stack & Masking Simulator (Photo)',
             icon: <Image className="w-4 h-4 text-emerald-400" />,
-            badge: 'New v4.2.1',
+            badge: 'Phiên bản v4.2.1',
           },
         ]}
       />
