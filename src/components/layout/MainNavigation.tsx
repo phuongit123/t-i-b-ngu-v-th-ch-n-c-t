@@ -48,7 +48,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 AFFINITY ACADEMY
               </span>
               <span className="text-[10px] text-zinc-500 tracking-tight font-mono">
-                SERIF 3.0 & TỰ ĐỘNG HÓA MCP
+                LAYOUT · VECTOR · PIXEL · DESIGN THINKING
               </span>
             </div>
           </button>
@@ -100,7 +100,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
                 : 'bg-zinc-800 text-zinc-400 border-hairline'
             )}
-            title={isMcpConnected ? 'Affinity 3.3.3 MCP đang kết nối tại localhost:6767' : 'Máy chủ MCP đang ngoại tuyến'}
+            title={isMcpConnected ? 'Affinity MCP đã kết nối' : 'Máy chủ MCP đang ngoại tuyến'}
           >
             <span
               className={cn(
