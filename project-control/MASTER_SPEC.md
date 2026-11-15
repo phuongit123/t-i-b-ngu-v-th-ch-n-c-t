@@ -2,16 +2,16 @@
 
 ## Document Control
 - **Document ID:** `SPEC-AFFINITY-ACADEMY-001`
-- **Version:** `2.0.0` (Audited Baseline)
+- **Version:** `2.1.0` (Learning outcomes and tool coverage governance added)
 - **Status:** `AUDITED & EXPANDED / AWAITING USER APPROVAL FOR PHASE 1`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
 
 ---
 
 ## 1. Executive Summary & Vision
 
-**AFFINITY ACADEMY** is a premier digital learning platform, interactive curriculum, and automated design sandbox designed to educate and empower creators in mastering the **Serif Affinity 3.0 suite** (**Affinity Designer**, **Affinity Photo**, **Affinity Publisher**), along with modern **programmatic graphic automation** via the **Affinity JavaScript DOM Scripting API** and **Affinity Model Context Protocol (MCP) Server**.
+**AFFINITY ACADEMY** is a digital learning platform, interactive curriculum, and design sandbox for developing independent visual designers and automation practitioners. Its current-product teaching targets the Affinity desktop application's **Layout, Vector, and Pixel studios**; Designer, Photo, and Publisher are retained as familiar learning-domain labels where useful. Legacy Affinity V2 workflows are labelled explicitly. The platform also covers verified **Affinity JavaScript DOM Scripting API** and **MCP Server** capabilities.
 
 Traditional design education treats graphic software as static manual tools. **Affinity Academy** bridges the gap between artistic creation and generative automation, teaching both manual design excellence (composition, color theory, typography, photo retouching, vector art, editorial layouts) and computational design (scripting shapes, parametric layouts, batch asset generation, and automated QA via MCP).
 
@@ -61,12 +61,12 @@ The curriculum is rigorously structured into **4 tracks**, each containing **10 
 - **Module P09: Tone Mapping, HDR & Multi-Exposure Fusion** (Tone Mapping Persona, exposure bracketing, focus stacking, astrophotography stacking).
 - **Module P10: Batch Processing, Macros & Print/Web Export** (Macro recording, batch processing jobs, color profile conversion, CMYK prep).
 
-### 3.3. Track 3: Affinity Publisher Mastery (10 Modules, 30 Lessons)
+### 3.3. Track 3: Editorial and Layout Design Mastery (Affinity Layout learning domain; 10 Modules, 30 Lessons)
 - **Module B01: Publication Architecture, Document Setup & Bleed** (Facing pages, slug, bleed dimensions, margin standards, master page foundations).
 - **Module B02: Master Pages & Multi-Section Pagination** (Parent/Child master pages, section manager, dynamic page numbering, running headers).
 - **Module B03: Baseline Grids, Flow Columns & Frame Margins** (Document baseline grid, text frame columns, vertical justification, text wrapping).
 - **Module B04: Paragraph & Character Style Hierarchy** (Hierarchical styles, next styles, keep options, hyphenation, drop caps, style import).
-- **Module B05: StudioLink Integration (Designer & Photo in Publisher)** (One-click persona switching, editing vector/raster directly within publication pages).
+- **Module B05: Integrated Vector & Pixel Editing in Current Affinity Layout Documents** (Create and refine vector artwork and pixel-edited imagery within the current Affinity document; teach the Layout, Vector, and Pixel studio workflow. Affinity V2 StudioLink appears only as a clearly labelled historical comparison.)
 - **Module B06: Table Formatting, Data Cells & Visual Infographics** (Table Tool, cell formats, alternating row styling, inline vector tables).
 - **Module B07: Image Frames, Resource Management & DPI Verification** (Picture frames, smart scaling, Resource Manager, embedded vs linked assets).
 - **Module B08: Data Merge & Automated Catalog Generation** (Data Merge Layout tool, CSV/JSON source binding, automated batch variable generation).
@@ -113,7 +113,7 @@ To allow hands-on muscle memory practice directly in the browser:
 ## 6. Complete Tool Encyclopedia & Resource Library Hub
 
 ### 6.1. Tool Encyclopedia & Keyboard Shortcuts Matrix
-- Comprehensive dictionary of **every tool across Affinity Designer, Photo, and Publisher 3.0**.
+- Comprehensive, version-scoped dictionary of every in-scope interactive tool across the current Affinity Layout, Vector, and Pixel studios, with legacy records separated.
 - Searchable by tool name, keyboard shortcut, persona, or application.
 - Dedicated modal/card for each tool displaying:
   * Official Tool Icon & Name
@@ -160,7 +160,7 @@ The platform consists of **8 major pages**, each with explicit functional bounda
 - **Real-time Feedback:** Accuracy scoring, node count evaluator, and hint system.
 
 ### `PAGE-05`: Tool Encyclopedia & Shortcuts Matrix
-- **Search & Filter:** Instant search input, filter by App (Designer/Photo/Publisher) and Persona (Vector, Pixel, Export, Develop, Liquify).
+- **Search & Filter:** Instant search input, filter by learning domain and current studio/workspace (Layout, Vector, Pixel); any legacy Affinity V2 material is visibly labelled and excluded from current-product instructions.
 - **Tool Cards Grid:** Displays all tools with shortcut badges.
 - **Detail View:** Deep dive into tool behavior, modifier keys (Ctrl/Cmd, Alt/Opt, Shift), and context options.
 
@@ -195,3 +195,16 @@ The platform consists of **8 major pages**, each with explicit functional bounda
 > 3. Execution of test scripts on live Affinity 3.0 via `execute_script` to establish exact DOM object shapes, error payload schemas, and execution latency.
 > 4. Execution of `render_spread` and `render_selection` to establish exact image resolution, render performance, and output file paths.
 > 5. Compilation of `AFFINITY_DOM_API_REFERENCE.json` as the single source of truth for both the Monaco editor autocomplete and curriculum script lessons.
+
+
+---
+
+## 9. Learning Outcomes, Design Thinking & Tool Coverage Governance
+
+The programme-level learning outcomes and graduation standard are governed by [`LEARNING_OUTCOMES.md`](./LEARNING_OUTCOMES.md). The version-scoped inventory and evidence requirements for every in-scope Affinity tool/feature are governed by [`AFFINITY_TOOL_COVERAGE_MATRIX.md`](./AFFINITY_TOOL_COVERAGE_MATRIX.md).
+
+The approved educational goal is independent competence: learners must understand what tools do, choose appropriate workflows, apply design principles, solve unfamiliar briefs, evaluate and improve their work, and deliver correct editable sources and exports. Lesson completion or tutorial reproduction alone is not graduation evidence.
+
+All curricula must map their tools to the coverage matrix and their observable objectives to the programme outcomes. The current matrix is a specification only; no exhaustive inventory or 100% coverage claim is made until the current product/build has been audited and independently reviewed.
+
+**Product terminology rule:** Track names are learning-domain labels, not proof of separate current-product executables. Current Layout, Vector, and Pixel studio workflows are taught as part of the current Affinity application. Affinity V2 StudioLink is legacy-only context.

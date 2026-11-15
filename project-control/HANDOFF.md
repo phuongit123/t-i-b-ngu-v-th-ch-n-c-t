@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Timestamp:** `2026-11-11T05:30:00+07:00`
-- **Current State:** `TRACK 1 (DESIGNER: 30 LESSONS) & TRACK 2 (PHOTO: 30 LESSONS) FULLY OPERATIONAL — 66/66 CURRICULUM LESSONS PASSING SCHEMA — 9/9 PLAYWRIGHT E2E TESTS PASSING — 0 TS COMPILATION ERRORS — DUAL IN-BROWSER SIMULATORS OPERATIONAL — HALTED AT PHASE GATE PENDING USER APPROVAL FOR TRACK 3`
+- **Version:** `4.3.0` (Learning outcomes and tool coverage standards registered)
+- **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS MERGED INTO PHASE 5 BRANCH VIA PR #2 — PHASE 5 PR #1 OPEN AGAINST MAIN — QUALITY GATE #8 PASS ON 8f6ef74 — TOOL INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -24,7 +24,7 @@
      - `P09`: RAW Develop Persona Workflow & 32-bit HDR Pipeline
      - `P10`: Export Persona, Batch Processing & Web/Print Pre-flight
    - **Schema & Quality Adherence:** 100% compliant with the 10-part standard content model and slide deck schema.
-   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors**.
+   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors, confirmed on commit 8f6ef74 by Quality Gate #8**.
 
 2. **Authentic Practice Assets for Photo Track:**
    - Authored 9 production-grade practice guides (`GUIDE_DOCUMENT`) in `curriculum/assets/photo/`:
@@ -62,15 +62,15 @@
      - `TC-PHOTO-01`: Course Catalog filters Photo track to 10 modules and 30 lessons.
      - `TC-PHOTO-02`: SlidePlayer launches and navigates a full Photo lesson (`P02-01`).
      - `TC-PHOTO-03`: Photo Layer Simulator renders with disclaimer and interactive controls.
-   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge**.
+   - Total Playwright suite (`tests/e2e/`): **20/20 tests PASSED in 48.3s on Microsoft Edge in Quality Gate #8 (commit 8f6ef74)**.
    - Captured 10 verified screenshot artifacts in `tests/screenshots/` (65 kB to 142 kB).
 
 6. **Full Verification Matrix:**
    - `npm run typecheck`: **0 errors**
-   - `npm run validate:curriculum`: **66/66 PASS**
+   - `npm run validate:curriculum`: **66/66 PASS on 8f6ef74 (Quality Gate #8)**
    - `npm run test:scripts`: **3/3 PASS**
    - `npm run build`: **PASS (6.26s)**
-   - `npm run test:e2e`: **9/9 PASS (18.1s)**
+   - `npm run test:e2e`: **20/20 PASS (48.3s, Microsoft Edge, commit 8f6ef74, Quality Gate #8)**
 
 ---
 
@@ -108,3 +108,83 @@
 > - **DO NOT** deploy Supabase Backend (`TASK-030` to `033`).
 >
 > All agents are idle, standing by awaiting user review, Git commit authorization, and next phase approval.
+
+
+---
+
+## 4. Phase 5 Stabilization Follow-up — 2026-11-13
+
+The published branch `fix/phase5-stabilization` received follow-up commits to address issues found during independent review.
+
+### Changes made
+- `scripts/validate-curriculum.js`: checks unexpected entries at the curriculum root, validates that each module's declared lesson IDs exactly match the independent manifest, rejects duplicate lesson IDs in lesson payloads, and checks exact allowed lesson filenames (so an extra file such as `D01-99.json` is rejected). The root allow-list explicitly permits the existing `curriculum/README.md`, `assets/`, and `schema/` entries while rejecting unknown files and tracks.
+- `scripts/test-curriculum-validator.js`: replaced broad repository-dependent negative cases with isolated temporary fixtures and explicit cases for unexpected tracks/root files, rogue lesson filenames, module lesson-list mismatch, duplicate payload IDs, duplicate metadata IDs, and invalid metadata. The real repository baseline remains a positive test. The suite now has 14 named scenarios, including a positive test that the allowed curriculum root README does not cause a false failure.
+- `project-control/PROGRESS.md`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Current Quality Gate #8 evidence is recorded against commit 8f6ef74.
+- `project-control/PHASE_5_TRACK_3_PROPOSAL.md`: B05 is reframed for the current Affinity all-in-one app and its Layout, Vector, and Pixel studios. StudioLink is retained only as explicitly labelled Affinity V2 legacy context.
+- `AFFINITY_MCP_CAPABILITY_REPORT.md` and `AGENTS.md`: reconcile 11 upstream tools plus the `affinity_status` wrapper (12 inventory rows), and mark the `topic` schema vs `filename` runtime observation as historical pending live re-audit.
+- `project-control/BLOCKERS.md`: keeps `BLK-007` locked and prevents the historical MCP observation from being treated as current runtime evidence. The strengthened validator passed in Quality Gate #8; live Affinity MCP runtime behaviour remains a separate re-audit item.
+
+### Verification state
+- The files were updated on the published branch through GitHub's repository file API.
+- This remote editing session did **not** execute `npm ci`, `npm run validate:curriculum`, `npm run test:validator`, `npm run lint`, `npm run typecheck`, `npm run build`, or Playwright.
+- No test result should be reported as PASS until those commands are run in the repository working copy.
+- No live connection to the user's Affinity MCP server was available; the current `read_sdk_documentation_topic` schema/runtime contract remains unverified. The historical report and `AGENTS.md` now consistently record 11 upstream tools plus the `affinity_status` wrapper (12 inventory entries).
+- No GitHub Actions workflow exists in the inspected branch; CI evidence remains unavailable.
+
+### Governance
+`BLK-007` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
+
+
+---
+
+## 5. Learning Outcomes & Tool Coverage Handoff (2026-11-15)
+
+### New approved direction
+The Project Owner approved a product-level goal: learners must understand and competently use the in-scope Affinity tools and develop independent design thinking. Course completion counts alone are not graduation evidence.
+
+### Documentation added on `docs/learning-outcomes-tool-mastery`
+- `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
+- `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
+- Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
+- `REQ-LEARN-001`–`003` and `TASK-079`–`081` are registered as PENDING. No new lesson count is claimed.
+
+### Next implementation sequence
+1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
+2. Review and merge the Phase 5 stabilization PR only after evidence is attached to the exact pushed HEAD.
+3. Populate the version-scoped Layout, Vector, and Pixel inventory from official sources and direct application evidence; do not claim full coverage before independent audit.
+4. Map existing lessons to verified tools and programme outcomes; record omissions and propose content changes without bypassing `BLK-007`.
+5. Author and QA-review independent design briefs, rubrics, and capstone requirements before enabling graduation claims.
+
+### Verification and governance
+This branch has now run the full Quality Gate #8 on commit 8f6ef74: npm ci, ESLint, TypeScript, curriculum validator, validator regressions, script checks, production build, Edge installation, and Playwright E2E. All steps passed. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.
+
+
+### Test-count clarification for the latest pushed code
+The repository defines 20 Playwright tests across three specs: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. Quality Gate #8 ran the complete suite on Microsoft Edge at commit 8f6ef74 and recorded **20 passed (48.3s), 0 failed**. The full job conclusion is `success`; the log and screenshots are retained in artifact `affinity-academy-quality-evidence` (artifact ID `14159993282`).
+
+---
+
+## 6. Antigravity Workspace Integration — 2026-11-15
+
+The Project Owner requested that Antigravity (the workspace builder agent) follow the same approved Affinity Academy direction as the other agents. Workspace customizations are now committed on `fix/phase5-stabilization`:
+
+- Root `AGENTS.md`: always-on repository direction, evidence discipline, task traceability, and phase-gate rules.
+- `.agents/rules/affinity-academy-governance.md`: Antigravity always-on rule with `trigger: always_on`.
+- `.agents/skills/`: six focused skills — `academy-session-orientation`, `academy-product-implementation`, `affinity-tool-audit`, `curriculum-lesson-design`, `independent-capstone-assessment`, and `quality-gate-handoff`.
+- `project-control/ANTIGRAVITY_OPERATING_GUIDE.md`: setup, discovery verification, slash-command entry points, source-of-truth file order, branch safety, and first-session checklist.
+- README now links to the operating guide and explains how to activate the workspace instructions.
+
+### First action in Antigravity
+
+1. Open the repository root containing `AGENTS.md`, `package.json`, and `.agents/`.
+2. Confirm the governance rule and six skills appear in the Customizations view.
+3. Invoke `/academy-session-orientation` and ask it to report branch, working-tree state, blockers, next eligible task, and governing files read.
+4. For the next learning work, invoke `/affinity-tool-audit` to begin `TASK-080` against the installed current Affinity build and map the existing lessons. Do not author the locked B02–B10 or S02–S10 lessons.
+
+### Safety and status
+
+- These are workspace instructions shared through Git; they do not configure Antigravity globally and do not prove that Antigravity has already loaded them on the user's machine.
+- The owner must open this branch/workspace and verify the rule and skills are visible in Antigravity's Customizations panel.
+- PR #1 remains open against `main`; no merge was performed by this work.
+- `BLK-007` remains ACTIVE — LOCKED. Tool audit and existing-lesson mapping are the next eligible learning tasks; curriculum expansion and deferred platform modules remain gated.
+- Antigravity's first session must re-check live GitHub state and the local working tree; this handoff is not a substitute for those checks.

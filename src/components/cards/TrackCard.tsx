@@ -10,6 +10,8 @@ export interface TrackCardProps {
   description: string;
   moduleCount: number;
   lessonCount: number;
+  plannedModuleCount?: number;
+  plannedLessonCount?: number;
   progressPercentage?: number;
   onClick: () => void;
   className?: string;
@@ -22,6 +24,8 @@ export const TrackCard: React.FC<TrackCardProps> = ({
   description,
   moduleCount,
   lessonCount,
+  plannedModuleCount = moduleCount,
+  plannedLessonCount = lessonCount,
   progressPercentage = 0,
   onClick,
   className,
@@ -96,9 +100,19 @@ export const TrackCard: React.FC<TrackCardProps> = ({
 
       {/* Progress & Lesson Metrics */}
       <div className="mt-6 pt-4 border-t border-hairline flex flex-col gap-3">
-        <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-          <span>{moduleCount} Modules &bull; {lessonCount} Lessons</span>
-          <span className="font-semibold text-zinc-200">{progressPercentage}%</span>
+        <div className="grid grid-cols-2 gap-3 text-[11px] font-mono">
+          <div className="min-w-0">
+            <span className="block text-[9px] uppercase tracking-wider text-zinc-500">Module</span>
+            <span className="font-semibold text-zinc-200">{moduleCount}/{plannedModuleCount}</span>
+          </div>
+          <div className="min-w-0">
+            <span className="block text-[9px] uppercase tracking-wider text-zinc-500">Bài học</span>
+            <span className="font-semibold text-zinc-200">{lessonCount}/{plannedLessonCount}</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-between gap-2 text-[10px] font-mono">
+          <span className="text-zinc-500">Nội dung so với kế hoạch</span>
+          <span className="font-semibold text-zinc-200 shrink-0">{progressPercentage}%</span>
         </div>
 
         {/* Progress Bar */}
@@ -111,7 +125,7 @@ export const TrackCard: React.FC<TrackCardProps> = ({
 
         {/* Action Link */}
         <div className="flex items-center justify-between text-xs font-medium text-zinc-300 pt-1 group-hover:text-white transition-colors">
-          <span>Explore Track</span>
+          <span>Khám phá Lộ trình</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>

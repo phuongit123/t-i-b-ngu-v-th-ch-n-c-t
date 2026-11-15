@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `CRITERIA-AFFINITY-001`
-- **Version:** `2.0.0` (Audited Baseline)
+- **Version:** `2.1.0` (Programme learning acceptance added)
 - **Status:** `ACTIVE / AUDITED & EXPANDED`
-- **Last Updated:** `2026-11-09`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `QAAgent` / `Orchestrator`
 
 ---
@@ -73,3 +73,36 @@ A task cannot be marked `COMPLETED` unless it meets all five strict criteria:
 | `REQ-OPS-001` | Netlify Production Build | Production Build Verification | `npm run build && npx netlify build` | Build artifacts generated in `dist/`; routing rules verified. |
 | `REQ-OPS-002` | Developer Setup Guide | Clean Environment Run | Verification in fresh shell session | Following `README.md` allows full local startup in < 5 minutes. |
 | `REQ-OPS-003` | Security & Secrets Audit | Static Secrets Scanner | Git log & file scan | Zero API keys, database secrets, or tokens committed to git repository. |
+
+
+---
+
+## 10. Programme-Level Learning & Graduation Acceptance
+
+These criteria supplement the software/task Definition of Done. They are required before Affinity Academy may claim that a learner has mastered the declared Affinity scope or developed independent design competence.
+
+### 10.1. Tool Coverage Acceptance
+
+1. A version-scoped inventory of the current Affinity Layout, Vector, and Pixel studios/workspaces exists and has been independently checked against authoritative sources and/or direct application evidence.
+2. Every in-scope record has a stable ID, exact name, purpose, key operations/options, verified shortcut data or an explicit unknown/not-applicable marker, constraints, source, and verification date/build.
+3. Every in-scope record maps to at least one lesson and practice task.
+4. Core tools reach `A5 — Independently assessed`; supporting records reach at least `P4 — Practised` as defined in `AFFINITY_TOOL_COVERAGE_MATRIX.md`.
+5. Inventory exclusions and legacy-only records are explicit. No 100% coverage claim is permitted while discovery, verification, or unresolved discrepancies remain.
+
+### 10.2. Design Thinking Acceptance
+
+1. Substantial lessons and all capstones teach the brief → define → explore → plan → create → evaluate → iterate → deliver workflow.
+2. Curriculum content explicitly teaches visual hierarchy, composition, contrast, alignment, proximity, repetition, balance, spacing, typography, color, imagery, and consistency at an appropriate level.
+3. Independent challenges differ materially from their demonstrations and require learner decisions.
+4. Rubrics assess both technical execution and the reasons behind design decisions.
+5. Track-level projects assess transfer to a new brief, not simply recall or reproduction.
+
+### 10.3. Graduation Acceptance
+
+1. Graduation evidence covers all required learning domains in which the learner is enrolled; the full Academy programme must demonstrate the defined Designer, Photo, and Layout outcomes.
+2. A programme capstone uses a new brief and includes planning, at least one considered alternative, final work, an editable source file, appropriate exports, and a concise rationale/reflection.
+3. Each critical capstone rubric dimension scores at least Level 3 (Independent execution). Critical technical or communication failures cannot be offset by a high average.
+4. QA independently reviews the tool coverage audit, assessment rubric, and capstone evidence before certification criteria are enabled.
+5. Progress percentages, completion badges, and certificates must distinguish lesson completion from demonstrated competency.
+
+The authoritative learning outcomes, competency scale, lesson teaching contract, and proposed rubric are maintained in `LEARNING_OUTCOMES.md`. These programme criteria are not satisfied merely by creating that document; the inventory, curriculum mapping, assessments, and QA evidence must still be delivered.

@@ -23,12 +23,12 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
   className,
 }) => {
   const navItems = [
-    { id: 'catalog', label: 'Tracks', icon: <Compass className="w-3.5 h-3.5" /> },
-    { id: 'simulator', label: 'Simulator', icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: 'encyclopedia', label: 'Encyclopedia', icon: <BookOpen className="w-3.5 h-3.5" /> },
-    { id: 'playground', label: 'MCP Playground', icon: <Terminal className="w-3.5 h-3.5" /> },
-    { id: 'resources', label: 'Resources', icon: <Download className="w-3.5 h-3.5" /> },
-    { id: 'dashboard', label: 'Dashboard', icon: <User className="w-3.5 h-3.5" /> },
+    { id: 'catalog', label: 'Lộ trình', srText: 'Tracks', icon: <Compass className="w-3.5 h-3.5" /> },
+    { id: 'simulator', label: 'Bộ mô phỏng', srText: 'Simulator', icon: <Layers className="w-3.5 h-3.5" /> },
+    { id: 'encyclopedia', label: 'Bách khoa thư', icon: <BookOpen className="w-3.5 h-3.5" /> },
+    { id: 'playground', label: 'Thực hành MCP', icon: <Terminal className="w-3.5 h-3.5" /> },
+    { id: 'resources', label: 'Tài nguyên', icon: <Download className="w-3.5 h-3.5" /> },
+    { id: 'dashboard', label: 'Hồ sơ học tập', icon: <User className="w-3.5 h-3.5" /> },
   ];
 
   return (
@@ -48,7 +48,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 AFFINITY ACADEMY
               </span>
               <span className="text-[10px] text-zinc-500 tracking-tight font-mono">
-                SERIF 3.0 & MCP AUTOMATION
+                LAYOUT · VECTOR · PIXEL · DESIGN THINKING
               </span>
             </div>
           </button>
@@ -70,6 +70,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 >
                   {item.icon}
                   <span>{item.label}</span>
+                  {item.srText && <span className="sr-only">{item.srText}</span>}
                 </button>
               );
             })}
@@ -82,10 +83,10 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
           <button
             onClick={onOpenSearch}
             className="flex items-center gap-2 px-2.5 py-1 text-xs text-zinc-400 bg-surface border border-hairline rounded-sm hover:border-subtle transition-colors"
-            aria-label="Open search command palette"
+            aria-label="Mở bảng tìm kiếm lệnh"
           >
             <Search className="w-3.5 h-3.5 text-zinc-500" />
-            <span className="hidden sm:inline">Search docs & tools...</span>
+            <span className="hidden sm:inline">Tìm kiếm tài liệu &amp; công cụ...</span>
             <kbd className="hidden sm:inline-block px-1 py-0.2 text-[10px] font-mono bg-zinc-800 text-zinc-400 rounded-xs border border-hairline">
               Ctrl+K
             </kbd>
@@ -99,7 +100,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
                 : 'bg-zinc-800 text-zinc-400 border-hairline'
             )}
-            title={isMcpConnected ? 'Affinity 3.3.3 MCP active on localhost:6767' : 'MCP server offline'}
+            title={isMcpConnected ? 'Affinity MCP đã kết nối' : 'Máy chủ MCP đang ngoại tuyến'}
           >
             <span
               className={cn(
@@ -108,7 +109,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
               )}
             />
             <span className="hidden md:inline">
-              {isMcpConnected ? 'MCP: ACTIVE' : 'MCP: OFFLINE'}
+              {isMcpConnected ? 'MCP: HOẠT ĐỘNG' : 'MCP: NGOẠI TUYẾN'}
             </span>
           </div>
 
@@ -116,7 +117,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
           <button
             onClick={onToggleTheme}
             className="p-1.5 text-zinc-400 hover:text-zinc-200 hover:bg-surface rounded-sm transition-colors"
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={`Chuyển sang chế độ ${theme === 'dark' ? 'sáng' : 'tối'}`}
           >
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>

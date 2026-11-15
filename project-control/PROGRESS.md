@@ -2,10 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Status:** `ACTIVE / REAL-TIME`
-- **Current Phase:** `Phase 5 Track 2 (Affinity Photo) Completed — 66/66 Lessons Passing — 9/9 E2E Passing`
-- **Last Updated:** `2026-11-11`
+- **Version:** `4.3.0` (Learning outcomes and tool coverage governance specified; implementation pending)
+- **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
+- **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
+- **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
+- **Latest Code Verification:** `Code-bearing HEAD baec6c5 (2026-11-15): Quality Gate workflow 43711760405 succeeded; 66/66 lessons, validator 41/41, script checks 3/3, Edge E2E 20/20 (38.2s), lint, TypeScript and production build all passed. Subsequent commits in this branch are documentation/Antigravity customizations; verify the current exact HEAD before making a fresh CI claim.`
+- **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -17,19 +19,25 @@
 | **Phase 0** | Project Control System & Pre-Phase Audit | 1 | 1 | 0 | 0 | **COMPLETED** |
 | **Phase 1** | Environment, Toolchain & MCP Capability Extraction | 5 | 5 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
-| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60/120 Lessons, 20/40 Modules Done)** |
+| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Playwright E2E Suite Operational (9/9 Passing: 6 Vector + 3 Photo)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #8: 20/20 Microsoft Edge E2E passed on 8f6ef74; full workflow passed` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **16** | **0** | **34** | **32.0% Completed** |
 
 > [!NOTE]
-> **Giải trình Tiến độ Task (Progress Metrics Reconciliation):**
-> - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
-> - **32.0% (16 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
+> **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
+> - **Tiến độ Tác vụ (Task Progress):**
+>   - **30.6% (15 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
+>   - **32.0% (16 / 50 hàng tác vụ):** Tính trên tổng số hàng trong `TASK_REGISTRY.md`, bao gồm thêm tác vụ kiểm định bổ trợ đặc thù `TASK-010-REAUDIT`.
+> - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
+>   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
+>   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was confirmed again by Quality Gate #8 on 8f6ef74; this verifies schema/content integrity, not learner competency or complete tool coverage.
+>   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
 
 ---
 
@@ -62,16 +70,40 @@
 - [x] Independent QA Sign-off (Phase 2): Performed by `QAAgent` in `project-control/QA_PHASE2_SIGNOFF.md` — 100% compliant, 0 TS errors, clean Vite build.
 - [x] `TASK-010`: Affinity Designer 10-Module Track Authoring (`DesignerCurriculumAgent`) — Modules D01 through D10 (30 lessons, 236 interactive slides, 10 production asset guides, 90 quiz questions; 299 total slides across all 39 curriculum lessons).
 - [x] `TASK-010-REAUDIT`: Track 1 Technical Accuracy Re-Audit (`Orchestrator` / `ResearchVerificationAgent`) — 5/5 technical items verified against official Serif docs in `TRACK_1_REAUDIT_REPORT.md`; Vite code-splitting implemented (entry dropped from 995 kB to 119 kB, 0 chunk warnings).
-- [x] `TASK-011`: Affinity Photo 10-Module Track Authoring (`PhotoCurriculumAgent`) — Modules P01 through P10 (30 lessons, 66/66 total curriculum lessons passing schema, 9 production practice guides, 90 quiz questions, interactive `PhotoLayerSimulator.tsx` with dynamic mask painting and blend mode engine, 3 Playwright E2E tests, 9/9 E2E passing).
+- [x] `TASK-011`: Affinity Photo 10-Module Track Authoring (`PhotoCurriculumAgent`) — Modules P01 through P10 (30 lessons, 66/66 total curriculum lessons passing schema in historical baseline, 9 production practice guides, 90 quiz questions, interactive `PhotoLayerSimulator.tsx` with dynamic mask painting and blend mode engine, 3 Playwright E2E tests in the historical baseline; not a current-head result).
 - [x] `TASK-026`: Interactive Slide-Based Lesson Engine (`FrontendAgent`) — `SlidePlayer.tsx` with card carousel, progress persistence, and quiz verification.
 - [x] `TASK-027`: In-Browser Affinity Tool Simulator Sandbox MVP (`FrontendAgent`) — `src/components/simulator/` (Pen, Node, Math, Exercises, Evaluation Scorer, Photo Layer Simulator).
 - [x] `TASK-074`: Major Page: Tool Simulator Sandbox (`FrontendAgent`) — `src/pages/SimulatorPage.tsx` integrated with AppShell navigation, supporting both Vector Bézier and Photo Layer/Masking simulators.
-- [x] Independent QA Sign-off (Phase 4 MVP & Track 2): Performed by `QAAgent` — 9/9 Playwright tests passed, 10 verified screenshots generated on disk.
+- [x] Independent QA Sign-off (Phase 4 MVP & Track 2): Performed by `QAAgent` — 9/9 Playwright tests passed in the historical baseline; later test additions require a new full-suite run.
 
 ---
 
 ## 4. Next Phase Gate & Status
 
-Track 1 (Designer) and Track 2 (Photo) are fully completed with 60 lessons, 2 interactive in-browser simulators, and 9/9 Playwright E2E automated tests passing.
-- **Current Status:** Halted at Phase Gate awaiting user evaluation and authorization for Phase 6 / Track 3.
-- **Deferred Work:** Track 3 (Publisher B02–B10, `TASK-012`), Track 4 (Scripting S02–S10, `TASK-013`), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), and Supabase Backend (`TASK-030` to `033`) remain held until approved.
+Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher (B01) và Scripting (S01) có thêm 6 bài pilot, tổng cộng 66/120 bài theo kế hoạch. Quality Gate #8 đã xác nhận lại 66/66 bài hợp lệ và chạy thành công toàn bộ 20/20 E2E trên Microsoft Edge tại commit 8f6ef74. Kết quả này xác nhận chất lượng kỹ thuật của nhánh, không phải bằng chứng rằng người học đã đạt chuẩn tốt nghiệp.
+- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
+- **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
+
+
+---
+
+## 5. Learning Outcomes & Tool Coverage Direction (2026-11-15)
+
+- **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
+- **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
+- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. These tasks remain PENDING; the specifications do not count as a completed inventory, lesson mapping, capstone implementation, or QA sign-off.
+- **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
+- **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
+- **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
+
+---
+
+## 6. Antigravity Workspace Customizations — 2026-11-15
+
+- **Always-on instructions:** root `AGENTS.md` now includes the Project Owner's approved learning outcome, design-thinking cycle, current Affinity product terminology, evidence rules, task traceability, and repository/phase safety.
+- **Always-on workspace rule:** `.agents/rules/affinity-academy-governance.md` uses the supported `trigger: always_on` format.
+- **Six reusable workspace skills:** `academy-session-orientation`, `academy-product-implementation`, `affinity-tool-audit`, `curriculum-lesson-design`, `independent-capstone-assessment`, and `quality-gate-handoff`, each with a `SKILL.md` manifest.
+- **Onboarding guide:** `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` documents discovery paths, setup, first-session verification, skill invocation, branch safety, and current eligible learning work.
+- **README / handoff:** linked and described how to open the repository root, verify workspace customizations, and start with `/academy-session-orientation`.
+- **Verification boundary:** the documented code-bearing HEAD `baec6c5bfe8de22d9c46546dbf2216a2ba276560` passed Quality Gate workflow `43711760405` (all steps success; 66/66, 41/41, 3/3, 20/20 Edge E2E in 38.2s). Antigravity rules/skills are Markdown and frontmatter files; the remote session can verify their committed contents but cannot assert that the user's local Antigravity instance has loaded them. Verify in the Customizations panel on the user's machine.
+- **Governance:** `TASK-079`–`TASK-081` remain PENDING; `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons are eligible work; Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.

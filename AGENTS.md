@@ -2,7 +2,7 @@
 
 ## 1. Project Context: AFFINITY ACADEMY
 
-**Affinity Academy** is an interactive, modern educational platform and structured curriculum dedicated to mastering Serif Affinity 3.0 suite (Affinity Designer, Affinity Photo, Affinity Publisher) combined with modern programmatic graphic automation via the **Affinity JavaScript DOM Scripting API** and **Affinity MCP Server**.
+**Affinity Academy** is an interactive educational platform for the current Affinity all-in-one desktop application (Layout, Vector, and Pixel studios), with explicitly labelled legacy material where Affinity V2 applications and StudioLink are discussed. Automation material uses the **Affinity JavaScript DOM Scripting API** and **Affinity MCP Server** where supported.
 
 The project workspace is located at `c:\affinity học`.
 
@@ -30,11 +30,11 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 > Tools and capabilities listed below reflect the exact, inspected runtime environment. No hallucinated or fictitious tools are permitted.
 
 ### 3.1. `affinity` / `affinity_affinity` MCP Server
-- **Transport / Endpoint:** Connected at `http://localhost:6767/sse` (11 upstream tools verified live).
+- **Transport / Endpoint:** Historical endpoint `http://localhost:6767/sse`; the 2026-11-09 audit recorded 11 upstream tools. Current availability and schemas must be checked on the target machine before use.
 - **Available Tools:**
   - `affinity_status`: Query live connection status and engine state.
   - `add_sdk_hint`: Record SDK operational hints and API notes.
-  - `execute_script`: Run JavaScript code in the running Affinity 3.0 application DOM context.
+  - `execute_script`: Run JavaScript code in the running Affinity application DOM context; always verify the installed application build before relying on version-specific API claims.
   - `list_library_scripts`: Retrieve stored library scripts.
   - `read_library_script`: Inspect a specific library script content.
   - `save_script_to_library`: Save a reusable script snippet into the library.
@@ -44,6 +44,8 @@ To ensure separation of concerns, high engineering quality, and strict verificat
   - `render_selection`: Render currently selected layer/object to an image file.
   - `render_spread`: Render the current active spread/page to an image file.
   - `report_sdk_issue`: Log SDK inconsistencies or bugs.
+- **Inventory count:** 11 upstream tools are listed above; `affinity_status` is the status wrapper that reported the upstream count. The audit table has 12 rows only when the wrapper is counted alongside the 11 upstream tools.
+- **Historical schema note:** The 2026-11-09 audit recorded `read_sdk_documentation_topic` accepting `filename` at runtime while its JSON schema declared `topic`. This has not been revalidated in the current branch; inspect the live schema and invoke the tool before changing callers.
 - **Constraints & Limitations:**
   - Requires Affinity application to be running with the MCP listener active on localhost:6767.
   - Scripts execute synchronously or via Promise handling within the Affinity process context.
@@ -115,8 +117,28 @@ To ensure separation of concerns, high engineering quality, and strict verificat
 
 ## 5. Operational Governance & Communication Rules
 
-1. **Strict Phased Execution**: No agent may proceed to implementation (Phase 1+) without explicit user approval.
+1. **Strict Phased Execution**: Implement only tasks within the Project Owner's currently authorized scope. Any locked phase, track, deployment, merge, or destructive operation still requires the relevant explicit approval; authorized work already in scope may proceed under its registered task and acceptance criteria.
 2. **Truth in Documentation**: No task may be marked `COMPLETED` merely because its design or documentation was created. A task is completed only when its deliverables exist and pass acceptance criteria.
 3. **Traceability**: Every code change, design asset, and lesson plan must trace back to a specific `TASK-xxx` and `REQ-xxx`.
 4. **Handoff Discipline**: Every agent working session must terminate with an updated `project-control/PROGRESS.md` and `project-control/HANDOFF.md`.
 5. **Language**: Technical documentation is kept in clear Markdown (English / Vietnamese where specified by user). User communication follows user language preferences (Vietnamese).
+
+---
+
+## 6. Project Owner's Learning Outcome — Non-Negotiable Direction
+
+Affinity Academy's final outcome is that learners can **understand and use the in-scope Affinity tools independently and think like designers**. The programme is not successful merely because it contains or delivers 120 tutorials.
+
+All agents must apply these invariants:
+
+1. **Design thinking before button sequences:** teach Discover → Define → Explore → Plan → Create → Evaluate → Iterate → Deliver. Explain why a method/tool fits the problem, the alternatives, limitations, and how to judge the result.
+2. **Observable outcomes:** map lessons, exercises, and assessments to `PLO-01`–`PLO-11` in `project-control/LEARNING_OUTCOMES.md`. Preserve the ten-section lesson contract and current lesson schema.
+3. **Complete, evidence-based tool coverage:** use `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` as the source of truth. Establish the current product/build and enumerate Layout, Vector, and Pixel tools/features from current official sources and direct app evidence. Never invent shortcuts or claim full coverage before independent audit.
+4. **Accurate product language:** Layout, Vector, and Pixel are the current studios/workspaces. Designer, Photo, and Publisher are learning-domain labels. Affinity V2 / StudioLink is legacy-only. Scripting/API/MCP is a separate automation strand.
+5. **Independent transfer:** guided lessons must lead to materially different independent tasks. Capstones must assess brief interpretation, tool choice, design reasoning, iteration, editable source, exports, and reflection.
+6. **Truthful evidence:** platform test success, curriculum coverage, and learner competence are three different things. Never claim that one proves another. Lesson completion is not mastery.
+7. **Governed execution:** map substantive work to `TASK-xxx` / `REQ-xxx`, respect dependencies, and require independent QA. `TASK-079`–`TASK-081` remain pending until real deliverables pass their acceptance criteria.
+8. **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons may proceed as explicitly scoped; do not author Publisher B02–B10, Scripting S02–S10, or deferred cloud/IDE modules until the Project Owner explicitly unlocks them.
+9. **Repository safety:** do not merge PR #1 into `main`, force-push, rewrite shared history, discard a dirty working tree, deploy, or perform destructive system operations without the applicable explicit authorization.
+
+Before substantial work, read `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` and use the relevant skill in `.agents/skills/`. The root `AGENTS.md` and the focused skills are deliberately committed so Antigravity can apply the same direction in a fresh workspace session.

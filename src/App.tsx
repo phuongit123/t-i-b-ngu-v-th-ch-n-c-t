@@ -8,15 +8,42 @@ import { EmptyState } from './components/ui/EmptyState';
 import { PageHeader } from './components/layout/PageHeader';
 import { SlidePlayer } from './components/lesson/SlidePlayer';
 import { TrackCard } from './components/cards/TrackCard';
-import { ModuleCard } from './components/cards/ModuleCard';
 import { LessonCard } from './components/cards/LessonCard';
 import { SimulatorPage } from './pages/SimulatorPage';
-import { Terminal, User, Play, Sparkles } from 'lucide-react';
+import { HomePage } from './pages/HomePage';
+import { Terminal, User, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
+
+const trackInfoVi: Record<AffinityTrackId, { name: string; label: string; tagline: string; description: string }> = {
+  designer: {
+    name: 'Vector Studio',
+    label: 'Lộ trình học tập Designer',
+    tagline: 'Bézier, Node & hình học',
+    description: 'Thực hành đường cong, node, hình học vector và artboard.',
+  },
+  photo: {
+    name: 'Pixel Studio',
+    label: 'Lộ trình học tập Photo',
+    tagline: 'Layers, masks & retouching',
+    description: 'Thực hành layer, vùng chọn, mask và chỉnh sửa ảnh phi phá hủy.',
+  },
+  publisher: {
+    name: 'Layout Studio',
+    label: 'Lộ trình học tập Publisher',
+    tagline: 'Typography, grids & pages',
+    description: 'Thực hành cấu trúc trang, hệ lưới, phân cấp thị giác và xuất bản.',
+  },
+  scripting: {
+    name: 'Automation & MCP',
+    label: 'Nhánh học tập tự động hóa',
+    tagline: 'Scripting & integration',
+    description: 'Tìm hiểu scripting, quy trình lặp lại và giới hạn tích hợp MCP.',
+  },
+};
 
 export const App: React.FC = () => {
   const [activeRoute, setActiveRoute] = useState('home');
@@ -36,7 +63,7 @@ export const App: React.FC = () => {
     lessonCount: m.lessons.length,
     estimatedMinutes: m.estimatedMinutes,
     difficulty: m.difficulty,
-    progressPercentage: m.id === 'D01' ? 100 : 0,
+    progressPercentage: 0,
   }));
 
   const handleToggleTheme = () => {
@@ -75,26 +102,40 @@ export const App: React.FC = () => {
 
     switch (activeRoute) {
       case 'home':
+        return (
+          <HomePage
+            onNavigate={setActiveRoute}
+            onSelectTrack={(trackId) => {
+              setActiveTrack(trackId);
+              setActiveRoute('catalog');
+            }}
+            onLaunchLesson={handleLaunchLesson}
+          />
+        );
+      case 'preview':
+      case 'design-system':
         return <DesignSystemPreview />;
       case 'catalog':
         return (
           <div className="space-y-8">
             <PageHeader
-              title="Course Catalog & Tracks"
-              description="Explore the comprehensive 40-module curriculum across Serif Affinity suite and MCP automation."
-              badge="Phase 3 Pilot (12 Lessons Verified)"
+              title="Danh Mục Khóa Học & Lộ Trình Đào Tạo"
+              description="Kế hoạch gồm 40 module / 120 bài. Hiện có 66 bài: 60 bài cốt lõi và 6 bài pilot; danh mục phân biệt rõ nội dung hiện có với phạm vi còn dự kiến."
+              badge="66 bài hiện có · 60 cốt lõi + 6 pilot · 120 bài theo kế hoạch"
             />
 
             {/* 4 Track Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <TrackCard
                 id="designer"
-                name="Affinity Designer"
-                tagline="Vector curves, artboards & geometry"
-                description="Master vector precision, personas, and responsive artboards."
+                name="Vector Studio"
+                tagline={trackInfoVi.designer.tagline}
+                description={trackInfoVi.designer.description}
                 moduleCount={10}
                 lessonCount={30}
-                progressPercentage={30}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={100}
                 onClick={() => {
                   setActiveTrack('designer');
                   setActiveModuleId('D01');
@@ -102,12 +143,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="photo"
-                name="Affinity Photo"
-                tagline="RAW develop, 32-bit HDR & retouching"
-                description="Master non-destructive retouching and 32-bit color."
+                name="Pixel Studio"
+                tagline={trackInfoVi.photo.tagline}
+                description={trackInfoVi.photo.description}
                 moduleCount={10}
                 lessonCount={30}
-                progressPercentage={30}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={100}
                 onClick={() => {
                   setActiveTrack('photo');
                   setActiveModuleId('P01');
@@ -115,12 +158,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="publisher"
-                name="Affinity Publisher"
-                tagline="Publication layout & master pages"
-                description="Master editorial spreads, 3mm bleed, and grids."
-                moduleCount={10}
-                lessonCount={30}
-                progressPercentage={30}
+                name="Layout Studio"
+                tagline={trackInfoVi.publisher.tagline}
+                description={trackInfoVi.publisher.description}
+                moduleCount={1}
+                lessonCount={3}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={10}
                 onClick={() => {
                   setActiveTrack('publisher');
                   setActiveModuleId('B01');
@@ -128,12 +173,14 @@ export const App: React.FC = () => {
               />
               <TrackCard
                 id="scripting"
-                name="Scripting & MCP"
-                tagline="V8 JavaScript DOM & port 6767"
-                description="Master programmatic automation and MCP tools."
-                moduleCount={10}
-                lessonCount={30}
-                progressPercentage={30}
+                name="Automation & MCP"
+                tagline={trackInfoVi.scripting.tagline}
+                description={trackInfoVi.scripting.description}
+                moduleCount={1}
+                lessonCount={3}
+                plannedModuleCount={10}
+                plannedLessonCount={30}
+                progressPercentage={10}
                 onClick={() => {
                   setActiveTrack('scripting');
                   setActiveModuleId('S01');
@@ -146,89 +193,121 @@ export const App: React.FC = () => {
               <div className="flex items-center justify-between border-b border-[var(--color-border-hairline)] pb-4">
                 <div>
                   <h2 className="text-xl font-bold text-[var(--color-text-primary)] capitalize">
-                    {activeTrack} Track Curriculum
+                    <span>Lộ trình {trackInfoVi[activeTrack].name} ({trackInfoVi[activeTrack].label})</span>
+                    <span className="sr-only">{activeTrack} Track Curriculum</span>
                   </h2>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">
-                    Click any lesson below to launch the interactive Slide Lesson Engine.
+                    Chọn bài học bên dưới để khởi chạy Trình phát Slide Tương tác.
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono bg-emerald-950/20 px-3 py-1 rounded border border-emerald-500/20">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>{filteredModules.reduce((acc, m) => acc + m.lessons.length, 0)} Lessons Ready to Play</span>
+                  <span>
+                    {filteredModules.reduce((acc, m) => acc + m.lessons.length, 0)} Bài Học Sẵn Sàng Học
+                    <span className="sr-only">{filteredModules.reduce((acc, m) => acc + m.lessons.length, 0)} Lessons Ready to Play</span>
+                  </span>
                 </div>
               </div>
 
-              {filteredModules.map((mod) => (
-                <div key={mod.id} className="space-y-4 p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)]">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)]">
-                          {mod.moduleNumber}
-                        </span>
-                        <span className="text-xs text-[var(--color-text-secondary)]">
-                          {mod.difficulty} &bull; {mod.estimatedMinutes} minutes
-                        </span>
+              {filteredModules.map((mod) => {
+                const difficultyVi = {
+                  Beginner: 'Cơ bản',
+                  Intermediate: 'Trung cấp',
+                  Advanced: 'Nâng cao',
+                }[mod.difficulty] || mod.difficulty;
+
+                return (
+                  <div
+                    key={mod.id}
+                    className="space-y-5 p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] hover:border-[var(--color-border-subtle)] transition-all duration-200 shadow-sm"
+                  >
+                    {/* Module Header Bar: Spans Full Width Elegantly */}
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[var(--color-border-hairline)]">
+                      <div className="flex-1 min-w-0 space-y-2">
+                        {/* Badges row */}
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]">
+                            {mod.moduleNumber}
+                          </span>
+                          <span className="text-xs px-2.5 py-0.5 rounded-full font-mono border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+                            {difficultyVi}
+                          </span>
+                          <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5 text-zinc-500" />
+                            {mod.estimatedMinutes} phút
+                          </span>
+                          <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                            <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
+                            {mod.lessons.length} bài học
+                          </span>
+
+                        </div>
+
+                        {/* Title: Full width, no narrow wrapping */}
+                        <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-wide">
+                          {mod.title}
+                        </h3>
+
+                        {/* Description: Spans nicely across the card */}
+                        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-4xl">
+                          {mod.description}
+                        </p>
                       </div>
-                      <h3 className="text-lg font-bold text-[var(--color-text-primary)]">
-                        {mod.title}
-                      </h3>
-                      <p className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-2xl leading-relaxed">
-                        {mod.description}
-                      </p>
-                    </div>
 
-                    <div className="flex-shrink-0">
-                      <ModuleCard
-                        module={{
-                          id: mod.id,
-                          trackId: mod.trackId,
-                          moduleNumber: mod.moduleNumber,
-                          title: mod.title,
-                          description: mod.description,
-                          lessonCount: mod.lessons.length,
-                          estimatedMinutes: mod.estimatedMinutes,
-                          difficulty: mod.difficulty,
-                          progressPercentage: mod.id === 'D01' ? 100 : 0,
-                        }}
-                        onClick={() => handleLaunchLesson(mod.lessons[0].id)}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Lesson List */}
-                  <div className="mt-4 pt-4 border-t border-[var(--color-border-hairline)] space-y-2">
-                    <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] mb-2">
-                      Interactive Slide Lessons in this Module:
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                      {mod.lessons.map((les) => (
-                        <div key={les.id} className="relative group">
-                          <LessonCard
-                            lesson={{
-                              id: les.id,
-                              moduleId: les.moduleId,
-                              lessonNumber: les.order,
-                              title: les.title,
-                              durationMinutes: les.durationMinutes,
-                              completed: false,
-                            }}
-                            isActive={activeLessonId === les.id}
-                            onClick={() => handleLaunchLesson(les.id)}
-                          />
+                      {/* Right Action: Quick Start Button */}
+                      {mod.lessons.length > 0 && (
+                        <div className="shrink-0 flex items-center gap-3">
                           <button
-                            onClick={() => handleLaunchLesson(les.id)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-[var(--color-text-secondary)] group-hover:text-[var(--color-brand-cyan)] group-hover:border-[var(--color-brand-cyan)] transition-all shadow-sm"
-                            title={`Start Lesson ${les.id}`}
+                            onClick={() => handleLaunchLesson(mod.lessons[0].id)}
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--color-surface)] hover:bg-[var(--color-border-subtle)] text-[var(--color-text-primary)] font-medium text-xs border border-[var(--color-border-hairline)] hover:border-zinc-400 transition-all shadow-subtle group"
                           >
-                            <Play className="w-3.5 h-3.5 fill-current" />
+                            <Play className="w-4 h-4 fill-emerald-400 text-emerald-400 group-hover:scale-110 transition-transform" />
+                            <span>Bắt đầu Module ({mod.moduleNumber})</span>
                           </button>
                         </div>
-                      ))}
+                      )}
+                    </div>
+
+                    {/* Lesson Grid: 3 Clean Equal-Width Columns */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+                          Danh sách bài học trong module:
+                        </h4>
+                        <span className="text-xs text-[var(--color-text-secondary)] font-mono">
+                          {mod.lessons.length} bài học tương tác
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                        {mod.lessons.map((les) => (
+                          <div key={les.id} className="relative group">
+                            <LessonCard
+                              lesson={{
+                                id: les.id,
+                                moduleId: les.moduleId,
+                                lessonNumber: les.order,
+                                title: les.title,
+                                durationMinutes: les.durationMinutes,
+                                completed: false,
+                              }}
+                              isActive={activeLessonId === les.id}
+                              onClick={() => handleLaunchLesson(les.id)}
+                            />
+                            <button
+                              onClick={() => handleLaunchLesson(les.id)}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-[var(--color-text-secondary)] group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-all shadow-sm"
+                              title={`Bắt đầu bài học ${les.id}`}
+                            >
+                              <Play className="w-3.5 h-3.5 fill-current" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         );
