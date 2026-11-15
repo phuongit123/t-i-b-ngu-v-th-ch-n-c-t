@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.5.0` (TASK-079 merged to main; TASK-080 Round 6 evidence review in progress)
+- **Version:** `4.5.1` (TASK-079 merged to main; TASK-080 Round 8 evidence review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Quality Gate #43749162173 passed on exact PR #6 head 09bf0fdc67242c3182dcf8fd4e80e38b92d33f17: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20 (33.5s). This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
+- **Verification boundary:** `Quality Gate #43750528338 passed on exact PR #6 head 07959b8b428f238b069b747fe6d6976bf6f37a83: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20 (45.3s). This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -23,7 +23,7 @@
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate #43749162173 passed on exact HEAD 09bf0fdc67242c3182dcf8fd4e80e38b92d33f17 (web academy scope only)` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate #43750528338 passed on exact HEAD 07959b8b428f238b069b747fe6d6976bf6f37a83 (web academy scope only)` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |

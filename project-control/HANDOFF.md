@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.5.0` (TASK-079 merged into main; TASK-080 Round 6 review active on PR #6)
+- **Version:** `4.5.1` (TASK-079 merged into main; TASK-080 Round 8 review active on PR #6)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — PR #6 exact HEAD `09bf0fdc67242c3182dcf8fd4e80e38b92d33f17` passed Quality Gate #43749162173 (20/20 Edge E2E; web academy scope only) — PR #6 has 0 commits behind main at base `628f761` — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — PR #6 exact HEAD `07959b8b428f238b069b747fe6d6976bf6f37a83` passed Quality Gate #43750528338 (20/20 Edge E2E; web academy scope only) — PR #6 has 46 commits ahead / 0 behind main at base `628f761` — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -339,7 +339,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - PR #6 remains Draft and unmerged. TASK-079 is COMPLETED on the PR review branch; TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING; BLK-007 remains ACTIVE — LOCKED.
 
 
-## 19. PR #6 post-merge synchronization and latest exact-head Quality Gate (2026-11-16)
+## 19. PR #6 post-merge synchronization — prior HEAD snapshot (2026-11-16)
 
 - PR #4 merged to `main` at `628f7619176fc2e85a50613654f46416975bd0cd`; PR #6 base is now that exact main commit. GitHub compare at review time reports 45 commits ahead / 0 behind, with merge base equal to the current main SHA.
 - Current PR #6 HEAD at this handoff: `09bf0fdc67242c3182dcf8fd4e80e38b92d33f17`.
@@ -347,3 +347,13 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - P4 re-fetch: 50 P4 rows map to 52 unique lesson JSON files. All 52 parse and contain tool explanation, guided practice/checkpoints/expected outcome, independent challenge and criteria; 43 use `challengeCriteria`, 9 use `successCriteria`. Structure is verified; exact semantics/shortcuts/target-build behaviour are not fully signed off.
 - The two official Help Center pages for Artboard Tool and Histogram panel are found, but article bodies remain inaccessible to the current extraction. Five other P4 rows rely on broad feature sources: VEC-006, VEC-021, VEC-023, PIX-003 and PIX-016. Continue source/operation audit; do not promote these claims to certified.
 - PR #6 remains Draft and unmerged; PR #5 remains open pending a safe replacement decision. TASK-079 is COMPLETED and merged to main; TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING; BLK-007 remains ACTIVE — LOCKED.
+
+
+## 20. Round 8 — latest PR #6 exact-head gate and terminology audit (2026-11-16)
+
+- PR #6 HEAD: `07959b8b428f238b069b747fe6d6976bf6f37a83`; base remains `main` at merge commit `628f7619176fc2e85a50613654f46416975bd0cd`.
+- GitHub compare at this HEAD: 46 commits ahead, 0 behind; merge base equals `628f761...`.
+- Quality Gate `#43750528338` completed **SUCCESS** on that exact HEAD. ESLint, TypeScript, curriculum 66/66, validator 41/41, script checks 3/3, Vietnamese translations 66/66, production build and Microsoft Edge Playwright E2E 20/20 passed (45.3s). This is web-academy technical evidence only.
+- Terminology corrections in `AFFINITY_TOOL_COVERAGE_MATRIX.md`: `VEC-012` and `PIX-006` now use the official `Layers panel` wording; `PIX-004` now uses `Refine Selection dialog`, consistent with the current official Help Center article. Teaching JSON retains legacy lesson wording; no lesson JSON or application code was modified.
+- `VEC-002` Artboard Tool and `PIX-012` Histogram panel official URLs remain found / article body review pending. Do not treat them as absent URLs.
+- TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. PR #6 remains Draft/Open/unmerged; PR #5 remains untouched.

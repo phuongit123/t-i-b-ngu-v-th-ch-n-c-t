@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.5.0` (TASK-079 completed on verified evidence and merged to main; TASK-080 Round 6 independent review remains in progress)
+- **Version:** `4.5.1` (TASK-079 merged to main; TASK-080 Round 8 terminology/source audit in progress)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator`
@@ -77,5 +77,5 @@
 
 
 | `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md`, `project-control/LEARNING_OUTCOME_MAPPING.md`, `project-control/TASK-079_INDEPENDENT_REVIEW.md` | All 66 existing lessons independently mapped to observable programme outcomes; row-by-row audit 66/66 matched; exact-head Quality Gate passed on PR #4 and merged into main. This does not certify learner mastery. | `COMPLETED` |
-| `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` and populated evidence-backed inventory | The provisional register has 68 in-scope records (63 native Affinity capabilities + 5 Academy MCP integrations) plus 3 exclusions. Stage claims are 50 P4, 17 V1 and 1 U0. Independent review linked P4 evidence to 52 lesson JSON files and source-checked the current-release queue; target-build operation-level semantic review, review of the two located official Help Center article bodies (Artboard Tool and Histogram panel), and denominator completeness remain open. | `IN_PROGRESS` |
+| `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` and populated evidence-backed inventory | The provisional register has 68 in-scope records (63 native Affinity capabilities + 5 Academy MCP integrations) plus 3 exclusions. Stage claims are 50 P4, 17 V1 and 1 U0. Independent review re-fetched 52 lesson JSON files for the 50 P4 rows and reproduced non-empty teaching/practice/assessment structures; current official terminology is normalized to Layers panel and Refine Selection dialog. Target-build operation-level semantic review, review of the two located Help Center article bodies (Artboard Tool and Histogram panel), five broad-source P4 claims, and denominator completeness remain open. | `IN_PROGRESS` |
 | `TASK-081` | Independent Design Assessment & Graduation Capstone | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-003` | `TASK-079`, `TASK-080` | Track-level project briefs, common design rubric, programme capstone and QA protocol | New briefs assess independent tool choice, design reasoning, iteration, editable source, correct exports, and reflection; rubric and pass threshold receive independent QA approval. | `PENDING` |

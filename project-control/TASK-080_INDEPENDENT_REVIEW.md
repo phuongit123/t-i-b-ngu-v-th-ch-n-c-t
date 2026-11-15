@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 7)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 8)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; SOURCE/SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; OFFICIAL TERMINOLOGY NORMALIZED; SOURCE/SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -235,3 +235,25 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Keep the denominator provisional until the release discovery queue and remaining scope entries are reconciled.
 - Keep `TASK-081` **PENDING** until TASK-080 is formally completed and signed off.
 - Keep `BLK-007` **ACTIVE — LOCKED**. No Publisher B02–B10 or Scripting S02–S10 authoring is included or authorized.
+
+
+## 12. Round 8 — current Help Center terminology and PR #6 exact-head evidence (2026-11-16)
+
+### Exact branch and Quality Gate
+
+- Current PR #6 HEAD before this documentation synchronization: `07959b8b428f238b069b747fe6d6976bf6f37a83`.
+- Base is `main` at `628f7619176fc2e85a50613654f46416975bd0cd`; GitHub compare reports 46 commits ahead / 0 behind.
+- Quality Gate `#43750528338` completed **SUCCESS** on that exact HEAD: ESLint, TypeScript, 66/66 curriculum, 41/41 validator assertions, 3/3 scripts, 66/66 Vietnamese translation coverage, production build and 20/20 Edge Playwright E2E (45.3s).
+
+### Easy terminology corrections applied
+
+- `VEC-012` is now named **Layers panel** rather than “Layers Studio”, matching the current official Help Center page title and its menu location (`Window > General > Layers`). Source: https://www.affinity.studio/help/panels-layers-panel/.
+- `PIX-006` is now **Layers panel & Layer Groups**, using the same current official panel name while retaining the lesson's layer-group capability description. Source: https://www.affinity.studio/help/panels-layers-panel/.
+- `PIX-004` is now **Refine Selection dialog**, not “Refine Selection Studio”. The current Help Center article calls this a dialog and describes its preview, matte-edge, border-width, smooth, feather, ramp, adjustment-brush and output controls. Source: https://www.affinity.studio/help/selections-selections-refine/.
+- These changes update inventory terminology only; historical lesson JSON titles and explanations are not changed in this round. A later curriculum wording cleanup should be considered only after confirming the exact current interface labels and dependencies.
+
+### Remaining source and scope limits
+
+- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) URLs are found, but their article bodies still cannot be read by the available retrieval path. Preserve the status **official page located / body review pending**.
+- Five P4 claims remain dependent on broad product-feature sources for exact controls: `VEC-006`, `VEC-021`, `VEC-023`, `PIX-003`, `PIX-016`.
+- Keep `TASK-080` **IN_PROGRESS**; 50 P4 labels are not yet certified coverage. Keep `TASK-081` **PENDING** and `BLK-007` **ACTIVE — LOCKED**.
