@@ -4,7 +4,7 @@
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.4.6` (TASK-079 completed; TASK-080 independent inventory scope, source and P4 review active)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 row audit) — TASK-080 IN_PROGRESS (68 records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0; source and installed-build verification open) — PR #4 DRAFT OPEN; TASK-080 stacked Draft PR follows PR #4 — QUALITY GATE #43730666138 PASS ON PR #4 HEAD 7f8d789 — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 row audit) — TASK-080 IN_PROGRESS (68 records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0; source and installed-build verification open) — PR #4 DRAFT OPEN — PR #5 DRAFT STACKED ON PR #4 — QUALITY GATE #43734389889 PASS ON PR #5 HEAD ed18dfd — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -261,3 +261,11 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - The native Affinity Scripting Studio / Script Editor / Scripts Library is separated from the Academy MCP bridge endpoints. New desktop release candidates require target-build confirmation and de-duplication.
 - The curriculum-declared target is desktop 3.3.3.5004; installed build is unverified. Public SDK docs are version 3.3.1; runtime compatibility is not established.
 - TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until TASK-079 and TASK-080 are completed; BLK-007 remains ACTIVE — LOCKED.
+
+
+### PR #5 and quality evidence update
+
+- Draft stacked PR #5: https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/5
+- Base branch is PR #4's `feat/task-079-learning-outcome-mapping`; do not merge PR #5 before PR #4.
+- Quality Gate #43734389889 passed on exact PR #5 head `ed18dfd3fa7998b8378c007469cbbea164024657`: ESLint, TypeScript, 66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translations, production build and 20/20 Edge E2E (41.5s).
+- Both PRs remain Draft/unmerged. TASK-080 is IN_PROGRESS, TASK-081 PENDING, and BLK-007 ACTIVE — LOCKED.
