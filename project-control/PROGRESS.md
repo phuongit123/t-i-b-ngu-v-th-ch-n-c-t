@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.5` (TASK-080 Round 5 source discovery; 3 official panel sources added; 2 native source gaps remain)
+- **Version:** `4.4.6` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Quality Gate #43736054933 passed on exact audited commit 58c508da9011f0a2cf89f07819d0bab90a575b18: ESLint, TypeScript, 66/66 curriculum, validator regression, script checks, production build, and 20/20 Microsoft Edge E2E. This verifies the web academy commit, not Affinity inventory completeness or installed desktop behaviour.`
+- **Verification boundary:** `Quality Gate #43738438116 passed on exact current PR head b85956ef5830e757ae870a8843410de3a4fb14d5: ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. This verifies the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -152,7 +152,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Cross-checked the 50 P4 records against 52 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
 - Corrected over-broad or mismatched evidence mappings: VEC-001 narrowed to D01-03; PIX-007 narrowed to P05-02; PIX-006 renamed to Layer Groups; PIX-014 additionally maps to P03-02; PIX-016 no longer claims a Lens Studio.
 - Added official source URLs where located. Of the 50 P4 rows, 38 have a direct official feature-matched URL (including 3 Simplified Chinese locale pages), 9 are URL-linked but broad/compatibility-limited, 2 native Affinity rows lack a direct vendor URL, and 1 project-MCP row is supported by project-local evidence only. This is traceability progress, not P4 acceptance.
-- The curriculum-declared desktop target is Affinity 3.3.3.5004; the user's installed build has not been inspected. Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
+- The user confirms the installed desktop app is the latest stable release; this is accepted as target scope as of 2026-11-16 (public release identifier 3.3.3.5004). Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
 - Official September 2026 desktop release notes expose candidate tools/controls not represented clearly in the original matrix. The 2 November 2026 official announcement is for Affinity for iPad and is not mixed into the desktop denominator.
 - `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING until TASK-079 and TASK-080 are completed. `BLK-007` remains ACTIVE — LOCKED.
 
@@ -164,7 +164,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - The 50 P4 rows reference 52 distinct lesson JSON files, each with tool explanation, guided task, checkpoints, expected outcome, challenge title and challenge criteria. This remains structural evidence; operation-level semantic and target-build checks are open.
 - Source traceability across P4: 38 direct official feature-matched URLs (including 3 Simplified Chinese locale pages), 9 broad/compatibility-limited URLs, 2 native claims with no direct vendor URL, and one project-local MCP evidence-only record.
 - Official September 2026 release notes support the separate native Scripting Studio/Script Editor/Scripts Library record. Blend Tool, Mask Tool, Deform Tool, Wavelet/astro features and GLB 3D model placement stay in the discovery queue until the target build is verified.
-- Current desktop build `3.3.3.5004` remains repository-declared only; the user's installed application has not been inspected.
+- Target-version scope is now accepted as the latest stable desktop release per user confirmation; local executable metadata was not directly introspected.
 - `TASK-080` remains IN_PROGRESS; `REQ-LEARN-002` is IN_PROGRESS; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED.
 
 
@@ -185,4 +185,14 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - Located official Help Center sources for Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix terminology and narrowed the associated claims.
 - P4 source disposition is now 38 direct official feature-matched URLs (3 Simplified Chinese locale pages included), 9 broad/version-limited URLs, 2 native source gaps, and 1 project-local MCP-only row.
-- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain unresolved native source gaps. The denominator and target desktop build remain unverified.
+- Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) remain unresolved native source gaps. The denominator remains provisional; latest-stable desktop version scope is accepted per user confirmation.
+
+
+## 14. TASK-080 Version Scope & Current-Head Quality Gate (2026-11-16)
+
+- **Version scope accepted:** the user confirms the installed Affinity desktop app is the latest stable release and says this is sufficient. Use latest stable desktop as of 2026-11-16; public November 2026 distribution metadata identifies version 3.3.3 / build 5004. Do not block on obtaining a local Help/About string. Local executable metadata was not directly introspected.
+- **Exact PR head:** `b85956ef5830e757ae870a8843410de3a4fb14d5`.
+- **Quality Gate #43738438116: SUCCESS.** ESLint, TypeScript, curriculum validation 66/66, validator regression 41 assertions/0 failures, script checks 3/3, production build, and Playwright E2E 20/20 passed.
+- **Artifact:** `affinity-academy-quality-evidence`, ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
+- CI is evidence for the web academy at the exact commit only; it does not certify Affinity operation semantics, completeness of the denominator, or runtime SDK compatibility.
+- PR #6 stays Draft and unmerged. TASK-080 stays IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
