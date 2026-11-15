@@ -4,7 +4,7 @@
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.3.0` (Learning outcomes and tool coverage standards registered)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION PR OPEN — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS REGISTERED ON A STACKED DOCS BRANCH — INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS MERGED INTO PHASE 5 BRANCH VIA PR #2 — PHASE 5 PR #1 OPEN AGAINST MAIN — QUALITY GATE #8 PASS ON 8f6ef74 — TOOL INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -24,7 +24,7 @@
      - `P09`: RAW Develop Persona Workflow & 32-bit HDR Pipeline
      - `P10`: Export Persona, Batch Processing & Web/Print Pre-flight
    - **Schema & Quality Adherence:** 100% compliant with the 10-part standard content model and slide deck schema.
-   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors (historical baseline; re-run required on current pushed HEAD)**.
+   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors, confirmed on commit 8f6ef74 by Quality Gate #8**.
 
 2. **Authentic Practice Assets for Photo Track:**
    - Authored 9 production-grade practice guides (`GUIDE_DOCUMENT`) in `curriculum/assets/photo/`:
@@ -62,15 +62,15 @@
      - `TC-PHOTO-01`: Course Catalog filters Photo track to 10 modules and 30 lessons.
      - `TC-PHOTO-02`: SlidePlayer launches and navigates a full Photo lesson (`P02-01`).
      - `TC-PHOTO-03`: Photo Layer Simulator renders with disclaimer and interactive controls.
-   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge (historical baseline; not current after test additions)**.
+   - Total Playwright suite (`tests/e2e/`): **20/20 tests PASSED in 48.3s on Microsoft Edge in Quality Gate #8 (commit 8f6ef74)**.
    - Captured 10 verified screenshot artifacts in `tests/screenshots/` (65 kB to 142 kB).
 
 6. **Full Verification Matrix:**
    - `npm run typecheck`: **0 errors**
-   - `npm run validate:curriculum`: **66/66 PASS (historical baseline; current-head rerun pending)**
+   - `npm run validate:curriculum`: **66/66 PASS on 8f6ef74 (Quality Gate #8)**
    - `npm run test:scripts`: **3/3 PASS**
    - `npm run build`: **PASS (6.26s)**
-   - `npm run test:e2e`: **9/9 PASS (18.1s, historical baseline; current suite now defines 20 cases and awaits rerun)**
+   - `npm run test:e2e`: **20/20 PASS (48.3s, Microsoft Edge, commit 8f6ef74, Quality Gate #8)**
 
 ---
 
@@ -119,10 +119,10 @@ The published branch `fix/phase5-stabilization` received follow-up commits to ad
 ### Changes made
 - `scripts/validate-curriculum.js`: checks unexpected entries at the curriculum root, validates that each module's declared lesson IDs exactly match the independent manifest, rejects duplicate lesson IDs in lesson payloads, and checks exact allowed lesson filenames (so an extra file such as `D01-99.json` is rejected). The root allow-list explicitly permits the existing `curriculum/README.md`, `assets/`, and `schema/` entries while rejecting unknown files and tracks.
 - `scripts/test-curriculum-validator.js`: replaced broad repository-dependent negative cases with isolated temporary fixtures and explicit cases for unexpected tracks/root files, rogue lesson filenames, module lesson-list mismatch, duplicate payload IDs, duplicate metadata IDs, and invalid metadata. The real repository baseline remains a positive test. The suite now has 14 named scenarios, including a positive test that the allowed curriculum root README does not cause a false failure.
-- `project-control/PROGRESS.md`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Prior local test claims are labelled historical pending rerun.
+- `project-control/PROGRESS.md`: distinguishes Project Phase 5 (web platform task status) from curriculum Track 2; lesson counts remain 60 core + 6 pilot = 66 existing / 120 planned. Current Quality Gate #8 evidence is recorded against commit 8f6ef74.
 - `project-control/PHASE_5_TRACK_3_PROPOSAL.md`: B05 is reframed for the current Affinity all-in-one app and its Layout, Vector, and Pixel studios. StudioLink is retained only as explicitly labelled Affinity V2 legacy context.
 - `AFFINITY_MCP_CAPABILITY_REPORT.md` and `AGENTS.md`: reconcile 11 upstream tools plus the `affinity_status` wrapper (12 inventory rows), and mark the `topic` schema vs `filename` runtime observation as historical pending live re-audit.
-- `project-control/BLOCKERS.md`: records validator verification as pending and prevents the old MCP observation from being treated as current runtime evidence. `BLK-007` remains locked; `RSK-008` tracks execution of the strengthened validator on the target working copy.
+- `project-control/BLOCKERS.md`: keeps `BLK-007` locked and prevents the historical MCP observation from being treated as current runtime evidence. The strengthened validator passed in Quality Gate #8; live Affinity MCP runtime behaviour remains a separate re-audit item.
 
 ### Verification state
 - The files were updated on the published branch through GitHub's repository file API.
@@ -156,8 +156,8 @@ The Project Owner approved a product-level goal: learners must understand and co
 5. Author and QA-review independent design briefs, rubrics, and capstone requirements before enabling graduation claims.
 
 ### Verification and governance
-This documentation-only branch has not run npm, TypeScript, ESLint, build, validator, or Playwright commands. Do not report software tests as passed because Markdown files were added. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.
+This branch has now run the full Quality Gate #8 on commit 8f6ef74: npm ci, ESLint, TypeScript, curriculum validator, validator regressions, script checks, production build, Edge installation, and Playwright E2E. All steps passed. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.
 
 
 ### Test-count clarification for the latest pushed code
-The repository currently defines 20 Playwright tests across three spec files: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. The Project Owner supplied a later local report of 10/10 Edge tests (21.9s), but that report is not tied to the exact latest commit SHA and does not establish that the added UI Capture suite was included. Do not report 20/20 until the complete suite is run on the exact pushed HEAD and the output/log is retained. No hosted CI status is currently recorded for that commit.
+The repository defines 20 Playwright tests across three specs: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. Quality Gate #8 ran the complete suite on Microsoft Edge at commit 8f6ef74 and recorded **20 passed (48.3s), 0 failed**. The full job conclusion is `success`; the log and screenshots are retained in artifact `affinity-academy-quality-evidence` (artifact ID `14159993282`).
