@@ -79,13 +79,13 @@ These are alignment corrections, not newly certified coverage. A second semantic
 |---|---:|
 | Direct official Help Center / release-note URL with a specific feature match (includes 3 Simplified Chinese locale pages) | **38** |
 | URL present, but broad / version-limited / exact behaviour caveat recorded | **9** |
-| No direct vendor URL located for a native desktop claim | **2** |
+| Official Help Center page title found, but page body not extractable in this review pass | **2** |
 | Project-local MCP evidence only | **1** |
 | **Total** | **50** |
 
 Three source gaps were resolved with official Affinity Help Center pages: `VEC-011` Stroke panel and pressure profile, `VEC-020` Isometric panel and grid, and `VEC-022` Assets panel. Their records were renamed to the official panel terminology and their core actions/limitations were narrowed to what the sources actually describe. The pages are served in the official Simplified Chinese locale; English UI wording and target-build shortcuts remain to be checked directly.
 
-The two remaining native claims without direct vendor URLs are `VEC-002` Artboard Tool and `PIX-012` Histogram panel. The MCP row remains supported by Academy project code/docs, not an Affinity vendor page. A URL alone is not full verification: broad feature pages and release notes do not prove every toolbar control, shortcut or edge condition.
+Official Help Center pages titled `Artboard Tool` (`VEC-002`) and `Histogram panel` (`PIX-012`) have now been located. The page text extractor exposed only their title/navigation, not the article bodies; these two records therefore move from 'no URL' to 'official page body review pending'. Do not count page-title presence as semantic verification. The MCP row remains supported by Academy project code/docs, not an Affinity vendor page. A URL alone is not full verification: broad feature pages and release notes do not prove every toolbar control, shortcut or edge condition.
 
 ## 4. V1 source checks and terminology corrections
 
@@ -138,7 +138,7 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 ## 7. Remaining acceptance work
 
 1. **Version-scope gate resolved:** use the latest stable Affinity desktop release as of 2026-11-16, per user confirmation (release identifier 3.3.3.5004). Do not block TASK-080 on a local Help/About readout; retain direct UI/semantic checks where feature behaviour or labels are not source-verifiable.
-2. Resolve the two remaining native P4 source gaps or retain direct target-app evidence: Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`).
+2. Retrieve or independently review the official article bodies for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`); page-title matches are not enough to certify exact controls or semantics.
 3. Complete operation-level semantic verification of all 50 P4 claims; the present 52-file check establishes practice structure, not every named control/action.
 4. Verify all 17 V1 candidates against the exact desktop build and separate tools, panels, contextual controls and workflow features correctly.
 5. Reconcile the September 2026 discovery candidates, including Blend Tool, Mask Tool, Deform Tool, Wavelet Denoise and Astro features, without double-counting controls.
@@ -173,3 +173,12 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Evidence artifact: [affinity-academy-quality-evidence](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43738438116/artifacts/14171164280), artifact ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
 - This Quality Gate validates the web academy at that exact commit. It does not certify every Affinity feature claim, the 68-record denominator, SDK/runtime compatibility, or learner A5 attainment.
 - `TASK-080` remains **IN_PROGRESS**; `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft and unmerged.
+
+
+## 10. Round 6 — Artboard / Histogram source-page and practice cross-check (2026-11-16)
+
+- Located exact official Help Center page titles and URLs for [Artboard Tool](https://www.affinity.studio/help/tools-tools-artboard/) and [Histogram panel](https://www.affinity.studio/help/panels-histogram-panel/). The current text extraction exposed only page shell/navigation, not article bodies; the source status is now **official page found / body review pending**, not “no URL”.
+- Cross-checked `D01-02`: guided practice adds and names Desktop, Tablet and Mobile artboards; the independent challenge creates four specified artboards and names them. This supports multi-artboard practice, but does not support the previous broader claims about converting selections or applying device presets.
+- Cross-checked `P05-01`: guided practice checks Red-channel distribution during white-balance calibration; the independent challenge checks the R/G/B distribution. This supports basic histogram-reading practice, but not claims about clipping alerts or all channel/color-space limitations.
+- Matrix wording was narrowed accordingly: `VEC-002` no longer asserts unverified preset/conversion controls; `PIX-012` now uses the official term “Histogram panel” and limits actions to the lesson-supported channel-distribution workflow.
+- P4 source disposition now separates 38 content-reviewed direct official feature URLs, 2 official Help Center page-title matches with unread article bodies, 9 broad/version-limited sources, and 1 project-local MCP-only source. TASK-080 remains IN_PROGRESS.
