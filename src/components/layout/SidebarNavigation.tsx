@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { PenTool, Image, BookOpen, Terminal, CheckCircle2, Circle } from 'lucide-react';
 import type { AffinityTrackId, ModuleSummary } from '@/types/design-system';
+import { moduleTranslationsVi } from '@/data/curriculum/translationsVi';
 
 export interface SidebarNavigationProps {
   activeTrackId: AffinityTrackId;
@@ -82,7 +83,10 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
                 <Circle className="w-3.5 h-3.5 text-zinc-600 shrink-0 group-hover:text-zinc-400" />
               )}
               <span className="font-mono text-[11px] text-zinc-500 shrink-0">{m.moduleNumber}</span>
-              <span className="truncate flex-1">{m.title}</span>
+              <span className="truncate flex-1">
+                <span>{moduleTranslationsVi[m.id]?.title || m.title}</span>
+                <span className="sr-only">{m.title}</span>
+              </span>
             </button>
           );
         })}

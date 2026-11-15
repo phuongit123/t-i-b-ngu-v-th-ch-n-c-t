@@ -24,10 +24,10 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
       <div className="flex items-center justify-between pb-4 border-b border-hairline mb-4">
         <div>
           <span className="text-[10px] font-mono uppercase text-zinc-500 tracking-wider">
-            Overall Curriculum Progress
+            Tiến độ chương trình học
           </span>
           <h3 className="text-xl font-bold text-zinc-100 mt-0.5">
-            {percentage}% Completed
+            Hoàn thành {percentage}%
           </h3>
         </div>
         <div className="w-12 h-12 rounded-full border border-hairline bg-zinc-850 flex items-center justify-center font-mono font-bold text-sm text-emerald-400 shadow-subtle">
@@ -48,7 +48,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         <div className="p-2.5 rounded-xs bg-zinc-850/60 border border-hairline">
           <div className="flex items-center justify-center gap-1 text-zinc-400 text-[10px] uppercase font-mono mb-1">
             <CheckCircle className="w-3 h-3 text-emerald-400" />
-            Lessons
+            Bài học
           </div>
           <span className="font-mono font-bold text-zinc-200">
             {completedLessons}/{totalLessons}
@@ -58,17 +58,17 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         <div className="p-2.5 rounded-xs bg-zinc-850/60 border border-hairline">
           <div className="flex items-center justify-center gap-1 text-zinc-400 text-[10px] uppercase font-mono mb-1">
             <Flame className="w-3 h-3 text-amber-400" />
-            Streak
+            Chuỗi ngày
           </div>
           <span className="font-mono font-bold text-zinc-200">
-            {streakDays} Days
+            {streakDays} ngày
           </span>
         </div>
 
         <div className="p-2.5 rounded-xs bg-zinc-850/60 border border-hairline">
           <div className="flex items-center justify-center gap-1 text-zinc-400 text-[10px] uppercase font-mono mb-1">
             <Award className="w-3 h-3 text-blue-400" />
-            Badges
+            Huy hiệu
           </div>
           <span className="font-mono font-bold text-zinc-200">
             {earnedBadgesCount}

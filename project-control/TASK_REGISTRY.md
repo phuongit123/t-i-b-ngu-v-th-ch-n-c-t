@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
+- **Version:** `4.4.3` (TASK-079 completed after independent 66/66 row audit; TASK-080 independent inventory review in progress)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (16 COMPLETED / 1 IN_PROGRESS / 36 PENDING = 30.2% completed).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (16 COMPLETED / 3 IN_PROGRESS / 34 PENDING = 30.2% completed; counts recomputed from the status column).
 
 ---
 
@@ -76,6 +76,6 @@
 | `TASK-078` | Major Page: Student Dashboard & Portfolio | `FrontendAgent` | `REQ-PAGE-008` | `TASK-033` | `src/pages/DashboardPage.tsx` | Profile summary, 40-module progress bars, project gallery, badges. | `PENDING` |
 
 
-| `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md` plus lesson/track outcome mapping | Every in-scope lesson and track maps to observable outcomes and evidence; independent QA approves the mapping. | `PENDING` |
+| `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md`, `project-control/LEARNING_OUTCOME_MAPPING.md`, `project-control/TASK-079_INDEPENDENT_REVIEW.md` | All 66 existing lessons are mapped to observable PLOs; independent QA cross-checked all 66 rows against lesson JSON evidence and approved the track-level gap analysis. | **COMPLETED** |
 | `TASK-080` | Version-Scoped Affinity Tool Coverage Inventory | `AffinityMCPAgent` / `CurriculumAgent` | `REQ-LEARN-002` | `TASK-005`, `TASK-010`, `TASK-011` | `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` and populated evidence-backed inventory | Current Layout, Vector, and Pixel tool/feature inventory is populated with 16 fields across 68 in-scope records (50 at stage P4, 18 gaps at stage V1) + 3 legacy exclusions; awaiting independent peer review before final COMPLETED sign-off. | `IN_PROGRESS` |
 | `TASK-081` | Independent Design Assessment & Graduation Capstone | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-003` | `TASK-079`, `TASK-080` | Track-level project briefs, common design rubric, programme capstone and QA protocol | New briefs assess independent tool choice, design reasoning, iteration, editable source, correct exports, and reflection; rubric and pass threshold receive independent QA approval. | `PENDING` |

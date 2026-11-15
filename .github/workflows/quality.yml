@@ -50,6 +50,9 @@ jobs:
       - name: Curriculum script checks
         run: npm run test:scripts
 
+      - name: Vietnamese lesson translation coverage
+        run: npm run test:translations
+
       - name: Production build
         run: npm run build
 

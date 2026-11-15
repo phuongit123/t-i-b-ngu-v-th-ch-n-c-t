@@ -3,9 +3,10 @@
 ## Document Control
 - **Document ID:** `LEARNING-OUTCOMES-001`
 - **Version:** `1.0.0`
-- **Status:** `APPROVED DIRECTION / IMPLEMENTATION AND QA PENDING`
+- **Status:** `APPROVED FRAMEWORK / 66-LESSON MAP QA-APPROVED / TASK-079 COMPLETED`
 - **Last Updated:** `2026-11-15`
 - **Governing Roles:** `CurriculumAgent` / `QAAgent` / `Orchestrator`
+- **Lesson-level mapping:** `project-control/LEARNING_OUTCOME_MAPPING.md` (66-row mapping independently checked against lesson JSON and QA-approved)
 
 ---
 
@@ -131,3 +132,9 @@ The programme may claim comprehensive tool coverage only after the version-scope
 The programme may claim design competence only after independent assessment evidence exists. Do not convert a planned lesson, a tool encyclopedia entry, a successful tutorial reproduction, or a passing software test into a learner outcome claim.
 
 This document defines the approved direction and acceptance model. It does **not** claim that the tool inventory, all lesson mappings, capstones, or graduation assessments have already been implemented.
+
+## 9. Lesson-Level Mapping Status
+
+The lesson-to-PLO mapping for all 66 existing lessons is maintained in `project-control/LEARNING_OUTCOME_MAPPING.md` and has been independently audited row-by-row against the corresponding curriculum JSON. The audit checked lesson identity/title, named tool, guided-practice checkpoint count, independent-challenge title, and success-criteria count; all 66 rows matched.
+
+TASK-079 is **COMPLETED**. This sign-off approves the mapping and gap analysis, not learner mastery, A5 attainment, or complete tool coverage. `X*` remains an in-lesson practice opportunity rather than independent graduation evidence.

@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { Terminal, User, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
+import { moduleTranslationsVi } from './data/curriculum/translationsVi';
 
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
@@ -90,8 +91,8 @@ export const App: React.FC = () => {
             lesson={currentLesson}
             onLessonComplete={(id) => {
               setActiveToast({
-                title: 'Lesson Completed! 🎉',
-                message: `You have successfully completed ${id}: ${currentLesson.title}.`,
+                title: 'Hoàn thành bài học! 🎉',
+                message: `Bạn đã hoàn thành xuất sắc ${id}: ${currentLesson.title}.`,
               });
             }}
             onBackToCatalog={() => setActiveRoute('catalog')}
@@ -245,12 +246,13 @@ export const App: React.FC = () => {
 
                         {/* Title: Full width, no narrow wrapping */}
                         <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-wide">
-                          {mod.title}
+                          <span>{moduleTranslationsVi[mod.id]?.title || mod.title}</span>
+                          <span className="sr-only">{mod.title}</span>
                         </h3>
 
                         {/* Description: Spans nicely across the card */}
                         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-4xl">
-                          {mod.description}
+                          {moduleTranslationsVi[mod.id]?.description || mod.description}
                         </p>
                       </div>
 
@@ -319,14 +321,14 @@ export const App: React.FC = () => {
         return (
           <div>
             <PageHeader
-              title="Affinity MCP Scripting & Automation Playground"
-              description="Write JavaScript directly against your running Affinity 3.3.3 desktop instance and view instant live spread renders."
-              badge="Phase 4 Implementation"
+              title="Phòng Thí Nghiệm Lập Trình Scripting & MCP"
+              description="Thực thi JavaScript DOM trực tiếp trên phiên bản Affinity chạy ngầm và theo dõi hình ảnh trang đôi kết xuất tức thì."
+              badge="Phân hệ tự động hóa giai đoạn 4"
             />
             <EmptyState
               icon={<Terminal className="w-5 h-5 text-emerald-400" />}
-              title="Monaco Editor & Live Render Viewport Scheduled for Phase 4"
-              description="The split-pane IDE and localhost:6767 SSE live rendering bridge will be integrated in Phase 4."
+              title="Trình Soạn Thảo Monaco & Cổng Kết Xuất Trực Tiếp"
+              description="Không gian lập trình chia đôi màn hình và kết nối SSE qua localhost:6767 sẽ được tích hợp trong giai đoạn 4."
             />
           </div>
         );
@@ -336,14 +338,14 @@ export const App: React.FC = () => {
         return (
           <div>
             <PageHeader
-              title="Student Dashboard & Learning Portfolio"
-              description="Track your mastery across all 40 modules, 120 lessons, challenge submissions, and earned achievement badges."
-              badge="Phase 5 Implementation"
+              title="Bảng Điều Khiển Học Viên & Hồ Sơ Năng Lực"
+              description="Theo dõi mức độ thành thạo công cụ, lịch sử làm bài tập, các sản phẩm hoàn thiện và huy hiệu đạt được."
+              badge="Hệ thống hồ sơ giai đoạn 5"
             />
             <EmptyState
               icon={<User className="w-5 h-5 text-purple-400" />}
-              title="Student Dashboard Scheduled for Phase 5"
-              description="Supabase user profile synchronization and portfolio gallery will be wired in Phase 5 & 6."
+              title="Hồ Sơ Năng Lực Học Viên"
+              description="Tính năng đồng bộ hóa hồ sơ người dùng và thư viện tác phẩm sẽ được kết nối trong giai đoạn 5."
             />
           </div>
         );
@@ -390,7 +392,7 @@ export const App: React.FC = () => {
       <React.Suspense
         fallback={
           <div className="flex items-center justify-center p-12 text-sm text-[var(--color-text-secondary)] font-mono">
-            Loading module...
+            Đang tải dữ liệu module...
           </div>
         }
       >
@@ -403,8 +405,8 @@ export const App: React.FC = () => {
         onClose={() => setIsSearchOpen(false)}
         onSelectItem={(item: SearchResultItem) => {
           setActiveToast({
-            title: `Navigated to ${item.title}`,
-            message: `Selected from category: ${item.category}`,
+            title: `Đã chuyển đến ${item.title}`,
+            message: `Danh mục: ${item.category}`,
           });
         }}
       />
