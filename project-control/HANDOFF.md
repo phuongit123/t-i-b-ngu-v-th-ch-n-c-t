@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.0` (TASK-080 Completed: Tool Coverage Matrix fully populated; HomePage Vietnamese alignment verified)
+- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 IN-SCOPE TOOLS DISCOVERED, 50 AT STAGE P4, 18 AT STAGE V1 GAPS; 3 EXCLUSIONS = 71 TOTAL) — HOMEPAGE REFINED WITH VIETNAMESE DESIGN-THINKING COPYWRITING — 20/20 PLAYWRIGHT E2E PASS — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 IN-SCOPE TOOLS DISCOVERED, 50 AT STAGE P4, 18 AT STAGE V1 GAPS; 3 EXCLUSIONS = 71 TOTAL) — HOMEPAGE REFINED WITH VIETNAMESE DESIGN-THINKING COPYWRITING — LOCAL E2E 20/20 REPORTED BY ANTIGRAVITY (NOT YET CONFIRMED BY CI ON e65b9fd) — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -191,7 +191,7 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 
 ---
 
-## 7. Next Session Continuity & TASK-080 Completion Sign-off — 2026-11-15
+## 7. Next Session Continuity & TASK-080 Independent Review — 2026-11-15
 
 1. **TASK-080 Population & Staging (`REQ-LEARN-002`):**
    - Populated `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` with **71 total entries** (68 in-scope records, 3 legacy exclusions) using the complete 16-field schema including `review_owner`.
@@ -219,3 +219,15 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
    - `TASK-081` (Independent Design Assessment & Graduation Capstone rubric design).
    - `BLK-007` remains **ACTIVE — LOCKED**. Do not author Publisher B02–B10 or Scripting S02–S10 until explicit Project Owner approval.
 
+---
+
+## 8. Independent TASK-080 Review Handoff — 2026-11-15
+
+- Review report: `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
+- Matrix control header and stale 76/54/14 summary were corrected; counts are presented as provisional pending independent review.
+- Move Tool mapping was corrected to include `D01-03`, where its guided practice actually appears.
+- Direct official URLs were added for Move Tool, Vector Flood Fill, Measure Tool release-note evidence, and Preflight.
+- New September 2026 feature candidates are recorded without changing the denominator.
+- The remaining inventory rows still require source traceability checks; all 50 P4 claims require lesson evidence review. Do not infer acceptance from structural checks.
+- Antigravity reports local tests on `e65b9fd`; GitHub Actions must run against the branch/PR before recording CI PASS.
+- `TASK-080` stays IN_PROGRESS and `BLK-007` stays ACTIVE — LOCKED.
