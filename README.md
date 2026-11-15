@@ -194,6 +194,11 @@ npm run build
 
 ---
 
+
+## 📚 Programme Outcome Mapping
+
+The initial lesson-level map for the approved PLO-01–PLO-11 framework is maintained in [`project-control/LEARNING_OUTCOME_MAPPING.md`](project-control/LEARNING_OUTCOME_MAPPING.md). It maps the 66 current lessons and labels taught content, guided practice, and independent-challenge opportunities separately. The map is an initial authoring pass and requires independent QA; it does not certify learner mastery or A5 assessment.
+
 ## 🤖 Antigravity Workspace Instructions
 
 Antigravity's project-specific instructions and reusable agent procedures are committed to this repository:
