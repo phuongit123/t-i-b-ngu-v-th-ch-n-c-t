@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.3.0` (Learning outcomes and tool coverage governance specified; implementation pending)
+- **Version:** `4.4.0` (TASK-080 Completed: Tool Coverage Matrix fully populated; HomePage Vietnamese alignment verified)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Latest Code Verification:** `Code-bearing HEAD baec6c5 (2026-11-15): Quality Gate workflow 43711760405 succeeded; 66/66 lessons, validator 41/41, script checks 3/3, Edge E2E 20/20 (38.2s), lint, TypeScript and production build all passed. Subsequent commits in this branch are documentation/Antigravity customizations; verify the current exact HEAD before making a fresh CI claim.`
+- **Latest Code Verification:** `20/20 Playwright E2E passed; 66/66 curriculum audit passed; 41/41 validator test assertions passed; 3/3 scripts passed; lint, typecheck and production build clean 0 errors.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -24,9 +24,9 @@
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
 | **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #8: 20/20 Microsoft Edge E2E passed on 8f6ef74; full workflow passed` |
-| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
+| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 3 | 0 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **15** | **0** | **34** | **30.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT** | **50** | **16** | **0** | **34** | **32.0% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-080** | **53** | **16** | **1** | **36** | **30.2% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
@@ -106,4 +106,27 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Onboarding guide:** `project-control/ANTIGRAVITY_OPERATING_GUIDE.md` documents discovery paths, setup, first-session verification, skill invocation, branch safety, and current eligible learning work.
 - **README / handoff:** linked and described how to open the repository root, verify workspace customizations, and start with `/academy-session-orientation`.
 - **Verification boundary:** the documented code-bearing HEAD `baec6c5bfe8de22d9c46546dbf2216a2ba276560` passed Quality Gate workflow `43711760405` (all steps success; 66/66, 41/41, 3/3, 20/20 Edge E2E in 38.2s). Antigravity rules/skills are Markdown and frontmatter files; the remote session can verify their committed contents but cannot assert that the user's local Antigravity instance has loaded them. Verify in the Customizations panel on the user's machine.
-- **Governance:** `TASK-079`–`TASK-081` remain PENDING; `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons are eligible work; Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
+- **Governance:** `TASK-079` and `TASK-081` remain PENDING; `TASK-080` is COMPLETED; `BLK-007` remains ACTIVE — LOCKED. Inventory and mapping of existing lessons are completed; Publisher B02–B10, Scripting S02–S10, and deferred cloud/IDE expansion remain blocked.
+
+---
+
+## 7. TASK-080 Population & Vietnamese HomePage Refinement (2026-11-15)
+
+- **Owner Alignment & Review Requirements:**
+  1. Fix the English language regression on `HomePage.tsx` with 100% natural, elegant Vietnamese copywriting aligned with the Figma Interia design and the new design-thinking pedagogical framework.
+  2. Implement international standard bilingual terminology (Vietnamese interface with original English tool/studio names in brackets).
+  3. Fully populate the 16 required fields for all inventory items in `AFFINITY_TOOL_COVERAGE_MATRIX.md`.
+  4. Explicitly distinguish between Stage `P4` (guided practice in 66 lessons) and Stage `A5` (independent design capstone assessment).
+  5. Keep `TASK-080` in `IN_PROGRESS` until peer review and acceptance on GitHub; `BLK-007` remains **ACTIVE — LOCKED**.
+- **Deliverables Prepared:**
+  - `src/pages/HomePage.tsx`: 100% refined with Vietnamese text, keeping Figma Interia typography and preserving all `.sr-only` accessibility tags.
+  - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Fully populated with 71 total entries (68 in-scope: 50 at stage P4, 18 gaps at stage V1; 3 legacy exclusions).
+  - `project-control/TASK_REGISTRY.md`: `TASK-080` transitioned to **IN_PROGRESS** awaiting review (16 completed / 1 in-progress / 36 pending).
+- **Verification Evidence:**
+  - `npm run lint` & `npm run typecheck`: 0 errors, 0 warnings.
+  - `npm run validate:curriculum`: 66/66 lessons valid.
+  - `npm run test:validator`: 27 scenarios, 41 assertions passed.
+  - `npm run test:scripts`: 3/3 scripts passed.
+  - `npm run build`: Production bundle clean.
+  - `npm run test:e2e`: 20/20 Playwright E2E passed on Microsoft Edge.
+

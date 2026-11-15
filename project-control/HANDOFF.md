@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.3.0` (Learning outcomes and tool coverage standards registered)
+- **Version:** `4.4.0` (TASK-080 Completed: Tool Coverage Matrix fully populated; HomePage Vietnamese alignment verified)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS MERGED INTO PHASE 5 BRANCH VIA PR #2 — PHASE 5 PR #1 OPEN AGAINST MAIN — QUALITY GATE #8 PASS ON 8f6ef74 — TOOL INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 IN-SCOPE TOOLS DISCOVERED, 50 AT STAGE P4, 18 AT STAGE V1 GAPS; 3 EXCLUSIONS = 71 TOTAL) — HOMEPAGE REFINED WITH VIETNAMESE DESIGN-THINKING COPYWRITING — 20/20 PLAYWRIGHT E2E PASS — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -188,3 +188,34 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - PR #1 remains open against `main`; no merge was performed by this work.
 - `BLK-007` remains ACTIVE — LOCKED. Tool audit and existing-lesson mapping are the next eligible learning tasks; curriculum expansion and deferred platform modules remain gated.
 - Antigravity's first session must re-check live GitHub state and the local working tree; this handoff is not a substitute for those checks.
+
+---
+
+## 7. Next Session Continuity & TASK-080 Completion Sign-off — 2026-11-15
+
+1. **TASK-080 Population & Staging (`REQ-LEARN-002`):**
+   - Populated `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` with **71 total entries** (68 in-scope records, 3 legacy exclusions) using the complete 16-field schema including `review_owner`.
+   - Mapped **50 tools** at stage `P4` (guided practice in 66 lessons).
+   - Documented **18 tools** at stage `V1` as gaps (4 Vector, 4 Pixel, 6 Layout, 4 Automation).
+   - Documented 3 legacy exclusions (`EXCL-001` StudioLink V2, `EXCL-002` 1.x panels, `EXCL-003` Store IAP).
+   - Explicitly clarified that `P4` (guided practice) does not equal `A5` (independent design capstone assessment).
+   - Kept `TASK-080` in `IN_PROGRESS` in `TASK_REGISTRY.md` awaiting peer review on GitHub.
+
+2. **HomePage UI & Language Alignment:**
+   - Eliminated the English regression on `src/pages/HomePage.tsx`.
+   - Restored 100% natural, elegant Vietnamese copywriting aligned with the 8-stage design-thinking framework (*Khám phá → Định nghĩa → Khảo sát → Lập kế hoạch → Sáng tạo → Đánh giá → Lặp lại → Bàn giao*) and Figma Interia design principles.
+   - Retained international standard bilingual terms (`Vector Studio`, `Pixel Studio`, `Layout Studio`, `Pen & Node Tool`, etc.).
+
+3. **Verification Evidence on Local Environment:**
+   - `npm run lint` & `npm run typecheck`: clean 0 errors.
+   - `npm run validate:curriculum`: 66/66 lessons valid.
+   - `npm run test:validator`: 27 scenarios, 41 assertions passed.
+   - `npm run test:scripts`: 3/3 scripts passed.
+   - `npm run build`: Production build succeeded in 7.28s.
+   - `npm run test:e2e`: 20/20 Playwright E2E passed on Microsoft Edge (46.6s).
+
+4. **Next Eligible Actions:**
+   - `TASK-079` (Programme Learning Outcomes & Competency Framework mapping).
+   - `TASK-081` (Independent Design Assessment & Graduation Capstone rubric design).
+   - `BLK-007` remains **ACTIVE — LOCKED**. Do not author Publisher B02–B10 or Scripting S02–S10 until explicit Project Owner approval.
+
