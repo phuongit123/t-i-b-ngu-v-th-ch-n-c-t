@@ -4,7 +4,7 @@
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.4.6` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 native URL gaps, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -286,3 +286,12 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Evidence artifact: `affinity-academy-quality-evidence`, ID `14171164280`; SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
 - CI success is web-academy evidence only; it does not certify Affinity tool semantics, inventory completeness, or SDK/runtime compatibility.
 - PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 15. TASK-080 Artboard / Histogram Source and Practice Recheck (2026-11-16)
+
+- Found official Help Center page URLs for Artboard Tool and Histogram panel; their page bodies were not exposed by text extraction, so exact controls remain unverified. They are no longer described as missing vendor URLs.
+- `D01-02` contains real guided and independent multi-artboard practice; narrowed `VEC-002` actions to creating, sizing and naming artboards. Presets/conversion from selection remain unverified.
+- `P05-01` contains real guided practice reading the Red histogram channel and an RGB-distribution challenge; narrowed `PIX-012` to those supported uses. Clipping alerts and color-space constraints remain unverified.
+- Current source distribution: 38 direct official feature-matched pages with body content reviewed, 2 official Help Center page-title matches with body review pending, 9 broad/version-limited URLs, and 1 project-local MCP-only record.
+- Latest documentation head triggered Quality Gate #43739465667; its result is still pending in the CI status record. PR #6 stays Draft and unmerged.
