@@ -4,7 +4,7 @@
 
 - **Document ID:** `PLO-MAP-001`
 - **Version:** `1.0.0`
-- **Status:** `INITIAL EVIDENCE MAP / INDEPENDENT QA PENDING`
+- **Status:** `INDEPENDENT QA APPROVED — FULL 66/66 ROW-BY-ROW VERIFICATION COMPLETE`
 - **Last Updated:** `2026-11-15`
 - **Branch:** `feat/task-079-learning-outcome-mapping`
 - **Scope:** All 66 currently existing curriculum lessons (60 core + 6 pilot)
@@ -17,7 +17,7 @@ This document maps each existing lesson to the approved Programme Learning Outco
 
 **This is an instructional alignment map, not a learner-performance certification.** A lesson mapped to a PLO does not prove that a learner achieved that outcome. An independentChallenge field is a learning opportunity, not retained A5 assessment evidence.
 
-The map is an initial authoring-team pass. Independent QA must verify each row against the complete lesson payload and approve the mapping before TASK-079 can be marked COMPLETED.
+The map has completed independent row-by-row QA against the 66 current lesson JSON files. The reviewer verified lesson IDs/titles, named tools, guided-practice checkpoint counts, independent-challenge titles, and the corresponding criteria counts. This approves the mapping as curriculum-alignment evidence; it does not certify learner achievement or A5 competence.
 
 ## 2. Evidence notation
 
