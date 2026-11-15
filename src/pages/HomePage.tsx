@@ -107,7 +107,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 sm:px-12 py-20 flex flex-col items-end">
           <div className="max-w-[620px] w-full text-left space-y-6">
             <h1 className="font-kanit font-normal text-[36px] sm:text-[44px] lg:text-[48px] text-white leading-[1.15] tracking-tight">
-              We engineer your creative mastery
+              Learn the tools. Think like a designer.
             </h1>
             <p className="font-nunito font-normal text-[16px] sm:text-[18px] text-zinc-300 leading-relaxed">
               Learn Affinity through its Layout, Vector, and Pixel studios. Build tool fluency, visual judgement, and a repeatable design process — then apply those skills to new briefs.
@@ -531,7 +531,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <p className="font-nunito text-[15px] text-zinc-400 max-w-[480px] text-left md:text-right">
-              Precision design curriculum engineered for human creators and autonomous AI agents.
+              Understand the tools, choose the right workflow, and create with design intent.
             </p>
           </div>
         </div>
