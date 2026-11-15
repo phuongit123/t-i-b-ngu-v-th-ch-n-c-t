@@ -184,9 +184,16 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - P4 source disposition now separates 38 content-reviewed direct official feature URLs, 2 official Help Center page-title matches with unread article bodies, 9 broad/version-limited sources, and 1 project-local MCP-only source. TASK-080 remains IN_PROGRESS.
 
 
-## 11. Current PR head and CI state (2026-11-16)
+## 11. Prior PR head and CI snapshot (2026-11-16)
 
-- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
-- Quality Gate **#43740066423** (run 57) is attached to this exact SHA and is **IN_PROGRESS**. At the last inspection, checkout and dependency installation had completed/started; later checks had not all run. No current-head pass is claimed.
-- The preceding run #43739829124 on `a441f19...` was cancelled when the branch advanced. An earlier exact-head run #43739465667 on `b98e817...` succeeded, but is not a pass for the latest SHA.
+- The previous snapshot recorded head `d1ed2bf...` with run #43740066423 in progress. That run was cancelled when subsequent documentation commits advanced the branch. The current successful exact-head gate is recorded below.
 - PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 12. Exact-head Quality Gate success (2026-11-16)
+
+- Quality Gate **#43740202800** (run 59) completed **SUCCESS** on the exact PR head at the time, `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`.
+- Verified: ESLint, TypeScript, curriculum validation **66/66** (0 errors), validator regression **41 assertions / 0 failures**, script checks **3/3**, production build, Microsoft Edge installation, and Playwright E2E **20/20**.
+- Artifact: [affinity-academy-quality-evidence](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43740202800/artifacts/14172242049), ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
+- This success is scoped to commit `5f7cdc8...` and the web academy. It does not certify Affinity operation semantics, SDK compatibility, or completeness of the provisional 68-record inventory.
+- The next documentation synchronization commit is a new PR head and therefore requires its own Quality Gate. PR #6 remains Draft/unmerged; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.

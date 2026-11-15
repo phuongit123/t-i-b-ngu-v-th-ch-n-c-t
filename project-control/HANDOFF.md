@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.8` (latest desktop version scope accepted; last completed Quality Gate #43738438116 passed on prior reviewed head)
+- **Version:** `4.4.9` (latest desktop version scope accepted; last completed Quality Gate #43738438116 passed on prior reviewed head)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
 - **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 independent mapping audit + CI); TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
@@ -297,9 +297,15 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Latest documentation head triggered Quality Gate #43739465667; its result is still pending in the CI status record. PR #6 stays Draft and unmerged.
 
 
-## 16. Latest PR Head / CI State (2026-11-16)
+## 16. Prior PR Head / CI Snapshot (2026-11-16)
 
-- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
-- Quality Gate #43740066423 (run 57) is attached to this exact commit and is IN_PROGRESS. At last inspection, package installation was running after checkout succeeded; remaining checks were not yet complete.
-- Run #43739829124 on the previous head `a441f19...` was cancelled when the branch advanced. The successful #43738438116 remains valid only for its exact older commit `b85956e...`.
+- At the time of this snapshot, PR #6 head was `d1ed2bf...` and Quality Gate #43740066423 was running. That run was cancelled when later documentation updates advanced the branch.
 - PR #6 remains Draft and unmerged. TASK-080 remains IN_PROGRESS, TASK-081 PENDING, and BLK-007 ACTIVE — LOCKED.
+
+
+## 17. Exact-head Quality Gate success (2026-11-16)
+
+- Quality Gate #43740202800 (run 59) completed **SUCCESS** on exact commit `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`, then the PR head.
+- ESLint, TypeScript, curriculum validation 66/66, validator regression 41/41, script checks 3/3, production build, Microsoft Edge install, and Playwright E2E 20/20 passed.
+- Evidence artifact: `affinity-academy-quality-evidence`, ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
+- The next documentation synchronization commit advances the PR head and requires its own CI. PR #6 remains Draft/unmerged; TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.

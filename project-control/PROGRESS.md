@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.8` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.9` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Latest completed Quality Gate #43738438116 passed on exact commit b85956ef5830e757ae870a8843410de3a4fb14d5 (the PR head at that run's time): ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. Later pushes cancelled runs on intermediate heads. Current PR #6 head d1ed2bf32f142bfbaa7b0c9ef33b825013fced02 has Quality Gate #43740066423 in progress. No pass is claimed for that latest head until the run completes. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
+- **Verification boundary:** `Latest completed Quality Gate #43740202800 passed on exact commit 5f7cdc87a15fba0e8b0b389278c176d26be2a1a1 (the PR head at that run's time): ESLint, TypeScript, curriculum 66/66, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. The following documentation synchronization advances PR #6 to a new head and requires a fresh Quality Gate; this prior pass does not certify the new SHA. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -207,9 +207,15 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
 
 
-## 16. Latest PR Head / CI State (2026-11-16)
+## 16. Prior PR Head / CI Snapshot (2026-11-16)
 
-- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
-- Quality Gate #43740066423 (run 57) is attached to that exact commit and remains IN_PROGRESS. Checkout succeeded and package installation was running at the last check; lint/test/build/Edge E2E are not yet signed off for this head.
-- Intermediate run #43739829124 on `a441f19...` was cancelled by the subsequent push. The success from #43738438116 is valid only for the older exact SHA `b85956e...`.
+- At the time of this snapshot, PR #6 head was `d1ed2bf...` and Quality Gate #43740066423 was in progress. That run was cancelled when a subsequent documentation synchronization advanced the branch.
 - TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. PR #6 remains Draft and unmerged.
+
+
+## 17. Exact-head Quality Gate evidence (2026-11-16)
+
+- Quality Gate **#43740202800** (run 59) passed on exact PR head `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`.
+- Results: ESLint PASS; TypeScript PASS; curriculum validation **66/66**; validator regression **41 assertions / 0 failed**; scripts **3/3**; production build PASS; Edge setup PASS; Playwright E2E **20/20**.
+- Artifact `affinity-academy-quality-evidence`, ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
+- This is evidence for `5f7cdc8...` only. The synchronization commit that adds this record will become a new PR head and needs a new Quality Gate; use the PR Checks tab for the current exact SHA. PR #6 remains Draft/unmerged; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
