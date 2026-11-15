@@ -22,7 +22,8 @@ export type SlideType =
   | 'workflow'
   | 'interaction'
   | 'layout'
-  | 'detail';
+  | 'detail'
+  | 'diagram';
 
 export interface ShortcutKeycap {
   win: string;

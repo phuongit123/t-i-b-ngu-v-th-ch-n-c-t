@@ -278,8 +278,8 @@ function getQuizQuestionErrors(question, context) {
   }
 
   const errors = [];
-  if (!isNonEmptyString(question.id)) {
-    errors.push(`     [FAIL] ${context} id must be a non-empty string`);
+  if (question.id !== undefined && !isNonEmptyString(question.id)) {
+    errors.push(`     [FAIL] ${context} id must be a non-empty string when provided`);
   }
   if (!isNonEmptyString(question.question)) {
     errors.push(`     [FAIL] ${context} question must be a non-empty string`);
@@ -610,7 +610,8 @@ export function validateCurriculum(options = {}) {
           // Support current slides plus the two legacy shapes already present in D10 and P10.
           if (!Array.isArray(lesson.slides) || lesson.slides.length < 5 || lesson.slides.length > 15) {
             logLessonError(`     [FAIL] Lesson ${expectedLessonId} slides must contain between 5 and 15 items (found ${Array.isArray(lesson.slides) ? lesson.slides.length : 0})`);
-          } else {
+          }
+          if (Array.isArray(lesson.slides) && lesson.slides.length >= 1) {
             lesson.slides.forEach((slide, slideIndex) => {
               const slideContext = `Lesson ${expectedLessonId} slide #${slideIndex + 1}`;
               if (!isPlainObject(slide)) {
@@ -655,7 +656,7 @@ export function validateCurriculum(options = {}) {
                   logLessonError(`     [FAIL] ${slideContext} legacy callout must be a non-empty string when provided`);
                 }
               } else if (isLegacyP10Slide) {
-                const legacyP10Types = ['concept', 'workflow', 'interaction', 'layout', 'detail', 'summary'];
+                const legacyP10Types = ['concept', 'workflow', 'interaction', 'layout', 'detail', 'summary', 'diagram'];
                 if (!isNonEmptyString(slide.id) || !Number.isInteger(slide.order) || slide.order < 1) {
                   logLessonError(`     [FAIL] ${slideContext} legacy id/order are invalid`);
                 }
@@ -743,7 +744,8 @@ export function validateCurriculum(options = {}) {
   for (const [track, trackConfig] of Object.entries(expectedStructure)) {
     const trackDir = path.join(curriculumDir, track);
     if (
-      !Array.isArray(trackConfig.modules)
+      !isPlainObject(trackConfig)
+      || !Array.isArray(trackConfig.modules)
       || !fs.existsSync(trackDir)
       || !fs.statSync(trackDir).isDirectory()
     ) continue;

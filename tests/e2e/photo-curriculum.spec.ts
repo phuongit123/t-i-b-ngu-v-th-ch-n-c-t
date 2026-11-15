@@ -61,7 +61,6 @@ test.describe('Phase 5 — Track 2: Affinity Photo Learning Subsystem', () => {
     await page.locator('h3:has-text("Affinity Photo")').click();
 
     // Open the existing P10 capstone module and its third lesson.
-    await page.locator('span:has-text("P10")').first().click();
     await page.locator(
       'h5:has-text("Capstone Project — End-to-End Commercial Portrait/Landscape Master Workflow")'
     ).click();
