@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.1` (TASK-080 inventory submitted; independent review in progress)
+- **Version:** `4.4.2` (TASK-080 independent P4 evidence cross-check underway; source/build/denominator review remains open)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 IN-SCOPE TOOLS DISCOVERED, 50 AT STAGE P4, 18 AT STAGE V1 GAPS; 3 EXCLUSIONS = 71 TOTAL) — HOMEPAGE REFINED WITH VIETNAMESE DESIGN-THINKING COPYWRITING — LOCAL E2E 20/20 REPORTED BY ANTIGRAVITY (NOT YET CONFIRMED BY CI ON e65b9fd) — BLK-007 ACTIVE / LOCKED — NO MERGE TO MAIN OR TRACK 3 IMPLEMENTATION`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-080 IN_PROGRESS (68 submitted in-scope records / 50 provisional P4 / 18 provisional V1 / 3 exclusions) — 50 P4 records mapped to 53 lesson JSON refs; 44 official URL links (35 without caveat, 9 partial), 6 no direct URL — target desktop 3.3.3.5004 repository-declared; installed build unverified — TASK-081 PENDING BOTH TASK-079 AND TASK-080 — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -231,3 +231,18 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - The remaining inventory rows still require source traceability checks; all 50 P4 claims require lesson evidence review. Do not infer acceptance from structural checks.
 - Antigravity reports local tests on `e65b9fd`; GitHub Actions must run against the branch/PR before recording CI PASS.
 - `TASK-080` stays IN_PROGRESS and `BLK-007` stays ACTIVE — LOCKED.
+
+
+---
+
+## 10. TASK-080 Independent Evidence Audit — Round 2 (2026-11-15)
+
+- Review branch: `qa/task-080-independent-evidence-audit`, based on the merged baseline commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Detailed findings: `project-control/TASK-080_INDEPENDENT_REVIEW.md`.
+- Reproduced the provisional inventory baseline: 68 submitted in-scope records + 3 exclusions; 50 P4 claims and 18 V1 claims. Do not claim this is exhaustive product coverage yet.
+- Reconciled 50 P4 records against 53 distinct lesson JSON references. The practice references now use exact `standardSections.guidedPractice` and `standardSections.independentChallenge` anchors, not synthetic `*-PRAC` IDs.
+- Narrowed/corrected the P4 mappings where guided practice did not support the submitted claim: VEC-001, PIX-007, PIX-006, PIX-014 and PIX-016.
+- Source traceability: 35/50 P4 records now have a direct URL without an explicit caveat; 9/50 have broad/compatibility-limited URLs; 6/50 still lack direct URLs. URL presence alone does not establish the current application's exact behavior.
+- Current build caveat: lessons declare desktop Affinity 3.3.3.5004, but the installed user build was not inspected. Official SDK docs are version 3.3.1; runtime compatibility needs separate confirmation.
+- The official desktop September 2026 release notes expose additional candidates; they remain a discovery queue and are not yet counted. The official 2 November iPad announcement is a separate platform scope.
+- TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until both TASK-079 and TASK-080 are completed; BLK-007 remains ACTIVE — LOCKED.
