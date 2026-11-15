@@ -378,10 +378,6 @@ export function validateCurriculum(options = {}) {
       logError(`[FAIL] Expected curriculum manifest for track ${track} must be an object`);
       continue;
     }
-    if (!isPlainObject(trackConfig)) {
-      logError(`[FAIL] Expected curriculum manifest for track ${track} must be an object`);
-      continue;
-    }
     const trackDir = path.join(curriculumDir, track);
 
     if (!Array.isArray(trackConfig.modules)) {

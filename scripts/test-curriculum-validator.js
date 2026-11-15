@@ -26,6 +26,7 @@ console.log('======================================================\n');
 
 let testsPassed = 0;
 let testsFailed = 0;
+let scenariosRun = 0;
 
 function assert(condition, message) {
   if (condition) {
@@ -38,33 +39,40 @@ function assert(condition, message) {
 }
 
 function createFixture(sourceTrack = 'designer', sourceModuleId = 'D01') {
-  const sourceModule = path.join(CURRICULUM_ROOT, sourceTrack, sourceModuleId);
-  if (!fs.existsSync(sourceModule)) {
-    throw new Error('Required fixture source is missing: ' + sourceModule);
-  }
-
+  const sourceModuleIds = Array.isArray(sourceModuleId) ? sourceModuleId : [sourceModuleId];
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'curriculum-validator-'));
-  const moduleDir = path.join(root, sourceTrack, sourceModuleId);
-  fs.mkdirSync(path.dirname(moduleDir), { recursive: true });
-  fs.cpSync(sourceModule, moduleDir, { recursive: true });
+  const moduleDirs = [];
 
-  // Copy only assets referenced by this module into the isolated fixture.
-  for (const entry of fs.readdirSync(moduleDir, { withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith('.json') || entry.name === 'module.json') continue;
-    const lesson = readJson(path.join(moduleDir, entry.name));
-    const assetPath = lesson.standardSections?.independentChallenge?.starterAsset?.filepath;
-    if (typeof assetPath !== 'string' || !assetPath.trim()) continue;
+  for (const moduleId of sourceModuleIds) {
+    const sourceModule = path.join(CURRICULUM_ROOT, sourceTrack, moduleId);
+    if (!fs.existsSync(sourceModule)) {
+      fs.rmSync(root, { recursive: true, force: true });
+      throw new Error('Required fixture source is missing: ' + sourceModule);
+    }
 
-    const relativeAssetPath = assetPath.replace(/^curriculum[\\/]/, '');
-    const sourceAssetPath = path.resolve(PROJECT_ROOT, 'curriculum', relativeAssetPath);
-    const fixtureAssetPath = path.resolve(root, relativeAssetPath);
-    if (fs.existsSync(sourceAssetPath)) {
-      fs.mkdirSync(path.dirname(fixtureAssetPath), { recursive: true });
-      fs.copyFileSync(sourceAssetPath, fixtureAssetPath);
+    const moduleDir = path.join(root, sourceTrack, moduleId);
+    fs.mkdirSync(path.dirname(moduleDir), { recursive: true });
+    fs.cpSync(sourceModule, moduleDir, { recursive: true });
+    moduleDirs.push(moduleDir);
+
+    // Copy only assets referenced by this module into the isolated fixture.
+    for (const entry of fs.readdirSync(moduleDir, { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith('.json') || entry.name === 'module.json') continue;
+      const lesson = readJson(path.join(moduleDir, entry.name));
+      const assetPath = lesson.standardSections?.independentChallenge?.starterAsset?.filepath;
+      if (typeof assetPath !== 'string' || !assetPath.trim()) continue;
+
+      const relativeAssetPath = assetPath.replace(/^curriculum[\\/]/, '');
+      const sourceAssetPath = path.resolve(PROJECT_ROOT, 'curriculum', relativeAssetPath);
+      const fixtureAssetPath = path.resolve(root, relativeAssetPath);
+      if (fs.existsSync(sourceAssetPath)) {
+        fs.mkdirSync(path.dirname(fixtureAssetPath), { recursive: true });
+        fs.copyFileSync(sourceAssetPath, fixtureAssetPath);
+      }
     }
   }
 
-  return { root, moduleDir };
+  return { root, moduleDir: moduleDirs[0], moduleDirs };
 }
 
 function runFixture(
@@ -115,6 +123,7 @@ function assertContainsError(result, expectedText, label) {
 }
 
 // TEST 1: Positive baseline verification against the actual repository.
+scenariosRun++;
 console.log('Test 1: Current repository baseline...');
 const baselineResult = validateCurriculum({
   curriculumDir: CURRICULUM_ROOT,
@@ -126,11 +135,13 @@ assert(baselineResult.passes === 66, 'Baseline passes all 66 lessons (got ' + ba
 assert(baselineResult.totalAudited === 66, 'Baseline audits exactly 66 lessons (got ' + baselineResult.totalAudited + ')');
 
 // A clean, isolated fixture prevents unrelated repository files masking test failures.
+scenariosRun++;
 console.log('\nTest 2: Isolated valid fixture...');
 const validFixture = runFixture();
 assert(validFixture.errors === 0 && validFixture.passes === 3, 'Minimal D01 fixture passes all three expected lessons');
 
 // TEST 3: Missing required module.
+scenariosRun++;
 console.log('\nTest 3: Missing required module...');
 const missingModuleResult = runFixture(
   () => {},
@@ -140,6 +151,7 @@ assert(missingModuleResult.errors > 0, 'Missing module fails validation');
 assertContainsError(missingModuleResult, 'Missing required module directory: designer/D99_NON_EXISTENT', 'Missing module diagnostic is specific');
 
 // TEST 4: Missing required lesson.
+scenariosRun++;
 console.log('\nTest 4: Missing required lesson...');
 const missingLessonResult = runFixture(
   () => {},
@@ -149,6 +161,7 @@ assert(missingLessonResult.errors > 0, 'Missing lesson fails validation');
 assertContainsError(missingLessonResult, 'D01-04.json', 'Missing lesson diagnostic identifies D01-04.json');
 
 // TEST 5: Duplicate module ID in the independent manifest.
+scenariosRun++;
 console.log('\nTest 5: Duplicate module ID in manifest...');
 const duplicateModuleResult = runFixture(
   () => {},
@@ -158,6 +171,7 @@ assert(duplicateModuleResult.errors > 0, 'Duplicate module ID in manifest fails 
 assertContainsError(duplicateModuleResult, 'Duplicate module ID detected: D01', 'Duplicate module diagnostic is specific');
 
 // TEST 6: Existing module omitted from expected manifest.
+scenariosRun++;
 console.log('\nTest 6: Unexpected module directory...');
 const unexpectedModuleResult = runFixture(
   () => {},
@@ -166,6 +180,7 @@ const unexpectedModuleResult = runFixture(
 assertContainsError(unexpectedModuleResult, 'Unexpected module directory found: designer/D01', 'Unlisted module directory is rejected');
 
 // TEST 7: Unexpected track at curriculum root.
+scenariosRun++;
 console.log('\nTest 7: Unexpected curriculum track...');
 const unexpectedTrackResult = runFixture(({ root }) => {
   fs.mkdirSync(path.join(root, 'experimental'), { recursive: true });
@@ -173,6 +188,7 @@ const unexpectedTrackResult = runFixture(({ root }) => {
 assertContainsError(unexpectedTrackResult, 'Unexpected curriculum root entry: experimental', 'Unexpected root track is rejected');
 
 // TEST 8: Unexpected lesson file that matched the old loose filename regex.
+scenariosRun++;
 console.log('\nTest 8: Unexpected lesson filename...');
 const unexpectedLessonFileResult = runFixture(({ moduleDir }) => {
   fs.copyFileSync(path.join(moduleDir, 'D01-01.json'), path.join(moduleDir, 'D01-99.json'));
@@ -180,6 +196,7 @@ const unexpectedLessonFileResult = runFixture(({ moduleDir }) => {
 assertContainsError(unexpectedLessonFileResult, 'Unexpected file in module designer/D01: D01-99.json', 'Well-shaped but unplanned lesson filename is rejected');
 
 // TEST 9: Module metadata must list the exact manifest lesson IDs.
+scenariosRun++;
 console.log('\nTest 9: Module lessonIds must match manifest...');
 const lessonListMismatchResult = runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
@@ -190,6 +207,7 @@ const lessonListMismatchResult = runFixture(({ moduleDir }) => {
 assertContainsError(lessonListMismatchResult, 'module.json lesson IDs do not match manifest for designer/D01', 'Incomplete module lessonIds list is rejected');
 
 // TEST 10: Duplicate lesson IDs in actual lesson payloads.
+scenariosRun++;
 console.log('\nTest 10: Duplicate IDs in lesson data...');
 const duplicateLessonDataResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-02.json');
@@ -200,6 +218,7 @@ const duplicateLessonDataResult = runFixture(({ moduleDir }) => {
 assertContainsError(duplicateLessonDataResult, 'Duplicate lesson ID found in lesson data: D01-01', 'Duplicate payload lesson ID is rejected');
 
 // TEST 11: Duplicate IDs inside module metadata.
+scenariosRun++;
 console.log('\nTest 11: Duplicate IDs in module lessonIds...');
 const duplicateMetadataLessonIdsResult = runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
@@ -210,6 +229,7 @@ const duplicateMetadataLessonIdsResult = runFixture(({ moduleDir }) => {
 assertContainsError(duplicateMetadataLessonIdsResult, 'contains duplicate lesson IDs: D01-01', 'Duplicate metadata lesson ID is rejected');
 
 // TEST 12: Invalid module metadata.
+scenariosRun++;
 console.log('\nTest 12: Invalid module metadata...');
 const invalidMetadataCapture = captureConsole(() => runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
@@ -229,6 +249,7 @@ assert(
 );
 
 // TEST 13: Unexpected loose entry at curriculum root.
+scenariosRun++;
 console.log('\nTest 13: Unexpected root file...');
 const unexpectedRootFileResult = runFixture(({ root }) => {
   fs.writeFileSync(path.join(root, 'README-untracked.txt'), 'unexpected');
@@ -236,6 +257,7 @@ const unexpectedRootFileResult = runFixture(({ root }) => {
 assertContainsError(unexpectedRootFileResult, 'Unexpected curriculum root entry: README-untracked.txt', 'Unexpected root file is rejected');
 
 // TEST 14: The documented curriculum root README is an allowed support file.
+scenariosRun++;
 console.log('\nTest 14: Allowed curriculum root README...');
 const allowedReadmeResult = runFixture(({ root }) => {
   fs.writeFileSync(path.join(root, 'README.md'), '# Curriculum fixture\n');
@@ -246,6 +268,7 @@ assert(
 );
 
 // TEST 15: Accept the supported lessons: [{ id }] metadata representation.
+scenariosRun++;
 console.log('\nTest 15: Object-based module lessons metadata...');
 const objectLessonsResult = runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
@@ -260,6 +283,7 @@ assert(
 );
 
 // TEST 16: Reject null/malformed entries in the lessons array without throwing.
+scenariosRun++;
 console.log('\nTest 16: Null entry in module lessons metadata...');
 const nullLessonEntryResult = runFixture(({ moduleDir }) => {
   const modulePath = path.join(moduleDir, 'module.json');
@@ -276,6 +300,7 @@ assertContainsError(
 );
 
 // TEST 17: Reject a null track entry in a custom manifest without throwing.
+scenariosRun++;
 console.log('\nTest 17: Null track entry in manifest...');
 const nullTrackResult = runFixture(
   () => {},
@@ -289,6 +314,7 @@ assertContainsError(
 );
 
 // TEST 18: Reject lesson metadata with incorrect primitive types and enum values.
+scenariosRun++;
 console.log('\nTest 18: Invalid lesson metadata types...');
 const invalidLessonMetadataResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-01.json');
@@ -315,6 +341,7 @@ assertContainsError(
 );
 
 // TEST 19: Enforce the slide maximum and validate required slide fields.
+scenariosRun++;
 console.log('\nTest 19: Slide count and item schema...');
 const invalidSlidesResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-01.json');
@@ -340,6 +367,7 @@ assertContainsError(
 );
 
 // TEST 20: A quiz correctIndex must point to an existing option.
+scenariosRun++;
 console.log('\nTest 20: Quiz correctIndex bounds...');
 const invalidQuizIndexResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-01.json');
@@ -355,6 +383,7 @@ assertContainsError(
 );
 
 // TEST 21: Required section objects cannot be empty.
+scenariosRun++;
 console.log('\nTest 21: Empty required standard section...');
 const emptySectionResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-01.json');
@@ -369,6 +398,7 @@ assertContainsError(
 );
 
 // TEST 22: Asset paths resolve against the isolated fixture, not the real repository.
+scenariosRun++;
 console.log('\nTest 22: Fixture-local asset resolution...');
 const fixtureAssetResult = runFixture(({ root, moduleDir }) => {
   const fixtureAssetPath = path.join(root, 'assets', 'designer', 'fixture-only.md');
@@ -387,6 +417,7 @@ assert(
 );
 
 // TEST 23: Missing required assets are detected inside the fixture.
+scenariosRun++;
 console.log('\nTest 23: Missing required asset...');
 const missingRequiredAssetResult = runFixture(({ moduleDir }) => {
   const lessonPath = path.join(moduleDir, 'D01-01.json');
@@ -403,9 +434,9 @@ assertContainsError(
   'Missing required asset receives a specific diagnostic'
 );
 
-console.log('\n======================================================');
-console.log('TEST RESULTS: ' + testsPassed + ' passed, ' + testsFailed + ' failed');
+
 // TEST 24: Preserve the existing legacy D10 lesson format.
+scenariosRun++;
 console.log('\nTest 24: Legacy Designer D10 format...');
 const legacyD10Result = runFixture(
   () => {},
@@ -418,6 +449,7 @@ assert(
 );
 
 // TEST 25: Preserve the existing legacy P10 lesson format.
+scenariosRun++;
 console.log('\nTest 25: Legacy Photo P10 format...');
 const legacyP10Result = runFixture(
   () => {},
@@ -429,6 +461,55 @@ assert(
   'Legacy P10 content slides, workflow visuals, and legacy resource types remain valid'
 );
 
+console.log('\n======================================================');
+
+// TEST 26: Legacy Designer D07–D10 quiz records may omit optional question IDs.
+scenariosRun++;
+console.log('\nTest 26: Legacy Designer D07–D10 quiz IDs are optional...');
+const optionalLegacyQuizIdsResult = runFixture(
+  ({ moduleDirs }) => {
+    for (const moduleDir of moduleDirs) {
+      for (const entry of fs.readdirSync(moduleDir, { withFileTypes: true })) {
+        if (!entry.isFile() || !entry.name.endsWith('.json') || entry.name === 'module.json') continue;
+        const lessonPath = path.join(moduleDir, entry.name);
+        const lessonData = readJson(lessonPath);
+        for (const question of lessonData.standardSections?.knowledgeCheck ?? []) {
+          if (question && typeof question === 'object') delete question.id;
+        }
+        writeJson(lessonPath, lessonData);
+      }
+    }
+  },
+  { designer: { modules: ['D07', 'D08', 'D09', 'D10'], lessonCountPerModule: 3 } },
+  { sourceTrack: 'designer', sourceModuleId: ['D07', 'D08', 'D09', 'D10'] }
+);
+assert(
+  optionalLegacyQuizIdsResult.errors === 0 && optionalLegacyQuizIdsResult.totalAudited === 12,
+  'All 12 D07–D10 lessons remain valid when legacy quiz question IDs are omitted'
+);
+
+// TEST 27: Legacy P10 diagram slides are a supported slide type.
+scenariosRun++;
+console.log('\nTest 27: Legacy P10 diagram slide compatibility...');
+const legacyP10DiagramResult = runFixture(
+  ({ moduleDir }) => {
+    const lessonPath = path.join(moduleDir, 'P10-01.json');
+    const lessonData = readJson(lessonPath);
+    const legacySlide = lessonData.slides.find((slide) => slide && slide.content !== undefined);
+    if (!legacySlide) throw new Error('P10-01 fixture has no legacy content slide');
+    legacySlide.type = 'diagram';
+    writeJson(lessonPath, lessonData);
+  },
+  { photo: { modules: ['P10'], lessonCountPerModule: 3 } },
+  { sourceTrack: 'photo', sourceModuleId: 'P10' }
+);
+assert(
+  legacyP10DiagramResult.errors === 0 && legacyP10DiagramResult.totalAudited === 3,
+  'Legacy P10 diagram slide type is accepted across the isolated module fixture'
+);
+
+console.log('SCENARIOS EXECUTED: ' + scenariosRun);
+console.log('ASSERTIONS: ' + testsPassed + ' passed, ' + testsFailed + ' failed');
 console.log('======================================================\n');
 
 if (testsFailed > 0) {
