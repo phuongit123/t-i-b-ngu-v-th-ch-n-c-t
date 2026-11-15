@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.2.2` (Phase 5 Track 2 Affinity Photo & Photo Layer Simulator Certified)
-- **Timestamp:** `2026-11-13T12:00:00+07:00`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION BRANCH PUBLISHED — VALIDATOR HARDENING AND B05/MCP DOCUMENTATION FOLLOW-UPS COMMITTED — LOCAL TESTS NOT RUN IN THIS REMOTE SESSION — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
+- **Version:** `4.3.0` (Learning outcomes and tool coverage standards registered)
+- **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PHASE 5 STABILIZATION PR OPEN — LEARNING OUTCOMES AND TOOL COVERAGE SPECIFICATIONS REGISTERED ON A STACKED DOCS BRANCH — INVENTORY/LESSON MAPPING/CAPSTONE WORK PENDING — BLK-007 ACTIVE / LOCKED — NO MERGE OR TRACK 3 IMPLEMENTATION`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -24,7 +24,7 @@
      - `P09`: RAW Develop Persona Workflow & 32-bit HDR Pipeline
      - `P10`: Export Persona, Batch Processing & Web/Print Pre-flight
    - **Schema & Quality Adherence:** 100% compliant with the 10-part standard content model and slide deck schema.
-   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors**.
+   - **Curriculum Validation:** `npm run validate:curriculum` runs across all 66 lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) with **66/66 PASS, 0 Errors (historical baseline; re-run required on current pushed HEAD)**.
 
 2. **Authentic Practice Assets for Photo Track:**
    - Authored 9 production-grade practice guides (`GUIDE_DOCUMENT`) in `curriculum/assets/photo/`:
@@ -62,15 +62,15 @@
      - `TC-PHOTO-01`: Course Catalog filters Photo track to 10 modules and 30 lessons.
      - `TC-PHOTO-02`: SlidePlayer launches and navigates a full Photo lesson (`P02-01`).
      - `TC-PHOTO-03`: Photo Layer Simulator renders with disclaimer and interactive controls.
-   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge**.
+   - Total Playwright suite (`tests/e2e/`): **9/9 tests PASSED in 18.1s on Microsoft Edge (historical baseline; not current after test additions)**.
    - Captured 10 verified screenshot artifacts in `tests/screenshots/` (65 kB to 142 kB).
 
 6. **Full Verification Matrix:**
    - `npm run typecheck`: **0 errors**
-   - `npm run validate:curriculum`: **66/66 PASS**
+   - `npm run validate:curriculum`: **66/66 PASS (historical baseline; current-head rerun pending)**
    - `npm run test:scripts`: **3/3 PASS**
    - `npm run build`: **PASS (6.26s)**
-   - `npm run test:e2e`: **9/9 PASS (18.1s)**
+   - `npm run test:e2e`: **9/9 PASS (18.1s, historical baseline; current suite now defines 20 cases and awaits rerun)**
 
 ---
 
@@ -133,3 +133,31 @@ The published branch `fix/phase5-stabilization` received follow-up commits to ad
 
 ### Governance
 `BLK-007` remains ACTIVE — LOCKED. Do not merge this branch, create Track 3 lessons, or begin Track 4 until the owner explicitly authorizes the next phase after review.
+
+
+---
+
+## 5. Learning Outcomes & Tool Coverage Handoff (2026-11-15)
+
+### New approved direction
+The Project Owner approved a product-level goal: learners must understand and competently use the in-scope Affinity tools and develop independent design thinking. Course completion counts alone are not graduation evidence.
+
+### Documentation added on `docs/learning-outcomes-tool-mastery`
+- `project-control/LEARNING_OUTCOMES.md`: programme outcomes, design-thinking process, competency levels, per-lesson teaching contract, and proposed capstone rubric.
+- `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: required inventory fields, evidence stages U0–A5, core/supporting rules, and audit requirements.
+- Master specification, acceptance criteria, requirements registry, task registry, progress, handoff, and README now reference the new direction.
+- `REQ-LEARN-001`–`003` and `TASK-079`–`081` are registered as PENDING. No new lesson count is claimed.
+
+### Next implementation sequence
+1. Complete the current Phase 5 local changes on their own branch and push them; do not let the documentation branch overwrite an unpushed working tree.
+2. Review and merge the Phase 5 stabilization PR only after evidence is attached to the exact pushed HEAD.
+3. Populate the version-scoped Layout, Vector, and Pixel inventory from official sources and direct application evidence; do not claim full coverage before independent audit.
+4. Map existing lessons to verified tools and programme outcomes; record omissions and propose content changes without bypassing `BLK-007`.
+5. Author and QA-review independent design briefs, rubrics, and capstone requirements before enabling graduation claims.
+
+### Verification and governance
+This documentation-only branch has not run npm, TypeScript, ESLint, build, validator, or Playwright commands. Do not report software tests as passed because Markdown files were added. `BLK-007` remains ACTIVE — LOCKED; no Track 3/Track 4 authoring is authorized by this handoff.
+
+
+### Test-count clarification for the latest pushed code
+The repository currently defines 20 Playwright tests across three spec files: 6 Pen/Node tests, 4 Photo curriculum/simulator tests, and 10 UI Capture tests. The Project Owner supplied a later local report of 10/10 Edge tests (21.9s), but that report is not tied to the exact latest commit SHA and does not establish that the added UI Capture suite was included. Do not report 20/20 until the complete suite is run on the exact pushed HEAD and the output/log is retained. No hosted CI status is currently recorded for that commit.
