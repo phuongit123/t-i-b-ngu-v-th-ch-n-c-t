@@ -55,4 +55,4 @@ if (missing.length || extra.length || duplicates.length || empty.length) {
   process.exit(1);
 }
 
-console.log(\`Vietnamese lesson translations: \${uniqueKeys.length}/\${uniqueLessonIds.length} unique lesson IDs mapped; 0 missing, 0 extra, 0 duplicates.\`);
+console.log('Vietnamese lesson translations: ' + uniqueKeys.length + '/' + uniqueLessonIds.length + ' unique lesson IDs mapped; 0 missing, 0 extra, 0 duplicates.');
