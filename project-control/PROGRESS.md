@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.7` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
+- **Version:** `4.4.8` (latest desktop version scope accepted; exact PR-head Quality Gate #43738438116 passed)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Latest completed Quality Gate #43738438116 passed on commit b85956ef5830e757ae870a8843410de3a4fb14d5: ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. Subsequent documentation updates advanced PR #6 to a441f19a41c915d8a2f957d657a360b2eabba94a; its Quality Gate #43739829124 is in progress. No pass is claimed for the newer head until that run completes. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
+- **Verification boundary:** `Latest completed Quality Gate #43738438116 passed on exact commit b85956ef5830e757ae870a8843410de3a4fb14d5 (the PR head at that run's time): ESLint, TypeScript, 66/66 curriculum, 41 validator assertions, 3/3 script checks, production build, and 20/20 Microsoft Edge Playwright E2E. Later pushes cancelled runs on intermediate heads. Current PR #6 head d1ed2bf32f142bfbaa7b0c9ef33b825013fced02 has Quality Gate #43740066423 in progress. No pass is claimed for that latest head until the run completes. CI validates the web academy commit, not Affinity inventory completeness or desktop feature semantics.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -205,3 +205,11 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Rechecked `P05-01`: Red-channel and R/G/B histogram reading are practised; unverified clipping alerts and color-space constraints were removed from `PIX-012`.
 - P4 provenance reconciles to 38 official content-reviewed URLs + 2 official page-title/body-review-pending URLs + 9 broad/version-limited URLs + 1 project-local MCP row = 50.
 - TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 16. Latest PR Head / CI State (2026-11-16)
+
+- Current PR #6 head: `d1ed2bf32f142bfbaa7b0c9ef33b825013fced02`.
+- Quality Gate #43740066423 (run 57) is attached to that exact commit and remains IN_PROGRESS. Checkout succeeded and package installation was running at the last check; lint/test/build/Edge E2E are not yet signed off for this head.
+- Intermediate run #43739829124 on `a441f19...` was cancelled by the subsequent push. The success from #43738438116 is valid only for the older exact SHA `b85956e...`.
+- TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. PR #6 remains Draft and unmerged.
