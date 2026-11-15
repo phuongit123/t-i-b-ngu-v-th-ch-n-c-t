@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - fix/phase5-stabilization
+      - feat/task-079-learning-outcome-mapping
   workflow_dispatch:
 
 permissions:

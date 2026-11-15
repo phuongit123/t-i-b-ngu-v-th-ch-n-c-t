@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.4.5` (TASK-079 completed after full 66/66 independent QA; TASK-080 source and P4 evidence review active)
+- **Version:** `4.4.6` (TASK-079 completed; TASK-080 independent inventory scope, source and P4 review active)
 - **Timestamp:** `2026-11-15 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (independent 66/66 row audit) — TASK-080 IN_PROGRESS (68 provisional in-scope / 18 V1 gaps / 3 exclusions; source, denominator and 50 P4 claims under review) — PR #4 DRAFT OPEN — QUALITY GATE #43728990588 PASS ON PR #4 HEAD (66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translations, build, 20/20 Edge E2E) — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED (66/66 row audit) — TASK-080 IN_PROGRESS (68 records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0; source and installed-build verification open) — PR #4 DRAFT OPEN — PR #5 DRAFT STACKED ON PR #4 — QUALITY GATE #43734389889 PASS ON PR #5 HEAD ed18dfd — BLK-007 ACTIVE / LOCKED — NO NEW TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -245,3 +245,27 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Governance Invariant: `TASK-081` strictly depends on BOTH `TASK-079` and `TASK-080`. Even after `TASK-079` is signed off, `TASK-081` remains PENDING until `TASK-080` (Tool Coverage Matrix) completes independent source verification and P4 practice audits.
 - `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING.
 - `BLK-007` remains ACTIVE — LOCKED. No new Publisher B02–B10 or Scripting S02–S10 authoring is authorized.
+
+
+---
+
+## 10. TASK-080 Independent Evidence Audit — Round 3
+
+- Review branch: `qa/task-080-independent-evidence-audit-stacked`, stacked on the TASK-079 completion branch `feat/task-079-learning-outcome-mapping`.
+- Detailed report: `project-control/TASK-080_INDEPENDENT_REVIEW.md`; evidence matrix: `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`.
+- Current baseline: 68 records + 3 exclusions; 63 native Affinity capabilities and 5 project-local MCP integration records.
+- Provisional stage labels: 50 P4, 17 V1 and 1 U0. The MCP integration register is not counted as native desktop Affinity coverage.
+- All 50 P4 rows reference 52 unique lesson JSON files. All 52 files were fetched and parsed with tool explanation, guided practice, checkpoints, expected outcome, independent challenge and criteria.
+- Practice references use exact JSON anchors; five P4 mappings were corrected or narrowed. This is source-structure verification, not proof of installed-app behaviour.
+- P4 source trail: 35 official URLs without explicit caveat, 9 broad/version-limited URLs, 5 native claims lacking direct vendor URL, 1 project-local-only MCP source.
+- The native Affinity Scripting Studio / Script Editor / Scripts Library is separated from the Academy MCP bridge endpoints. New desktop release candidates require target-build confirmation and de-duplication.
+- The curriculum-declared target is desktop 3.3.3.5004; installed build is unverified. Public SDK docs are version 3.3.1; runtime compatibility is not established.
+- TASK-080 remains IN_PROGRESS; TASK-081 remains PENDING until TASK-079 and TASK-080 are completed; BLK-007 remains ACTIVE — LOCKED.
+
+
+### PR #5 and quality evidence update
+
+- Draft stacked PR #5: https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/5
+- Base branch is PR #4's `feat/task-079-learning-outcome-mapping`; do not merge PR #5 before PR #4.
+- Quality Gate #43734389889 passed on exact PR #5 head `ed18dfd3fa7998b8378c007469cbbea164024657`: ESLint, TypeScript, 66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translations, production build and 20/20 Edge E2E (41.5s).
+- Both PRs remain Draft/unmerged. TASK-080 is IN_PROGRESS, TASK-081 PENDING, and BLK-007 ACTIVE — LOCKED.

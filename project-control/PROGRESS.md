@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.5` (TASK-079 completed after 66/66 independent QA; TASK-080 source and P4 evidence review in progress)
+- **Version:** `4.4.6` (TASK-079 completed; TASK-080 inventory reclassified into native Affinity and project MCP scopes; source/build review remains open)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Latest CI evidence:** `Quality Gate run 43728990588 passed on exact PR #4 head 2d3e3f20c70e4493d82284a22695c0b16ab67d05: ESLint, TypeScript, 66/66 curriculum, 41/41 validator assertions, 3/3 scripts, 66/66 translation coverage, Vite build, and 20/20 Microsoft Edge Playwright E2E (38.5s).`
+- **Latest CI evidence:** `Quality Gate run 43734389889 passed on exact stacked PR #5 head ed18dfd3fa7998b8378c007469cbbea164024657: ESLint, TypeScript, 66/66 curriculum, 41/41 assertions, 3/3 scripts, 66/66 translation keys, build, and 20/20 Microsoft Edge Playwright E2E (41.5s). This evidence applies to the tested head; subsequent changes require a new run.`
 - **Last Updated:** `2026-11-15`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -91,7 +91,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
-- **Governance updates:** `TASK-079` is COMPLETED after independent 66/66 row-by-row QA. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
+- **Governance updates:** `TASK-079` is COMPLETED after independent 66/66 row-by-row QA. `TASK-080` remains IN_PROGRESS: 68 provisional records (63 native Affinity + 5 project MCP), 50 P4 labels, 17 V1 candidates, 1 U0 candidate; target-build, source and operation-level review remain open. `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
@@ -155,3 +155,26 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Governance note: `TASK-081` (Capstone Assessment Framework) strictly requires BOTH `TASK-079` AND `TASK-080` to be completed and signed off before it can begin.
 - `TASK-080` remains IN_PROGRESS pending separate Help Center source validation and P4 practice audits. `TASK-081` remains PENDING.
 - `BLK-007` remains ACTIVE — LOCKED; no new Publisher/Scripting lessons are authorized.
+
+
+---
+
+## 11. TASK-080 Independent Inventory Audit — Round 3
+
+- Review is carried on stacked PR branch `qa/task-080-independent-evidence-audit-stacked`, based on PR #4's TASK-079 completion branch. PR #4 must merge before this stacked PR can be merged.
+- Current matrix baseline: **68 inventory records + 3 exclusions**. The 68 are split into **63 native Affinity capabilities** and **5 project-local MCP integrations**.
+- Stage labels are provisional: **50 P4**, **17 V1**, **1 U0**. The 5 MCP integrations are reported separately and excluded from native desktop tool-coverage percentages.
+- The 50 P4 rows reference 52 unique lesson JSON files. All 52 files were fetched and parsed; each has tool explanation, guided practice, checkpoints, expected outcome, independent challenge and criteria. This is structural evidence, not live-build proof.
+- Five P4 mappings were narrowed or corrected; practice references now use exact JSON section anchors rather than synthetic `*-PRAC` IDs.
+- P4 source trail: 35 official URLs without explicit caveat, 9 broad/version-limited URLs, 5 native claims without direct vendor URL, and 1 project-local MCP source.
+- Added the native Scripting Studio / Script Editor / Scripts Library candidate separately from the Academy's MCP integration endpoints.
+- September 2026 release candidates remain under de-duplication and target-build verification. Desktop build 3.3.3.5004 remains curriculum-declared only; the installed user build has not been inspected.
+- `TASK-080` remains IN_PROGRESS; `TASK-081` remains PENDING until both TASK-079 and TASK-080 are complete; `BLK-007` remains ACTIVE — LOCKED.
+
+
+### Stacked PR / CI evidence update
+
+- Draft PR #5: https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/5
+- Base: `feat/task-079-learning-outcome-mapping` (PR #4); head branch: `qa/task-080-independent-evidence-audit-stacked`.
+- Quality Gate #43734389889 passed on head `ed18dfd3fa7998b8378c007469cbbea164024657`: 66/66 curriculum, 41/41 validator assertions, 3/3 scripts, 66/66 translations, production build and 20/20 Edge E2E.
+- PR #5 remains Draft/unmerged and stacked; merge only after PR #4 is accepted.
