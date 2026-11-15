@@ -79,7 +79,7 @@ test.describe('Affinity Academy UI Gallery Capture', () => {
   test('07 - Lesson S01-01 Scripting V8 Engine', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Scripting & MCP")').click();
+    await page.locator('h3:has-text("Automation & MCP")').click();
     await page.waitForTimeout(300);
     await page.locator('h5:has-text("Affinity JS Runtime Architecture, V8 Engine & Sandbox Limits")').first().click();
     await expect(page.locator('h1')).toBeVisible();
