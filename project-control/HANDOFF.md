@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.5.6` (TASK-079 merged into main; TASK-080 Round 12 review active on PR #6)
+- **Version:** `4.5.7` (TASK-079 merged into main; TASK-080 Round 13 evidence verification for 5 core P4 tools and simulator boundary codified; TASK-080 remains IN_PROGRESS)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
 - **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11–12 changes after that HEAD require a fresh exact-head gate — PR #6 targets `main` at merge commit `628f7619176fc2e85a50613654f46416975bd0cd`; the latest comparison confirmed the branch was not behind `main` (the ahead count is intentionally not hardcoded because it changes with each audit commit) — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
@@ -400,3 +400,18 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - The latest code/document set before this handoff-only metadata update had HEAD `9eaaaf9789db01e0c90d6a73b0ccc04fa2fab399`; workflow `#43788010939` was pending for that exact SHA. The last completed green gate remains `#43785880529` on `bb3d0982e9559adf322a76425fc21fd65a125c2b` (20/20 Edge E2E).
 - This handoff update is a further commit; check the PR's new exact HEAD and corresponding Actions run rather than carrying forward the pending or prior green result.
 - No merge, base change, rebase, PR closure, denominator expansion or BLK-007 authorization is performed.
+
+
+## 24. Round 13 — Semantic Normalization & Evidence Verification for 5 Core P4 Tools (2026-11-16)
+
+- Completed in-depth evidence and semantic audit for 5 critical P4 tools:
+  1. `VEC-006` (Corner Tool): reclassified as `interactive_tool` (shortcut `C`), context controls (Rounded, Concave, Straight, Cutout, Bake Appearance); linked official Help Center URL; lesson `D03-01.json` practice verified.
+  2. `VEC-021` (Symbols panel): normalized from "Symbols Studio" to "Symbols panel", path `Window > Vector > Symbols`, Sync toggle and Detach controls; lesson `D08-01.json` updated and verified.
+  3. `VEC-023` (Constraints panel): normalized from "Constraints Studio" to "Constraints panel", path `Window > Vector > Constraints`, parent-child pinning rules (Pin Left/Right/Top/Bottom, Fixed Width/Height, Lock Aspect Ratio, Min/Max Fit); lesson `D08-03.json` updated and verified.
+  4. `PIX-003` (Selection Brush Tool): verified shortcut `W`, `[` / `]`, Alt/Option subtract, `Snap to edges` contrast detection, Soft edges, Refine dialog; lesson `P02-01.json` verified.
+  5. `PIX-016` (Live Lighting Filter & Optical Effects): decoded and removed legacy shorthand "Hourglass", replaced with official path `Layer > New Live Filter Layer > Lighting`; Spot, Point, Directional 3D light sources, Diffuse/Specular/Ambient, Bump map texture relief; lesson `P06-03.json` updated and verified.
+- Published comprehensive evidence audit report: `project-control/TASK-080_EVIDENCE_REPORT.md`.
+- Explicitly documented boundaries between Desktop Real Software and Educational Web Simulators (`PenNodeSimulator.tsx` and `PhotoLayerSimulator.tsx`).
+- Inventory denominator preserved at **68 records** (63 native + 5 MCP), stages: **50 P4, 17 V1, 1 U0, 3 exclusions**.
+- In accordance with governance instructions: TASK-080 remains **IN_PROGRESS** until all remaining acceptance criteria (reading article bodies for `VEC-002` Artboard Tool and `PIX-012` Histogram panel, desktop build introspection, and final review of 17 V1 rows) are verified.
+- `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft/Open on `qa/task-080-independent-evidence-audit`.

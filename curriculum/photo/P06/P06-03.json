@@ -21,11 +21,11 @@
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Live Lighting Studio & Optical Effects",
-      "persona": "Photo Persona",
+      "toolName": "Live Lighting Filter & Optical Effects",
+      "persona": "Pixel Studio (Layer > New Live Filter Layer > Lighting)",
       "shortcut": {
-        "win": "Hourglass > Light > Lighting / Hourglass > Lens > Vignette",
-        "mac": "Hourglass > Light > Lighting / Hourglass > Lens > Vignette"
+        "win": "Layer > New Live Filter Layer > Lighting / Vignette (hoặc biểu tượng Live Filters ở Layers panel)",
+        "mac": "Layer > New Live Filter Layer > Lighting / Vignette (hoặc biểu tượng Live Filters ở Layers panel)"
       },
       "description": "Hệ thống bố trí nguồn sáng studio 3D ảo và hiệu ứng thấu kính quang học thời gian thực.",
       "contextBarOptions": [
@@ -39,8 +39,8 @@
       {
         "stepNumber": 1,
         "title": "Thêm Live Lighting Filter",
-        "instruction": "Chọn layer ảnh trong Layers Studio, nhấn biểu tượng đồng hồ cát ➔ Light ➔ chọn 'Lighting'. Một quầng sáng hình nón cùng widget điều hướng xuất hiện trực tiếp trên màn hình.",
-        "shortcutTip": { "win": "Hourglass > Light > Lighting", "mac": "Hourglass > Light > Lighting" }
+        "instruction": "Chọn layer ảnh trong Layers panel, vào menu Layer > New Live Filter Layer > Lighting (hoặc nhấn biểu tượng Live Filters ở chân Layers panel ➔ chọn Lighting). Một quầng sáng hình nón cùng widget điều hướng xuất hiện trực tiếp trên màn hình.",
+        "shortcutTip": { "win": "Layer > New Live Filter Layer > Lighting", "mac": "Layer > New Live Filter Layer > Lighting" }
       },
       {
         "stepNumber": 2,
@@ -57,8 +57,8 @@
       {
         "stepNumber": 4,
         "title": "Thêm hiệu ứng Vignette dẫn hướng ánh nhìn",
-        "instruction": "Thêm một lớp 'Live Vignette Filter' (từ biểu tượng đồng hồ cát ➔ Lens ➔ Vignette). Giảm thanh trượt Exposure xuống -1.5 EV, tăng Hardness 0% để tạo một vùng tối mờ êm dịu bao quanh 4 góc bức ảnh.",
-        "shortcutTip": { "win": "Hourglass > Lens > Vignette", "mac": "Hourglass > Lens > Vignette" }
+        "instruction": "Thêm một lớp 'Live Vignette Filter' (vào menu Layer > New Live Filter Layer > Vignette hoặc biểu tượng Live Filters ➔ Vignette). Giảm thanh trượt Exposure xuống -1.5 EV, tăng Hardness 0% để tạo một vùng tối mờ êm dịu bao quanh 4 góc bức ảnh.",
+        "shortcutTip": { "win": "Layer > New Live Filter Layer > Vignette", "mac": "Layer > New Live Filter Layer > Vignette" }
       }
     ],
     "visualExamples": [
@@ -166,6 +166,11 @@
           "title": "Tài liệu kỹ thuật: P06_live_filters_effects_guide.md",
           "target": "curriculum/assets/photo/P06_live_filters_effects_guide.md",
           "type": "guide"
+        },
+        {
+          "title": "Affinity Documentation: Lighting Filter",
+          "target": "https://affinity.help/photo/en-US.lproj/pages/Filters/filter_lighting.html",
+          "type": "doc"
         }
       ]
     }

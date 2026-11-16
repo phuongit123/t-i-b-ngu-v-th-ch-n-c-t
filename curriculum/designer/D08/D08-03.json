@@ -11,28 +11,28 @@
     "learningObjectives": [
       "Construct multi-variant UI component systems incorporating Primary, Secondary, Ghost, and Destructive button styles.",
       "Architect hierarchical Nested Symbols (e.g. an icon symbol embedded within a button symbol) for compound updates.",
-      "Configure the Constraints Studio to establish responsive auto-resizing rules for cards and navigation bars.",
+      "Configure the Constraints panel to establish responsive auto-resizing rules for cards and navigation bars.",
       "Integrate Global Color Swatches as design tokens to enable instant thematic restyling across an entire component library."
     ],
-    "foundationalKnowledge": "Building an enterprise design system requires more than isolated buttons; it requires an architectural ecosystem where changes cascade predictably. In Affinity Designer, this is achieved by combining three advanced vector engines: (1) Nested Symbols, where sub-components like icons or badges are symbols nested inside larger container symbols; (2) The Constraints Studio (View > Studio > Constraints), which defines responsive pinning rules (pin left, pin right, fixed width) so cards scale cleanly without distorting buttons or avatars; and (3) Global Color Swatches in the Swatches Studio, which act as native design tokens—re-tinting a single global swatch updates every component, border, and typography instance throughout the entire document.",
+    "foundationalKnowledge": "Building an enterprise design system requires more than isolated buttons; it requires an architectural ecosystem where changes cascade predictably. In Affinity Designer, this is achieved by combining three advanced vector engines: (1) Nested Symbols, where sub-components like icons or badges are symbols nested inside larger container symbols; (2) The Constraints panel (Window > Vector > Constraints; legacy: View > Studio > Constraints), which defines responsive pinning rules (pin left, pin right, fixed width) so cards scale cleanly without distorting buttons or avatars; and (3) Global Color Swatches in the Swatches panel, which act as native design tokens—re-tinting a single global swatch updates every component, border, and typography instance throughout the entire document.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Constraints Engine, Nested Symbols & Global Swatches Specification",
+      "source": "Affinity Designer 3.3.3 Constraints Panel, Nested Symbols & Global Swatches Specification",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Constraints Studio & Global Swatches",
-      "persona": "Vector Persona (View > Studio > Constraints & View > Studio > Swatches)",
+      "toolName": "Constraints panel & Global Swatches",
+      "persona": "Vector Studio (Window > Vector > Constraints & Window > Swatches)",
       "shortcut": {
-        "win": "View > Studio > Constraints (Dock Panel), Swatches Studio Palette",
-        "mac": "View > Studio > Constraints (Dock Panel), Swatches Studio Palette"
+        "win": "Window > Vector > Constraints (Legacy: View > Studio > Constraints), Swatches Panel Palette",
+        "mac": "Window > Vector > Constraints (Legacy: View > Studio > Constraints), Swatches Panel Palette"
       },
-      "description": "Defines responsive scaling and pinning relationships for vector objects, paired with document-wide global color swatches.",
+      "description": "Defines responsive scaling and pinning relationships for vector objects via the Constraints panel, paired with document-wide global color swatches.",
       "contextBarOptions": [
         "Constraints Edge Pinning: Pin Left, Pin Right, Pin Top, Pin Bottom",
         "Constraints Dimension Locks: Fixed Width, Fixed Height, Lock Aspect Ratio",
         "Max / Min size limits: Protects inner elements from collapsing during responsive drag",
-        "Global Color Swatch: Created via Swatches Studio menu -> Add Global Color (displays small lower-left triangle badge)",
+        "Global Color Swatch: Created via Swatches panel menu -> Add Global Color (displays small lower-left triangle badge)",
         "Overprint & Spot Color options for print-ready press workflows"
       ]
     },
@@ -40,20 +40,20 @@
       {
         "stepNumber": 1,
         "title": "Create an Icon Sub-Symbol",
-        "instruction": "Draw a 16x16 px vector chevron icon (#FFFFFF). In the Symbols Studio, click 'Create' to register it as 'SubComponent_Icon_Chevron'.",
+        "instruction": "Draw a 16x16 px vector chevron icon (#FFFFFF). In the Symbols panel, click 'Create' to register it as 'SubComponent_Icon_Chevron'.",
         "shortcutTip": { "win": "Symbols > Create", "mac": "Symbols > Create" }
       },
       {
         "stepNumber": 2,
         "title": "Nest the Icon Inside a Master Button",
-        "instruction": "Draw a button container (160x44 px, 8px rounded corners, fill #4F46E5). Add an Artistic Text label ('Next Step'). Place an instance of your 'SubComponent_Icon_Chevron' inside the group. In the Symbols Studio, select the entire group and click 'Create' to register 'Component_Button_Action'. You have now created a Nested Symbol!",
+        "instruction": "Draw a button container (160x44 px, 8px rounded corners, fill #4F46E5). Add an Artistic Text label ('Next Step'). Place an instance of your 'SubComponent_Icon_Chevron' inside the group. In the Symbols panel, select the entire group and click 'Create' to register 'Component_Button_Action'. You have now created a Nested Symbol!",
         "shortcutTip": { "win": "Nested Symbol", "mac": "Nested Symbol" }
       },
       {
         "stepNumber": 3,
-        "title": "Configure Responsive Pinning in Constraints Studio",
-        "instruction": "Open View > Studio > Constraints. Select the chevron icon inside the button. In the Constraints panel, check 'Pin Right' and 'Fixed Width'. Select the text label and check 'Pin Left'. Drag the button's right edge wider: the chevron stays locked to the right margin while the button expands smoothly without distortion!",
-        "shortcutTip": { "win": "View > Studio > Constraints", "mac": "View > Studio > Constraints" }
+        "title": "Configure Responsive Pinning in Constraints Panel",
+        "instruction": "Open Window > Vector > Constraints (or Window > Constraints; legacy: View > Studio > Constraints). Select the chevron icon inside the button. In the Constraints panel, check 'Pin Right' and 'Fixed Width'. Select the text label and check 'Pin Left'. Drag the button's right edge wider: the chevron stays locked to the right margin while the button expands smoothly without distortion!",
+        "shortcutTip": { "win": "Window > Vector > Constraints", "mac": "Window > Vector > Constraints" }
       },
       {
         "stepNumber": 4,
@@ -76,7 +76,7 @@
         "visualContent": "[Global Swatch: Token_Brand_Primary] ────┐\n                                        ▼\n[Sub-Symbol: Icon_Chevron] ──> [Master Symbol: Button_Action] ──> [Constraints: Pin Right]\n                                        │\n                                        ▼\n                     [All Instances Across 10+ Artboards]"
       },
       {
-        "title": "Constraints Studio Pinning Matrix",
+        "title": "Constraints Panel Pinning Matrix",
         "description": "Standard pinning configurations for common UI components.",
         "visualType": "table",
         "visualContent": "| UI Element | Pinning Configuration | Dimension Lock | Resize Behavior |\n|---|---|---|---|\n| Trailing Icon | Pin Right, Pin Center-Y | Fixed Width & Height | Stays docked to right edge with fixed icon size |\n| Leading Logo | Pin Left, Pin Center-Y | Fixed Width & Height | Stays docked to left edge with fixed logo size |\n| Card Body Copy | Pin Left, Pin Right, Pin Top | None | Stretches horizontally to fill card width |\n| Modal Background | Pin Top, Bottom, Left, Right | None | Stretches responsively with parent artboard |"
@@ -96,7 +96,7 @@
     },
     "independentChallenge": {
       "title": "Full-Spectrum Design System Library",
-      "prompt": "Construct a production-ready UI component kit in Affinity Designer: (1) Establish 4 global color tokens (Primary, Success, Warning, Neutral); (2) Build an Icon Sub-Symbol library (Arrow, Check, Close, Alert); (3) Build 4 Button Variants (Primary Filled, Secondary Outlined, Ghost, Destructive) using nested icon symbols and constraints; (4) Configure hover and disabled states with local overrides; (5) Archive the entire suite into the Assets Studio under 'Enterprise UI System' and export as 'Design_System_Tokens_v1.afassets'.",
+      "prompt": "Construct a production-ready UI component kit in Affinity Designer: (1) Establish 4 global color tokens (Primary, Success, Warning, Neutral); (2) Build an Icon Sub-Symbol library (Arrow, Check, Close, Alert); (3) Build 4 Button Variants (Primary Filled, Secondary Outlined, Ghost, Destructive) using nested icon symbols and constraints; (4) Configure hover and disabled states with local overrides; (5) Archive the entire suite into the Assets panel under 'Enterprise UI System' and export as 'Design_System_Tokens_v1.afassets'.",
       "starterAsset": {
         "filename": "D08_symbols_assets_guide.md",
         "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
@@ -107,9 +107,9 @@
         "statusNote": "Production blueprint for full-spectrum component systems and constraints (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "4 global color tokens configured in Swatches Studio.",
+        "4 global color tokens configured in Swatches panel.",
         "Nested symbols utilized for icon interchangeability.",
-        "Constraints Studio rules prevent distortion during card and button resizing.",
+        "Constraints panel rules prevent distortion during card and button resizing.",
         "Asset package exported as clean, distributable .afassets bundle."
       ]
     },
@@ -117,22 +117,22 @@
       {
         "mistake": "Neglecting to check 'Fixed Width' and 'Fixed Height' on icons inside responsive containers.",
         "consequence": "When the parent card or button is stretched wider, the circular or square icon stretches into a distorted oval.",
-        "solution": "In the Constraints Studio, always lock 'Fixed Width' and 'Fixed Height' on icons, logos, and badges."
+        "solution": "In the Constraints panel, always lock 'Fixed Width' and 'Fixed Height' on icons, logos, and badges."
       },
       {
         "mistake": "Using regular document swatches instead of Global Swatches for brand colors.",
         "consequence": "Updating a brand color requires manually selecting and re-tinting hundreds of individual vector paths.",
-        "solution": "Always choose 'Add Global Color...' in the Swatches Studio menu. Global swatches display a distinctive corner triangle badge."
+        "solution": "Always choose 'Add Global Color...' in the Swatches panel menu. Global swatches display a distinctive corner triangle badge."
       },
       {
         "mistake": "Nesting symbols more than 3 levels deep unnecessarily.",
-        "consequence": "Creates confusion in the Layers Studio and increases mental overhead when troubleshooting override propagation.",
+        "consequence": "Creates confusion in the Layers panel and increases mental overhead when troubleshooting override propagation.",
         "solution": "Keep nesting hierarchy disciplined: Design Tokens -> Sub-Symbols (Icons/Badges) -> Master Components (Buttons/Cards)."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary visual indicator that a color swatch in the Swatches Studio is a live Global Swatch?",
+        "question": "What is the primary visual indicator that a color swatch in the Swatches panel is a live Global Swatch?",
         "options": [
           "It is marked with a padlock icon.",
           "It displays a small white or gray triangle in its bottom-left corner.",
@@ -145,13 +145,13 @@
       {
         "question": "Which studio panel in Affinity Designer allows you to pin an icon to the right margin of a button so it does not distort when the button is resized wider?",
         "options": [
-          "Transform Studio",
-          "Constraints Studio",
-          "Isometric Studio",
-          "History Studio"
+          "Transform panel",
+          "Constraints panel",
+          "Isometric panel",
+          "History panel"
         ],
         "correctIndex": 1,
-        "explanation": "The Constraints Studio (View > Studio > Constraints) allows you to define edge pinning (Pin Right) and dimension locking (Fixed Width) for responsive vector components."
+        "explanation": "The Constraints panel (Window > Vector > Constraints; legacy: View > Studio > Constraints) allows you to define edge pinning (Pin Right) and dimension locking (Fixed Width) for responsive vector components."
       },
       {
         "question": "What happens if you edit a Sub-Symbol (e.g. an icon) that is nested inside a Master Button Symbol?",
@@ -168,11 +168,11 @@
     "summaryAndResources": {
       "keyTakeaways": [
         "Nested Symbols allow compound component architectures where sub-elements update seamlessly.",
-        "The Constraints Studio ensures responsive auto-resizing without distorting icons or margins.",
+        "The Constraints panel ensures responsive auto-resizing without distorting icons or margins.",
         "Global Swatches function as design tokens, enabling instant document-wide theme re-coloration.",
         "Combining Symbols, Assets, Constraints, and Global Tokens elevates Affinity Designer into an enterprise UI powerhouse."
       ],
-      "nextSteps": "Complete the D08 capstone project in D08_symbols_assets_guide.md, then proceed to Module D09 (Pixel Persona Integration & Textured Vector Shading).",
+      "nextSteps": "Complete the D08 capstone project in D08_symbols_assets_guide.md, then proceed to Module D09 (Pixel Studio Integration & Textured Vector Shading).",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/constraintsPanel.html"
     }
   },
@@ -185,9 +185,9 @@
         "A true design system is an ecosystem of interdependent visual decisions.",
         "Affinity Designer uniquely combines four powerful vector engines:",
         "1. Nested Symbols: Compounds of symbols inside symbols.",
-        "2. Constraints Studio: Responsive pinning and dimension locking.",
+        "2. Constraints panel: Responsive pinning and dimension locking.",
         "3. Global Swatches: Live color tokens that ripple through the whole document.",
-        "4. Assets Studio: Persistent global distribution across projects."
+        "4. Assets panel: Persistent global distribution across projects."
       ],
       "proTip": "This multi-engine synergy allows solo designers to manage enterprise-scale design systems."
     },
@@ -205,10 +205,10 @@
     },
     {
       "slideNumber": 3,
-      "title": "The Constraints Studio Architecture",
+      "title": "The Constraints Panel Architecture",
       "subtitle": "Responsive Vector Auto-Resizing",
       "bullets": [
-        "Open via View > Studio > Constraints.",
+        "Open via Window > Vector > Constraints (or Window > Constraints; legacy: View > Studio > Constraints).",
         "Edge Pinning: Pin Left, Right, Top, or Bottom relative to the parent container.",
         "Dimension Locking: Fixed Width, Fixed Height, or maintain proportional aspect ratio.",
         "Prevents icons, badges, and avatars from stretching when a card is widened for tablet or desktop."
@@ -271,7 +271,7 @@
       "subtitle": "Verifying Advanced System Competencies",
       "bullets": [
         "Explain how Nested Symbols propagate updates through parent containers.",
-        "Identify the Constraints Studio settings required to protect circular icons from stretching.",
+        "Identify the Constraints panel settings required to protect circular icons from stretching.",
         "Recognize the visual badge marking a Global Swatch in the palette.",
         "Confirm that your component library is saved into an exportable .afassets bundle."
       ]

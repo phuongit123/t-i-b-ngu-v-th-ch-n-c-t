@@ -166,6 +166,11 @@
           "title": "Tài liệu kỹ thuật: P02_selections_masking_guide.md",
           "target": "curriculum/assets/photo/P02_selections_masking_guide.md",
           "type": "guide"
+        },
+        {
+          "title": "Affinity Documentation: Selection Brush Tool",
+          "target": "https://affinity.help/photo/en-US.lproj/pages/Tools/tools_selectionBrush.html",
+          "type": "doc"
         }
       ]
     }

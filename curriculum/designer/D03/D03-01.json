@@ -178,8 +178,8 @@
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Parametric Shapes & Corner Tool",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Affinity Documentation: Corner Tool",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/Tools/tools_corner.html",
           "type": "doc"
         }
       ]

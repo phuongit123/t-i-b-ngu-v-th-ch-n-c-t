@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 12)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 13)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — CURRENT GLYPH BROWSER AND DEVELOP STUDIO TERMS NORMALIZED; SOURCE/SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — 5 BROAD P4 TOOLS NORMALIZED WITH HELP CENTER EVIDENCE; DESKTOP VS SIMULATOR BOUNDARIES CODIFIED; BODY REVIEWS OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -342,3 +342,58 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - The 68-record in-scope denominator is unchanged (63 native Affinity + 5 Academy MCP); stages remain 50 P4 / 17 V1 / 1 U0, plus 3 exclusions. No new inventory row was created.
 - `TASK-080` remains **IN_PROGRESS**; 50 P4 labels remain provisional. `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**.
 - These content changes require a fresh Quality Gate on the resulting PR #6 HEAD. A previous green run does not certify this new HEAD.
+
+
+## 17. Round 13 — Five Core P4 Tools Semantic Normalization & Educational Simulator Boundary (2026-11-16)
+
+### Target version and scope confirmation
+- Target product scope: Latest stable Affinity desktop release as of 2026-11-16 (user-confirmed, release identifier 3.3.3.5004 across Vector, Pixel, and Layout studios).
+- Baseline denominator remains stable: **68 in-scope records** (63 native Affinity capabilities + 5 Academy MCP integrations) + 3 exclusions.
+- Stages baseline: **50 P4**, **17 V1**, **1 U0**.
+
+### Evidence verification for the 5 targeted P4 tools
+1. **`VEC-006` — Corner Tool:**
+   - Official Name: `Corner Tool` (Vector Studio).
+   - Tool type / categorization: Corrected `record_type` from `contextual_control` to `interactive_tool` (located on Tools panel with shortcut `C`, backed by Context Toolbar controls).
+   - Core functions & controls: Filleting and chamfering sharp corner vertices; 4 geometric corner types: Rounded (fillet), Concave (scallop), Straight (chamfer), and Cutout (orthogonal notch); absolute radius control; permanent curve conversion via `Bake Appearance` (or `Bake Corners`).
+   - Shortcut: `C` (Win/Mac verified).
+   - Limitations: Only operates on sharp nodes of vector objects; open curves can also be filleted using the Node Tool without switching.
+   - Authoritative source: [Affinity Help Center — Corner Tool](https://affinity.help/designer/en-US.lproj/pages/Tools/tools_corner.html).
+   - Lesson alignment: `D03-01.json` guided checkpoints and independent challenge explicitly guide and verify these 4 corner styles and baking.
+2. **`VEC-021` — Symbols panel:**
+   - Official Name: `Symbols panel` (Vector Studio; legacy "Symbols Studio" normalized).
+   - Desktop UI path: `Window > Vector > Symbols` or `Window > Symbols` (legacy `View > Studio > Symbols` documented for backwards compatibility).
+   - Core functions & controls: Multi-instance synchronization hub; `Create` master symbol; `Sync` toggle (Active orange = global propagation; Inactive gray = local overrides for text, colors, fills); `Detach` command to sever instance linkages.
+   - Authoritative source: [Affinity Help Center — Symbols panel](https://affinity.help/designer/en-US.lproj/pages/Symbols/symbols.html).
+   - Lesson alignment: `D08-01.json` updated to use "Symbols panel", modern menu paths, and verified Sync ON/OFF workflow.
+3. **`VEC-023` — Constraints panel:**
+   - Official Name: `Constraints panel` (Vector Studio; legacy "Constraints Studio" normalized).
+   - Desktop UI path: `Window > Vector > Constraints` or `Window > Constraints` (legacy `View > Studio > Constraints` documented).
+   - Core functions & controls: Responsive auto-resizing rules for nested parent-child hierarchies; visual diagram with parent/child boxes; Anchor lines (Top, Bottom, Left, Right); Scaling arrows (Horizontal, Vertical, Fixed Width, Fixed Height); Lock Aspect Ratio; Min Fit and Max Fit.
+   - Limitations: Requires nested layer relationships (layers grouped or inside containers/artboards). `D08-03` specifically practises Pin Left, Pin Right, and Fixed Width.
+   - Authoritative source: [Affinity Help Center — Constraints panel](https://affinity.help/designer/en-US.lproj/pages/Panels/constraintsPanel.html).
+   - Lesson alignment: `D08-03.json` updated with official panel terminology, modern menu paths, and pinning practice.
+4. **`PIX-003` — Selection Brush Tool:**
+   - Official Name: `Selection Brush Tool` (Pixel Studio).
+   - Desktop UI path: Tools panel, keyboard shortcut `W`.
+   - Core functions & controls: Intelligent raster selection painting; `Snap to edges` algorithm detecting local contrast boundaries; Mode (New, Add, Subtract); `[` and `]` brush size adjustment; `Alt` (Win) / `Option` (Mac) temporary subtract toggle; `Soft edges`; Context Toolbar `Refine...` integration for complex hair/fur boundaries.
+   - Authoritative source: [Affinity Help Center — Selection Brush Tool](https://affinity.help/photo/en-US.lproj/pages/Tools/tools_selectionBrush.html).
+   - Lesson alignment: `P02-01.json` verified for Snap to edges, Add/Subtract modes, and spare channel storage.
+5. **`PIX-016` — Live Lighting Filter & Optical Effects:**
+   - Official Name: `Lighting (Live Filter Layer)` / `Live Lighting Filter` (Pixel Studio).
+   - Desktop UI path: `Layer > New Live Filter Layer > Lighting` (or Live Filters icon at bottom of Layers panel; legacy shorthand "Hourglass" decoded and replaced with standard menu path).
+   - Core functions & controls: Non-destructive 3D lighting simulation; Light Types: Spot Light (conical spotlight with angle/cone controls), Point Light (omnidirectional 360° point source), Directional (parallel sun rays); Diffuse, Specular, Shininess, Ambient lighting; 3D Bump Map texture integration; on-screen interactive positioning widgets.
+   - Authoritative source: [Affinity Help Center — Lighting filter](https://affinity.help/photo/en-US.lproj/pages/Filters/filter_lighting.html).
+   - Lesson alignment: `P06-03.json` updated to replace "Hourglass" shorthand with official menu paths and documented Rembrandt lighting practice.
+
+### Explicit Distinction: Desktop Real Features vs Educational Web Simulators
+A rigorous line of demarcation is drawn between the real Affinity Desktop application and the Academy's educational web simulators:
+- **`PenNodeSimulator.tsx` (Vector):** An educational canvas widget specifically simulating Bézier mathematics, anchor node types (Sharp, Smooth, Smart), tangent handles, and path closing. It **DOES NOT** simulate the Corner Tool (`VEC-006` - filleting math), Symbols panel (`VEC-021`), or Constraints panel (`VEC-023`). Learners practice these three vector tools exclusively inside the desktop application using the guided exercise instructions and starter asset blueprints.
+- **`PhotoLayerSimulator.tsx` (Pixel):** An educational canvas widget simulating Layer Stack hierarchy, Blend Modes (Normal, Multiply, Screen, Overlay, Soft Light), Opacity, and raster Layer Masking (painting with Black/White). It **DOES NOT** simulate the Selection Brush Tool (`PIX-003` - marching ants boundary calculation, contrast edge detection) nor the Live Lighting Filter (`PIX-016` - 3D GPU surface normal vectors, bump map relief). Learners practice selection edge detection and 3D lighting inside Affinity Photo desktop.
+- *Governance rule affirmed:* Web simulator functionality must never be conflated with desktop feature verification.
+
+### Audit Disposition
+- `TASK-080` remains **IN_PROGRESS**. The 5 broad-source P4 tools have been successfully normalized with direct official Help Center sources, verified shortcuts/paths, and aligned lesson JSON files. However, full acceptance of TASK-080 requires completing the remaining audit criteria (including reading article bodies for `VEC-002` Artboard Tool and `PIX-012` Histogram panel, desktop build inspection, and final verification of the 17 V1 gap rows).
+- In strict adherence to governance instructions: *"Chỉ báo cáo TASK-080 hoàn thành khi tất cả tiêu chí nghiệm thu được xác minh. Các mục chưa đủ bằng chứng phải tiếp tục ở trạng thái chưa xác minh."*
+- `TASK-081` remains **PENDING** until TASK-080 is formally completed and signed off.
+- `BLK-007` remains **ACTIVE — LOCKED**. No Publisher B02–B10 or Scripting S02–S10 authoring is authorized.
