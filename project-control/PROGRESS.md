@@ -2,13 +2,13 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED; RELEASE_READINESS_REPORT.md published; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `5.1.0` (POST-MERGE MAIN AUDIT & GOVERNANCE ALIGNMENT; PR #6 merged into main at commit 22aa4cf; working branch: `docs/post-merge-development-roadmap`; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
+- **Last completed verification boundary:** `PR #6 officially merged into main at commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c. Post-merge quality gate completely passed: ESLint (0 errors, 0 warnings), TypeScript (0 errors), curriculum 66/66 PASS, validator regression 41/41 PASS, script checks 3/3 PASS, Vietnamese translation 66/66 PASS, Supabase backend integration 44/44 PASS, Capstone evaluator 7/7 PASS, production build PASS in 9.04s, and Playwright E2E 46/46 PASS in 1.8m.`
 - **Last Updated:** `2026-11-16`
-- **Governing Agent:** `Orchestrator` / `QAAgent`
+- **Governing Agent:** `Orchestrator` / `QAAgent` / `Documentation Auditor`
 
 ---
 
@@ -33,6 +33,16 @@
 > - **Tiến độ Tác vụ (Task Progress):**
 >   - **40.8% (20 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home), `TASK-074` (Simulator), `TASK-075` (Encyclopedia), `TASK-077` (Resources), `TASK-078` (Dashboard/Settings), `TASK-030`..`033` (Supabase backend), `TASK-026` (SlidePlayer), `TASK-027` (Simulator sandbox) đã hoàn tất.
 >   - **43.4% (23 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-010-REAUDIT`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
+> - **Phase 5 Web Platform Architecture:**
+>   - Gồm **12 Functional Areas** (Home, Search, Shortcuts, CheatSheet, Glossary, Sandbox, Challenges, ProgressDashboard, Settings, Resources, Encyclopedia, Simulator) được chuyển tải qua **8 Major Page Tasks** trong Task Registry.
+>   - **5 Major Pages Đã Hoàn Tất:** `TASK-071` (Home), `TASK-074` (Simulator), `TASK-075` (Encyclopedia), `TASK-077` (Resources), `TASK-078` (Dashboard/Settings).
+>   - **3 Major Page Tasks Đang Chờ (Pending):** `TASK-072` (CatalogPage), `TASK-073` (LessonPage), `TASK-076` (PlaygroundPage) thuộc backlog tách module độc lập trong các PR tiếp theo.
+> - **Cơ sở Dữ liệu & Supabase Architecture:**
+>   - Đã định nghĩa và kiểm thử hoàn chỉnh chính xác **9 bảng quan hệ (relational tables)**: `profiles`, `tracks`, `modules`, `lessons` (ánh xạ 66 bài học hiện hữu), `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`.
+>   - Môi trường kiểm thử: **Local / Mock engine hoàn toàn vượt qua 44/44 bài kiểm tra**; hoàn toàn phân định rạch ròi với việc triển khai live cloud từ xa (chưa được chứng thực và đang chờ Project Owner cung cấp thông tin đăng nhập).
+> - **Nghiệm thu Tốt nghiệp & Đồ án Capstone A5:**
+>   - `TASK-080` tiếp tục ở trạng thái **IN_PROGRESS** (danh mục 68 công cụ tạm thời: 50 P4, 17 V1, 1 U0; 3 loại trừ) chờ hoàn tất kiểm tra introspect trực tiếp ứng dụng desktop.
+>   - `TASK-081` ("A5 Capstone: Lumina Artisanal Roastery Launch Campaign") đã được triển khai hoàn chỉnh (đặc tả, mô hình dữ liệu, công cụ chấm điểm 7 chiều, giao diện, 7/7 test kiểm thử, 5/5 Playwright E2E), nhưng việc cấp chứng chỉ tốt nghiệp chính thức vẫn **bị cổng (gated)** nghiêm ngặt cho tới khi `TASK-080` nghiệm thu xong.
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -309,4 +319,29 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   - Total repository Playwright E2E suite expanded to **42 / 42 tests PASS**.
 - **Governance:** `TASK-071` and `TASK-078` marked **COMPLETED**; `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
 
+---
+
+## 21. Post-Merge Baseline Audit & PR #7 Development Roadmap Alignment (2026-11-16)
+
+- **Post-Merge Baseline Confirmed:** PR #6 officially merged into `main` at commit `22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c` (short: `22aa4cf`). Working branch for post-merge governance alignment is `docs/post-merge-development-roadmap`.
+- **Post-Merge Quality Gate Verified (11 Checks):**
+  - ESLint static analysis (`npm run lint`): 0 errors, 0 warnings.
+  - TypeScript typecheck (`npm run typecheck`): 0 compilation errors.
+  - Curriculum schema validation (`npm run validate:curriculum`): 66/66 lessons valid.
+  - Curriculum validator regression (`npm run test:validator`): 27 scenarios, 41 assertions / 0 failed.
+  - V8 DOM script syntax (`npm run test:scripts`): 3/3 scripts valid.
+  - Vietnamese translation coverage (`npm run test:translations`): 66/66 lessons mapped.
+  - Supabase backend integration (`npm run test:backend`): 44/44 unit & integration assertions passed.
+  - Capstone evaluation engine (`npm run test:capstone`): 7/7 test scenarios passed.
+  - Production Vite build (`npm run build`): clean bundle, 0 chunk warnings.
+  - Playwright E2E suite (`npx playwright test`): 46/46 tests passed on Microsoft Edge.
+  - Git diff integrity (`git diff --check`): clean pass, 0 whitespace errors.
+- **Canonical Architecture Reconciled Across All Governance Documents:**
+  1. *Curriculum Status:* 66 verified physical lessons (60 core + 6 pilot; 55.0%) / 120 planned lessons. 54 expansion lessons (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) specified under Phase Gate `BLK-007` (ACTIVE — LOCKED).
+  2. *Database Architecture:* Exactly 9 relational tables (`profiles`, `tracks`, `modules`, `lessons`, `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`). Verified in Local/Mock engine; live remote cloud deployment remains pending user credentials.
+  3. *Phase 5 Architecture:* 12 Functional Areas delivered across 8 Major Page tasks (5 completed: `TASK-071`, `TASK-074`, `TASK-075`, `TASK-077`, `TASK-078`; 3 pending: `TASK-072`, `TASK-073`, `TASK-076`).
+  4. *Task Registry Arithmetic:* 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows (43.4% completed; original architectural tasks: 20 COMPLETED / 2 IN_PROGRESS / 27 PENDING = 40.8%).
+  5. *A5 Capstone & Tool Inventory:* Canonical name "A5 Capstone: Lumina Artisanal Roastery Launch Campaign"; `TASK-080` remains `IN_PROGRESS` (68 provisional records: 50 P4, 17 V1, 1 U0); `TASK-081` is implemented, but formal graduation certificate issuance remains gated until `TASK-080` concludes.
+  6. *Branch Naming:* Uniformly references `docs/post-merge-development-roadmap`.
+- **PR #7 Scope Guardrails Strictly Preserved:** Documentation and governance reconciliation only. No runtime code for TASK-072/073/076/080, no 54 blocked curriculum JSON files, BLK-007 stays ACTIVE — LOCKED.
 
