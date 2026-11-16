@@ -22,8 +22,8 @@
 | **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
 | **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
-| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate #43750528338 passed on exact HEAD 07959b8b428f238b069b747fe6d6976bf6f37a83 (web academy scope only)` |
+| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (TASK-030 to TASK-033: Schemas, RLS, Storage Buckets, Offline Sync)** |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate passed; 46/46 Playwright E2E passed.` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
 | **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
 | **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
@@ -50,7 +50,7 @@
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 2 (`REQ-CURR-001`, `002`) | 6 | **25.0%** |
 | Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
 | `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 5 (`REQ-PAGE-001`, `004`, `005`, `007`, `008`) | 3 | **62.5%** |
-| Backend Database, Auth & Storage (`REQ-BE`) | 4 | 0 | 4 | 0.0% |
+| Backend Database, Auth & Storage (`REQ-BE`) | 4 | 4 (`REQ-BE-001` to `004`) | 0 | **100.0%** |
 | Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
 | **TOTAL** | **49** | **14** | **35** | **28.6%** |

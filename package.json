@@ -16,7 +16,8 @@
     "test:e2e": "playwright test",
     "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\"",
     "test:translations": "node scripts/test-vietnamese-translations.js",
-    "test:capstone": "node scripts/test-capstone-evaluator.js"
+    "test:capstone": "node scripts/test-capstone-evaluator.js",
+    "test:backend": "node scripts/test-supabase-backend.js"
   },
   "dependencies": {
     "@rollup/wasm-node": "^4.68.1",
