@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.5.7` (TASK-079 merged to main; TASK-080 Round 13 evidence verification for 5 core P4 tools and simulator boundary codified; TASK-080 remains IN_PROGRESS)
+- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED; RELEASE_READINESS_REPORT.md published; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
-- **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
+- **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `Quality Gate #43785880529 passed on exact PR #6 head bb3d0982e9559adf322a76425fc21fd65a125c2b: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20. Round 11–12 content changes after that HEAD require a fresh gate; do not infer a pass for the current branch. CI evidence verifies the web academy at its exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence.`
+- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
@@ -19,25 +19,25 @@
 | **Phase 0** | Project Control System & Pre-Phase Audit | 1 | 1 | 0 | 0 | **COMPLETED** |
 | **Phase 1** | Environment, Toolchain & MCP Capability Extraction | 5 | 5 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
-| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done)** |
+| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 2 | 2 | 4 | **TRACK 1 & 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done; 54 Expansion Lessons Specified)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
-| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
-| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (TASK-030 to TASK-033: Schemas, RLS, Storage Buckets, Offline Sync)** |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `PR #4 Quality Gate #43730666138 passed and PR #4 merged to main; PR #6 Quality Gate passed; 46/46 Playwright E2E passed.` |
-| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
+| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 5 | 0 | 3 | **5 MAJOR PAGES OPERATIONAL (`HomePage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
+| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (`TASK-030` to `TASK-033`: Schemas, RLS, Storage Buckets, Offline Sync)** |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 0 | 0 | 5 | `46/46 Playwright E2E passed; formal phase sign-off pending release directive` |
+| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING (Gated by PO authorization & BLK-007)` |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **20** | **2** | **27** | **40.8% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **23** | **3** | **27** | **43.4% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **32.7% (16 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home) và `TASK-078` (Dashboard/Settings) đã hoàn tất.
->   - **35.8% (19 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-071`, `TASK-078`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
+>   - **40.8% (20 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home), `TASK-074` (Simulator), `TASK-075` (Encyclopedia), `TASK-077` (Resources), `TASK-078` (Dashboard/Settings), `TASK-030`..`033` (Supabase backend), `TASK-026` (SlidePlayer), `TASK-027` (Simulator sandbox) đã hoàn tất.
+>   - **43.4% (23 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-010-REAUDIT`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
->   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was confirmed again by Quality Gate #8 on 8f6ef74; this verifies schema/content integrity, not learner competency or complete tool coverage.
->   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS verified across schema validator and Vietnamese translations.
+>   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đã có đặc tả hoàn chỉnh 13 thành phần sư phạm trong `CURRICULUM_EXPANSION_SPEC_66_TO_120.md`, đang được bảo vệ dưới cổng `BLK-007` (LOCKED).
 
 ---
 
