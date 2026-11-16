@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 10)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 11)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; CURRENT COMPOUND BOOLEAN INSTRUCTIONS CORRECTED; SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; COMPOUND BEHAVIOR CORRECTED; ARTBOARD/HISTOGRAM CLAIMS NARROWED; SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -287,3 +287,29 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Corrected matrix record `VEC-009`: removed the Alt-click claim, recorded current default Compound behavior and Join distinction, added the two official sources, and explicitly left child-operation UI details for target-build confirmation.
 - The changed lesson parses as valid JSON. No lesson count, tool denominator, task state, PR state or gate authorization changed. A fresh CI run is required for the new PR HEAD.
 - Remaining uncertainty: exact in-app child-layer/operator editing details and displayed labels have not been directly inspected on the user's desktop build. Do not claim those details verified by release notes alone.
+
+
+## 15. Round 11 — narrow Artboard and Histogram claims; clean release discovery queue (2026-11-16)
+
+### Artboard Tool (`VEC-002`)
+
+- The official Help Center page title and URL are located, but the article body remains unavailable in the current retrieval path.
+- `D01-02` guided practice directly supports creating Desktop/Tablet/Mobile artboards with explicit pixel dimensions and names. The lesson previously asserted a named device-preset catalogue (iPhone/iPad/Apple Watch/print presets) and specific context-toolbar controls that the retrieved source did not substantiate.
+- Removed those unverified preset claims from the tool explanation and visible step-by-step slide. The revised lesson keeps explicit-dimension practice and identifies exact custom-size UI controls as requiring target-build confirmation.
+- The matrix's P4 core remains limited to creating, sizing and naming artboards; preset catalogue, background-fill controls and Lock Children details are not promoted to verified core actions.
+
+### Histogram panel (`PIX-012`)
+
+- The official Help Center page title and URL are located, but the article body remains unavailable in the current retrieval path.
+- `P05-01` guided practice supports inspecting the Red-channel distribution; its challenge supports comparing RGB distribution. The lesson previously presented `Clipping Warnings (W/B)` as a Histogram context control, despite the matrix explicitly leaving clipping indicators unverified.
+- Removed the overlay-warning claim from the Histogram panel description and context controls. The lesson now describes Histogram distribution separately from White Balance Adjustment, and avoids asserting an unverified panel menu path/shortcut. Histogram edge interpretation remains a visual reading of distribution, not an asserted warning overlay.
+
+### September 2026 discovery queue reconciliation
+
+- Removed duplicate queue rows for Blend Tool, Mask Tool and Feature Finder; clarified Astro Stretch; added `Node Tool corner-radius controls` as a possible extension/overlap with `VEC-006`, and `Object Selection Tool` as a candidate distinct from `PIX-003` Selection Brush.
+- These are discovery candidates only; the deduplicated queue lists 16 candidate topics, not a commitment to add 16 records. The 68-record denominator remains unchanged.
+
+### Disposition
+
+- `TASK-080` remains **IN_PROGRESS**. The 50 P4 labels remain provisional until operation-level semantics and source/build evidence are completed.
+- `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. No Publisher B02–B10 or Scripting S02–S10 authoring is authorized by this round.
