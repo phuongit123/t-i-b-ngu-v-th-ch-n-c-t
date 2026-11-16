@@ -18,6 +18,7 @@ import { moduleTranslationsVi } from './data/curriculum/translationsVi';
 
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
+const CapstoneAssessmentPage = React.lazy(() => import('./pages/CapstoneAssessmentPage'));
 
 const trackInfoVi: Record<AffinityTrackId, { name: string; label: string; tagline: string; description: string }> = {
   designer: {
@@ -334,6 +335,8 @@ export const App: React.FC = () => {
         );
       case 'resources':
         return <ResourcesPage />;
+      case 'capstone':
+        return <CapstoneAssessmentPage />;
       case 'dashboard':
         return (
           <div>

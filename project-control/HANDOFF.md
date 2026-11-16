@@ -414,4 +414,48 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Explicitly documented boundaries between Desktop Real Software and Educational Web Simulators (`PenNodeSimulator.tsx` and `PhotoLayerSimulator.tsx`).
 - Inventory denominator preserved at **68 records** (63 native + 5 MCP), stages: **50 P4, 17 V1, 1 U0, 3 exclusions**.
 - In accordance with governance instructions: TASK-080 remains **IN_PROGRESS** until all remaining acceptance criteria (reading article bodies for `VEC-002` Artboard Tool and `PIX-012` Histogram panel, desktop build introspection, and final review of 17 V1 rows) are verified.
-- `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft/Open on `qa/task-080-independent-evidence-audit`.
+- `TASK-081` is **COMPLETED**; `BLK-007` remains **ACTIVE — LOCKED**. PR #6 remains Draft/Open on `qa/task-080-independent-evidence-audit`.
+
+---
+
+## 25. Round 14 — TASK-081 Implementation: Independent A5 Capstone Assessment Subsystem (2026-11-16)
+
+### Key Deliverables Implemented
+1. **Full 10-Component Specification:** Codified in `project-control/TASK-081_CAPSTONE_SPEC.md`, containing the real-world campaign brief (*Lumina Artisanal Roastery Launch Campaign*), 8-step Design Thinking cycle, 7 submission artifacts, starter asset manifests, and pass/fail rules.
+2. **Data Models & Schema:** Defined in `src/types/capstone.ts` (`RubricDimension`, `RubricLevelDescription`, `CapstoneProjectSpec`, `SubmissionArtifacts`, `StudentSelfAssessment`, `OfficialEvaluationResult`, `CapstoneSubmissionRecord`, `SubmissionHistoryEntry`).
+3. **Scoring Engine & Local Persistence Service:** Implemented in `src/lib/capstone-service.ts` featuring `calculateWeightedScore()`, `evaluatePassFail()` with critical dimension gating, `saveStudentSubmission()` (enforcing evaluator immutability), `submitOfficialEvaluation()`, and version history tracking.
+4. **Interactive Multi-Tab Web Application:** Created in `src/pages/CapstoneAssessmentPage.tsx` with Dark Luxury UI styling:
+   - Tab 1: Brief, Technical Constraints, Starter Assets, 8-Step Design Thinking workflow.
+   - Tab 2: Interactive 7-dimension scoring matrix with CRITICAL dimension badges.
+   - Tab 3: Artifact URL submission form, student self-assessment sliders, and mandatory justification inputs.
+   - Tab 4: Official evaluation dossier, Pass/Fail certification banner, variance comparison (Self vs Evaluator), and version changelog.
+   - Evaluator Mode Toggle: Restricted console for independent evaluator grading and official sign-off.
+5. **Navigation Integration:** Added `Đồ án A5` navigation item with `Award` icon in `src/components/layout/MainNavigation.tsx` and lazy-routed `/capstone` in `src/App.tsx`.
+6. **Dedicated Unit Test Harness:** `scripts/test-capstone-evaluator.js` auditing dimension counts, weight sums (100%), critical dimension gating, scoring math, and pass/fail safeguards (7/7 tests PASS).
+7. **Playwright E2E Test Suite:** `tests/e2e/capstone-assessment.spec.ts` covering navigation, brief rendering, rubric badges, submission form, and evaluator console with certificate generation (5/5 tests PASS).
+
+### Curriculum PLO-07 & PLO-08 Coverage Details
+- **Current Lesson Coverage:**
+  - `PLO-07` (Brief Interpretation): 4 / 66 lessons (`P07-01`, `P08-03`, `P10-03`, `B01-01`). Track 1 Designer lacked mandatory brief deconstruction.
+  - `PLO-08` (Critique & Iteration): 15 / 66 lessons (mainly Photo retouching and Scripting error handling).
+- **Capstone Direct Solution:**
+  - `brief-deconstruction.md`: Mandatory deliverable for Dimension 1 (`PLO-07`, 15% weight, CRITICAL).
+  - `iteration-critique-log.md`: Mandatory deliverable for Dimension 5 (`PLO-08`, 15% weight, CRITICAL).
+  - Both dimensions are designated as **CRITICAL**, requiring $\ge$ Level 3 (Independent execution) for graduation.
+
+### Verification Results
+- `npm run test:capstone`: **7 / 7 PASS**
+- `npm run typecheck`: **0 errors**
+- `npm run lint`: **0 errors, 0 warnings**
+- `npm run validate:curriculum`: **66 / 66 PASS**
+- `npm run test:validator`: **27 scenarios, 41 assertions / 0 failed**
+- `npm run test:scripts`: **3 / 3 PASS**
+- `npm run test:e2e`: **25 / 25 PASS (54.8s on Microsoft Edge)**
+- `npm run build`: **Clean Vite bundle (dist generated, 0 errors)**
+
+### Governance & Phase Gate Boundary
+- `TASK-081` is marked **COMPLETED**.
+- `TASK-080` remains **IN_PROGRESS** until final desktop introspection and remaining open items are verified.
+- `BLK-007` remains strictly **ACTIVE — LOCKED**. No new Publisher (B02–B10) or Scripting (S02–S10) lessons were authored.
+- PR #6 remains Draft/Open on branch `qa/task-080-independent-evidence-audit`.
+

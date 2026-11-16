@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Search, Moon, Sun, Terminal, Compass, BookOpen, Layers, Download, User } from 'lucide-react';
+import { Search, Moon, Sun, Terminal, Compass, BookOpen, Layers, Download, User, Award } from 'lucide-react';
 import type { ThemeMode } from '@/types/design-system';
 
 export interface MainNavigationProps {
@@ -25,6 +25,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
   const navItems = [
     { id: 'catalog', label: 'Lộ trình', srText: 'Tracks', icon: <Compass className="w-3.5 h-3.5" /> },
     { id: 'simulator', label: 'Bộ mô phỏng', srText: 'Simulator', icon: <Layers className="w-3.5 h-3.5" /> },
+    { id: 'capstone', label: 'Đồ án A5', srText: 'Capstone A5', icon: <Award className="w-3.5 h-3.5" /> },
     { id: 'encyclopedia', label: 'Bách khoa thư', icon: <BookOpen className="w-3.5 h-3.5" /> },
     { id: 'playground', label: 'Thực hành MCP', icon: <Terminal className="w-3.5 h-3.5" /> },
     { id: 'resources', label: 'Tài nguyên', icon: <Download className="w-3.5 h-3.5" /> },

@@ -32,7 +32,7 @@
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
 >   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
->   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`), còn `TASK-079` đã COMPLETED và merged vào main.
+>   - **32.1% (17 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-079` và `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -245,4 +245,37 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Official Help Center page URLs for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) are located, but the page bodies still return only an unsupported-browser shell/navigation in the available extraction. Keep them classified as **official page located / article body review pending**. `D01-02` supports artboard creation, sizing and naming; `P05-01` supports basic Red-channel and RGB-distribution reading. Do not add unverified preset/conversion, clipping-alert or colour-space claims.
 - Five P4 records still rely on broad rather than feature-specific official product pages for exact operation details: `VEC-006` Corner Tool, `VEC-021` Symbols, `VEC-023` Constraints, `PIX-003` Selection Brush and `PIX-016` Live Lighting. Keep their P4 status provisional until exact 3.3.3 feature controls/behaviour are verified. Older Serif Help mirror pages found during research are not treated as proof of current 3.3.3 behaviour.
 - `AUT-002` remains an Academy project-local MCP integration supported by repository evidence, not a vendor-native Affinity capability. Native SDK documentation is version 3.3.1; runtime compatibility with desktop 3.3.3 is not asserted.
-- `TASK-080` remains **IN_PROGRESS**; `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**.
+- `TASK-080` remains **IN_PROGRESS**; `TASK-081` is **COMPLETED**; `BLK-007` remains **ACTIVE — LOCKED**.
+
+---
+
+## 19. TASK-081 Implementation — A5 Independent Capstone Assessment Subsystem (2026-11-16)
+
+- **Objective:** Construct an authentic independent competency evaluation subsystem prioritizing learning outcomes **`PLO-07` (Brief & Audience Interpretation)** and **`PLO-08` (Diagnosis, Critique & Iteration)**.
+- **Ten Required Components Implemented:**
+  1. *Project Brief:* Real-world multi-deliverable scenario "Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina (Lumina Artisanal Roastery Launch Campaign)", including client backstory, target audience profile, brand personality keywords, core messaging, and technical specifications.
+  2. *Learning Objectives:* Explicit alignment to PLO-01 through PLO-11, with primary gating on PLO-07 and PLO-08.
+  3. *Deliverables:* Vector Master Brandmark (`.afdesign`), Retouched Cold Brew Hero Campaign Poster (`.afphoto`), Editorial Launch Menu Spread (`.afpub` / multi-artboard), Print-ready PDF/X-4 with 3mm bleed, WebP digital hero, Brief Deconstruction Document (`brief-deconstruction.md`), and Iteration Critique Log (`iteration-critique-log.md`).
+  4. *Starter Assets:* 4 realistic assets (`lumina_project_brief.md`, `lumina_coldbrew_raw_plate.jpg`, `lumina_heritage_crest_sketch.afdesign`, `coffee_texture_bump_map.png`).
+  5. *Execution Methodology:* 8-step Design Thinking cycle (Discover → Define [PLO-07] → Explore → Plan → Create → Evaluate → Iterate [PLO-08] → Deliver).
+  6. *Scoring Rubric:* 7-dimension evaluation matrix summing to 100% weight, with 4 observable performance levels (Level 1 Novice, Level 2 Guided, Level 3 Independent, Level 4 Advanced) and 5 CRITICAL dimensions.
+  7. *Submission Evidence:* Exact file formats and validation constraints for 7 artifacts.
+  8. *Submission Area:* Interactive multi-tab web UI with input fields, file path validation, and student self-assessment sliders with mandatory justification inputs.
+  9. *Feedback Subsystem:* Dual-mode feedback comparing student self-assessment vs official evaluator ratings with variance detection and written feedback.
+  10. *Assessment Dossier & Certification:* Immutable official evaluation result storage, unique certificate ID generation (`AFFINITY-A5-xxxxxxxx`), official evaluator seal, pass/fail banner, and version changelog history.
+- **Curriculum PLO-07 & PLO-08 Analysis:**
+  - *PLO-07:* Found in 4 / 66 lessons (`P07-01`, `P08-03`, `P10-03`, `B01-01`). Track 1 Designer lacked mandatory brief deconstruction. Capstone bridges this with the mandatory `brief-deconstruction.md` artifact (15% weight, CRITICAL).
+  - *PLO-08:* Found in 15 / 66 lessons (mostly Photo retouching and Scripting error handling). Capstone bridges this with the mandatory `iteration-critique-log.md` artifact (15% weight, CRITICAL) requiring technical comparison of Draft 1 vs Final Work with at least 3 concrete flaws and fixes.
+- **Graduation Safeguard Principle:**
+  - Total weighted score must be $\ge 75.0/100$.
+  - **ALL 5 CRITICAL dimensions** (Brief Interpretation, Tool Selection, Non-Destructive Craft, Iteration/Critique, Production Readiness) must achieve $\ge$ Level 3 (Independent execution). A failure in any critical dimension prevents graduation regardless of overall score.
+- **Technical Deliverables:**
+  - `project-control/TASK-081_CAPSTONE_SPEC.md`: Full specification document.
+  - `src/types/capstone.ts`: TypeScript data models and rubric definitions.
+  - `src/lib/capstone-service.ts`: Local persistence engine with immutable official evaluation enforcement.
+  - `src/pages/CapstoneAssessmentPage.tsx`: Interactive luxury Dark UI with 4 tabs and Student vs Evaluator mode toggle.
+  - `src/components/layout/MainNavigation.tsx` & `src/App.tsx`: Navigation bar integration with `Award` icon.
+  - `scripts/test-capstone-evaluator.js`: Node test suite verifying scoring math, weights, and critical dimension gating (7/7 PASS).
+  - `tests/e2e/capstone-assessment.spec.ts`: 5 Playwright E2E tests verifying navigation, brief rendering, rubric badges, submission form, and evaluator console (5/5 PASS; 25/25 total E2E suite PASS).
+- **Phase Gate Safety:** `BLK-007` remains **ACTIVE — LOCKED**. No new Publisher or Scripting lessons were created.
+
