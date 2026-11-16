@@ -4,7 +4,7 @@
   "trackId": "designer",
   "order": 2,
   "title": "Artboard Architecture vs Single Canvas Setup",
-  "subtitle": "Responsive Multi-Screen Layouts, Bleed & Device Presets",
+  "subtitle": "Responsive Multi-Screen Layouts & Explicit Dimensions",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
@@ -27,12 +27,12 @@
         "win": "No default single-key shortcut (accessible under Move Tool dropdown or Insert Artboard toolbar button)",
         "mac": "No default single-key shortcut"
       },
-      "description": "Located in the left Tools Panel (grouped beneath or alongside the Move Tool). When active, the Context Toolbar allows inserting new artboards based on standard device presets (iPhone, iPad, Desktop, Apple Watch, Paper sizes) or drawing custom freeform artboards on the canvas.",
+      "description": "The Artboard Tool creates and manages independent artboards within one document. The mapped lesson practice uses explicit pixel dimensions and names. The exact context-toolbar layout and any named device-preset catalogue remain unverified because the official Help Center article body was not accessible in this review.",
       "contextBarOptions": [
-        "Size dropdown: Device presets (Apple, Android, Generic Screens, Print Paper)",
-        "Insert Artboard button: Instantly places a new artboard with the selected preset",
-        "Color swatch: Customizes the artboard canvas background fill (default white or transparent)",
-        "Lock Children toggle: Allows resizing the artboard without scaling the artwork inside"
+        "Mapped practice: create artboards with explicit pixel dimensions and names; exact size-entry controls require target-build confirmation.",
+        "Named device presets are not asserted until the current Help Center article body or target application has been checked.",
+        "Background-fill and transparency controls are not independently verified in this review.",
+        "Lock Children appears in lesson material; verify its exact current label and behavior on the target build."
       ]
     },
     "stepByStepInstructions": [
@@ -40,25 +40,37 @@
         "stepNumber": 1,
         "title": "Create a New Artboard-Enabled Document",
         "instruction": "Press Ctrl+N (Windows) / Cmd+N (macOS). Under the 'Web' category, select 'FHD (1920 x 1080)'. Under Layout, check the box labeled 'Create Artboard'. Click Create.",
-        "shortcutTip": { "win": "Ctrl+N", "mac": "Cmd+N" }
+        "shortcutTip": {
+          "win": "Ctrl+N",
+          "mac": "Cmd+N"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Add a Second Artboard for Mobile Viewport",
-        "instruction": "Select the Artboard Tool from the left Tools Panel. In the Context Toolbar, open the Size dropdown and select 'iPhone 15 / 16' (393 x 852 px). Click the 'Insert Artboard' button. Notice the mobile artboard appear neatly beside your desktop canvas.",
-        "shortcutTip": { "win": "Click Insert Artboard", "mac": "Click Insert Artboard" }
+        "title": "Add a Tablet Artboard with Explicit Dimensions",
+        "instruction": "Use the Artboard Tool to add a second artboard, set it to 768 x 1024 px using the custom-dimension controls available in the target build, then name it 'Web-Tablet'. Do not rely on a named device preset; the current preset catalogue has not been verified from the official article body.",
+        "shortcutTip": {
+          "win": "Click Insert Artboard",
+          "mac": "Click Insert Artboard"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Duplicate an Artboard with Content",
         "instruction": "Switch to the Move Tool (V). Click directly on the title text of the Desktop artboard to select it. Hold Alt (Windows) or Option (macOS) and drag horizontally to duplicate the entire artboard along with all contained layers.",
-        "shortcutTip": { "win": "Alt+Drag", "mac": "Option+Drag" }
+        "shortcutTip": {
+          "win": "Alt+Drag",
+          "mac": "Option+Drag"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Toggle 'Lock Children' to Resize Artboard Only",
         "instruction": "Select an artboard. On the Context Toolbar, enable 'Lock Children'. Now drag an artboard edge or enter new dimensions in the Transform panel. The artboard canvas resizes without distorting any contained text or vector shapes.",
-        "shortcutTip": { "win": "Lock Children ON", "mac": "Lock Children ON" }
+        "shortcutTip": {
+          "win": "Lock Children ON",
+          "mac": "Lock Children ON"
+        }
       }
     ],
     "visualExamples": [
@@ -212,11 +224,14 @@
       "type": "tool-anatomy",
       "title": "The Artboard Tool & Context Toolbar",
       "subtitle": "Precision Canvas Creation at Your Fingertips",
-      "contentMarkdown": "The **Artboard Tool** gives you complete control over your canvas boundaries:\n\n- **Preset Selector:** Choose from dozens of calibrated device templates (iPhone, iPad, MacBook, Watch, Print A4/Letter).\n- **Insert Artboard Button:** Instantly stamps a new artboard onto the pasteboard.\n- **Lock Children Toggle:** **CRITICAL:** When enabled, lets you resize the artboard canvas without squishing or stretching the graphic elements inside.\n- **Canvas Fill Swatch:** Assign individual background colors per artboard or set to transparent.",
+      "contentMarkdown": "The **Artboard Tool** creates and manages separate artboards within one document.\n\n- **Explicit dimensions:** the mapped practice uses custom pixel sizes for Desktop, Tablet and Mobile.\n- **Preset list:** named device and paper presets are not asserted here because the official Artboard Tool article body was not retrievable during this review.\n- **Lock Children:** this lesson includes the workflow, but the exact current control label and behavior still require a target-build check.",
       "actionBox": {
         "label": "Essential Setting",
         "text": "Always verify that 'Lock Children' is checked when adjusting canvas margins or padding.",
-        "shortcut": { "win": "Context Toolbar", "mac": "Context Toolbar" }
+        "shortcut": {
+          "win": "Context Toolbar",
+          "mac": "Context Toolbar"
+        }
       }
     },
     {
@@ -225,7 +240,7 @@
       "type": "step-by-step",
       "title": "Step-by-Step: Building a Responsive Trio",
       "subtitle": "Desktop, Tablet & Mobile Side-by-Side",
-      "contentMarkdown": "1. **Initialize Document:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Web > FHD (1920x1080)` and ensure `[x] Create Artboard` is active.\n2. **Name the Desktop Artboard:** In the Layers panel, double-click the artboard name and rename to `Desktop-1920`.\n3. **Insert Tablet Screen:** Activate the Artboard Tool. In the Context Toolbar, select `iPad` from the preset list and click `Insert Artboard`.\n4. **Insert Mobile Screen:** Select `iPhone 15 / 16` and click `Insert Artboard`.\n5. **Organize Spacing:** Use the Move Tool to arrange all three artboards horizontally with equal 80px gaps on your pasteboard.",
+      "contentMarkdown": "1. **Initialize Document:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Web > FHD (1920x1080)` and ensure `[x] Create Artboard` is active.\n2. **Name the Desktop Artboard:** In the Layers panel, double-click the artboard name and rename to `Desktop-1920`.\n3. **Insert Tablet Screen:** Activate the Artboard Tool. Use the current build's custom-size workflow to create a Tablet artboard at `768 x 1024 px`; name it `Web-Tablet`. Do not rely on an unverified named preset.\n4. **Insert Mobile Screen:** Create a Mobile artboard at `375 x 812 px` using the same explicit-dimension workflow; name it `Web-Mobile`.\n5. **Organize Spacing:** Use the Move Tool to arrange all three artboards horizontally with equal 80px gaps on your pasteboard.",
       "visual": {
         "type": "diagram",
         "content": "[Desktop 1920x1080]  80px  [Tablet 768x1024]  80px  [Mobile 393x852]"
