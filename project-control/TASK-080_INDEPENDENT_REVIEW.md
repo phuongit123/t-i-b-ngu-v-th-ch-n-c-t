@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 11)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 12)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; COMPOUND BEHAVIOR CORRECTED; ARTBOARD/HISTOGRAM CLAIMS NARROWED; SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — CURRENT GLYPH BROWSER AND DEVELOP STUDIO TERMS NORMALIZED; SOURCE/SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -320,3 +320,25 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - A second pass through `D01-02` found the lesson still described `Lock Children` behavior and Alt/Option-drag duplication as established. Those details are not supported by the retrieved Artboard Tool article body. The lesson now presents both as target-build checks, revises the quiz to verify behavior rather than assume it, and keeps core P4 evidence limited to explicit dimensions/naming/creation practice.
 - Removed the second, duplicate Deform Tool row from the September 2026 release discovery queue. The 16-topic queue count now represents unique candidate topics; no new record was added and the 68-record baseline remains unchanged.
 - The Artboard Tool and Histogram panel article bodies remain inaccessible to the current retrieval path. Their titles/URLs are known, but body-level controls are still `NEEDS_VERIFICATION`.
+
+
+## 16. Round 12 — Glyph Browser and RAW Develop Studio terminology (2026-11-16)
+
+### Typography / Glyph Browser (`VEC-017`)
+
+- The official Help Center names the interface **Glyph Browser panel**, and documents this desktop path: `Window > Text > Glyph Browser`. It directs the user to place a text insertion point, choose font family/style/subset, and double-click a glyph to insert it. Source: https://www.affinity.studio/help/text-special-characters/.
+- Official Typography design material states that OpenType features are activated from the text Context Toolbar, and that Affinity supports reusable character and paragraph styles. Source: https://www.affinity.studio/typography-software.
+- Updated `D06-03` and matrix `VEC-017`: removed obsolete “Glyphs Studio” and its unsupported `View > Studio > Glyphs` path; practice and quiz now use the documented Glyph Browser route. The exact current UI location for creating/managing paragraph and character styles remains target-build verification; the lesson no longer assumes a named Text Styles Studio panel.
+
+### RAW workflow (`PIX-001`)
+
+- The current official RAW guide calls the environment **Develop Studio**. It documents Basic, Lens, Detail, Tones and Masks panels; supported RAW files open automatically in Develop Studio; the Output choices are Pixel layer, RAW layer (embedded) and RAW layer (linked); clicking Develop sends the result into Pixel Studio. Source: https://www.affinity.studio/blog/editing-raw-images-and-working-with-raw-files.
+- Updated `P01-02`, `P09-01` and matrix `PIX-001` to use Develop Studio and current panel names. Removed unverified clipping-warning shortcuts/overlay instructions from these lessons; the official RAW guide reviewed does not substantiate those exact controls or shortcuts. No claim is made that clipping overlays are absent from the application—only that they are not verified by this source pass.
+- Matrix `PIX-001` continues to cover RAW opening, exposure/white balance, lens and detail correction, and documented output modes. Availability of panel controls remains dependent on the RAW file and target build.
+
+### Audit boundary
+
+- The changes above are terminology/source alignment, not proof of live desktop behavior on the user's installation.
+- The 68-record in-scope denominator is unchanged (63 native Affinity + 5 Academy MCP); stages remain 50 P4 / 17 V1 / 1 U0, plus 3 exclusions. No new inventory row was created.
+- `TASK-080` remains **IN_PROGRESS**; 50 P4 labels remain provisional. `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**.
+- These content changes require a fresh Quality Gate on the resulting PR #6 HEAD. A previous green run does not certify this new HEAD.

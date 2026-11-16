@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.5.5` (TASK-079 merged into main; TASK-080 Round 11 review active on PR #6)
+- **Version:** `4.5.6` (TASK-079 merged into main; TASK-080 Round 12 review active on PR #6)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
 - **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11 changes after that HEAD require a fresh exact-head gate — PR #6 had 58 commits ahead / 0 behind main at base `628f761` at the Round 11 check — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
@@ -383,3 +383,12 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Removed the duplicate Deform Tool candidate. The release discovery queue now contains 16 unique candidate topics and remains outside the 68-record baseline.
 - Current branch at the time of this handoff had `58` commits ahead and `0` behind `main`, with merge base `628f7619176fc2e85a50613654f46416975bd0cd`.
 - PR #6 remains Draft/Open; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 23. Round 12 — current typography and RAW terminology (2026-11-16)
+
+- `D06-03` / `VEC-017`: Glyphs Studio renamed to **Glyph Browser panel**; exact desktop path `Window > Text > Glyph Browser`; Glyph Browser operation is create insertion point, choose font family/style/subset, double-click glyph. OpenType controls are documented on the text Context Toolbar. Paragraph/character styles remain supported, but their exact creation UI path is flagged for target-build confirmation.
+- `P01-02`, `P09-01` / `PIX-001`: use **Develop Studio** with Basic, Lens, Detail, Tones and Masks panels; supported RAW files open automatically; output modes are Pixel layer, RAW layer (embedded), RAW layer (linked); Develop opens the result in Pixel Studio. Unsupported clipping-warning shortcut/overlay details were removed from teaching claims.
+- Sources: https://www.affinity.studio/help/text-special-characters/ ; https://www.affinity.studio/typography-software ; https://www.affinity.studio/blog/editing-raw-images-and-working-with-raw-files.
+- These are source-aligned content changes. Current live desktop UI remains uninspected. They require a fresh exact-head Quality Gate.
+- TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. No merge or scope authorization changed.
