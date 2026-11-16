@@ -2,12 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.4.5` (TASK-079 completed after 66/66 independent QA; TASK-080 source and P4 evidence review in progress)
+- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED; RELEASE_READINESS_REPORT.md published; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
-- **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
+- **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Latest CI evidence:** `Quality Gate run 43728990588 passed on exact PR #4 head 2d3e3f20c70e4493d82284a22695c0b16ab67d05: ESLint, TypeScript, 66/66 curriculum, 41/41 validator assertions, 3/3 scripts, 66/66 translation coverage, Vite build, and 20/20 Microsoft Edge Playwright E2E (38.5s).`
-- **Last Updated:** `2026-11-15`
+- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
+- **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -19,25 +19,25 @@
 | **Phase 0** | Project Control System & Pre-Phase Audit | 1 | 1 | 0 | 0 | **COMPLETED** |
 | **Phase 1** | Environment, Toolchain & MCP Capability Extraction | 5 | 5 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
-| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 6 | 0 | 2 | **TRACK 1 & TRACK 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done)** |
+| **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 2 | 2 | 4 | **TRACK 1 & 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done; 54 Expansion Lessons Specified)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
-| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 12 | 3 | 0 | 9 | `SimulatorPage (Dual Simulators), EncyclopediaPage, ResourcesPage Operational (Code-Split)` |
-| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 0 | 0 | 4 | `PENDING` |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `Quality Gate #43728990588 passed on PR #4 head 2d3e3f2, including the full 20/20 Edge E2E suite` |
-| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **14** | **2** | **33** | **28.6% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **16** | **3** | **34** | **30.2% Completed** |
+| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 5 | 0 | 3 | **5 MAJOR PAGES OPERATIONAL (`HomePage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
+| **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (`TASK-030` to `TASK-033`: Schemas, RLS, Storage Buckets, Offline Sync)** |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 0 | 0 | 5 | `46/46 Playwright E2E passed; formal phase sign-off pending release directive` |
+| **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING (Gated by PO authorization & BLK-007)` |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **20** | **2** | **27** | **40.8% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **23** | **3** | **27** | **43.4% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
->   - **30.2% (16 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`), còn `TASK-079` đã COMPLETED.
+>   - **40.8% (20 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home), `TASK-074` (Simulator), `TASK-075` (Encyclopedia), `TASK-077` (Resources), `TASK-078` (Dashboard/Settings), `TASK-030`..`033` (Supabase backend), `TASK-026` (SlidePlayer), `TASK-027` (Simulator sandbox) đã hoàn tất.
+>   - **43.4% (23 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-010-REAUDIT`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
->   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS was confirmed again by Quality Gate #8 on 8f6ef74; this verifies schema/content integrity, not learner competency or complete tool coverage.
->   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đang chờ phê duyệt mở cổng triển khai.
+>   - **66 Bài học Hiện hữu Thực tế (Total Existing Lessons - 55.0%):** 60 bài cốt lõi + 6 bài pilot; 66/66 PASS verified across schema validator and Vietnamese translations.
+>   - **120 Bài học Theo Kế hoạch (Planned Curriculum Scope - 100%):** 40 modules × 3 bài học. Hiện còn **54 bài học dự kiến** (Publisher B02–B10: 27 bài; Scripting S02–S10: 27 bài) đã có đặc tả hoàn chỉnh 13 thành phần sư phạm trong `CURRICULUM_EXPANSION_SPEC_66_TO_120.md`, đang được bảo vệ dưới cổng `BLK-007` (LOCKED).
 
 ---
 
@@ -49,11 +49,11 @@
 | Affinity MCP Research & Automation (`REQ-MCP`) | 7 | 2 (`REQ-MCP-006`, `007`) | 5 | **28.6%** |
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 2 (`REQ-CURR-001`, `002`) | 6 | **25.0%** |
 | Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
-| Major Page Content & Functionality (`REQ-PAGE`) | 8 | 3 (`REQ-PAGE-004`, `005`, `007`) | 5 | **37.5%** |
-| Backend Database, Auth & Storage (`REQ-BE`) | 4 | 0 | 4 | 0.0% |
+| `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 5 (`REQ-PAGE-001`, `004`, `005`, `007`, `008`) | 3 | **62.5%** |
+| Backend Database, Auth & Storage (`REQ-BE`) | 4 | 4 (`REQ-BE-001` to `004`) | 0 | **100.0%** |
 | Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
-| **TOTAL** | **49** | **12** | **37** | **24.5%** |
+| **TOTAL** | **49** | **14** | **35** | **28.6%** |
 
 ---
 
@@ -81,8 +81,8 @@
 ## 4. Next Phase Gate & Status
 
 Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher (B01) và Scripting (S01) có thêm 6 bài pilot, tổng cộng 66/120 bài theo kế hoạch. Quality Gate #8 đã xác nhận lại 66/66 bài hợp lệ và chạy thành công toàn bộ 20/20 E2E trên Microsoft Edge tại commit 8f6ef74. Kết quả này xác nhận chất lượng kỹ thuật của nhánh, không phải bằng chứng rằng người học đã đạt chuẩn tốt nghiệp.
-- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
-- **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
+- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The comprehensive 54-lesson curriculum expansion specification (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) has been fully authored in `project-control/CURRICULUM_EXPANSION_SPEC_66_TO_120.md` with all 13 required pedagogical components, PLO mappings, and tool matrix alignment.
+- **Deferred Production Authoring:** Physical JSON lesson file authoring and inclusion in `curriculum/` remains strictly protected under `BLK-007` until an explicit Project Owner unlocking directive is issued, preserving CI/CD validator stability (66/66 PASS).
 
 
 ---
@@ -91,7 +91,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
-- **Governance updates:** `TASK-079` is COMPLETED after independent 66/66 row-by-row QA. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
+- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. `TASK-079` is COMPLETED after independent 66/66 row-by-row QA and exact-head Quality Gate evidence. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
@@ -120,8 +120,8 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   5. Keep `TASK-080` in `IN_PROGRESS` until peer review and acceptance on GitHub; `BLK-007` remains **ACTIVE — LOCKED**.
 - **Deliverables Prepared:**
   - `src/pages/HomePage.tsx`: 100% refined with Vietnamese text, keeping Figma Interia typography and preserving all `.sr-only` accessibility tags.
-  - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Fully populated with 71 total entries (68 in-scope: 50 at stage P4, 18 gaps at stage V1; 3 legacy exclusions).
-  - `project-control/TASK_REGISTRY.md`: `TASK-080` transitioned to **IN_PROGRESS** awaiting review (16 completed / 1 in-progress / 36 pending).
+  - `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md`: Populated with 71 submitted rows (68 provisional in-scope: 50 P4, 17 V1, 1 U0; 3 exclusions).
+  - `project-control/TASK_REGISTRY.md`: `TASK-079` is **COMPLETED**; `TASK-080` is **IN_PROGRESS** (16 completed / 3 in-progress / 34 pending across all 53 task rows).
 - **Verification Evidence:**
   - `npm run lint` & `npm run typecheck`: 0 errors, 0 warnings.
   - `npm run validate:curriculum`: 66/66 lessons valid.
@@ -135,7 +135,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 ## 8. TASK-080 Independent Review — 2026-11-15
 
 - Submitted branch `feat/task-080-affinity-tool-inventory`, commit `e65b9fd`, contains 68 inventory rows, 3 exclusions and 18 listed gap records.
-- A first independent structure check reproduced 68 unique IDs, 16 columns per row, and 50 P4 + 18 V1 = 68. This verifies table integrity, not exhaustive product discovery.
+- The Round 3/4 review reproduced 68 unique inventory IDs (63 native Affinity capabilities + 5 project-local MCP integrations), 16 fields per row, and 50 P4 + 17 V1 + 1 U0 = 68. This verifies inventory structure and stage arithmetic, not exhaustive product discovery.
 - A direct lesson spot check corrected the Move Tool mapping to include `D01-03`, whose guided practice uses the Move Tool.
 - Direct official URLs have been added for Move Tool, Vector Flood Fill Tool, Measure Tool release-note evidence, and Preflight.
 - The September 2026 release notes exposed additional discovery candidates; they are recorded separately and are not yet included in the denominator.
@@ -151,7 +151,162 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - Lesson-row counts by PLO: PLO-01 (15); PLO-02 (26); PLO-03 (66); PLO-04 (29); PLO-05 (40); PLO-06 (21); PLO-07 (4); PLO-08 (15); PLO-09 (23); PLO-10 (55); PLO-11 (3). Counts are alignment counts, not completion percentages.
 - Critical deficiencies identified: severe under-representation of brief interpretation (PLO-07, 4/66) and structured critique/iteration loops (PLO-08, 15/66).
 - Independent QA completed a 100% full audit across all 66 lesson JSON files, recording individual lesson titles, tool evidence, guided checkpoints, challenge criteria counts, QA dispositions (66/66 PASS), and transfer evaluation notes in `project-control/TASK-079_INDEPENDENT_REVIEW.md`.
-- `TASK-079` is COMPLETED following Project Owner direction to proceed and the independent 66/66 source-row audit.
+- `TASK-079` is COMPLETED and merged into `main` following Project Owner approval and the independent 66/66 source-row audit.
 - Governance note: `TASK-081` (Capstone Assessment Framework) strictly requires BOTH `TASK-079` AND `TASK-080` to be completed and signed off before it can begin.
 - `TASK-080` remains IN_PROGRESS pending separate Help Center source validation and P4 practice audits. `TASK-081` remains PENDING.
 - `BLK-007` remains ACTIVE — LOCKED; no new Publisher/Scripting lessons are authorized.
+
+---
+
+## 10. TASK-080 Independent Review — Round 2 (2026-11-15)
+
+- Independent review branch: `qa/task-080-independent-evidence-audit`, based on merged TASK-080 baseline commit `d31150666787100d1c87332f7b7564eb43498025`.
+- Reproduced the reclassified baseline: 68 in-scope records (63 native Affinity capabilities + 5 project-local MCP integrations), 50 P4 claims, 17 V1 candidates, 1 U0 candidate, and 3 exclusions (71 total submitted rows). The denominator remains provisional.
+- Cross-checked the 50 P4 records against 52 distinct lesson JSON references. Each referenced lesson has a declared tool explanation, guided-practice checkpoints and expected outcome; the matrix practice references now point to the exact JSON sections.
+- Corrected over-broad or mismatched evidence mappings: VEC-001 narrowed to D01-03; PIX-007 narrowed to P05-02; PIX-006 renamed to Layer Groups; PIX-014 additionally maps to P03-02; PIX-016 no longer claims a Lens Studio.
+- Added official source URLs where located. Of the 50 P4 rows, 38 have a direct official feature-matched URL (including 3 Simplified Chinese locale pages), 9 are URL-linked but broad/compatibility-limited, 2 native Affinity rows lack a direct vendor URL, and 1 project-MCP row is supported by project-local evidence only. This is traceability progress, not P4 acceptance.
+- The user confirms the installed desktop app is the latest stable release; this is accepted as target scope as of 2026-11-16 (public release identifier 3.3.3.5004). Public SDK docs identify version 3.3.1, so SDK/runtime compatibility remains unconfirmed.
+- Official September 2026 desktop release notes expose candidate tools/controls not represented clearly in the original matrix. The 2 November 2026 official announcement is for Affinity for iPad and is not mixed into the desktop denominator.
+- `TASK-080` remains IN_PROGRESS. `TASK-081` remains PENDING until TASK-079 and TASK-080 are completed. `BLK-007` remains ACTIVE — LOCKED.
+
+
+## 11. TASK-080 Independent Evidence Audit — Round 4 (2026-11-15)
+
+- Reclassified the inventory into 63 native Affinity capabilities and 5 project-local MCP integrations; do not mix their denominators. The combined register remains 68 records, plus 3 exclusions.
+- Stage counts reconcile as 50 P4 claims, 17 V1 candidates and 1 U0 candidate. P4 claims comprise 49 native Affinity entries and one project MCP integration.
+- The 50 P4 rows reference 52 distinct lesson JSON files, each with tool explanation, guided task, checkpoints, expected outcome, challenge title and challenge criteria. This remains structural evidence; operation-level semantic and target-build checks are open.
+- Source traceability across P4: 38 direct official feature-matched URLs (including 3 Simplified Chinese locale pages), 9 broad/compatibility-limited URLs, 2 native claims with no direct vendor URL, and one project-local MCP evidence-only record.
+- Official September 2026 release notes support the separate native Scripting Studio/Script Editor/Scripts Library record. Blend Tool, Mask Tool, Deform Tool, Wavelet/astro features and GLB 3D model placement stay in the discovery queue until the target build is verified.
+- Target-version scope is now accepted as the latest stable desktop release per user confirmation; local executable metadata was not directly introspected.
+- `TASK-080` remains IN_PROGRESS; `REQ-LEARN-002` is IN_PROGRESS; `TASK-081` remains PENDING; `BLK-007` remains ACTIVE — LOCKED.
+
+
+---
+
+## 12. TASK-080 Round 4 Quality Gate & Governance Reconciliation (2026-11-15)
+
+- Exact audited commit: `58c508da9011f0a2cf89f07819d0bab90a575b18` on `qa/task-080-independent-evidence-audit`.
+- Quality Gate workflow `43736054933`: **SUCCESS**. ESLint, TypeScript, curriculum validation (66/66), validator regression, script checks, production build, and Microsoft Edge Playwright (20/20) all passed.
+- Evidence artifact: `affinity-academy-quality-evidence`, artifact ID `14169703842`.
+- This CI result verifies the web academy at the exact commit only. It does not validate the installed Affinity build, prove semantic correctness of all 50 P4 operations, or certify denominator completeness.
+- Reconciled programme-learning governance: `TASK-079` / `REQ-LEARN-001` COMPLETED based on the independent 66/66 mapping audit and its exact-head Quality Gate; `TASK-080` / `REQ-LEARN-002` remain IN_PROGRESS; `TASK-081` remains PENDING.
+- Registry arithmetic: 53 rows = 16 COMPLETED / 3 IN_PROGRESS / 34 PENDING. The 49 original tasks remain 14 COMPLETED / 2 IN_PROGRESS / 33 PENDING.
+- PR #6 remains Draft and unmerged. `BLK-007` remains ACTIVE — LOCKED.
+
+
+## 13. TASK-080 Round 5 Source Discovery (2026-11-15)
+
+- Located official Help Center sources for Stroke panel/pressure profile, Isometric panel/grid, and Assets panel; corrected the matrix terminology and narrowed the associated claims.
+- **Historical Round 5 snapshot (superseded by Section 15):** P4 source disposition was recorded as 38 direct official feature-matched URLs, 9 broad/version-limited URLs, 2 presumed native source gaps, and 1 project-local MCP-only row.
+- **Round 6 update:** official Help Center page titles/URLs were found for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`); article-body extraction remains pending. The denominator remains provisional; latest-stable desktop version scope is accepted per user confirmation.
+
+
+## 14. TASK-080 Version Scope & Current-Head Quality Gate (2026-11-16)
+
+- **Version scope accepted:** the user confirms the installed Affinity desktop app is the latest stable release and says this is sufficient. Use latest stable desktop as of 2026-11-16; public November 2026 distribution metadata identifies version 3.3.3 / build 5004. Do not block on obtaining a local Help/About string. Local executable metadata was not directly introspected.
+- **Exact PR head:** `b85956ef5830e757ae870a8843410de3a4fb14d5`.
+- **Quality Gate #43738438116: SUCCESS.** ESLint, TypeScript, curriculum validation 66/66, validator regression 41 assertions/0 failures, script checks 3/3, production build, and Playwright E2E 20/20 passed.
+- **Artifact:** `affinity-academy-quality-evidence`, ID `14171164280`, SHA-256 `fc44d31a9a3a63e137db032df600b45fdc8520f2891b7d5a4100fe7d54180512`.
+- CI is evidence for the web academy at the exact commit only; it does not certify Affinity operation semantics, completeness of the denominator, or runtime SDK compatibility.
+- PR #6 stays Draft and unmerged. TASK-080 stays IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 15. TASK-080 Artboard / Histogram Source and Practice Recheck (2026-11-16)
+
+- Located official Help Center pages for Artboard Tool and Histogram panel. The extractor returned page title/navigation only, so exact article-body claims remain pending; record them as official URL found / body not reviewed, not as missing URLs.
+- Rechecked `D01-02`: multi-artboard creation, dimensions and naming are practised; unverified preset/conversion claims were removed from `VEC-002`.
+- Rechecked `P05-01`: Red-channel and R/G/B histogram reading are practised; unverified clipping alerts and color-space constraints were removed from `PIX-012`.
+- P4 provenance reconciles to 38 official content-reviewed URLs + 2 official page-title/body-review-pending URLs + 9 broad/version-limited URLs + 1 project-local MCP row = 50.
+- TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 16. Prior PR Head / CI Snapshot (2026-11-16)
+
+- At the time of this snapshot, PR #6 head was `d1ed2bf...` and Quality Gate #43740066423 was in progress. That run was cancelled when a subsequent documentation synchronization advanced the branch.
+- TASK-080 remains IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. PR #6 remains Draft and unmerged.
+
+
+## 17. Exact-head Quality Gate evidence (2026-11-16)
+
+- Quality Gate **#43740202800** (run 59) passed on exact PR head `5f7cdc87a15fba0e8b0b389278c176d26be2a1a1`.
+- Results: ESLint PASS; TypeScript PASS; curriculum validation **66/66**; validator regression **41 assertions / 0 failed**; scripts **3/3**; production build PASS; Edge setup PASS; Playwright E2E **20/20**.
+- Artifact `affinity-academy-quality-evidence`, ID `14172242049`, SHA-256 `09e08783aeddabda4022cc4027990b01c17866ad7ab81e3a039d9b184e75d8d1`.
+- This is evidence for `5f7cdc8...` only. The synchronization commit that adds this record will become a new PR head and needs a new Quality Gate; use the PR Checks tab for the current exact SHA. PR #6 remains Draft/unmerged; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
+
+
+## 18. TASK-080 Round 7 — Post-merge sync and reproducible evidence audit (2026-11-16)
+
+- PR #4 is merged to `main` at `628f7619176fc2e85a50613654f46416975bd0cd`. PR #6 now targets `main` at that exact base commit; compare result at review time: 45 commits ahead, 0 behind, merge base equal to `628f761...`.
+- Exact PR #6 head after the sync and screenshot refresh: `09bf0fdc67242c3182dcf8fd4e80e38b92d33f17`.
+- Quality Gate `#43749162173` completed **SUCCESS** on that exact HEAD. ESLint, TypeScript, curriculum 66/66, validator 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build and Microsoft Edge Playwright E2E **20/20** passed (33.5s). Artifact ID: `14175825803`.
+- Reproduced matrix structure: 68 unique in-scope IDs; all 16 fields are populated; stage counts are 50 P4, 17 V1 and 1 U0; 63 native Affinity capabilities + 5 project-local MCP integrations; 3 exclusions. The 68-record denominator remains provisional, not exhaustive.
+- Re-fetched and parsed the 52 distinct lesson JSON files referenced by the 50 P4 rows. All 52 include tool explanation, a guided-practice task with checkpoints and expected outcome, an independent-challenge title, and a non-empty assessment-criteria array. The criteria field is not uniform: 43 use `challengeCriteria`; 9 use `successCriteria`. This confirms linked evidence structures, not every named control/action or current-build behaviour.
+- Current official Help Center content reviewed in this pass confirms the Move Tool's default availability in Vector, Pixel and Layout and its documented selection/transform behaviour; the matrix deliberately retains only actions supported by mapped D01-03 practice. The current Layers panel page documents layer hierarchy, blend mode, masking, groups, live filters and adjustments. These source checks support bounded claims, not every detailed shortcut or workflow assertion.
+- Official Help Center page URLs for Artboard Tool (`VEC-002`) and Histogram panel (`PIX-012`) are located, but the page bodies still return only an unsupported-browser shell/navigation in the available extraction. Keep them classified as **official page located / article body review pending**. `D01-02` supports artboard creation, sizing and naming; `P05-01` supports basic Red-channel and RGB-distribution reading. Do not add unverified preset/conversion, clipping-alert or colour-space claims.
+- Five P4 records still rely on broad rather than feature-specific official product pages for exact operation details: `VEC-006` Corner Tool, `VEC-021` Symbols, `VEC-023` Constraints, `PIX-003` Selection Brush and `PIX-016` Live Lighting. Keep their P4 status provisional until exact 3.3.3 feature controls/behaviour are verified. Older Serif Help mirror pages found during research are not treated as proof of current 3.3.3 behaviour.
+- `AUT-002` remains an Academy project-local MCP integration supported by repository evidence, not a vendor-native Affinity capability. Native SDK documentation is version 3.3.1; runtime compatibility with desktop 3.3.3 is not asserted.
+- `TASK-080` remains **IN_PROGRESS**; `TASK-081` is **COMPLETED**; `BLK-007` remains **ACTIVE — LOCKED**.
+
+---
+
+## 19. TASK-081 Implementation — A5 Independent Capstone Assessment Subsystem (2026-11-16)
+
+- **Objective:** Construct an authentic independent competency evaluation subsystem prioritizing learning outcomes **`PLO-07` (Brief & Audience Interpretation)** and **`PLO-08` (Diagnosis, Critique & Iteration)**.
+- **Ten Required Components Implemented:**
+  1. *Project Brief:* Real-world multi-deliverable scenario "Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina (Lumina Artisanal Roastery Launch Campaign)", including client backstory, target audience profile, brand personality keywords, core messaging, and technical specifications.
+  2. *Learning Objectives:* Explicit alignment to PLO-01 through PLO-11, with primary gating on PLO-07 and PLO-08.
+  3. *Deliverables:* Vector Master Brandmark (`.afdesign`), Retouched Cold Brew Hero Campaign Poster (`.afphoto`), Editorial Launch Menu Spread (`.afpub` / multi-artboard), Print-ready PDF/X-4 with 3mm bleed, WebP digital hero, Brief Deconstruction Document (`brief-deconstruction.md`), and Iteration Critique Log (`iteration-critique-log.md`).
+  4. *Starter Assets:* 4 realistic assets (`lumina_project_brief.md`, `lumina_coldbrew_raw_plate.jpg`, `lumina_heritage_crest_sketch.afdesign`, `coffee_texture_bump_map.png`).
+  5. *Execution Methodology:* 8-step Design Thinking cycle (Discover → Define [PLO-07] → Explore → Plan → Create → Evaluate → Iterate [PLO-08] → Deliver).
+  6. *Scoring Rubric:* 7-dimension evaluation matrix summing to 100% weight, with 4 observable performance levels (Level 1 Novice, Level 2 Guided, Level 3 Independent, Level 4 Advanced) and 5 CRITICAL dimensions.
+  7. *Submission Evidence:* Exact file formats and validation constraints for 7 artifacts.
+  8. *Submission Area:* Interactive multi-tab web UI with input fields, file path validation, and student self-assessment sliders with mandatory justification inputs.
+  9. *Feedback Subsystem:* Dual-mode feedback comparing student self-assessment vs official evaluator ratings with variance detection and written feedback.
+  10. *Assessment Dossier & Certification:* Immutable official evaluation result storage, unique certificate ID generation (`AFFINITY-A5-xxxxxxxx`), official evaluator seal, pass/fail banner, and version changelog history.
+- **Curriculum PLO-07 & PLO-08 Analysis:**
+  - *PLO-07:* Found in 4 / 66 lessons (`P07-01`, `P08-03`, `P10-03`, `B01-01`). Track 1 Designer lacked mandatory brief deconstruction. Capstone bridges this with the mandatory `brief-deconstruction.md` artifact (15% weight, CRITICAL).
+  - *PLO-08:* Found in 15 / 66 lessons (mostly Photo retouching and Scripting error handling). Capstone bridges this with the mandatory `iteration-critique-log.md` artifact (15% weight, CRITICAL) requiring technical comparison of Draft 1 vs Final Work with at least 3 concrete flaws and fixes.
+- **Graduation Safeguard Principle:**
+  - Total weighted score must be $\ge 75.0/100$.
+  - **ALL 5 CRITICAL dimensions** (Brief Interpretation, Tool Selection, Non-Destructive Craft, Iteration/Critique, Production Readiness) must achieve $\ge$ Level 3 (Independent execution). A failure in any critical dimension prevents graduation regardless of overall score.
+- **Technical Deliverables:**
+  - `project-control/TASK-081_CAPSTONE_SPEC.md`: Full specification document.
+  - `src/types/capstone.ts`: TypeScript data models and rubric definitions.
+  - `src/lib/capstone-service.ts`: Local persistence engine with immutable official evaluation enforcement.
+  - `src/pages/CapstoneAssessmentPage.tsx`: Interactive luxury Dark UI with 4 tabs and Student vs Evaluator mode toggle.
+  - `src/components/layout/MainNavigation.tsx` & `src/App.tsx`: Navigation bar integration with `Award` icon.
+  - `scripts/test-capstone-evaluator.js`: Node test suite verifying scoring math, weights, and critical dimension gating (7/7 PASS).
+  - `tests/e2e/capstone-assessment.spec.ts`: 5 Playwright E2E tests verifying navigation, brief rendering, rubric badges, submission form, and evaluator console (5/5 PASS; 25/25 total E2E suite PASS).
+- **Phase Gate Safety:** `BLK-007` remains **ACTIVE — LOCKED**. No new Publisher or Scripting lessons were created.
+
+---
+
+## 20. Phase 5 Implementation — Complete Web Application & 12 Functional Areas (2026-11-16)
+
+- **Objective:** Fulfill Phase 5 Complete Web Application specifications across 12 functional areas organized into 4 distinct groups without creating duplicate pages.
+- **The 12 Core Areas Delivered & Verified:**
+  1. *Home (`home`):* `HomePage.tsx` — Luxury Figma Interia aesthetic, hero, 3 Studio showcases, Design Thinking 8-step cycle, verified E2E.
+  2. *Search (`search`):* `KnowledgePage.tsx` (`tab="search"`) — Multi-domain search querying shortcuts, cheatsheets, and glossary terms simultaneously, query highlights, empty state, and simulated error state.
+  3. *Shortcuts (`shortcuts`):* `KnowledgePage.tsx` (`tab="shortcuts"`) — Official verified shortcuts for Vector, Pixel, and Layout studios with Windows (`Ctrl/Alt`) vs macOS (`Cmd/Opt`) modifier toggle.
+  4. *CheatSheet (`cheatsheet`):* `KnowledgePage.tsx` (`tab="cheatsheet"`) — Interactive quick-reference for Boolean operations, Bézier node types, layer blend modes, and export profiles.
+  5. *Glossary (`glossary`):* `KnowledgePage.tsx` (`tab="glossary"`) — A-Z terminology glossary spanning Design Thinking and technical Affinity concepts.
+  6. *Sandbox (`sandbox`):* `SimulatorPage.tsx` — Freeform Vector Bézier SVG canvas and Pixel Layer stack sandbox; strictly 0 untrusted code execution.
+  7. *Challenges (`challenges`):* `ChallengesPage.tsx` — Step-by-step challenges (*Sharp Diamond*, *Smooth S-Wave*, *Heart Silhouette*, *Portrait Mask*) with checklist, accuracy evaluator, and `localStorage` progress persistence.
+  8. *ProgressDashboard (`dashboard`):* `DashboardPage.tsx` — Track progress breakdown across 66 existing lessons, completed lessons filterable list, learning statistics, and simulated sync error recovery handling.
+  9. *Settings (`settings`):* `SettingsPage.tsx` — User profile customization, OS modifier key preference, data export (`.json`), and progress reset modal with confirmation safeguards.
+  10. *Resources (`resources`):* `ResourcesPage.tsx` — Real asset download center with instant search, format badges, and category filtering.
+  11. *Encyclopedia (`encyclopedia`):* `EncyclopediaPage.tsx` — 401 SDK DOM API topics browser with live search, module filter, and signature inspector.
+  12. *Simulator (`simulator`):* `SimulatorPage.tsx` — Pure React/SVG Bézier simulator and Photo Layer/Masking simulator with educational disclaimer.
+- **Technical & UI Requirements Met:**
+  - Dark Luxury aesthetic across all 12 areas using tokens from Mastero design system.
+  - Fully responsive on mobile, tablet, and desktop viewports; mobile hamburger drawer in `MainNavigation.tsx` prevents dead navigation on small screens.
+  - Zero dead buttons and zero broken links; keyboard shortcuts (`Ctrl+K`) and standard accessibility tab orders implemented.
+- **E2E Test Suites Completed:**
+  - `tests/e2e/knowledge-group.spec.ts` (5 tests PASS)
+  - `tests/e2e/practice-group.spec.ts` (4 tests PASS)
+  - `tests/e2e/dashboard-group.spec.ts` (5 tests PASS)
+  - `tests/e2e/existing-group.spec.ts` (3 tests PASS)
+  - Total repository Playwright E2E suite expanded to **42 / 42 tests PASS**.
+- **Governance:** `TASK-071` and `TASK-078` marked **COMPLETED**; `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
+
+

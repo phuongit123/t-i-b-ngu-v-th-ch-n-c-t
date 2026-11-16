@@ -11,13 +11,18 @@ import { TrackCard } from './components/cards/TrackCard';
 import { LessonCard } from './components/cards/LessonCard';
 import { SimulatorPage } from './pages/SimulatorPage';
 import { HomePage } from './pages/HomePage';
-import { Terminal, User, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
+import { Terminal, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 import { moduleTranslationsVi } from './data/curriculum/translationsVi';
 
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
+const CapstoneAssessmentPage = React.lazy(() => import('./pages/CapstoneAssessmentPage'));
+const KnowledgePage = React.lazy(() => import('./pages/KnowledgePage'));
+const ChallengesPage = React.lazy(() => import('./pages/ChallengesPage'));
+const DashboardPage = React.lazy(() => import('./pages/DashboardPage'));
+const SettingsPage = React.lazy(() => import('./pages/SettingsPage'));
 
 const trackInfoVi: Record<AffinityTrackId, { name: string; label: string; tagline: string; description: string }> = {
   designer: {
@@ -314,9 +319,30 @@ export const App: React.FC = () => {
           </div>
         );
       case 'simulator':
+      case 'sandbox':
         return <SimulatorPage />;
+      case 'challenges':
+        return <ChallengesPage onNavigateToSandbox={() => setActiveRoute('simulator')} />;
+      case 'knowledge':
+        return <KnowledgePage initialTab="search" onNavigate={setActiveRoute} />;
+      case 'search':
+        return <KnowledgePage initialTab="search" onNavigate={setActiveRoute} />;
+      case 'shortcuts':
+        return <KnowledgePage initialTab="shortcuts" onNavigate={setActiveRoute} />;
+      case 'cheatsheet':
+        return <KnowledgePage initialTab="cheatsheet" onNavigate={setActiveRoute} />;
+      case 'glossary':
+        return <KnowledgePage initialTab="glossary" onNavigate={setActiveRoute} />;
       case 'encyclopedia':
         return <EncyclopediaPage />;
+      case 'dashboard':
+        return <DashboardPage onNavigate={setActiveRoute} />;
+      case 'settings':
+        return <SettingsPage onBackToDashboard={() => setActiveRoute('dashboard')} />;
+      case 'resources':
+        return <ResourcesPage />;
+      case 'capstone':
+        return <CapstoneAssessmentPage />;
       case 'playground':
         return (
           <div>
@@ -329,23 +355,6 @@ export const App: React.FC = () => {
               icon={<Terminal className="w-5 h-5 text-emerald-400" />}
               title="Trình Soạn Thảo Monaco & Cổng Kết Xuất Trực Tiếp"
               description="Không gian lập trình chia đôi màn hình và kết nối SSE qua localhost:6767 sẽ được tích hợp trong giai đoạn 4."
-            />
-          </div>
-        );
-      case 'resources':
-        return <ResourcesPage />;
-      case 'dashboard':
-        return (
-          <div>
-            <PageHeader
-              title="Bảng Điều Khiển Học Viên & Hồ Sơ Năng Lực"
-              description="Theo dõi mức độ thành thạo công cụ, lịch sử làm bài tập, các sản phẩm hoàn thiện và huy hiệu đạt được."
-              badge="Hệ thống hồ sơ giai đoạn 5"
-            />
-            <EmptyState
-              icon={<User className="w-5 h-5 text-purple-400" />}
-              title="Hồ Sơ Năng Lực Học Viên"
-              description="Tính năng đồng bộ hóa hồ sơ người dùng và thư viện tác phẩm sẽ được kết nối trong giai đoạn 5."
             />
           </div>
         );
@@ -404,6 +413,15 @@ export const App: React.FC = () => {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         onSelectItem={(item: SearchResultItem) => {
+          setIsSearchOpen(false);
+          if (item.category === 'module') {
+            setActiveTrack(item.id.startsWith('D') ? 'designer' : item.id.startsWith('P') ? 'photo' : item.id.startsWith('B') ? 'publisher' : 'scripting');
+            setActiveRoute('catalog');
+          } else if (item.category === 'tool') {
+            setActiveRoute('shortcuts');
+          } else if (item.category === 'doc') {
+            setActiveRoute('encyclopedia');
+          }
           setActiveToast({
             title: `Đã chuyển đến ${item.title}`,
             message: `Danh mục: ${item.category}`,

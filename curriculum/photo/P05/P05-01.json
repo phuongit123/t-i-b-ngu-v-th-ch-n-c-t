@@ -4,13 +4,13 @@
   "trackId": "photo",
   "order": 1,
   "title": "Exposure, Dynamic Range & White Balance Calibration",
-  "subtitle": "Histogram Diagnostics, Clipping Warnings & Neutral Gray Eyedropper",
+  "subtitle": "Histogram Diagnostics & Neutral Gray White Balance",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
       "Đọc hiểu biểu đồ Histogram: Phân tích phân bố điểm ảnh vùng tối (Shadows), trung tính (Midtones) và vùng sáng (Highlights).",
-      "Kích hoạt và phân tích cảnh báo cháy sáng (Clipping Warnings) để tránh mất dữ liệu màu vĩnh viễn.",
+      "Đọc phân bố kênh Red và RGB trong Histogram để nhận biết dữ liệu vùng tối và vùng sáng, thay vì coi cảnh báo overlay clipping là một chức năng đã xác minh của Histogram panel.",
       "Sử dụng White Balance Adjustment kết hợp công cụ ống hút Eyedropper để cân bằng trắng chuẩn xác.",
       "Hiểu sự khác biệt giữa Exposure Adjustment (thay đổi độ phơi sáng tuyến tính) và Brightness/Contrast."
     ],
@@ -21,44 +21,56 @@
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Histogram Studio & White Balance Adjustment",
+      "toolName": "Histogram panel & White Balance Adjustment",
       "persona": "Photo Persona",
       "shortcut": {
-        "win": "View > Studio > Histogram / Biểu tượng Adjustments > White Balance",
-        "mac": "View > Studio > Histogram / Biểu tượng Adjustments > White Balance"
+        "win": "Histogram panel menu path not verified; White Balance Adjustment is a separate control",
+        "mac": "Histogram panel menu path not verified; White Balance Adjustment is a separate control"
       },
-      "description": "Bảng phân tích phổ quang học và công cụ cân chỉnh nhiệt độ màu khoa học.",
+      "description": "The Histogram panel displays image tonal distribution by channel. White Balance Adjustment is a separate control that provides Temperature, Tint and a neutral-point picker; it is not part of the Histogram panel.",
       "contextBarOptions": [
-        "Temperature Slider: Điều chỉnh trục Vàng (Kê độ K cao) - Xanh dương (Kê độ K thấp)",
-        "Tint Slider: Điều chỉnh trục Xanh lá cây (Green) - Đỏ tím (Magenta)",
-        "Eyedropper Tool: Chấm chọn trực tiếp điểm xám trung tính trên ảnh để tự động cân bằng",
-        "Clipping Warnings (W/B): Hiển thị vùng cháy sáng màu đỏ và mất chi tiết tối màu xanh"
+        "Histogram channel distribution: the guided practice inspects the Red channel.",
+        "The independent challenge compares the R, G and B channel distributions.",
+        "White Balance Adjustment is a separate adjustment with Temperature and Tint controls.",
+        "Clipping-warning overlays are not asserted as a Histogram panel function in this inventory."
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Mở Histogram Studio và quan sát phổ phân bố",
-        "instruction": "Mở menu Window > Histogram (hoặc View > Studio > Histogram). Quan sát đồ thị: nếu đồ thị bị dồn cứng sang mép trái (0), bức ảnh đang bị thiếu sáng; nếu tràn mép phải (255), bức ảnh đang bị cháy sáng.",
-        "shortcutTip": { "win": "Window > Histogram", "mac": "Window > Histogram" }
+        "title": "Open the Histogram panel and inspect channel distribution",
+        "instruction": "Open the Histogram panel from the application's panel list. The exact menu path and refresh behavior have not been verified from the official Help Center article body in this review. Inspect the distribution from the left (shadows) to the right (highlights), then compare individual color channels.",
+        "shortcutTip": {
+          "win": "Histogram panel menu path not verified",
+          "mac": "Histogram panel menu path not verified"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Thêm White Balance Adjustment",
         "instruction": "Nhấn vào biểu tượng Adjustments ở đáy Layers Studio, chọn 'White Balance'. Hộp thoại xuất hiện với thanh trượt Temperature và Tint.",
-        "shortcutTip": { "win": "Adjustments > White Balance", "mac": "Adjustments > White Balance" }
+        "shortcutTip": {
+          "win": "Adjustments > White Balance",
+          "mac": "Adjustments > White Balance"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Dùng Eyedropper hút điểm xám trung tính",
         "instruction": "Nhấp vào biểu tượng ống hút màu xám trên bảng White Balance. Di chuyển con trỏ và nhấp vào một mảng áo xám, mặt đường nhựa, hoặc bức tường bê tông trong ảnh. Quan sát bức ảnh lập tức trở về màu sắc trong trẻo tự nhiên.",
-        "shortcutTip": { "win": "Nhấp ống hút vào điểm xám", "mac": "Nhấp ống hút vào điểm xám" }
+        "shortcutTip": {
+          "win": "Nhấp ống hút vào điểm xám",
+          "mac": "Nhấp ống hút vào điểm xám"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Tinh chỉnh độ phơi sáng với Exposure Adjustment",
         "instruction": "Nếu ảnh tổng thể bị tối, thêm một lớp 'Exposure Adjustment'. Kéo nhẹ thanh trượt Exposure lên +0.5 đến +1.2 EV để nâng sáng toàn khung hình mà không làm biến dạng sắc thái màu gốc.",
-        "shortcutTip": { "win": "Exposure Slider (+EV)", "mac": "Exposure Slider (+EV)" }
+        "shortcutTip": {
+          "win": "Exposure Slider (+EV)",
+          "mac": "Exposure Slider (+EV)"
+        }
       }
     ],
     "visualExamples": [
@@ -189,7 +201,7 @@
       "type": "theory",
       "title": "Cách Đọc Radar Histogram Như Chuyên Gia",
       "subtitle": "Giải mã biểu đồ phân bố độ sáng từ 0 đến 255",
-      "contentMarkdown": "Mở bảng **Histogram Studio** (Window > Histogram):\n\n- 📉 **Trục hoành (Trục ngang):** Biểu diễn giá trị độ sáng từ `0` (Đen tuyệt đối bên trái) đến `255` (Trắng tuyệt đối bên phải).\n- 📊 **Trục tung (Trục đứng):** Biểu diễn số lượng điểm ảnh (pixel) mang giá trị độ sáng đó.\n- ⚠️ **Clipping (Tràn biên):**\n  - Nếu cột đồ thị đâm kịch trần vào trục 0 ➔ Vùng tối bị bết đen mất sạch chi tiết (Crushed Shadows).\n  - Nếu cột đồ thị tràn kịch trần vào trục 255 ➔ Bầu trời hoặc da bị cháy sáng trắng bệch (Blown Highlights).",
+      "contentMarkdown": "Mở **Histogram panel** từ danh sách panel của ứng dụng. Đường dẫn menu cụ thể và hành vi cập nhật panel chưa được xác nhận từ nội dung bài Help Center trong vòng kiểm toán này:\n\n- 📉 **Trục hoành (Trục ngang):** Biểu diễn giá trị độ sáng từ `0` (Đen tuyệt đối bên trái) đến `255` (Trắng tuyệt đối bên phải).\n- 📊 **Trục tung (Trục đứng):** Biểu diễn số lượng điểm ảnh (pixel) mang giá trị độ sáng đó.\n- ⚠️ **Clipping (Tràn biên):**\n  - Nếu cột đồ thị đâm kịch trần vào trục 0 ➔ Vùng tối bị bết đen mất sạch chi tiết (Crushed Shadows).\n  - Nếu cột đồ thị tràn kịch trần vào trục 255 ➔ Bầu trời hoặc da bị cháy sáng trắng bệch (Blown Highlights).",
       "visual": {
         "type": "callout",
         "content": "Một bức ảnh phơi sáng lý tưởng sẽ có đồ thị trải đều mềm mại như hình quả chuông ở trung tâm, chạm nhẹ 2 mép mà không bị đâm kịch trần."
@@ -213,7 +225,7 @@
       "type": "step-by-step",
       "title": "Quy Trình 4 Bước Cân Chỉnh Màu Chuẩn Xác",
       "subtitle": "Đưa bức ảnh ám vàng về trạng thái trong trẻo",
-      "contentMarkdown": "1. **Kiểm tra Histogram:** Mở Histogram Studio để xem mức độ lệch màu của 3 kênh Red, Green, Blue.\n2. **Thêm White Balance:** Nhấn biểu tượng Adjustments ➔ chọn White Balance.\n3. **Chấm chọn điểm xám:** Dùng ống hút nhấp vào mảng áo xám hoặc tường gạch.\n4. **Nâng độ phơi sáng:** Thêm lớp `Exposure Adjustment`, tăng nhẹ `+0.7 EV` nếu cảm thấy bức ảnh hơi tối. Kiểm tra lại Histogram thấy dải sắc nở rộng hài hòa!",
+      "contentMarkdown": "1. **Kiểm tra Histogram:** Mở Histogram panel để xem phân bố của 3 kênh Red, Green, Blue.\n2. **Thêm White Balance:** Nhấn biểu tượng Adjustments ➔ chọn White Balance.\n3. **Chấm chọn điểm xám:** Dùng ống hút nhấp vào mảng áo xám hoặc tường gạch.\n4. **Nâng độ phơi sáng:** Thêm lớp `Exposure Adjustment`, tăng nhẹ `+0.7 EV` nếu cảm thấy bức ảnh hơi tối. Kiểm tra lại Histogram thấy dải sắc nở rộng hài hòa!",
       "visual": {
         "type": "badge-grid",
         "content": "Open Histogram | Add White Balance | Eyedropper Sample | Tune Exposure | Crystal Clear"

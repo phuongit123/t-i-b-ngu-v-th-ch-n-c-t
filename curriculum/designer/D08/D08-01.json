@@ -4,30 +4,30 @@
   "trackId": "designer",
   "order": 1,
   "title": "Symbol Creation & Multi-Instance Synchronization",
-  "subtitle": "Symbols Studio, Sync ON/OFF Toggle & Non-Destructive Overrides",
+  "subtitle": "Symbols Panel, Sync ON/OFF Toggle & Non-Destructive Overrides",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Master the Symbols Studio as the central hub for reusable linked vector components.",
+      "Master the Symbols panel as the central hub for reusable linked vector components.",
       "Convert complex vector illustrations, icons, and UI groups into master symbols.",
       "Operate the Synchronize (Sync) toggle to switch seamlessly between global propagation and local instance overrides.",
       "Understand the internal link graph of Affinity Designer to avoid accidental detached master states."
     ],
-    "foundationalKnowledge": "In professional UI/UX, branding, and multi-artboard design, maintaining identical vector elements across dozens of screens manually is impossible without severe human error. Affinity Designer solves this through its intelligent Symbols architecture. Unlike static copy-pasting, a Symbol creates a live, bidirectional linkage across all instances in the document. The crowning feature of Designer's symbols is the 'Synchronize' (Sync) toggle in the Symbols Studio: when Sync is ON, any change to geometry, color, or style ripples across all instances; when Sync is OFF, an artist can execute local overrides (such as changing button copy or avatar images) while keeping the foundational geometry and future style updates perfectly synchronized.",
+    "foundationalKnowledge": "In professional UI/UX, branding, and multi-artboard design, maintaining identical vector elements across dozens of screens manually is impossible without severe human error. Affinity Designer solves this through its intelligent Symbols architecture. Unlike static copy-pasting, a Symbol creates a live, bidirectional linkage across all instances in the document. The crowning feature of Designer's symbols is the 'Synchronize' (Sync) toggle in the Symbols panel (Window > Vector > Symbols): when Sync is ON, any change to geometry, color, or style ripples across all instances; when Sync is OFF, an artist can execute local overrides (such as changing button copy or avatar images) while keeping the foundational geometry and future style updates perfectly synchronized.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Symbols Studio & Dynamic Instance Architecture Specification",
+      "source": "Affinity Designer 3.3.3 Symbols Panel & Dynamic Instance Architecture Specification",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Symbols Studio",
-      "persona": "Vector Persona (View > Studio > Symbols)",
+      "toolName": "Symbols panel",
+      "persona": "Vector Studio (Window > Vector > Symbols)",
       "shortcut": {
-        "win": "View > Studio > Symbols (Dock Panel), Sync Toggle Button",
-        "mac": "View > Studio > Symbols (Dock Panel), Sync Toggle Button"
+        "win": "Window > Vector > Symbols (Legacy: View > Studio > Symbols), Sync Toggle Button",
+        "mac": "Window > Vector > Symbols (Legacy: View > Studio > Symbols), Sync Toggle Button"
       },
-      "description": "Manages creation, instantiation, and bidirectional synchronization of linked vector symbols across the document.",
+      "description": "Manages creation, instantiation, and bidirectional synchronization of linked vector symbols across the document via the Symbols panel.",
       "contextBarOptions": [
         "Create Button: Converts the currently selected layer or group into a master symbol",
         "Synchronize (Sync) Button: Active (orange) propagates edits globally; Inactive (gray) isolates edits locally",
@@ -38,26 +38,26 @@
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open and Dock Symbols Studio",
-        "instruction": "Go to View > Studio > Symbols. Dock the Symbols panel into the right studio dock next to the Layers Studio.",
-        "shortcutTip": { "win": "View > Studio > Symbols", "mac": "View > Studio > Symbols" }
+        "title": "Open and Dock Symbols Panel",
+        "instruction": "Go to Window > Vector > Symbols (or Window > Symbols; legacy: View > Studio > Symbols). Dock the Symbols panel into the right dock next to the Layers panel.",
+        "shortcutTip": { "win": "Window > Vector > Symbols", "mac": "Window > Vector > Symbols" }
       },
       {
         "stepNumber": 2,
         "title": "Create a Master Button Symbol",
-        "instruction": "Select your grouped button component ('Component_Button_Primary'). In the Symbols Studio, click the 'Create' button. Observe that the symbol appears in the palette, and the layer in the Layers Studio is marked with an orange vertical bar and labeled 'Symbol'.",
+        "instruction": "Select your grouped button component ('Component_Button_Primary'). In the Symbols panel, click the 'Create' button. Observe that the symbol appears in the palette, and the layer in the Layers panel is marked with an orange vertical bar and labeled 'Symbol'.",
         "shortcutTip": { "win": "Click 'Create'", "mac": "Click 'Create'" }
       },
       {
         "stepNumber": 3,
         "title": "Place Multiple Instances",
-        "instruction": "Drag the button from the Symbols Studio palette onto the canvas 3 times to create 3 sister instances (or select the button and press Ctrl+J / Cmd+J three times).",
+        "instruction": "Drag the button from the Symbols panel palette onto the canvas 3 times to create 3 sister instances (or select the button and press Ctrl+J / Cmd+J three times).",
         "shortcutTip": { "win": "Ctrl+J", "mac": "Cmd+J" }
       },
       {
         "stepNumber": 4,
         "title": "Execute Local Overrides with Sync OFF",
-        "instruction": "In the Symbols Studio, click the 'Sync' button to turn it OFF (the button becomes unlit). Select Instance 2, double-click its text label, and change it to 'Save Changes'. Select Instance 3 and change its text to 'Cancel'. Notice that Instance 1's text remains unchanged!",
+        "instruction": "In the Symbols panel, click the 'Sync' button to turn it OFF (the button becomes unlit). Select Instance 2, double-click its text label, and change it to 'Save Changes'. Select Instance 3 and change its text to 'Cancel'. Notice that Instance 1's text remains unchanged!",
         "shortcutTip": { "win": "Sync OFF", "mac": "Sync OFF" }
       },
       {
@@ -69,10 +69,10 @@
     ],
     "visualExamples": [
       {
-        "title": "Symbols Studio Sync Modes Matrix",
+        "title": "Symbols Panel Sync Modes Matrix",
         "description": "Behavior comparison when editing with Sync ON versus Sync OFF.",
         "visualType": "table",
-        "visualContent": "| Mode | Visual State | Edit Action | Scope of Impact |\n|---|---|---|---|\n| Sync ON | Orange Highlight | Change corner radius, color, or shape | All instances update synchronously across the document |\n| Sync ON | Orange Highlight | Add a new child layer (e.g. badge icon) | All instances receive the new child layer instantly |\n| Sync OFF | Gray / Inactive | Change text string or swap fill color | Modifies ONLY the selected instance (Local Override) |\n| Detach | Context Action | Click 'Detach' in Symbols Studio | Permanently breaks symbol link; reverts to plain Group |"
+        "visualContent": "| Mode | Visual State | Edit Action | Scope of Impact |\n|---|---|---|---|\n| Sync ON | Orange Highlight | Change corner radius, color, or shape | All instances update synchronously across the document |\n| Sync ON | Orange Highlight | Add a new child layer (e.g. badge icon) | All instances receive the new child layer instantly |\n| Sync OFF | Gray / Inactive | Change text string or swap fill color | Modifies ONLY the selected instance (Local Override) |\n| Detach | Context Action | Click 'Detach' in Symbols panel | Permanently breaks symbol link; reverts to plain Group |"
       },
       {
         "title": "Symbol Layer Indicator in Layers Studio",
@@ -87,7 +87,7 @@
       "checkpoints": [
         "Design a 5-item horizontal navigation bar and convert the container into a Symbol.",
         "Duplicate the nav symbol onto three distinct artboards ('Home', 'Analytics', 'Settings').",
-        "Turn Sync OFF in the Symbols Studio.",
+        "Turn Sync OFF in the Symbols panel.",
         "Highlight the 'Home' tab on Artboard 1, 'Analytics' on Artboard 2, and 'Settings' on Artboard 3.",
         "Turn Sync ON, add a brand logo to the left edge of Artboard 1, and verify that the logo propagates to all artboards."
       ],
@@ -103,10 +103,10 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for Symbols Studio and component overrides (GUIDE_DOCUMENT)."
+        "statusNote": "Production blueprint for Symbols panel and component overrides (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Master symbol created with orange indicator in Layers Studio.",
+        "Master symbol created with orange indicator in Layers panel.",
         "4 dashboard instances populated with unique local text and color overrides via Sync OFF.",
         "Global card border styling modified with Sync ON without corrupting local data.",
         "Zero broken or detached symbol errors."
@@ -116,7 +116,7 @@
       {
         "mistake": "Editing text while Sync is inadvertently left ON.",
         "consequence": "The text string changes across all symbol instances across all artboards, overwriting unique titles.",
-        "solution": "Always verify the Sync button state in the Symbols Studio before editing. Turn Sync OFF before changing local text."
+        "solution": "Always verify the Sync button state in the Symbols panel before editing. Turn Sync OFF before changing local text."
       },
       {
         "mistake": "Clicking 'Detach' when simply wanting to edit a single property.",
@@ -131,7 +131,7 @@
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary function of turning the 'Sync' button OFF in the Symbols Studio?",
+        "question": "What is the primary function of turning the 'Sync' button OFF in the Symbols panel?",
         "options": [
           "It deletes the master symbol from the document.",
           "It allows you to make local overrides (such as text or color) on a specific instance without affecting other instances.",
@@ -190,22 +190,22 @@
     },
     {
       "slideNumber": 2,
-      "title": "The Symbols Studio Architecture",
+      "title": "The Symbols Panel Architecture",
       "subtitle": "Your Central Component Palette",
       "bullets": [
-        "Open via View > Studio > Symbols.",
+        "Open via Window > Vector > Symbols (or Window > Symbols; legacy: View > Studio > Symbols).",
         "Select any vector object or group, then click 'Create' to register a master symbol.",
         "Drag instances freely from the Symbols palette onto any artboard.",
-        "Layers Studio marks all linked instances with a prominent orange vertical bar."
+        "Layers panel marks all linked instances with a prominent orange vertical bar."
       ],
-      "proTip": "Rename your symbols in the Symbols Studio with semantic naming (e.g. 'Btn_Primary_Large')."
+      "proTip": "Rename your symbols in the Symbols panel with semantic naming (e.g. 'Btn_Primary_Large')."
     },
     {
       "slideNumber": 3,
       "title": "The Synchronization Engine (Sync Toggle)",
       "subtitle": "Global Updates vs Local Overrides",
       "bullets": [
-        "The 'Sync' button in the Symbols Studio governs propagation behavior.",
+        "The 'Sync' button in the Symbols panel governs propagation behavior.",
         "Sync ON (Orange active): Edits apply to all linked instances in the document.",
         "Sync OFF (Gray unlit): Edits apply strictly to the selected instance as local overrides.",
         "Switch between Sync ON and OFF fluidly based on whether you are editing structure or content."
@@ -217,7 +217,7 @@
       "title": "Executing Safe Local Overrides",
       "subtitle": "Customizing Copy and Media Without Breaking Links",
       "bullets": [
-        "Turn Sync OFF in the Symbols Studio.",
+        "Turn Sync OFF in the Symbols panel.",
         "Select an instance and double-click its text label to change button copy.",
         "Swap fill colors or adjust opacity for hover and active state simulations.",
         "The underlying geometry, corner radii, and stroke styling remain linked to the master."
@@ -229,7 +229,7 @@
       "title": "Re-Engaging Global Propagation",
       "subtitle": "Preserving Overrides During Structural Updates",
       "bullets": [
-        "Turn Sync back ON in the Symbols Studio.",
+        "Turn Sync back ON in the Symbols panel.",
         "Alter the master corner radius (e.g. from 8px to 24px pill shape).",
         "Add a new vector badge or notification dot inside the symbol container.",
         "Designer updates all instances globally while intelligently preserving your local text overrides!"
@@ -241,8 +241,8 @@
       "title": "Detaching vs Unlinking Symbols",
       "subtitle": "When and How to Break Component Ties",
       "bullets": [
-        "Clicking 'Detach' in the Symbols Studio permanently cuts the cord to the symbol master.",
-        "The orange bar disappears from the Layers Studio, converting the instance to a normal Group.",
+        "Clicking 'Detach' in the Symbols panel permanently cuts the cord to the symbol master.",
+        "The orange bar disappears from the Layers panel, converting the instance to a normal Group.",
         "Use Detach sparingly, such as when creating a bespoke one-off marketing hero asset.",
         "Once detached, an object cannot be re-linked to the original symbol without re-instantiating."
       ],
@@ -255,7 +255,7 @@
       "bullets": [
         "Follow specifications in 'D08_symbols_assets_guide.md'.",
         "Create 'Component_Button_Primary' (160x44 px, 8px corners, Indigo fill).",
-        "Instantiate 4 button instances across canvas using the Symbols Studio.",
+        "Instantiate 4 button instances across canvas using the Symbols panel.",
         "Turn Sync OFF: override text to 'Save Draft', 'Export PDF', and 'Delete Record'.",
         "Turn Sync ON: adjust corner radius to 22px pill shape and add an inner stroke."
       ],
@@ -267,20 +267,20 @@
       "subtitle": "Verifying Core Symbol Competencies",
       "bullets": [
         "Explain the behavioral difference between Sync ON and Sync OFF.",
-        "Identify the visual indicator for symbols in the Layers Studio.",
+        "Identify the visual indicator for symbols in the Layers panel.",
         "Evaluate the consequences of clicking 'Detach'.",
-        "Ensure all exercise checkpoints are met before proceeding to the Assets Studio."
+        "Ensure all exercise checkpoints are met before proceeding to the Assets panel."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Lesson Summary & Moving to Assets Studio",
+      "title": "Lesson Summary & Moving to Assets Panel",
       "subtitle": "From Single Document Symbols to Global Libraries",
       "bullets": [
-        "Mastered the Symbols Studio, master creation, and multi-instance linking.",
+        "Mastered the Symbols panel, master creation, and multi-instance linking.",
         "Leveraged Sync ON/OFF for non-destructive local overrides and global propagation.",
         "Preserved component architecture across complex multi-artboard workflows.",
-        "In Lesson D08-02, we expand into the Assets Studio to package and share .afassets libraries."
+        "In Lesson D08-02, we expand into the Assets panel to package and share .afassets libraries."
       ],
       "proTip": "Symbols live in the active document; Assets live globally across all documents!"
     }

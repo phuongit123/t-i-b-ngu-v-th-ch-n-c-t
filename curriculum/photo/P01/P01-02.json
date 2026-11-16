@@ -3,69 +3,85 @@
   "moduleId": "P01",
   "trackId": "photo",
   "order": 2,
-  "title": "RAW Develop Persona & 32-bit HDR Color Pipelines",
+  "title": "RAW Develop Studio & 32-bit HDR Color Pipelines",
   "subtitle": "Sensor Data Decoding, Exposure Recovery, White Balance & Lens Correction",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Understand the mechanics of digital camera RAW sensor data and the role of the Develop Persona.",
+      "Understand digital camera RAW data and the role of Develop Studio in processing a supported RAW file.",
       "Work in a 32-bit unbounded floating point color space (RGB/32 HDR) vs standard 8-bit / 16-bit integers.",
       "Recover clipped highlights, open shadow details, and calibrate White Balance via the Tint and Temperature sliders.",
       "Apply automated and manual lens profile corrections (distortion, chromatic aberration, vignette removal)."
     ],
-    "foundationalKnowledge": "When a camera captures a RAW photograph (e.g. .CR3, .NEF, .ARW, .DNG), it records uncompressed 12-bit or 14-bit linear electrical signals directly from the CMOS sensor without applying in-camera sharpening, tone curves, or color balance. When opened in Affinity Photo, the Develop Persona decodes this raw Bayer mosaic. Crucially, Affinity Photo allows developing RAW files directly into a 32-bit unbounded floating-point workspace (RGB/32 HDR). In 32-bit float, highlight luminance values can exceed 1.0 (pure white), preserving real physical light data and preventing color banding during heavy grade pulls.",
+    "foundationalKnowledge": "When a camera captures a RAW photograph, it records sensor data that must be processed before normal viewing and sharing. In Affinity, opening a supported RAW file launches the Develop Studio, a dedicated environment for RAW processing. Its current documented panels include Basic (exposure, tone curve, enhance and white balance), Lens (distortion, rotation, chromatic aberration and vignetting), Detail (noise reduction and sharpening), Tones and Masks. The exact clipping-warning shortcuts and overlay controls formerly described in this lesson were not established by the official RAW guide reviewed here and are therefore not taught as verified behavior.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Photo Develop Persona RAW Bayer Pipeline & 32-bit Float Engine",
+      "source": "Affinity Photo Develop Studio RAW Bayer Pipeline & 32-bit Float Engine",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Develop Persona & Basic Panel",
-      "persona": "Develop Persona",
+      "toolName": "Develop Studio — Basic, Lens, Detail, Tones and Masks panels",
+      "persona": "Develop Studio",
       "shortcut": {
-        "win": "Automatically launches upon opening RAW files, or click Develop Persona icon on top-left toolbar",
-        "mac": "Automatically launches upon opening RAW files, or click Develop Persona icon on top-left toolbar"
+        "win": "Opening a supported RAW file launches Develop Studio automatically",
+        "mac": "Opening a supported RAW file launches Develop Studio automatically"
       },
-      "description": "The dedicated environment for processing camera RAW data. Houses the Basic, Lens, Details, Tones, and Overlays panels, alongside exposure clipping warning toggles.",
+      "description": "Develop Studio is the dedicated RAW-processing environment. Its documented panels include Basic (exposure, tone curve, enhance and white balance), Lens (distortion, rotation, chromatic aberration and vignetting), Detail (noise reduction and sharpening), Tones and Masks. The official RAW guide reviewed does not establish the lesson's former clipping-warning shortcuts or overlay controls.",
       "contextBarOptions": [
-        "Develop Button (Top Left): Commits RAW processing and sends artwork to Photo Persona",
-        "Cancel Button: Discards changes and closes file without saving",
-        "Show Clipped Highlights (Toolbar Icon / Custom Shortcut): Flashes pure red over blown specular highlights",
-        "Show Clipped Shadows (Toolbar Icon / Custom Shortcut): Flashes pure blue over completely crushed black areas",
-        "Output Format Dropdown: Choose RGB (16-bit) or RGB (32-bit Float HDR)"
+        "Basic panel: Exposure, Black Point, Brightness, Tone Curve, Enhance, White Balance, Shadows and Highlights",
+        "Lens panel: automatic and manual lens correction, distortion, rotation, chromatic aberration, defringing and vignetting",
+        "Detail panel: noise reduction and sharpening",
+        "Tones panel: tonal curves, black-and-white conversion and split toning",
+        "Masks panel: selective brush or gradient masks",
+        "Output dropdown: Pixel layer, RAW layer (embedded) or RAW layer (linked); Develop sends the result to Pixel Studio"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Inspect RAW File in Develop Persona",
-        "instruction": "Open a RAW photograph or switch to Develop Persona on an existing image. Notice the Basic panel on the right with Exposure, Black Point, Brightness, and Contrast sliders.",
-        "shortcutTip": { "win": "Develop Persona", "mac": "Develop Persona" }
+        "title": "Open a RAW file in Develop Studio",
+        "instruction": "Open a supported RAW file using File > Open. Affinity automatically opens the file in Develop Studio. Inspect the Basic panel and its exposure and white-balance controls.",
+        "shortcutTip": {
+          "win": "File > Open",
+          "mac": "File > Open"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Enable Clipping Warnings",
-        "instruction": "On the top toolbar, click the two exclamation mark icons (or use custom shortcuts if mapped in Settings > Shortcuts). Areas of the sky that have blown to pure white highlight will glow bright red; crushed shadows will glow blue. Use these visual alerts to guide your adjustments.",
-        "shortcutTip": { "win": "Clipping Warning Icons", "mac": "Clipping Warning Icons" }
+        "title": "Correct exposure and white balance",
+        "instruction": "In the Basic panel, adjust Exposure, Black Point, Highlights and Shadows as needed. Use White Balance controls to adjust Temperature and Tint; the picker can sample a neutral grey or white area.",
+        "shortcutTip": {
+          "win": "Basic panel controls",
+          "mac": "Basic panel controls"
+        }
       },
       {
         "stepNumber": 3,
-        "title": "Recover Highlights and Calibrate White Balance",
-        "instruction": "Under the Basic panel, pull the Highlights slider down (e.g. -40%) to restore cloud texture. Use the White Balance eyedropper tool to click on a neutral gray or white area in the scene to neutralize color casts.",
-        "shortcutTip": { "win": "White Balance Eyedropper", "mac": "White Balance Eyedropper" }
+        "title": "Review lens and detail corrections",
+        "instruction": "Use the Lens panel for distortion, rotation, chromatic aberration, defringing and vignetting. Use the Detail panel for noise reduction and sharpening. Control availability depends on the RAW file and current settings.",
+        "shortcutTip": {
+          "win": "Lens / Detail panels",
+          "mac": "Lens / Detail panels"
+        }
       },
       {
         "stepNumber": 4,
-        "title": "Enable Lens Corrections & Remove Chromatic Aberration",
-        "instruction": "Switch to the 'Lens' tab in the Develop panel. Check 'Automatic Lens Correction' (detects lens make/model). Under Chromatic Aberration, check 'Remove Chromatic Aberration' to eliminate purple/green fringing along high-contrast edges.",
-        "shortcutTip": { "win": "Lens Tab", "mac": "Lens Tab" }
+        "title": "Choose the output type",
+        "instruction": "Choose Pixel layer for a flattened developed result, RAW layer (embedded) to keep the RAW file inside the document, or RAW layer (linked) to keep the source file at its original location.",
+        "shortcutTip": {
+          "win": "Output dropdown",
+          "mac": "Output dropdown"
+        }
       },
       {
         "stepNumber": 5,
-        "title": "Develop as 32-bit Float or 16-bit Layer",
-        "instruction": "In the top context bar, verify the Output format is set to 'RGB (16-bit)' or 'RGB (32-bit)'. Click the blue 'Develop' button in the top left corner to transition into Photo Persona.",
-        "shortcutTip": { "win": "Click Develop", "mac": "Click Develop" }
+        "title": "Develop into Pixel Studio",
+        "instruction": "Click Develop on the context toolbar. The processed image opens in Pixel Studio; the original RAW file remains unaltered.",
+        "shortcutTip": {
+          "win": "Develop",
+          "mac": "Develop"
+        }
       }
     ],
     "visualExamples": [
@@ -77,26 +93,26 @@
       },
       {
         "title": "Bayer Sensor De-Mosaicing Diagram",
-        "description": "How the Develop Persona reconstructs full color from RAW sensor data.",
+        "description": "How the Develop Studio reconstructs full color from RAW sensor data.",
         "visualType": "diagram",
-        "visualContent": "Camera CMOS Sensor [RG/GB Bayer Pattern]\n   ↓ Raw Sensor Voltage\nDevelop Persona [De-mosaicing Algorithm]\n   ├── White Balance Matrix Calibration\n   ├── Unbounded Highlight/Shadow Recovery\n   └── Lens Distortion & Vignette Correction\n   ↓\nPhoto Persona [Full 16-bit or 32-bit Pixel Canvas]"
+        "visualContent": "Camera CMOS Sensor [RG/GB Bayer Pattern]\n   ↓ Raw Sensor Voltage\nDevelop Studio [De-mosaicing Algorithm]\n   ├── White Balance Matrix Calibration\n   ├── Unbounded Highlight/Shadow Recovery\n   └── Lens Distortion & Vignette Correction\n   ↓\nPhoto Persona [Full 16-bit or 32-bit Pixel Canvas]"
       }
     ],
     "guidedPractice": {
-      "title": "Landscape RAW Recovery Walkthrough",
-      "taskDescription": "Recover blown skies and open crushed tree shadows on a landscape photograph using clipping warnings.",
+      "title": "RAW Exposure and White Balance Recovery",
+      "taskDescription": "Develop a landscape RAW image by balancing exposure, highlights, shadows and white balance, then inspect applicable lens and detail corrections.",
       "checkpoints": [
-        "Enable Highlight (Alt+W) and Shadow (Alt+S) clipping alerts.",
-        "Pull Highlights slider to -35% until red warning indicators disappear from the sky.",
-        "Push Shadows slider to +25% until blue warning indicators lift from the foliage.",
-        "Adjust Clarity slider to +15% to enhance local micro-contrast.",
-        "Click Develop to finalize the conversion into Photo Persona."
+        "Open the RAW file and confirm it launches in Develop Studio.",
+        "Use the Basic panel to inspect and adjust Exposure, Highlights and Shadows.",
+        "Use White Balance Temperature and Tint controls to correct the scene's color cast.",
+        "Review Lens and Detail panels for applicable correction and noise-reduction settings.",
+        "Choose an output type and click Develop to open the result in Pixel Studio."
       ],
-      "expectedOutcome": "A balanced, high-dynamic-range image with zero blown highlights and natural shadow detail."
+      "expectedOutcome": "A balanced developed image with the chosen RAW output mode and no change to the original RAW source."
     },
     "independentChallenge": {
       "title": "Architectural RAW Lens Calibration",
-      "prompt": "Take an architectural photo with barrel distortion and chromatic fringing. In Develop Persona: (1) Calibrate White Balance to neutral daylight (5500K); (2) Eliminate perspective lean using the Lens tab vertical correction; (3) Remove purple chromatic aberration on the building roofline; (4) Commit the develop process into Photo Persona.",
+      "prompt": "Develop an architectural RAW photo: (1) correct white balance with a neutral area; (2) use the Lens panel to correct distortion and chromatic aberration where the controls are available; (3) inspect Detail-panel noise reduction and sharpening; (4) choose an appropriate output mode and develop into Pixel Studio.",
       "starterAsset": {
         "filename": "P01_starter.afphoto",
         "filepath": "curriculum/assets/photo/P01_starter.afphoto",
@@ -107,11 +123,11 @@
         "statusNote": "Practice asset for lens correction and tonal balancing (REAL_AFFINITY_FILE)."
       },
       "challengeCriteria": [
-        "Highlights and shadows completely within visible range (zero clipping warnings).",
-        "Vertical building pillars align parallel to canvas edges.",
-        "Chromatic purple fringing completely eliminated at 100% zoom."
+        "White balance is corrected without introducing a visible color cast.",
+        "Applicable lens distortion and chromatic aberration are reduced.",
+        "Detail settings preserve meaningful image texture without excessive sharpening or noise reduction."
       ],
-      "bonusGoal": "Use the Develop Persona Gradient Overlay tool to apply an independent 1-stop exposure drop to the sky before developing."
+      "bonusGoal": "Use the Develop Studio Gradient Overlay tool to apply an independent 1-stop exposure drop to the sky before developing."
     },
     "commonPitfalls": [
       {
@@ -122,7 +138,7 @@
       {
         "pitfall": "Developing directly into 8-bit and discarding color headroom",
         "cause": "If the Output setting is set to 8-bit, 98% of the camera sensor's original tonal gradation is permanently discarded upon clicking Develop.",
-        "solution": "Always verify that Output is set to 'RGB (16-bit)' or 'RGB (32-bit)' in the Develop Persona top context bar."
+        "solution": "Always verify that Output is set to 'RGB (16-bit)' or 'RGB (32-bit)' in the Develop Studio top context bar."
       },
       {
         "pitfall": "Unintentional color shifting when moving between computers",
@@ -145,15 +161,15 @@
       },
       {
         "id": "P01-02-Q2",
-        "question": "Which keyboard shortcut toggles the Highlight Clipping Warning overlay in the Develop Persona?",
+        "question": "Which panel is documented for manual lens distortion and chromatic-aberration corrections in Develop Studio?",
         "options": [
-          "Ctrl+H / Cmd+H",
-          "Alt+W / Option+W",
-          "Shift+F7",
-          "Ctrl+Alt+Delete"
+          "Basic panel",
+          "Lens panel",
+          "Masks panel",
+          "Glyph Browser panel"
         ],
         "correctIndex": 1,
-        "explanation": "Alt+W (Windows) / Option+W (macOS) flashes pure red over pixels whose luminance has reached 100% clipping."
+        "explanation": "The current Affinity RAW guide assigns distortion, rotation, chromatic aberration, defringing and vignetting corrections to the Lens panel."
       },
       {
         "id": "P01-02-Q3",
@@ -170,10 +186,10 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Develop Persona decodes camera sensor data with maximum bit-depth preservation.",
-        "Clipping overlays (Alt+W / Alt+S) provide objective visual feedback to avoid losing detail.",
-        "16-bit and 32-bit color pipelines prevent posterization and color banding during intense post-processing.",
-        "Automated Lens corrections eliminate optical distortion and chromatic fringing before retouching begins."
+        "Develop Studio opens supported RAW files automatically for non-destructive processing.",
+        "Basic, Lens, Detail, Tones and Masks panels organize the documented RAW workflow.",
+        "Output can be a Pixel layer, an embedded RAW layer or a linked RAW layer.",
+        "The Develop command sends the processed image to Pixel Studio."
       ],
       "relatedResources": [
         {
@@ -194,9 +210,9 @@
       "id": "P01-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "RAW Develop Persona & 32-bit HDR Pipelines",
+      "title": "RAW Develop Studio & 32-bit HDR Pipelines",
       "subtitle": "Unleashing the Full Power of Digital Camera Sensors",
-      "contentMarkdown": "When you capture a RAW image, your camera doesn't save an ordinary picture—it saves **raw sensor telemetry**.\n\nAffinity Photo's **Develop Persona** gives you direct, unadulterated access to this data before it is converted into standard pixels.\n\nIn this lesson, you will master **exposure recovery, 32-bit floating point color, and optical lens calibration**.",
+      "contentMarkdown": "When you open a supported RAW file, Affinity automatically launches **Develop Studio**, a dedicated environment for RAW processing. This lesson covers exposure, white balance, lens correction, detail refinement and the available output modes.",
       "actionBox": {
         "label": "The RAW Advantage",
         "text": "RAW files contain up to 14 stops of dynamic range—twice the dynamic range of an 8-bit JPEG."
@@ -218,13 +234,16 @@
       "id": "P01-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Develop Persona Control Center",
+      "title": "Develop Studio panels",
       "subtitle": "Basic, Lens & Details Panels",
-      "contentMarkdown": "Master the core panels of the Develop Persona:\n\n- **Basic Panel:** Exposure, Black Point, Brightness, Contrast, Highlights/Shadows recovery, and White Balance (Temperature & Tint).\n- **Lens Tab:** Automatic camera/lens profile detection, distortion correction, and Chromatic Aberration removal.\n- **Details Tab:** Luminance and Chrominance Noise Reduction, and Radius/Clarity detail sharpening.\n- **Clipping Warning Icons:** Alt+W (Red for blown highlights), Alt+S (Blue for crushed shadows).",
+      "contentMarkdown": "The current RAW workflow organizes its controls into panels:\n\n- **Basic:** exposure, black point, brightness, tone curve, enhance, white balance, shadows and highlights.\n- **Lens:** distortion, rotation, chromatic aberration, defringing and vignetting.\n- **Detail:** noise reduction and sharpening.\n- **Tones:** tonal curves, black-and-white conversion and split toning.\n- **Masks:** selective brush or gradient masks.",
       "actionBox": {
         "label": "Clipping Shortcut",
-        "text": "Press Alt+W (Win) / Option+W (Mac) to show highlight clipping in real time.",
-        "shortcut": { "win": "Alt+W", "mac": "Option+W" }
+        "text": "Start with Basic, then use Lens and Detail panels where the source image requires them.",
+        "shortcut": {
+          "win": "",
+          "mac": ""
+        }
       }
     },
     {
@@ -233,7 +252,7 @@
       "type": "step-by-step",
       "title": "Step-by-Step: RAW Sky & Shadow Recovery",
       "subtitle": "A Practical Colorist Workflow",
-      "contentMarkdown": "1. **Activate Develop Persona:** Open your RAW photograph. Affinity automatically opens the Develop Persona.\n2. **Toggle Clipping Warnings:** Press `Alt+W` and `Alt+S`. Notice the red warning patches across the over-exposed sky.\n3. **Pull Highlights:** In the Basic panel, pull the **Highlights** slider down until all red warning patches vanish.\n4. **Lift Shadows:** Push the **Shadows** slider up (+25%) to open dark foliage detail without washing out the blacks.\n5. **Check Lens Correction:** Click the **Lens** tab. Ensure 'Remove Chromatic Aberration' is checked to kill purple fringes.\n6. **Commit:** Click the blue **Develop** button in the top left toolbar to transition into Photo Persona.",
+      "contentMarkdown": "1. **Open RAW:** Open a supported RAW file. It launches Develop Studio automatically.\n2. **Basic corrections:** Adjust Exposure, Highlights, Shadows, Temperature and Tint in the Basic panel.\n3. **Lens corrections:** Use the Lens panel for distortion and chromatic aberration where applicable.\n4. **Detail refinement:** Review noise reduction and sharpening in the Detail panel.\n5. **Output:** Choose Pixel layer, RAW layer (embedded) or RAW layer (linked), then click Develop to enter Pixel Studio.",
       "visual": {
         "type": "callout",
         "content": "Always develop into 16-bit or 32-bit Output to retain pristine color fidelity during final grading."
@@ -245,7 +264,7 @@
       "type": "pitfalls",
       "title": "RAW Development Pitfalls & Fixes",
       "subtitle": "Preventing Noise and Color Banding",
-      "contentMarkdown": "### 1. Excessive Shadow Lifting\n- **The Cause:** Pushing shadows +100% amplifies raw sensor thermal noise, causing ugly color speckles.\n- **The Fix:** Go to the **Details** tab and increase **Color Noise Reduction** to 30% to clean up speckled pixels.\n\n### 2. Accidental 8-bit Bottleneck\n- **The Cause:** Leaving Output set to 8-bit in the context toolbar throws away 98% of your RAW tonal depth.\n- **The Fix:** Set Output to `RGB (16-bit)` or `RGB (32-bit Float)` before clicking Develop.\n\n### 3. Over-Sharpening in RAW\n- **The Pro-Tip:** Keep sharpening minimal in Develop Persona. Perform high-end frequency separation and sharpening in Photo Persona instead.",
+      "contentMarkdown": "### 1. Over-adjusting shadows\n- **Risk:** Strong shadow lifting can reveal sensor noise.\n- **Approach:** Review noise in the Detail panel and apply measured noise reduction.\n\n### 2. Choosing an output type\n- **Pixel layer:** developed pixel result.\n- **RAW layer (embedded):** the RAW source is copied into the document.\n- **RAW layer (linked):** the RAW source remains in its original location.\n\n### 3. Applying unnecessary corrections\n- Use the Lens and Detail panels only where the image/source file calls for them.",
       "actionBox": {
         "label": "Pro-Tip",
         "text": "RAW noise is easiest to tame before demosaicing artifacts are baked in."
@@ -259,27 +278,27 @@
       "subtitle": "Verify Your Sensor Understanding",
       "contentMarkdown": "Check your comprehension of RAW development and bit depth.",
       "quizData": {
-        "id": "P01-02-Q1",
-        "question": "What is the primary benefit of developing a RAW file into a 32-bit floating-point workspace (RGB/32 HDR)?",
+        "id": "P01-02-Q2",
+        "question": "Which panel is documented for manual lens distortion and chromatic-aberration corrections in Develop Studio?",
         "options": [
-          "It makes the image file size smaller than a JPEG.",
-          "It permits unbounded luminance values where highlights can exceed 1.0 (pure white), allowing subsequent adjustments to recover blown details that would be permanently clipped in 8-bit or 16-bit.",
-          "It forces the camera to take another picture.",
-          "It converts the image into vector paths."
+          "Basic panel",
+          "Lens panel",
+          "Masks panel",
+          "Glyph Browser panel"
         ],
         "correctIndex": 1,
-        "explanation": "32-bit floating point color representation is unbounded. Values above 1.0 represent real physical light values, allowing retouchers to dim intense highlights later without experiencing white clipping."
+        "explanation": "The current Affinity RAW guide assigns distortion, rotation, chromatic aberration, defringing and vignetting corrections to the Lens panel."
       }
     },
     {
       "id": "P01-02-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Dynamic Range Balancing",
+      "title": "Independent Challenge: RAW Develop and Lens Calibration",
       "subtitle": "Perfecting High-Contrast Architecture",
-      "contentMarkdown": "### Your Mission:\nUsing the practice file `P01_starter.afphoto`, simulate a full RAW dynamic range balance:\n\n1. In Develop Persona, eliminate all clipping warnings on bright skies and dark brick shadows.\n2. Calibrate White Balance so that neutral whites measure equal RGB values in the Info Studio.\n3. Enable Lens Correction and eliminate any lateral chromatic aberration along contrasting structural edges.\n\n### Acceptance Criteria:\n- Zero red highlight clipping patches.\n- Zero blue shadow clipping patches.\n- Final image developed cleanly into a 16-bit canvas in Photo Persona.",
+      "contentMarkdown": "### Your Mission:\nDevelop a supported RAW architectural photograph:\n1. Correct white balance using a neutral area.\n2. Use Lens-panel controls to reduce distortion and chromatic aberration where available.\n3. Review Detail-panel noise reduction and sharpening.\n4. Choose an output mode and develop the image into Pixel Studio.\n\n### Acceptance Criteria:\n- White balance is visually neutral.\n- Applicable lens corrections improve straight edges and color fringing.\n- Detail refinement preserves texture.\n- The original RAW source remains available when an embedded or linked RAW output is chosen.",
       "practiceData": {
-        "prompt": "Balance highlights, shadows, and lens corrections with zero clipped pixels.",
+        "prompt": "Develop an architectural RAW photo: (1) correct white balance with a neutral area; (2) use the Lens panel to correct distortion and chromatic aberration where the controls are available; (3) inspect Detail-panel noise reduction and sharpening; (4) choose an appropriate output mode and develop into Pixel Studio.",
         "starterAsset": {
           "filename": "P01_starter.afphoto",
           "filepath": "curriculum/assets/photo/P01_starter.afphoto",
@@ -290,9 +309,11 @@
           "statusNote": "Practice asset for lens correction and tonal balancing (REAL_AFFINITY_FILE)."
         },
         "checkpoints": [
-          "Clipping alerts active during adjustment",
-          "Highlights pulled to eliminate over-exposure",
-          "Lens chromatic aberration removed"
+          "Open the RAW file and confirm it launches in Develop Studio.",
+          "Use the Basic panel to inspect and adjust Exposure, Highlights and Shadows.",
+          "Use White Balance Temperature and Tint controls to correct the scene's color cast.",
+          "Review Lens and Detail panels for applicable correction and noise-reduction settings.",
+          "Choose an output type and click Develop to open the result in Pixel Studio."
         ]
       }
     }

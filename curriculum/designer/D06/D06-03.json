@@ -9,59 +9,69 @@
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Navigate the Typography Studio (View > Studio > Typography) to unlock advanced OpenType font capabilities.",
+      "Use the OpenType controls available from the text Context Toolbar to apply font-supported typographic features.",
       "Activate and manage Standard Ligatures, Discretionary Ligatures, Contextual Alternates, and Swash flourishes.",
-      "Explore the Glyphs Studio to search, filter, and insert rare Unicode symbols, currency marks, and alternate glyph variants.",
-      "Build a scalable, reusable Text Style hierarchy (H1 Headline, H2 Subhead, Body Copy, Label) in the Text Styles Studio.",
+      "Use the Glyph Browser panel to browse and insert Unicode characters and font-specific alternate glyphs.",
+      "Build a reusable hierarchy of paragraph and character styles; confirm the current style-creation UI in the target build.",
       "Understand character-level style overrides versus paragraph-level structural formatting."
     ],
-    "foundationalKnowledge": "Modern professional typography is powered by the OpenType specification, which allows a single font file to contain thousands of alternate glyph shapes, ornamental swashes, fraction equations, and ligature connections beyond basic ASCII characters. In Affinity Designer, the Typography Studio exposes the full depth of OpenType features. You can enable 'Standard Ligatures' (fusing awkward letter collisions like 'fi', 'fl', and 'ffi' into single artistic glyphs), toggle 'Discretionary Ligatures' (historical connections like 'st' and 'ct'), and access 'Stylistic Sets' designed by the type foundry. Furthermore, the Text Styles Studio allows you to save and broadcast typography changes across an entire multi-screen vector project in one click.",
+    "foundationalKnowledge": "Modern professional typography uses OpenType features, including standard and discretionary ligatures, stylistic alternates and swashes. Affinity exposes OpenType features from the text Context Toolbar, with the available options depending on the selected font. The Glyph Browser panel lets you insert Unicode characters and font-specific alternates: create a text insertion point, open Window > Text > Glyph Browser, choose the font family, style and subset, then double-click a glyph. Affinity supports reusable paragraph and character styles; the exact current UI location for creating and managing them should be verified on the target build.",
     "technicalEvidence": {
       "classification": "VERIFIED",
       "source": "Affinity Designer 3.3.3 OpenType Engine, Glyph Browser & Text Styles Specification",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Typography & Glyphs Studios",
-      "persona": "Vector Persona (View > Studio > Typography & Glyphs)",
+      "toolName": "OpenType text controls & Glyph Browser panel",
+      "persona": "Vector Studio (OpenType controls in the text Context Toolbar)",
       "shortcut": {
-        "win": "View > Studio > Typography, View > Studio > Glyphs",
-        "mac": "View > Studio > Typography, View > Studio > Glyphs"
+        "win": "OpenType features: text Context Toolbar; Glyph Browser: Window > Text > Glyph Browser",
+        "mac": "OpenType features: text Context Toolbar; Glyph Browser: Window > Text > Glyph Browser"
       },
-      "description": "The Typography Studio controls OpenType features; the Glyphs Studio provides a visual browser of all font characters; the Text Styles Studio manages reusable styling presets.",
+      "description": "OpenType features are available from the text Context Toolbar. The Glyph Browser panel inserts Unicode characters and font-specific alternates. Reusable paragraph and character styles are supported, but their exact current creation/control location needs target-build confirmation.",
       "contextBarOptions": [
-        "Standard Ligatures: Automatically fuses collisions (fi, fl, ff, ffi)",
-        "Discretionary Ligatures: Vintage and decorative letter joints (st, ct, sp)",
-        "Stylistic Alternates: Alternate character drawings (e.g. single-story 'a' vs double-story 'a')",
-        "Swashes: Decorative flourish tails on capital letters and terminal characters",
-        "Glyph Filter: All Glyphs, Alternates for Selection, Currency, Math, Punctuation",
-        "Text Styles: Create Paragraph Style, Create Character Style, Update from Selection"
+        "Standard and discretionary ligatures: enable when supported by the selected font",
+        "Stylistic alternates and swashes: available only when included in the selected font",
+        "Glyph Browser panel: Window > Text > Glyph Browser; choose font family, style and subset, then double-click a glyph",
+        "Paragraph and character styles: reusable text formatting structures; exact style-creation UI path needs target-build confirmation"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open the Typography Studio",
-        "instruction": "Go to View > Studio > Typography. Notice the panel reveals categories for Ligatures, Stylistic Sets, Letter Case, Figures, and Positional Forms.",
-        "shortcutTip": { "win": "View > Studio > Typography", "mac": "View > Studio > Typography" }
+        "title": "Select text and inspect OpenType controls",
+        "instruction": "Select an Artistic Text or Frame Text object. Inspect the text Context Toolbar for OpenType controls available to the selected font. The available feature options vary by font.",
+        "shortcutTip": {
+          "win": "Text Context Toolbar",
+          "mac": "Text Context Toolbar"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Enable Standard and Discretionary Ligatures",
-        "instruction": "Type the word 'Affinity Craftsmanship' using a quality serif font (e.g. Adobe Caslon, Baskerville, or Playfair Display). In the Typography Studio, verify 'Standard Ligatures' is active. Notice the 'ffi' and 'ft' letters seamlessly fuse together into elegant single glyphs. Toggle 'Discretionary Ligatures' to see vintage connections.",
-        "shortcutTip": { "win": "Toggle Ligatures", "mac": "Toggle Ligatures" }
+        "title": "Apply font-supported ligatures",
+        "instruction": "Use the OpenType controls in the text Context Toolbar to enable Standard Ligatures and, where the font supports them, Discretionary Ligatures. Compare the rendering and keep decorative ligatures for display text when appropriate.",
+        "shortcutTip": {
+          "win": "Context Toolbar > OpenType",
+          "mac": "Context Toolbar > OpenType"
+        }
       },
       {
         "stepNumber": 3,
-        "title": "Inspect Variants in the Glyphs Studio",
-        "instruction": "Go to View > Studio > Glyphs. Highlight the first capital letter 'A' of your word. In the Glyphs Studio, change the filter dropdown to 'Alternates for Selection'. Notice all custom swashes, flourishes, and alternate cuts designed for that exact letter! Double-click a swash glyph to replace the character on canvas.",
-        "shortcutTip": { "win": "Double-Click Glyph", "mac": "Double-Click Glyph" }
+        "title": "Insert a glyph with the Glyph Browser",
+        "instruction": "Create a text insertion point. From the Window menu, open Text > Glyph Browser. Choose the font family, font style and subset from the available menus, then double-click a glyph to insert it. Available glyphs depend on the selected font.",
+        "shortcutTip": {
+          "win": "Window > Text > Glyph Browser",
+          "mac": "Window > Text > Glyph Browser"
+        }
       },
       {
         "stepNumber": 4,
-        "title": "Create a Global Reusable Text Style",
-        "instruction": "Open the Text Styles Studio (View > Studio > Text Styles). Highlight your styled headline. In the panel menu, click 'Create Paragraph Style'. Name it 'Brand_Heading_1'. Now, select any raw text frame on any artboard and click 'Brand_Heading_1'—all font family, weight, tracking, and OpenType settings apply instantly!",
-        "shortcutTip": { "win": "Create Paragraph Style", "mac": "Create Paragraph Style" }
+        "title": "Create and reuse paragraph and character styles",
+        "instruction": "Format a headline and create a reusable paragraph style using the current text-style controls in the target build. Apply the style to another text frame. The feature supports reusable paragraph and character styles, but the exact current menu/panel label for style creation is not asserted here.",
+        "shortcutTip": {
+          "win": "Verify current style-creation control",
+          "mac": "Verify current style-creation control"
+        }
       }
     ],
     "visualExamples": [
@@ -82,17 +92,17 @@
       "title": "Building a Complete Brand Typography Kit",
       "taskDescription": "Establish a 4-tier reusable Text Style hierarchy with OpenType swashes and ligatures for a luxury hospitality brand.",
       "checkpoints": [
-        "Create 'Heading_Display': Serif typeface (42pt) with Standard Ligatures and Swash initial enabled.",
-        "Create 'Subheading_Airy': Sans-serif (14pt), All Caps, +200‰ tracking.",
-        "Create 'Body_Text': Clean legible serif or sans (11pt) with 16pt leading and optical kerning.",
-        "Create 'Caption_Muted': Small sans (9pt) with 60% opacity.",
-        "Save all 4 as formal styles in the Text Styles Studio and apply across 2 different artboards."
+        "Create Heading_Display using a serif typeface and enable Standard Ligatures where supported by that font.",
+        "Create Subheading_Airy using a sans-serif typeface, All Caps and +200‰ tracking.",
+        "Create Body_Text using a legible typeface, 11pt size, 16pt leading and appropriate kerning.",
+        "Create Caption_Muted using a small sans-serif typeface and reduced opacity.",
+        "Save the four formats as reusable paragraph or character styles with the current style controls, then apply them across two artboards."
       ],
       "expectedOutcome": "A professional design system typography kit where modifying 'Heading_Display' updates every artboard synchronously."
     },
     "independentChallenge": {
       "title": "Vintage Book Title Page with Flourished Initials",
-      "prompt": "Construct a classic novel title page: (1) Headline title using a historic serif font with Discretionary Ligatures active ('st' and 'ct' joined); (2) Use the Glyphs Studio to substitute the opening and closing capital letters with elaborate swash alternates; (3) Incorporate an authentic OpenType Small Caps subtitle ('VOL. I &bull; LONDON 1894'); (4) Save the entire composition as a synchronized Text Style set.",
+      "prompt": "Construct a classic novel title page: (1) Set the headline in a historic serif font with Discretionary Ligatures where supported; (2) open Window > Text > Glyph Browser, choose a suitable font family/style/subset and insert available alternate or swash characters for the opening and closing capitals; (3) use an OpenType Small Caps subtitle ('VOL. I • LONDON 1894') if supported by the font; (4) create reusable paragraph and character styles for the title, author and metadata.",
       "starterAsset": {
         "filename": "D06_typography_glyphs_guide.md",
         "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -104,8 +114,8 @@
       },
       "challengeCriteria": [
         "Discretionary ligatures and swashes utilized appropriately from genuine OpenType font tables.",
-        "Glyphs Studio used to select character alternates.",
-        "Styles organized inside Text Styles Studio with parent inheritance."
+        "Glyph Browser panel used to browse and insert available alternate characters from the chosen font.",
+        "Reusable paragraph and character styles are applied consistently; exact style-management UI path is confirmed in the target build."
       ],
       "bonusGoal": "Apply oldstyle proportional figures (numbers with ascenders and descenders) to the date."
     },
@@ -129,15 +139,15 @@
     "knowledgeCheck": [
       {
         "id": "D06-03-Q1",
-        "question": "What is the function of the Glyphs Studio (View > Studio > Glyphs) in Affinity Designer?",
+        "question": "What is the documented way to insert a glyph using the Glyph Browser panel?",
         "options": [
-          "It searches Google Fonts for new downloads.",
-          "It displays every individual glyph, alternate character, punctuation symbol, and swash contained inside the active font file, allowing one-click insertion.",
-          "It converts the document into vector outlines.",
-          "It checks for grammatical spelling errors."
+          "Use the Layers panel to convert text into curves.",
+          "Place a text insertion point, open Window > Text > Glyph Browser, choose a font/style/subset and double-click a glyph.",
+          "Open the Symbols panel and select a symbol.",
+          "Export the document as PDF."
         ],
         "correctIndex": 1,
-        "explanation": "The Glyphs Studio provides a comprehensive visual character map of all Unicode and OpenType glyphs embedded inside the current typeface."
+        "explanation": "The current Help Center instructions are to create an insertion point, open Window > Text > Glyph Browser, choose the font family, style and subset, then double-click the glyph."
       },
       {
         "id": "D06-03-Q2",
@@ -153,23 +163,23 @@
       },
       {
         "id": "D06-03-Q3",
-        "question": "Why is utilizing the Text Styles Studio superior to formatting text boxes manually across an enterprise UI design system?",
+        "question": "Why use reusable paragraph and character styles instead of formatting every text frame manually?",
         "options": [
-          "It prevents the user from typing words.",
-          "Updating a master Text Style (e.g. changing font size from 14pt to 16pt) instantly broadcasts and synchronizes across hundreds of connected text layers in the document.",
-          "It automatically translates text into 10 languages.",
-          "It compresses the file size to zero bytes."
+          "They prevent users from changing words.",
+          "They let related text keep consistent formatting and make later style changes easier to apply consistently.",
+          "They automatically translate text.",
+          "They remove all text from the document."
         ],
         "correctIndex": 1,
-        "explanation": "Text Styles establish single-source-of-truth design tokens: editing the master style updates all associated typography instances document-wide."
+        "explanation": "Affinity supports reusable paragraph and character styles to maintain consistency across text in a design."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The Typography Studio exposes OpenType ligatures, swashes, and stylistic sets.",
-        "The Glyphs Studio enables browsing and inserting rare characters and glyph variants.",
-        "Text Styles (Paragraph & Character) synchronize typography across complex projects.",
-        "Clear overrides in the Text Styles Studio re-binds text to master design tokens."
+        "OpenType features are available from the text Context Toolbar when supported by the font.",
+        "The Glyph Browser panel inserts Unicode characters and font-specific alternate glyphs.",
+        "Reusable paragraph and character styles support consistent typography across a project.",
+        "Confirm the current style-creation UI path on the target build before documenting exact menu or panel labels."
       ],
       "relatedResources": [
         {
@@ -192,7 +202,7 @@
       "type": "intro",
       "title": "OpenType Features, Glyph Browser & Text Styles Hierarchy",
       "subtitle": "Unlocking Hidden Font Treasures & Enterprise Style Systems",
-      "contentMarkdown": "Welcome to **Lesson D06-03**.\n\nDid you know that top-tier fonts contain thousands of hidden characters, swashes, and alternate letters that never appear on standard keyboards?\n\nIn this lesson, you will master the **Typography Studio** and **Glyphs Studio** to unlock OpenType swashes and ligatures, and architect a scalable **Text Style Hierarchy** for design systems.",
+      "contentMarkdown": "Welcome to **Lesson D06-03**. In this lesson, use the text Context Toolbar to explore font-supported OpenType features, the **Glyph Browser panel** to insert Unicode and alternate glyphs, and reusable paragraph and character styles to maintain typographic consistency.",
       "actionBox": {
         "label": "Typography Superpower",
         "text": "Turn ordinary typing into bespoke hand-lettered art using OpenType swashes and alternates."
@@ -214,9 +224,9 @@
       "id": "D06-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Typography Studio (View > Studio > Typography)",
+      "title": "OpenType controls in the text Context Toolbar",
       "subtitle": "Your Control Center for Font Features",
-      "contentMarkdown": "Open the panel via `View > Studio > Typography`:\n\n- **Ligatures Section:** Checkboxes to toggle Standard, Discretionary, and Historical ligatures.\n- **Stylistic Sets Section:** Browse numbered alternate character sets provided by the font author.\n- **Figures Section:** Choose between *Proportional Lining* (modern table numbers) and *Oldstyle Non-Lining* (classic numbers with ascenders and descenders that flow naturally in text).",
+      "contentMarkdown": "Select a text object and inspect the **Context Toolbar** for OpenType controls supported by the selected font.\n\n- **Ligatures:** standard and discretionary ligatures where included in the font.\n- **Stylistic alternates and swashes:** available only when the font contains those glyphs.\n- **Font dependency:** the exact features shown vary by typeface.",
       "actionBox": {
         "label": "Quality Note",
         "text": "OpenType features require a font that contains them! Quality typefaces (Playfair, Baskerville, Montserrat) shine here."
@@ -226,12 +236,12 @@
       "id": "D06-03-S4",
       "slideNumber": 4,
       "type": "tool-anatomy",
-      "title": "The Glyphs Studio: Visual Character Map",
+      "title": "The Glyph Browser panel",
       "subtitle": "Discovering Every Embedded Character",
-      "contentMarkdown": "Open the panel via `View > Studio > Glyphs`:\n\n- Displays every single vector glyph embedded in the active font.\n- **Filter Dropdown:** Switch to **'Alternates for Selection'** to instantly inspect all available variant drawings for the character highlighted on your canvas!\n- **One-Click Insert:** Double-click any glyph in the grid to replace the canvas letter immediately.",
+      "contentMarkdown": "Open the panel using `Window > Text > Glyph Browser`.\n\n1. Create a text insertion point.\n2. Choose the font family, style and subset from the panel menus.\n3. Double-click a glyph to insert it at the insertion point.\n\nAvailable characters and alternates depend on the selected font.",
       "visual": {
         "type": "diagram",
-        "content": "Highlight Letter 'A' on Canvas ──► Glyphs Studio Filter: 'Alternates for Selection'\n                                             │\n                                ┌────────────┴────────────┐\n                           [Standard A]   [Swashy A]   [Small Cap A]"
+        "content": "Text insertion point → Window > Text > Glyph Browser → choose font family/style/subset → double-click glyph"
       }
     },
     {
@@ -240,7 +250,7 @@
       "type": "theory",
       "title": "Paragraph Styles vs Character Styles",
       "subtitle": "The Two Pillars of Text Architecture",
-      "contentMarkdown": "In the Text Styles Studio (`View > Studio > Text Styles`):\n\n1. **Paragraph Styles:**\n   - Governs the *entire structural paragraph block* (margins, leading, alignment, indents, base font).\n   - Examples: `Heading_1`, `Subhead`, `Body_Copy`, `Legal_Footnote`.\n2. **Character Styles:**\n   - Governs *localized inline character exceptions* (bold emphasis, cyan accent color, swash override).\n   - Floats on top of paragraph styles without breaking line leading.",
+      "contentMarkdown": "Affinity supports reusable **paragraph styles** and **character styles**.\n\n- Paragraph styles apply consistent formatting to paragraph-level text.\n- Character styles apply consistent formatting to selected characters or runs of text.\n- The exact current menu/panel location for creating, updating and clearing style overrides should be checked on the target build.",
       "visual": {
         "type": "comparison",
         "content": "Paragraph Style: Formats entire block structure VS Character Style: Formats inline words/accents"
@@ -252,7 +262,7 @@
       "type": "step-by-step",
       "title": "Step-by-Step: Creating a Master Style",
       "subtitle": "Building Design System Typography Tokens",
-      "contentMarkdown": "Follow these steps to establish an enterprise typography token:\n\n1. **Step 1:** Format a headline on your artboard: `Playfair Display`, `36 pt`, Bold, tracking `-10‰`.\n2. **Step 2:** Open the **Text Styles Studio** (`View > Studio > Text Styles`).\n3. **Step 3:** Click the panel menu and choose **'Create Paragraph Style'**.\n4. **Step 4:** Name it **'Brand_Display_H1'** and click OK.\n5. **Step 5:** Select any text frame across all artboards and click 'Brand_Display_H1'.\n6. **The Magic:** If you ever edit 'Brand_Display_H1' in the studio, every headline in your entire project updates instantly!",
+      "contentMarkdown": "Create a reusable paragraph style using the current text-style controls in the target build:\n\n1. Format a headline with the intended typeface, weight and tracking.\n2. Create a paragraph style using the current style-creation control.\n3. Apply it to another text frame and compare the result.\n\nThe feature supports reusable paragraph and character styles; exact panel/menu labels are not asserted here.",
       "actionBox": {
         "label": "Design Token Power",
         "text": "Text Styles save days of manual updating when brands change their corporate typeface."
@@ -264,7 +274,7 @@
       "type": "pitfalls",
       "title": "OpenType & Style Pitfalls",
       "subtitle": "Avoid Common Typography Bugs",
-      "contentMarkdown": "### 1. The '+' Override Badge Trap\n- **The Issue:** A text style displays as `Brand_H1 +` and won't update when the master style changes.\n- **The Cause:** Someone manually tweaked point size or color on the canvas after applying the style.\n- **The Fix:** In the Text Styles panel, click **'Clear Overrides'** to restore pure master inheritance.\n\n### 2. Discretionary Ligatures in Body Copy\n- **The Trap:** Leaving 'ct' and 'st' ligatures active in body paragraphs impairs reading speed.\n- **The Fix:** Reserve discretionary ligatures for logos and titles; keep standard ligatures (`fi`, `fl`) for body copy.",
+      "contentMarkdown": "### 1. Font lacks a requested OpenType feature\n- **Check:** The selected font may not include a particular ligature, swash or alternate glyph.\n- **Approach:** Choose a font that includes the required feature and inspect the text Context Toolbar again.\n\n### 2. Glyph not available\n- **Check:** Glyph availability depends on the selected font family, style and subset.\n- **Approach:** Choose the correct font/style/subset in Glyph Browser before inserting.\n\n### 3. Style-management control differs\n- **Check:** The exact current style-creation and override controls are not verified in this review.\n- **Approach:** Confirm the target-build UI before following a documented menu path.",
       "visual": {
         "type": "badge-grid",
         "content": "Clear Overrides to Re-Sync | Discretionary for Titles Only | Standard Ligatures for Body"
@@ -276,7 +286,7 @@
       "type": "challenge",
       "title": "Independent Challenge: Historical Book Title Page",
       "subtitle": "Put OpenType & Text Styles to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct an authentic Victorian literary title page:\n\n1. Book title: Serif typeface with **Discretionary Ligatures** active (fusing 'st' or 'ct').\n2. Author name: Incorporate a **Swash capital initial** selected from the **Glyphs Studio**.\n3. Volume label: Set in **OpenType Small Caps** (`VOL. I &bull; LONDON 1894`).\n4. Establish 3 linked styles in the **Text Styles Studio**: `Book_Title`, `Book_Author`, and `Book_Meta`.\n\n### Acceptance Criteria:\n- Discretionary ligatures and swash alternates visible on canvas.\n- Glyphs Studio used to choose alternate character cuts.\n- 3 formal styles created in Text Styles Studio.",
+      "contentMarkdown": "### Your Mission:\nConstruct a literary title page:\n1. Use a serif font with Discretionary Ligatures where supported.\n2. Open Window > Text > Glyph Browser and insert an available alternate or swash glyph.\n3. Use OpenType Small Caps if the chosen font supports it.\n4. Create reusable paragraph and character styles for the title, author and metadata.\n\n### Acceptance Criteria:\n- Supported OpenType features appear correctly.\n- Glyph Browser used to insert an available alternate character.\n- Paragraph and character styles maintain consistent formatting.",
       "practiceData": {
         "prompt": "Construct a historical book title page utilizing OpenType features and Text Styles.",
         "starterAsset": {
@@ -290,7 +300,7 @@
         },
         "checkpoints": [
           "Typography Studio features inspected and toggled",
-          "Glyphs Studio used to insert swash alternate",
+          "Glyph Browser panel used to insert an available alternate glyph.",
           "Text Style hierarchy created and applied"
         ]
       }
