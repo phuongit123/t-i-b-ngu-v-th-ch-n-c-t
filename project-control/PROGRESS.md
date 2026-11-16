@@ -91,11 +91,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 
 - **Owner decision:** The Academy's final product outcome is independent Affinity tool competence plus transferable design thinking. Completing 120 lessons is not, by itself, proof of this outcome.
 - **Specifications added:** `project-control/LEARNING_OUTCOMES.md` defines programme outcomes, a competency scale, lesson teaching contract, and graduation rubric. `project-control/AFFINITY_TOOL_COVERAGE_MATRIX.md` defines a version-scoped inventory schema, evidence stages, and completeness rules.
-<<<<<<< HEAD
-- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. `TASK-079` is COMPLETED after the 66/66 independent mapping review and exact-head Quality Gate evidence; `TASK-080` remains IN_PROGRESS and `TASK-081` remains PENDING. The specifications do not count as a completed inventory or capstone implementation.
-=======
-- **Governance updates:** `TASK-079` is COMPLETED after independent 66/66 row-by-row QA. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
->>>>>>> main
+- **Governance updates:** `REQ-LEARN-001`–`003` and `TASK-079`–`081` register the work. `TASK-079` is COMPLETED after independent 66/66 row-by-row QA and exact-head Quality Gate evidence. `TASK-080` remains IN_PROGRESS pending source, version, denominator and P4 evidence review; `TASK-081` remains PENDING until both prerequisites are complete. TASK-079 sign-off is not learner mastery or capstone certification.
 - **No curriculum count change:** The repository still reports 66 existing / 120 planned lessons. No new lessons have been authored by this change.
 - **Verification:** This documentation-only commit does not execute application tests. Any owner-reported local test results must be tied to the exact pushed HEAD before being treated as branch verification.
 - **Phase gate:** `BLK-007` remains ACTIVE — LOCKED. No Track 3 lesson authoring or Track 4 expansion is authorized by this documentation change.
