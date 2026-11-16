@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.5.4` (TASK-079 merged to main; TASK-080 Round 11 evidence review in progress)
+- **Version:** `4.5.5` (TASK-079 merged to main; TASK-080 Round 11 evidence review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
