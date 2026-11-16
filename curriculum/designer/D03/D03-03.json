@@ -4,18 +4,18 @@
   "trackId": "designer",
   "order": 3,
   "title": "Non-Destructive Compound Shapes & Geometry Optimization",
-  "subtitle": "Live Compound Layers, Alt/Option Modifier & Boolean Expansion",
+  "subtitle": "Live Compound Layers & Current Boolean Workflow",
   "durationMinutes": 30,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Construct non-destructive Compound Shapes by holding Alt (Win) / Option (Mac) during any Boolean operation.",
+      "Use Boolean operations to create non-destructive Compound Shapes by default in the current Affinity release; use Join commands when a destructive Boolean result is intended.",
       "Understand the internal architecture of a `(Compound)` layer in the Layers Studio.",
       "Edit, move, resize, and re-order child vector shapes inside a live compound in real time without destroying the compound calculation.",
       "Change individual Boolean modes per child item (Add, Subtract, Intersect, Xor) inside the same Compound container.",
       "Bake or expand a Compound Shape into a final flattened Bezier curve when finalizing production artwork."
     ],
-    "foundationalKnowledge": "Standard Boolean operations are destructive: once you click 'Subtract' or 'Add', the original primitive shapes are permanently welded or destroyed. If a creative director asks to reposition a circular cutout 10 pixels to the left, you would normally have to start from scratch. Affinity Designer solves this with 'Compound Shapes'. By holding Alt (Windows) or Option (macOS) while clicking any Boolean button, Designer creates a live procedural `(Compound)` layer. Inside this compound, all original circles, stars, and rectangles remain 100% intact and editable, while the canvas renders the dynamic composite outline at 60fps.",
+    "foundationalKnowledge": "In the current Affinity release, Boolean operations create non-destructive Compound Shapes by default. The official glossary distinguishes these Compounds from destructive Boolean operations performed with Join commands. Use a Compound when the operation should remain non-destructive and use Join when the geometry should be committed destructively. The former Alt/Option modifier workflow should not be taught as the trigger for creating a Compound in this release.",
     "technicalEvidence": {
       "classification": "VERIFIED",
       "source": "Affinity Designer 3.3.3 Compound Shapes & Non-Destructive Vector Architecture",
@@ -23,18 +23,18 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Compound Shapes Engine",
-      "persona": "Vector Persona (Alt/Option + Geometry Toolbar)",
+      "persona": "Vector Studio (Geometry / Boolean operations)",
       "shortcut": {
-        "win": "Alt + Click Boolean Button (Toolbar or Layer > Create Compound)",
-        "mac": "Option + Click Boolean Button (Toolbar or Layer > Create Compound)"
+        "win": "No modifier required for default Compound creation; use Join commands for destructive Boolean operations",
+        "mac": "No modifier required for default Compound creation; use Join commands for destructive Boolean operations"
       },
-      "description": "Holding Alt/Option while invoking a Boolean command generates a dynamic Compound Shape layer. Child layers can have their individual Boolean interaction mode toggled in the Layers panel.",
+      "description": "Boolean operations create non-destructive Compound Shapes by default in the current release. Use Join commands when a destructive Boolean result is intended. Child-operation editing remains a separate interaction detail to confirm in the target desktop build.",
       "contextBarOptions": [
-        "Alt + Add: Creates non-destructive additive Compound",
-        "Alt + Subtract: Creates non-destructive subtractive Compound",
-        "Alt + Intersect: Creates non-destructive intersection Compound",
-        "Alt + Xor: Creates non-destructive exclusion Compound",
-        "Layer > Create Compound: Converts selected layers into a compound structure",
+        "Add: Creates or updates a non-destructive Compound by default",
+        "Subtract: Creates or updates a non-destructive Compound by default",
+        "Intersect: Creates or updates a non-destructive Compound by default",
+        "Xor: Creates or updates a non-destructive Compound by default",
+        "Join commands: Use when a destructive Boolean result is intended",
         "Layer > Geometry > Convert to Curves: Flattens the compound into static curves"
       ]
     },
@@ -43,31 +43,46 @@
         "stepNumber": 1,
         "title": "Select Multiple Vector Shapes",
         "instruction": "Draw a large rounded rectangle and three small circles positioned over it. Select all 4 objects with the Move Tool (V).",
-        "shortcutTip": { "win": "V", "mac": "V" }
+        "shortcutTip": {
+          "win": "V",
+          "mac": "V"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Generate a Non-Destructive Compound via Alt/Option",
-        "instruction": "Press and hold Alt (Windows) or Option (macOS). Click the 'Subtract' button on the top toolbar. Notice on the canvas that the circles cut holes through the rectangle.",
-        "shortcutTip": { "win": "Alt+Click Subtract", "mac": "Option+Click Subtract" }
+        "title": "Generate a Non-Destructive Compound with a Boolean Operation",
+        "instruction": "Click the 'Subtract' Boolean operation on the top toolbar without holding a modifier. In the current release, the Boolean operation creates a non-destructive Compound by default.",
+        "shortcutTip": {
+          "win": "No modifier required",
+          "mac": "No modifier required"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Inspect the (Compound) Layer Hierarchy",
         "instruction": "Open the Layers Studio. Notice a new layer labeled '(Compound)' with an expansion arrow. Expand the layer: all 4 of your original shapes are listed inside, with small boolean operator icons beside each thumbnail!",
-        "shortcutTip": { "win": "Layers Studio", "mac": "Layers Studio" }
+        "shortcutTip": {
+          "win": "Layers Studio",
+          "mac": "Layers Studio"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Reposition Child Shapes in Real Time",
         "instruction": "Select one of the child circles inside the Compound in the Layers panel. Use the Move Tool to drag it across the canvas. Notice the hole glides across the rounded rectangle smoothly in real time!",
-        "shortcutTip": { "win": "Move Child Shape", "mac": "Move Child Shape" }
+        "shortcutTip": {
+          "win": "Move Child Shape",
+          "mac": "Move Child Shape"
+        }
       },
       {
         "stepNumber": 5,
         "title": "Change Boolean Mode Per Child Shape",
         "instruction": "Click the small operator icon beside a child circle in the Layers panel. Change its mode from 'Subtract' to 'Intersect' or 'Add'. The compound instantly recalculates the visual output.",
-        "shortcutTip": { "win": "Toggle Operator Icon", "mac": "Toggle Operator Icon" }
+        "shortcutTip": {
+          "win": "Toggle Operator Icon",
+          "mac": "Toggle Operator Icon"
+        }
       }
     ],
     "visualExamples": [
@@ -75,7 +90,7 @@
         "title": "Destructive Boolean vs Non-Destructive Compound",
         "description": "Structural comparison of the two workflows.",
         "visualType": "table",
-        "visualContent": "| Feature | Standard Boolean (Click) | Compound Shape (Alt/Option + Click) |\n|---|---|---|\n| Layer Output | Single flattened '(Curve)' | Live dynamic '(Compound)' container |\n| Primitives Preserved | NO (shapes permanently dissolved) | YES (all shapes fully editable inside) |\n| Repositioning Cutouts | Impossible without redrawing | Instant (simply drag child shape) |\n| Mode Flexibility | Single fixed operation | Each child can have independent mode |\n| File Size Impact | Identical | Identical (vector math evaluated on GPU) |"
+        "visualContent": "| Feature | Boolean Compound (default) | Join command |\n|---|---|---|\n| Result | Non-destructive Compound Shape | Destructive Boolean result |\n| Intended use | Keep the Boolean operation non-destructive for later refinement | Commit a destructive geometry result |"
       },
       {
         "title": "Compound Scene Graph Hierarchy",
@@ -90,7 +105,7 @@
       "checkpoints": [
         "Create base rounded rectangle for the camera housing.",
         "Add 3 circles for triple lens barrels.",
-        "Alt/Option + Click 'Subtract' to generate the (Compound) container.",
+        "Click 'Subtract' to generate the default non-destructive Compound container. Use Join commands only when a destructive result is intended.",
         "Add a 4th small circle for the LED flash.",
         "Set the 4th circle's boolean icon to 'Add' so it protrudes rather than cuts.",
         "Drag the lens circles with the Move Tool and observe the live compound recalculation."
@@ -118,9 +133,9 @@
     },
     "commonPitfalls": [
       {
-        "pitfall": "Forgetting to hold Alt / Option and collapsing the shape",
-        "cause": "Clicking the standard Boolean buttons without holding the modifier key.",
-        "solution": "Immediately press Ctrl+Z / Cmd+Z to undo, then hold Alt (Win) or Option (Mac) and click the button again."
+        "pitfall": "Choosing a destructive Join when a Compound is required",
+        "cause": "Choosing a Join command when you intended to keep the Boolean operation non-destructive.",
+        "solution": "Undo (Ctrl+Z / Cmd+Z) and use the corresponding Boolean operation; Compounds are created by default in the current release."
       },
       {
         "pitfall": "Compound disappears or renders completely empty",
@@ -139,12 +154,12 @@
         "question": "How do you create a non-destructive Compound Shape from selected objects in Affinity Designer?",
         "options": [
           "Double-click the canvas with the Pen Tool.",
-          "Hold Alt (Windows) or Option (macOS) while clicking any Boolean geometry button on the toolbar.",
+          "Click a Boolean operation; in the current release, it creates a Compound by default.",
           "Group the layers and change blend mode to Multiply.",
           "Export the file to PDF."
         ],
         "correctIndex": 1,
-        "explanation": "Holding Alt (Windows) or Option (macOS) while clicking an Add, Subtract, Intersect, or Xor button generates an interactive, non-destructive Compound Shape."
+        "explanation": "In the current Affinity release, Boolean operations create non-destructive Compound Shapes by default; destructive Boolean results use Join commands."
       },
       {
         "id": "D03-03-Q2",
@@ -173,7 +188,7 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Compound Shapes (Alt/Option + Boolean) provide 100% non-destructive vector sculpting.",
+        "Compound Shapes provide non-destructive vector editing by default; use Join commands when a destructive Boolean result is intended.",
         "Child shapes remain fully editable, movable, and resizable inside the (Compound) layer.",
         "Different child layers can mix Add, Subtract, Intersect, and Xor within the same compound.",
         "Compounds can be converted to static curves when baking final production SVG assets."
@@ -199,10 +214,10 @@
       "type": "intro",
       "title": "Non-Destructive Compound Shapes & Geometry Optimization",
       "subtitle": "The Ultimate Non-Destructive Vector Workflow",
-      "contentMarkdown": "Welcome to **Lesson D03-03**.\n\nDestructive Booleans are fast, but what happens when a client asks to change the size of a hole, or reposition a cutout after hours of work?\n\nIn this lesson, you will master **Compound Shapes**—Affinity Designer's superpower for creating live, fully non-destructive Boolean hierarchies using the **Alt / Option modifier**.",
+      "contentMarkdown": "Welcome to **Lesson D03-03**.\n\nDestructive Booleans are fast, but what happens when a client asks to change the size of a hole, or reposition a cutout after hours of work?\n\nIn this lesson, you will master **Compound Shapes**—Affinity Designer's superpower for creating live, fully non-destructive Boolean hierarchies using the current default Boolean Compound workflow.",
       "actionBox": {
         "label": "Superpower Shortcut",
-        "text": "Never click a Boolean button alone! Hold Alt (Win) or Option (Mac) to keep your primitives alive."
+        "text": "Boolean operations create non-destructive Compounds by default. Use Join commands when you intend to commit a destructive geometry result."
       }
     },
     {
@@ -211,7 +226,7 @@
       "type": "theory",
       "title": "The Anatomy of a (Compound) Layer",
       "subtitle": "Inside the Live Boolean Container",
-      "contentMarkdown": "When you hold **Alt / Option** and click a Boolean button, Affinity creates a specialized **`(Compound)`** layer:\n\n- **Parent Container:** Behaves on canvas as a single unified vector path with one fill and stroke.\n- **Child Primitives:** Inside the container, all original circles, stars, and rectangles remain completely intact.\n- **Per-Item Operators:** Each child has its own clickable icon: `[+] Add`, `[-] Subtract`, `[∩] Intersect`, or `[X] Xor`.",
+      "contentMarkdown": "In the current release, clicking a Boolean operation creates a non-destructive **Compound** by default:\n\n- **Compound result:** the Boolean operation remains non-destructive.\n- **Destructive result:** use the relevant Join command.\n- **Editing details:** inspect the current Layers panel and confirm child-operation controls on the target desktop build before relying on exact panel labels or shortcuts.",
       "visual": {
         "type": "diagram",
         "content": "[Compound Layer] (Renders unified silhouette at 60fps)\n  ├── [+] Base Shape (Rectangle)\n  ├── [-] Cutout Hole 1 (Circle)\n  └── [-] Cutout Hole 2 (Star)"
@@ -223,7 +238,7 @@
       "type": "tool-anatomy",
       "title": "Creating and Manipulating Compounds",
       "subtitle": "Modifiers, Menus & Layers Panel Controls",
-      "contentMarkdown": "There are two primary ways to create a Compound Shape:\n\n1. **Toolbar Modifier:** Select shapes, hold **`Alt` (Win) / `Option` (Mac)**, and click any Boolean button on the main toolbar.\n2. **Menu Command:** Go to `Layer > Create Compound`.\n\n*Layer Management:* In the Layers Studio, click the small operator icon beside any child to toggle its Boolean mode on the fly without breaking the compound.",
+      "contentMarkdown": "The current Boolean workflow is straightforward:\n\n1. Select the vector shapes to combine.\n2. Click the required Boolean operation; the current release creates a Compound by default.\n3. Use a Join command only when a destructive Boolean result is intended.\n\nThe exact menu labels and child-operation controls should be verified in the target desktop build.",
       "actionBox": {
         "label": "Live Interaction",
         "text": "Select a child circle inside the compound and move it with the Move Tool (V). The cut updates smoothly in real time!"
@@ -235,7 +250,7 @@
       "type": "step-by-step",
       "title": "Step-by-Step: The Triple-Lens Camera Island",
       "subtitle": "Constructing an Editable Hardware Asset",
-      "contentMarkdown": "Follow these steps to build an editable smartphone camera island:\n\n1. **Step 1:** Draw a dark rounded rectangle for the island body.\n2. **Step 2:** Draw 3 circles for camera lenses overlapping the island.\n3. **Step 3:** Select all 4 objects. Hold **`Alt` (Win) / `Option` (Mac)** and click **Subtract**.\n4. **Step 4:** Notice the `(Compound)` layer in the Layers Studio. Expand it.\n5. **Step 5:** Select any lens circle and use the arrow keys to nudge it. The cutout hole moves live!\n6. **Step 6:** Add a small pill shape for the microphone, and toggle its icon inside the compound to `Add`.",
+      "contentMarkdown": "Follow these steps to build an editable smartphone camera island:\n\n1. **Step 1:** Draw a dark rounded rectangle for the island body.\n2. **Step 2:** Draw 3 circles for camera lenses overlapping the island.\n3. **Step 3:** Select all 4 objects and click **Subtract**. In the current release, this creates a non-destructive Compound by default.\n4. **Step 4:** Notice the `(Compound)` layer in the Layers Studio. Expand it.\n5. **Step 5:** Select any lens circle and use the arrow keys to nudge it. The cutout hole moves live!\n6. **Step 6:** Add a small pill shape for the microphone, and toggle its icon inside the compound to `Add`.",
       "visual": {
         "type": "comparison",
         "content": "Destructive Boolean: Fixed pixels, impossible to tweak VS Compound Shape: 100% parametric, infinitely adjustable"
@@ -259,7 +274,7 @@
       "type": "pitfalls",
       "title": "Compound Traps & Edge Cases",
       "subtitle": "Diagnose Common Hierarchy Mistakes",
-      "contentMarkdown": "### 1. Inverted Hierarchy (Everything Vanishes)\n- **The Issue:** The entire compound disappears from the screen.\n- **The Cause:** The lowest foundational layer is set to `Subtract` or `Intersect`, so there is no base geometry to calculate against.\n- **The Fix:** Ensure the bottom child layer inside the compound is always set to `Add`.\n\n### 2. Accidental Destructive Overwrite\n- **The Cause:** Forgetting to hold Alt/Option when clicking the Boolean button.\n- **The Fix:** Undo (`Ctrl+Z` / `Cmd+Z`) and hold Alt/Option.",
+      "contentMarkdown": "### 1. Inverted Hierarchy (Everything Vanishes)\n- **The Issue:** The entire compound disappears from the screen.\n- **The Cause:** The lowest foundational layer is set to `Subtract` or `Intersect`, so there is no base geometry to calculate against.\n- **The Fix:** Ensure the bottom child layer inside the compound is set to `Add`.\n\n### 2. Choosing a Destructive Join When a Compound Is Required\n- **The Cause:** Choosing a Join command when you intended to keep the Boolean operation non-destructive.\n- **The Fix:** Undo (`Ctrl+Z` / `Cmd+Z`) and use the corresponding Boolean operation; Compounds are created by default in the current release.",
       "visual": {
         "type": "badge-grid",
         "content": "Base Layer = Add (+) | Modifier Layers = Subtract (-) | Always Duplicate Before Baking"
@@ -284,7 +299,7 @@
           "statusNote": "Practice setup guide for Compound Shapes."
         },
         "checkpoints": [
-          "Compound Shape created via Alt/Option modifier",
+          "Compound Shape created by the default Boolean operation in the current release",
           "Multiple child shapes with mixed Add and Subtract modes",
           "Real-time expression shifting verified"
         ]

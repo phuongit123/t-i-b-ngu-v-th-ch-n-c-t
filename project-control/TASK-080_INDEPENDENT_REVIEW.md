@@ -1,9 +1,9 @@
-# TASK-080 — Independent Affinity Tool Inventory Review (Round 9)
+# TASK-080 — Independent Affinity Tool Inventory Review (Round 10)
 
 ## Review status
 
 - **Document ID:** `TASK-080-REV-001`
-- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; P4 JSON STRUCTURE REPRODUCED; PRACTICE CLAIMS NARROWED; SOURCE/SEMANTIC AUDIT OPEN`
+- **Status:** `IN_PROGRESS — POST-PR-4 SYNC VERIFIED; CURRENT COMPOUND BOOLEAN INSTRUCTIONS CORRECTED; SEMANTIC AUDIT OPEN`
 - **Review branch:** `qa/task-080-independent-evidence-audit`
 - **Review date:** `2026-11-16`
 - **Governing requirement:** `REQ-LEARN-002`
@@ -277,3 +277,13 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 - Keep 50 P4 labels provisional. Continue checking all named controls, shortcuts and product/build semantics against current Help Center content or direct target-build evidence.
 - Artboard Tool and Histogram panel official pages remain located / article body review pending. Five P4 rows continue to depend on broad feature sources for exact controls (`VEC-006`, `VEC-021`, `VEC-023`, `PIX-003`, `PIX-016`); `VEC-023` wording is now narrowed to practice evidence but source verification remains open.
 - TASK-080 remains **IN_PROGRESS**; TASK-081 remains **PENDING**; BLK-007 remains **ACTIVE — LOCKED**.
+
+
+## 14. Round 10 — current Compound Boolean semantics (2026-11-16)
+
+- The prior `D03-03` lesson and `VEC-009` matrix row instructed learners to hold Alt/Option while clicking Boolean commands to create a Compound. That instruction is obsolete for the declared current Affinity release scope.
+- Official September 2026 release notes explicitly state **“Compounds created by default”**. The official glossary defines Compounds as non-destructive Boolean operations and states that destructive Boolean operations use Join commands. Sources: https://www.affinity.studio/help/sep-26-release-notes/ and https://www.affinity.studio/help/appendix-glossary/.
+- Corrected `curriculum/designer/D03/D03-03.json`: learning objective, foundational knowledge, tool explanation, Boolean-operation descriptions, guided-practice instruction, comparison table, knowledge-check explanation, summary wording, current-workflow callout and troubleshooting no longer present Alt/Option as the compound-creation trigger. The lesson now distinguishes default non-destructive Boolean Compounds from destructive Join commands.
+- Corrected matrix record `VEC-009`: removed the Alt-click claim, recorded current default Compound behavior and Join distinction, added the two official sources, and explicitly left child-operation UI details for target-build confirmation.
+- The changed lesson parses as valid JSON. No lesson count, tool denominator, task state, PR state or gate authorization changed. A fresh CI run is required for the new PR HEAD.
+- Remaining uncertainty: exact in-app child-layer/operator editing details and displayed labels have not been directly inspected on the user's desktop build. Do not claim those details verified by release notes alone.

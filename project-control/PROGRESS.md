@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `4.5.2` (TASK-079 merged to main; TASK-080 Round 9 evidence review in progress)
+- **Version:** `4.5.3` (TASK-079 merged to main; TASK-080 Round 10 evidence review in progress)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5 — Web Platform Implementation (3/12 tasks complete; 9 pending)`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Verification boundary:** `Quality Gate #43751182383 passed on exact PR #6 head 6bfaf2a154a3fc13cd34816a84cca83a04e4f04b: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20 (1.1 minutes). This verifies the web academy at that exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence. Any later commit requires its own gate.`
+- **Last completed verification boundary:** `Quality Gate #43752268017 passed on exact PR #6 head 5d9078f697a32239fda3a8792db465def8d5234f: ESLint, TypeScript, curriculum 66/66, validator regression 41/41, script checks 3/3, Vietnamese translation coverage 66/66, production build, and Microsoft Edge Playwright E2E 20/20. The Round 10 lesson/document correction creates a new HEAD and requires its own gate. This CI evidence verifies the web academy at its exact SHA only; it does not certify Affinity desktop feature semantics, inventory completeness, or learner A5 competence.`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
