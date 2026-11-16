@@ -31,8 +31,8 @@
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **28.6% (14 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-011` (Track 2: Affinity Photo) đã hoàn tất.
->   - **32.1% (17 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-079` và `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
+>   - **32.7% (16 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home) và `TASK-078` (Dashboard/Settings) đã hoàn tất.
+>   - **35.8% (19 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-071`, `TASK-078`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -49,11 +49,11 @@
 | Affinity MCP Research & Automation (`REQ-MCP`) | 7 | 2 (`REQ-MCP-006`, `007`) | 5 | **28.6%** |
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 2 (`REQ-CURR-001`, `002`) | 6 | **25.0%** |
 | Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
-| Major Page Content & Functionality (`REQ-PAGE`) | 8 | 3 (`REQ-PAGE-004`, `005`, `007`) | 5 | **37.5%** |
+| `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 5 (`REQ-PAGE-001`, `004`, `005`, `007`, `008`) | 3 | **62.5%** |
 | Backend Database, Auth & Storage (`REQ-BE`) | 4 | 0 | 4 | 0.0% |
 | Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
-| **TOTAL** | **49** | **12** | **37** | **24.5%** |
+| **TOTAL** | **49** | **14** | **35** | **28.6%** |
 
 ---
 
@@ -278,4 +278,35 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   - `scripts/test-capstone-evaluator.js`: Node test suite verifying scoring math, weights, and critical dimension gating (7/7 PASS).
   - `tests/e2e/capstone-assessment.spec.ts`: 5 Playwright E2E tests verifying navigation, brief rendering, rubric badges, submission form, and evaluator console (5/5 PASS; 25/25 total E2E suite PASS).
 - **Phase Gate Safety:** `BLK-007` remains **ACTIVE — LOCKED**. No new Publisher or Scripting lessons were created.
+
+---
+
+## 20. Phase 5 Implementation — Complete Web Application & 12 Functional Areas (2026-11-16)
+
+- **Objective:** Fulfill Phase 5 Complete Web Application specifications across 12 functional areas organized into 4 distinct groups without creating duplicate pages.
+- **The 12 Core Areas Delivered & Verified:**
+  1. *Home (`home`):* `HomePage.tsx` — Luxury Figma Interia aesthetic, hero, 3 Studio showcases, Design Thinking 8-step cycle, verified E2E.
+  2. *Search (`search`):* `KnowledgePage.tsx` (`tab="search"`) — Multi-domain search querying shortcuts, cheatsheets, and glossary terms simultaneously, query highlights, empty state, and simulated error state.
+  3. *Shortcuts (`shortcuts`):* `KnowledgePage.tsx` (`tab="shortcuts"`) — Official verified shortcuts for Vector, Pixel, and Layout studios with Windows (`Ctrl/Alt`) vs macOS (`Cmd/Opt`) modifier toggle.
+  4. *CheatSheet (`cheatsheet`):* `KnowledgePage.tsx` (`tab="cheatsheet"`) — Interactive quick-reference for Boolean operations, Bézier node types, layer blend modes, and export profiles.
+  5. *Glossary (`glossary`):* `KnowledgePage.tsx` (`tab="glossary"`) — A-Z terminology glossary spanning Design Thinking and technical Affinity concepts.
+  6. *Sandbox (`sandbox`):* `SimulatorPage.tsx` — Freeform Vector Bézier SVG canvas and Pixel Layer stack sandbox; strictly 0 untrusted code execution.
+  7. *Challenges (`challenges`):* `ChallengesPage.tsx` — Step-by-step challenges (*Sharp Diamond*, *Smooth S-Wave*, *Heart Silhouette*, *Portrait Mask*) with checklist, accuracy evaluator, and `localStorage` progress persistence.
+  8. *ProgressDashboard (`dashboard`):* `DashboardPage.tsx` — Track progress breakdown across 66 existing lessons, completed lessons filterable list, learning statistics, and simulated sync error recovery handling.
+  9. *Settings (`settings`):* `SettingsPage.tsx` — User profile customization, OS modifier key preference, data export (`.json`), and progress reset modal with confirmation safeguards.
+  10. *Resources (`resources`):* `ResourcesPage.tsx` — Real asset download center with instant search, format badges, and category filtering.
+  11. *Encyclopedia (`encyclopedia`):* `EncyclopediaPage.tsx` — 401 SDK DOM API topics browser with live search, module filter, and signature inspector.
+  12. *Simulator (`simulator`):* `SimulatorPage.tsx` — Pure React/SVG Bézier simulator and Photo Layer/Masking simulator with educational disclaimer.
+- **Technical & UI Requirements Met:**
+  - Dark Luxury aesthetic across all 12 areas using tokens from Mastero design system.
+  - Fully responsive on mobile, tablet, and desktop viewports; mobile hamburger drawer in `MainNavigation.tsx` prevents dead navigation on small screens.
+  - Zero dead buttons and zero broken links; keyboard shortcuts (`Ctrl+K`) and standard accessibility tab orders implemented.
+- **E2E Test Suites Completed:**
+  - `tests/e2e/knowledge-group.spec.ts` (5 tests PASS)
+  - `tests/e2e/practice-group.spec.ts` (4 tests PASS)
+  - `tests/e2e/dashboard-group.spec.ts` (5 tests PASS)
+  - `tests/e2e/existing-group.spec.ts` (3 tests PASS)
+  - Total repository Playwright E2E suite expanded to **42 / 42 tests PASS**.
+- **Governance:** `TASK-071` and `TASK-078` marked **COMPLETED**; `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
+
 

@@ -459,3 +459,55 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - `BLK-007` remains strictly **ACTIVE — LOCKED**. No new Publisher (B02–B10) or Scripting (S02–S10) lessons were authored.
 - PR #6 remains Draft/Open on branch `qa/task-080-independent-evidence-audit`.
 
+---
+
+## 26. Round 15 — Phase 5: Complete Web Application & 12 Core Functional Areas (2026-11-16)
+
+### Functional Areas Implemented & Validated
+1. **Nhóm Knowledge (`KnowledgePage.tsx` & `src/data/knowledge/index.ts`):**
+   - *Search:* Cross-domain live search highlighting shortcuts, cheatsheets, and glossary terms; complete loading, empty, and simulated error states.
+   - *Shortcuts:* Verified desktop shortcuts for Layout, Vector, and Pixel studios with Windows (`Ctrl`) vs macOS (`Cmd`) modifier toggle.
+   - *CheatSheet:* Interactive reference cards for Boolean operations, Bézier node types, blend modes, and export profiles.
+   - *Glossary:* A-Z glossary covering Design Thinking concepts (Discover, Define, Explore, Plan, Create, Evaluate, Iterate, Deliver) and technical Affinity principles.
+2. **Nhóm Practice (`ChallengesPage.tsx` & `src/data/challenges/index.ts`):**
+   - 4 authentic challenges (*Sharp Diamond*, *Smooth S-Wave*, *Heart Silhouette*, *Portrait Mask*) with step-by-step guidance, expected outcome blueprints, accuracy tolerance scoring, and `localStorage` persistence (`affinity_challenges_progress`).
+   - Seamless transition to freeform sandbox in `SimulatorPage.tsx`.
+   - Pure client-side React/SVG mathematics; zero untrusted code execution (`eval` is prohibited).
+3. **Nhóm Dashboard (`DashboardPage.tsx` & `SettingsPage.tsx`):**
+   - Real-time progress dashboard tracking 66 existing lessons across 4 Studio tracks.
+   - Learning statistics, challenge scores, and Capstone A5 graduation readiness.
+   - Cloud sync status bar with simulated 503 error recovery and retry mechanism.
+   - Settings page for profile configuration, OS shortcut preference, data backup (JSON export), and progress reset modal with confirmation safeguards.
+4. **Nhóm Existing (`ResourcesPage.tsx`, `EncyclopediaPage.tsx`, `SimulatorPage.tsx`):**
+   - Reused existing robust implementations without duplication.
+5. **UI & Navigation Enhancements:**
+   - Dark Luxury design consistency across all 12 areas.
+   - Responsive mobile navigation drawer in `MainNavigation.tsx` ensuring zero dead buttons on smaller viewports.
+   - Comprehensive routing documentation codified in `docs/ROUTING_ARCHITECTURE.md`.
+
+### Verification Suite
+- `npm run lint`: **0 errors, 0 warnings**
+- `npm run typecheck`: **0 errors**
+- `npm run validate:curriculum`: **66/66 lessons valid**
+- `npm run test:validator`: **27 scenarios, 41 assertions / 0 failed**
+- `npm run test:scripts`: **3/3 scripts passed**
+- `npm run test:translations`: **66/66 Vietnamese translations mapped**
+- `npm run test:capstone`: **7/7 tests passed**
+- `npm run test:e2e`: **42 / 42 Playwright E2E tests passed (1.4m on Microsoft Edge)**:
+  - `knowledge-group.spec.ts`: 5/5 PASS
+  - `practice-group.spec.ts`: 4/4 PASS
+  - `dashboard-group.spec.ts`: 5/5 PASS
+  - `existing-group.spec.ts`: 3/3 PASS
+  - `capstone-assessment.spec.ts`: 5/5 PASS
+  - `pen-node-simulator.spec.ts`: 6/6 PASS
+  - `photo-curriculum.spec.ts`: 4/4 PASS
+  - `ui-capture.spec.ts`: 10/10 PASS
+- `npm run build`: **Production bundle successful (dist generated, 0 chunk warnings)**
+
+### Governance & Phase Gate Boundaries
+- `TASK-071` (Major Page: Home) and `TASK-078` (Major Page: Dashboard) transitioned to **COMPLETED**.
+- Registry stats: **19 COMPLETED / 3 IN_PROGRESS / 31 PENDING = 35.8%**.
+- `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
+- Branch `qa/task-080-independent-evidence-audit` pushed to remote for PR #6.
+
+

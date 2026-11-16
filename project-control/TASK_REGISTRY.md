@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `4.5.8` (TASK-081 Capstone assessment specification, 7-dimension rubric engine, local persistence, interactive UI, evaluator sign-off console, and E2E verification completed; TASK-081 COMPLETED)
+- **Version:** `4.5.9` (Phase 5 Complete Web Application: 12 functional areas verified across Knowledge, Practice, Dashboard, and Existing groups; TASK-071 and TASK-078 COMPLETED; 42/42 Playwright E2E tests PASS)
 - **Status:** `ACTIVE / REAL-TIME`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (17 COMPLETED / 3 IN_PROGRESS / 33 PENDING = 32.1% completed; counts recomputed from 53 status rows).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (19 COMPLETED / 3 IN_PROGRESS / 31 PENDING = 35.8% completed; counts recomputed from 53 status rows).
 
 ---
 
@@ -66,14 +66,14 @@
 | `TASK-060` | Production Build & Netlify Deployment | `Orchestrator` | `REQ-OPS-001` | `TASK-050`, `TASK-053` | `netlify.toml`, build pipeline | Automated deploy succeeds, SPA routing handles direct deep links. | `PENDING` |
 | `TASK-061` | Onboarding & Developer Documentation | `Orchestrator` | `REQ-OPS-002` | `TASK-001`, `TASK-002` | `README.md`, `docs/LOCAL_SETUP.md` | Comprehensive setup guide verified on fresh environment. | `PENDING` |
 | `TASK-062` | Security & Secrets Audit | `Orchestrator` | `REQ-OPS-003` | `TASK-031`, `TASK-060` | `.env.example`, `docs/SECURITY_AUDIT.md` | Zero hardcoded API keys or credentials; RLS validated. | `PENDING` |
-| `TASK-071` | Major Page: Home / Landing Page | `FrontendAgent` | `REQ-PAGE-001` | `TASK-020`, `TASK-040` | `src/pages/HomePage.tsx` | Hero, MCP status pill, 4 track cards, feature highlights, responsive. | `PENDING` |
+| `TASK-071` | Major Page: Home / Landing Page | `FrontendAgent` | `REQ-PAGE-001` | `TASK-020`, `TASK-040` | `src/pages/HomePage.tsx` | Hero, MCP status pill, 4 track cards, feature highlights, Dark Luxury aesthetic, responsive across all viewports. E2E verified. | **COMPLETED** |
 | `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx` | 4 tracks, 40 modules grid, search/filter, visual prerequisite path. | `PENDING` |
 | `TASK-073` | Major Page: Interactive Slide Lesson Player | `FrontendAgent` | `REQ-PAGE-003` | `TASK-022`, `TASK-026` | `src/pages/LessonPage.tsx` | Slide player stage, drawer outline, checklist, asset download trigger. | `PENDING` |
 | `TASK-074` | Major Page: Tool Simulator Sandbox | `FrontendAgent` | `REQ-PAGE-004` | `TASK-027` | `src/pages/SimulatorPage.tsx` | Full interactive simulator page with PageHeader, simulator integration, routing in AppShell, responsive across all viewports. | **COMPLETED** |
 | `TASK-075` | Major Page: Tool Encyclopedia & Shortcuts | `FrontendAgent` | `REQ-PAGE-005` | `TASK-028` | `src/pages/EncyclopediaPage.tsx` | Searchable browser with 401 SDK topics from AFFINITY_DOM_API_REFERENCE.json, live search, module filter, code examples, lazy-loaded chunk. | **COMPLETED** |
 | `TASK-076` | Major Page: Scripting & MCP Playground | `FrontendAgent` | `REQ-PAGE-006` | `TASK-023`, `TASK-024` | `src/pages/PlaygroundPage.tsx` | Split-pane IDE, Monaco editor, live render preview, run/render buttons. | `PENDING` |
 | `TASK-077` | Major Page: Resource Library Center | `FrontendAgent` | `REQ-PAGE-007` | `TASK-029` | `src/pages/ResourcesPage.tsx` | Categorized asset download hub scanning bundled curriculum assets with format badges, instant search, direct download, lazy-loaded chunk. | **COMPLETED** |
-| `TASK-078` | Major Page: Student Dashboard & Portfolio | `FrontendAgent` | `REQ-PAGE-008` | `TASK-033` | `src/pages/DashboardPage.tsx` | Profile summary, 40-module progress bars, project gallery, badges. | `PENDING` |
+| `TASK-078` | Major Page: Student Dashboard & Portfolio | `FrontendAgent` | `REQ-PAGE-008` | `TASK-033` | `src/pages/DashboardPage.tsx`, `src/pages/SettingsPage.tsx` | Profile summary, track progress bars for 66 lessons, challenges stats, capstone status, simulated sync error handling & retry, settings configuration. E2E verified. | **COMPLETED** |
 
 
 | `TASK-079` | Programme Learning Outcomes & Competency Framework | `CurriculumAgent` / `QAAgent` | `REQ-LEARN-001` | `TASK-010`, `TASK-011` | `project-control/LEARNING_OUTCOMES.md`, `project-control/LEARNING_OUTCOME_MAPPING.md`, `project-control/TASK-079_INDEPENDENT_REVIEW.md` | All 66 existing lessons independently mapped to observable programme outcomes; row-by-row audit 66/66 matched; exact-head Quality Gate passed on PR #4 and merged into main. This does not certify learner mastery. | `COMPLETED` |
