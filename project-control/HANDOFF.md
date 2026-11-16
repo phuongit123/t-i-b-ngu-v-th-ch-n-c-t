@@ -4,7 +4,7 @@
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `4.5.6` (TASK-079 merged into main; TASK-080 Round 12 review active on PR #6)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11 changes after that HEAD require a fresh exact-head gate — PR #6 had 58 commits ahead / 0 behind main at base `628f761` at the Round 11 check — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11–12 changes after that HEAD require a fresh exact-head gate — PR #6 targets `main` at merge commit `628f7619176fc2e85a50613654f46416975bd0cd`; the latest comparison confirmed the branch was not behind `main` (the ahead count is intentionally not hardcoded because it changes with each audit commit) — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -392,3 +392,11 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Sources: https://www.affinity.studio/help/text-special-characters/ ; https://www.affinity.studio/typography-software ; https://www.affinity.studio/blog/editing-raw-images-and-working-with-raw-files.
 - These are source-aligned content changes. Current live desktop UI remains uninspected. They require a fresh exact-head Quality Gate.
 - TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. No merge or scope authorization changed.
+
+
+### Round 12 exact-head / CI continuity note
+
+- PR #6 remains Draft/Open on `qa/task-080-independent-evidence-audit`, based on `main` at merge commit `628f7619176fc2e85a50613654f46416975bd0cd`; the latest branch comparison showed 0 commits behind main.
+- The latest code/document set before this handoff-only metadata update had HEAD `9eaaaf9789db01e0c90d6a73b0ccc04fa2fab399`; workflow `#43788010939` was pending for that exact SHA. The last completed green gate remains `#43785880529` on `bb3d0982e9559adf322a76425fc21fd65a125c2b` (20/20 Edge E2E).
+- This handoff update is a further commit; check the PR's new exact HEAD and corresponding Actions run rather than carrying forward the pending or prior green result.
+- No merge, base change, rebase, PR closure, denominator expansion or BLK-007 authorization is performed.
