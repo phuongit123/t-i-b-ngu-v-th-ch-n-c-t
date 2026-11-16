@@ -2,25 +2,25 @@
 
 ## Document Control
 - **Document ID:** `RELEASE-READINESS-AFFINITY-001`
-- **Version:** `1.0.0`
-- **Date & Timestamp:** `2026-11-16T20:05:00+07:00`
-- **Target Git Commit SHA:** `d501cc87d6b8050296f1bdef5be9fff01bb0ee9d` (short: `d501cc8`)
-- **Git Branch:** `qa/task-080-independent-evidence-audit` (PR #6)
+- **Version:** `1.1.0` (POST-MERGE MAIN AUDIT & GOVERNANCE ALIGNMENT)
+- **Date & Timestamp:** `2026-11-16T20:55:00+07:00`
+- **Target Git Commit SHA:** `22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c` (short: `22aa4cf`, Merge pull request #6 on `main`)
+- **Git Branch:** `main` (Verified clean & identical to `origin/main`)
 - **Governing Agent:** `QAAgent` / `Orchestrator`
-- **Evaluation Status:** `RELEASE CANDIDATE EVALUATED — CONDITIONAL (NOT CLEARED FOR DIRECT PRODUCTION MERGE/DEPLOY)`
+- **Evaluation Status:** `RELEASE CANDIDATE EVALUATED & MERGED TO MAIN — POST-MERGE QUALITY GATE PASSED (46/46 E2E, 44/44 BACKEND, 66/66 CURRICULUM)`
 
 ---
 
 ## 1. Executive Summary
 
-This document presents the definitive Final QA, Security, and Release Readiness audit for **Affinity Academy** on Windows 11 at commit `d501cc8`. All automated quality gates, functional pages, security perimeters, curriculum coverage matrices, and database sync architectures were rigorously audited.
+This document presents the definitive Final QA, Security, and Release Readiness audit for **Affinity Academy** on Windows 11 at post-merge commit `22aa4cf`. All automated quality gates, functional pages, security perimeters, curriculum coverage matrices, and database sync architectures were rigorously audited.
 
 In compliance with project governance (`AGENTS.md` and `affinity-academy-governance.md`):
 - No `BLOCKED` or `NOT VERIFIED` item has been converted into `PASS`.
 - Phase Gate `BLK-007` remains strictly **ACTIVE — LOCKED**.
 - Curriculum coverage stands truthfully at **66 existing verified lessons** (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) out of **120 planned lessons** (55.0%).
 - Tool Coverage Matrix (`TASK-080`) remains **IN_PROGRESS** pending direct executable introspection against desktop build 3.3.3.5004.
-- Neither PR #1 nor PR #6 has been merged to `main`, and no unauthorized production deployment has occurred.
+- PR #6 was merged into `main` with explicit Project Owner approval via commit `22aa4cf`. No unauthorized production deployment has occurred.
 
 ---
 
@@ -64,7 +64,7 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 
 | Security Gate # | Security Focus Area | Verification Method & Target | Commit SHA | Result / Finding | Status |
 |:---|:---|:---|:---|:---|:---|
-| **SEC-01** | **Row-Level Security (RLS)** | `supabase/migrations/20261116000003_rls_policies.sql`, `test-backend.js` | `d501cc8` | `ENABLE ROW LEVEL SECURITY` verified on all 8 application tables. Policies enforce `auth.uid() = user_id` for personal rows. `assessment_results` is strictly read-only for students. | **PASS** |
+| **SEC-01** | **Row-Level Security (RLS)** | `supabase/migrations/20261116000003_rls_policies.sql`, `test-backend.js` | `22aa4cf` | `ENABLE ROW LEVEL SECURITY` verified on all 9 application tables. Policies enforce `auth.uid() = user_id` for personal rows. `assessment_results` is strictly read-only for students. | **PASS** |
 | **SEC-02** | **Authentication Boundaries** | `ProtectedRoute.tsx`, `auth-context.tsx`, `TC-BE-16` to `18` | `d501cc8` | Unauthenticated requests redirected to home with `?auth=required` modal prompt; evaluator routes protected from unauthorized student elevation. | **PASS** |
 | **SEC-03** | **Input & Parameter Validation** | `capstone-service.ts`, `progress-sync.ts`, `test-capstone-evaluator.js` | `d501cc8` | Score boundaries clamped (1.0 to 5.0), required artifact URL/base64 checks, JSON schema type safety, payload size limits. | **PASS** |
 | **SEC-04** | **File Upload & Storage Validation** | `20261116000004_storage_buckets.sql`, `storage.ts`, `test-backend.js` | `d501cc8` | 50MB submission limit (`max_file_size: 52428800`), 100MB resource limit; MIME whitelist restricted to documents/images/archives; folder path isolated to `auth.uid()`. | **PASS** |
@@ -80,9 +80,9 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 |:---|:---|:---|:---|:---|
 | **Phase Gate BLK-007** | Full 120-lesson syllabus | 66 existing lessons (60 core + 6 pilot); 54 expansion lessons specified in `CURRICULUM_EXPANSION_SPEC_66_TO_120.md` | Physical JSON file creation in `curriculum/` is strictly prohibited without explicit Project Owner directive. | **BLOCKED (LOCKED)** |
 | **Tool Coverage Verification (`TASK-080`)** | 68 registered tools | 68 provisional records (63 native + 5 MCP; 50 P4, 17 V1, 1 U0). 5 core P4 tools verified against official Serif Help Center. | Direct Windows desktop executable introspection against build 3.3.3.5004 is required before final sign-off. | **IN_PROGRESS** |
-| **A5 Capstone Graduation (`TASK-081`)** | Official graduation credential | Lumina Tea Brand brief, 7-dimension rubric, evaluator console operational in web app. | Official graduation certificate issuance is gated until `TASK-080` concludes. | **BLOCKED (GATED)** |
+| **A5 Capstone Graduation (`TASK-081`)** | Official graduation credential | Lumina Artisanal Roastery Launch Campaign (Lumina Tea Identity) brief, 7-dimension rubric, evaluator console operational in web app. | Official graduation certificate issuance is gated until `TASK-080` concludes. | **BLOCKED (GATED)** |
 | **Live Remote Cloud Provisioning** | Production Supabase project | 5 SQL migrations, TypeScript definitions, RLS, storage buckets, offline-first sync engine verified locally. | Remote project deployment requires user-supplied production credentials; not executed without authorization. | **NOT VERIFIED (LIVE CLOUD)** |
-| **Production Merge & Netlify Deploy** | `main` branch / Production CDN | PR #6 (`qa/task-080-independent-evidence-audit`) is ahead of `main` at `628f761`. Working tree clean. | Do NOT merge PR #1 or PR #6 into `main`, and do NOT deploy to production without explicit directive. | **BLOCKED (AWAITING APPROVAL)** |
+| **Production Merge & Netlify Deploy** | `main` branch / Production CDN | PR #6 was officially merged into `main` via merge commit `22aa4cf` with explicit Project Owner approval. | Production Netlify deployment remains pending live cloud credentials and release authorization. | **MERGED TO MAIN / DEPLOY PENDING** |
 
 ---
 
@@ -134,7 +134,7 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
    - Playwright E2E Suite:              PASS (46/46 tests passed on Microsoft Edge in 1.7m)
 
 6. SECURITY POSTURE
-   - RLS Protection:                    PASS (Active on 8 tables)
+   - RLS Protection:                    PASS (Active on 9 tables)
    - Authentication Boundary:           PASS (ProtectedRoute & AuthModal certified)
    - Upload Restrictions:               PASS (50MB cap, MIME whitelist, auth.uid() isolation)
    - Secret Exposure:                   PASS (Zero leaks in Git or frontend bundles)

@@ -6,7 +6,7 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
+- **Last completed verification boundary:** `PR #6 officially merged into main at commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c. Post-merge quality gate completely passed: ESLint (0 errors, 0 warnings), TypeScript (0 errors), curriculum 66/66 PASS, validator regression 41/41 PASS, script checks 3/3 PASS, Vietnamese translation 66/66 PASS, Supabase backend integration 44/44 PASS, Capstone evaluator 7/7 PASS, production build PASS in 9.04s, and Playwright E2E 46/46 PASS in 1.8m.`
 - **Last Updated:** `2026-11-16`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 

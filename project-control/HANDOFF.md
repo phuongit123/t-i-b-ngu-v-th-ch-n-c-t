@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED — RELEASE_READINESS_REPORT.md published; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
+- **Version:** `5.1.0` (POST-MERGE MAIN AUDIT & DEVELOPMENT CONTINUATION — PR #6 merged into main at 22aa4cf; POST_MERGE_DEVELOPMENT_ROADMAP.md published; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (Capstone system, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — ALL 8 AUTOMATED CHECKS, 14 FUNCTIONAL AREAS, AND 7 SECURITY CHECKS PASS AT EXACT COMMIT d501cc8 — PR #6 targets main — BLK-007 ACTIVE / LOCKED — NO DEPLOYMENT / NO MERGE WITHOUT DIRECTIVE`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PR #6 MERGED INTO MAIN (commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c) — LOCAL MAIN AND ORIGIN/MAIN SYNCHRONIZED — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (Capstone system, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — ALL 8 AUTOMATED CHECKS, 14 FUNCTIONAL AREAS, AND 7 SECURITY CHECKS PASS AT MERGE COMMIT 22aa4cf — BLK-007 ACTIVE / LOCKED — NO UNCONTROLLED DIRECT COMMIT TO MAIN`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
