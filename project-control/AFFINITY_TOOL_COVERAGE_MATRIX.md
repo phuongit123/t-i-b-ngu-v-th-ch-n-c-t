@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `TOOL-COVERAGE-001`
-- **Version:** `1.2.8` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
+- **Version:** `1.2.9` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
 - **Status:** `PROVISIONAL INVENTORY / INDEPENDENT SOURCE, SCOPE AND P4 REVIEW IN PROGRESS`
 - **Last Updated:** `2026-11-16`
 - **Governing Roles:** `CurriculumAgent` / `AffinityMCPAgent` / `QAAgent`
@@ -311,25 +311,24 @@ The official September 2026 release notes expose additional features and control
 | Blend Tool | Graphic Design / Vector candidate | A live, editable Blend Group with path, step and distance controls is not explicit in the current 29 Vector records. | Candidate for a new interactive-tool record. |
 | Diffusion curves | Fill / gradient capability | A new gradient fill type is described; determine whether it is a separate tool, fill type or contextual control. | Candidate control/feature; do not count yet. |
 | G2 curve energy | Pen / Node workflow | Curve-energy visualization and curvature-continuous handle snapping may be absent from the current Pen/Node entries. | Candidate contextual-control record(s), subject to deduplication. |
+| Node Tool corner-radius controls | Vector / Node Tool | September 2026 release notes add rounding sharp corners directly on Node Tool nodes; may overlap or extend the existing `VEC-006` Corner Tool row. | Reconcile as an enhancement or separate contextual control only after target-build check; do not add a new record yet. |
+| Object Selection Tool | Pixel / selection workflow | September 2026 release notes add Border and Ramp options; official product materials describe selecting objects by hover and confirming the overlay. This is not necessarily the same as the existing Selection Brush Tool row. | Candidate tool/feature; compare against `PIX-003` and decide whether distinct record or update. |
 | Vector Warp presets | Vector warp workflow | New presets may extend the existing `VEC-GAP-3` entry; determine whether the gap already captures them. | Reconcile with existing row; avoid duplicate counting. |
 | Deform Tool — bone-based deformation | Photo-editing workflow | Bone and joint-chain deformation is not clearly represented in the Pixel list. | Candidate Pixel record; verify exact studio and availability. |
 | Mask Tool | Pixel, Compositing and Astrophotography studios | Automatically creates painted or gradient masks; may overlap existing mask workflow entries. | Candidate shared control/tool; classify once with studio applicability. |
 | Wavelet denoising / Wavelet Denoise Tool | RAW Develop and Astrophotography | Release notes mention both a denoising process and a dedicated tool in the astro workspace. | Determine whether one or multiple records are justified. |
 | Astrophotography Studio | Photo-editing workspace | Dedicated workspace includes star/background separation, Astro Stretch and Plate Solving. | Candidate workspace and child tools/panels; inventory separately by record type. |
-| Blend Tool | Vector | The September 2026 release notes describe an interactive Blend Tool and editable Blend Group; not represented as a dedicated tool record in the curriculum map. | Candidate V1 record; confirm target desktop build before adding. |
-| Mask Tool | Pixel / Compositing / Astrophotography | Release notes describe automatic painted/gradient mask creation; may overlap existing mask records. | Candidate tool; deduplicate by function/studio and check build. |
 | Deform Tool | Pixel | Bone/joint deformation appears in September 2026 notes; the exact studio and scope need confirmation. | Candidate tool; verify target build. |
-| Wavelet denoising and Astro Stretch | Pixel / Develop / Astrophotography | Release notes list Wavelet denoising, Astro Stretch and an Astro workspace; decide whether to model them as separate tools or features. | Candidate records; deduplicate with current Develop/denoise rows. |
+| Astro Stretch Tool | Astrophotography | Release notes name Astro Stretch as a tool within the new Astrophotography workflow; check whether to list it separately from the workspace and other astro tools. | Candidate child-tool record; verify target build and avoid double-counting with Astrophotography Studio. |
 | Plate Solving panel | Astrophotography | Listed as part of the dedicated Astrophotography Studio. | Candidate panel; separate from the broader Astro Studio record. |
 | Feature Finder | General UI | Help-menu command discovery utility; may be supporting navigation rather than a creative tool. | Candidate supporting record or explicit exclusion. |
-| Feature Finder | General application UI | Help-menu discovery utility can locate commands, but may not be a core creative tool. | Review for supporting/reference classification or explicit exclusion. |
 | Place 3D Models / Model Tool | General / 3D object workflow | September 2026 notes identify GLB placement and on-page transforms; Help Center describes placed 3D Model layers and the Edit Model Projection action in the Move Tool context toolbar. | Candidate production feature/tool record; confirm exact Model Tool behaviour and target-build availability before adding to the denominator.
 | Data merge from Canva Sheets | Layout / Data Merge | Current `LAY-GAP-6` mentions CSV/XLSX; release notes add live Canva Sheets refresh. | Update capability notes on the existing Data Merge record if verified; not automatically a new tool. |
 | Preflight custom text patterns | Layout / Preflight | New rule configuration expands existing Preflight functionality. | Update the Preflight gap description after target-build verification. |
 
 **Primary evidence:** [Affinity September 2026 release notes](https://www.affinity.studio/help/sep-26-release-notes/).
 
-**Scope guard:** These candidates are a discovery queue, not 12 confirmed additional records. Some are controls within existing tools, some may be overlapping capabilities, and some may be outside the exact desktop build being taught. The installed application version/build and UI location must be checked before they enter the official denominator.
+**Scope guard:** The deduplicated queue currently contains 16 candidate topics; this is a discovery queue, not 16 confirmed additional records. Some items are controls within existing tools, some may be overlapping capabilities, and some may be outside the exact desktop build being taught. The installed application version/build and UI location must be checked before they enter the official denominator.
 
 
 
