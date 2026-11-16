@@ -313,3 +313,10 @@ The 2 November 2026 announcement concerns [Affinity for iPad](https://www.affini
 
 - `TASK-080` remains **IN_PROGRESS**. The 50 P4 labels remain provisional until operation-level semantics and source/build evidence are completed.
 - `TASK-081` remains **PENDING**; `BLK-007` remains **ACTIVE — LOCKED**. No Publisher B02–B10 or Scripting S02–S10 authoring is authorized by this round.
+
+
+### Round 11 addendum — remaining Artboard controls and denominator queue hygiene
+
+- A second pass through `D01-02` found the lesson still described `Lock Children` behavior and Alt/Option-drag duplication as established. Those details are not supported by the retrieved Artboard Tool article body. The lesson now presents both as target-build checks, revises the quiz to verify behavior rather than assume it, and keeps core P4 evidence limited to explicit dimensions/naming/creation practice.
+- Removed the second, duplicate Deform Tool row from the September 2026 release discovery queue. The 16-topic queue count now represents unique candidate topics; no new record was added and the 68-record baseline remains unchanged.
+- The Artboard Tool and Histogram panel article bodies remain inaccessible to the current retrieval path. Their titles/URLs are known, but body-level controls are still `NEEDS_VERIFICATION`.
