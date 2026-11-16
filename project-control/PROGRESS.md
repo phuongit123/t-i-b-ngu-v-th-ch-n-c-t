@@ -81,8 +81,8 @@
 ## 4. Next Phase Gate & Status
 
 Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher (B01) và Scripting (S01) có thêm 6 bài pilot, tổng cộng 66/120 bài theo kế hoạch. Quality Gate #8 đã xác nhận lại 66/66 bài hợp lệ và chạy thành công toàn bộ 20/20 E2E trên Microsoft Edge tại commit 8f6ef74. Kết quả này xác nhận chất lượng kỹ thuật của nhánh, không phải bằng chứng rằng người học đã đạt chuẩn tốt nghiệp.
-- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The Phase 5 stabilization branch is published for review but is not merged; no Track 3 implementation is authorized.
-- **Deferred Work:** 54 bài học dự kiến còn lại gồm Track 3 (Publisher B02–B10, `TASK-012`: 27 bài học), Track 4 (Scripting S02–S10, `TASK-013`: 27 bài học), Monaco Scripting Editor (`TASK-023`), MCP Playground (`TASK-076`), và Supabase Backend (`TASK-030` to `033`) tiếp tục được bảo vệ nghiêm ngặt dưới cổng Phase Gate cho đến khi có chỉ thị bằng văn bản.
+- **Current Status:** Phase Gate `BLK-007` remains ACTIVE — LOCKED. The comprehensive 54-lesson curriculum expansion specification (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) has been fully authored in `project-control/CURRICULUM_EXPANSION_SPEC_66_TO_120.md` with all 13 required pedagogical components, PLO mappings, and tool matrix alignment.
+- **Deferred Production Authoring:** Physical JSON lesson file authoring and inclusion in `curriculum/` remains strictly protected under `BLK-007` until an explicit Project Owner unlocking directive is issued, preserving CI/CD validator stability (66/66 PASS).
 
 
 ---
