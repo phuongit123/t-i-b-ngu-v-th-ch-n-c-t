@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `4.5.4` (TASK-079 merged into main; TASK-080 Round 11 review active on PR #6)
+- **Version:** `4.5.5` (TASK-079 merged into main; TASK-080 Round 11 review active on PR #6)
 - **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11 changes after that HEAD require a fresh exact-head gate — PR #6 has 46 commits ahead / 0 behind main at base `628f761` — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN (independent 66/66 row audit + CI) — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — 50 P4 records mapped to 52 lesson JSON refs; sources: 38 direct official feature-matched URLs (3 Simplified Chinese locale pages), 9 broad/compatibility-limited, 2 official Help Center page-body checks pending, 1 project-MCP evidence-only — target desktop latest stable as of 2026-11-16 (user-confirmed; public release identifier 3.3.3.5004; local executable not introspected) — TASK-081 PENDING until TASK-080 is completed — Last successful PR #6 HEAD `bb3d0982e9559adf322a76425fc21fd65a125c2b` passed Quality Gate #43785880529 (20/20 Edge E2E; web academy scope only); Round 11 changes after that HEAD require a fresh exact-head gate — PR #6 had 58 commits ahead / 0 behind main at base `628f761` at the Round 11 check — BLK-007 ACTIVE / LOCKED — NO TRACK 3/4 AUTHORING`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -375,3 +375,11 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Discovery queue: removed duplicate Blend Tool, Mask Tool and Feature Finder entries; clarified Astro Stretch; added Node Tool corner-radius controls and Object Selection Tool as candidates. The deduplicated queue lists 16 candidate topics, but does not change the 68-record denominator.
 - Last completed exact-head CI before Round 11: Quality Gate #43785880529 on `bb3d0982e9559adf322a76425fc21fd65a125c2b`, SUCCESS, 20/20 Edge E2E. Round 11 commits require their own exact-head gate.
 - TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED. PR #6 remains Draft/Open; no merge or authorization change.
+
+
+### Round 11 follow-up — D01-02 and discovery queue
+
+- `D01-02` no longer asserts unverified `Lock Children` behavior or Alt/Option-drag duplication; the lesson now requires target-build verification. Core artboard practice remains explicit dimension creation and naming.
+- Removed the duplicate Deform Tool candidate. The release discovery queue now contains 16 unique candidate topics and remains outside the 68-record baseline.
+- Current branch at the time of this handoff had `58` commits ahead and `0` behind `main`, with merge base `628f7619176fc2e85a50613654f46416975bd0cd`.
+- PR #6 remains Draft/Open; TASK-080 IN_PROGRESS; TASK-081 PENDING; BLK-007 ACTIVE — LOCKED.
