@@ -18,8 +18,9 @@ Following the successful merge of Pull Request #6 into `main` via merge commit `
 - **Specification Blueprint:** 54 expansion lessons (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) fully architected in [`CURRICULUM_EXPANSION_SPEC_66_TO_120.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/CURRICULUM_EXPANSION_SPEC_66_TO_120.md).
 - **Web Application:** 12 functional areas operational, Dark Luxury design system, dual simulator engine (Vector Bézier + Photo Layer/Masking), instant search, and challenges.
 - **Backend Architecture:** 5 SQL migrations defining 9 relational tables, zero-trust RLS policies, 50MB storage bucket with MIME whitelisting, and an Offline-First synchronization engine with exponential backoff retry.
-- **Assessment Subsystem:** Authentic A5 Capstone (*Lumina Artisanal Roastery Launch Campaign*), 7-dimension scoring rubric, 5 critical dimensions enforcing `PLO-07` and `PLO-08`, and an immutable evaluator grading console.
-- **Test Integrity:** 46/46 Playwright E2E tests PASS; 44/44 backend unit/integration tests PASS; 7/7 capstone evaluator tests PASS; 0 ESLint warnings; 0 TypeScript compilation errors.
+- **Assessment Subsystem:** Authentic A5 Capstone (*A5 Capstone: Lumina Artisanal Roastery Launch Campaign*), 7-dimension scoring rubric, 5 critical dimensions enforcing `PLO-07` and `PLO-08`, and an immutable evaluator grading console.
+- **Task & Governance Metrics:** 23 COMPLETED, 3 IN_PROGRESS, 27 PENDING across 53 total registry task rows (43.4% completed; original architectural tasks: 20 COMPLETED, 2 IN_PROGRESS, 27 PENDING across 49 tasks = 40.8%).
+- **Post-Merge Quality Gate:** 11 checks verified PASS at merge commit `22aa4cf`: 46/46 Playwright E2E tests PASS; 44/44 backend unit/integration tests PASS; 7/7 capstone evaluator tests PASS; 66/66 curriculum schema PASS; 41/41 validator assertions PASS; 3/3 scripts PASS; 66/66 translations PASS; 0 ESLint warnings; 0 TypeScript compilation errors; production build clean; 0 git whitespace errors.
 
 ---
 
@@ -130,7 +131,7 @@ To maintain uncompromising repository safety and linear verification, all future
 
 | PR # | Working Branch | Scope & Tasks Addressed | Deliverables & Verification |
 |:---:|:---|:---|:---|
-| **PR #7** | `docs/governance-and-audit-plan` | Governance alignment & Task-080 closure plan | Update table counts (9 tables), reconcile 12 functional areas vs 8 major pages, update merge commit in release report. |
+| **PR #7** | `docs/post-merge-development-roadmap` | Governance alignment & roadmap reconciliation | Synchronize all 5 governance docs (merge commit 22aa4cf, 9 tables, 66/120 lessons, 12 functional areas / 8 major pages, 11 quality gate checks, A5 Capstone canonical name). |
 | **PR #8** | `feat/task-072-catalog-page` | `TASK-072`: Course Catalog & Track Browser | `src/pages/CatalogPage.tsx`, `src/components/catalog/*`, unit tests, Playwright E2E suite (`catalog-page.spec.ts`). |
 | **PR #9** | `feat/task-073-lesson-page-shell` | `TASK-073`: Multi-Pane Lesson Viewer Shell | `src/pages/LessonPage.tsx`, `src/components/lesson/LessonOutlineSidebar.tsx`, deep-link routing tests (`lesson-page.spec.ts`). |
 | **PR #10** | `feat/task-076-scripting-playground` | `TASK-076`: Scripting & MCP Playground | `src/pages/PlaygroundPage.tsx`, execution console, sample scripts, Playwright E2E suite (`playground-page.spec.ts`). |
@@ -181,7 +182,7 @@ To transition `TASK-080` from `IN_PROGRESS` to `COMPLETED`, the following 6 evid
 
 ## 7. Recommended Next Implementation Step
 
-The recommended immediate action is **PR #7 (`docs/governance-and-audit-plan`)**:
+The recommended immediate action is **PR #7 (`docs/post-merge-development-roadmap`)**:
 1. Reconcile minor governance discrepancies across control files on branch `docs/post-merge-development-roadmap`.
 2. Commit `project-control/POST_MERGE_DEVELOPMENT_ROADMAP.md`.
 3. Submit PR #7 for Project Owner review to establish the baseline before starting `TASK-072` (`src/pages/CatalogPage.tsx`).

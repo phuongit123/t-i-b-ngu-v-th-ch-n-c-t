@@ -5,9 +5,9 @@
 - **Version:** `1.1.0` (POST-MERGE MAIN AUDIT & GOVERNANCE ALIGNMENT)
 - **Date & Timestamp:** `2026-11-16T20:55:00+07:00`
 - **Target Git Commit SHA:** `22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c` (short: `22aa4cf`, Merge pull request #6 on `main`)
-- **Git Branch:** `main` (Verified clean & identical to `origin/main`)
-- **Governing Agent:** `QAAgent` / `Orchestrator`
-- **Evaluation Status:** `RELEASE CANDIDATE EVALUATED & MERGED TO MAIN — POST-MERGE QUALITY GATE PASSED (46/46 E2E, 44/44 BACKEND, 66/66 CURRICULUM)`
+- **Git Branch:** `main` (Verified clean & identical to `origin/main`) / Working Branch: `docs/post-merge-development-roadmap`
+- **Governing Agent:** `QAAgent` / `Orchestrator` / `Documentation Auditor`
+- **Evaluation Status:** `RELEASE CANDIDATE EVALUATED & MERGED TO MAIN — POST-MERGE QUALITY GATE PASSED (11/11 CHECKS PASS: 46/46 E2E, 44/44 BACKEND, 66/66 CURRICULUM, 7/7 CAPSTONE)`
 
 ---
 
@@ -24,18 +24,21 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 
 ---
 
-## 2. Automated Checks (8 Verification Gates)
+## 2. Automated Checks (11 Verification Gates)
 
 | Gate # | Check Name | Target Command | Commit SHA | Result | Evidence / Details | Status |
 |:---|:---|:---|:---|:---|:---|:---|
-| **AC-01** | **ESLint Static Analysis** | `npm run lint` | `d501cc8` | Clean pass | `0 errors, 0 warnings`. React hooks, imports, and Fast Refresh validated. | **PASS** |
-| **AC-02** | **TypeScript Type Checking** | `npm run typecheck` | `d501cc8` | Clean pass | `0 compilation errors` across `src/`, `scripts/`, `curriculum/`, `tests/` (`tsc -b`). | **PASS** |
-| **AC-03** | **Curriculum Schema Validation** | `npm run validate:curriculum` | `d501cc8` | 66/66 valid | `66/66 lessons passed` structural schema, 10 mandatory sections, exercise checkpoints, metadata. | **PASS** |
-| **AC-04** | **Curriculum Validator Suite** | `npm run test:validator` | `d501cc8` | 27/27 scenarios | `41/41 assertions passed, 0 failed`. Edge cases, manifest allow-lists, duplicate checks certified. | **PASS** |
-| **AC-05** | **V8 DOM Script Syntax Suite** | `npm run test:scripts` | `d501cc8` | 3/3 scripts | `S01-01, S01-02, S01-03` scripts parsed with valid syntax and executed in node sandbox. | **PASS** |
-| **AC-06** | **Vietnamese Translation Suite** | `npm run test:translations` | `d501cc8` | 66/66 translated | `66/66 lessons` verified with 100% Vietnamese titles, overviews, instructions, and quiz explanations. | **PASS** |
-| **AC-07** | **Production Vite Build** | `npm run build` | `d501cc8` | Built in 8.59s | `dist/index.html` (1.69 kB), `index.js` (436 kB gzip 113 kB), 31 assets generated, 0 chunk warnings. | **PASS** |
-| **AC-08** | **Playwright E2E Suite** | `npx playwright test` | `d501cc8` | 46/46 passed | `46/46 E2E tests passed in 1.7m` on Microsoft Edge covering all functional flows and galleries. | **PASS** |
+| **AC-01** | **ESLint Static Analysis** | `npm run lint` | `22aa4cf` | Clean pass | `0 errors, 0 warnings`. React hooks, imports, and Fast Refresh validated. | **PASS** |
+| **AC-02** | **TypeScript Type Checking** | `npm run typecheck` | `22aa4cf` | Clean pass | `0 compilation errors` across `src/`, `scripts/`, `curriculum/`, `tests/` (`tsc -b`). | **PASS** |
+| **AC-03** | **Curriculum Schema Validation** | `npm run validate:curriculum` | `22aa4cf` | 66/66 valid | `66/66 lessons passed` structural schema, 10 mandatory sections, exercise checkpoints, metadata. | **PASS** |
+| **AC-04** | **Curriculum Validator Suite** | `npm run test:validator` | `22aa4cf` | 27/27 scenarios | `41/41 assertions passed, 0 failed`. Edge cases, manifest allow-lists, duplicate checks certified. | **PASS** |
+| **AC-05** | **V8 DOM Script Syntax Suite** | `npm run test:scripts` | `22aa4cf` | 3/3 scripts | `S01-01, S01-02, S01-03` scripts parsed with valid syntax and executed in node sandbox. | **PASS** |
+| **AC-06** | **Vietnamese Translation Suite** | `npm run test:translations` | `22aa4cf` | 66/66 translated | `66/66 lessons` verified with 100% Vietnamese titles, overviews, instructions, and quiz explanations. | **PASS** |
+| **AC-07** | **Supabase Backend Integration** | `npm run test:backend` | `22aa4cf` | 44/44 passed | `44/44 unit & integration assertions passed`. 9 relational tables, RLS, storage, offline sync verified. | **PASS** |
+| **AC-08** | **Capstone Evaluator Suite** | `npm run test:capstone` | `22aa4cf` | 7/7 passed | `7/7 capstone evaluator tests passed`. Scoring math, weights, and critical dimension gating certified. | **PASS** |
+| **AC-09** | **Production Vite Build** | `npm run build` | `22aa4cf` | Built clean | `dist/index.html`, `index.js`, 31 assets generated, 0 chunk warnings. | **PASS** |
+| **AC-10** | **Playwright E2E Suite** | `npx playwright test` | `22aa4cf` | 46/46 passed | `46/46 E2E tests passed in 1.7m` on Microsoft Edge covering all functional flows and galleries. | **PASS** |
+| **AC-11** | **Git Whitespace & Diff Check** | `git diff --check` | `22aa4cf` | Clean pass | `0 whitespace errors, 0 merge conflict markers` verified across repository working tree. | **PASS** |
 
 ---
 
@@ -56,7 +59,10 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 | **FC-11** | **User Settings** | `src/pages/SettingsPage.tsx` | `TC-DASH-04`, `TC-DASH-05` verifying profile editing, offline cache toggles, progress reset confirmation modal. | **PASS** |
 | **FC-12** | **Authentication System** | `src/components/auth/AuthModal.tsx`, `auth-context.tsx`, `ProtectedRoute.tsx` | `TC-AUTH-01` to `03`, `TC-BE-16` to `18`. Modal navigation, role switching (Guest/Student/Evaluator), session state. Local/Mock engine certified. | **PASS** |
 | **FC-13** | **Progress Cloud Sync** | `src/lib/supabase/progress-sync.ts`, `MainNavigation.tsx` | `TC-AUTH-04`, `TC-DASH-03`, `TC-BE-34` to `38`. Offline-first localStorage caching, optimistic UI updates, Last-Write-Wins conflict resolution, retry queue. | **PASS** |
-| **FC-14** | **Assessment & Capstone** | `src/pages/CapstoneAssessmentPage.tsx`, `capstone-service.ts`, `test-capstone-evaluator.js` | `TC-CAP-01` to `05`, `scripts/test-capstone-evaluator.js` (7/7 PASS). Lumina Tea brief, 7 rubric dimensions (PLO-07/08 critical >= Level 3), immutable evaluator grading. | **PASS** |
+| **FC-14** | **Assessment & Capstone** | `src/pages/CapstoneAssessmentPage.tsx`, `capstone-service.ts`, `test-capstone-evaluator.js` | `TC-CAP-01` to `05`, `scripts/test-capstone-evaluator.js` (7/7 PASS). A5 Capstone: Lumina Artisanal Roastery Launch Campaign brief, 7 rubric dimensions (PLO-07/08 critical >= Level 3), immutable evaluator grading. | **PASS** |
+
+> [!NOTE]
+> **Phase 5 Functional Architecture Mapping:** The 14 operational verification areas above map directly to the **12 Functional Areas** (Home, Search, Shortcuts, CheatSheet, Glossary, Sandbox, Challenges, ProgressDashboard, Settings, Resources, Encyclopedia, Simulator) and **8 Major Page Tasks** from the Task Registry: 5 completed Major Pages (`TASK-071`, `TASK-074`, `TASK-075`, `TASK-077`, `TASK-078`) and 3 pending tasks (`TASK-072`, `TASK-073`, `TASK-076`).
 
 ---
 
@@ -80,8 +86,8 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 |:---|:---|:---|:---|:---|
 | **Phase Gate BLK-007** | Full 120-lesson syllabus | 66 existing lessons (60 core + 6 pilot); 54 expansion lessons specified in `CURRICULUM_EXPANSION_SPEC_66_TO_120.md` | Physical JSON file creation in `curriculum/` is strictly prohibited without explicit Project Owner directive. | **BLOCKED (LOCKED)** |
 | **Tool Coverage Verification (`TASK-080`)** | 68 registered tools | 68 provisional records (63 native + 5 MCP; 50 P4, 17 V1, 1 U0). 5 core P4 tools verified against official Serif Help Center. | Direct Windows desktop executable introspection against build 3.3.3.5004 is required before final sign-off. | **IN_PROGRESS** |
-| **A5 Capstone Graduation (`TASK-081`)** | Official graduation credential | Lumina Artisanal Roastery Launch Campaign (Lumina Tea Identity) brief, 7-dimension rubric, evaluator console operational in web app. | Official graduation certificate issuance is gated until `TASK-080` concludes. | **BLOCKED (GATED)** |
-| **Live Remote Cloud Provisioning** | Production Supabase project | 5 SQL migrations, TypeScript definitions, RLS, storage buckets, offline-first sync engine verified locally. | Remote project deployment requires user-supplied production credentials; not executed without authorization. | **NOT VERIFIED (LIVE CLOUD)** |
+| **A5 Capstone Graduation (`TASK-081`)** | Official graduation credential | A5 Capstone: Lumina Artisanal Roastery Launch Campaign brief, 7-dimension rubric, evaluator console operational in web app. | Official graduation certificate issuance is gated until `TASK-080` concludes. | **BLOCKED (GATED)** |
+| **Live Remote Cloud Provisioning** | Production Supabase project | 5 SQL migrations, TypeScript definitions, RLS, storage buckets, offline-first sync engine verified locally. | Remote project deployment requires user-supplied production credentials; local/mock verification complete, live cloud unverified. | **NOT VERIFIED (LIVE CLOUD)** |
 | **Production Merge & Netlify Deploy** | `main` branch / Production CDN | PR #6 was officially merged into `main` via merge commit `22aa4cf` with explicit Project Owner approval. | Production Netlify deployment remains pending live cloud credentials and release authorization. | **MERGED TO MAIN / DEPLOY PENDING** |
 
 ---
@@ -121,7 +127,7 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
    - Fully Mapped Lessons:             66 / 66 lessons mapped in LEARNING_OUTCOME_MAPPING.md
    - Capstone Critical Alignment:       5  critical dimensions directly enforce PLO-07 & PLO-08
 
-5. AUTOMATED VERIFICATION TEST RESULTS
+5. AUTOMATED VERIFICATION TEST RESULTS (11 CHECKS)
    - ESLint:                            PASS (0 errors, 0 warnings)
    - TypeScript:                        PASS (0 compilation errors)
    - Curriculum Schema:                 PASS (66/66 lessons valid)
@@ -132,6 +138,7 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
    - Capstone Evaluator Suite:          PASS (7/7 evaluation engine test cases passed)
    - Production Build:                  PASS (built in 8.59s, dist/ ready)
    - Playwright E2E Suite:              PASS (46/46 tests passed on Microsoft Edge in 1.7m)
+   - Git Diff Integrity Check:          PASS (0 whitespace errors, clean working tree)
 
 6. SECURITY POSTURE
    - RLS Protection:                    PASS (Active on 9 tables)
@@ -143,27 +150,28 @@ In compliance with project governance (`AGENTS.md` and `affinity-academy-governa
 7. RELEASE BLOCKERS
    - BLK-007 (54 expansion lessons locked): ACTIVE — LOCKED
    - TASK-080 (Executable introspection):   ACTIVE — IN_PROGRESS
-   - Production Deployment / Merge to main: AWAITING EXPLICIT USER DIRECTIVE
+   - Production Merge to main:              COMPLETED (PR #6 merged via commit 22aa4cf)
+   - Production Netlify Deployment:         AWAITING EXPLICIT USER DIRECTIVE
 ========================================================================================
 ```
 
 ---
 
-## 7. Mandatory Pre-Release Actions Required
+## 7. Mandatory Post-Merge / Pre-Deployment Actions Required
 
-Prior to any production merge into `main` or Netlify deployment, the following actions must be executed in order:
+PR #6 was officially merged into `main` at commit `22aa4cf`. The current working branch for documentation audit and post-merge roadmap is `docs/post-merge-development-roadmap`. Prior to live cloud activation or Netlify production deployment, the following actions must be executed in order:
 
-1. **Obtain Project Owner Authorization for Release:**
-   - Confirm whether Release Candidate v1.0.0 will launch with the **66 verified core lessons** (Track 1 & Track 2 complete + Track 3 & Track 4 pilots) or if release is to wait until `BLK-007` is unlocked.
+1. **Finalize PR #7 (Governance & Development Roadmap):**
+   - Submit PR #7 from branch `docs/post-merge-development-roadmap` targeting `main`.
+   - Preserve 100% test passing rates across all 11 quality gate checks.
 2. **Execute Desktop Executable Audit for `TASK-080`:**
    - Launch Affinity desktop build 3.3.3.5004 on Windows 11 host.
-   - Run diagnostic script (`scripts/check-affinity-env.js`) to capture live port 6767 DOM handshake and conclude `TASK-080`.
+   - Run diagnostic script (`scripts/check-affinity-env.js`) to capture live port 6767 DOM handshake and conclude `TASK-080` (unblocking formal graduation certificate issuance for `TASK-081`).
 3. **Provision Remote Supabase Project:**
    - Create Supabase project in user's cloud console.
-   - Execute migrations `20261116000001` through `20261116000005` on the live Postgres instance.
+   - Execute migrations `20261116000001` through `20261116000005` on the live Postgres instance (9 relational tables).
    - Configure project storage buckets (`submissions` and `resources`) and link storage policies.
    - Provide production environment variables (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) in Netlify dashboard.
-4. **Final Pull Request Review & Non-Fast-Forward Merge:**
-   - Review PR #6 on GitHub (`phuongit123/t-i-b-ngu-v-th-ch-n-c-t`).
-   - Merge PR #6 into `main` with full commit history preservation.
+4. **Obtain Project Owner Authorization for Production Deployment:**
+   - Confirm whether Release Candidate v1.0.0 will launch with the 66 verified core lessons or wait until `BLK-007` is unlocked.
    - Trigger production deployment via Netlify CI/CD.
