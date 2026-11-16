@@ -2,7 +2,7 @@
 
 ## Document Control
 - **Document ID:** `TOOL-COVERAGE-001`
-- **Version:** `1.2.9` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
+- **Version:** `1.3.0` (latest stable desktop version scope accepted; two official Help Center page bodies still require content review; denominator remains provisional)
 - **Status:** `PROVISIONAL INVENTORY / INDEPENDENT SOURCE, SCOPE AND P4 REVIEW IN PROGRESS`
 - **Last Updated:** `2026-11-16`
 - **Governing Roles:** `CurriculumAgent` / `AffinityMCPAgent` / `QAAgent`
@@ -318,7 +318,6 @@ The official September 2026 release notes expose additional features and control
 | Mask Tool | Pixel, Compositing and Astrophotography studios | Automatically creates painted or gradient masks; may overlap existing mask workflow entries. | Candidate shared control/tool; classify once with studio applicability. |
 | Wavelet denoising / Wavelet Denoise Tool | RAW Develop and Astrophotography | Release notes mention both a denoising process and a dedicated tool in the astro workspace. | Determine whether one or multiple records are justified. |
 | Astrophotography Studio | Photo-editing workspace | Dedicated workspace includes star/background separation, Astro Stretch and Plate Solving. | Candidate workspace and child tools/panels; inventory separately by record type. |
-| Deform Tool | Pixel | Bone/joint deformation appears in September 2026 notes; the exact studio and scope need confirmation. | Candidate tool; verify target build. |
 | Astro Stretch Tool | Astrophotography | Release notes name Astro Stretch as a tool within the new Astrophotography workflow; check whether to list it separately from the workspace and other astro tools. | Candidate child-tool record; verify target build and avoid double-counting with Astrophotography Studio. |
 | Plate Solving panel | Astrophotography | Listed as part of the dedicated Astrophotography Studio. | Candidate panel; separate from the broader Astro Studio record. |
 | Feature Finder | General UI | Help-menu command discovery utility; may be supporting navigation rather than a creative tool. | Candidate supporting record or explicit exclusion. |
