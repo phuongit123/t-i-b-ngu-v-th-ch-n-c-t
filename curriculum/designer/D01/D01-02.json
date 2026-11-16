@@ -227,7 +227,7 @@
       "contentMarkdown": "The **Artboard Tool** creates and manages separate artboards within one document.\n\n- **Explicit dimensions:** the mapped practice uses custom pixel sizes for Desktop, Tablet and Mobile.\n- **Preset list:** named device and paper presets are not asserted here because the official Artboard Tool article body was not retrievable during this review.\n- **Lock Children:** this lesson includes the workflow, but the exact current control label and behavior still require a target-build check.",
       "actionBox": {
         "label": "Essential Setting",
-        "text": "Always verify that 'Lock Children' is checked when adjusting canvas margins or padding.",
+        "text": "Test the current artboard child-resize behavior on a duplicate before relying on any Lock Children control.",
         "shortcut": {
           "win": "Context Toolbar",
           "mac": "Context Toolbar"
