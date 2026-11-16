@@ -23,13 +23,53 @@ const DashboardPage = React.lazy(() => import('./pages/DashboardPage'));
 const SettingsPage = React.lazy(() => import('./pages/SettingsPage'));
 
 export const App: React.FC = () => {
-  const [activeRoute, setActiveRoute] = useState('home');
+  const getInitialRoute = (): string => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+      if (path === 'catalog') return 'catalog';
+      if (path === 'simulator' || path === 'sandbox') return 'simulator';
+      if (path === 'dashboard') return 'dashboard';
+      if (path === 'encyclopedia') return 'encyclopedia';
+      if (path === 'resources') return 'resources';
+      if (path === 'challenges') return 'challenges';
+      if (path === 'knowledge') return 'knowledge';
+      if (path === 'settings') return 'settings';
+      if (path === 'capstone') return 'capstone';
+      if (path === 'preview' || path === 'design-system') return 'preview';
+    }
+    return 'home';
+  };
+
+  const [activeRoute, setActiveRoute] = useState(getInitialRoute);
   const [activeTrack, setActiveTrack] = useState<AffinityTrackId>('designer');
   const [activeModuleId, setActiveModuleId] = useState<string>('D01');
   const [activeLessonId, setActiveLessonId] = useState<string | null>(null);
   const [theme, setTheme] = useState<ThemeMode>('dark');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeToast, setActiveToast] = useState<{ title: string; message?: string } | null>(null);
+
+  const handleNavigate = (route: string) => {
+    setActiveRoute(route);
+    if (typeof window !== 'undefined') {
+      const targetPath = route === 'home' ? '/' : `/${route}`;
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState(null, '', targetPath);
+      }
+    }
+    if (route !== 'lesson') {
+      setActiveLessonId(null);
+    }
+  };
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+      if (path) setActiveRoute(path);
+      else setActiveRoute('home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const sampleModules: ModuleSummary[] = ALL_PILOT_MODULES.map((m) => ({
     id: m.id,
@@ -69,7 +109,7 @@ export const App: React.FC = () => {
                 message: `Bạn đã hoàn thành xuất sắc ${id}: ${currentLesson.title}.`,
               });
             }}
-            onBackToCatalog={() => setActiveRoute('catalog')}
+            onBackToCatalog={() => handleNavigate('catalog')}
           />
         </div>
       );
@@ -79,10 +119,10 @@ export const App: React.FC = () => {
       case 'home':
         return (
           <HomePage
-            onNavigate={setActiveRoute}
+            onNavigate={handleNavigate}
             onSelectTrack={(trackId) => {
               setActiveTrack(trackId);
-              setActiveRoute('catalog');
+              handleNavigate('catalog');
             }}
             onLaunchLesson={handleLaunchLesson}
           />
@@ -109,23 +149,23 @@ export const App: React.FC = () => {
       case 'sandbox':
         return <SimulatorPage />;
       case 'challenges':
-        return <ChallengesPage onNavigateToSandbox={() => setActiveRoute('simulator')} />;
+        return <ChallengesPage onNavigateToSandbox={() => handleNavigate('simulator')} />;
       case 'knowledge':
-        return <KnowledgePage initialTab="search" onNavigate={setActiveRoute} />;
+        return <KnowledgePage initialTab="search" onNavigate={handleNavigate} />;
       case 'search':
-        return <KnowledgePage initialTab="search" onNavigate={setActiveRoute} />;
+        return <KnowledgePage initialTab="search" onNavigate={handleNavigate} />;
       case 'shortcuts':
-        return <KnowledgePage initialTab="shortcuts" onNavigate={setActiveRoute} />;
+        return <KnowledgePage initialTab="shortcuts" onNavigate={handleNavigate} />;
       case 'cheatsheet':
-        return <KnowledgePage initialTab="cheatsheet" onNavigate={setActiveRoute} />;
+        return <KnowledgePage initialTab="cheatsheet" onNavigate={handleNavigate} />;
       case 'glossary':
-        return <KnowledgePage initialTab="glossary" onNavigate={setActiveRoute} />;
+        return <KnowledgePage initialTab="glossary" onNavigate={handleNavigate} />;
       case 'encyclopedia':
         return <EncyclopediaPage />;
       case 'dashboard':
-        return <DashboardPage onNavigate={setActiveRoute} />;
+        return <DashboardPage onNavigate={handleNavigate} />;
       case 'settings':
-        return <SettingsPage onBackToDashboard={() => setActiveRoute('dashboard')} />;
+        return <SettingsPage onBackToDashboard={() => handleNavigate('dashboard')} />;
       case 'resources':
         return <ResourcesPage />;
       case 'capstone':
@@ -153,12 +193,7 @@ export const App: React.FC = () => {
   return (
     <AppShell
       activeRoute={activeRoute}
-      onNavigate={(route) => {
-        setActiveRoute(route);
-        if (route !== 'lesson') {
-          setActiveLessonId(null);
-        }
-      }}
+      onNavigate={handleNavigate}
       theme={theme}
       onToggleTheme={handleToggleTheme}
       onOpenSearch={() => setIsSearchOpen(true)}

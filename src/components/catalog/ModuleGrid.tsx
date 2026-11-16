@@ -71,6 +71,9 @@ export const ModuleGrid: React.FC<ModuleGridProps> = ({
         return (
           <div
             key={mod.id}
+            data-testid={`module-card-${mod.id}`}
+            data-track={mod.trackId}
+            data-module-id={mod.id}
             className="space-y-5 p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] hover:border-[var(--color-border-subtle)] transition-all duration-200 shadow-sm"
           >
             {/* Module Header Bar */}
@@ -80,6 +83,9 @@ export const ModuleGrid: React.FC<ModuleGridProps> = ({
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]">
                     {modNumber}
+                  </span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-hairline">
+                    {mod.trackId === 'photo' ? 'Photo' : mod.trackId === 'designer' ? 'Designer' : mod.trackId === 'publisher' ? 'Publisher' : 'Scripting'}
                   </span>
                   <span
                     className={cn(

@@ -202,9 +202,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
   return (
     <div className={cn('space-y-8', className)}>
       <PageHeader
-        title="Danh Mục Khóa Học & Lộ Trình Đào Tạo"
-        description="Kế hoạch gồm 40 module / 120 bài. Hiện có 66 bài: 60 bài cốt lõi và 6 bài pilot; danh mục phân biệt rõ nội dung hiện có với phạm vi còn dự kiến."
-        badge="66 bài hiện có · 60 cốt lõi + 6 pilot · 120 bài theo kế hoạch"
+        title="Course Catalog — Danh Mục Khóa Học & Lộ Trình Đào Tạo"
+        description="Course Catalog & Track Browser — Kế hoạch gồm 40 module / 120 bài. Hiện có 66 bài: 60 bài cốt lõi và 6 bài pilot; danh mục phân biệt rõ nội dung hiện có với phạm vi còn dự kiến."
+        badge="Course Catalog · 66 bài hiện có · 60 cốt lõi + 6 pilot · 120 bài theo kế hoạch"
       />
 
       {/* 4 Track Summary Overview Cards */}

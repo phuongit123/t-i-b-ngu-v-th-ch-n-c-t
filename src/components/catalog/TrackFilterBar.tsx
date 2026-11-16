@@ -93,6 +93,8 @@ export const TrackFilterBar: React.FC<TrackFilterBarProps> = ({
             key={option.id}
             role="tab"
             aria-selected={isActive}
+            data-track={option.id}
+            data-testid={`track-filter-${option.id}`}
             type="button"
             onClick={() => onSelectTrack(option.id)}
             className={cn(
@@ -103,7 +105,12 @@ export const TrackFilterBar: React.FC<TrackFilterBarProps> = ({
             )}
           >
             {option.icon}
-            <span>{option.label}</span>
+            <span>
+              {option.label}
+              {option.id !== 'all' && (
+                <span className="text-[10px] text-zinc-400 ml-1">({option.studioName})</span>
+              )}
+            </span>
             {counts && (
               <span
                 className={cn(
