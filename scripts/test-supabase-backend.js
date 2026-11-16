@@ -135,11 +135,15 @@ const tsClient = path.join(rootDir, 'src', 'lib', 'supabase', 'client.ts');
 const tsAuthContext = path.join(rootDir, 'src', 'lib', 'supabase', 'auth-context.tsx');
 const tsStorage = path.join(rootDir, 'src', 'lib', 'supabase', 'storage.ts');
 const tsProgressSync = path.join(rootDir, 'src', 'lib', 'supabase', 'progress-sync.ts');
+const tsAuthModal = path.join(rootDir, 'src', 'components', 'auth', 'AuthModal.tsx');
+const tsProtectedRoute = path.join(rootDir, 'src', 'components', 'auth', 'ProtectedRoute.tsx');
 const envExample = path.join(rootDir, '.env.example');
 
 assert(fs.existsSync(tsDatabaseTypes), 'TypeScript database types tồn tại');
 assert(fs.existsSync(tsClient), 'Supabase client module tồn tại');
 assert(fs.existsSync(tsAuthContext), 'Auth Context & Provider module tồn tại');
+assert(fs.existsSync(tsAuthModal), 'AuthModal UI dialog tồn tại');
+assert(fs.existsSync(tsProtectedRoute), 'ProtectedRoute xác thực và phân quyền tồn tại');
 assert(fs.existsSync(tsStorage), 'Storage client module tồn tại');
 assert(fs.existsSync(tsProgressSync), 'Progress Sync Engine module tồn tại');
 assert(fs.existsSync(envExample), 'Template .env.example cấu hình tồn tại');
