@@ -1,0 +1,173 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { Clock, BookOpen, Play, Inbox } from 'lucide-react';
+import { LessonCard } from '@/components/cards/LessonCard';
+import { EmptyState } from '@/components/ui/EmptyState';
+import type { CurriculumModule } from '@/types/curriculum';
+import { moduleTranslationsVi } from '@/data/curriculum/translationsVi';
+
+export interface ModuleGridProps {
+  modules: CurriculumModule[];
+  activeLessonId?: string | null;
+  onLaunchLesson: (lessonId: string) => void;
+  onResetFilters?: () => void;
+  className?: string;
+}
+
+export const ModuleGrid: React.FC<ModuleGridProps> = ({
+  modules,
+  activeLessonId = null,
+  onLaunchLesson,
+  onResetFilters,
+  className,
+}) => {
+  if (modules.length === 0) {
+    return (
+      <EmptyState
+        icon={<Inbox className="w-6 h-6 text-zinc-400" />}
+        title="Không tìm thấy module phù hợp"
+        description="Không có module hoặc bài học nào khớp với bộ lọc chuyên ngành, độ khó hoặc từ khóa tìm kiếm của bạn."
+        action={
+          onResetFilters && (
+            <button
+              type="button"
+              onClick={onResetFilters}
+              className="px-4 py-1.5 text-xs font-mono font-medium rounded-sm bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-hairline transition-colors"
+            >
+              Xóa bộ lọc tìm kiếm
+            </button>
+          )
+        }
+        className={className}
+      />
+    );
+  }
+
+  return (
+    <div className={cn('space-y-6', className)}>
+      {modules.map((mod) => {
+        const difficultyConfig = {
+          Beginner: {
+            label: 'Cơ bản',
+            badgeClass: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+          },
+          Intermediate: {
+            label: 'Trung cấp',
+            badgeClass: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+          },
+          Advanced: {
+            label: 'Nâng cao',
+            badgeClass: 'bg-rose-500/10 text-rose-400 border-rose-500/20',
+          },
+        }[mod.difficulty] || {
+          label: mod.difficulty,
+          badgeClass: 'bg-zinc-500/10 text-zinc-400 border-zinc-500/20',
+        };
+
+        const modNumber = mod.moduleNumber || mod.id;
+        const displayTitle = moduleTranslationsVi[mod.id]?.title || mod.title;
+        const displayDescription = moduleTranslationsVi[mod.id]?.description || mod.description;
+
+        return (
+          <div
+            key={mod.id}
+            className="space-y-5 p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] hover:border-[var(--color-border-subtle)] transition-all duration-200 shadow-sm"
+          >
+            {/* Module Header Bar */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[var(--color-border-hairline)]">
+              <div className="flex-1 min-w-0 space-y-2">
+                {/* Badges row */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]">
+                    {modNumber}
+                  </span>
+                  <span
+                    className={cn(
+                      'text-xs px-2.5 py-0.5 rounded-full font-mono border',
+                      difficultyConfig.badgeClass
+                    )}
+                  >
+                    {difficultyConfig.label}
+                  </span>
+                  <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-zinc-500" />
+                    {mod.estimatedMinutes} phút
+                  </span>
+                  <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                    <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
+                    {mod.lessons.length} bài học
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-wide">
+                  <span>{displayTitle}</span>
+                  <span className="sr-only">{mod.title}</span>
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-4xl">
+                  {displayDescription}
+                </p>
+              </div>
+
+              {/* Right Action: Quick Start Button */}
+              {mod.lessons.length > 0 && (
+                <div className="shrink-0 flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => onLaunchLesson(mod.lessons[0].id)}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--color-surface)] hover:bg-[var(--color-border-subtle)] text-[var(--color-text-primary)] font-medium text-xs border border-[var(--color-border-hairline)] hover:border-zinc-400 transition-all shadow-subtle group"
+                  >
+                    <Play className="w-4 h-4 fill-emerald-400 text-emerald-400 group-hover:scale-110 transition-transform" />
+                    <span>Bắt đầu Module ({modNumber})</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Lesson Grid */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+                  Danh sách bài học trong module:
+                </h4>
+                <span className="text-xs text-[var(--color-text-secondary)] font-mono">
+                  {mod.lessons.length} bài học tương tác
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                {mod.lessons.map((les) => (
+                  <div key={les.id} className="relative group">
+                    <LessonCard
+                      lesson={{
+                        id: les.id,
+                        moduleId: les.moduleId,
+                        lessonNumber: les.order,
+                        title: les.title,
+                        durationMinutes: les.durationMinutes,
+                        completed: false,
+                      }}
+                      isActive={activeLessonId === les.id}
+                      onClick={() => onLaunchLesson(les.id)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => onLaunchLesson(les.id)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-[var(--color-text-secondary)] group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-all shadow-sm"
+                      title={`Bắt đầu bài học ${les.id}`}
+                      aria-label={`Bắt đầu bài học ${les.id}`}
+                    >
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
