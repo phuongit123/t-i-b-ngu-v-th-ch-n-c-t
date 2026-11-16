@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED — RELEASE_READINESS_REPORT.md published; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
-- **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (Capstone system, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — ALL 8 AUTOMATED CHECKS, 14 FUNCTIONAL AREAS, AND 7 SECURITY CHECKS PASS AT EXACT COMMIT d501cc8 — PR #6 targets main — BLK-007 ACTIVE / LOCKED — NO DEPLOYMENT / NO MERGE WITHOUT DIRECTIVE`
+- **Version:** `5.1.0` (TASK-072 COURSE CATALOG COMPLETED & VERIFIED; 24 COMPLETED / 3 IN_PROGRESS / 26 PENDING across 53 total registry rows; 7/7 dedicated E2E tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
+- **Timestamp:** `2026-11-17 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-072 COMPLETED (Course Catalog & Track Browser isolated chunk 14.75 kB, 7/7 E2E tests PASS) — TASK-079 COMPLETED — TASK-080 IN_PROGRESS (68 provisional records: 50 P4 / 17 V1 / 1 U0) — TASK-081 COMPLETED (Capstone system, 7 rubric dimensions, 7/7 evaluator tests PASS, 5/5 E2E PASS; certificate gated by TASK-080) — ALL LOCAL VERIFICATION GATES PASS AT EXACT COMMIT 84d458e — Working branch: feat/task-072-catalog-page — PR #8 targets main — BLK-007 ACTIVE / LOCKED`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -509,5 +509,46 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Registry stats: **19 COMPLETED / 3 IN_PROGRESS / 31 PENDING = 35.8%**.
 - `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
 - Branch `qa/task-080-independent-evidence-audit` pushed to remote for PR #6.
+
+---
+
+## 27. Round 16 — TASK-072 Implementation & Dedicated Catalog E2E Verification (2026-11-17)
+
+### Deliverables Implemented & Audited
+1. **`src/pages/CatalogPage.tsx` (377 lines):**
+   - Full dedicated course catalog extracted from inline markup in `src/App.tsx`.
+   - Dual-language header title: `Course Catalog — Danh Mục Khóa Học & Lộ Trình Đào Tạo`.
+   - Real-time Unicode NFD accent-insensitive instant search across modules, lessons, personas, and tools.
+   - 4-level difficulty filter (`All`, `Beginner`, `Intermediate`, `Advanced`).
+   - 4 Track overview cards with progress indicators and module count statistics.
+2. **`src/components/catalog/TrackFilterBar.tsx` (124 lines):**
+   - WAI-ARIA compliant `tablist` supporting 5 track modes (`All`, `Designer`, `Photo`, `Publisher`, `Scripting`).
+   - Studio glow active states and real-time lesson/module badges.
+   - Dual Studio labels (`Pixel Studio (Photo)`, `Vector Studio (Designer)`).
+3. **`src/components/catalog/ModuleGrid.tsx` (179 lines):**
+   - Dark Luxury responsive card grid with difficulty badges, lesson counters, and studio tags.
+   - Empty state handling with filter reset action.
+4. **`src/App.tsx` Refactor & Code-Splitting:**
+   - Reduced from 447 to 270 lines.
+   - Dynamic lazy-loading: `const CatalogPage = React.lazy(() => import('./pages/CatalogPage'))`.
+   - Bi-directional browser history and `/catalog` URL synchronization.
+5. **`tests/e2e/catalog-page.spec.ts` (139 lines):**
+   - 7/7 dedicated E2E scenarios covering direct `/catalog` access, Photo filtering, instant search for "Masking", track overview cards, difficulty isolation, empty-state recovery, and lesson launch.
+
+### Verification Suite & Results
+- `git diff --check`: **0 errors, 0 whitespace issues, 0 conflicts**
+- `npm run lint`: **0 errors, 0 warnings**
+- `npm run typecheck`: **0 errors (100% strict TypeScript, zero any)**
+- `npm run validate:curriculum`: **66/66 lessons valid**
+- `npm run build`: **Vite build complete in 8.39s**; `CatalogPage` isolated chunk `dist/assets/CatalogPage-xx9gDv4Q.js` (14.75 kB / 4.71 kB gzip)
+- `npx playwright test tests/e2e/catalog-page.spec.ts`: **7/7 PASS (16.4s)**
+
+### Git & Branch State
+- Branch: `feat/task-072-catalog-page`
+- Base Commit: `22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c` (Merge pull request #6 on `main`)
+- Implementation Commit: `7f596ac` (`feat(catalog): implement Course Catalog and Track Browser (TASK-072)`)
+- Verification Commit: `84d458e` (`test(catalog): add dedicated e2e suite and enhance routing for TASK-072`)
+- Governance Commit: `docs(governance): mark TASK-072 completed and sync handoff metrics`
+- Task Metrics: `TASK-072` marked **COMPLETED**; registry updated to **24 COMPLETED / 3 IN_PROGRESS / 26 PENDING (45.3%)**.
 
 

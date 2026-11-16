@@ -2,12 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED; RELEASE_READINESS_REPORT.md published; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `5.1.0` (TASK-072 Course Catalog & Track Browser completed; 24/53 tasks COMPLETED, 3 IN_PROGRESS, 26 PENDING; 7/7 dedicated E2E tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
-- **Last Updated:** `2026-11-16`
+- **Last completed verification boundary:** `TASK-072 Course Catalog completed and verified at commit 84d458e. Playwright E2E 7/7 PASS (tests/e2e/catalog-page.spec.ts); npm run build PASS in 8.39s (CatalogPage chunk isolated: 14.75 kB / 4.71 kB gzip); curriculum validator 66/66 PASS; lint & typecheck 100% PASS.`
+- **Last Updated:** `2026-11-17`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -21,12 +21,12 @@
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 2 | 2 | 4 | **TRACK 1 & 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done; 54 Expansion Lessons Specified)** |
 | **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
-| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 5 | 0 | 3 | **5 MAJOR PAGES OPERATIONAL (`HomePage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
+| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 6 | 0 | 2 | **6 MAJOR PAGES OPERATIONAL (`HomePage`, `CatalogPage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (`TASK-030` to `TASK-033`: Schemas, RLS, Storage Buckets, Offline Sync)** |
 | **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 0 | 0 | 5 | `46/46 Playwright E2E passed; formal phase sign-off pending release directive` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING (Gated by PO authorization & BLK-007)` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **20** | **2** | **27** | **40.8% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **23** | **3** | **27** | **43.4% Completed** |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **21** | **2** | **26** | **42.9% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **24** | **3** | **26** | **45.3% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
@@ -49,11 +49,11 @@
 | Affinity MCP Research & Automation (`REQ-MCP`) | 7 | 2 (`REQ-MCP-006`, `007`) | 5 | **28.6%** |
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 2 (`REQ-CURR-001`, `002`) | 6 | **25.0%** |
 | Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
-| `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 5 (`REQ-PAGE-001`, `004`, `005`, `007`, `008`) | 3 | **62.5%** |
+| `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 6 (`REQ-PAGE-001`, `002`, `004`, `005`, `007`, `008`) | 2 | **75.0%** |
 | Backend Database, Auth & Storage (`REQ-BE`) | 4 | 4 (`REQ-BE-001` to `004`) | 0 | **100.0%** |
 | Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
-| **TOTAL** | **49** | **14** | **35** | **28.6%** |
+| **TOTAL** | **49** | **15** | **34** | **30.6%** |
 
 ---
 
@@ -308,5 +308,22 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   - `tests/e2e/existing-group.spec.ts` (3 tests PASS)
   - Total repository Playwright E2E suite expanded to **42 / 42 tests PASS**.
 - **Governance:** `TASK-071` and `TASK-078` marked **COMPLETED**; `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
+
+---
+
+## 21. Major Page Implementation: TASK-072 Course Catalog & Track Browser (2026-11-17)
+
+- **Objective:** Extract inline course catalog rendering from `src/App.tsx` into a dedicated, lazy-loaded page component (`src/pages/CatalogPage.tsx`) with modular sub-components, real-time Unicode search, 4-level difficulty filtering, and WAI-ARIA tab navigation.
+- **Deliverables Completed:**
+  1. `src/components/catalog/TrackFilterBar.tsx` (124 lines): WAI-ARIA `tablist` supporting 5 filter modes (`All`, `Designer`, `Photo`, `Publisher`, `Scripting`) with real-time module/lesson counters and studio glow styling.
+  2. `src/components/catalog/ModuleGrid.tsx` (179 lines): Dark Luxury responsive card grid with difficulty badges, lesson counters, studio tags, and empty-state reset handler.
+  3. `src/pages/CatalogPage.tsx` (377 lines): Dedicated page container with instant search (Unicode NFD accent-insensitive multi-field search across module titles, descriptions, tools, personas, and lesson objectives), 4-level difficulty filter (`All`, `Beginner`, `Intermediate`, `Advanced`), Track overview cards, and dual-language header (`Course Catalog — Danh Mục Khóa Học & Lộ Trình Đào Tạo`).
+  4. `src/App.tsx`: Refactored to reduce size from 447 to 270 lines, removed inline catalog rendering, configured dynamic code-splitting via `React.lazy(() => import('./pages/CatalogPage'))` inside `<React.Suspense>`, and added bi-directional `/catalog` URL navigation synchronization.
+  5. `tests/e2e/catalog-page.spec.ts` (139 lines): Dedicated Playwright E2E suite covering direct `/catalog` URL access, Photo track filtering, instant search for "Masking", Track overview cards, difficulty isolation, empty-state recovery, and lesson launch.
+- **Verification & Bundle Metrics:**
+  - `dist/assets/CatalogPage-*.js`: **14.75 kB** (4.71 kB gzip) — completely code-split chunk.
+  - `npx playwright test tests/e2e/catalog-page.spec.ts`: **7/7 tests PASS** (16.4s).
+  - All repository gates: `git diff --check`, `npm run lint`, `npm run typecheck`, `npm run validate:curriculum`, and `npm run build` achieve **100% PASS**.
+- **Governance:** `TASK-072` marked **COMPLETED** (24/53 tasks completed — 45.3%).
 
 

@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `5.0.0` (Final QA, Security & Release Readiness audit completed; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `5.1.0` (TASK-072 Course Catalog & Track Browser completed; 24 COMPLETED / 3 IN_PROGRESS / 26 PENDING across 53 total registry rows; 7/7 dedicated E2E tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-16`
+- **Last Updated:** `2026-11-17`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (23 COMPLETED / 3 IN_PROGRESS / 27 PENDING = 43.4% completed; original tasks: 20 COMPLETED / 2 IN_PROGRESS / 27 PENDING = 40.8% completed).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (24 COMPLETED / 3 IN_PROGRESS / 26 PENDING = 45.3% completed; original tasks: 21 COMPLETED / 2 IN_PROGRESS / 26 PENDING = 42.9% completed).
 
 ---
 
@@ -67,7 +67,7 @@
 | `TASK-061` | Onboarding & Developer Documentation | `Orchestrator` | `REQ-OPS-002` | `TASK-001`, `TASK-002` | `README.md`, `docs/LOCAL_SETUP.md` | Comprehensive setup guide verified on fresh environment. | `PENDING` |
 | `TASK-062` | Security & Secrets Audit | `Orchestrator` | `REQ-OPS-003` | `TASK-031`, `TASK-060` | `.env.example`, `docs/SECURITY_AUDIT.md` | Zero hardcoded API keys or credentials; RLS validated. | `PENDING` |
 | `TASK-071` | Major Page: Home / Landing Page | `FrontendAgent` | `REQ-PAGE-001` | `TASK-020`, `TASK-040` | `src/pages/HomePage.tsx` | Hero, MCP status pill, 4 track cards, feature highlights, Dark Luxury aesthetic, responsive across all viewports. E2E verified. | **COMPLETED** |
-| `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx` | 4 tracks, 40 modules grid, search/filter, visual prerequisite path. | `PENDING` |
+| `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx`, `src/components/catalog/TrackFilterBar.tsx`, `src/components/catalog/ModuleGrid.tsx`, `tests/e2e/catalog-page.spec.ts` | Dedicated lazy-loaded page chunk (14.75 kB / 4.71 kB gzip), WAI-ARIA TrackFilterBar (5 tracks), Dark Luxury ModuleGrid, real-time Unicode NFD search, 4-level difficulty filter, /catalog URL sync, 7/7 E2E tests PASS. | **COMPLETED** |
 | `TASK-073` | Major Page: Interactive Slide Lesson Player | `FrontendAgent` | `REQ-PAGE-003` | `TASK-022`, `TASK-026` | `src/pages/LessonPage.tsx` | Slide player stage, drawer outline, checklist, asset download trigger. | `PENDING` |
 | `TASK-074` | Major Page: Tool Simulator Sandbox | `FrontendAgent` | `REQ-PAGE-004` | `TASK-027` | `src/pages/SimulatorPage.tsx` | Full interactive simulator page with PageHeader, simulator integration, routing in AppShell, responsive across all viewports. | **COMPLETED** |
 | `TASK-075` | Major Page: Tool Encyclopedia & Shortcuts | `FrontendAgent` | `REQ-PAGE-005` | `TASK-028` | `src/pages/EncyclopediaPage.tsx` | Searchable browser with 401 SDK topics from AFFINITY_DOM_API_REFERENCE.json, live search, module filter, code examples, lazy-loaded chunk. | **COMPLETED** |
