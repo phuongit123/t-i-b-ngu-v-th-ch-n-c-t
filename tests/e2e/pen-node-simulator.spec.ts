@@ -1,6 +1,24 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
+
+async function saveScreenshot(page: Page, filename: string): Promise<void> {
+  const buffer = await page.screenshot();
+  const targetPath = path.resolve('tests/screenshots', filename);
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      fs.writeFileSync(targetPath, buffer);
+      return;
+    } catch (err) {
+      const code = (err as NodeJS.ErrnoException).code;
+      if (attempt < 2 && (code === 'UNKNOWN' || code === 'EBUSY' || code === 'EPERM')) {
+        await new Promise((r) => setTimeout(r, 120));
+        continue;
+      }
+      throw err;
+    }
+  }
+}
 
 test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () => {
   test.beforeAll(() => {
@@ -26,7 +44,7 @@ test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () =
     await expect(page.getByRole('button', { name: 'Smooth', exact: true })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Smart', exact: true })).toBeVisible();
 
-    await page.screenshot({ path: 'tests/screenshots/simulator-initial-state.png' });
+    await saveScreenshot(page, 'simulator-initial-state.png');
   });
 
   test('TC-SIM-02: Pen Tool đặt 4 đỉnh hình thoi, khép kín path và chấm điểm độ chính xác', async ({ page }) => {
@@ -41,7 +59,7 @@ test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () =
     await svg.click({ position: { x: 220, y: 260 } });
     await page.waitForTimeout(100);
 
-    await page.screenshot({ path: 'tests/screenshots/simulator-canvas-active.png' });
+    await saveScreenshot(page, 'simulator-canvas-active.png');
 
     await svg.click({ position: { x: 400, y: 120 } });
     await page.waitForTimeout(200);
@@ -58,7 +76,7 @@ test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () =
     const evalText = await evalCard.textContent();
     expect(evalText).toMatch(/Độ chính xác: \d+%/);
 
-    await page.screenshot({ path: 'tests/screenshots/simulator-diamond-evaluated.png' });
+    await saveScreenshot(page, 'simulator-diamond-evaluated.png');
   });
 
   test('TC-SIM-03: Node Tool chọn điểm neo và chuyển đổi giữa Sharp và Smooth', async ({ page }) => {
@@ -84,7 +102,7 @@ test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () =
     const statusText = await page.locator('.absolute.bottom-2').textContent();
     expect(statusText).toContain('(smooth)');
 
-    await page.screenshot({ path: 'tests/screenshots/simulator-node-tool-smooth.png' });
+    await saveScreenshot(page, 'simulator-node-tool-smooth.png');
   });
 
   test('TC-SIM-04: Hỗ trợ Hoàn tác (Undo), Làm lại (Redo) và Vẽ lại từ đầu', async ({ page }) => {
@@ -126,16 +144,16 @@ test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () =
     await expect(heartGhost).toBeVisible();
     await expect(page.locator('text=Rãnh trên (400, 190)')).toBeVisible();
 
-    await page.screenshot({ path: 'tests/screenshots/simulator-heart-exercise.png' });
+    await saveScreenshot(page, 'simulator-heart-exercise.png');
   });
 
   test('TC-SIM-06: Kiểm tra giao diện đáp ứng trên Tablet và Mobile', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.waitForTimeout(150);
-    await page.screenshot({ path: 'tests/screenshots/simulator-tablet-768.png' });
+    await saveScreenshot(page, 'simulator-tablet-768.png');
 
     await page.setViewportSize({ width: 375, height: 667 });
     await page.waitForTimeout(150);
-    await page.screenshot({ path: 'tests/screenshots/simulator-mobile-375.png' });
+    await saveScreenshot(page, 'simulator-mobile-375.png');
   });
 });

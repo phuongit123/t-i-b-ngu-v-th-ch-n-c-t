@@ -4,12 +4,9 @@ import { SidebarNavigation } from './components/layout/SidebarNavigation';
 import { DesignSystemPreview } from './components/preview/DesignSystemPreview';
 import { SearchCommand, SearchResultItem } from './components/search/SearchCommand';
 import { Toast } from './components/ui/Toast';
-import { EmptyState } from './components/ui/EmptyState';
-import { PageHeader } from './components/layout/PageHeader';
 import { SimulatorPage } from './pages/SimulatorPage';
 import { HomePage } from './pages/HomePage';
 import { LessonPage } from './pages/LessonPage';
-import { Terminal } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 import { lessonTranslationsVi } from './data/curriculum/translationsVi';
@@ -17,6 +14,7 @@ import { useLearningProgress } from './lib/learning-store';
 
 const CatalogPage = React.lazy(() => import('./pages/CatalogPage'));
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
+const PlaygroundPage = React.lazy(() => import('./pages/PlaygroundPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
 const CapstoneAssessmentPage = React.lazy(() => import('./pages/CapstoneAssessmentPage'));
 const KnowledgePage = React.lazy(() => import('./pages/KnowledgePage'));
@@ -58,6 +56,7 @@ export const App: React.FC = () => {
   const [activeTrack, setActiveTrack] = useState<AffinityTrackId>('designer');
   const [activeModuleId, setActiveModuleId] = useState<string>('D01');
   const [activeLessonId, setActiveLessonId] = useState<string | null>(null);
+  const [playgroundSymbolId, setPlaygroundSymbolId] = useState<string | null>(null);
   const [theme, setTheme] = useState<ThemeMode>('dark');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeToast, setActiveToast] = useState<{ title: string; message?: string } | null>(null);
@@ -189,7 +188,14 @@ export const App: React.FC = () => {
       case 'glossary':
         return <KnowledgePage initialTab="glossary" onNavigate={handleNavigate} />;
       case 'encyclopedia':
-        return <EncyclopediaPage />;
+        return (
+          <EncyclopediaPage
+            onOpenInPlayground={(className) => {
+              setPlaygroundSymbolId(className);
+              handleNavigate('playground');
+            }}
+          />
+        );
       case 'dashboard':
         return <DashboardPage onNavigate={handleNavigate} />;
       case 'settings':
@@ -200,18 +206,10 @@ export const App: React.FC = () => {
         return <CapstoneAssessmentPage />;
       case 'playground':
         return (
-          <div>
-            <PageHeader
-              title="Phòng Thí Nghiệm Lập Trình Scripting & MCP"
-              description="Thực hành tự động hóa JavaScript DOM và theo dõi cấu trúc đối tượng tài liệu trong môi trường kiểm thử an toàn."
-              badge="Thực hành tự động hóa"
-            />
-            <EmptyState
-              icon={<Terminal className="w-5 h-5 text-emerald-400" />}
-              title="Trình Soạn Thảo Kịch Bản & Mô Phỏng Tài Liệu"
-              description="Không gian chạy kịch bản tự động hóa tương tác trực quan đang được nâng cấp trong lộ trình phát triển công cụ."
-            />
-          </div>
+          <PlaygroundPage
+            initialSymbolId={playgroundSymbolId}
+            onNavigateToEncyclopedia={() => handleNavigate('encyclopedia')}
+          />
         );
       default:
         return <DesignSystemPreview />;
