@@ -24,7 +24,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Live Badge */}
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-hairline text-[11px] font-mono text-zinc-300 mb-6 shadow-subtle">
         <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-        <span>SERIF AFFINITY 3.0 &bull; MASTERO &amp; MINIMALISM</span>
+        <span>AFFINITY ACADEMY &bull; DESIGN THINKING &amp; STUDIO MASTERY</span>
         {isMcpActive && (
           <span className="flex items-center gap-1 text-emerald-400 font-semibold pl-1.5 border-l border-hairline">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -43,8 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Subtitle */}
       <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto mt-5 leading-relaxed font-normal">
-        The premier interactive academy for Serif Affinity Designer, Photo, and Publisher 3.0.
-        Learn manual artistic craft alongside live computational JavaScript DOM scripting.
+        Interactive academy for Vector Studio, Pixel Studio, and Layout Studio workflows alongside computational JavaScript DOM scripting.
       </p>
 
       {/* Action Buttons */}

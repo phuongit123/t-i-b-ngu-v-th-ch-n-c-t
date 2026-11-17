@@ -21,6 +21,8 @@ export const LessonCard: React.FC<LessonCardProps> = ({
 
   return (
     <div
+      data-testid={`lesson-card-${lesson.id}`}
+      data-completed={lesson.completed ? 'true' : 'false'}
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -34,6 +36,8 @@ export const LessonCard: React.FC<LessonCardProps> = ({
         'group flex items-center justify-between p-3.5 rounded-sm border transition-all duration-150 cursor-pointer select-none text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400',
         isActive
           ? 'bg-zinc-800/90 border-zinc-500 shadow-subtle'
+          : lesson.completed
+          ? 'bg-emerald-950/15 border-emerald-500/30 hover:border-emerald-500/50'
           : 'bg-surface border-hairline hover:border-subtle hover:bg-surface/80',
         className
       )}
@@ -43,16 +47,20 @@ export const LessonCard: React.FC<LessonCardProps> = ({
           {lesson.completed ? (
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
           ) : (
-            <PlayCircle className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200" />
+            <PlayCircle className="w-4 h-4 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
           )}
         </div>
         <div className="min-w-0">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase">
-            Bài {lesson.lessonNumber}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono text-zinc-500 uppercase">
+              {lesson.id} &bull; Bài {lesson.lessonNumber}
+            </span>
+            {lesson.completed && (
+              <span className="text-[9px] font-mono text-emerald-400">Hoàn thành</span>
+            )}
+          </div>
           <h5 className="text-xs font-semibold text-zinc-200 truncate group-hover:text-white">
-            <span>{displayTitle}</span>
-            <span className="sr-only">{lesson.title}</span>
+            {displayTitle}
           </h5>
         </div>
       </div>

@@ -12,14 +12,13 @@ import {
   Apple,
   Filter,
   CheckCircle2,
-  AlertTriangle,
-  RefreshCw,
 } from 'lucide-react';
 import {
   OFFICIAL_SHORTCUTS,
   CHEATSHEET_SECTIONS,
   GLOSSARY_TERMS,
-} from '@/data/knowledge/index';
+} from '@/data/knowledge-hub-data';
+import { usePreferences, formatShortcutForOs } from '@/lib/preferences-context';
 
 export type KnowledgeTab = 'search' | 'shortcuts' | 'cheatsheet' | 'glossary';
 
@@ -32,13 +31,12 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
   initialTab = 'search',
   onNavigate,
 }) => {
+  const { preferences, updatePreferences } = usePreferences();
   const [activeTab, setActiveTab] = useState<KnowledgeTab>(initialTab);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStudio, setSelectedStudio] = useState<'all' | 'layout' | 'vector' | 'pixel'>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [osPlatform, setOsPlatform] = useState<'windows' | 'mac'>('windows');
-  const [simulatedError, setSimulatedError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const osPlatform = preferences.shortcutModifier;
 
   // Sync tab with props if changed externally
   React.useEffect(() => {
@@ -132,28 +130,12 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
     });
   }, [selectedCategory, searchQuery]);
 
-  // Simulate refresh / loading state
-  const handleRefresh = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setSimulatedError(false);
-    }, 400);
-  };
-
   return (
     <div className="space-y-6">
       <PageHeader
-        title={
-          <div className="flex flex-wrap items-center gap-3">
-            <span>Trung Tâm Tri Thức &amp; Tra Cứu Toàn Diện</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
-              NHÓM KNOWLEDGE
-            </span>
-          </div>
-        }
-        description="Tra cứu phím tắt chính thức, bảng tóm tắt quy tắc đồ họa, từ điển thuật ngữ tư duy thiết kế và tìm kiếm liên kết trên toàn bộ hệ thống Affinity Academy."
-        badge="Tra cứu đa chiều · 4 phân hệ kiến thức · Xác minh nguồn Serif"
+        title="Trung Tâm Tri Thức & Tra Cứu Toàn Diện"
+        description="Tra cứu phím tắt chính thức, bảng tóm tắt quy tắc đồ họa, từ điển thuật ngữ tư duy thiết kế và tìm kiếm nhanh trên toàn hệ thống."
+        badge="Trung tâm tra cứu · 4 phân hệ kiến thức"
       />
 
       {/* Navigation Sub-Tabs & Actions Bar */}
@@ -197,35 +179,7 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
         </div>
       </div>
 
-      {/* Simulated Error State Toggle for Testing & Resilience */}
-      {simulatedError && (
-        <div className="p-4 rounded-xl border border-red-500/40 bg-red-950/20 flex items-center justify-between gap-3 text-xs text-red-300">
-          <div className="flex items-center gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
-            <span>
-              <strong>Lỗi đồng bộ tri thức (Simulated Error):</strong> Không thể tải dữ liệu chỉ mục mới nhất.
-            </span>
-          </div>
-          <button
-            onClick={handleRefresh}
-            className="px-3 py-1 rounded bg-red-900/60 hover:bg-red-800 text-red-200 border border-red-700 font-mono text-xs flex items-center gap-1.5"
-          >
-            <RefreshCw className="w-3 h-3 animate-spin" />
-            <span>Thử lại</span>
-          </button>
-        </div>
-      )}
-
-      {/* Loading Skeleton Indicator */}
-      {isLoading && (
-        <div className="p-8 text-center text-xs font-mono text-zinc-400 animate-pulse flex items-center justify-center gap-2">
-          <RefreshCw className="w-4 h-4 animate-spin text-cyan-400" />
-          <span>Đang làm mới dữ liệu tri thức...</span>
-        </div>
-      )}
-
-      {!isLoading && !simulatedError && (
-        <>
+      <div className="space-y-6">
           {/* ========================================================= */}
           {/* TAB 1: KNOWLEDGE SEARCH */}
           {/* ========================================================= */}
@@ -306,7 +260,7 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                                   <p className="text-[11px] text-zinc-400 leading-relaxed">{sc.description}</p>
                                 </div>
                                 <kbd className="shrink-0 px-2.5 py-1 rounded bg-zinc-900 border border-zinc-700 text-xs font-mono text-emerald-400 font-bold shadow-sm">
-                                  {osPlatform === 'windows' ? sc.winKey : sc.macKey}
+                                  {formatShortcutForOs(sc.winKey, sc.macKey, osPlatform)}
                                 </kbd>
                               </div>
                             ))}
@@ -383,7 +337,7 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                     </div>
                     <h4 className="text-sm font-bold text-zinc-200">Bảng Phím Tắt Chính Thức</h4>
                     <p className="text-xs text-zinc-400 leading-relaxed">
-                      Phím tắt chuẩn xác minh trên Desktop 3.3.3 cho Vector, Pixel và Layout Studio.
+                      Phím tắt chuẩn xác minh trên Affinity Studio Desktop cho Vector, Pixel và Layout Studio.
                     </p>
                   </div>
 
@@ -454,7 +408,9 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                 {/* OS Toggle */}
                 <div className="flex items-center gap-1 p-0.5 rounded-lg bg-zinc-900 border border-zinc-800 shrink-0 self-start sm:self-auto">
                   <button
-                    onClick={() => setOsPlatform('windows')}
+                    type="button"
+                    data-testid="knowledge-os-windows"
+                    onClick={() => updatePreferences({ shortcutModifier: 'windows' })}
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono transition-all ${
                       osPlatform === 'windows'
                         ? 'bg-zinc-800 text-zinc-100 font-bold shadow-sm'
@@ -465,7 +421,9 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                     <span>Windows (Ctrl)</span>
                   </button>
                   <button
-                    onClick={() => setOsPlatform('mac')}
+                    type="button"
+                    data-testid="knowledge-os-mac"
+                    onClick={() => updatePreferences({ shortcutModifier: 'mac' })}
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono transition-all ${
                       osPlatform === 'mac'
                         ? 'bg-zinc-800 text-zinc-100 font-bold shadow-sm'
@@ -501,7 +459,7 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
 
                     <div className="shrink-0 text-right">
                       <kbd className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700 text-xs font-mono text-emerald-400 font-bold shadow-sm whitespace-nowrap">
-                        {osPlatform === 'windows' ? sc.winKey : sc.macKey}
+                        {formatShortcutForOs(sc.winKey, sc.macKey, osPlatform)}
                       </kbd>
                     </div>
                   </div>
@@ -635,8 +593,7 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
               )}
             </div>
           )}
-        </>
-      )}
+      </div>
     </div>
   );
 };

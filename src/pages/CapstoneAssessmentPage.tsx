@@ -9,6 +9,12 @@ import {
   submitOfficialEvaluation,
   getSubmissionHistory,
 } from '@/lib/capstone-service';
+import {
+  validateSubmissionFile,
+  uploadSubmissionArtifact,
+} from '@/lib/supabase/storage';
+import { useAuth } from '@/lib/supabase/auth-context';
+import { usePreferences } from '@/lib/preferences-context';
 import type {
   RubricDimensionId,
   RubricLevelId,
@@ -29,17 +35,115 @@ import {
   Sparkles,
   Download,
   Info,
+  UploadCloud,
+  ShieldCheck,
 } from 'lucide-react';
 
+type ArtifactFieldKey =
+  | 'briefDeconstructionUrl'
+  | 'iterationLogUrl'
+  | 'vectorSourcePath'
+  | 'pixelSourcePath'
+  | 'printPdfPath'
+  | 'digitalWebpPath';
+
+interface UploadedFileMeta {
+  filename: string;
+  sizeBytes: number;
+  storagePath: string;
+}
+
+interface UploadFieldConfig {
+  key: ArtifactFieldKey;
+  testId: string;
+  label: string;
+  ploTag: string;
+  accept: string;
+  formatHint: string;
+  artifactType: string;
+}
+
+const UPLOAD_FIELDS: UploadFieldConfig[] = [
+  {
+    key: 'briefDeconstructionUrl',
+    testId: 'upload-brief',
+    label: 'Văn bản Phân rã Brief (brief-deconstruction.md) *',
+    ploTag: 'PLO-07',
+    accept: '.md,.pdf,.txt',
+    formatHint: 'Chấp nhận .md, .pdf, .txt (tối đa 50 MB)',
+    artifactType: 'brief',
+  },
+  {
+    key: 'iterationLogUrl',
+    testId: 'upload-iteration',
+    label: 'Nhật ký Sửa đổi & Phản biện (iteration-critique-log.md) *',
+    ploTag: 'PLO-08',
+    accept: '.md,.pdf,.txt',
+    formatHint: 'Chấp nhận .md, .pdf, .txt (tối đa 50 MB)',
+    artifactType: 'iteration',
+  },
+  {
+    key: 'vectorSourcePath',
+    testId: 'upload-vector',
+    label: 'File nguồn Vector (.afdesign) *',
+    ploTag: 'Symbols & Constraints',
+    accept: '.afdesign,.zip',
+    formatHint: 'Chấp nhận .afdesign, .zip (tối đa 50 MB)',
+    artifactType: 'vector',
+  },
+  {
+    key: 'pixelSourcePath',
+    testId: 'upload-pixel',
+    label: 'File nguồn Pixel (.afphoto) *',
+    ploTag: 'Live Lighting & Mask',
+    accept: '.afphoto,.zip',
+    formatHint: 'Chấp nhận .afphoto, .zip (tối đa 50 MB)',
+    artifactType: 'pixel',
+  },
+  {
+    key: 'printPdfPath',
+    testId: 'upload-print-pdf',
+    label: 'Bản xuất in ấn PDF/X-4 CMYK 300 DPI (3mm Bleed) *',
+    ploTag: 'PLO-09 In ấn',
+    accept: '.pdf',
+    formatHint: 'Chấp nhận .pdf (tối đa 50 MB)',
+    artifactType: 'print_pdf',
+  },
+  {
+    key: 'digitalWebpPath',
+    testId: 'upload-digital-webp',
+    label: 'Ấn phẩm kỹ thuật số (WebP / PNG / JPG 2x) *',
+    ploTag: 'PLO-09 Digital',
+    accept: '.webp,.png,.jpg,.jpeg',
+    formatHint: 'Chấp nhận .webp, .png, .jpg, .jpeg (tối đa 50 MB)',
+    artifactType: 'digital_poster',
+  },
+];
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
+
 export const CapstoneAssessmentPage: React.FC = () => {
+  const { user, profile, role } = useAuth();
+  const { preferences } = usePreferences();
+
+  // Strict RBAC check: evaluator console is ONLY rendered for authenticated evaluators or admins
+  const canEvaluate = Boolean((user || profile) && (role === 'evaluator' || role === 'admin'));
+
   const [activeTab, setActiveTab] = useState<'brief' | 'rubric' | 'submit' | 'results'>('brief');
   const [submission, setSubmission] = useState<CapstoneSubmissionRecord>(loadCurrentSubmission);
   const [history, setHistory] = useState<SubmissionHistoryEntry[]>([]);
-  const [isEvaluatorMode, setIsEvaluatorMode] = useState<boolean>(false);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState<{ text: string; isError?: boolean } | null>(null);
 
-  // Form states for student submission
+  // Student artifact upload state
   const [artifacts, setArtifacts] = useState<SubmissionArtifacts>(submission.artifacts);
+  const [uploadedMeta, setUploadedMeta] = useState<Partial<Record<ArtifactFieldKey, UploadedFileMeta>>>({});
+  const [uploadErrors, setUploadErrors] = useState<Partial<Record<ArtifactFieldKey, string>>>({});
+  const [uploadingField, setUploadingField] = useState<ArtifactFieldKey | null>(null);
+
   const [selfScores, setSelfScores] = useState<Record<RubricDimensionId, RubricLevelId>>(
     submission.selfAssessment?.scores || {
       brief_interpretation: 3,
@@ -63,7 +167,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
     }
   );
 
-  // Form states for official evaluation (Evaluator mode)
+  // Evaluator grading state (used only when canEvaluate is true)
   const [evalScores, setEvalScores] = useState<Record<RubricDimensionId, RubricLevelId>>(
     submission.officialEvaluation?.scores || {
       brief_interpretation: 3,
@@ -78,66 +182,116 @@ export const CapstoneAssessmentPage: React.FC = () => {
   const [evalFeedback, setEvalFeedback] = useState<Record<RubricDimensionId, string>>(
     submission.officialEvaluation?.dimensionFeedback || {
       brief_interpretation: 'Phân tích brief mạch lạc, hiểu đúng đối tượng khách hàng specialty.',
-      visual_communication: 'Phân cấp thị giác rõ nét, typography kết hợp hài hòa.',
-      tool_selection: 'Sử dụng Corner Tool và Live Lighting Filter rất chính xác.',
+      visual_communication: 'Phân cấp thị giác rõ nét, kiểu chữ kết hợp hài hòa.',
+      tool_selection: 'Sử dụng Corner Tool và Live Lighting Filter chuẩn xác.',
       non_destructive: 'Cấu trúc layer phi phá hủy tốt, quản lý mặt nạ chặt chẽ.',
-      iteration_critique: 'Nhật ký lặp lại Draft 1 vs Draft 2 minh chứng rõ ràng sự tiến bộ.',
-      production_readiness: 'File PDF/X-4 chuẩn 300 DPI có 3mm bleed đầy đủ.',
-      independent_transfer: 'Tư duy thiết kế độc lập, lập luận sắc sảo.',
+      iteration_critique: 'Nhật ký sửa đổi đối chiếu rõ ràng sự tiến bộ giữa các bản nháp.',
+      production_readiness: 'Tệp PDF/X-4 đạt chuẩn 300 DPI với 3mm bleed đầy đủ.',
+      independent_transfer: 'Tư duy thiết kế độc lập, lập luận rõ ràng.',
     }
   );
   const [evalOverall, setEvalOverall] = useState<string>(
     submission.officialEvaluation?.overallFeedback ||
-      'Bài làm thể hiện năng lực thiết kế độc lập xuất sắc, đáp ứng đầy đủ chuẩn đầu ra tốt nghiệp A5.'
+      'Bài làm thể hiện năng lực thiết kế độc lập tốt, đáp ứng chuẩn đầu ra tốt nghiệp.'
   );
 
   useEffect(() => {
     setHistory(getSubmissionHistory());
   }, []);
 
-  const showToast = (msg: string) => {
-    setToastMessage(msg);
+  const showToast = (text: string, isError = false) => {
+    setToastMessage({ text, isError });
     setTimeout(() => setToastMessage(null), 4000);
+  };
+
+  const handleFileSelected = async (
+    field: UploadFieldConfig,
+    file: File | undefined
+  ): Promise<void> => {
+    if (!file) return;
+
+    const validation = validateSubmissionFile(file);
+    if (!validation.isValid) {
+      setUploadErrors((prev) => ({ ...prev, [field.key]: validation.error || 'Tệp không hợp lệ.' }));
+      showToast(validation.error || 'Tệp tải lên không hợp lệ.', true);
+      return;
+    }
+
+    setUploadingField(field.key);
+    setUploadErrors((prev) => ({ ...prev, [field.key]: undefined }));
+
+    const activeUserId = user?.id || profile?.id || 'offline-student';
+    const result = await uploadSubmissionArtifact(
+      activeUserId,
+      DEFAULT_LUMINA_PROJECT.id,
+      file,
+      field.artifactType
+    );
+
+    setUploadingField(null);
+
+    if (result.error) {
+      setUploadErrors((prev) => ({ ...prev, [field.key]: result.error }));
+      showToast(result.error, true);
+      return;
+    }
+
+    setArtifacts((prev) => ({
+      ...prev,
+      [field.key]: result.path,
+    }));
+    setUploadedMeta((prev) => ({
+      ...prev,
+      [field.key]: {
+        filename: file.name,
+        sizeBytes: result.sizeBytes,
+        storagePath: result.path,
+      },
+    }));
   };
 
   const handleSaveStudentSubmission = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validation checks
-    if (!artifacts.briefDeconstructionUrl.trim()) {
-      showToast('Lỗi: Bắt buộc phải cung cấp liên kết tài liệu Phân rã Brief (PLO-07)!');
-      return;
-    }
-    if (!artifacts.iterationLogUrl.trim()) {
-      showToast('Lỗi: Bắt buộc phải cung cấp liên kết Nhật ký Phản biện & Sửa đổi (PLO-08)!');
-      return;
-    }
-    if (!artifacts.vectorSourcePath.trim() || !artifacts.pixelSourcePath.trim()) {
-      showToast('Lỗi: Bắt buộc phải cung cấp đường dẫn cả 2 file nguồn .afdesign và .afphoto!');
-      return;
+    for (const field of UPLOAD_FIELDS) {
+      if (!artifacts[field.key]?.trim()) {
+        const errText = `Vui lòng tải lên tệp cho mục "${field.label.replace(' *', '')}".`;
+        setUploadErrors((prev) => ({ ...prev, [field.key]: errText }));
+        showToast(errText, true);
+        return;
+      }
     }
 
-    const updated = saveStudentSubmission(artifacts, {
-      scores: selfScores,
-      justifications: selfJustifications,
-      submittedAt: new Date().toISOString(),
-    });
+    const learnerName = profile?.display_name || preferences.displayName;
+    const updated = saveStudentSubmission(
+      artifacts,
+      {
+        scores: selfScores,
+        justifications: selfJustifications,
+        submittedAt: new Date().toISOString(),
+      },
+      learnerName
+    );
 
     setSubmission(updated);
     setHistory(getSubmissionHistory());
-    showToast(`Đã nộp thành công bài làm phiên bản v${updated.version}!`);
+    showToast(`Đã nộp thành công hồ sơ đồ án phiên bản v${updated.version}!`);
   };
 
   const handleSubmitEvaluation = () => {
+    if (!canEvaluate) return;
+
+    const evaluatorId = user?.id || profile?.id || 'EVAL-PANEL-01';
+    const evaluatorName = profile?.display_name || 'Hội Đồng Giám Khảo Độc Lập';
     const updated = submitOfficialEvaluation(
-      'EVAL-LEAD-AUDITOR',
-      'Hội Đồng Giám Khảo Độc Lập Affinity Academy',
+      evaluatorId,
+      evaluatorName,
       evalScores,
       evalFeedback,
       evalOverall
     );
     setSubmission(updated);
-    showToast('Đã lưu kết quả Đánh giá Chính thức và cấp Chứng chỉ A5 (nếu đạt)!');
+    showToast('Đã lưu kết quả thẩm định chính thức của Hội đồng Giám khảo!');
   };
 
   const studentEstimatedScore = calculateWeightedScore(selfScores);
@@ -147,9 +301,17 @@ export const CapstoneAssessmentPage: React.FC = () => {
     <div className="space-y-8 max-w-6xl mx-auto pb-16">
       {/* Toast Alert */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-zinc-900 border border-emerald-500/50 text-emerald-300 px-5 py-3 rounded-lg shadow-2xl flex items-center gap-3 font-mono text-xs animate-in fade-in slide-in-from-top-2">
-          <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>{toastMessage}</span>
+        <div
+          className={`fixed top-20 right-6 z-50 px-5 py-3 rounded-lg shadow-2xl flex items-center gap-3 font-mono text-xs border animate-in fade-in slide-in-from-top-2 ${
+            toastMessage.isError
+              ? 'bg-red-950/95 border-red-500/50 text-red-200'
+              : 'bg-zinc-900 border-emerald-500/50 text-emerald-300'
+          }`}
+        >
+          <Sparkles
+            className={`w-4 h-4 shrink-0 ${toastMessage.isError ? 'text-red-400' : 'text-emerald-400'}`}
+          />
+          <span>{toastMessage.text}</span>
         </div>
       )}
 
@@ -157,45 +319,25 @@ export const CapstoneAssessmentPage: React.FC = () => {
       <div className="space-y-3 border-b border-[var(--color-border-hairline)] pb-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-purple-950/40 text-purple-400 border border-purple-800/40 font-semibold tracking-wider uppercase">
-                A5 GRADUATION CAPSTONE ASSESSMENT
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-purple-950/40 text-purple-300 border border-purple-800/40 font-semibold">
+                Đồ án tốt nghiệp cuối khóa
               </span>
-              <span className="font-mono text-xs text-zinc-500">
-                TASK-081 &bull; REQ-LEARN-003
-              </span>
+              {canEvaluate && (
+                <span
+                  data-testid="evaluator-role-badge"
+                  className="inline-flex items-center gap-1 font-mono text-xs px-2.5 py-0.5 rounded-full bg-amber-950/40 text-amber-300 border border-amber-700/40 font-semibold"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5" /> Chế độ Hội đồng Giám khảo
+                </span>
+              )}
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
               {DEFAULT_LUMINA_PROJECT.titleVi}
             </h1>
             <p className="text-sm text-[var(--color-text-secondary)] max-w-3xl">
-              Hệ thống đánh giá năng lực thực tế độc lập cấp độ A5. Học viên giải quyết bài toán tái định vị toàn diện cho thương hiệu cà phê thủ công Lumina, ưu tiên hai chuẩn đầu ra <strong className="text-zinc-200">PLO-07 (Brief Interpretation)</strong> và <strong className="text-zinc-200">PLO-08 (Iteration & Critique)</strong>.
+              Hệ thống đánh giá năng lực thực tế độc lập. Học viên giải quyết bài toán tái định vị toàn diện cho thương hiệu cà phê thủ công Lumina, trọng tâm là <strong className="text-zinc-200">PLO-07 (Phân rã Brief)</strong> và <strong className="text-zinc-200">PLO-08 (Phản biện &amp; Sửa đổi)</strong>.
             </p>
-          </div>
-
-          {/* Evaluator Mode Toggle Pill */}
-          <div className="flex items-center gap-2 bg-[var(--color-canvas)] p-1.5 rounded-lg border border-[var(--color-border-hairline)]">
-            <span className="text-xs font-mono text-zinc-400 pl-2">Chế độ xem:</span>
-            <button
-              onClick={() => setIsEvaluatorMode(false)}
-              className={`px-3 py-1.5 rounded text-xs font-mono transition-all ${
-                !isEvaluatorMode
-                  ? 'bg-zinc-800 text-emerald-400 font-bold border border-zinc-700 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
-              }`}
-            >
-              Học viên (Nộp bài)
-            </button>
-            <button
-              onClick={() => setIsEvaluatorMode(true)}
-              className={`px-3 py-1.5 rounded text-xs font-mono transition-all ${
-                isEvaluatorMode
-                  ? 'bg-purple-900/60 text-purple-300 font-bold border border-purple-700 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
-              }`}
-            >
-              Giám khảo (Chấm điểm)
-            </button>
           </div>
         </div>
 
@@ -205,10 +347,12 @@ export const CapstoneAssessmentPage: React.FC = () => {
             { id: 'brief', label: '1. Đề tài & Hướng dẫn', icon: <FileText className="w-3.5 h-3.5" /> },
             { id: 'rubric', label: '2. Tiêu chí & Rubric', icon: <Layers className="w-3.5 h-3.5" /> },
             { id: 'submit', label: '3. Nộp bài & Tự đánh giá', icon: <Send className="w-3.5 h-3.5" /> },
-            { id: 'results', label: '4. Kết quả & Chứng chỉ A5', icon: <Award className="w-3.5 h-3.5" /> },
+            { id: 'results', label: '4. Kết quả & Chứng nhận', icon: <Award className="w-3.5 h-3.5" /> },
           ].map((tab) => (
             <button
+              type="button"
               key={tab.id}
+              data-testid={`capstone-tab-${tab.id}`}
               onClick={() => setActiveTab(tab.id as typeof activeTab)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium font-mono whitespace-nowrap transition-all ${
                 activeTab === tab.id
@@ -228,21 +372,22 @@ export const CapstoneAssessmentPage: React.FC = () => {
       {/* ========================================================= */}
       {activeTab === 'brief' && (
         <div className="space-y-6 animate-in fade-in duration-200">
-          {/* Brief Overview Box */}
           <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold">
-                Project Background &amp; Client Overview
+                Bối cảnh dự án &amp; Hồ sơ thương hiệu
               </span>
-              <span className="text-xs font-mono text-zinc-500">Mã dự án: {DEFAULT_LUMINA_PROJECT.id}</span>
+              <span className="text-xs font-mono text-zinc-500">
+                Mã đề tài: {DEFAULT_LUMINA_PROJECT.id}
+              </span>
             </div>
-            <h2 className="text-xl font-bold text-zinc-100">{DEFAULT_LUMINA_PROJECT.title}</h2>
+            <h2 className="text-xl font-bold text-zinc-100">{DEFAULT_LUMINA_PROJECT.titleVi}</h2>
             <p className="text-sm text-zinc-300 leading-relaxed">
               {DEFAULT_LUMINA_PROJECT.scenarioOverview}
             </p>
             <div className="p-4 rounded-lg bg-zinc-900/80 border border-zinc-800 space-y-2">
               <h4 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
-                Khán giả mục tiêu (Target Audience):
+                Chân dung khách hàng mục tiêu:
               </h4>
               <p className="text-xs text-zinc-300 leading-relaxed">
                 {DEFAULT_LUMINA_PROJECT.targetAudience}
@@ -250,12 +395,11 @@ export const CapstoneAssessmentPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Technical Constraints Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-3">
               <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                Ràng buộc Kỹ thuật Bắt buộc
+                Ràng buộc kỹ thuật bắt buộc
               </h3>
               <ul className="space-y-2.5 text-xs text-zinc-400">
                 {DEFAULT_LUMINA_PROJECT.technicalConstraints.map((c, i) => (
@@ -270,7 +414,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
             <div className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-3">
               <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
                 <Download className="w-4 h-4 text-cyan-400" />
-                Tài nguyên Đầu vào Cung cấp (Starter Assets)
+                Bộ học liệu khởi đầu
               </h3>
               <div className="space-y-2">
                 {DEFAULT_LUMINA_PROJECT.starterAssets.map((asset, i) => (
@@ -293,22 +437,21 @@ export const CapstoneAssessmentPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 8-Step Design Thinking Methodology */}
           <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-4">
             <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-400" />
-              Chu trình Design Thinking 8 Bước Cần Áp Dụng
+              Chu trình Tư duy Thiết kế 8 bước cần áp dụng
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {[
-                { step: '1. Discover', desc: 'Nghiên cứu thị trường specialty coffee & lập Moodboard' },
-                { step: '2. Define (PLO-07)', desc: 'Phân rã brief: Audience, Message, Constraints, Metrics' },
-                { step: '3. Explore', desc: 'Phác thảo tối thiểu 2 hướng tiếp cận bố cục độc lập' },
-                { step: '4. Plan', desc: 'Thiết lập grid, palette màu và quy tắc Constraints' },
-                { step: '5. Create', desc: 'Thực thi trên Vector Studio & Pixel Studio 100% phi phá hủy' },
-                { step: '6. Evaluate', desc: 'Tự đối soát viền, màu in CMYK và tỷ lệ co giãn' },
-                { step: '7. Iterate (PLO-08)', desc: 'Lập nhật ký sửa đổi so sánh Draft 1 vs Final Work' },
-                { step: '8. Deliver (PLO-09)', desc: 'Xuất bản in PDF/X-4 và file digital WebP đúng chuẩn' },
+                { step: '1. Khám phá (Discover)', desc: 'Nghiên cứu thị trường cà phê thủ công & lập bảng cảm hứng' },
+                { step: '2. Xác định (Define · PLO-07)', desc: 'Phân rã brief: Khách hàng, Mục tiêu, Thông điệp, Ràng buộc, Đo lường' },
+                { step: '3. Khai phá (Explore)', desc: 'Phác thảo tối thiểu 2 hướng tiếp cận bố cục độc lập' },
+                { step: '4. Lập kế hoạch (Plan)', desc: 'Thiết lập hệ lưới, bảng màu và quy tắc co giãn Constraints' },
+                { step: '5. Tạo tác (Create)', desc: 'Thực thi trên Vector Studio & Pixel Studio hoàn toàn phi phá hủy' },
+                { step: '6. Đánh giá (Evaluate)', desc: 'Tự đối soát viền cắt, màu in CMYK và tỷ lệ co giãn' },
+                { step: '7. Sửa đổi (Iterate · PLO-08)', desc: 'Lập nhật ký phản biện so sánh Bản nháp 1 với Bản hoàn thiện' },
+                { step: '8. Bàn giao (Deliver · PLO-09)', desc: 'Xuất bản in PDF/X-4 và tệp kỹ thuật số WebP đúng chuẩn' },
               ].map((s, i) => (
                 <div key={i} className="p-3.5 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-1">
                   <span className="text-xs font-mono font-bold text-zinc-200 block">{s.step}</span>
@@ -325,23 +468,21 @@ export const CapstoneAssessmentPage: React.FC = () => {
       {/* ========================================================= */}
       {activeTab === 'rubric' && (
         <div className="space-y-6 animate-in fade-in duration-200">
-          {/* Graduation Threshold Banner */}
           <div className="p-5 rounded-xl border border-emerald-500/30 bg-emerald-950/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
               <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
-                TIÊU CHUẨN TỐT NGHIỆP A5 (GRADUATION THRESHOLD)
+                Ngưỡng điểm đạt chuẩn tốt nghiệp
               </span>
               <p className="text-xs text-zinc-300 leading-relaxed">
-                Để đạt chứng chỉ tốt nghiệp: Điểm tổng kết có trọng số phải đạt <strong className="text-emerald-300">&ge; 75/100</strong> và <strong className="text-emerald-300">TẤT CẢ 5 Tiêu chí Trọng yếu (Critical Dimensions)</strong> bắt buộc phải đạt tối thiểu <strong className="text-emerald-300">Mức 3 (Level 3 - Độc lập)</strong>.
+                Để đạt chứng nhận tốt nghiệp: Điểm tổng kết có trọng số phải đạt <strong className="text-emerald-300">&ge; 75/100</strong> và <strong className="text-emerald-300">tất cả 5 tiêu chí trọng yếu</strong> bắt buộc đạt tối thiểu <strong className="text-emerald-300">Mức 3 (Độc lập)</strong>.
               </p>
             </div>
             <div className="shrink-0 font-mono text-center px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800">
-              <span className="text-[10px] text-zinc-500 uppercase block">Điểm chuẩn qua môn</span>
+              <span className="text-[10px] text-zinc-500 uppercase block">Điểm chuẩn đạt</span>
               <span className="text-lg font-bold text-emerald-400">&ge; 75.0</span>
             </div>
           </div>
 
-          {/* Rubric Dimensions Accordion / List */}
           <div className="space-y-4">
             {CAPSTONE_RUBRIC_DIMENSIONS.map((dim) => (
               <div
@@ -352,8 +493,8 @@ export const CapstoneAssessmentPage: React.FC = () => {
                   <div className="flex items-center gap-2.5">
                     <span className="text-sm font-bold text-zinc-100">{dim.titleVi}</span>
                     {dim.isCritical && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-950/60 text-red-400 border border-red-800/40 font-bold uppercase">
-                        CRITICAL (BẮT BUỘC &ge; MỨC 3)
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-950/60 text-red-300 border border-red-800/40 font-bold uppercase">
+                        Tiêu chí trọng yếu (Bắt buộc &ge; Mức 3)
                       </span>
                     )}
                   </div>
@@ -369,7 +510,6 @@ export const CapstoneAssessmentPage: React.FC = () => {
                   <strong>Bằng chứng yêu cầu:</strong> {dim.requiredEvidence}
                 </div>
 
-                {/* 4 Levels Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
                   {[1, 2, 3, 4].map((lvl) => {
                     const levelData = dim.levels[lvl as RubricLevelId];
@@ -393,7 +533,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                           </span>
                           {lvl === 3 && (
                             <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/50">
-                              Chuẩn Đạt
+                              Chuẩn đạt
                             </span>
                           )}
                         </div>
@@ -414,134 +554,131 @@ export const CapstoneAssessmentPage: React.FC = () => {
       )}
 
       {/* ========================================================= */}
-      {/* TAB 3: SUBMISSION & SELF-ASSESSMENT */}
+      {/* TAB 3: FILE UPLOAD SUBMISSION & SELF-ASSESSMENT */}
       {/* ========================================================= */}
       {activeTab === 'submit' && (
         <form onSubmit={handleSaveStudentSubmission} className="space-y-8 animate-in fade-in duration-200">
-          {/* Artifact URLs Section */}
           <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-5">
             <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
               <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
-                <FileText className="w-4 h-4 text-emerald-400" />
-                1. Khai báo Bằng chứng Nộp bài (Submission Artifacts)
+                <UploadCloud className="w-4 h-4 text-emerald-400" />
+                1. Hồ sơ &amp; Tệp bài làm nộp chấm
               </h3>
-              <span className="text-xs font-mono text-zinc-500">Phiên bản hiện tại: v{submission.version}</span>
+              <span className="text-xs font-mono text-zinc-500">
+                {submission.version > 0
+                  ? `Phiên bản đã nộp: v${submission.version}`
+                  : 'Chưa có bản nộp'}
+              </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  Văn bản Phân rã Brief (brief-deconstruction.md) * <span className="text-emerald-400">[PLO-07]</span>
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.briefDeconstructionUrl}
-                  onChange={(e) => setArtifacts({ ...artifacts, briefDeconstructionUrl: e.target.value })}
-                  placeholder="project-control/artifacts/brief-deconstruction.md"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+              {UPLOAD_FIELDS.map((field) => {
+                const meta = uploadedMeta[field.key];
+                const savedPath = artifacts[field.key];
+                const fieldErr = uploadErrors[field.key];
+                const isUploading = uploadingField === field.key;
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  Nhật ký Sửa đổi & Phản biện (iteration-critique-log.md) * <span className="text-emerald-400">[PLO-08]</span>
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.iterationLogUrl}
-                  onChange={(e) => setArtifacts({ ...artifacts, iterationLogUrl: e.target.value })}
-                  placeholder="project-control/artifacts/iteration-critique-log.md"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+                return (
+                  <div
+                    key={field.key}
+                    className={`p-4 rounded-lg border space-y-2 transition-colors ${
+                      fieldErr
+                        ? 'border-red-500/50 bg-red-950/10'
+                        : savedPath
+                        ? 'border-emerald-500/40 bg-emerald-950/10'
+                        : 'border-zinc-800 bg-zinc-900/50'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <label
+                        htmlFor={field.testId}
+                        className="text-xs font-mono text-zinc-200 font-medium block"
+                      >
+                        {field.label}
+                      </label>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-cyan-300 shrink-0">
+                        {field.ploTag}
+                      </span>
+                    </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  File Nguồn Vector (.afdesign) * <span className="text-cyan-400">[Symbols & Constraints]</span>
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.vectorSourcePath}
-                  onChange={(e) => setArtifacts({ ...artifacts, vectorSourcePath: e.target.value })}
-                  placeholder="assets/lumina-brand-system.afdesign"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+                    <input
+                      id={field.testId}
+                      data-testid={field.testId}
+                      type="file"
+                      accept={field.accept}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        void handleFileSelected(field, file);
+                      }}
+                      className="block w-full text-xs text-zinc-400 font-mono file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border file:border-zinc-700 file:text-xs file:font-mono file:bg-zinc-800 file:text-zinc-200 hover:file:bg-zinc-700 cursor-pointer"
+                    />
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  File Nguồn Pixel (.afphoto) * <span className="text-cyan-400">[Live Lighting 3D]</span>
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.pixelSourcePath}
-                  onChange={(e) => setArtifacts({ ...artifacts, pixelSourcePath: e.target.value })}
-                  placeholder="assets/lumina-coldbrew-kv.afphoto"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+                    <p className="text-[10px] text-zinc-500 font-mono">{field.formatHint}</p>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  Bản Xuất In Ấn (PDF/X-4 CMYK 300 DPI, 3mm Bleed) *
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.printPdfPath}
-                  onChange={(e) => setArtifacts({ ...artifacts, printPdfPath: e.target.value })}
-                  placeholder="exports/label-packaging-print.pdf"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+                    {isUploading && (
+                      <p className="text-[11px] font-mono text-cyan-400">Đang kiểm tra và tải tệp...</p>
+                    )}
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-zinc-300 block">
-                  Poster Kỹ Thuật Số (WebP/PNG sRGB 2x) *
-                </label>
-                <input
-                  type="text"
-                  value={artifacts.digitalWebpPath}
-                  onChange={(e) => setArtifacts({ ...artifacts, digitalWebpPath: e.target.value })}
-                  placeholder="exports/lumina-ad-banner-2x.webp"
-                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
-                  required
-                />
-              </div>
+                    {meta && !fieldErr && (
+                      <div
+                        data-testid={`${field.testId}-status`}
+                        className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">
+                          Đã kiểm tra: {meta.filename} ({formatBytes(meta.sizeBytes)})
+                        </span>
+                      </div>
+                    )}
+
+                    {!meta && savedPath && !fieldErr && (
+                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">Tệp đã lưu: {savedPath}</span>
+                      </div>
+                    )}
+
+                    {fieldErr && (
+                      <div
+                        data-testid={`${field.testId}-error`}
+                        className="flex items-start gap-1.5 text-[11px] font-mono text-red-400"
+                      >
+                        <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                        <span>{fieldErr}</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="space-y-1.5 pt-2">
               <label className="text-xs font-mono text-zinc-300 block">
-                Ghi chú thêm cho Giám khảo (Tùy chọn)
+                Ghi chú giải trình cho Hội đồng Giám khảo (Tùy chọn)
               </label>
               <textarea
                 value={artifacts.additionalNotes || ''}
                 onChange={(e) => setArtifacts({ ...artifacts, additionalNotes: e.target.value })}
                 rows={2}
-                placeholder="Nhập ghi chú về các điểm nhấn kỹ thuật đặc biệt..."
+                placeholder="Ghi chú ngắn gọn về các quyết định kỹ thuật hoặc điểm cải tiến nổi bật..."
                 className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-zinc-500"
               />
             </div>
           </div>
 
-          {/* Self-Assessment Scoring Sliders */}
           <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 pb-3">
               <div>
                 <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
                   <UserCheck className="w-4 h-4 text-purple-400" />
-                  2. Tự Đánh Giá Năng Lực (Student Self-Assessment)
+                  2. Tự đối chiếu năng lực trước khi nộp
                 </h3>
                 <p className="text-xs text-zinc-400">
-                  Học viên tự đánh giá trung thực mức độ đạt được cho từng chiều kích kèm lý giải ngắn gọn.
+                  Học viên tự đối chiếu mức độ đạt được theo từng tiêu chí kèm lý giải ngắn gọn.
                 </p>
               </div>
               <div className="px-3 py-1.5 rounded bg-zinc-900 border border-zinc-800 font-mono text-xs">
-                <span className="text-zinc-500">Ước lượng tự chấm: </span>
+                <span className="text-zinc-500">Điểm tự đối chiếu tham khảo: </span>
                 <span className="font-bold text-emerald-400">{studentEstimatedScore} / 100</span>
               </div>
             </div>
@@ -588,7 +725,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                       onChange={(e) =>
                         setSelfJustifications({ ...selfJustifications, [dim.id]: e.target.value })
                       }
-                      placeholder="Lý giải ngắn gọn tại sao bạn tự chấm mức này..."
+                      placeholder="Lý giải ngắn gọn minh chứng trong bài làm của bạn..."
                       className="w-full px-3 py-1.5 rounded bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-300 focus:outline-none focus:border-zinc-600"
                     />
                   </div>
@@ -598,10 +735,11 @@ export const CapstoneAssessmentPage: React.FC = () => {
 
             <div className="flex items-center justify-end gap-4 pt-4 border-t border-zinc-800">
               <span className="text-xs text-zinc-500 font-mono">
-                Sau khi nộp, bài làm sẽ được gửi tới Giám khảo Độc lập để chấm chính thức.
+                Hồ sơ sẽ được chuyển đến Hội đồng Giám khảo độc lập để chấm điểm chính thức.
               </span>
               <button
                 type="submit"
+                data-testid="submit-capstone-btn"
                 className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs font-mono shadow-subtle transition-all"
               >
                 <Send className="w-4 h-4" />
@@ -613,37 +751,47 @@ export const CapstoneAssessmentPage: React.FC = () => {
       )}
 
       {/* ========================================================= */}
-      {/* TAB 4: OFFICIAL RESULTS & EVALUATOR CONSOLE */}
+      {/* TAB 4: OFFICIAL RESULTS & RBAC-PROTECTED EVALUATOR CONSOLE */}
       {/* ========================================================= */}
       {activeTab === 'results' && (
         <div className="space-y-8 animate-in fade-in duration-200">
-          {/* EVALUATOR MODE CONSOLE (When toggled on) */}
-          {isEvaluatorMode && (
-            <div className="p-6 rounded-xl border border-purple-500/40 bg-purple-950/20 space-y-6">
+          {canEvaluate && (
+            <div
+              data-testid="evaluator-console"
+              className="p-6 rounded-xl border border-purple-500/40 bg-purple-950/20 space-y-6"
+            >
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-purple-900/50 pb-3">
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="w-5 h-5 text-purple-400" />
                   <span className="font-mono text-xs font-bold text-purple-300 uppercase tracking-wider">
-                    BẢNG ĐIỀU KHIỂN CHẤM ĐIỂM CHÍNH THỨC CỦA GIÁM KHẢO ĐỘC LẬP
+                    Bảng thẩm định chính thức của Hội đồng Giám khảo
                   </span>
                 </div>
-                <div className="font-mono text-xs text-purple-400">
-                  Trạng thái dự kiến: {officialEvalPreview.passed ? 'ĐẠT (PASS)' : 'KHÔNG ĐẠT (FAIL)'}
+                <div
+                  data-testid="evaluator-preview-verdict"
+                  className="font-mono text-xs text-purple-300"
+                >
+                  Kết quả dự kiến: {officialEvalPreview.passed ? 'ĐẠT' : 'KHÔNG ĐẠT'} ({officialEvalPreview.score} điểm)
                 </div>
               </div>
 
-              {/* Evaluator Sliders */}
               <div className="space-y-4">
                 {CAPSTONE_RUBRIC_DIMENSIONS.map((dim) => {
                   const currentScore = evalScores[dim.id] || 3;
                   return (
-                    <div key={dim.id} className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 space-y-2">
+                    <div
+                      key={dim.id}
+                      data-testid={`eval-dim-${dim.id}`}
+                      className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 space-y-2"
+                    >
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="text-xs font-bold text-zinc-200">{dim.titleVi}</span>
                         <div className="flex items-center gap-1">
                           {[1, 2, 3, 4].map((lvl) => (
                             <button
+                              type="button"
                               key={lvl}
+                              data-testid={`eval-${dim.id}-lvl-${lvl}`}
                               onClick={() => setEvalScores({ ...evalScores, [dim.id]: lvl as RubricLevelId })}
                               className={`px-2.5 py-1 rounded text-xs font-mono ${
                                 currentScore === lvl
@@ -682,19 +830,19 @@ export const CapstoneAssessmentPage: React.FC = () => {
 
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button
+                  type="button"
+                  data-testid="evaluator-signoff-btn"
                   onClick={handleSubmitEvaluation}
                   className="px-6 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono font-bold text-xs shadow-lg transition-all"
                 >
-                  Ký Duyệt Kết Quả Chính Thức &amp; Cấp Chứng Chỉ
+                  Ký Duyệt Kết Quả Chính Thức &amp; Cấp Chứng Nhận
                 </button>
               </div>
             </div>
           )}
 
-          {/* OFFICIAL RESULT DISPLAY */}
           {submission.officialEvaluation ? (
             <div className="space-y-6">
-              {/* Verdict Banner */}
               <div
                 className={`p-6 rounded-xl border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ${
                   submission.officialEvaluation.passed
@@ -710,13 +858,13 @@ export const CapstoneAssessmentPage: React.FC = () => {
                       <AlertTriangle className="w-5 h-5 text-red-400" />
                     )}
                     <span className="text-xs font-mono uppercase font-bold tracking-wider">
-                      KẾT QUẢ ĐÁNH GIÁ CHÍNH THỨC CẤP ĐỘ A5
+                      Kết quả thẩm định chính thức đồ án tốt nghiệp
                     </span>
                   </div>
                   <h3 className="text-2xl font-extrabold text-zinc-100">
                     {submission.officialEvaluation.passed
                       ? 'ĐẠT CHUẨN TỐT NGHIỆP — XÁC NHẬN NĂNG LỰC ĐỘC LẬP'
-                      : 'YÊU CẦU ĐIỀU CHỈNH & SỬA ĐỔI (NEEDS REVISION)'}
+                      : 'KHÔNG ĐẠT — YÊU CẦU ĐIỀU CHỈNH & NỘP LẠI'}
                   </h3>
                   <p className="text-xs text-zinc-400 max-w-2xl leading-relaxed">
                     {submission.officialEvaluation.overallFeedback}
@@ -724,7 +872,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
 
                 <div className="text-center font-mono px-5 py-3 rounded-lg bg-zinc-900 border border-zinc-800 shrink-0">
-                  <span className="text-[10px] text-zinc-500 uppercase block">Điểm Chính Thức</span>
+                  <span className="text-[10px] text-zinc-500 uppercase block">Điểm chính thức</span>
                   <span
                     className={`text-3xl font-extrabold ${
                       submission.officialEvaluation.passed ? 'text-emerald-400' : 'text-red-400'
@@ -736,12 +884,11 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Critical Violations Alert (If any) */}
               {submission.officialEvaluation.criticalViolations.length > 0 && (
                 <div className="p-5 rounded-xl border border-red-500/40 bg-red-950/20 space-y-2 text-xs">
                   <span className="font-mono font-bold text-red-400 uppercase tracking-wider flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 text-red-400" />
-                    Các vi phạm chí mạng (Critical Dimension Violations):
+                    Các tiêu chí trọng yếu chưa đạt yêu cầu:
                   </span>
                   <ul className="space-y-1 text-red-300 font-mono">
                     {submission.officialEvaluation.criticalViolations.map((v, i) => (
@@ -751,7 +898,6 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
               )}
 
-              {/* Certificate Card (When Passed) */}
               {submission.officialEvaluation.passed && (
                 <div className="p-8 rounded-xl border border-amber-500/30 bg-gradient-to-br from-zinc-900 via-zinc-900/90 to-amber-950/20 relative overflow-hidden space-y-4 shadow-2xl">
                   <div className="flex items-center justify-between">
@@ -761,10 +907,10 @@ export const CapstoneAssessmentPage: React.FC = () => {
                       </div>
                       <div>
                         <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block">
-                          AFFINITY ACADEMY GRADUATION CERTIFICATE
+                          CHỨNG NHẬN TỐT NGHIỆP AFFINITY ACADEMY
                         </span>
                         <h4 className="text-lg font-bold text-zinc-100">
-                          Chứng Nhận Năng Lực Thiết Kế Độc Lập (Cấp độ A5)
+                          Chứng Nhận Năng Lực Thiết Kế Độc Lập
                         </h4>
                       </div>
                     </div>
@@ -774,20 +920,22 @@ export const CapstoneAssessmentPage: React.FC = () => {
                   </div>
 
                   <p className="text-xs text-zinc-300 leading-relaxed max-w-3xl">
-                    Chứng nhận học viên <strong className="text-zinc-100">{submission.studentName}</strong> đã hoàn thành xuất sắc đồ án tốt nghiệp Capstone <strong className="text-zinc-100">{DEFAULT_LUMINA_PROJECT.title}</strong>, chứng minh năng lực tư duy thiết kế độc lập, làm chủ 100% công cụ Vector &amp; Pixel Studio, và giải quyết trọn vẹn hai chuẩn đầu ra then chốt PLO-07 và PLO-08.
+                    Chứng nhận học viên <strong className="text-zinc-100">{submission.studentName}</strong> đã hoàn thành đồ án tốt nghiệp <strong className="text-zinc-100">{DEFAULT_LUMINA_PROJECT.titleVi}</strong>, chứng minh năng lực tư duy thiết kế độc lập, làm chủ quy trình Vector &amp; Pixel Studio và đáp ứng trọn vẹn hai chuẩn đầu ra PLO-07 và PLO-08.
                   </p>
 
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-400">
                     <span>Đánh giá bởi: {submission.officialEvaluation.evaluatorName}</span>
-                    <span>Ngày cấp: {new Date(submission.officialEvaluation.evaluatedAt).toLocaleDateString('vi-VN')}</span>
+                    <span>
+                      Ngày cấp:{' '}
+                      {new Date(submission.officialEvaluation.evaluatedAt).toLocaleDateString('vi-VN')}
+                    </span>
                   </div>
                 </div>
               )}
 
-              {/* Comparison Matrix: Self vs Evaluator */}
               <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-4">
                 <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-300">
-                  Đối soát Điểm Tự Đánh Giá vs Điểm Giám Khảo Chính Thức
+                  Đối soát điểm tự chấm và điểm Hội đồng Giám khảo
                 </h4>
                 <div className="space-y-3">
                   {CAPSTONE_RUBRIC_DIMENSIONS.map((dim) => {
@@ -801,12 +949,13 @@ export const CapstoneAssessmentPage: React.FC = () => {
                         <div className="space-y-1">
                           <span className="font-bold text-zinc-200 block">{dim.titleVi}</span>
                           <span className="text-[11px] text-zinc-400">
-                            Nhận xét: {submission.officialEvaluation?.dimensionFeedback[dim.id] || 'Chưa có nhận xét'}
+                            Nhận xét:{' '}
+                            {submission.officialEvaluation?.dimensionFeedback[dim.id] || 'Chưa có nhận xét'}
                           </span>
                         </div>
                         <div className="flex items-center gap-4 shrink-0 font-mono">
                           <div className="text-right">
-                            <span className="text-[10px] text-zinc-500 block">Tự chấm</span>
+                            <span className="text-[10px] text-zinc-500 block">Tự đối chiếu</span>
                             <span className="text-zinc-300 font-bold">Mức {selfLvl}/4</span>
                           </div>
                           <div className="text-right pl-3 border-l border-zinc-800">
@@ -829,19 +978,22 @@ export const CapstoneAssessmentPage: React.FC = () => {
           ) : (
             <div className="p-8 rounded-xl border border-dashed border-zinc-800 text-center space-y-3">
               <Info className="w-8 h-8 text-zinc-600 mx-auto" />
-              <h4 className="text-sm font-bold text-zinc-300">Bài làm đang chờ Giám khảo Độc lập chấm điểm</h4>
-              <p className="text-xs text-zinc-500 max-w-md mx-auto">
-                Sau khi nộp bài ở Tab 3, Giám khảo sẽ đối soát các file nguồn .afdesign, .afphoto và nhật ký phản biện để cấp kết quả đánh giá chính thức. Bạn có thể bật Chế độ Giám khảo ở góc phải để trải nghiệm quy trình chấm thi.
+              <h4 className="text-sm font-bold text-zinc-300">
+                Hồ sơ đồ án đang chờ Hội đồng Giám khảo độc lập thẩm định
+              </h4>
+              <p className="text-xs text-zinc-500 max-w-md mx-auto leading-relaxed">
+                {submission.version > 0
+                  ? `Hồ sơ phiên bản v${submission.version} đã được ghi nhận. Hội đồng Giám khảo sẽ đối soát tệp nguồn .afdesign, .afphoto và nhật ký phản biện trước khi công bố kết quả chính thức.`
+                  : 'Vui lòng tải lên đầy đủ 6 tệp bằng chứng ở mục "3. Nộp bài & Tự đánh giá" để gửi hồ sơ đến Hội đồng Giám khảo.'}
               </p>
             </div>
           )}
 
-          {/* Submission History Accordion */}
           {history.length > 0 && (
             <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-4">
               <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
                 <History className="w-4 h-4 text-zinc-500" />
-                Lịch sử Các Lần Nộp &amp; Hiệu Chỉnh ({history.length} phiên bản)
+                Lịch sử các lần nộp &amp; hiệu chỉnh ({history.length} phiên bản)
               </h4>
               <div className="space-y-2">
                 {history.map((h, i) => (

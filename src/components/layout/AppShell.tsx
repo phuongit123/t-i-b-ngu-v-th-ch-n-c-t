@@ -49,8 +49,8 @@ export const AppShell: React.FC<AppShellProps> = ({
       {!isHome && (
         <footer className="border-t border-hairline py-6 text-center text-xs text-zinc-500 font-mono">
           <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span>AFFINITY ACADEMY &copy; 2026 &mdash; TOOL MASTERY &amp; DESIGN THINKING</span>
-            <span>LAYOUT &bull; VECTOR &bull; PIXEL &bull; AUTOMATION</span>
+            <span>Affinity Academy &copy; 2026 &bull; Nền tảng học thiết kế đồ họa &amp; tự động hóa tương tác</span>
+            <span>66 bài học tương tác &bull; Layout &bull; Vector &bull; Pixel &bull; Tự động hóa</span>
           </div>
         </footer>
       )}

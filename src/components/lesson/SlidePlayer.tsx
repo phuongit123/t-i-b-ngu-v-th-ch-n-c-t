@@ -1,20 +1,26 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  CheckCircle2, 
-  Circle, 
-  Download, 
-  HelpCircle, 
-  Lightbulb, 
-  Keyboard, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  Circle,
+  Download,
+  HelpCircle,
+  Lightbulb,
+  Keyboard,
   Sparkles,
   BookOpen,
-  ShieldCheck
+  ShieldCheck,
+  Laptop,
+  Apple,
 } from 'lucide-react';
-import type { CurriculumLesson, LessonSlide } from '../../types/curriculum.ts';
-import { lessonTranslationsVi } from '../../data/curriculum/translationsVi.ts';
-import { Button } from '../ui/Button.tsx';
+import type { CurriculumLesson, LessonSlide } from '@/types/curriculum';
+import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
+import { Button } from '@/components/ui/Button';
+import { useAuth } from '@/lib/supabase/auth-context';
+import { usePreferences, formatShortcutForOs } from '@/lib/preferences-context';
+import { getLocalProgress } from '@/lib/supabase/progress-sync';
+import { recordLessonSlideVisit, markLessonCompleted } from '@/lib/learning-store';
 
 export interface SlidePlayerProps {
   lesson: CurriculumLesson;
@@ -22,43 +28,109 @@ export interface SlidePlayerProps {
   onBackToCatalog?: () => void;
 }
 
+const SLIDE_TYPE_LABELS_VI: Record<string, string> = {
+  intro: 'Tổng quan',
+  theory: 'Lý thuyết nền tảng',
+  concept: 'Khái niệm cốt lõi',
+  'tool-anatomy': 'Cấu tạo công cụ',
+  'step-by-step': 'Thực hành từng bước',
+  step: 'Thực hành từng bước',
+  workflow: 'Quy trình thực hiện',
+  'guided-practice': 'Thực hành có hướng dẫn',
+  practice: 'Bài tập ứng dụng',
+  interaction: 'Tương tác công cụ',
+  layout: 'Bố cục & Giao diện',
+  detail: 'Chi tiết kỹ thuật',
+  diagram: 'Sơ đồ minh họa',
+  tip: 'Mẹo thực chiến',
+  warning: 'Lưu ý kỹ thuật',
+  pitfalls: 'Lỗi thường gặp & Khắc phục',
+  quiz: 'Câu hỏi kiểm tra',
+  challenge: 'Thử thách độc lập',
+  summary: 'Tổng kết bài học',
+};
+
+const TRACK_LABELS_VI: Record<string, string> = {
+  designer: 'Vector Studio',
+  photo: 'Pixel Studio',
+  publisher: 'Layout Studio',
+  scripting: 'Tự động hóa',
+};
+
+const DIFFICULTY_LABELS_VI: Record<string, string> = {
+  Beginner: 'Cơ bản',
+  Intermediate: 'Trung cấp',
+  Advanced: 'Nâng cao',
+};
+
 export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   lesson,
   onLessonComplete,
   onBackToCatalog,
 }) => {
+  const { user } = useAuth();
+  const { preferences, updatePreferences } = usePreferences();
+
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
   const [selectedQuizOption, setSelectedQuizOption] = useState<number | null>(null);
   const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
+  const [lastQuizScore, setLastQuizScore] = useState<number | null>(null);
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
 
   const totalSlides = lesson.slides.length;
-  const currentSlide: LessonSlide = lesson.slides[currentSlideIndex];
-  const progressPercent = Math.round(((currentSlideIndex + 1) / totalSlides) * 100);
+  const safeIndex = Math.min(currentSlideIndex, Math.max(0, totalSlides - 1));
+  const currentSlide: LessonSlide = lesson.slides[safeIndex];
+  const progressPercent = Math.round(((safeIndex + 1) / totalSlides) * 100);
+
+  // Restore saved progress when switching lessons
+  useEffect(() => {
+    const saved = getLocalProgress(lesson.id);
+    setIsCompleted(saved?.status === 'completed');
+    setLastQuizScore(saved?.quizScore ?? null);
+    if (
+      saved &&
+      saved.status === 'in_progress' &&
+      saved.lastSlideIndex >= 0 &&
+      saved.lastSlideIndex < lesson.slides.length
+    ) {
+      setCurrentSlideIndex(saved.lastSlideIndex);
+    } else {
+      setCurrentSlideIndex(0);
+    }
+    setSelectedQuizOption(null);
+    setIsQuizSubmitted(false);
+  }, [lesson.id, lesson.slides.length]);
+
+  const navigateToSlide = useCallback(
+    (nextIndex: number) => {
+      setCurrentSlideIndex(nextIndex);
+      setSelectedQuizOption(null);
+      setIsQuizSubmitted(false);
+      if (preferences.autoSaveProgress) {
+        recordLessonSlideVisit(user?.id ?? null, lesson.id, nextIndex);
+      }
+    },
+    [preferences.autoSaveProgress, user?.id, lesson.id]
+  );
 
   // Navigate slides
   const goToNextSlide = useCallback(() => {
-    if (currentSlideIndex < totalSlides - 1) {
-      setCurrentSlideIndex((prev) => prev + 1);
-      setSelectedQuizOption(null);
-      setIsQuizSubmitted(false);
+    if (safeIndex < totalSlides - 1) {
+      navigateToSlide(safeIndex + 1);
     }
-  }, [currentSlideIndex, totalSlides]);
+  }, [safeIndex, totalSlides, navigateToSlide]);
 
   const goToPrevSlide = useCallback(() => {
-    if (currentSlideIndex > 0) {
-      setCurrentSlideIndex((prev) => prev - 1);
-      setSelectedQuizOption(null);
-      setIsQuizSubmitted(false);
+    if (safeIndex > 0) {
+      navigateToSlide(safeIndex - 1);
     }
-  }, [currentSlideIndex]);
+  }, [safeIndex, navigateToSlide]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ignore if user is inside an input or textarea
-      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) return;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName)) return;
 
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
         e.preventDefault();
@@ -80,7 +152,20 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
     }));
   };
 
-  const handleManualComplete = () => {
+  const handleSubmitQuiz = () => {
+    if (selectedQuizOption === null || !currentSlide.quizData) return;
+    setIsQuizSubmitted(true);
+    const passed = selectedQuizOption === currentSlide.quizData.correctIndex;
+    setLastQuizScore(passed ? 100 : 0);
+  };
+
+  const handleManualComplete = async () => {
+    let resolvedQuizScore = lastQuizScore;
+    if (resolvedQuizScore === null && currentSlide.quizData && isQuizSubmitted) {
+      resolvedQuizScore = selectedQuizOption === currentSlide.quizData.correctIndex ? 100 : 0;
+    }
+
+    await markLessonCompleted(user?.id ?? null, lesson.id, safeIndex, resolvedQuizScore);
     setIsCompleted(true);
     if (onLessonComplete) {
       onLessonComplete(lesson.id);
@@ -95,71 +180,105 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   };
 
   const accentColor = trackColorMap[lesson.trackId] || 'var(--color-brand-cyan, #00d2ff)';
+  const displayLessonTitle = lessonTranslationsVi[lesson.id] || lesson.title;
+  const slideTypeLabel =
+    (currentSlide.type && SLIDE_TYPE_LABELS_VI[currentSlide.type]) || 'Nội dung bài học';
 
   return (
     <div className="flex flex-col h-full w-full max-w-5xl mx-auto rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] shadow-2xl overflow-hidden">
       {/* Top Header & Navigation Bar */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border-hairline)] bg-[var(--color-canvas)]">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-[var(--color-border-hairline)] bg-[var(--color-canvas)]">
+        <div className="flex items-center gap-3 min-w-0">
           {onBackToCatalog && (
             <button
+              type="button"
               onClick={onBackToCatalog}
               className="p-1.5 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-colors"
               title="Quay lại Danh mục Khóa học"
+              aria-label="Quay lại Danh mục Khóa học"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
           )}
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span 
+              <span
                 className="text-xs font-mono font-semibold px-2 py-0.5 rounded border border-[var(--color-border-subtle)]"
                 style={{ color: accentColor }}
               >
                 {lesson.id}
               </span>
               <span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wider">
-                Lộ trình {lesson.trackId === 'designer' ? 'Vector' : lesson.trackId === 'photo' ? 'Pixel' : lesson.trackId === 'publisher' ? 'Layout' : 'Scripting'} &bull; {lesson.difficulty === 'Beginner' ? 'Cơ bản' : lesson.difficulty === 'Intermediate' ? 'Trung cấp' : 'Nâng cao'}
+                {TRACK_LABELS_VI[lesson.trackId] || lesson.trackId} &bull;{' '}
+                {DIFFICULTY_LABELS_VI[lesson.difficulty] || lesson.difficulty}
               </span>
+              {isCompleted && (
+                <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  <CheckCircle2 className="w-3 h-3" /> Đã hoàn thành
+                </span>
+              )}
             </div>
-            <h2 className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-md">
-              {lessonTranslationsVi[lesson.id] || lesson.title}
-              <span className="sr-only" aria-hidden="true">{lesson.title}</span>
+            <h2 className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-xl">
+              {displayLessonTitle}
             </h2>
           </div>
         </div>
 
-        {/* Slide Counter & Progress */}
-        <div className="flex items-center gap-4">
-          <div className="text-right">
-            <span className="text-xs font-mono font-semibold text-[var(--color-text-primary)]">
-              Trang {currentSlideIndex + 1}
-              <span className="sr-only">Slide {currentSlideIndex + 1}</span>
+        {/* Slide Counter & OS Shortcut Switcher */}
+        <div className="flex items-center gap-3">
+          <div
+            className="hidden md:flex items-center gap-1 p-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-[10px] font-mono"
+            title="Chuyển nhanh kiểu phím tắt hiển thị"
+          >
+            <button
+              type="button"
+              onClick={() => updatePreferences({ shortcutModifier: 'windows' })}
+              className={`flex items-center gap-1 px-2 py-0.5 rounded transition-colors ${
+                preferences.shortcutModifier === 'windows'
+                  ? 'bg-zinc-800 text-cyan-300 font-bold'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              }`}
+              aria-label="Phím tắt Windows"
+            >
+              <Laptop className="w-3 h-3" /> Win
+            </button>
+            <button
+              type="button"
+              onClick={() => updatePreferences({ shortcutModifier: 'mac' })}
+              className={`flex items-center gap-1 px-2 py-0.5 rounded transition-colors ${
+                preferences.shortcutModifier === 'mac'
+                  ? 'bg-zinc-800 text-cyan-300 font-bold'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              }`}
+              aria-label="Phím tắt macOS"
+            >
+              <Apple className="w-3 h-3" /> Mac
+            </button>
+          </div>
+
+          <div data-testid="slide-counter" className="text-right font-mono text-xs">
+            <span className="font-semibold text-[var(--color-text-primary)]">
+              Trang {safeIndex + 1}
             </span>
-            <span className="text-xs font-mono text-[var(--color-text-secondary)]">
-              {' '}/ {totalSlides}
-            </span>
+            <span className="text-[var(--color-text-secondary)]"> / {totalSlides}</span>
           </div>
 
           {/* Quick-Jump Dots */}
           <div className="hidden sm:flex items-center gap-1.5">
             {lesson.slides.map((s, idx) => (
               <button
+                type="button"
                 key={s.id}
-                onClick={() => {
-                  setCurrentSlideIndex(idx);
-                  setSelectedQuizOption(null);
-                  setIsQuizSubmitted(false);
-                }}
+                onClick={() => navigateToSlide(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  idx === currentSlideIndex
-                    ? 'w-5'
-                    : 'hover:opacity-75'
+                  idx === safeIndex ? 'w-5' : 'hover:opacity-75'
                 }`}
                 style={{
-                  backgroundColor: idx === currentSlideIndex ? accentColor : 'var(--color-border-subtle)',
+                  backgroundColor:
+                    idx === safeIndex ? accentColor : 'var(--color-border-subtle)',
                 }}
                 title={`Chuyển đến trang ${idx + 1}: ${s.title}`}
+                aria-label={`Chuyển đến trang ${idx + 1}`}
               />
             ))}
           </div>
@@ -178,14 +297,14 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
       <div className="flex-1 p-6 md:p-10 overflow-y-auto flex flex-col justify-between min-h-[460px]">
         <div>
           {/* Slide Type Tag & Header */}
-          <div className="flex items-center justify-between gap-4 mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-[var(--color-canvas)] border border-[var(--color-border-hairline)] text-[var(--color-text-secondary)]">
                 {currentSlide.type === 'intro' && <BookOpen className="w-3 h-3" />}
                 {currentSlide.type === 'tool-anatomy' && <Keyboard className="w-3 h-3" />}
                 {currentSlide.type === 'quiz' && <HelpCircle className="w-3 h-3" />}
                 {currentSlide.type === 'challenge' && <Sparkles className="w-3 h-3" />}
-                {currentSlide.type === 'intro' ? 'Tổng quan' : currentSlide.type === 'tool-anatomy' ? 'Cấu tạo công cụ' : currentSlide.type === 'quiz' ? 'Trắc nghiệm' : currentSlide.type === 'challenge' ? 'Thử thách độc lập' : currentSlide.type}
+                {slideTypeLabel}
               </span>
               {currentSlide.subtitle && (
                 <span className="text-xs text-[var(--color-text-secondary)]">
@@ -193,7 +312,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 </span>
               )}
             </div>
-            
+
             {/* Transparent Asset Status & Action */}
             {currentSlide.practiceData?.starterAsset && (
               <div>
@@ -211,10 +330,14 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                   >
                     <Download className="w-3.5 h-3.5 text-[var(--color-accent-scripting)]" />
                     <span className="font-semibold text-[10px] uppercase px-1.5 py-0.5 rounded bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border-hairline)]">
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'REAL_AFFINITY_FILE' && 'File Affinity gốc'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'GUIDE_DOCUMENT' && 'Tài liệu hướng dẫn'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'JAVASCRIPT_SCRIPT' && 'Kịch bản DOM'}
-                      {currentSlide.practiceData.starterAsset.assetStatus === 'EXTERNAL_RESOURCE' && 'Tài nguyên ngoài'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'REAL_AFFINITY_FILE' &&
+                        'File Affinity gốc'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'GUIDE_DOCUMENT' &&
+                        'Tài liệu hướng dẫn'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'JAVASCRIPT_SCRIPT' &&
+                        'Kịch bản DOM'}
+                      {currentSlide.practiceData.starterAsset.assetStatus === 'EXTERNAL_RESOURCE' &&
+                        'Tài nguyên ngoài'}
                     </span>
                     <span>{currentSlide.practiceData.starterAsset.filename}</span>
                     <span className="text-[10px] text-[var(--color-text-secondary)]">
@@ -247,18 +370,11 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
 
           {(currentSlide.tips || currentSlide.proTip || currentSlide.callout) && (
             <div className="my-4 p-4 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-canvas)] text-sm text-[var(--color-text-primary)]">
-              <div className="text-[10px] uppercase tracking-wider font-semibold mb-1" style={{ color: accentColor }}>
-                {currentSlide.tips ? (
-                  <>
-                    <span>Mẹo thực hành</span>
-                    <span className="sr-only">Practice Tip</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Mẹo chuyên gia</span>
-                    <span className="sr-only">Pro Tip</span>
-                  </>
-                )}
+              <div
+                className="text-[10px] uppercase tracking-wider font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
+                {currentSlide.tips ? 'Mẹo thực hành' : 'Mẹo chuyên gia'}
               </div>
               {currentSlide.tips ?? currentSlide.proTip ?? currentSlide.callout}
             </div>
@@ -276,13 +392,21 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             </div>
           )}
 
-          {/* Action Box Callout */}
+          {/* Action Box Callout with OS-Aware Shortcut */}
           {currentSlide.actionBox && (
-            <div className="my-6 p-4 rounded-lg bg-[var(--color-canvas)] border-l-4 border-[var(--color-border-hairline)] flex items-start gap-3"
-                 style={{ borderLeftColor: accentColor }}>
-              <Lightbulb className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: accentColor }} />
+            <div
+              className="my-6 p-4 rounded-lg bg-[var(--color-canvas)] border-l-4 border-[var(--color-border-hairline)] flex items-start gap-3"
+              style={{ borderLeftColor: accentColor }}
+            >
+              <Lightbulb
+                className="w-5 h-5 flex-shrink-0 mt-0.5"
+                style={{ color: accentColor }}
+              />
               <div>
-                <div className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: accentColor }}>
+                <div
+                  className="text-xs font-semibold uppercase tracking-wider mb-1"
+                  style={{ color: accentColor }}
+                >
                   {currentSlide.actionBox.label}
                 </div>
                 <div className="text-sm text-[var(--color-text-primary)]">
@@ -290,9 +414,19 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 </div>
                 {currentSlide.actionBox.shortcut && (
                   <div className="mt-2 flex items-center gap-2 text-xs font-mono text-[var(--color-text-secondary)]">
-                    <span>Windows: <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-white">{currentSlide.actionBox.shortcut.win}</kbd></span>
-                    <span>&bull;</span>
-                    <span>macOS: <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-white">{currentSlide.actionBox.shortcut.mac}</kbd></span>
+                    <span>
+                      {preferences.shortcutModifier === 'mac' ? 'Phím tắt macOS:' : 'Phím tắt Windows:'}
+                    </span>
+                    <kbd
+                      data-testid="active-os-shortcut"
+                      className="px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-emerald-300 font-semibold"
+                    >
+                      {formatShortcutForOs(
+                        currentSlide.actionBox.shortcut.win,
+                        currentSlide.actionBox.shortcut.mac,
+                        preferences.shortcutModifier
+                      )}
+                    </kbd>
                   </div>
                 )}
               </div>
@@ -330,8 +464,9 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
 
               <div className="space-y-2.5">
                 {currentSlide.quizData.options.map((opt, optIdx) => {
-                  let optStyle = 'border-[var(--color-border-hairline)] bg-[var(--color-surface)] hover:border-[var(--color-border-subtle)]';
-                  
+                  let optStyle =
+                    'border-[var(--color-border-hairline)] bg-[var(--color-surface)] hover:border-[var(--color-border-subtle)]';
+
                   if (isQuizSubmitted) {
                     if (optIdx === currentSlide.quizData!.correctIndex) {
                       optStyle = 'border-emerald-500/80 bg-emerald-950/20 text-emerald-200';
@@ -344,6 +479,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
 
                   return (
                     <button
+                      type="button"
                       key={optIdx}
                       disabled={isQuizSubmitted}
                       onClick={() => setSelectedQuizOption(optIdx)}
@@ -358,14 +494,13 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 })}
               </div>
 
-              {/* Submit Quiz Button */}
               {!isQuizSubmitted ? (
                 <div className="mt-4">
                   <Button
                     variant="outline"
                     size="sm"
                     disabled={selectedQuizOption === null}
-                    onClick={() => setIsQuizSubmitted(true)}
+                    onClick={handleSubmitQuiz}
                   >
                     Nộp câu trả lời
                   </Button>
@@ -379,7 +514,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                       </span>
                     ) : (
                       <span className="text-rose-400">
-                        Chưa chính xác. Đáp án đúng là {String.fromCharCode(65 + currentSlide.quizData.correctIndex)}.
+                        Chưa chính xác. Đáp án đúng là{' '}
+                        {String.fromCharCode(65 + currentSlide.quizData.correctIndex)}.
                       </span>
                     )}
                   </div>
@@ -409,8 +545,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                       key={idx}
                       onClick={() => handleCheckpointToggle(cpId)}
                       className={`flex items-start gap-3 p-2.5 rounded cursor-pointer border transition-colors ${
-                        isChecked 
-                          ? 'border-emerald-500/30 bg-emerald-950/10 text-[var(--color-text-primary)]' 
+                        isChecked
+                          ? 'border-emerald-500/30 bg-emerald-950/10 text-[var(--color-text-primary)]'
                           : 'border-transparent hover:bg-[var(--color-surface)] text-[var(--color-text-secondary)]'
                       }`}
                     >
@@ -437,20 +573,22 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
           <Button
             variant="outline"
             size="sm"
+            data-testid="prev-slide-btn"
             onClick={goToPrevSlide}
-            disabled={currentSlideIndex === 0}
+            disabled={safeIndex === 0}
             leftIcon={<ChevronLeft className="w-4 h-4" />}
           >
-            <span>Slide Trước</span>
-            <span className="sr-only">Previous Slide</span>
+            Trang Trước
           </Button>
 
-          {/* Completion Button on Final Slide */}
-          {currentSlideIndex === totalSlides - 1 ? (
+          {safeIndex === totalSlides - 1 ? (
             <Button
               variant={isCompleted ? 'outline' : 'accent-scripting'}
               size="sm"
-              onClick={handleManualComplete}
+              data-testid="complete-lesson-btn"
+              onClick={() => {
+                void handleManualComplete();
+              }}
               leftIcon={<CheckCircle2 className="w-4 h-4 text-emerald-400" />}
             >
               {isCompleted ? 'Đã hoàn thành bài học ✓' : 'Đánh dấu hoàn thành'}
@@ -459,11 +597,11 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             <Button
               variant="primary"
               size="sm"
+              data-testid="next-slide-btn"
               onClick={goToNextSlide}
               rightIcon={<ChevronRight className="w-4 h-4" />}
             >
-              <span>Slide Tiếp Theo</span>
-              <span className="sr-only">Next Slide</span>
+              Trang Tiếp Theo
             </Button>
           )}
         </div>
@@ -472,12 +610,16 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
       {/* Footer Navigation Hints */}
       <div className="px-6 py-2.5 bg-[var(--color-canvas)] border-t border-[var(--color-border-hairline)] flex items-center justify-between text-[11px] text-[var(--color-text-secondary)]">
         <span className="flex items-center gap-1.5">
-          <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">&larr;</kbd>
-          <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">&rarr;</kbd>
-          <span>Sử dụng phím mũi tên hoặc các nút để điều hướng slide</span>
+          <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">
+            &larr;
+          </kbd>
+          <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">
+            &rarr;
+          </kbd>
+          <span>Sử dụng phím mũi tên hoặc các nút để điều hướng bài học</span>
         </span>
         <span className="font-mono">
-          Giáo trình Affinity 3.0 &bull; Mô hình Chuẩn 10 Phần
+          Giáo trình Affinity Studio &bull; Cấu trúc chuẩn 10 học phần
         </span>
       </div>
     </div>

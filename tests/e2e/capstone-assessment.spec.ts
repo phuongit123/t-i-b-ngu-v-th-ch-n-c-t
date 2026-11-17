@@ -1,98 +1,122 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('TASK-081: Independent A5 Capstone Assessment Subsystem', () => {
-  test('TC-CAP-01: Navigation to Capstone Assessment page and header validation', async ({ page }) => {
+test.describe('Đồ án tốt nghiệp — Tải tệp thật & Bảo mật phân quyền Giám khảo (RBAC)', () => {
+  test('TC-CAP-01: Giao diện học viên sạch nhãn nội bộ và ẩn hoàn toàn bảng chấm điểm Giám khảo', async ({ page }) => {
     await page.goto('/');
+    await page.getByTestId('nav-capstone').click();
 
-    // Click on Capstone A5 nav item
-    const capstoneNav = page.locator('button:has-text("Đồ án A5")');
-    await expect(capstoneNav).toBeVisible();
-    await capstoneNav.click();
+    await expect(page.locator('h1')).toContainText(
+      'Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina'
+    );
+    await expect(page.locator('text=Đồ án tốt nghiệp cuối khóa')).toBeVisible();
 
-    // Verify page header
-    await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
-    await expect(page.locator('text=A5 GRADUATION CAPSTONE ASSESSMENT')).toBeVisible();
+    // Zero internal task IDs or public grading toggles
+    await expect(page.locator('text=TASK-081')).toHaveCount(0);
+    await expect(page.locator('text=A5 GRADUATION CAPSTONE ASSESSMENT')).toHaveCount(0);
+    await expect(page.locator('button:has-text("Giám khảo (Chấm điểm)")')).toHaveCount(0);
+
+    // Switch to Results tab as unauthenticated/student user
+    await page.getByTestId('capstone-tab-results').click();
+    await expect(page.getByTestId('evaluator-console')).toHaveCount(0);
+    await expect(
+      page.locator('text=Hồ sơ đồ án đang chờ Hội đồng Giám khảo độc lập thẩm định')
+    ).toBeVisible();
   });
 
-  test('TC-CAP-02: Brief tab displays client overview, PLO-07/PLO-08 requirements, and starter assets', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Đồ án A5")').click();
-    await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
+  test('TC-CAP-02: Tab Đề tài & Tab Rubric hiển thị đầy đủ chuẩn PLO-07 và PLO-08', async ({ page }) => {
+    await page.goto('/capstone');
 
-    // Brief tab is active by default
-    await expect(page.locator('h2:has-text("Lumina Artisanal Roastery Launch Campaign")')).toBeVisible();
-    await expect(page.locator('text=Ràng buộc Kỹ thuật Bắt buộc')).toBeVisible();
-    await expect(page.locator('text=Tài nguyên Đầu vào Cung cấp (Starter Assets)')).toBeVisible();
-
-    // Check specific starter assets
+    await expect(page.locator('text=Bối cảnh dự án & Hồ sơ thương hiệu')).toBeVisible();
+    await expect(page.locator('text=Ràng buộc kỹ thuật bắt buộc')).toBeVisible();
+    await expect(page.locator('text=Bộ học liệu khởi đầu')).toBeVisible();
     await expect(page.locator('text=lumina_project_brief.md')).toBeVisible();
-    await expect(page.locator('text=lumina_coldbrew_raw_plate.jpg')).toBeVisible();
-    await expect(page.locator('text=coffee_texture_bump_map.png')).toBeVisible();
+    await expect(page.locator('text=2. Xác định (Define · PLO-07)')).toBeVisible();
 
-    // Check 8-step Design Thinking
-    await expect(page.locator('text=Chu trình Design Thinking 8 Bước Cần Áp Dụng')).toBeVisible();
-    await expect(page.locator('text=2. Define (PLO-07)')).toBeVisible();
-    await expect(page.locator('text=7. Iterate (PLO-08)')).toBeVisible();
-  });
-
-  test('TC-CAP-03: Rubric tab displays 7 dimensions and Critical badges for PLO-07 and PLO-08', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Đồ án A5")').click();
-    await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
-
-    // Switch to Rubric tab
-    await page.locator('button:has-text("2. Tiêu chí & Rubric")').click();
-
-    // Verify graduation threshold
-    await expect(page.locator('text=TIÊU CHUẨN TỐT NGHIỆP A5 (GRADUATION THRESHOLD)')).toBeVisible();
-    await expect(page.locator('text=CRITICAL (BẮT BUỘC ≥ MỨC 3)').first()).toBeVisible();
-
-    // Verify presence of PLO-07 and PLO-08 dimensions
+    await page.getByTestId('capstone-tab-rubric').click();
+    await expect(page.locator('text=Ngưỡng điểm đạt chuẩn tốt nghiệp')).toBeVisible();
     await expect(page.locator('text=1. Giải mã Brief & Khán giả mục tiêu (PLO-07)')).toBeVisible();
     await expect(page.locator('text=5. Tự Chẩn đoán, Phản biện & Lặp lại (PLO-08)')).toBeVisible();
   });
 
-  test('TC-CAP-04: Submit tab allows filling artifacts and triggers validation', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Đồ án A5")').click();
-    await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
+  test('TC-CAP-03: Kiểm tra định dạng tệp tải lên và nộp thành công đủ 6 tệp bằng chứng', async ({ page }) => {
+    await page.goto('/capstone');
+    await page.getByTestId('capstone-tab-submit').click();
 
-    // Switch to Submit tab
-    await page.locator('button:has-text("3. Nộp bài & Tự đánh giá")').click();
+    // Invalid extension (.exe) must be rejected cleanly
+    await page.getByTestId('upload-brief').setInputFiles({
+      name: 'malware.exe',
+      mimeType: 'application/x-msdownload',
+      buffer: Buffer.from('MZ'),
+    });
+    await expect(page.getByTestId('upload-brief-error')).toBeVisible();
 
-    // Verify input fields for PLO-07 and PLO-08 artifacts
-    await expect(page.locator('label:has-text("brief-deconstruction.md")')).toBeVisible();
-    await expect(page.locator('label:has-text("iteration-critique-log.md")')).toBeVisible();
+    // Valid files for all 6 required deliverables
+    await page.getByTestId('upload-brief').setInputFiles({
+      name: 'brief-deconstruction.md',
+      mimeType: 'text/markdown',
+      buffer: Buffer.from('# Phan ra Brief Lumina\nAudience, Constraints...'),
+    });
+    await page.getByTestId('upload-iteration').setInputFiles({
+      name: 'iteration-critique-log.md',
+      mimeType: 'text/markdown',
+      buffer: Buffer.from('# Nhat ky sua doi Draft 1 vs Draft 2'),
+    });
+    await page.getByTestId('upload-vector').setInputFiles({
+      name: 'lumina-brand-system.afdesign',
+      mimeType: 'application/octet-stream',
+      buffer: Buffer.from('AFFINITY_VECTOR_MOCK'),
+    });
+    await page.getByTestId('upload-pixel').setInputFiles({
+      name: 'lumina-coldbrew-kv.afphoto',
+      mimeType: 'application/octet-stream',
+      buffer: Buffer.from('AFFINITY_PHOTO_MOCK'),
+    });
+    await page.getByTestId('upload-print-pdf').setInputFiles({
+      name: 'label-packaging-print.pdf',
+      mimeType: 'application/pdf',
+      buffer: Buffer.from('%PDF-1.4\n%%EOF'),
+    });
+    await page.getByTestId('upload-digital-webp').setInputFiles({
+      name: 'lumina-ad-banner-2x.webp',
+      mimeType: 'image/webp',
+      buffer: Buffer.from('RIFF\x00\x00\x00\x00WEBP'),
+    });
 
-    // Click submit button
-    const submitBtn = page.locator('button:has-text("Nộp Bài & Cập Nhật Bản Nộp")');
-    await expect(submitBtn).toBeVisible();
-    await submitBtn.click();
+    await expect(page.getByTestId('upload-brief-status')).toContainText('brief-deconstruction.md');
+    await expect(page.getByTestId('upload-print-pdf-status')).toContainText('label-packaging-print.pdf');
 
-    // Verify success toast appears
-    await expect(page.locator('text=Đã nộp thành công bài làm phiên bản')).toBeVisible();
+    await page.getByTestId('submit-capstone-btn').click();
+    await expect(page.locator('text=Đã nộp thành công hồ sơ đồ án phiên bản v1')).toBeVisible();
   });
 
-  test('TC-CAP-05: Evaluator Mode toggles grading console and updates official verdict', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Đồ án A5")').click();
-    await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
+  test('TC-CAP-04: Chỉ tài khoản vai trò Giám khảo mới mở được Bảng thẩm định và khóa điểm liệt PLO-07', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem(
+        'affinity_academy_offline_user',
+        JSON.stringify({
+          role: 'evaluator',
+          email: 'evaluator@affinity.academy',
+          displayName: 'Giám Khảo Độc Lập',
+        })
+      );
+    });
 
-    // Switch to Results tab
-    await page.locator('button:has-text("4. Kết quả & Chứng chỉ A5")').click();
+    await page.goto('/capstone');
+    await expect(page.getByTestId('evaluator-role-badge')).toBeVisible();
 
-    // Toggle Evaluator mode on
-    await page.locator('button:has-text("Giám khảo (Chấm điểm)")').click();
+    await page.getByTestId('capstone-tab-results').click();
+    await expect(page.getByTestId('evaluator-console')).toBeVisible();
 
-    // Verify Evaluator Console visible
-    await expect(page.locator('text=BẢNG ĐIỀU KHIỂN CHẤM ĐIỂM CHÍNH THỨC CỦA GIÁM KHẢO ĐỘC LẬP')).toBeVisible();
+    // Critical violation on PLO-07 (< Level 3) must force FAILED preview even when others pass
+    await page.getByTestId('eval-brief_interpretation-lvl-2').click();
+    await expect(page.getByTestId('evaluator-preview-verdict')).toContainText('KHÔNG ĐẠT');
 
-    // Click evaluate & sign-off
-    const signOffBtn = page.locator('button:has-text("Ký Duyệt Kết Quả Chính Thức & Cấp Chứng Chỉ")');
-    await expect(signOffBtn).toBeVisible();
-    await signOffBtn.click();
+    // Raise back to Level 3 and sign off
+    await page.getByTestId('eval-brief_interpretation-lvl-3').click();
+    await expect(page.getByTestId('evaluator-preview-verdict')).toContainText('ĐẠT');
 
-    // Verify official certificate card or result banner appears
-    await expect(page.locator('text=KẾT QUẢ ĐÁNH GIÁ CHÍNH THỨC CẤP ĐỘ A5')).toBeVisible();
+    await page.getByTestId('evaluator-signoff-btn').click();
+    await expect(page.locator('text=ĐẠT CHUẨN TỐT NGHIỆP — XÁC NHẬN NĂNG LỰC ĐỘC LẬP')).toBeVisible();
+    await expect(page.locator('text=CHỨNG NHẬN TỐT NGHIỆP AFFINITY ACADEMY')).toBeVisible();
   });
 });

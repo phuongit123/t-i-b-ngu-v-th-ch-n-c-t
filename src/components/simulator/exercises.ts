@@ -3,10 +3,10 @@ import { SimulatorExercise } from './types';
 export const SIMULATOR_EXERCISES: SimulatorExercise[] = [
   {
     id: 'ex-d02-diamond',
-    title: 'D02: Sharp Diamond Polygon',
+    title: 'D02: Hình thoi sắc cạnh (Sharp Nodes)',
     subtitle: 'Luyện tập đặt điểm neo Sharp góc nhọn và đóng đường path khép kín',
     difficulty: 'Beginner',
-    relatedLesson: 'D02-01: Pen Tool Fundamentals',
+    relatedLesson: 'D02-01: Nguyên lý Pen Tool',
     description:
       'Tập làm quen với thao tác cơ bản nhất của Pen Tool: Click đơn để đặt các điểm neo Sharp (không có tay đòn Bézier), sau đó di chuột về điểm xuất phát để đóng kín hình thoi.',
     tolerance: 20,
@@ -45,10 +45,10 @@ export const SIMULATOR_EXERCISES: SimulatorExercise[] = [
   },
   {
     id: 'ex-d03-wave',
-    title: 'D03: Smooth S-Wave Curve',
+    title: 'D03: Đường cong chữ S mượt (Smooth Curves)',
     subtitle: 'Luyện tập kéo tay đòn Bézier đối xứng (Smooth handles)',
     difficulty: 'Intermediate',
-    relatedLesson: 'D03-01: Smooth Nodes & Continuity',
+    relatedLesson: 'D02-02: Điểm neo Smooth & Tiếp tuyến',
     description:
       'Khám phá sức mạnh đường cong mượt mà. Click và kéo chuột tại mỗi điểm neo để kéo dài tay cầm Bézier, tạo ra đường lượn sóng hình chữ S mềm mại.',
     tolerance: 22,
@@ -86,10 +86,10 @@ export const SIMULATOR_EXERCISES: SimulatorExercise[] = [
   },
   {
     id: 'ex-d03-heart',
-    title: 'D03: Heart Silhouette (Cusp & Smooth)',
+    title: 'D03: Biểu tượng trái tim (Cusp & Smooth)',
     subtitle: 'Kết hợp điểm gãy góc nhọn Cusp và cánh cung Smooth đối xứng',
     difficulty: 'Advanced',
-    relatedLesson: 'D03-02: Cusp & Smart Nodes',
+    relatedLesson: 'D02-02: Điểm gãy Cusp & Smart Nodes',
     description:
       'Thử thách kết hợp đỉnh gập gãy (Cusp node) ở rãnh giữa và chóp đáy của hình trái tim, cùng hai vành cung tròn mềm mại được kiểm soát bởi các điểm neo Smooth.',
     tolerance: 25,

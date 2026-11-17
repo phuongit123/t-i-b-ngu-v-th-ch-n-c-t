@@ -18,6 +18,8 @@ export const ALLOWED_EXTENSIONS = [
   'jpg',
   'jpeg',
   'webp',
+  'md',
+  'txt',
 ];
 
 export const ALLOWED_MIME_TYPES = [
@@ -28,6 +30,9 @@ export const ALLOWED_MIME_TYPES = [
   'application/zip',
   'application/x-zip-compressed',
   'application/octet-stream', // Used for native Affinity files (.afdesign, .afphoto, .afpub)
+  'text/markdown',
+  'text/x-markdown',
+  'text/plain',
 ];
 
 export interface FileValidationResult {

@@ -40,7 +40,7 @@ export interface GlossaryTerm {
 }
 
 // ---------------------------------------------------------------------------
-// 1. OFFICIAL SHORTCUTS DATASET (Verified against Desktop 3.3.3 & Help Center)
+// 1. OFFICIAL SHORTCUTS DATASET (Verified against Affinity Studio Desktop & Help Center)
 // ---------------------------------------------------------------------------
 export const OFFICIAL_SHORTCUTS: ShortcutItem[] = [
   // Vector Studio Tools
@@ -124,7 +124,7 @@ export const OFFICIAL_SHORTCUTS: ShortcutItem[] = [
     winKey: '[ / ]',
     macKey: '[ / ]',
     description: 'Điều chỉnh đường kính đầu cọ Selection Brush hoặc Paint Brush nhanh chóng.',
-    evidenceSource: 'Desktop 3.3.3 Standard Interaction',
+    evidenceSource: 'Affinity Desktop Standard Interaction',
   },
   {
     id: 'sc-pix-03',

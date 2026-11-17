@@ -58,13 +58,13 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
   }, []);
 
   const navItems = [
-    { id: 'catalog', label: 'Lộ trình', srText: 'Tracks', icon: <Compass className="w-3.5 h-3.5" /> },
-    { id: 'simulator', label: 'Bộ mô phỏng', srText: 'Simulator', icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: 'challenges', label: 'Thử thách', srText: 'Challenges', icon: <Trophy className="w-3.5 h-3.5" /> },
-    { id: 'knowledge', label: 'Tri thức', srText: 'Knowledge Hub', icon: <HelpCircle className="w-3.5 h-3.5" /> },
-    { id: 'capstone', label: 'Đồ án A5', srText: 'Capstone A5', icon: <Award className="w-3.5 h-3.5" /> },
+    { id: 'catalog', label: 'Lộ trình', icon: <Compass className="w-3.5 h-3.5" /> },
+    { id: 'simulator', label: 'Bộ mô phỏng', icon: <Layers className="w-3.5 h-3.5" /> },
+    { id: 'challenges', label: 'Thử thách', icon: <Trophy className="w-3.5 h-3.5" /> },
+    { id: 'knowledge', label: 'Tri thức', icon: <HelpCircle className="w-3.5 h-3.5" /> },
+    { id: 'capstone', label: 'Đồ án', icon: <Award className="w-3.5 h-3.5" /> },
     { id: 'encyclopedia', label: 'Bách khoa thư', icon: <BookOpen className="w-3.5 h-3.5" /> },
-    { id: 'playground', label: 'Thực hành MCP', icon: <Terminal className="w-3.5 h-3.5" /> },
+    { id: 'playground', label: 'Thực hành tự động hóa', icon: <Terminal className="w-3.5 h-3.5" /> },
     { id: 'resources', label: 'Tài nguyên', icon: <Download className="w-3.5 h-3.5" /> },
     { id: 'dashboard', label: 'Hồ sơ học tập', icon: <User className="w-3.5 h-3.5" /> },
   ];
@@ -78,28 +78,40 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
     switch (syncStatus) {
       case 'syncing':
         return (
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+          <div
+            data-testid="sync-status-badge"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30"
+          >
             <RefreshCw className="w-3 h-3 animate-spin text-blue-400" />
             <span className="hidden md:inline">ĐỒNG BỘ...</span>
           </div>
         );
       case 'pending':
         return (
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          <div
+            data-testid="sync-status-badge"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30"
+          >
             <Cloud className="w-3 h-3 text-amber-400" />
             <span className="hidden md:inline">CHỜ LƯU</span>
           </div>
         );
       case 'offline':
         return (
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-zinc-800 text-zinc-400 border border-hairline">
+          <div
+            data-testid="sync-status-badge"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-zinc-800 text-zinc-400 border border-hairline"
+          >
             <CloudOff className="w-3 h-3 text-zinc-500" />
             <span className="hidden md:inline">NGOẠI TUYẾN</span>
           </div>
         );
       case 'error':
         return (
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-red-500/10 text-red-400 border border-red-500/30">
+          <div
+            data-testid="sync-status-badge"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-red-500/10 text-red-400 border border-red-500/30"
+          >
             <CloudOff className="w-3 h-3 text-red-400" />
             <span className="hidden md:inline">LỖI ĐỒNG BỘ</span>
           </div>
@@ -107,7 +119,10 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
       case 'synced':
       default:
         return (
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <div
+            data-testid="sync-status-badge"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+          >
             <Cloud className="w-3 h-3 text-emerald-400" />
             <span className="hidden md:inline">ĐÃ ĐỒNG BỘ</span>
           </div>
@@ -121,6 +136,8 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
         {/* Brand Logo & Platform Title */}
         <div className="flex items-center gap-6">
           <button
+            type="button"
+            data-testid="nav-home"
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-2.5 text-left group focus:outline-none"
             aria-label="Về trang chủ Affinity Academy"
@@ -133,7 +150,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 AFFINITY<span className="text-amber-400 font-bold ml-1">ACADEMY</span>
               </span>
               <span className="hidden sm:block text-[9px] text-zinc-400 uppercase tracking-widest font-mono">
-                Hệ Sinh Thái Thiết Kế Chuẩn Mực
+                Học Viện Thiết Kế &amp; Tự Động Hóa
               </span>
             </div>
           </button>
@@ -149,10 +166,12 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
               return (
                 <button
+                  type="button"
                   key={item.id}
+                  data-testid={`nav-${item.id}`}
                   onClick={() => handleNavClick(item.id)}
                   className={cn(
-                    'flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-xs transition-colors',
+                    'flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-xs transition-colors whitespace-nowrap',
                     isActive
                       ? 'text-zinc-100 bg-surface font-semibold shadow-subtle'
                       : 'text-zinc-400 hover:text-zinc-200 hover:bg-surface/50'
@@ -160,7 +179,6 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                  {item.srText && <span className="sr-only">{item.srText}</span>}
                 </button>
               );
             })}
@@ -169,8 +187,8 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
         {/* Right Tools: Search, Cloud Sync, MCP Badge, Auth/Profile, Settings, Theme */}
         <div className="flex items-center gap-2">
-          {/* Quick Search Trigger */}
           <button
+            type="button"
             onClick={onOpenSearch}
             className="flex items-center gap-2 px-2.5 py-1 text-xs text-zinc-400 bg-surface border border-hairline rounded-sm hover:border-subtle transition-colors"
             aria-label="Mở bảng tìm kiếm lệnh"
@@ -182,10 +200,8 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             </kbd>
           </button>
 
-          {/* Progress Cloud Sync Badge */}
           {getSyncBadge()}
 
-          {/* Affinity MCP Live Connection Pill */}
           <div
             className={cn(
               'hidden sm:flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full border',
@@ -206,8 +222,9 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             </span>
           </div>
 
-          {/* User Auth / Profile Pill */}
           <button
+            type="button"
+            data-testid="nav-auth-btn"
             onClick={() => setIsAuthModalOpen(true)}
             className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-sm border transition-colors bg-surface border-hairline hover:border-amber-500/40 text-zinc-300 hover:text-zinc-100"
             aria-label="Tài khoản và hồ sơ học viên"
@@ -220,13 +237,14 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             </span>
             {role !== 'student' && (
               <span className="hidden lg:inline px-1 py-0.2 rounded text-[9px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase">
-                {role}
+                {role === 'evaluator' ? 'Giám khảo' : 'Quản trị'}
               </span>
             )}
           </button>
 
-          {/* Settings Shortcut */}
           <button
+            type="button"
+            data-testid="nav-settings"
             onClick={() => handleNavClick('settings')}
             className={cn(
               'p-1.5 text-zinc-400 hover:text-zinc-200 hover:bg-surface rounded-sm transition-colors',
@@ -238,8 +256,8 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             <Settings className="w-4 h-4" />
           </button>
 
-          {/* Theme Toggle */}
           <button
+            type="button"
             onClick={onToggleTheme}
             className="p-1.5 text-zinc-400 hover:text-zinc-200 hover:bg-surface rounded-sm transition-colors"
             aria-label={`Chuyển sang chế độ ${theme === 'dark' ? 'sáng' : 'tối'}`}
@@ -247,8 +265,8 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
-          {/* Mobile Menu Toggle Button */}
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-1.5 text-zinc-400 hover:text-zinc-200 hover:bg-surface rounded-sm transition-colors"
             aria-label={isMobileMenuOpen ? 'Đóng menu di động' : 'Mở menu di động'}
@@ -265,7 +283,9 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             const isActive = activeRoute === item.id;
             return (
               <button
+                type="button"
                 key={item.id}
+                data-testid={`mobile-nav-${item.id}`}
                 onClick={() => handleNavClick(item.id)}
                 className={cn(
                   'w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-lg text-left transition-colors',
@@ -276,11 +296,11 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
               >
                 {item.icon}
                 <span>{item.label}</span>
-                {item.srText && <span className="sr-only">({item.srText})</span>}
               </button>
             );
           })}
           <button
+            type="button"
             onClick={() => handleNavClick('settings')}
             className={cn(
               'w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-lg text-left transition-colors',
@@ -293,6 +313,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             <span>Cài đặt hệ thống</span>
           </button>
           <button
+            type="button"
             onClick={() => {
               setIsAuthModalOpen(true);
               setIsMobileMenuOpen(false);
@@ -300,16 +321,12 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-lg text-left text-amber-400 bg-amber-500/10 border border-amber-500/20"
           >
             <User className="w-3.5 h-3.5" />
-            <span>Hồ sơ học viên & Xác thực ({profile?.display_name || 'Đăng nhập'})</span>
+            <span>Hồ sơ học viên &amp; Xác thực ({profile?.display_name || 'Đăng nhập'})</span>
           </button>
         </div>
       )}
 
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
+      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </header>
   );
 };

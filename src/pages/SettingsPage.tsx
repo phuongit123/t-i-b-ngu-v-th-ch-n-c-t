@@ -12,91 +12,78 @@ import {
   AlertTriangle,
   ShieldAlert,
 } from 'lucide-react';
-
-export interface UserPreferences {
-  displayName: string;
-  email: string;
-  careerTrack: string;
-  experienceLevel: string;
-  shortcutModifier: 'windows' | 'mac';
-  autoSaveProgress: boolean;
-}
-
-const DEFAULT_PREFERENCES: UserPreferences = {
-  displayName: 'Nhà Thiết Kế Học Viên',
-  email: 'learner@affinity.academy',
-  careerTrack: 'Vector & Brand Identity',
-  experienceLevel: 'Intermediate',
-  shortcutModifier: 'windows',
-  autoSaveProgress: true,
-};
-
-const PREFS_STORAGE_KEY = 'affinity_user_preferences';
+import {
+  usePreferences,
+  type UserPreferences,
+} from '@/lib/preferences-context';
+import { useLearningProgress } from '@/lib/learning-store';
 
 export interface SettingsPageProps {
   onBackToDashboard?: () => void;
 }
 
 export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard }) => {
-  const [preferences, setPreferences] = useState<UserPreferences>(DEFAULT_PREFERENCES);
+  const { preferences, updatePreferences } = usePreferences();
+  const { resetAllLearningProgress } = useLearningProgress();
+
+  const [draft, setDraft] = useState<UserPreferences>(preferences);
+  const [isDirty, setIsDirty] = useState(false);
   const [isSavedToastVisible, setIsSavedToastVisible] = useState(false);
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
 
-  // Load preferences
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(PREFS_STORAGE_KEY);
-      if (saved) {
-        setPreferences({ ...DEFAULT_PREFERENCES, ...JSON.parse(saved) });
-      }
-    } catch {
-      // Fallback
+    if (!isDirty) {
+      setDraft(preferences);
     }
-  }, []);
+  }, [preferences, isDirty]);
 
   const handleSavePreferences = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(preferences));
-      setIsSavedToastVisible(true);
-      setTimeout(() => setIsSavedToastVisible(false), 2500);
-    } catch {
-      // Storage error
-    }
+    updatePreferences(draft);
+    setIsDirty(false);
+    setIsSavedToastVisible(true);
+    setTimeout(() => setIsSavedToastVisible(false), 2500);
+  };
+
+  const handleShortcutChange = (modifier: 'windows' | 'mac') => {
+    setDraft((prev) => ({ ...prev, shortcutModifier: modifier }));
+    updatePreferences({ shortcutModifier: modifier });
   };
 
   const handleExportData = () => {
     try {
       const data = {
         exportedAt: new Date().toISOString(),
-        preferences,
-        lessonProgress: localStorage.getItem('affinity_lesson_progress'),
-        challengeProgress: localStorage.getItem('affinity_challenges_progress'),
-        capstoneSubmission: localStorage.getItem('affinity_capstone_submission'),
-        capstoneEvaluation: localStorage.getItem('affinity_capstone_official_evaluation'),
+        preferences: draft,
+        lessonProgressV2: localStorage.getItem('affinity_academy_progress_v2'),
+        learningActivity: localStorage.getItem('affinity_academy_activity_v1'),
+        capstoneSubmission: localStorage.getItem('affinity_academy_capstone_submission'),
+        capstoneHistory: localStorage.getItem('affinity_academy_capstone_history'),
       };
 
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `affinity-academy-backup-${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `affinity-academy-sao-luu-${new Date().toISOString().split('T')[0]}.json`;
       a.click();
       URL.revokeObjectURL(url);
     } catch {
-      // Error handling
+      // Storage / blob fallback
     }
   };
 
   const handleResetAllProgress = () => {
     try {
-      localStorage.removeItem('affinity_lesson_progress');
-      localStorage.removeItem('affinity_challenges_progress');
+      resetAllLearningProgress();
+      localStorage.removeItem('affinity_academy_capstone_submission');
+      localStorage.removeItem('affinity_academy_capstone_history');
       localStorage.removeItem('affinity_capstone_submission');
       localStorage.removeItem('affinity_capstone_official_evaluation');
+      localStorage.removeItem('affinity_capstone_history');
       setIsResetConfirmOpen(false);
-      setImportStatus('Đã thiết lập lại toàn bộ tiến độ học tập thành công.');
+      setImportStatus('Đã đặt lại toàn bộ tiến độ học tập và đưa hồ sơ về trạng thái ban đầu.');
       setTimeout(() => setImportStatus(null), 3000);
     } catch {
       // Error
@@ -106,16 +93,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
   return (
     <div className="space-y-6">
       <PageHeader
-        title={
-          <div className="flex flex-wrap items-center gap-3">
-            <span>Cài Đặt Hệ Thống &amp; Cấu Hình Tài Khoản</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">
-              NHÓM DASHBOARD
-            </span>
-          </div>
-        }
-        description="Quản lý hồ sơ học viên, lựa chọn phím tắt theo hệ điều hành Windows hoặc macOS, sao lưu và quản lý dữ liệu tiến độ."
-        badge="Cấu hình hệ thống · Bảo vệ dữ liệu cục bộ"
+        title="Cài Đặt Hệ Thống & Cấu Hình Tài Khoản"
+        description="Quản lý hồ sơ học viên, lựa chọn phím tắt theo hệ điều hành Windows hoặc macOS, sao lưu và đặt lại dữ liệu tiến độ."
+        badge="Thiết lập tài khoản & Hệ thống"
       />
 
       {isSavedToastVisible && (
@@ -146,51 +126,86 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-zinc-300 block">Tên hiển thị (Display Name):</label>
+              <label htmlFor="settings-display-name" className="text-xs font-mono text-zinc-300 block">
+                Tên hiển thị:
+              </label>
               <input
+                id="settings-display-name"
                 type="text"
-                value={preferences.displayName}
-                onChange={(e) => setPreferences({ ...preferences, displayName: e.target.value })}
+                value={draft.displayName}
+                onChange={(e) => {
+                  setIsDirty(true);
+                  setDraft({ ...draft, displayName: e.target.value });
+                }}
                 className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-cyan-500"
                 required
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-zinc-300 block">Địa chỉ Email:</label>
+              <label htmlFor="settings-email" className="text-xs font-mono text-zinc-300 block">
+                Địa chỉ Email:
+              </label>
               <input
+                id="settings-email"
                 type="email"
-                value={preferences.email}
-                onChange={(e) => setPreferences({ ...preferences, email: e.target.value })}
+                value={draft.email}
+                onChange={(e) => {
+                  setIsDirty(true);
+                  setDraft({ ...draft, email: e.target.value });
+                }}
                 className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-cyan-500"
                 required
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-zinc-300 block">Định hướng nghề nghiệp:</label>
+              <label htmlFor="settings-career-track" className="text-xs font-mono text-zinc-300 block">
+                Định hướng nghề nghiệp:
+              </label>
               <select
-                value={preferences.careerTrack}
-                onChange={(e) => setPreferences({ ...preferences, careerTrack: e.target.value })}
+                id="settings-career-track"
+                value={draft.careerTrack}
+                onChange={(e) => {
+                  setIsDirty(true);
+                  setDraft({ ...draft, careerTrack: e.target.value });
+                }}
                 className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-cyan-500"
               >
-                <option value="Vector & Brand Identity">Vector &amp; Nhận diện thương hiệu</option>
-                <option value="Photo Retouching & Compositing">Chỉnh sửa ảnh chuyên nghiệp (Photo Retouching)</option>
-                <option value="Editorial & Publication">Biên tập dàn trang xuất bản (Layout Studio)</option>
-                <option value="Design Automation & MCP">Tự động hóa thiết kế (Scripting &amp; MCP)</option>
+                <option value="Thiết kế Vector & Nhận diện thương hiệu">
+                  Thiết kế Vector &amp; Nhận diện thương hiệu
+                </option>
+                <option value="Chỉnh sửa ảnh & Ghép cảnh chuyên nghiệp">
+                  Chỉnh sửa ảnh &amp; Ghép cảnh chuyên nghiệp
+                </option>
+                <option value="Biên tập dàn trang & Xuất bản ấn phẩm">
+                  Biên tập dàn trang &amp; Xuất bản ấn phẩm
+                </option>
+                <option value="Tự động hóa thiết kế & Lập trình MCP">
+                  Tự động hóa thiết kế &amp; Lập trình MCP
+                </option>
               </select>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-zinc-300 block">Trình độ kinh nghiệm:</label>
+              <label htmlFor="settings-level" className="text-xs font-mono text-zinc-300 block">
+                Trình độ hiện tại:
+              </label>
               <select
-                value={preferences.experienceLevel}
-                onChange={(e) => setPreferences({ ...preferences, experienceLevel: e.target.value })}
+                id="settings-level"
+                value={draft.experienceLevel}
+                onChange={(e) => {
+                  setIsDirty(true);
+                  setDraft({
+                    ...draft,
+                    experienceLevel: e.target.value as UserPreferences['experienceLevel'],
+                  });
+                }}
                 className="w-full px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200 focus:outline-none focus:border-cyan-500"
               >
-                <option value="Beginner">Mới bắt đầu (Beginner)</option>
-                <option value="Intermediate">Đã có nền tảng (Intermediate)</option>
-                <option value="Advanced">Chuyên nghiệp (Advanced)</option>
+                <option value="Beginner">Cơ bản</option>
+                <option value="Intermediate">Trung cấp</option>
+                <option value="Advanced">Nâng cao</option>
               </select>
             </div>
           </div>
@@ -201,22 +216,23 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
           <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
             <h3 className="text-sm font-bold text-zinc-100 uppercase tracking-wider font-mono flex items-center gap-2">
               <SettingsIcon className="w-4 h-4 text-purple-400" />
-              2. Tùy Chọn Studio &amp; Phím Tắt
+              2. Tùy Chọn Studio &amp; Phím Tắt Hệ Điều Hành
             </h3>
-            <span className="text-xs font-mono text-zinc-500">Môi trường thao tác</span>
+            <span className="text-xs font-mono text-zinc-500">Đồng bộ toàn ứng dụng</span>
           </div>
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-xs font-mono text-zinc-300 block">
-                Phím bổ trợ hiển thị mặc định (Modifier Keys):
-              </label>
-              <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-zinc-300 block">
+                Phím bổ trợ hiển thị mặc định:
+              </span>
+              <div className="flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  onClick={() => setPreferences({ ...preferences, shortcutModifier: 'windows' })}
+                  data-testid="settings-os-windows"
+                  onClick={() => handleShortcutChange('windows')}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-xs font-mono transition-all ${
-                    preferences.shortcutModifier === 'windows'
+                    draft.shortcutModifier === 'windows'
                       ? 'bg-zinc-800 text-zinc-100 border-cyan-500/60 font-bold'
                       : 'bg-zinc-900 text-zinc-500 border-zinc-800'
                   }`}
@@ -227,9 +243,10 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
 
                 <button
                   type="button"
-                  onClick={() => setPreferences({ ...preferences, shortcutModifier: 'mac' })}
+                  data-testid="settings-os-mac"
+                  onClick={() => handleShortcutChange('mac')}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-xs font-mono transition-all ${
-                    preferences.shortcutModifier === 'mac'
+                    draft.shortcutModifier === 'mac'
                       ? 'bg-zinc-800 text-zinc-100 border-cyan-500/60 font-bold'
                       : 'bg-zinc-900 text-zinc-500 border-zinc-800'
                   }`}
@@ -244,12 +261,15 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
               <input
                 type="checkbox"
                 id="autoSave"
-                checked={preferences.autoSaveProgress}
-                onChange={(e) => setPreferences({ ...preferences, autoSaveProgress: e.target.checked })}
+                checked={draft.autoSaveProgress}
+                onChange={(e) => {
+                  setIsDirty(true);
+                  setDraft({ ...draft, autoSaveProgress: e.target.checked });
+                }}
                 className="w-4 h-4 rounded bg-zinc-900 border-zinc-700 text-emerald-500"
               />
               <label htmlFor="autoSave" className="text-xs text-zinc-300 cursor-pointer">
-                Tự động lưu tiến độ làm bài tập và bài nộp vào bộ nhớ trình duyệt (Auto-Save Local Storage)
+                Tự động ghi nhớ vị trí trang học và kết quả thực hành trên trình duyệt
               </label>
             </div>
           </div>
@@ -263,7 +283,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
               onClick={onBackToDashboard}
               className="px-4 py-2 rounded-lg text-xs font-mono text-zinc-400 hover:text-zinc-200 border border-zinc-800"
             >
-              Quay lại Bảng điều khiển
+              Quay lại Hồ sơ học tập
             </button>
           )}
 
@@ -285,7 +305,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
             3. Quản Lý Dữ Liệu &amp; Tiến Độ Học Tập
           </h3>
           <p className="text-xs text-zinc-400 mt-1">
-            Sao lưu dữ liệu học tập ra file JSON hoặc đặt lại dữ liệu khi cần làm lại từ đầu.
+            Sao lưu dữ liệu học tập ra tệp JSON hoặc đặt lại dữ liệu khi muốn bắt đầu học lại từ đầu.
           </p>
         </div>
 
@@ -296,16 +316,17 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
             className="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-800 text-xs font-mono flex items-center gap-2 transition-colors"
           >
             <Download className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Sao Lưu Dữ Liệu (Export JSON)</span>
+            <span>Sao Lưu Dữ Liệu (Tải tệp JSON)</span>
           </button>
 
           <button
             type="button"
+            data-testid="reset-progress-trigger"
             onClick={() => setIsResetConfirmOpen(true)}
             className="px-4 py-2 rounded-lg bg-red-950/40 hover:bg-red-900/60 text-red-300 border border-red-800/60 text-xs font-mono flex items-center gap-2 transition-colors"
           >
             <Trash2 className="w-3.5 h-3.5 text-red-400" />
-            <span>Đặt Lại Toàn Bộ Tiến Độ (Reset Progress)</span>
+            <span>Đặt lại toàn bộ tiến độ bài học</span>
           </button>
         </div>
 
@@ -318,7 +339,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
                 <h4 className="text-sm font-bold font-mono">Xác nhận xóa toàn bộ tiến độ?</h4>
               </div>
               <p className="text-xs text-zinc-300 leading-relaxed">
-                Hành động này sẽ xóa toàn bộ bài học đã hoàn thành, điểm số thử thách và bản nộp Đồ án A5 khỏi trình duyệt. Thao tác này không thể hoàn tác.
+                Hành động này sẽ xóa toàn bộ bài học đã hoàn thành, điểm số thử thách và hồ sơ nộp đồ án trên trình duyệt. Thao tác này không thể hoàn tác.
               </p>
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button
@@ -330,6 +351,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
                 </button>
                 <button
                   type="button"
+                  data-testid="confirm-reset-progress-btn"
                   onClick={handleResetAllProgress}
                   className="px-4 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs font-mono"
                 >

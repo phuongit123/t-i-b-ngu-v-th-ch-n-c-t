@@ -10,6 +10,7 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { usePreferences } from '@/lib/preferences-context';
 
 export type BlendMode =
   | 'normal'
@@ -105,6 +106,8 @@ const drawSubjectFigure = (ctx: CanvasRenderingContext2D, isGrayscale: boolean) 
 };
 
 export const PhotoLayerSimulator: React.FC = () => {
+  const { preferences } = usePreferences();
+  const invertShortcut = preferences.shortcutModifier === 'mac' ? 'Cmd+I' : 'Ctrl+I';
 
   // Layer State
   const [layers, setLayers] = useState<SimLayer[]>([
@@ -456,8 +459,8 @@ export const PhotoLayerSimulator: React.FC = () => {
         <div className="text-xs text-sky-200 leading-relaxed">
           <strong className="text-sky-300 font-semibold mr-1.5">MÔ HÌNH MÔ PHỎNG GIÁO DỤC:</strong>
           Đây là công cụ mô phỏng trực quan cơ chế Layer Stack, Blend Modes toán học và Non-destructive Masking
-          chạy trực tiếp trên trình duyệt HTML5 Canvas, không yêu cầu cài đặt phần mềm desktop Serif Affinity Photo.
-          Các phím tắt <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">X</code>, <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">[ / ]</code>, <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">Ctrl+I</code> mô phỏng chuẩn xác logic của Affinity Photo 3.0.
+          chạy trực tiếp trên trình duyệt HTML5 Canvas, không yêu cầu cài đặt phần mềm desktop Affinity Photo.
+          Các phím tắt <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">X</code>, <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">[ / ]</code>, <code className="bg-sky-900/60 px-1 py-0.5 rounded text-sky-200">{invertShortcut}</code> mô phỏng cơ chế mặt nạ của Affinity Photo.
         </div>
       </div>
 
@@ -505,7 +508,9 @@ export const PhotoLayerSimulator: React.FC = () => {
           <span>Phím tắt:</span>
           <kbd className="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-[11px] text-zinc-300">X (Đổi màu)</kbd>
           <kbd className="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-[11px] text-zinc-300">[ / ] (Cỡ cọ)</kbd>
-          <kbd className="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-[11px] text-zinc-300">Ctrl+I (Đảo Mask)</kbd>
+          <kbd className="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-[11px] text-zinc-300">
+            {invertShortcut} (Đảo Mask)
+          </kbd>
         </div>
       </div>
 
@@ -637,6 +642,7 @@ export const PhotoLayerSimulator: React.FC = () => {
                 return (
                   <div
                     key={layer.id}
+                    data-testid={`layer-item-${layer.id}`}
                     onClick={() => setActiveLayerId(layer.id)}
                     className={`p-2.5 rounded border transition-all cursor-pointer ${
                       isActive
@@ -664,9 +670,7 @@ export const PhotoLayerSimulator: React.FC = () => {
                             layer.visible ? 'text-zinc-200' : 'text-zinc-500 line-through'
                           }`}
                         >
-                          <span>{layer.name}</span>
-                          {layer.id === 'layer-subject' && <span className="sr-only">Main Subject (Fashion Model)</span>}
-                          {layer.id === 'layer-bg' && <span className="sr-only">Background Plate (Sunset Sky)</span>}
+                          {layer.name}
                         </span>
                       </div>
 

@@ -25,7 +25,7 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
     { id: 'designer', label: 'Vector Studio', icon: <PenTool className="w-3.5 h-3.5" />, colorClass: 'text-cyan-400' },
     { id: 'photo', label: 'Pixel Studio', icon: <Image className="w-3.5 h-3.5" />, colorClass: 'text-blue-400' },
     { id: 'publisher', label: 'Layout Studio', icon: <BookOpen className="w-3.5 h-3.5" />, colorClass: 'text-rose-400' },
-    { id: 'scripting', label: 'Automation & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
+    { id: 'scripting', label: 'Tự động hóa & MCP', icon: <Terminal className="w-3.5 h-3.5" />, colorClass: 'text-emerald-400' },
   ];
 
   const filteredModules = modules.filter((m) => m.trackId === activeTrackId);
@@ -41,6 +41,7 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
           const isSelected = track.id === activeTrackId;
           return (
             <button
+              type="button"
               key={track.id}
               onClick={() => onSelectTrack(track.id)}
               className={cn(
@@ -60,14 +61,16 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       {/* Modules List */}
       <div className="flex flex-col gap-1 flex-1 overflow-y-auto">
         <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 mb-1">
-          Danh Sách Module ({filteredModules.length})
+          Danh Sách Học Phần ({filteredModules.length})
         </span>
         {filteredModules.map((m) => {
           const isActive = m.id === activeModuleId;
           const isComplete = (m.progressPercentage || 0) >= 100;
+          const modNumber = m.moduleNumber || m.id;
 
           return (
             <button
+              type="button"
               key={m.id}
               onClick={() => onSelectModule(m.id)}
               className={cn(
@@ -82,10 +85,9 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
               ) : (
                 <Circle className="w-3.5 h-3.5 text-zinc-600 shrink-0 group-hover:text-zinc-400" />
               )}
-              <span className="font-mono text-[11px] text-zinc-500 shrink-0">{m.moduleNumber}</span>
+              <span className="font-mono text-[11px] text-zinc-500 shrink-0">{modNumber}</span>
               <span className="truncate flex-1">
-                <span>{moduleTranslationsVi[m.id]?.title || m.title}</span>
-                <span className="sr-only">{m.title}</span>
+                {moduleTranslationsVi[m.id]?.title || m.title}
               </span>
             </button>
           );

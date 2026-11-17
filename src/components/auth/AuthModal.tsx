@@ -27,11 +27,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setLocalOfflineUser,
   } = useAuth();
 
+  const showDemoSwitcher = !isConfigured && import.meta.env.VITE_ENABLE_DEMO_AUTH === 'true';
+
   const [activeTab, setActiveTab] = useState<'signin' | 'signup' | 'forgot'>(initialTab);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
-  const [careerTrack, setCareerTrack] = useState('Vector & Brand Identity');
+  const [careerTrack, setCareerTrack] = useState('Thiết kế Vector & Nhận diện thương hiệu');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -119,7 +121,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 {user || profile ? 'Hồ Sơ Học Viên' : 'Xác Thực Tài Khoản'}
               </h2>
               <p className="text-xs text-zinc-400 font-mono">
-                {isConfigured ? 'Supabase Cloud Sync' : 'Chế độ Cục bộ (Offline)'}
+                {isConfigured ? 'Đồng bộ đám mây' : 'Lưu trữ cục bộ trên thiết bị'}
               </p>
             </div>
           </div>
@@ -144,23 +146,31 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <h3 className="font-medium text-zinc-100">{profile?.display_name || 'Học viên'}</h3>
                   <p className="text-xs text-zinc-400 font-mono">{user?.email || profile?.email}</p>
                   <span className="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-mono tracking-wider uppercase font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                    Vai trò: {role}
+                    Vai trò:{' '}
+                    {role === 'evaluator'
+                      ? 'Giám khảo'
+                      : role === 'admin'
+                      ? 'Quản trị viên'
+                      : 'Học viên'}
                   </span>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-zinc-800/60 text-xs text-zinc-400 space-y-1">
                 <div>Chuyên môn: <span className="text-zinc-200">{profile?.career_track}</span></div>
-                <div>Phím bổ trợ: <span className="text-zinc-200 uppercase">{profile?.shortcut_modifier}</span></div>
+                <div>
+                  Phím bổ trợ:{' '}
+                  <span className="text-zinc-200 uppercase">
+                    {profile?.shortcut_modifier === 'mac' ? 'macOS' : 'Windows'}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Offline role switcher for testing */}
-            {!isConfigured && (
+            {showDemoSwitcher && (
               <div className="p-3.5 rounded-lg bg-zinc-900/50 border border-zinc-800/60 text-xs space-y-2">
                 <div className="flex items-center justify-between text-zinc-400 font-mono">
-                  <span>Chuyển đổi vai trò demo:</span>
-                  <span className="text-[10px] text-amber-400">Offline Test</span>
+                  <span>Chế độ thử nghiệm phát triển:</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
                   <button
@@ -358,10 +368,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     onChange={e => setCareerTrack(e.target.value)}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:border-amber-500/60"
                   >
-                    <option value="Vector & Brand Identity">Vector & Brand Identity (Designer)</option>
-                    <option value="Pixel & Retouching">Pixel & Retouching (Photo)</option>
-                    <option value="Editorial Design">Editorial Design & Print (Publisher)</option>
-                    <option value="Automation & Scripting">Automation & Scripting (MCP/V8)</option>
+                    <option value="Thiết kế Vector & Nhận diện thương hiệu">
+                      Thiết kế Vector &amp; Nhận diện thương hiệu
+                    </option>
+                    <option value="Chỉnh sửa ảnh & Ghép cảnh chuyên nghiệp">
+                      Chỉnh sửa ảnh &amp; Ghép cảnh chuyên nghiệp
+                    </option>
+                    <option value="Biên tập dàn trang & Xuất bản ấn phẩm">
+                      Biên tập dàn trang &amp; Xuất bản ấn phẩm
+                    </option>
+                    <option value="Tự động hóa thiết kế & Lập trình MCP">
+                      Tự động hóa thiết kế &amp; Lập trình MCP
+                    </option>
                   </select>
                 </div>
 
@@ -420,15 +438,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </form>
             )}
 
-            {/* Quick Guest Test Link */}
-            {!isConfigured && (
+            {showDemoSwitcher && (
               <div className="pt-2 border-t border-zinc-800/80 text-center">
                 <button
                   type="button"
                   onClick={() => handleMockRoleSwitch('student')}
                   className="text-xs text-amber-400/80 hover:text-amber-300 font-mono transition-colors"
                 >
-                  Hoặc trải nghiệm nhanh với tư cách Học viên khách (Offline) &rarr;
+                  Trải nghiệm nhanh với tư cách Học viên thử nghiệm &rarr;
                 </button>
               </div>
             )}
