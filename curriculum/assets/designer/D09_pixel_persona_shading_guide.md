@@ -1,90 +1,86 @@
-# D09 Practice Guide: Pixel Persona Integration & Textured Vector Shading
+# TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D09
+## CHỦ ĐỀ: TÍCH HỢP PIXEL PERSONA & ĐỔ BÓNG CHẤT LIỆU HẠT CHO VECTOR
 
-**Track:** Affinity Designer Mastery  
-**Module:** D09 — Pixel Persona Integration & Textured Vector Shading  
-**Asset Status:** `GUIDE_DOCUMENT` (Official Step-by-Step Production Guide)  
-**Target Application:** Serif Affinity Designer 3.3.3 (Desktop — Windows & macOS)
-
----
-
-## 1. Project Overview & Hybrid Workflow Objectives
-
-In this masterclass project, you will build a sophisticated **Retro-Futuristic Botanical Illustration** utilizing Affinity Designer's most celebrated superpower: the seamless fusion of **mathematical vector paths** with **organic, pressure-sensitive raster grain shading** via the **Pixel Persona**.
-
-You will master child pixel clipping, brush dynamics (Flow vs Opacity), Protect Alpha locking, and resolution DPI governance for flawless commercial print reproduction.
+- **Mã học phần:** `D09`
+- **Cấp độ:** Nâng cao (`Advanced`)
+- **Lộ trình:** Affinity Designer (Vector Studio & Pixel Persona)
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+**Ứng dụng mục tiêu:** Affinity (Desktop — Windows & macOS, kiểm chứng trên bản 3.3.3)
 
 ---
 
-## 2. Document DPI & Raster-Vector Architecture
+### 1. TỔNG QUAN DỰ ÁN & MỤC TIÊU QUY TRÌNH LAI
 
-1. **Document Setup**:
-   - Menu: `File > New...`
-   - Dimensions: `2400 × 3000 px` (Vertical Poster Layout).
-   - Color Format: `RGB/8` or `CMYK/8` (U.S. Web Coated SWOP v2 or ISO Coated v2).
-   - DPI: **300 DPI** (Crucial: While vector curves scale infinitely, raster brush strokes drawn inside Pixel Persona are baked at document DPI!).
-2. **Switching to the Pixel Persona**:
-   - Menu: Click the second icon in the top-left Toolbar Persona bar (Pixel Persona), or use your custom shortcut if configured in `Edit > Preferences > Keyboard Shortcuts` (Win) / `Settings > Keyboard Shortcuts` (Mac). Note: Affinity Designer does not assign default shortcuts for personas out of the box.
-   - Notice the left toolbar transforms: Pen and Shape tools are replaced by Paint Brush Tool (`B`), Pixel Tool, Eraser Tool (`E`), Selection Brushes, Smudge, and Dodge/Burn tools.
-   - The Brushes Studio switches from vector strokes to raster brush libraries (Acrylics, Dry Media, Gouache, Inks, Spray and Spatters, Texture).
+Trong bài thực hành này, bạn sẽ hoàn thiện một **Tranh Minh Họa Thực Vật phong cách Retro-Futuristic** bằng kiến trúc lõi kép của Affinity: kết hợp đường nét **vector toán học sắc bén** với lớp **đổ bóng chất liệu hạt điểm ảnh (raster)** có lực nhấn tự nhiên trong **Pixel Persona**.
+
+Bạn sẽ nắm vững kỹ thuật lồng **Pixel Layer** làm lớp con trong đối tượng vector (**Child Pixel Clipping**), phân biệt **Flow** và **Opacity** trên cọ vẽ, khóa vùng trong suốt bằng **Protect Alpha**, và quản lý **DPI** chuẩn cho in ấn thương mại.
 
 ---
 
-## 3. The Non-Destructive Vector Clipping Architecture
+### 2. THIẾT LẬP DPI TÀI LIỆU & CHUYỂN ĐỔI PIXEL PERSONA
 
-1. **The Vector Shell**:
-   - In the Designer Persona (first icon on the top-left toolbar), draw your foundational vector silhouette using the Pen Tool (`P`) or parametric shapes.
-   - Example: A clean organic leaf or geometric sphere filled with base midtone teal (`#0F766E`).
-2. **Inserting a Child Pixel Layer**:
-   - On the top toolbar, click the **Insert inside the selection** button (blue target square with an inner arrow).
-   - Switch to the **Pixel Persona**.
-   - In the Layers Studio, click the **Add Pixel Layer** button.
-   - The new pixel layer is automatically indented as a direct child inside the vector curve container.
-3. **Painless Shading**:
-   - Paint with a textured grain brush inside the leaf.
-   - Even if your brush stroke extends 200 pixels beyond the edge of the leaf, Designer's GPU compositing clips the pixels strictly to the vector bezier outline!
-   - Select the parent vector shape with the Node Tool (`A`) and edit the curve: The clipped raster texture adjusts instantaneously without pixel stretching.
+1. **Khởi tạo tài liệu chuẩn độ phân giải**:
+   - Vào menu `File > New...`.
+   - Kích thước: `2400 × 3000 px` (khổ poster dọc).
+   - Hệ màu: `RGB/8` hoặc `CMYK/8` (tùy đầu ra màn hình hay in offset).
+   - **DPI: `300 DPI`** (điểm then chốt: hình vector phóng to vô hạn nhưng nét cọ raster vẽ trong Pixel Persona phụ thuộc cố định vào DPI của tài liệu).
+2. **Chuyển sang Pixel Persona**:
+   - Nhấp vào biểu tượng thứ hai trên thanh **Persona** ở góc trên bên trái cửa sổ ứng dụng (hoặc dùng phím tắt tự gán trong `Edit > Preferences > Keyboard Shortcuts` trên Windows / `Settings > Keyboard Shortcuts` trên macOS; mặc định phần mềm không gán sẵn phím tắt chuyển Persona).
+   - Quan sát thanh công cụ bên trái thay đổi: các công cụ Pen và Shape được thay bằng **Paint Brush Tool (`B`)**, **Pixel Tool**, **Eraser Tool (`E`)**, nhóm vùng chọn và các cọ hòa trộn ánh sáng.
+   - Bảng **Brushes Studio** tự động chuyển sang bộ cọ điểm ảnh (`Acrylics`, `Dry Media`, `Gouache`, `Inks`, `Spray and Spatters`, `Texture`).
 
 ---
 
-## 4. Step-by-Step Shading Execution Guide
+### 3. KIẾN TRÚC LỒNG LỚP PIXEL CLIPPING PHI PHÁ HỦY
 
-### Step 4.1: Brush Selection & Dynamics Setup
-1. Open the Brushes Studio (Pixel Persona) -> Select **Dry Media** or **Texture**.
-2. Choose a stipple or chalk brush (e.g. "Chalk Rough" or "Noise Grain").
-3. In the Context Bar:
-   - Width: `80 px`.
-   - Opacity: `100%`.
-   - **Flow: `15% - 25%`** (Critical: Low flow allows gradual, velvety build-up of grain texture with repeated stylus passes).
-   - Hardness: `0%` (Soft feathered falloff).
-4. Click the **More** button in the Context Bar:
-   - Size Jitter: `20%` (Controller: Pressure).
-   - Flow Jitter: `15%` (Controller: Pressure).
-
-### Step 4.2: Applying Core Shadows & Ambient Occlusion
-1. Select the child pixel layer inside the vector leaf.
-2. Color Picker: Sample the base teal (`#0F766E`), then shift brightness down and hue toward deep navy (`#042F2E`).
-3. Set the child pixel layer blend mode to **Multiply** in the Layers Studio.
-4. Lightly paint along the bottom curvature and stem junction. Notice the rich, tactile stippled grain emerging.
-
-### Step 4.3: Highlighting & Protect Alpha
-1. Add a second child pixel layer above the shadow layer.
-2. Set blend mode to **Screen** or **Linear Light**.
-3. Color: Warm soft gold (`#FDE68A`) or vibrant mint (`#5EEAD4`).
-4. Paint along the upper edge receiving light.
-5. In the Context Bar, check **Protect Alpha** when you want to lock the painted pixels and recolor them without painting over empty areas.
-
-### Step 4.4: Returning to Designer Persona for Clean Cutouts
-1. Switch back to **Designer Persona** (click the blue pen icon on the top-left toolbar).
-2. Add sharp vector veins over the shaded leaf using the Pen Tool (`P`) with a 2pt stroke.
-3. Notice the stunning visual contrast between the razor-sharp vector lines and the soft analog grain shading underneath!
+1. **Dựng lớp vỏ Vector cha**:
+   - Ở không gian **Designer / Vector Persona** (biểu tượng đầu tiên bên trái thanh công cụ trên), dùng **Pen Tool (`P`)** vẽ hình chiếc lá cách điệu, tô màu xanh ngọc trầm (`#0F766E`), không viền.
+2. **Chèn lớp Pixel con vào bên trong Vector**:
+   - Chọn hình chiếc lá trên bản vẽ, sau đó bật nút **Insert inside the selection** (biểu tượng hình vuông mục tiêu có mũi tên hướng vào trong) trên thanh công cụ phía trên.
+   - Chuyển sang **Pixel Persona**.
+   - Trong **Layers Studio**, nhấn nút **Add Pixel Layer**. Lớp Pixel mới tự động thụt lề vào trong làm lớp con của đường cong chiếc lá.
+3. **Đổ bóng an toàn không lo lem viền**:
+   - Dùng cọ hạt vẽ trực tiếp lên chiếc lá: ngay cả khi nét cọ vung ra ngoài biên `200 px`, hệ thống vẫn cắt gọn toàn bộ điểm ảnh theo đúng đường bao Bézier của chiếc lá cha.
+   - Nếu sau đó dùng **Node Tool (`A`)** kéo chỉnh lại dáng chiếc lá, đường cắt tự động cập nhật theo thời gian thực mà không làm méo hay nhòe hạt chất liệu bên trong.
 
 ---
 
-## 5. Verification Checklist & Acceptance Criteria
+### 4. HƯỚNG DẪN TÔ BÓNG CHẤT LIỆU TỪNG BƯỚC
 
-- [ ] Document configured at 300 DPI for crisp raster texture rendering.
-- [ ] Switched between Designer Persona and Pixel Persona using verified shortcuts.
-- [ ] Raster shading painted on a dedicated child pixel layer inside a vector parent.
-- [ ] Flow set to 15%–25% for smooth, multi-pass grain accumulation.
-- [ ] Moving or altering vector nodes preserves clean mathematical clipping borders.
-- [ ] No raster blur or pixelation visible when viewed at 100% zoom.
+#### Bước 4.1: Chọn cọ hạt và cài đặt động lực nét vẽ
+1. Mở **Brushes Studio** (trong **Pixel Persona**) -> chọn nhóm **Dry Media** hoặc **Texture**.
+2. Chọn một đầu cọ phấn hoặc hạt xốp (ví dụ `"Chalk Rough"` hoặc `"Noise Grain"`).
+3. Thiết lập trên thanh **Context Bar**:
+   - **Width (Cỡ cọ):** `80 px`.
+   - **Opacity:** `100%`.
+   - **Flow:** `15% - 25%` (mức Flow thấp cho phép hạt màu đắp dày dần mượt mà qua nhiều lượt quét chồng lên nhau mà không tạo ngấn cọ).
+   - **Hardness:** `0%` (viền cọ mềm mịn).
+4. Nhấp nút **More** trên Context Bar để mở bảng chỉnh sâu:
+   - **Size Jitter:** `20%` (Controller: `Pressure`).
+   - **Flow Jitter:** `15%` (Controller: `Pressure`).
+
+#### Bước 4.2: Phủ lớp bóng tối (Core Shadow)
+1. Chọn lớp **Pixel Layer** con bên trong chiếc lá.
+2. Dùng ống hút màu lấy màu xanh nền `#0F766E`, rồi kéo tối hơn và ngả sang xanh đen sâu (`#042F2E`).
+3. Đổi **Blend Mode** của lớp Pixel con trong **Layers Studio** sang **Multiply**.
+4. Quét nhẹ nhiều lượt dọc theo mép cong dưới và phần cuống lá để tạo độ chuyển khối giàu chất liệu hạt.
+
+#### Bước 4.3: Phủ viền sáng (Highlight) & Khóa Protect Alpha
+1. Tạo thêm một **Pixel Layer** con thứ hai đặt phía trên lớp bóng tối.
+2. Đặt chế độ hòa trộn là **Screen** hoặc **Linear Light**.
+3. Chọn màu vàng ấm nhạt (`#FDE68A`) hoặc xanh bạc hà sáng (`#5EEAD4`), quét dọc theo mép lá đón sáng.
+4. Khi muốn đổi sắc độ cho chính những hạt màu đã vẽ mà không làm vương thêm hạt ra vùng trống, tích chọn **Protect Alpha** trên thanh **Context Bar** trước khi quét màu mới.
+
+#### Bước 4.4: Quay lại Vector Persona để nhấn nét sắc bén
+1. Nhấp biểu tượng **Designer / Vector Persona** trên thanh công cụ góc trên bên trái.
+2. Dùng **Pen Tool (`P`)** vẽ các đường gân lá sắc mảnh (`2 pt`) chồng lên phần đổ bóng hạt.
+3. Kiểm tra độ tương phản thị giác giữa nét vector sắc gọn và nền hạt raster mềm mịn bên dưới.
+
+---
+
+### 5. BẢNG KIỂM TRA & NGHIỆM THU BẢN VẼ
+- [ ] Tài liệu khởi tạo đúng chuẩn `300 DPI` ngay từ đầu để bảo đảm độ nét cho lớp hạt raster.
+- [ ] Chuyển đổi linh hoạt giữa `Designer / Vector Persona` và `Pixel Persona` không làm phẳng layer.
+- [ ] Toàn bộ nét đổ bóng nằm trong **Pixel Layer con** lồng gọn bên dưới hình vector cha.
+- [ ] Giữ `Opacity 100%` và điều tiết sắc độ chuyển tiếp bằng `Flow 15%–25%`.
+- [ ] Khi kéo sửa điểm neo trên đường cong vector cha bằng `Node Tool (A)`, biên cắt lớp hạt cập nhật tức thì mà không bị nhòe.

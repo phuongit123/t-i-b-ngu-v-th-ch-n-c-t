@@ -3,8 +3,8 @@
   "moduleId": "P04",
   "trackId": "photo",
   "order": 2,
-  "title": "Clone Stamp, Healing Brush & Restoration Concepts",
-  "subtitle": "Sample Source Alignment, Texture Synthesis & Historic Photo Repair",
+  "title": "Clone Stamp, Healing Brush và nguyên lý phục chế",
+  "subtitle": "Căn chỉnh nguồn mẫu, tổng hợp kết cấu bề mặt và phục hồi ảnh cũ",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -30,7 +30,7 @@
       "description": "Bộ đôi công cụ phục chế và cấy ghép điểm ảnh chuẩn mực của ngành nhiếp ảnh thương mại.",
       "contextBarOptions": [
         "Aligned: Duy trì khoảng cách tương đối cố định giữa điểm nguồn và điểm đích khi di chuyển cọ",
-        "Source: Current Layer, Current Layer & Below, All Layers",
+        "Source (Nguồn lấy mẫu): Current Layer (Lớp hiện tại), Current Layer & Below (Lớp hiện tại & bên dưới), All Layers (Mọi lớp)",
         "Rotation & Scale: Khả năng xoay hoặc phóng to/thu nhỏ mẫu lấy mẫu trước khi dập xuống canvas",
         "Hardness: Độ mềm của mép cọ (nên đặt 0% - 20% để hòa tan vết cắt)"
       ]
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P04-03 Frequency Separation & Professional Portrait Workflow",
+          "title": "Bài tiếp theo: P04-03 Frequency Separation và quy trình Retouch chân dung chuyên sâu",
           "target": "P04-03",
           "type": "next-lesson"
         },
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Tạo Pixel Layer rỗng:** Đặt tên `[Photo Restore]`, chọn Source: `Current Layer & Below`.\n2. **Chọn Clone Stamp (S):** Bật Aligned, chỉnh kích thước cọ vừa bằng bề rộng của vết rách.\n3. **Alt-click lấy mẫu:** Nhấp vào vùng giấy hoặc áo còn nguyên vẹn nằm sát vết rách.\n4. **Quét cọ theo đường nếp gấp:** Di chuyển cọ dọc theo vết rách. Pixel lành lặn sẽ đắp kín khoảng trống một cách hoàn hảo!",
       "visual": {
         "type": "badge-grid",
-        "content": "New Layer | Source: Below | Alt-Click Sample | Aligned On | Seamless Repair"
+        "content": "Layer mới | Source: Below | Alt-Click lấy mẫu | Bật Aligned | Phục chế liền mạch"
       }
     },
     {

@@ -3,99 +3,99 @@
   "moduleId": "B01",
   "trackId": "publisher",
   "order": 1,
-  "title": "Publication Architecture, Facing Pages, Slug & Bleed Standards",
-  "subtitle": "Commercial Print Geometry, Binding Gutters & Press-Ready Margins",
+  "title": "Kiến trúc ấn phẩm, trang đôi, Slug và tiêu chuẩn Bleed",
+  "subtitle": "Hình học in ấn thương mại, lề gáy đóng sách và lề an toàn sẵn sàng xuất bản",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Understand the mechanics of commercial editorial printing: signatures, facing page spreads, and spine creep.",
-      "Configure facing pages, starting page sides (Right vs Left), and page counts matching commercial binding multiples (4s/8s/16s).",
-      "Calculate and configure 3mm ISO standard bleed zones and explain why bleed is non-negotiable for edge-to-edge color.",
-      "Establish asymmetrical margins with binding gutter allowances for perfect bound vs saddle-stitched publications."
+      "Nắm vững cơ chế sản xuất ấn phẩm thương mại: tay sách (signatures), bố cục trang đối diện (Facing Pages) và độ xê dịch gáy sách.",
+      "Thiết lập chuẩn xác Facing Pages (trang đôi đối diện), trang bắt đầu (Right hay Left) và tổng số trang theo bội số đóng quyển (4, 8, 16 trang).",
+      "Tính toán và cấu hình vùng Bleed (lề tràn xén in ấn) chuẩn ISO 3mm, phân biệt rõ với vùng Slug (ghi chú kỹ thuật ngoài mép xén) và hiểu vì sao Bleed bắt buộc phải có khi in tràn mép.",
+      "Xây dựng lề an toàn Margins bất đối xứng với khoảng chừa gáy (Gutter) phù hợp cho sách dán gáy keo vuông so với ấn phẩm đóng ghim giữa."
     ],
-    "foundationalKnowledge": "In digital document production, a single screen page is self-contained. In commercial print production, documents are printed on giant parent sheets (press sheets), folded into multi-page bundles called 'signatures' (typically 8, 16, or 32 pages), bound together, and mechanically trimmed with high-speed guillotines. Because paper shifts slightly during mechanical folding and trimming (tolerance of +/- 1.0mm), any artwork intended to touch the paper's edge must extend beyond the trim line into a designated 3.0mm 'Bleed' zone. Failure to include bleed results in unsightly slivers of unprinted white paper along trimmed edges.",
+    "foundationalKnowledge": "Trên màn hình kỹ thuật số, mỗi trang hiển thị tồn tại độc lập. Ngược lại, trong sản xuất in ấn thương mại, tài liệu được bình trang lên những tờ giấy in khổ lớn, gấp lại thành từng tay sách (thường gồm 8, 16 hoặc 32 trang), đóng gáy và xén thành phẩm bằng máy dao công nghiệp tốc độ cao. Do tờ giấy luôn có độ xê dịch cơ học nhất định khi gấp và xén (sai số khoảng +/- 1.0 mm), mọi mảng màu hoặc hình ảnh muốn phủ kín ra sát mép giấy bắt buộc phải kéo tràn qua đường cắt thành phẩm vào vùng Bleed (lề tràn xén) rộng 3.0 mm. Nếu thiếu Bleed, chỉ cần dao cắt lệch nửa milimet cũng sẽ để lại vệt giấy trắng mất thẩm mỹ dọc mép trang. Ngoài ra, trong chế bản in ấn còn có khái niệm Slug: khoảng không gian nằm ngoài cả đường Bleed dùng để ghi chú kỹ thuật, mã đơn hàng, dấu xén (Printer Marks) và thông số kiểm soát cho thợ in mà không làm ảnh hưởng đến trang thành phẩm.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Publisher Document Architecture, ISO 12647 Bleed & Trim Specifications",
+      "source": "Kiến trúc tài liệu Affinity Layout Studio (Publisher) & Tiêu chuẩn Bleed/Trim ISO 12647",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Document Setup & Bleed Engine",
-      "persona": "Publisher Persona",
+      "toolName": "Document Setup & Hệ thống Bleed (Thiết lập tài liệu & Lề tràn xén)",
+      "persona": "Layout Studio (Publisher Persona)",
       "shortcut": {
-        "win": "Ctrl+Shift+P (Document Setup), Ctrl+N (New Document)",
-        "mac": "Cmd+Shift+P (Document Setup), Cmd+N (New Document)"
+        "win": "Ctrl+Shift+P (Document Setup), Ctrl+N (Tạo tài liệu mới)",
+        "mac": "Cmd+Shift+P (Document Setup), Cmd+N (Tạo tài liệu mới)"
       },
-      "description": "Accessed via File > Document Setup (Ctrl+Shift+P / Cmd+Shift+P) or during initial document creation. Controls page dimensions, facing page flow, margins, bleed zones, and color management.",
+      "description": "Truy cập qua File > Document Setup (Ctrl+Shift+P trên Windows / Cmd+Shift+P trên macOS) hoặc ngay khi tạo tài liệu mới (Ctrl+N / Cmd+N). Đây là trung tâm kiểm soát kích thước trang, luồng trang đối diện (Facing Pages), lề an toàn (Margins), vùng tràn lề (Bleed) và hồ sơ màu in ấn.",
       "contextBarOptions": [
-        "Facing Pages Checkbox: Creates side-by-side spreads (Left/Right) sharing a central spine",
-        "Arrange Dropdown: Horizontal (Standard book spreads) or Vertical",
-        "Start On: Right (Standard editorial start—Page 1 is front right cover)",
-        "Bleed Inputs: Top, Bottom, Inner, Outer (Standard 3.0 mm on all exterior edges)"
+        "Facing Pages: Bật chế độ hiển thị hai trang đối diện nhau (Trái/Phải) chung một đường gáy ở giữa",
+        "Arrange: Sắp xếp trang đôi theo chiều ngang (Horizontal — chuẩn sách báo) hoặc chiều dọc (Vertical)",
+        "Start on: Chọn mặt trang đầu tiên nằm bên phải (Right — Trang 1 là bìa trước bên phải theo chuẩn xuất bản)",
+        "Bleed: Nhập khoảng tràn lề cho 4 cạnh Top, Bottom, Inner, Outer (tiêu chuẩn 3.0 mm ở các mép cắt ngoài)"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Launch New Publication Dialog",
-        "instruction": "Open Affinity Publisher and press Ctrl+N (Windows) / Cmd+N (macOS). Under the 'Print' or 'Press Ready' category, select preset 'A4' (210 x 297 mm).",
+        "title": "Mở hộp thoại tạo ấn phẩm mới",
+        "instruction": "Mở Affinity và chuyển sang Layout Studio (không gian Publisher), nhấn Ctrl+N (Windows) hoặc Cmd+N (macOS). Ở nhóm danh mục 'Print' hoặc 'Press Ready', chọn khổ mẫu 'A4' (210 x 297 mm).",
         "shortcutTip": { "win": "Ctrl+N", "mac": "Cmd+N" }
       },
       {
         "stepNumber": 2,
-        "title": "Configure Facing Page Architecture",
-        "instruction": "Under the 'Layout' tab on the right, check the box labeled 'Facing pages'. Set 'Arrange' to Horizontal, and 'Start on' to 'Right'. Set initial Pages to 8 (a standard 8-page introductory signature).",
-        "shortcutTip": { "win": "Facing Pages ON", "mac": "Facing Pages ON" }
+        "title": "Cấu hình kiến trúc trang đôi (Facing Pages)",
+        "instruction": "Tại thẻ 'Layout' bên phải, tích chọn ô 'Facing pages'. Đặt 'Arrange' là Horizontal, 'Start on' là 'Right', và nhập 'Number of pages' là 8 (một tay sách tạp chí tiêu chuẩn 8 trang).",
+        "shortcutTip": { "win": "Bật Facing Pages", "mac": "Bật Facing Pages" }
       },
       {
         "stepNumber": 3,
-        "title": "Set Asymmetrical Binding Margins",
-        "instruction": "Click the 'Margins' tab. Uncheck the chain-link icon to allow independent margin values. Set Top: 20mm, Bottom: 22mm, Outer: 18mm, and Inner (Gutter): 25mm. Notice how the inner gutter provides essential clearance so text doesn't disappear into the folded spine.",
-        "shortcutTip": { "win": "Inner Margin: 25mm", "mac": "Inner Margin: 25mm" }
+        "title": "Thiết lập lề Margins bất đối xứng chừa gáy đóng sách",
+        "instruction": "Chuyển sang thẻ 'Margins'. Bấm bỏ chọn biểu tượng móc xích để nhập từng cạnh độc lập: Top 20 mm, Bottom 22 mm, Outer (lề ngoài) 18 mm, và Inner (Gutter — lề trong sát gáy) 25 mm. Lề trong rộng hơn giúp chữ không bị hút vào rãnh gấp khi đóng quyển.",
+        "shortcutTip": { "win": "Inner Margin: 25 mm", "mac": "Inner Margin: 25 mm" }
       },
       {
         "stepNumber": 4,
-        "title": "Configure 3mm Commercial Bleed",
-        "instruction": "Click the 'Bleed' tab. Ensure the chain-link icon is checked and enter '3.0 mm'. All four fields (Top, Bottom, Inner, Outer) will populate with 3mm. Click 'Create'.",
-        "shortcutTip": { "win": "Bleed: 3mm", "mac": "Bleed: 3mm" }
+        "title": "Cấu hình lề tràn xén Bleed 3 mm thương mại",
+        "instruction": "Mở thẻ 'Bleed'. Đảm bảo biểu tượng móc xích đang bật để liên kết 4 cạnh và nhập '3.0 mm'. Tất cả bốn ô (Top, Bottom, Inner, Outer) sẽ tự động điền 3 mm. Nhấn 'Create' để khởi tạo tài liệu.",
+        "shortcutTip": { "win": "Bleed: 3 mm", "mac": "Bleed: 3 mm" }
       },
       {
         "stepNumber": 5,
-        "title": "Verify Bleed Guides on Canvas",
-        "instruction": "Look at your newly created spread. The solid border is the page Trim line. The outer cyan/gray guideline extending 3mm beyond the edge is the Bleed line. Ensure background artwork extends all the way to this outer bleed line.",
+        "title": "Kiểm tra đường dẫn Bleed trực tiếp trên vùng làm việc",
+        "instruction": "Quan sát trang đôi vừa tạo: khung viền liền nét là đường mép xén thành phẩm (Trim Edge). Đường dẫn bao bên ngoài cách mép trang 3 mm là đường giới hạn Bleed. Mọi hình nền tràn lề đều phải kéo phủ tới sát đường Bleed ngoài cùng này (bật kiểm tra qua View > Show Bleed).",
         "shortcutTip": { "win": "View > Show Bleed", "mac": "View > Show Bleed" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Commercial Print Anatomy Diagram",
-        "description": "Cross-section of an editorial facing-page spread.",
+        "title": "Sơ đồ giải phẫu trang đôi in ấn thương mại",
+        "description": "Mặt cắt cấu trúc lề an toàn Margins, lề gáy Gutter và vùng tràn lề Bleed trên một trang đôi tạp chí.",
         "visualType": "diagram",
-        "visualContent": "+--- Bleed Line (+3.0mm) ----------------------------------------------------+\n|                                                                            |\n|   +--- Trim Edge (Final Cut 210x297mm) --------------------------------+   |\n|   |                                 |                                  |   |\n|   |   +--- Margin Safe Zone ---+    |    +--- Margin Safe Zone ---+    |   |\n|   |   | [Left Page: 18mm Out]  | 25 | 25 | [Right Page: 18mm Out] |    |   |\n|   |   |                        | mm | mm |                        |    |   |\n|   |   |                        | Gut| Gut|                        |    |   |\n|   |   +------------------------+ ter| ter+------------------------+    |   |\n|   |                                 |                                  |   |\n|   +---------------------------------+----------------------------------+   |\n|                                   Spine                                    |\n+----------------------------------------------------------------------------+"
+        "visualContent": "+--- Đường Bleed (+3.0mm) -------------------------------------------------------+\n|                                                                                |\n|   +--- Mép xén thành phẩm (Trim Edge 210x297mm) ---------------------------+   |\n|   |                                   |                                    |   |\n|   |   +--- Vùng an toàn Margins --+   |   +--- Vùng an toàn Margins --+    |   |\n|   |   | [Trang trái: 18mm ngoài]  | 25| 25| [Trang phải: 18mm ngoài]  |    |   |\n|   |   |                           | mm| mm|                           |    |   |\n|   |   |                           |Gáy|Gáy|                           |    |   |\n|   |   +---------------------------+   |   +---------------------------+    |   |\n|   |                                   |                                    |   |\n|   +-----------------------------------+------------------------------------+   |\n|                                 Gáy sách (Spine)                               |\n+--------------------------------------------------------------------------------+"
       },
       {
-        "title": "Binding Methods vs Gutter Requirements",
-        "description": "Recommended gutter allowances by binding type.",
+        "title": "Đối chiếu phương pháp đóng quyển và khuyến nghị lề gáy (Gutter)",
+        "description": "Khoảng chừa lề trong tối thiểu theo từng kỹ thuật gia công sau in.",
         "visualType": "table",
-        "visualContent": "| Binding Style | Page Range | Gutter Recommendation | Production Notes |\n|---|---|---|---|\n| Saddle-Stitched | 8 - 64 pages | 15 mm - 18 mm | Wire staples through spine; lays relatively flat |\n| Perfect Bound | 48 - 400+ pages | 22 mm - 28 mm | Glued square spine; requires deep gutter for reading |\n| Case Bound (Hardcover) | 80+ pages | 25 mm - 32 mm | Stitched signatures encased in board; large hinge allowance |\n| Wire-O / Spiral | Any | 20 mm - 24 mm | Punched holes through inner margin; keep text clear |"
+        "visualContent": "| Kiểu đóng quyển | Số trang phù hợp | Lề gáy (Gutter) khuyến nghị | Ghi chú sản xuất |\n|---|---|---|---|\n| Đóng ghim giữa (Saddle-Stitched) | 8 - 64 trang | 15 mm - 18 mm | Bấm kim dọc gáy giữa; trang mở khá phẳng |\n| Dán gáy keo vuông (Perfect Bound) | 48 - 400+ trang | 22 mm - 28 mm | Phay gáy và vào keo; cần lề trong sâu để dễ đọc |\n| Bìa cứng khâu chỉ (Case Bound) | 80+ trang | 25 mm - 32 mm | Tay sách khâu chỉ bọc bìa cứng; cần trừ hao rãnh gập |\n| Đóng lò xo (Wire-O / Spiral) | Mọi số trang | 20 mm - 24 mm | Đục lỗ dọc mép trong; tuyệt đối không đặt chữ sát lỗ |"
       }
     ],
     "guidedPractice": {
-      "title": "Editorial Magazine Spread Construction",
-      "taskDescription": "Construct a clean 8-page A4 magazine layout with 3mm bleed, 25mm inner gutter, and verify bleed snapping.",
+      "title": "Dựng khung cấu trúc trang đôi tạp chí A4",
+      "taskDescription": "Thiết lập một tệp tạp chí A4 gồm 8 trang với lề tràn Bleed 3 mm, lề gáy 25 mm và kiểm tra độ bám khít của mảng màu tràn lề.",
       "checkpoints": [
-        "Create 8-page A4 document with Facing Pages active, starting on Right.",
-        "Configure Margins: Top 20mm, Bottom 22mm, Outer 18mm, Inner 25mm.",
-        "Configure Bleed: 3.0mm on all sides.",
-        "Draw a colored rectangle spanning across Spread 2-3 that extends completely to the outer bleed line on all 3 exterior sides.",
-        "Toggle 'View > View Mode > Clip to Canvas' (\\ [Backslash] shortcut on both Win/Mac; never press Ctrl+W as it closes the document!) to preview with and without bleed."
+        "Tạo tài liệu A4 gồm 8 trang, bật Facing Pages và đặt Start on: Right.",
+        "Cấu hình Margins bất đối xứng: Top 20 mm, Bottom 22 mm, Outer 18 mm, Inner 25 mm.",
+        "Cấu hình Bleed 3.0 mm cho toàn bộ các cạnh.",
+        "Vẽ một khối chữ nhật màu phủ kín qua trang đôi 2-3, kéo dãn chạm khít đường dẫn Bleed ở cả 3 cạnh mép ngoài.",
+        "Bật/tắt chế độ 'View > View Mode > Clip to Canvas' bằng phím \\ (Backslash) trên cả Windows và macOS (tuyệt đối không bấm Ctrl+W vì tổ hợp này sẽ đóng tài liệu!) để kiểm tra sự khác biệt khi hiện Bleed và khi xem bản cắt thành phẩm."
       ],
-      "expectedOutcome": "A press-ready publication architecture guaranteed against white slivers on commercial trimming."
+      "expectedOutcome": "Một cấu trúc ấn phẩm chuẩn in công nghiệp, loại bỏ hoàn toàn nguy cơ hở mép giấy trắng sau khi xén."
     },
     "independentChallenge": {
-      "title": "Coffee Table Art Book Specification",
-      "prompt": "Using Document Setup, build a luxury square format coffee table art book: (1) Dimensions: 250 x 250 mm; (2) Facing Pages, starting on Right; (3) 16 pages total; (4) Perfect bound with 28mm inner gutter to account for thick binding; (5) Commercial 3mm bleed; (6) Color profile: CMYK/8 Coated FOGRA39.",
+      "title": "Thiết lập quy cách sách ảnh bìa cứng (Coffee Table Art Book)",
+      "prompt": "Sử dụng Document Setup để dựng khung cho một cuốn sách ảnh nghệ thuật khổ vuông cao cấp với yêu cầu: (1) Kích thước thành phẩm 250 x 250 mm; (2) Bật Facing Pages, bắt đầu từ trang bên phải (Right); (3) Tổng cộng 16 trang; (4) Đóng gáy keo vuông nên lề trong Inner Gutter phải đạt 28 mm; (5) Bleed thương mại 3.0 mm; (6) Hệ màu CMYK/8 với profile Coated FOGRA39.",
       "starterAsset": {
         "filename": "B01_magazine_spec_guide.md",
         "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
@@ -103,86 +103,86 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Includes coffee table book layout specification (GUIDE_DOCUMENT)."
+        "statusNote": "Bao gồm thông số quy cách dàn trang cho sách ảnh khổ vuông và tạp chí A4 (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Square 250x250mm dimensions verified in Document Setup.",
-        "Color profile is commercial CMYK FOGRA39.",
-        "Inner margins provide full 28mm clearance for spine glue.",
-        "3mm bleed verified across all 16 pages."
+        "Kiểm tra đúng kích thước khổ vuông 250 x 250 mm trong Document Setup.",
+        "Hồ sơ màu đúng chuẩn in offset thương mại CMYK/8 Coated FOGRA39.",
+        "Lề trong đạt đủ 28 mm để trừ hao độ cong rãnh keo gáy.",
+        "Vùng Bleed 3 mm hiển thị đồng bộ trên toàn bộ 16 trang."
       ],
-      "bonusGoal": "Create a 2-page full-bleed photograph placeholder spanning pages 4 and 5."
+      "bonusGoal": "Tạo một khung giữ chỗ ảnh (Picture Frame) tràn lề phủ trọn hai trang đôi 4 và 5."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Snapping artwork to the page edge instead of the bleed line",
-        "cause": "Assuming the visible canvas edge is where color should stop.",
-        "solution": "Always pull background fills and images past the black page border out to the red/cyan bleed line. When the print house cuts the paper, any slight blade deviation will cut colored ink, not white paper."
+        "pitfall": "Kéo ảnh và mảng màu dừng ngay tại mép giấy thay vì kéo ra đường Bleed",
+        "cause": "Hiểu nhầm rằng đường viền trang nhìn thấy trên màn hình là điểm dừng của màu in.",
+        "solution": "Luôn kéo mảng nền và ảnh tràn lề vượt qua mép trang thành phẩm ra sát đường dẫn Bleed 3 mm bên ngoài. Khi nhà in xén giấy, dao cắt dù lệch nhẹ vẫn cắt vào phần mực thừa chứ không lộ giấy trắng."
       },
       {
-        "pitfall": "Symmetrical margins causing text to be swallowed by the spine",
-        "cause": "Setting all margins to a uniform 15mm in a thick book.",
-        "solution": "Always use asymmetrical margins: make the Inner (Gutter) margin substantially wider (22-28mm) than the Outer margin (15-18mm) for perfect bound books."
+        "pitfall": "Đặt lề 4 cạnh bằng nhau khiến văn bản bị chìm vào gáy sách",
+        "cause": "Thiết lập đồng bộ tất cả Margins là 15 mm cho một cuốn sách dày.",
+        "solution": "Với sách đóng quyển nhiều trang, luôn tách rời móc xích và đặt Inner Margin (lề gáy) rộng hơn hẳn (22–28 mm) so với Outer Margin (15–18 mm)."
       },
       {
-        "pitfall": "Page counts that cannot be bound",
-        "cause": "Submitting a 19-page document for saddle-stitched print.",
-        "solution": "Commercial sheet-fed printing folds 1 sheet of paper into 4 pages. Print page counts MUST be multiples of 4 (e.g. 8, 12, 16, 20, 24, 28, 32)."
+        "pitfall": "Số trang lẻ không thể bình thành tay sách in ấn",
+        "cause": "Gửi tệp thiết kế 19 trang cho nhà in đóng ghim giữa.",
+        "solution": "Mỗi tờ giấy in hai mặt khi gấp đôi luôn tạo ra đúng 4 trang. Tổng số trang của ấn phẩm đóng quyển bắt buộc phải chia hết cho 4 (ví dụ: 8, 12, 16, 20, 24, 28, 32)."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "B01-01-Q1",
-        "question": "Why must print artwork that touches the edge of a page extend into the 3mm Bleed zone?",
+        "question": "Vì sao đồ họa hoặc ảnh nền chạm mép trang in bắt buộc phải kéo tràn thêm vào vùng Bleed 3 mm?",
         "options": [
-          "To increase the overall resolution of the PDF.",
-          "Because mechanical guillotine blades have physical cutting tolerances (+/- 1mm); extending color into the bleed zone ensures that slight trimming shifts never leave an unprinted white sliver along the edge.",
-          "To satisfy government tax regulations.",
-          "Because ink cannot stick to the exact edge of paper."
+          "Để tăng độ phân giải điểm ảnh cho tệp PDF xuất ra.",
+          "Vì dao xén công nghiệp luôn có sai số cơ học (+/- 1 mm); kéo mực tràn ra vùng Bleed đảm bảo độ lệch nhỏ khi cắt không bao giờ để lại vệt giấy trắng ở mép.",
+          "Để đáp ứng quy định kiểm duyệt xuất bản.",
+          "Vì mực in không thể bám trực tiếp lên mép cắt của giấy."
         ],
         "correctIndex": 1,
-        "explanation": "Bleed provides an intentional margin of error for industrial print finishing, ensuring clean, borderless color even if paper slips slightly under the blade."
+        "explanation": "Vùng Bleed tạo khoảng dự phòng an toàn cho công đoạn xén thành phẩm tại xưởng in, giữ màu sắc phủ kín sát mép dù giấy có hơi dịch chuyển dưới lưỡi dao."
       },
       {
         "id": "B01-01-Q2",
-        "question": "Why should the Inner (Gutter) margin of a perfect-bound book be wider than the Outer margin?",
+        "question": "Tại sao lề trong (Inner / Gutter Margin) của sách dán gáy keo vuông cần rộng hơn lề ngoài (Outer Margin)?",
         "options": [
-          "It makes the book lighter to hold.",
-          "Because the inner spine of a perfect bound book is glued together and bends into the binding valley; extra gutter margin ensures readable text is not obscured by the page curvature.",
-          "Because left pages have less text than right pages.",
-          "It is an arbitrary tradition with no practical purpose."
+          "Giúp cuốn sách cầm nhẹ tay hơn.",
+          "Vì phần gáy bên trong bị ép keo nên trang giấy bị uốn cong vào rãnh giữa; khoảng lề gáy rộng giúp dòng chữ không bị che khuất hoặc khó đọc.",
+          "Vì trang bên trái luôn chứa ít chữ hơn trang bên phải.",
+          "Đây chỉ là thói quen trình bày truyền thống, không có tác dụng thực tế."
         ],
         "correctIndex": 1,
-        "explanation": "In glued perfect-bound books, pages do not lay completely flat. Text placed too close to the spine curves into the gutter and becomes illegible."
+        "explanation": "Sách dán gáy keo vuông không thể mở phẳng 180 độ như sách đóng ghim. Nội dung đặt quá sát gáy sẽ bị cong vào khe giữa gây mỏi mắt khi đọc."
       },
       {
         "id": "B01-01-Q3",
-        "question": "Why must the page count of a standard saddle-stitched commercial publication be a multiple of 4?",
+        "question": "Vì sao tổng số trang của một ấn phẩm đóng ghim giữa thương mại bắt buộc phải là bội số của 4?",
         "options": [
-          "Because Affinity Publisher only counts in 4s.",
-          "Because each physical sheet of paper folded in half creates exactly 4 individual pages (front-left, front-right, back-left, back-right).",
-          "Because printers charge by sets of four.",
-          "Because of 4-color CMYK printing."
+          "Vì Affinity chỉ hỗ trợ đánh số trang theo từng nhóm 4.",
+          "Vì mỗi tờ giấy in hai mặt khi gấp đôi lại luôn tạo thành đúng 4 trang (trước-trái, trước-phải, sau-trái, sau-phải).",
+          "Vì nhà in thường tính giá theo đơn vị 4 trang.",
+          "Do quy chuẩn của hệ màu in 4 màu CMYK."
         ],
         "correctIndex": 1,
-        "explanation": "Folding any single sheet of physical paper in half creates 2 leaves, which equals exactly 4 numbered pages. Therefore, signature binding requires multiples of 4."
+        "explanation": "Gấp đôi một tờ giấy vật lý tạo ra 2 lá giấy tương ứng đúng 4 mặt trang. Do đó, các tay sách bình in đều phải chia hết cho 4."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Publication architecture requires understanding commercial press mechanics (signatures and folding).",
-        "Facing pages allow editorial designers to balance typography and visual weight across full spreads.",
-        "Commercial 3mm bleed prevents white paper slivers caused by guillotine trimming shifts.",
-        "Asymmetrical gutter margins safeguard legibility against spine curvature in glued books."
+        "Thiết kế xuất bản đòi hỏi hiểu đúng quy trình gấp tay sách và sai số dao xén tại xưởng in.",
+        "Chế độ Facing Pages giúp người thiết kế cân bằng bố cục chữ và thị giác trên trọn vẹn hai trang mở đối diện.",
+        "Tiêu chuẩn Bleed 3 mm ngăn chặn triệt để lỗi hở viền trắng sau khi xén thành phẩm.",
+        "Lề trong (Inner Gutter) bất đối xứng bảo vệ khả năng đọc trước độ cong tự nhiên của gáy sách dán keo."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: B01-02 Master Pages Foundations & Page Numbers",
+          "title": "Bài tiếp theo: B01-02 Master Pages và đánh số trang tự động",
           "target": "B01-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Publisher Print Setup Guide",
+          "title": "Tài liệu Affinity chính thức: Hướng dẫn thiết lập in ấn & Bleed",
           "target": "https://affinity.serif.com/publisher/print-setup/",
           "type": "doc"
         }
@@ -194,36 +194,36 @@
       "id": "B01-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Publication Architecture & Bleed Standards",
-      "subtitle": "The Engineering Behind Commercial Print Layout",
-      "contentMarkdown": "Welcome to **Affinity Publisher 3.0**.\n\nDesigning for print is an engineering discipline: you are not creating a static digital screen—you are creating a physical three-dimensional object made of folded, glued, and trimmed paper.\n\nIn this lesson, you will master **facing page spreads, spine gutter physics, and the non-negotiable rules of 3mm commercial bleed**.",
+      "title": "Kiến Trúc Ấn Phẩm & Tiêu Chuẩn Bleed",
+      "subtitle": "Kỹ thuật hình học đằng sau một ấn phẩm in thương mại",
+      "contentMarkdown": "Chào mừng bạn đến với **Layout Studio** (không gian dàn trang **Publisher** trong Affinity).\n\nThiết kế cho in ấn mang tính kỹ thuật vật lý rõ rệt: bạn không chỉ tạo ra một màn hình tĩnh, mà đang thiết kế một vật thể ba chiều bằng giấy được gấp tay sách, vào keo đóng gáy và đưa qua dao xén công nghiệp.\n\nTrong bài học này, bạn sẽ nắm vững **cấu trúc trang đôi Facing Pages, khoảng chừa gáy sách (Gutter), khái niệm vùng Slug và quy tắc bắt buộc của Bleed 3 mm**.",
       "actionBox": {
-        "label": "Print Truth",
-        "text": "Every printed book is made of folded sheets. Page counts must always be multiples of 4."
+        "label": "Nguyên Lý In Ấn",
+        "text": "Mọi cuốn sách đều được ghép từ các tờ giấy gấp đôi. Tổng số trang in luôn phải chia hết cho 4."
       }
     },
     {
       "id": "B01-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "Facing Pages & The Anatomy of a Spread",
-      "subtitle": "Viewing the Reader's Eye Flow",
-      "contentMarkdown": "When you open a book or magazine, you never read a single page in isolation:\n\n- You view **two facing pages simultaneously (a Spread)**.\n- **Page 1 (Front Cover):** Sits alone on the **Right**.\n- **Pages 2 & 3:** First interior spread (Page 2 Left, Page 3 Right), meeting at the center **Spine**.\n- **Final Page (Back Cover):** Sits alone on the **Left**.",
+      "title": "Facing Pages & Giải Phẫu Một Trang Đôi",
+      "subtitle": "Quan sát đúng dòng chảy mắt đọc của độc giả",
+      "contentMarkdown": "Khi mở một cuốn sách hay tạp chí, người đọc không bao giờ chỉ nhìn một trang đơn lẻ:\n\n- Mắt người đọc luôn tiếp nhận **hai trang đối diện cùng lúc (một Spread)**.\n- **Trang 1 (Bìa trước):** Đứng độc lập bên **Phải (Right)**.\n- **Trang 2 & Trang 3:** Trang đôi ruột đầu tiên (Trang 2 bên Trái, Trang 3 bên Phải), gặp nhau tại **Gáy sách (Spine)** ở giữa.\n- **Trang cuối (Bìa sau):** Đứng độc lập bên **Trái (Left)**.",
       "visual": {
         "type": "diagram",
-        "content": "[Page 1: Cover (Right)]\n[Page 2 (Left)  | Spine |  Page 3 (Right)]\n[Page 4 (Left)  | Spine |  Page 5 (Right)]\n[Page 6 (Left)  | Spine |  Page 7 (Right)]\n[Page 8: Back Cover (Left)]"
+        "content": "[Trang 1: Bìa trước (Phải)]\n[Trang 2 (Trái)  | Gáy |  Trang 3 (Phải)]\n[Trang 4 (Trái)  | Gáy |  Trang 5 (Phải)]\n[Trang 6 (Trái)  | Gáy |  Trang 7 (Phải)]\n[Trang 8: Bìa sau (Trái)]"
       }
     },
     {
       "id": "B01-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Document Setup: Margins & Bleed Engine",
-      "subtitle": "Configuring Precision Geometry",
-      "contentMarkdown": "In `File > Document Setup` (Ctrl+Shift+P / Cmd+Shift+P):\n\n- **Facing Pages:** Check `[x] Facing pages`.\n- **Start on:** Set to `Right`.\n- **Margins:** Uncheck uniform linking. Set Inner (Gutter) to `25mm` to clear the binding curve. Set Outer to `18mm`.\n- **Bleed:** Set to `3.0 mm` on all sides.\n- **Color Profile:** Ensure commercial CMYK (e.g. `Coated FOGRA39`).",
+      "title": "Document Setup: Lề An Toàn & Lề Tràn Xén",
+      "subtitle": "Cấu hình thông số hình học chuẩn xác ngay từ đầu",
+      "contentMarkdown": "Trong `File > Document Setup` (`Ctrl+Shift+P` trên Win / `Cmd+Shift+P` trên Mac):\n\n- **Facing Pages:** Tích chọn `[x] Facing pages`.\n- **Start on:** Đặt là `Right`.\n- **Margins (Lề an toàn):** Tắt khóa móc xích đồng bộ. Đặt lề trong `Inner (Gutter)` khoảng `25 mm` để né rãnh gấp gáy, đặt lề ngoài `Outer` `18 mm`.\n- **Bleed (Lề tràn xén):** Nhập `3.0 mm` cho các cạnh ngoài (khác với vùng **Slug** dùng để ghi chú kỹ thuật in ấn bên ngoài khổ xén).\n- **Color Profile:** Chọn hệ màu in `CMYK/8` (ví dụ `Coated FOGRA39`).",
       "actionBox": {
-        "label": "Commercial Rule",
-        "text": "Standard European and Asian commercial offset printers require 3.0mm bleed. US printers typically require 0.125 inches (3.175mm).",
+        "label": "Quy Chuẩn Nhà In",
+        "text": "Các xưởng in offset tại châu Á và châu Âu tiêu chuẩn yêu cầu Bleed 3.0 mm; tại Mỹ thường yêu cầu 0.125 inch (3.175 mm).",
         "shortcut": { "win": "Ctrl+Shift+P", "mac": "Cmd+Shift+P" }
       }
     },
@@ -231,55 +231,55 @@
       "id": "B01-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Setting Up an 8-Page Magazine Spread",
-      "subtitle": "From Blank Canvas to Press-Ready Signature",
-      "contentMarkdown": "1. **Initialize:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Print > A4`.\n2. **Enable Spreads:** Check `Facing pages`, set `Start on: Right`, and set `Number of pages: 8`.\n3. **Set Margins:** Unlink margins. Top: `20mm`, Bottom: `22mm`, Inner: `25mm`, Outer: `18mm`.\n4. **Set Bleed:** In the Bleed tab, enter `3.0 mm` across all edges.\n5. **Create & Inspect:** Click Create. Open the Pages studio on the left. Notice your cover page on the right, followed by 3 two-page interior spreads!\n6. **Extend Color to Bleed:** Place a color block and drag it past the black edge until it snaps to the outer red bleed line.",
+      "title": "Từng Bước Dựng Tạp Chí A4 8 Trang",
+      "subtitle": "Từ trang trắng tới tay sách sẵn sàng chế bản",
+      "contentMarkdown": "1. **Khởi tạo:** Nhấn `Ctrl+N` (Win) / `Cmd+N` (Mac). Chọn danh mục `Print > A4`.\n2. **Bật trang đôi:** Tích `Facing pages`, đặt `Start on: Right`, và chọn `Number of pages: 8`.\n3. **Đặt lề Margins:** Tắt khóa liên kết 4 cạnh. Nhập Top `20 mm`, Bottom `22 mm`, Inner `25 mm`, Outer `18 mm`.\n4. **Đặt Bleed:** Ở thẻ Bleed, giữ khóa liên kết và nhập `3.0 mm` cho mọi cạnh.\n5. **Khởi tạo & Kiểm tra:** Bấm Create. Mở bảng **Pages Studio** bên trái, bạn sẽ thấy bìa 1 nằm bên phải, theo sau là 3 trang đôi ruột và bìa sau bên trái.\n6. **Kéo màu tràn lề:** Vẽ mảng màu nền và kéo vượt qua mép trang thành phẩm để bắt dính sát vào đường Bleed bên ngoài.",
       "visual": {
         "type": "callout",
-        "content": "View > View Mode > Clip to Canvas (Ctrl+W / Cmd+W) toggles between showing bleed and previewing final trimmed paper."
+        "content": "Lệnh View > View Mode > Clip to Canvas dùng phím tắt \\ (Backslash) trên cả Windows và macOS để bật/tắt nhanh giữa chế độ hiện vùng Bleed và xem trước tờ giấy sau khi cắt thành phẩm. Tuyệt đối không bấm Ctrl+W vì tổ hợp đó sẽ đóng tài liệu!"
       }
     },
     {
       "id": "B01-01-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Print Production Pitfalls & Traps",
-      "subtitle": "Avoid Costly Reprints",
-      "contentMarkdown": "### 1. The White Sliver of Shame\n- **Cause:** Snapping a photo to the black page edge instead of the red 3mm bleed guide.\n- **Result:** Trimming blades shift 0.5mm, leaving an ugly white paper hairline on the final print.\n- **Fix:** Always pull bleeds to the outer guide line.\n\n### 2. Swallowed Spine Text\n- **Cause:** Using equal 12mm margins everywhere. In a 200-page book, text curves into the spine and becomes unreadable.\n- **Fix:** Give the Inner margin at least 25mm to 28mm for perfect binding.\n\n### 3. Odd Page Counts\n- **Rule:** A booklet cannot have 15 or 17 pages. Always ensure your page count divides evenly by 4.",
+      "title": "Những Cái Bẫy Chế Bản Gây Tốn Kém In Lại",
+      "subtitle": "Nhận diện sớm sai sót trước khi xuất tệp gửi xưởng in",
+      "contentMarkdown": "### 1. Lỗi hở viền trắng mép cắt\n- **Nguyên nhân:** Đặt ảnh vừa khít mép trang thay vì kéo ra đường dẫn Bleed 3 mm.\n- **Hậu quả:** Dao xén chỉ cần xê dịch 0.5 mm sẽ để lại sợi giấy trắng chạy dọc mép ấn phẩm.\n- **Cách xử lý:** Luôn kéo các thành phần tràn nền chạm khít đường Bleed bên ngoài.\n\n### 2. Chữ bị nuốt vào rãnh gáy sách\n- **Nguyên nhân:** Đặt lề 4 cạnh bằng nhau (ví dụ đều 12 mm) cho sách dày hàng trăm trang.\n- **Cách xử lý:** Chừa lề trong `Inner` ít nhất `25–28 mm` đối với sách dán gáy keo vuông.\n\n### 3. Số trang không chia hết cho 4\n- **Nguyên tắc:** Một cuốn sách nhỏ không thể in ở mức 15 hay 17 trang. Luôn quy hoạch số trang là bội số của 4.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "If it bleeds, it must extend 3mm past the trim."
+        "label": "Nguyên Tắc Vàng",
+        "text": "Đồ họa đã chạm mép trang thì bắt buộc phải tràn ra ngoài đường cắt thêm 3 mm."
       }
     },
     {
       "id": "B01-01-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Print Geometry",
-      "subtitle": "Validate Your Production Readiness",
-      "contentMarkdown": "Test your mastery of publication setup.",
+      "title": "Kiểm Tra Nhanh: Hình Học In Ấn",
+      "subtitle": "Xác nhận kiến thức trước khi sang phần thực hành",
+      "contentMarkdown": "Chọn đáp án chính xác cho câu hỏi dưới đây.",
       "quizData": {
         "id": "B01-01-Q1",
-        "question": "Why must print artwork that touches the edge of a page extend into the 3mm Bleed zone?",
+        "question": "Vì sao đồ họa hoặc ảnh nền chạm mép trang in bắt buộc phải kéo tràn thêm vào vùng Bleed 3 mm?",
         "options": [
-          "To increase the overall resolution of the PDF.",
-          "Because mechanical guillotine blades have physical cutting tolerances (+/- 1mm); extending color into the bleed zone ensures that slight trimming shifts never leave an unprinted white sliver along the edge.",
-          "To satisfy government tax regulations.",
-          "Because ink cannot stick to the exact edge of paper."
+          "Để tăng độ phân giải điểm ảnh cho tệp PDF xuất ra.",
+          "Vì dao xén công nghiệp luôn có sai số cơ học (+/- 1 mm); kéo mực tràn ra vùng Bleed đảm bảo độ lệch nhỏ khi cắt không bao giờ để lại vệt giấy trắng ở mép.",
+          "Để đáp ứng quy định kiểm duyệt xuất bản.",
+          "Vì mực in không thể bám trực tiếp lên mép cắt của giấy."
         ],
         "correctIndex": 1,
-        "explanation": "Bleed provides an intentional margin of error for industrial print finishing, ensuring clean, borderless color even if paper slips slightly under the blade."
+        "explanation": "Vùng Bleed tạo khoảng dự phòng an toàn cho công đoạn xén thành phẩm tại xưởng in, giữ màu sắc phủ kín sát mép dù giấy có hơi dịch chuyển dưới lưỡi dao."
       }
     },
     {
       "id": "B01-01-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Luxury Editorial Spread",
-      "subtitle": "Building a Real Magazine Base",
-      "contentMarkdown": "### Your Mission:\nConstruct an 8-page editorial publication architecture in Affinity Publisher:\n\n1. Set up an **A4 portrait document** with Facing Pages, starting on Right.\n2. Configure Margins: Top `20mm`, Bottom `24mm`, Outer `18mm`, Inner `26mm`.\n3. Configure standard `3.0 mm` bleed.\n4. On Spread 2-3 (Pages 2 & 3), place a dark charcoal background rectangle `#111115` spanning the full width of both pages, extending completely to the outer bleed line on all exterior sides.\n\n### Acceptance Criteria:\n- 8 total pages organized into 1 cover, 3 spreads, and 1 back cover.\n- Spanning rectangle extends exactly to the 3mm bleed line.\n- Inner gutter provides 26mm safe margin.",
+      "title": "Thử Thách Độc Lập: Trang Đôi Tạp Chí Cao Cấp",
+      "subtitle": "Tự dựng khung sườn ấn phẩm thực tế",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng cấu trúc một ấn phẩm tạp chí 8 trang trong Affinity (Layout Studio):\n\n1. Tạo tài liệu **khổ dọc A4**, bật `Facing Pages`, `Start on: Right`.\n2. Thiết lập lề Margins: Top `20 mm`, Bottom `24 mm`, Outer `18 mm`, Inner `26 mm`.\n3. Thiết lập vùng `Bleed` chuẩn `3.0 mm`.\n4. Trên trang đôi 2–3 (Trang 2 và Trang 3), vẽ một mảng nền màu than đậm `#111115` phủ trọn bề ngang cả hai trang và kéo tràn khít ra đường `Bleed` ở ba phía mép ngoài.\n\n### Tiêu chí nghiệm thu:\n- Tổng cộng 8 trang gồm 1 bìa trước, 3 trang đôi ruột và 1 bìa sau.\n- Mảng nền phủ tràn đúng tới vạch Bleed 3 mm.\n- Lề gáy trong đảm bảo khoảng an toàn 26 mm.",
       "practiceData": {
-        "prompt": "Create an 8-page A4 magazine layout with 3mm bleed and asymmetric margins.",
+        "prompt": "Tạo cấu trúc tạp chí A4 gồm 8 trang với Bleed 3 mm và lề Margins bất đối xứng.",
         "starterAsset": {
           "filename": "B01_magazine_spec_guide.md",
           "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
@@ -287,12 +287,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Verified specification for A4 facing page editorial spread with 3mm bleed (GUIDE_DOCUMENT)."
+          "statusNote": "Tài liệu thông số kỹ thuật đã kiểm chứng cho trang đôi tạp chí A4 có lề tràn Bleed 3 mm (GUIDE_DOCUMENT)."
         },
         "checkpoints": [
-          "Facing pages with 8-page count active",
-          "3mm bleed verified on all edges",
-          "Inner gutter margin set to 26mm"
+          "Đã bật Facing Pages với tổng số 8 trang",
+          "Đã kiểm tra Bleed 3 mm ở tất cả mép cắt",
+          "Đã đặt lề trong (Inner Gutter) đạt 26 mm"
         ]
       }
     }

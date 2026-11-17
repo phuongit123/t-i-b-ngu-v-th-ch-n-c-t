@@ -3,100 +3,100 @@
   "moduleId": "D08",
   "trackId": "designer",
   "order": 3,
-  "title": "Scalable Vector Component Systems & Variants",
-  "subtitle": "Nested Symbols, Button States, Responsive Layouts & Design Tokens",
+  "title": "Hệ thống component Vector co giãn và các biến thể",
+  "subtitle": "Symbol lồng nhau, trạng thái nút bấm, neo Constraints và mã màu Global Swatches",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Construct multi-variant UI component systems incorporating Primary, Secondary, Ghost, and Destructive button styles.",
-      "Architect hierarchical Nested Symbols (e.g. an icon symbol embedded within a button symbol) for compound updates.",
-      "Configure the Constraints panel to establish responsive auto-resizing rules for cards and navigation bars.",
-      "Integrate Global Color Swatches as design tokens to enable instant thematic restyling across an entire component library."
+      "Xây dựng bộ component nút bấm nhiều biến thể gồm Primary, Secondary, Ghost và Destructive trên cùng quy chuẩn kích thước.",
+      "Thiết kế cấu trúc Symbol lồng nhau (Nested Symbols — ví dụ biểu tượng con đặt bên trong nút bấm cha) để cập nhật dây chuyền.",
+      "Cấu hình bảng Constraints (bảng neo và ràng buộc kích thước) giúp thẻ thông tin và thanh điều hướng tự co giãn mượt mà.",
+      "Sử dụng Global Color Swatches (mẫu màu toàn cục) làm token màu sắc để đổi chủ đề màu chỉ trong một thao tác."
     ],
-    "foundationalKnowledge": "Building an enterprise design system requires more than isolated buttons; it requires an architectural ecosystem where changes cascade predictably. In Affinity Designer, this is achieved by combining three advanced vector engines: (1) Nested Symbols, where sub-components like icons or badges are symbols nested inside larger container symbols; (2) The Constraints panel (Window > Vector > Constraints; legacy: View > Studio > Constraints), which defines responsive pinning rules (pin left, pin right, fixed width) so cards scale cleanly without distorting buttons or avatars; and (3) Global Color Swatches in the Swatches panel, which act as native design tokens—re-tinting a single global swatch updates every component, border, and typography instance throughout the entire document.",
+    "foundationalKnowledge": "Một hệ thống thiết kế chuyên nghiệp không chỉ dừng ở vài nút bấm rời rạc mà cần sự liên kết dây chuyền chặt chẽ. Trong Affinity, điều này đạt được khi phối hợp ba cơ chế: (1) Nested Symbols (Symbol lồng nhau), cho phép nhúng biểu tượng con vào bên trong thẻ hoặc nút cha; (2) Bảng Constraints (Window > Vector > Constraints; bản cũ: View > Studio > Constraints), quy định luật ghim mép (neo trái, neo phải, khóa rộng/cao) để nút hay thẻ co giãn ngang dọc mà không làm méo icon bên trong; và (3) Global Color Swatches trong bảng Swatches đóng vai trò token màu sống — chỉnh một mẫu màu toàn cục sẽ cập nhật toàn bộ nền, viền và chữ dùng màu đó trong cả tài liệu.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Constraints Panel, Nested Symbols & Global Swatches Specification",
+      "source": "Đặc tả bảng Constraints, Nested Symbols và Global Swatches trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Constraints panel & Global Swatches",
+      "toolName": "Bảng Constraints & Global Swatches",
       "persona": "Vector Studio (Window > Vector > Constraints & Window > Swatches)",
       "shortcut": {
-        "win": "Window > Vector > Constraints (Legacy: View > Studio > Constraints), Swatches Panel Palette",
-        "mac": "Window > Vector > Constraints (Legacy: View > Studio > Constraints), Swatches Panel Palette"
+        "win": "Window > Vector > Constraints (Bản cũ: View > Studio > Constraints), Bảng Swatches",
+        "mac": "Window > Vector > Constraints (Bản cũ: View > Studio > Constraints), Bảng Swatches"
       },
-      "description": "Defines responsive scaling and pinning relationships for vector objects via the Constraints panel, paired with document-wide global color swatches.",
+      "description": "Quy định luật neo mép và giữ nguyên tỷ lệ co giãn cho các lớp con bên trong khung cha, kết hợp bảng mẫu màu toàn cục.",
       "contextBarOptions": [
-        "Constraints Edge Pinning: Pin Left, Pin Right, Pin Top, Pin Bottom",
-        "Constraints Dimension Locks: Fixed Width, Fixed Height, Lock Aspect Ratio",
-        "Max / Min size limits: Protects inner elements from collapsing during responsive drag",
-        "Global Color Swatch: Created via Swatches panel menu -> Add Global Color (displays small lower-left triangle badge)",
-        "Overprint & Spot Color options for print-ready press workflows"
+        "Neo mép (Edge Pinning): Pin Left, Pin Right, Pin Top, Pin Bottom",
+        "Khóa kích thước (Dimension Locks): Fixed Width, Fixed Height, Lock Aspect Ratio",
+        "Giới hạn Min / Max: Bảo vệ các phần tử bên trong không bị bóp biến dạng khi co khung cha",
+        "Global Color Swatch: Tạo từ menu bảng Swatches -> Add Global Color (có hình tam giác nhỏ ở góc dưới trái)",
+        "Tùy chọn Overprint và Spot Color phục vụ quy trình chế bản in ấn chuyên sâu"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Create an Icon Sub-Symbol",
-        "instruction": "Draw a 16x16 px vector chevron icon (#FFFFFF). In the Symbols panel, click 'Create' to register it as 'SubComponent_Icon_Chevron'.",
+        "title": "Tạo Sub-Symbol cho biểu tượng nhỏ",
+        "instruction": "Vẽ một biểu tượng mũi tên chevron kích thước 16x16 px (#FFFFFF). Trong bảng Symbols, nhấn 'Create' và đặt tên là 'SubComponent_Icon_Chevron'.",
         "shortcutTip": { "win": "Symbols > Create", "mac": "Symbols > Create" }
       },
       {
         "stepNumber": 2,
-        "title": "Nest the Icon Inside a Master Button",
-        "instruction": "Draw a button container (160x44 px, 8px rounded corners, fill #4F46E5). Add an Artistic Text label ('Next Step'). Place an instance of your 'SubComponent_Icon_Chevron' inside the group. In the Symbols panel, select the entire group and click 'Create' to register 'Component_Button_Action'. You have now created a Nested Symbol!",
+        "title": "Lồng biểu tượng vào trong Master Button",
+        "instruction": "Tạo khung nút bấm (160x44 px, bo góc 8 px, nền #4F46E5), thêm chữ 'Next Step' và đặt một bản sao của 'SubComponent_Icon_Chevron' vào bên phải. Chọn cả nhóm rồi nhấn 'Create' trong bảng Symbols với tên 'Component_Button_Action' để tạo thành Nested Symbol.",
         "shortcutTip": { "win": "Nested Symbol", "mac": "Nested Symbol" }
       },
       {
         "stepNumber": 3,
-        "title": "Configure Responsive Pinning in Constraints Panel",
-        "instruction": "Open Window > Vector > Constraints (or Window > Constraints; legacy: View > Studio > Constraints). Select the chevron icon inside the button. In the Constraints panel, check 'Pin Right' and 'Fixed Width'. Select the text label and check 'Pin Left'. Drag the button's right edge wider: the chevron stays locked to the right margin while the button expands smoothly without distortion!",
+        "title": "Thiết lập luật ghim mép trong bảng Constraints",
+        "instruction": "Mở Window > Vector > Constraints (hoặc Window > Constraints; bản cũ: View > Studio > Constraints). Chọn icon chevron bên trong nút, bật 'Pin Right' cùng khóa kích thước ngang/dọc. Chọn nhãn chữ và bật 'Pin Left'. Kéo rộng cạnh phải của nút: icon bám sát mép phải và giữ nguyên hình tròn trịa không bị dãn méo.",
         "shortcutTip": { "win": "Window > Vector > Constraints", "mac": "Window > Vector > Constraints" }
       },
       {
         "stepNumber": 4,
-        "title": "Define Global Swatches as Design Tokens",
-        "instruction": "In the Swatches Studio, click the palette burger menu and select 'Add Global Color...'. Name it 'Token_Brand_Primary' and set value to #4F46E5. Apply this global swatch to your button fill. Notice the swatch thumbnail displays a distinct triangle badge indicating it is a live global token.",
+        "title": "Tạo Global Swatch làm token màu thương hiệu",
+        "instruction": "Trong Swatches Studio, mở menu ba gạch của bảng màu và chọn 'Add Global Color...'. Đặt tên 'Token_Brand_Primary' với mã #4F46E5, rồi áp dụng cho nền nút bấm. Ô màu sẽ hiện một góc tam giác nhỏ báo hiệu đây là màu toàn cục.",
         "shortcutTip": { "win": "Swatches > Add Global Color", "mac": "Swatches > Add Global Color" }
       },
       {
         "stepNumber": 5,
-        "title": "Test Cascade Architecture",
-        "instruction": "Duplicate your button component across 3 artboards. Double-click the 'Token_Brand_Primary' swatch in the Swatches Studio and change the hue to Purple (#7C3AED). Observe: Every button instance on every artboard updates color instantly. Then edit the original 'SubComponent_Icon_Chevron' to an arrow: Every button updates its icon automatically!",
-        "shortcutTip": { "win": "Double-Click Swatch", "mac": "Double-Click Swatch" }
+        "title": "Kiểm chứng hiệu ứng cập nhật dây chuyền",
+        "instruction": "Nhân bản nút sang 3 Artboard. Nhấp đúp vào ô 'Token_Brand_Primary' trong Swatches Studio và đổi sang màu tím (#7C3AED): toàn bộ các nút lập tức đổi màu. Tiếp theo sửa lại hình dáng của 'SubComponent_Icon_Chevron': mọi nút chứa biểu tượng đó đều tự cập nhật theo.",
+        "shortcutTip": { "win": "Nhấp đúp ô Global Swatch", "mac": "Nhấp đúp ô Global Swatch" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Component System Cascade Architecture",
-        "description": "How tokens, sub-symbols, and constraints interconnect.",
+        "title": "Kiến trúc cập nhật dây chuyền của Component System",
+        "description": "Cách token màu, Symbol con và Constraints phối hợp đồng bộ lên mọi bản sao.",
         "visualType": "diagram",
-        "visualContent": "[Global Swatch: Token_Brand_Primary] ────┐\n                                        ▼\n[Sub-Symbol: Icon_Chevron] ──> [Master Symbol: Button_Action] ──> [Constraints: Pin Right]\n                                        │\n                                        ▼\n                     [All Instances Across 10+ Artboards]"
+        "visualContent": "[Global Swatch: Token_Brand_Primary] ────┐\n                                        ▼\n[Sub-Symbol: Icon_Chevron] ──> [Master Symbol: Button_Action] ──> [Constraints: Pin Right]\n                                        │\n                                        ▼\n                   [Tất cả bản sao trên 10+ Artboard]"
       },
       {
-        "title": "Constraints Panel Pinning Matrix",
-        "description": "Standard pinning configurations for common UI components.",
+        "title": "Bảng cấu hình neo Constraints cho các thành phần UI phổ biến",
+        "description": "Các tổ hợp ghim mép và khóa kích thước chuẩn dùng trong thiết kế giao diện.",
         "visualType": "table",
-        "visualContent": "| UI Element | Pinning Configuration | Dimension Lock | Resize Behavior |\n|---|---|---|---|\n| Trailing Icon | Pin Right, Pin Center-Y | Fixed Width & Height | Stays docked to right edge with fixed icon size |\n| Leading Logo | Pin Left, Pin Center-Y | Fixed Width & Height | Stays docked to left edge with fixed logo size |\n| Card Body Copy | Pin Left, Pin Right, Pin Top | None | Stretches horizontally to fill card width |\n| Modal Background | Pin Top, Bottom, Left, Right | None | Stretches responsively with parent artboard |"
+        "visualContent": "| Thành phần UI | Ghim mép (Pinning) | Khóa kích thước | Hành vi khi kéo giãn khung cha |\n|---|---|---|---|\n| Icon bên phải nút | Pin Right, căn giữa dọc | Khóa Width & Height | Luôn bám mép phải và giữ nguyên kích thước icon |\n| Logo ở mép trái | Pin Left, căn giữa dọc | Khóa Width & Height | Bám sát mép trái, không bị méo tỷ lệ |\n| Đoạn chữ trong thẻ | Pin Left, Pin Right, Pin Top | Không khóa | Co giãn chiều ngang nhịp nhàng theo bề rộng thẻ |\n| Nền hộp thoại Modal | Pin Top, Bottom, Left, Right | Không khóa | Phủ đầy kích thước khung cha khi thay đổi Artboard |"
       }
     ],
     "guidedPractice": {
-      "title": "Constructing an Adaptive Analytics Metric Card",
-      "taskDescription": "Build a responsive KPI card with nested metric pills, pinning rules, and global color tokens that resizes from 240px to 480px width flawlessly.",
+      "title": "Xây dựng thẻ chỉ số KPI tự động co giãn",
+      "taskDescription": "Dựng một thẻ KPI hoàn chỉnh có gắn huy hiệu lồng nhau, luật ghim Constraints và màu toàn cục Global Swatches để kéo rộng từ 240 px lên 480 px không lỗi bố cục.",
       "checkpoints": [
-        "Create a global swatch 'Token_Surface_Card' (#1E293B) and 'Token_Accent_Cyan' (#06B6D4).",
-        "Create a nested symbol for a trend badge pill ('+24% Growth').",
-        "Assemble the card container with title, metric number, and the nested badge symbol.",
-        "Apply Constraints: Title pins Left, Badge pins Right with fixed width.",
-        "Drag the card's bounding box horizontally to verify that padding remains locked at exactly 24px."
+        "Tạo hai Global Swatch tên 'Token_Surface_Card' (#1E293B) và 'Token_Accent_Cyan' (#06B6D4).",
+        "Tạo một Sub-Symbol huy hiệu tăng trưởng ('+24% Growth').",
+        "Ghép vào thẻ chứa tiêu đề, con số lớn và bản sao huy hiệu vừa tạo.",
+        "Cài đặt Constraints: Tiêu đề ghim trái (Pin Left), Huy hiệu ghim phải (Pin Right) và giữ nguyên kích thước.",
+        "Kéo cạnh phải của thẻ mở rộng chiều ngang để xác nhận khoảng lề hai bên luôn giữ chuẩn 24 px."
       ],
-      "expectedOutcome": "A fully responsive vector analytics card component that scales smoothly across mobile, tablet, and desktop viewports without broken alignment."
+      "expectedOutcome": "Thẻ chỉ số co giãn mượt mà theo các khổ màn hình mobile, tablet và desktop mà không làm biến dạng huy hiệu hay chữ."
     },
     "independentChallenge": {
-      "title": "Full-Spectrum Design System Library",
-      "prompt": "Construct a production-ready UI component kit in Affinity Designer: (1) Establish 4 global color tokens (Primary, Success, Warning, Neutral); (2) Build an Icon Sub-Symbol library (Arrow, Check, Close, Alert); (3) Build 4 Button Variants (Primary Filled, Secondary Outlined, Ghost, Destructive) using nested icon symbols and constraints; (4) Configure hover and disabled states with local overrides; (5) Archive the entire suite into the Assets panel under 'Enterprise UI System' and export as 'Design_System_Tokens_v1.afassets'.",
+      "title": "Bộ thư viện Design System đa biến thể hoàn chỉnh",
+      "prompt": "Xây dựng bộ UI component sẵn sàng sản xuất: (1) Tạo 4 token màu toàn cục (Primary, Success, Warning, Neutral); (2) Tạo bộ Sub-Symbol icon gồm Arrow, Check, Close, Alert; (3) Dựng 4 biến thể nút bấm (Primary nền đặc, Secondary viền mảnh, Ghost trong suốt, Destructive cảnh báo đỏ) dùng chung Sub-Symbol icon và luật Constraints; (4) Tùy biến trạng thái Hover và Disabled bằng ghi đè cục bộ; (5) Lưu toàn bộ bộ component vào Assets Studio dưới tên 'Enterprise UI System' rồi xuất ra 'Design_System_Tokens_v1.afassets'.",
       "starterAsset": {
         "filename": "D08_symbols_assets_guide.md",
         "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
@@ -104,190 +104,190 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for full-spectrum component systems and constraints (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn xây dựng hệ thống component co giãn và Constraints (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "4 global color tokens configured in Swatches panel.",
-        "Nested symbols utilized for icon interchangeability.",
-        "Constraints panel rules prevent distortion during card and button resizing.",
-        "Asset package exported as clean, distributable .afassets bundle."
+        "Thiết lập đủ 4 Global Color Swatches trong bảng Swatches.",
+        "Áp dụng Nested Symbols để thay thế nhanh biểu tượng bên trong nút.",
+        "Các quy tắc Constraints ngăn ngừa triệt để hiện tượng méo icon khi kéo rộng thẻ hoặc nút.",
+        "Đóng gói hoàn chỉnh thành tệp .afassets sạch sẽ dễ phân phối."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Neglecting to check 'Fixed Width' and 'Fixed Height' on icons inside responsive containers.",
-        "consequence": "When the parent card or button is stretched wider, the circular or square icon stretches into a distorted oval.",
-        "solution": "In the Constraints panel, always lock 'Fixed Width' and 'Fixed Height' on icons, logos, and badges."
+        "mistake": "Quên khóa chiều rộng và chiều cao cố định cho icon đặt bên trong khung co giãn.",
+        "consequence": "Khi kéo rộng khung thẻ hoặc nút cha, biểu tượng tròn hoặc vuông bên trong bị kéo dãn méo thành hình bầu dục.",
+        "solution": "Trong bảng Constraints, luôn khóa kích thước (bỏ co giãn ngang/dọc) cho mọi biểu tượng, ảnh đại diện và huy hiệu."
       },
       {
-        "mistake": "Using regular document swatches instead of Global Swatches for brand colors.",
-        "consequence": "Updating a brand color requires manually selecting and re-tinting hundreds of individual vector paths.",
-        "solution": "Always choose 'Add Global Color...' in the Swatches panel menu. Global swatches display a distinctive corner triangle badge."
+        "mistake": "Dùng Swatch màu thường thay vì Global Swatch cho các màu chủ đạo thương hiệu.",
+        "consequence": "Khi khách hàng đổi tông màu nhận diện, bạn phải dò chọn thủ công hàng trăm đối tượng rời để tô lại từng cái.",
+        "solution": "Luôn chọn 'Add Global Color...' trong menu của Swatches Studio; ô màu toàn cục sẽ có hình tam giác nhỏ ở góc dưới bên trái."
       },
       {
-        "mistake": "Nesting symbols more than 3 levels deep unnecessarily.",
-        "consequence": "Creates confusion in the Layers panel and increases mental overhead when troubleshooting override propagation.",
-        "solution": "Keep nesting hierarchy disciplined: Design Tokens -> Sub-Symbols (Icons/Badges) -> Master Components (Buttons/Cards)."
+        "mistake": "Lồng Symbol sâu quá 3–4 tầng không cần thiết.",
+        "consequence": "Cây layer trở nên rối rắm khó kiểm soát khi cần tắt Sync để ghi đè cục bộ.",
+        "solution": "Giữ cấu trúc phân tầng gọn gàng trong 2–3 cấp: Token màu -> Sub-Symbol (Icon/Badge) -> Component chính (Button/Card)."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary visual indicator that a color swatch in the Swatches panel is a live Global Swatch?",
+        "question": "Dấu hiệu nhận biết trực quan cho thấy một ô màu trong bảng Swatches là Global Swatch sống là gì?",
         "options": [
-          "It is marked with a padlock icon.",
-          "It displays a small white or gray triangle in its bottom-left corner.",
-          "It is outlined with a dotted red border.",
-          "It is sorted into a separate window."
+          "Có biểu tượng ổ khóa ở góc trên.",
+          "Có một hình tam giác nhỏ màu trắng hoặc xám nằm ở góc dưới bên trái ô màu.",
+          "Được viền nét đứt màu đỏ.",
+          "Nằm tách ở một cửa sổ riêng."
         ],
         "correctIndex": 1,
-        "explanation": "Global Color Swatches in Affinity Designer are visually distinguished by a small triangle badge in their lower-left corner, signifying that edits to the swatch update all objects using that color."
+        "explanation": "Global Color Swatch có một tam giác nhỏ ở góc dưới bên trái ô màu, báo hiệu khi sửa màu này thì mọi đối tượng đang gắn nó đều đổi màu theo."
       },
       {
-        "question": "Which studio panel in Affinity Designer allows you to pin an icon to the right margin of a button so it does not distort when the button is resized wider?",
+        "question": "Bảng công cụ nào trong Affinity cho phép ghim icon bám sát mép phải nút bấm để icon không bị kéo méo khi nút giãn rộng?",
         "options": [
-          "Transform panel",
-          "Constraints panel",
-          "Isometric panel",
-          "History panel"
+          "Bảng Transform",
+          "Bảng Constraints",
+          "Bảng Isometric",
+          "Bảng History"
         ],
         "correctIndex": 1,
-        "explanation": "The Constraints panel (Window > Vector > Constraints; legacy: View > Studio > Constraints) allows you to define edge pinning (Pin Right) and dimension locking (Fixed Width) for responsive vector components."
+        "explanation": "Bảng Constraints (Window > Vector > Constraints; bản cũ: View > Studio > Constraints) quản lý quy tắc ghim mép và khóa kích thước giúp component co giãn đúng chuẩn."
       },
       {
-        "question": "What happens if you edit a Sub-Symbol (e.g. an icon) that is nested inside a Master Button Symbol?",
+        "question": "Điều gì xảy ra khi bạn chỉnh sửa một Sub-Symbol (ví dụ icon) đang được lồng bên trong một Master Button Symbol?",
         "options": [
-          "Only the active document closes.",
-          "The icon updates globally inside every button symbol instance that contains it.",
-          "The button symbol is automatically detached into a plain group.",
-          "The icon disappears from the canvas."
+          "Tài liệu hiện hành tự động đóng lại.",
+          "Icon đó tự động cập nhật đồng loạt bên trong mọi bản sao nút bấm có chứa nó.",
+          "Nút bấm cha tự động bị rã liên kết thành Group thường.",
+          "Icon biến mất khỏi bản vẽ."
         ],
         "correctIndex": 1,
-        "explanation": "Nested Symbols exhibit compound inheritance: modifying the nested child symbol propagates changes through all parent master symbols that embed it."
+        "explanation": "Nested Symbols hỗ trợ kế thừa dây chuyền: thay đổi Symbol con sẽ tự động truyền lên tất cả các Symbol cha đang nhúng nó."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Nested Symbols allow compound component architectures where sub-elements update seamlessly.",
-        "The Constraints panel ensures responsive auto-resizing without distorting icons or margins.",
-        "Global Swatches function as design tokens, enabling instant document-wide theme re-coloration.",
-        "Combining Symbols, Assets, Constraints, and Global Tokens elevates Affinity Designer into an enterprise UI powerhouse."
+        "Nested Symbols cho phép ghép nối nhiều lớp thành phần nhỏ để cập nhật dây chuyền.",
+        "Bảng Constraints giúp kiểm soát chặt chẽ hành vi co giãn đáp ứng mà không làm méo icon hay lệch lề.",
+        "Global Swatches đóng vai trò như biến màu (design tokens) cho phép đổi tông màu toàn tài liệu tức thì.",
+        "Kết hợp Symbols, Assets, Constraints và Global Swatches tạo nên quy trình thiết kế hệ thống hoàn chỉnh."
       ],
-      "nextSteps": "Complete the D08 capstone project in D08_symbols_assets_guide.md, then proceed to Module D09 (Pixel Studio Integration & Textured Vector Shading).",
+      "nextSteps": "Hoàn thành bài tập tổng kết Module D08 theo hướng dẫn trong D08_symbols_assets_guide.md, sau đó chuyển sang Module D09 (Tích Hợp Pixel Persona & Đổ Bóng Kết Cấu Hạt).",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/constraintsPanel.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Architecting Enterprise Component Systems",
-      "subtitle": "Beyond Standalone Buttons to Scalable Systems",
+      "title": "Xây dựng hệ thống Component có khả năng mở rộng",
+      "subtitle": "Kết nối bốn trụ cột kỹ thuật trong Vector Studio",
       "bullets": [
-        "A true design system is an ecosystem of interdependent visual decisions.",
-        "Affinity Designer uniquely combines four powerful vector engines:",
-        "1. Nested Symbols: Compounds of symbols inside symbols.",
-        "2. Constraints panel: Responsive pinning and dimension locking.",
-        "3. Global Swatches: Live color tokens that ripple through the whole document.",
-        "4. Assets panel: Persistent global distribution across projects."
+        "Một hệ thống thiết kế thực thụ là mạng lưới các quy chuẩn gắn kết chặt chẽ với nhau.",
+        "Affinity kết hợp đồng thời bốn cơ chế cốt lõi:",
+        "1. Nested Symbols: Lồng các biểu tượng con vào bên trong thành phần cha.",
+        "2. Constraints: Ghim mép và khóa kích thước để co giãn không biến dạng.",
+        "3. Global Swatches: Token màu sống cập nhật tức thì trên toàn bộ tài liệu.",
+        "4. Assets Studio: Kho phân phối tài nguyên dùng chung giữa các dự án."
       ],
-      "proTip": "This multi-engine synergy allows solo designers to manage enterprise-scale design systems."
+      "proTip": "Sự phối hợp bốn tính năng này giúp một người thiết kế vẫn quản lý trơn tru cả bộ UI lớn."
     },
     {
       "slideNumber": 2,
-      "title": "The Power of Nested Symbols",
-      "subtitle": "Compound Inheritance in Vector Architecture",
+      "title": "Sức mạnh của Symbol lồng nhau (Nested Symbols)",
+      "subtitle": "Cập nhật dây chuyền từ chi tiết nhỏ lên thành phần lớn",
       "bullets": [
-        "Create an icon (e.g. chevron or arrow) and register it as an Icon Symbol.",
-        "Place instances of this icon symbol inside button and card Master Symbols.",
-        "Updating the icon symbol later propagates through all buttons, headers, and cards simultaneously.",
-        "Keeps your iconography 100% unified without touching individual parent components."
+        "Tạo một icon (ví dụ mũi tên hoặc dấu tích) và lưu thành một Icon Symbol riêng.",
+        "Chèn các bản sao của Icon Symbol đó vào bên trong Master Symbol của nút bấm và thẻ.",
+        "Sau này khi đổi nét vẽ của Icon Symbol, mọi nút bấm và thanh tiêu đề đều tự đổi theo.",
+        "Đảm bảo tính nhất quán tuyệt đối của bộ icon mà không phải mở sửa từng nút."
       ],
-      "proTip": "Limit nesting depth to 2–3 levels for maximum clarity and maintainability."
+      "proTip": "Nên giữ độ sâu lồng nhau tối đa 2–3 cấp để cây layer luôn sáng rõ, dễ bảo trì."
     },
     {
       "slideNumber": 3,
-      "title": "The Constraints Panel Architecture",
-      "subtitle": "Responsive Vector Auto-Resizing",
+      "title": "Kiến trúc bảng Constraints",
+      "subtitle": "Điều khiển hành vi co giãn đáp ứng cho Vector",
       "bullets": [
-        "Open via Window > Vector > Constraints (or Window > Constraints; legacy: View > Studio > Constraints).",
-        "Edge Pinning: Pin Left, Right, Top, or Bottom relative to the parent container.",
-        "Dimension Locking: Fixed Width, Fixed Height, or maintain proportional aspect ratio.",
-        "Prevents icons, badges, and avatars from stretching when a card is widened for tablet or desktop."
+        "Mở qua Window > Vector > Constraints (hoặc Window > Constraints; bản cũ: View > Studio > Constraints).",
+        "Ghim mép (Edge Pinning): neo đối tượng vào cạnh Trái, Phải, Trên hoặc Dưới của khung cha.",
+        "Khóa kích thước: giữ cố định chiều rộng, chiều cao hoặc tỷ lệ khung hình.",
+        "Ngăn các biểu tượng, huy hiệu hay ảnh đại diện bị kéo dẹt khi bạn thay đổi bề ngang thẻ cho tablet hoặc desktop."
       ],
-      "callout": "Always lock 'Fixed Width' and 'Fixed Height' on circular avatars and icons!"
+      "callout": "Luôn khóa kích thước cố định cho các biểu tượng tròn và ảnh đại diện nằm trong khung co giãn!"
     },
     {
       "slideNumber": 4,
-      "title": "Pinning Rules for Common UI Elements",
-      "subtitle": "Standardizing Responsive Behaviors",
+      "title": "Bộ quy tắc Constraints cho các thành phần UI quen thuộc",
+      "subtitle": "Chuẩn hóa nhanh thao tác ghim mép",
       "bullets": [
-        "Trailing Chevron: Pin Right, Pin Center-Y, Fixed Width, Fixed Height.",
-        "Leading Brand Logo: Pin Left, Pin Center-Y, Fixed Width, Fixed Height.",
-        "Card Body Description: Pin Left, Pin Right, Pin Top (stretches with card width).",
-        "Action Buttons in Dialog: Pin Right, Pin Bottom (docked to bottom-right corner)."
+        "Icon mũi tên bên phải nút: Ghim Phải, căn giữa dọc, khóa kích thước ngang và dọc.",
+        "Logo bên trái thanh tiêu đề: Ghim Trái, căn giữa dọc, khóa kích thước ngang và dọc.",
+        "Nội dung chữ trong thẻ: Ghim Trái, Ghim Phải, Ghim Trên để tự co giãn theo bề rộng thẻ.",
+        "Nút bấm góc hộp thoại: Ghim Phải, Ghim Dưới để luôn bám sát góc dưới bên phải."
       ],
-      "proTip": "Test your constraints by selecting the parent container and dragging its corner handle."
+      "proTip": "Kiểm tra ngay bằng cách chọn khung cha và kéo thử tay nắm góc xem các thành phần con có chạy đúng luật chưa."
     },
     {
       "slideNumber": 5,
-      "title": "Global Color Swatches as Design Tokens",
-      "subtitle": "Document-Wide Thematic Color Control",
+      "title": "Global Color Swatches làm Design Tokens",
+      "subtitle": "Đổi màu toàn bộ tài liệu từ một ô màu duy nhất",
       "bullets": [
-        "In the Swatches Studio, select 'Add Global Color...' from the panel menu.",
-        "Global swatches display a distinct triangle badge in their lower-left corner.",
-        "Apply global swatches to component backgrounds, borders, and typography.",
-        "Editing the global swatch in the palette instantly repaints every instance document-wide!"
+        "Trong Swatches Studio, chọn 'Add Global Color...' từ menu của bảng màu.",
+        "Ô màu toàn cục có dấu hiệu tam giác nhỏ ở góc dưới bên trái.",
+        "Gán trực tiếp ô màu toàn cục cho nền, viền và chữ của toàn bộ component.",
+        "Khi nhấp đúp chỉnh sửa ô Global Swatch đó, mọi đối tượng sử dụng màu này trên toàn bản vẽ tự đổi theo ngay lập tức."
       ],
-      "proTip": "Establish semantic tokens: 'Token_Primary', 'Token_Success', 'Token_Surface'."
+      "proTip": "Đặt tên theo vai trò ngữ nghĩa như 'Token_Primary', 'Token_Success', 'Token_Surface' thay vì gọi theo tên màu."
     },
     {
       "slideNumber": 6,
-      "title": "Building Multi-Variant Button Systems",
-      "subtitle": "Primary, Secondary, Ghost & Destructive",
+      "title": "Tổ chức bộ biến thể nút bấm đa trạng thái",
+      "subtitle": "Primary, Secondary, Ghost và Destructive",
       "bullets": [
-        "Primary: Solid brand fill (#4F46E5) with white label and icon.",
-        "Secondary: 1.5pt vector border with transparent fill and brand text.",
-        "Ghost: Transparent fill with subtle hover state tint.",
-        "Destructive: Coral red accent (#EF4444) for delete or danger actions.",
-        "All 4 variants utilize identical padding, corner radii, and nested icon symbols."
+        "Primary: Nền tô đặc màu thương hiệu (#4F46E5) đi cùng chữ và icon trắng.",
+        "Secondary: Nền trong suốt kèm đường viền vector 1.5 pt và chữ màu thương hiệu.",
+        "Ghost: Không viền, nền trong suốt hoặc phủ sắc thái nhẹ khi di chuột.",
+        "Destructive: Nhấn sắc đỏ (#EF4444) dành riêng cho các thao tác xóa hoặc cảnh báo.",
+        "Cả 4 biến thể dùng chung thông số đệm lề, độ bo góc và Sub-Symbol biểu tượng."
       ],
-      "proTip": "Organize your button variants in a clean 4-column matrix on your design system canvas."
+      "proTip": "Xếp các biến thể thành một bảng ma trận gọn gàng trên Artboard Design System để tiện kiểm tra đồng bộ."
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Responsive Analytics Card",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Thẻ chỉ số phân tích tự co giãn",
+      "subtitle": "Phối hợp Global Tokens, Nested Symbols và Constraints",
       "bullets": [
-        "Follow instructions in 'D08_symbols_assets_guide.md'.",
-        "Define global swatches for Surface, Accent, and Text tokens.",
-        "Build a metric card with nested trend pills and trailing arrow icons.",
-        "Apply Constraints: Pin title Left, Pin trend pill Right with fixed width.",
-        "Drag the card from 240px to 480px width to verify responsive scaling."
+        "Làm theo hướng dẫn trong tệp 'D08_symbols_assets_guide.md'.",
+        "Khởi tạo các Global Swatch cho nền thẻ, màu nhấn và chữ.",
+        "Dựng thẻ chỉ số có gắn huy hiệu xu hướng lồng nhau và icon mũi tên.",
+        "Áp dụng Constraints: ghim tiêu đề sang Trái, ghim huy hiệu xu hướng sang Phải và khóa kích thước.",
+        "Kéo thử chiều ngang thẻ từ 240 px lên 480 px để kiểm chứng độ ổn định bố cục."
       ],
-      "proTip": "Inspect corner radii during scaling to verify that corners remain uniform."
+      "proTip": "Quan sát kỹ các góc bo tròn khi kéo rộng để chắc chắn độ cong góc không bị kéo dẹt."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Advanced System Competencies",
+      "title": "Kiểm tra nhanh kiến thức Component System",
+      "subtitle": "Đảm bảo nắm vững cơ chế co giãn và token",
       "bullets": [
-        "Explain how Nested Symbols propagate updates through parent containers.",
-        "Identify the Constraints panel settings required to protect circular icons from stretching.",
-        "Recognize the visual badge marking a Global Swatch in the palette.",
-        "Confirm that your component library is saved into an exportable .afassets bundle."
+        "Trình bày cách Nested Symbols truyền thay đổi từ biểu tượng con ra component cha.",
+        "Nêu cấu hình trong bảng Constraints giúp bảo vệ icon tròn khỏi bị méo khi kéo khung.",
+        "Nhận biết dấu hiệu tam giác góc dưới trái của Global Swatch trong bảng màu.",
+        "Xác nhận toàn bộ thư viện component đã được lưu gọn thành tệp .afassets."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Module D08 Complete: Component Systems Mastery",
-      "subtitle": "Summary of Symbols, Assets & Responsive Design",
+      "title": "Hoàn thành Module D08: Hệ thống Component hoàn chỉnh",
+      "subtitle": "Tổng kết Symbols, Assets và thiết kế đáp ứng",
       "bullets": [
-        "Constructed master symbols with non-destructive local overrides via Sync OFF.",
-        "Organized and packaged persistent .afassets libraries for enterprise distribution.",
-        "Engineered responsive UI components with Constraints edge pinning.",
-        "Implemented document-wide design tokens using Global Color Swatches.",
-        "Next up: Module D09 (Pixel Persona Integration & Textured Vector Shading)."
+        "Đã xây dựng Master Symbols kết hợp ghi đè cục bộ an toàn qua công tắc Sync OFF.",
+        "Đã đóng gói thư viện .afassets phân cấp rõ ràng phục vụ tái sử dụng đa dự án.",
+        "Đã cấu hình Constraints để thẻ và nút tự co giãn mượt mà không méo chi tiết.",
+        "Đã triển khai Global Color Swatches cho phép thay đổi chủ đề màu toàn cục.",
+        "Tiếp theo: Module D09 (Tích Hợp Pixel Persona & Đổ Bóng Kết Cấu Hạt)."
       ],
-      "proTip": "You now wield professional design system capabilities rivaling dedicated UI suites."
+      "proTip": "Bộ kỹ năng này giúp bạn quản lý thiết kế giao diện quy mô lớn khoa học, sạch sẽ và tiết kiệm tối đa thời gian chỉnh sửa."
     }
   ]
 }

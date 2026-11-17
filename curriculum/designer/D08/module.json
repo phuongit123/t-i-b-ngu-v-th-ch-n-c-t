@@ -2,56 +2,56 @@
   "id": "D08",
   "trackId": "designer",
   "order": 8,
-  "title": "Symbols, Linked Assets & Component Systems",
-  "subtitle": "Symbol Creation, Detached Synchronization, Asset Studio & Vector UI Kits",
-  "description": "Master scalable design systems and reusable component architecture in Affinity Designer: create multi-instance symbols, master the critical Sync toggle for local overrides versus global propagation, organize enterprise asset libraries in the Assets Studio, and distribute .afassets packages across design and production teams.",
+  "title": "Biểu Tượng Tái Sử Dụng (Symbols), Tài Nguyên Liên Kết & Thư Viện Asset",
+  "subtitle": "Tạo Symbol, ngắt đồng bộ cục bộ, Assets Studio và bộ UI Kit Vector",
+  "description": "Xây dựng hệ thống component tái sử dụng, đồng bộ hóa thay đổi trên toàn thiết kế và quản lý danh mục tài nguyên thông minh.",
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": [
-    "D01: Designer Interface, Personas & Canvas Setup",
-    "D05: Layer Organization, Masks & Clipping Paths",
-    "D06: Typography, Text-on-Path & Glyph Styling"
+    "D01: Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
+    "D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)",
+    "D06: Nghệ Thuật Chữ (Typography), Chữ Uốn Cong & Phân Cấp Thị Giác"
   ],
   "learningOutcomes": [
-    "Create and manage linked vector symbols using the Symbols Studio.",
-    "Master the Sync button (Synchronize ON/OFF) to execute safe local instance overrides without severing master links.",
-    "Organize multi-tier component libraries inside the Assets Studio using Categories and Subcategories.",
-    "Export, import, and distribute portable .afassets bundles across enterprise design systems.",
-    "Build a production-ready vector UI component kit featuring scalable variants, states, and nested symbols."
+    "Tạo và quản lý các biểu tượng vector liên kết động bằng bảng Symbols Studio.",
+    "Làm chủ nút Sync (bật/tắt đồng bộ) để tùy biến riêng từng bản sao mà không làm đứt liên kết với bản gốc.",
+    "Tổ chức thư viện thành phần nhiều cấp trong Assets Studio theo Category và Subcategory.",
+    "Xuất, nhập và phân phối gói tài nguyên .afassets dùng chung cho cả nhóm thiết kế và kỹ thuật.",
+    "Xây dựng bộ component UI vector hoàn chỉnh gồm biến thể nút bấm, trạng thái tương tác và Symbol lồng nhau."
   ],
   "capstoneProject": {
-    "title": "Enterprise Analytics Dashboard Component System",
-    "description": "Construct an end-to-end vector design system in Affinity Designer comprising synchronized button states, modular metric cards, and navigation bars with detached local overrides archived into an .afassets library.",
+    "title": "Hệ thống Component cho bảng điều khiển phân tích dữ liệu",
+    "description": "Xây dựng hệ thống thiết kế vector hoàn chỉnh gồm nút bấm đồng bộ trạng thái, thẻ chỉ số mô-đun và thanh điều hướng có ghi đè nội dung cục bộ, sau đó đóng gói thành thư viện .afassets.",
     "deliverableAsset": "curriculum/assets/designer/D08_symbols_assets_guide.md",
     "evaluationCriteria": [
-      "Master symbols created with visible orange link indicators in Layers Studio.",
-      "Local text overrides applied successfully with Sync OFF.",
-      "Global styling modifications propagated to all instances with Sync ON.",
-      "Reusable UI components archived into structured Assets Studio subcategories."
+      "Tạo được Symbol gốc hiển thị thanh đánh dấu dọc màu cam trong Layers Studio.",
+      "Ghi đè chữ cục bộ thành công trên từng bản sao khi tắt chế độ Sync.",
+      "Thay đổi kiểu dáng tổng thể lan tỏa đồng loạt sang mọi bản sao khi bật lại Sync.",
+      "Lưu trữ gọn gàng các UI component tái sử dụng vào danh mục con trong Assets Studio."
     ]
   },
   "lessons": [
     {
       "id": "D08-01",
       "order": 1,
-      "title": "Symbol Creation & Multi-Instance Synchronization",
-      "subtitle": "Symbols Studio, Sync ON/OFF Toggle & Non-Destructive Overrides",
+      "title": "Tạo Symbol và đồng bộ nhiều phiên bản",
+      "subtitle": "Symbols Studio, công tắc Sync ON/OFF và ghi đè thuộc tính phi phá hủy",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D08-02",
       "order": 2,
-      "title": "Assets Studio & Portable .afassets Libraries",
-      "subtitle": "Categories, Subcategories, Importing/Exporting & Cloud Sync",
+      "title": "Assets Studio và thư viện tài nguyên .afassets",
+      "subtitle": "Phân nhóm danh mục, xuất nhập thư viện dùng chung và đồng bộ giữa các tệp",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D08-03",
       "order": 3,
-      "title": "Scalable Vector Component Systems & Variants",
-      "subtitle": "Nested Symbols, Button States, Responsive Layouts & Design Tokens",
+      "title": "Hệ thống component Vector co giãn và các biến thể",
+      "subtitle": "Symbol lồng nhau, trạng thái nút bấm, neo Constraints và mã màu Global Swatches",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     }

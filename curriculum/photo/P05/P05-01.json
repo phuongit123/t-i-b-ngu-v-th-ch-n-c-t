@@ -3,8 +3,8 @@
   "moduleId": "P05",
   "trackId": "photo",
   "order": 1,
-  "title": "Exposure, Dynamic Range & White Balance Calibration",
-  "subtitle": "Histogram Diagnostics & Neutral Gray White Balance",
+  "title": "Exposure, dải tương phản và cân bằng trắng",
+  "subtitle": "Chẩn đoán biểu đồ Histogram & cân bằng trắng theo điểm xám trung tính",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -21,28 +21,28 @@
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Histogram panel & White Balance Adjustment",
+      "toolName": "Bảng Histogram & Điều chỉnh White Balance",
       "persona": "Photo Persona",
       "shortcut": {
-        "win": "Histogram panel menu path not verified; White Balance Adjustment is a separate control",
-        "mac": "Histogram panel menu path not verified; White Balance Adjustment is a separate control"
+        "win": "Đường dẫn menu mở bảng Histogram chưa xác minh; White Balance Adjustment là công cụ điều chỉnh riêng",
+        "mac": "Đường dẫn menu mở bảng Histogram chưa xác minh; White Balance Adjustment là công cụ điều chỉnh riêng"
       },
-      "description": "The Histogram panel displays image tonal distribution by channel. White Balance Adjustment is a separate control that provides Temperature, Tint and a neutral-point picker; it is not part of the Histogram panel.",
+      "description": "Bảng Histogram hiển thị phân bố sắc độ của hình ảnh theo từng kênh màu. White Balance Adjustment là lớp điều chỉnh riêng cung cấp thanh trượt Temperature (Nhiệt độ màu), Tint (Sắc thái) và ống hút chọn điểm trung tính; công cụ này không nằm trong bảng Histogram.",
       "contextBarOptions": [
-        "Histogram channel distribution: the guided practice inspects the Red channel.",
-        "The independent challenge compares the R, G and B channel distributions.",
-        "White Balance Adjustment is a separate adjustment with Temperature and Tint controls.",
-        "Clipping-warning overlays are not asserted as a Histogram panel function in this inventory."
+        "Phân bố kênh trong Histogram: phần thực hành có hướng dẫn kiểm tra kênh Red.",
+        "Thử thách độc lập so sánh phân bố giữa ba kênh R, G và B.",
+        "White Balance Adjustment là lớp điều chỉnh riêng với các thanh trượt Temperature và Tint.",
+        "Lớp phủ cảnh báo cắt ngọn (clipping-warning overlay) không được khẳng định là chức năng của bảng Histogram trong danh mục kiểm kê này."
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open the Histogram panel and inspect channel distribution",
-        "instruction": "Open the Histogram panel from the application's panel list. The exact menu path and refresh behavior have not been verified from the official Help Center article body in this review. Inspect the distribution from the left (shadows) to the right (highlights), then compare individual color channels.",
+        "title": "Mở bảng Histogram và kiểm tra phân bố các kênh màu",
+        "instruction": "Mở bảng Histogram từ danh sách các bảng (panel) của ứng dụng. Đường dẫn menu chính xác và cơ chế tự làm mới của bảng chưa được xác minh từ nội dung bài Help Center chính thức trong lần rà soát này. Quan sát phân bố điểm ảnh từ bên trái (vùng tối Shadows) sang bên phải (vùng sáng Highlights), sau đó so sánh từng kênh màu riêng lẻ.",
         "shortcutTip": {
-          "win": "Histogram panel menu path not verified",
-          "mac": "Histogram panel menu path not verified"
+          "win": "Đường dẫn menu bảng Histogram chưa xác minh",
+          "mac": "Đường dẫn menu bảng Histogram chưa xác minh"
         }
       },
       {
@@ -170,7 +170,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P05-02 Curves, Levels & Precision Tonal Control",
+          "title": "Bài tiếp theo: P05-02 Curves, Levels và kiểm soát sắc độ chính xác",
           "target": "P05-02",
           "type": "next-lesson"
         },
@@ -228,7 +228,7 @@
       "contentMarkdown": "1. **Kiểm tra Histogram:** Mở Histogram panel để xem phân bố của 3 kênh Red, Green, Blue.\n2. **Thêm White Balance:** Nhấn biểu tượng Adjustments ➔ chọn White Balance.\n3. **Chấm chọn điểm xám:** Dùng ống hút nhấp vào mảng áo xám hoặc tường gạch.\n4. **Nâng độ phơi sáng:** Thêm lớp `Exposure Adjustment`, tăng nhẹ `+0.7 EV` nếu cảm thấy bức ảnh hơi tối. Kiểm tra lại Histogram thấy dải sắc nở rộng hài hòa!",
       "visual": {
         "type": "badge-grid",
-        "content": "Open Histogram | Add White Balance | Eyedropper Sample | Tune Exposure | Crystal Clear"
+        "content": "Mở Histogram | Thêm White Balance | Chấm mẫu Eyedropper | Chỉnh Exposure | Trong trẻo sắc nét"
       }
     },
     {

@@ -3,9 +3,9 @@
   "trackId": "photo",
   "order": 4,
   "moduleNumber": "P04",
-  "title": "Retouching, Object Removal & Image Restoration",
-  "tagline": "Master professional portrait blemish cleanup, smart inpainting, and frequency separation.",
-  "description": "Learn commercial retouching and photo restoration in Affinity Photo 3.0: Non-destructive object removal with the Inpainting Brush, Clone Stamp and Healing Brush source alignment, Patch tool texture transplantation, and the industry-standard Frequency Separation pipeline splitting texture from color tone.",
+  "title": "Chấm Sửa Chân Dung, Phục Chế Chi Tiết & Inpainting",
+  "tagline": "Làm chủ xử lý khuyết điểm chân dung thương mại, Inpainting thông minh và kỹ thuật tách tần số.",
+  "description": "Thực hành các công cụ phục chế và retouch chuyên nghiệp trong Pixel Studio / Affinity Photo: xóa đối tượng phi phá hủy với Inpainting Brush, căn nguồn mẫu Clone Stamp và Healing Brush, vá kết cấu Patch Tool và quy trình Frequency Separation tách hạt khỏi sắc độ.",
   "difficulty": "Intermediate",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P03"],
@@ -16,7 +16,7 @@
     "filesize": "4.8 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for commercial portrait retouching and frequency separation in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn retouch chân dung thương mại và tách tần số trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P04-01", "P04-02", "P04-03"]
 }

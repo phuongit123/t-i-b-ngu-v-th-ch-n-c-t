@@ -27,6 +27,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   className,
 }) => {
   const isHome = activeRoute === 'home';
+  const isLesson = activeRoute === 'lesson';
 
   return (
     <div className={cn('min-h-screen bg-canvas text-primary flex flex-col', className)} data-theme={theme}>
@@ -39,7 +40,12 @@ export const AppShell: React.FC<AppShellProps> = ({
         onOpenSearch={onOpenSearch}
       />
 
-      <div className={cn('flex-1 flex w-full mx-auto', isHome ? 'max-w-none p-0' : 'max-w-7xl')}>
+      <div
+        className={cn(
+          'flex-1 flex w-full mx-auto',
+          isHome ? 'max-w-none p-0' : isLesson ? 'max-w-[1440px]' : 'max-w-7xl'
+        )}
+      >
         {sidebar}
         <main className={cn('flex-1 overflow-x-hidden min-w-0', isHome ? 'p-0' : 'p-6 md:p-8')}>
           {children}

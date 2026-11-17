@@ -3,93 +3,93 @@
   "moduleId": "S01",
   "trackId": "scripting",
   "order": 3,
-  "title": "First Automation Script: Programmatic Document & Session UUID Extraction",
-  "subtitle": "Active Document DOM, Session Identifiers & Render Pipeline Hookup",
+  "title": "Script tự động hóa đầu tiên: trích xuất thuộc tính tài liệu và Session UUID",
+  "subtitle": "DOM của tài liệu đang mở, mã định danh phiên làm việc và kết nối luồng kết xuất ảnh",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Access the currently active document using `Document.current` or `Application.documents.current`.",
-      "Extract core document properties: `sessionUuid`, `persistentUuid`, `widthPixels`, `heightPixels`, `dpi`, `spreadCount`.",
-      "Understand why `sessionUuid` is mandatory for triggering visual renders via `render_spread` and `render_selection`.",
-      "Handle null document states gracefully and build defensive automation pipelines."
+      "Truy cập tài liệu đang kích hoạt thông qua `Document.current` hoặc `Application.documents.current`.",
+      "Trích xuất các thuộc tính cốt lõi của tài liệu: `sessionUuid`, `persistentUuid`, `widthPixels`, `heightPixels`, `dpi`, `spreadCount`.",
+      "Hiểu vì sao `sessionUuid` là tham số bắt buộc để kích hoạt kết xuất hình ảnh qua `render_spread` và `render_selection`.",
+      "Xử lý phòng vệ khi không có tài liệu nào đang mở (`null`) để xây dựng quy trình tự động hóa không bị lỗi đột ngột."
     ],
-    "foundationalKnowledge": "In Affinity's JavaScript DOM, every open document is represented by a `Document` object. Crucially, Affinity assigns two distinct unique identifiers to every document session: (1) `persistentUuid`—a GUID that remains consistent across save/load cycles; (2) `sessionUuid`—an ephemeral 36-character hexadecimal token (e.g. `695C8818-C576-40BA-A670-7D2D1A87A8B0`) that represents the active in-memory document state in the running application instance. This `sessionUuid` is the key cryptographic handle required by the Affinity MCP render engine (`render_spread` and `render_selection`) to locate the document buffer and synthesize a pixel-accurate JPEG/PNG render.",
+    "foundationalKnowledge": "Trong JavaScript DOM của Affinity, mỗi tệp đang mở được đại diện bằng một đối tượng `Document`. Điều quan trọng cần phân biệt là Affinity cấp cho mỗi phiên làm việc hai mã định danh hoàn toàn khác nhau: (1) `persistentUuid` là mã GUID gắn cố định với tệp thiết kế, giữ nguyên không đổi qua nhiều lần lưu và mở lại; (2) `sessionUuid` là chuỗi định danh tạm thời gồm 36 ký tự hệ thập lục phân (ví dụ `695C8818-C576-40BA-A670-7D2D1A87A8B0`), đại diện cho trạng thái bộ đệm đang nạp trên RAM của phiên Affinity hiện tại. Mã `sessionUuid` chính là chìa khóa bắt buộc mà bộ kết xuất hình ảnh MCP (`render_spread` và `render_selection`) cần để định vị đúng tài liệu và xuất ra ảnh JPEG/PNG chính xác tới từng điểm ảnh.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity 3.3.3 Document Module API Reference & MCP Visual Render Engine",
+      "source": "Tài liệu API Module Document trên Affinity 3.3.3 & Bộ kết xuất ảnh MCP",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Document Module (`/document.js`)",
+      "toolName": "Module Document (`/document.js`)",
       "persona": "JavaScript DOM API (MCP execute_script & render_spread)",
       "shortcut": {
         "win": "const { Document } = require('/document.js');",
         "mac": "const { Document } = require('/document.js');"
       },
-      "description": "Provides programmatic access to document dimensions, spreads, pages, artboards, layers, selection, and the vital sessionUuid required for automated rendering.",
+      "description": "Cung cấp quyền truy xuất kích thước trang vẽ, danh sách trang đôi (spreads), trang đơn, artboard, cây layer, vùng chọn hiện tại và mã `sessionUuid` thiết yếu cho kết xuất tự động.",
       "contextBarOptions": [
-        "doc.sessionUuid: 36-character UUID required for render_spread and render_selection",
-        "doc.title: Filename of the document (e.g. 'artistic_masterpiece.afphoto')",
-        "doc.widthPixels / doc.heightPixels: Exact floating-point pixel dimensions",
-        "doc.dpi: Base document resolution",
-        "doc.isDirty: Boolean indicating unsaved changes"
+        "doc.sessionUuid: Chuỗi UUID 36 ký tự bắt buộc khi gọi render_spread và render_selection",
+        "doc.title: Tên tệp của tài liệu (ví dụ 'artistic_masterpiece.afphoto')",
+        "doc.widthPixels / doc.heightPixels: Kích thước điểm ảnh chính xác dạng số thực",
+        "doc.dpi: Độ phân giải gốc của tài liệu",
+        "doc.isDirty: Giá trị logic (boolean) báo tệp có thay đổi chưa lưu hay không"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Import Document Module",
-        "instruction": "In your script, require the Document module: `const { Document } = require('/document.js');`.",
+        "title": "Nạp module Document",
+        "instruction": "Ở đầu kịch bản, nạp lớp `Document` từ đường dẫn gốc ảo: `const { Document } = require('/document.js');`.",
         "shortcutTip": { "win": "require('/document.js')", "mac": "require('/document.js')" }
       },
       {
         "stepNumber": 2,
-        "title": "Access the Active Document Safely",
-        "instruction": "Retrieve the current document reference: `const doc = Document.current;`. Implement a guard check `if (!doc) { throw new Error('No document is open in Affinity'); }`.",
+        "title": "Truy cập an toàn vào tài liệu đang mở",
+        "instruction": "Lấy tham chiếu tới tài liệu hiện hành bằng `const doc = Document.current;`. Luôn đặt điều kiện kiểm tra phòng vệ ngay phía sau: `if (!doc) { throw new Error('Hiện chưa có tài liệu nào đang mở trong Affinity'); }`.",
         "shortcutTip": { "win": "Document.current", "mac": "Document.current" }
       },
       {
         "stepNumber": 3,
-        "title": "Extract Session UUID and Canvas Dimensions",
-        "instruction": "Read and log the session token and pixel dimensions: `console.log('UUID:', doc.sessionUuid); console.log('Size:', doc.widthPixels, 'x', doc.heightPixels, 'px @', doc.dpi, 'DPI');`.",
+        "title": "Trích xuất Session UUID và kích thước khung vẽ",
+        "instruction": "Đọc và ghi ra nhật ký mã phiên làm việc cùng thông số kích thước: `console.log('UUID:', doc.sessionUuid); console.log('Kích thước:', doc.widthPixels, 'x', doc.heightPixels, 'px @', doc.dpi, 'DPI');`.",
         "shortcutTip": { "win": "doc.sessionUuid", "mac": "doc.sessionUuid" }
       },
       {
         "stepNumber": 4,
-        "title": "Trigger an MCP Visual Spread Render",
-        "instruction": "Pass the extracted `sessionUuid` to the MCP `render_spread` tool: `render_spread({ document_session_uuid: doc.sessionUuid, spread_index: 0 })`. Observe the 1024px JPEG snapshot generated and saved to disk in under 180ms!",
-        "shortcutTip": { "win": "render_spread Tool", "mac": "render_spread Tool" }
+        "title": "Kích hoạt kết xuất ảnh trang đôi qua MCP",
+        "instruction": "Truyền giá trị `sessionUuid` vừa lấy được vào công cụ `render_spread`: `render_spread({ document_session_uuid: doc.sessionUuid, spread_index: 0 })`. Quan sát ảnh chụp JPEG (cạnh dài tối đa 1024 px) được tạo ra chỉ trong dưới 180 ms.",
+        "shortcutTip": { "win": "Công cụ render_spread", "mac": "Công cụ render_spread" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Document Property Map",
-        "description": "Essential properties available on the Document instance.",
+        "title": "Bản đồ thuộc tính cốt lõi của đối tượng Document",
+        "description": "Những trường dữ liệu thường dùng nhất trên phiên bản `Document.current`.",
         "visualType": "table",
-        "visualContent": "| Property | Type | Sample Return Value | Description |\n|---|---|---|---|\n| `doc.sessionUuid` | string | `\"695C8818-C576-40BA-A670-7D2D1A87A8B0\"` | Mandatory handle for rendering tools |\n| `doc.title` | string | `\"artistic_masterpiece.afphoto\"` | Filename of document |\n| `doc.widthPixels` | number | `1920` | Document canvas width in pixels |\n| `doc.heightPixels` | number | `1080` | Document canvas height in pixels |\n| `doc.dpi` | number | `300` | Document resolution |\n| `doc.spreadCount` | number | `4` | Total number of spreads |\n| `doc.isDirty` | boolean | `false` | Indicates whether file has unsaved edits |"
+        "visualContent": "| Thuộc tính | Kiểu dữ liệu | Giá trị mẫu | Ý nghĩa |\n|---|---|---|---|\n| `doc.sessionUuid` | string | `\"695C8818-C576-40BA-A670-7D2D1A87A8B0\"` | Mã định danh phiên bắt buộc cho các công cụ kết xuất |\n| `doc.title` | string | `\"artistic_masterpiece.afphoto\"` | Tên tệp tài liệu đang mở |\n| `doc.widthPixels` | number | `1920` | Chiều rộng trang vẽ tính theo pixel |\n| `doc.heightPixels` | number | `1080` | Chiều cao trang vẽ tính theo pixel |\n| `doc.dpi` | number | `300` | Độ phân giải của tài liệu |\n| `doc.spreadCount` | number | `4` | Tổng số trang đôi / trang vẽ |\n| `doc.isDirty` | boolean | `false` | Cho biết tệp có chỉnh sửa nào chưa lưu hay không |"
       },
       {
-        "title": "Automated Render Pipeline Architecture",
-        "description": "How DOM script extraction feeds into the MCP rendering engine.",
+        "title": "Kiến trúc quy trình kết xuất ảnh tự động",
+        "description": "Cách script trích xuất thông tin DOM nối tiếp vào bộ kết xuất hình ảnh của MCP.",
         "visualType": "diagram",
-        "visualContent": "1. Script executes: doc = Document.current\n   ↓\n2. Script extracts: uuid = doc.sessionUuid\n   ↓\n3. Client calls MCP: render_spread({ document_session_uuid: uuid, spread_index: 0 })\n   ↓\n4. Affinity renders: media_0.jpg (1024px JPEG, 180ms latency)\n   ↓\n5. LMS Web Viewport displays live student visual output!"
+        "visualContent": "1. Script chạy lệnh: doc = Document.current\n   ↓\n2. Script trích xuất: uuid = doc.sessionUuid\n   ↓\n3. Client gọi MCP: render_spread({ document_session_uuid: uuid, spread_index: 0 })\n   ↓\n4. Affinity kết xuất: media_0.jpg (ảnh JPEG tối đa 1024px, độ trễ ~180 ms)\n   ↓\n5. Giao diện Web LMS hiển thị trực tiếp kết quả thực hành của học viên"
       }
     ],
     "guidedPractice": {
-      "title": "Document Inspector Script Walkthrough",
-      "taskDescription": "Execute 'S01_inspect_doc.js' against the live Affinity session, log all document properties, and trigger a spread render.",
+      "title": "Thực hành chạy kịch bản kiểm tra tài liệu",
+      "taskDescription": "Thực thi tệp `S01_inspect_doc.js` trên phiên Affinity đang chạy, ghi lại toàn bộ thông số tài liệu và kích hoạt kết xuất ảnh trang đầu tiên.",
       "checkpoints": [
-        "Open 'curriculum/assets/scripting/S01_inspect_doc.js'.",
-        "Run via execute_script tool.",
-        "Verify document title ('artistic_masterpiece.afphoto') and session UUID appear in log output.",
-        "Use the returned session UUID to invoke render_spread and verify image creation."
+        "Mở và xem mã nguồn `curriculum/assets/scripting/S01_inspect_doc.js`.",
+        "Chạy script thông qua công cụ `execute_script`.",
+        "Kiểm tra tên tài liệu và mã `sessionUuid` hiển thị chính xác trong log đầu ra.",
+        "Dùng `sessionUuid` vừa thu được gọi `render_spread` để xác nhận ảnh kết xuất được tạo thành công."
       ],
-      "expectedOutcome": "Automated telemetry retrieval and visual proof image generated in under 300ms total round-trip."
+      "expectedOutcome": "Thu thập đầy đủ thông số kỹ thuật tài liệu kèm ảnh chụp kiểm chứng với tổng thời gian khứ hồi dưới 300 ms."
     },
     "independentChallenge": {
-      "title": "Autonomous QA Validation Script",
-      "prompt": "Author a complete automated quality assurance script: (1) Reads the active document; (2) Asserts that `doc.dpi` is at least 300 (flagging an error if under 300); (3) Asserts that `doc.widthPixels` is at least 1920; (4) Automatically triggers `render_spread` for spread 0; (5) Returns a structured JSON validation summary `{ valid: true, width, height, dpi, sessionUuid }`.",
+      "title": "Kịch bản tự động kiểm định chất lượng (Autonomous QA)",
+      "prompt": "Viết một kịch bản kiểm định chất lượng hoàn chỉnh gồm các bước: (1) Đọc tài liệu đang mở; (2) Kiểm tra `doc.dpi` phải đạt tối thiểu `300` (báo lỗi nếu dưới 300); (3) Kiểm tra `doc.widthPixels` tối thiểu `1920`; (4) Tự động kích hoạt `render_spread` cho trang chỉ số 0; (5) Trả về báo cáo tóm tắt dạng JSON có cấu trúc `{ valid: true, width, height, dpi, sessionUuid }`.",
       "starterAsset": {
         "filename": "S01_inspect_doc.js",
         "filepath": "curriculum/assets/scripting/S01_inspect_doc.js",
@@ -97,85 +97,85 @@
         "filetype": ".js",
         "assetStatus": "JAVASCRIPT_SCRIPT",
         "isVerified": true,
-        "statusNote": "Verified practice script for document inspection (JAVASCRIPT_SCRIPT)."
+        "statusNote": "Kịch bản thực hành kiểm tra thuộc tính tài liệu đã kiểm chứng (JAVASCRIPT_SCRIPT)."
       },
       "challengeCriteria": [
-        "Validates DPI and pixel dimensions programmatically.",
-        "Catches null document exception gracefully.",
-        "Outputs valid JSON QA report string."
+        "Kiểm tra điều kiện DPI và kích thước pixel hoàn toàn bằng mã lệnh.",
+        "Bắt ngoại lệ khi `Document.current` là `null` mà không làm sập script.",
+        "Xuất chuỗi JSON báo cáo QA hợp lệ."
       ],
-      "bonusGoal": "Add a check for `doc.isDirty` and warn if document contains unsaved changes."
+      "bonusGoal": "Kiểm tra thêm thuộc tính `doc.isDirty` và in cảnh báo nhắc lưu tệp nếu vẫn còn thay đổi chưa được ghi xuống đĩa."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Calling render_spread without a valid sessionUuid",
-        "cause": "Passing a static hardcoded UUID or forgetting that sessionUuid changes each time a document is re-opened.",
-        "solution": "Always extract `doc.sessionUuid` live from `Document.current` right before calling `render_spread`."
+        "pitfall": "Gọi render_spread với mã sessionUuid không hợp lệ hoặc đã cũ",
+        "cause": "Dùng lại một chuỗi UUID gán cứng trong code hoặc quên rằng `sessionUuid` sẽ đổi mới mỗi khi bạn đóng và mở lại tệp.",
+        "solution": "Luôn đọc `doc.sessionUuid` trực tiếp từ `Document.current` ngay trước mỗi lần gọi `render_spread`."
       },
       {
-        "pitfall": "Crash when no document is open in Affinity",
-        "cause": "Attempting to read `Document.current.title` when `Document.current` is null throws `TypeError: Cannot read properties of null`.",
-        "solution": "Always include `const doc = Document.current; if (!doc) { return; }` before accessing properties."
+        "pitfall": "Script văng lỗi sập đột ngột khi không có tài liệu nào đang mở",
+        "cause": "Truy cập thẳng `Document.current.title` khi `Document.current` mang giá trị `null` sẽ gây ra `TypeError: Cannot read properties of null`.",
+        "solution": "Luôn viết khối kiểm tra `const doc = Document.current; if (!doc) { return; }` trước khi đụng vào các thuộc tính bên trong."
       },
       {
-        "pitfall": "Using spreadCount out-of-bounds in render_spread",
-        "cause": "Passing `spread_index: 1` when a single-canvas document only has `spread_index: 0`.",
-        "solution": "Check `doc.spreadCount` and ensure requested spread index is between `0` and `doc.spreadCount - 1`."
+        "pitfall": "Truyền chỉ số spreadIndex vượt quá số lượng trang hiện có",
+        "cause": "Gọi `render_spread` với `spread_index: 1` trên một tài liệu chỉ có 1 trang duy nhất (`spread_index: 0`).",
+        "solution": "Luôn kiểm tra `doc.spreadCount` và đảm bảo chỉ số yêu cầu nằm trong khoảng từ `0` đến `doc.spreadCount - 1`."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "S01-03-Q1",
-        "question": "Why is the `doc.sessionUuid` property required when calling the Affinity MCP `render_spread` tool?",
+        "question": "Vì sao thuộc tính `doc.sessionUuid` lại bắt buộc phải có khi gọi công cụ `render_spread` của Affinity MCP?",
         "options": [
-          "It is used to bill the user's credit card.",
-          "It is the unique 36-character in-memory handle that tells the Affinity rendering subsystem which specific open document to render into an image.",
-          "It sets the font size.",
-          "It determines whether the file is CMYK or RGB."
+          "Để tính phí bản quyền theo từng lượt gọi.",
+          "Vì đây là mã định danh duy nhất gồm 36 ký tự trong bộ nhớ, cho biết chính xác tài liệu đang mở nào cần được hệ thống kết xuất thành ảnh.",
+          "Để quy định cỡ chữ mặc định.",
+          "Để quyết định tệp xuất ra thuộc hệ màu CMYK hay RGB."
         ],
         "correctIndex": 1,
-        "explanation": "Because multiple documents can be open simultaneously in Affinity, sessionUuid provides the exact cryptographic handle directing the render engine to the target document buffer."
+        "explanation": "Do người dùng có thể mở nhiều tệp cùng lúc trong Affinity, `sessionUuid` đóng vai trò mã chỉ trỏ duy nhất giúp bộ kết xuất tìm đúng vùng đệm tài liệu trên RAM."
       },
       {
         "id": "S01-03-Q2",
-        "question": "What happens if you execute a script that accesses `doc.widthPixels` while zero documents are open in Affinity?",
+        "question": "Điều gì xảy ra nếu bạn chạy script đọc `doc.widthPixels` khi chưa có tài liệu nào được mở trong Affinity?",
         "options": [
-          "It returns 0.",
-          "It throws a TypeError because Document.current is null.",
-          "It automatically creates a 1920x1080 canvas.",
-          "It closes the application."
+          "Trả về số 0.",
+          "Văng lỗi TypeError vì `Document.current` mang giá trị null.",
+          "Phần mềm tự động tạo ra khung vẽ 1920x1080.",
+          "Phần mềm tự động đóng lại."
         ],
         "correctIndex": 1,
-        "explanation": "Document.current evaluates to null when no files are open. Attempting to access properties on null throws a standard V8 TypeError unless guarded by an if-check."
+        "explanation": "`Document.current` trả về `null` khi không có tệp nào mở. Cố đọc thuộc tính trên `null` sẽ làm V8 ném lỗi `TypeError` nếu bạn không đặt khối lệnh `if` kiểm tra trước."
       },
       {
         "id": "S01-03-Q3",
-        "question": "What format does the Affinity MCP `render_spread` tool return by default?",
+        "question": "Mặc định công cụ `render_spread` của Affinity MCP trả về ảnh ở định dạng nào?",
         "options": [
           "TIFF",
           "PSD",
-          "JPEG (capped at maximum 1024px dimension)",
+          "JPEG (giới hạn chiều tối đa 1024 px)",
           "Vector SVG"
         ],
         "correctIndex": 2,
-        "explanation": "As benchmarked live in Phase 1, render_spread delivers an optimized JPEG image capped at 1024px, ensuring instantaneous transmission across the MCP bridge."
+        "explanation": "Theo kết quả đo đạc thực tế trên cầu nối MCP, `render_spread` xuất ảnh JPEG tối ưu hóa ở độ phân giải tối đa 1024 px để truyền tải nhanh qua cầu nối."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Document.current provides immediate programmatic inspection of the active canvas.",
-        "sessionUuid links DOM scripting execution to MCP visual rendering tools.",
-        "Defensive null checks protect automation pipelines from runtime crashes when no document is active.",
-        "Combining DOM telemetry with render_spread enables automated visual regression testing and web LMS feedback."
+        "`Document.current` giúp truy xuất trực tiếp mọi thông số kỹ thuật của tài liệu đang mở.",
+        "`sessionUuid` là sợi dây liên kết giữa mã thực thi DOM và công cụ kết xuất hình ảnh MCP.",
+        "Kiểm tra điều kiện `null` giúp kịch bản tự động hóa vận hành an toàn khi người dùng chưa mở tệp.",
+        "Kết hợp thu thập thông số DOM với `render_spread` mở đường cho kiểm thử trực quan tự động và chấm bài trên nền tảng web."
       ],
       "relatedResources": [
         {
-          "title": "Module S02 Preview: Document Object Model (DOM) Architecture & Node Tree",
+          "title": "Xem trước lộ trình S02 (chưa mở khóa): Kiến trúc DOM & Cây phân cấp Node",
           "target": "S02",
           "type": "next-lesson"
         },
         {
-          "title": "AFFINITY MCP RENDERING BENCHMARK",
+          "title": "Báo cáo đo hiệu năng kết xuất Affinity MCP",
           "target": "docs/MCP_RENDERING_BENCHMARK.md",
           "type": "doc"
         }
@@ -187,45 +187,45 @@
       "id": "S01-03-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Document Inspection & Session Telemetry",
-      "subtitle": "Querying the Active Canvas & Hooking into the Render Engine",
-      "contentMarkdown": "How does an automated pipeline know what document is open, what its dimensions are, and how to photograph it?\n\nIn this lesson, you will author your **first complete Affinity DOM automation script**.\n\nYou will learn how to **query the active document, extract its session UUID, and trigger live visual rendering** via the MCP bridge.",
+      "title": "Kiểm Tra Tài Liệu & Session Telemetry",
+      "subtitle": "Truy vấn khung vẽ đang mở và kết nối bộ kết xuất ảnh",
+      "contentMarkdown": "Làm thế nào một quy trình tự động hóa biết được tệp nào đang mở, kích thước bao nhiêu và chụp ảnh lại để kiểm tra?\n\nTrong bài học này, bạn sẽ hoàn thiện **kịch bản tự động hóa Affinity DOM đầu tiên**.\n\nBạn sẽ học cách **đọc thông tin tài liệu đang hoạt động, trích xuất `sessionUuid` và kích hoạt kết xuất hình ảnh trực tiếp** qua cầu nối MCP.",
       "actionBox": {
-        "label": "Key Insight",
-        "text": "The sessionUuid is the bridge linking JavaScript code to visual pixels."
+        "label": "Điểm Mấu Chốt",
+        "text": "sessionUuid chính là cầu nối liên kết giữa dòng lệnh JavaScript và hình ảnh điểm ảnh thực tế."
       }
     },
     {
       "id": "S01-03-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Dual UUID Architecture",
-      "subtitle": "Persistent vs Session Handles",
-      "contentMarkdown": "Affinity 3.0 assigns two distinct identifiers to every document:\n\n1. **`persistentUuid`:** Stored inside the `.afphoto` / `.afdesign` file header. Remains constant across reboots and saves.\n2. **`sessionUuid`:** Dynamic 36-character memory handle (e.g. `695C8818-C576-40BA-A670-7D2D1A87A8B0`). Generated each time the document is loaded into RAM.\n\n**The Rule:** Always use `doc.sessionUuid` when calling `render_spread` or `render_selection`!",
+      "title": "Kiến Trúc Hai Mã Định Danh UUID",
+      "subtitle": "Phân biệt mã bền vững trên đĩa và mã phiên trong bộ nhớ",
+      "contentMarkdown": "Affinity 3.0 gán hai loại mã nhận diện khác nhau cho mỗi tài liệu:\n\n1. **`persistentUuid`:** Lưu cố định bên trong phần đầu tệp `.afphoto` / `.afdesign`. Giữ nguyên qua các lần tắt máy và lưu lại.\n2. **`sessionUuid`:** Mã tạm thời gồm 36 ký tự trên RAM (ví dụ `695C8818-C576-40BA-A670-7D2D1A87A8B0`), được tạo mới mỗi lần mở tệp vào bộ nhớ.\n\n**Quy tắc:** Luôn sử dụng `doc.sessionUuid` khi gọi `render_spread` hoặc `render_selection`!",
       "visual": {
         "type": "comparison",
-        "content": "persistentUuid (On-Disk Identity) vs sessionUuid (In-Memory Render Handle)"
+        "content": "persistentUuid (Định danh tệp trên ổ đĩa)  vs  sessionUuid (Mã kết xuất của phiên đang chạy trên RAM)"
       }
     },
     {
       "id": "S01-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Document Class Anatomy",
-      "subtitle": "Core Properties on Document.current",
-      "contentMarkdown": "Import via `const { Document } = require('/document.js');`:\n\n- **`doc.title`:** Current document name (e.g. `artistic_masterpiece.afphoto`).\n- **`doc.widthPixels` & `doc.heightPixels`:** Floating-point canvas dimensions.\n- **`doc.dpi`:** Print resolution (e.g. `300` or `72`).\n- **`doc.spreadCount`:** Number of spreads (pages).\n- **`doc.isDirty`:** True if unsaved changes exist.",
+      "title": "Giải Phẫu Lớp Document",
+      "subtitle": "Các thuộc tính trọng yếu trên Document.current",
+      "contentMarkdown": "Nạp bằng lệnh `const { Document } = require('/document.js');`:\n\n- **`doc.title`:** Tên tệp hiện tại (ví dụ `artistic_masterpiece.afphoto`).\n- **`doc.widthPixels` & `doc.heightPixels`:** Kích thước trang vẽ theo pixel.\n- **`doc.dpi`:** Mật độ điểm ảnh của tài liệu (ví dụ `300` hoặc `72`).\n- **`doc.spreadCount`:** Tổng số trang đôi (hoặc trang đơn).\n- **`doc.isDirty`:** Trả về `true` nếu có chỉnh sửa chưa lưu.",
       "actionBox": {
-        "label": "Defensive Code",
-        "text": "Always write: const doc = Document.current; if (!doc) return;"
+        "label": "Mã Phòng Vệ",
+        "text": "Luôn viết: const doc = Document.current; if (!doc) return;"
       }
     },
     {
       "id": "S01-03-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: The Inspection Script",
-      "subtitle": "Extracting Real-Time Document Metrics",
-      "contentMarkdown": "1. **Import Module:**\n```javascript\nconst { Document } = require('/document.js');\nconst doc = Document.current;\n```\n2. **Defensive Guard:**\n```javascript\nif (!doc) {\n  console.log('No active document found.');\n  return;\n}\n```\n3. **Log Core Telemetry:**\n```javascript\nconsole.log('Title :', doc.title);\nconsole.log('UUID  :', doc.sessionUuid);\nconsole.log('Canvas:', doc.widthPixels + 'x' + doc.heightPixels + ' px');\nconsole.log('DPI   :', doc.dpi);\n```\n4. **Call MCP Render Tool:** Pass `doc.sessionUuid` to `render_spread` to generate a live preview image in 180ms!",
+      "title": "Từng Bước Viết Kịch Bản Kiểm Tra Tài Liệu",
+      "subtitle": "Trích xuất thông số tài liệu theo thời gian thực",
+      "contentMarkdown": "1. **Nạp module:**\n```javascript\nconst { Document } = require('/document.js');\nconst doc = Document.current;\n```\n2. **Chặn lỗi rỗng (Guard):**\n```javascript\nif (!doc) {\n  console.log('Chưa có tài liệu nào đang mở.');\n  return;\n}\n```\n3. **Ghi thông số ra Console:**\n```javascript\nconsole.log('Tên tệp   :', doc.title);\nconsole.log('UUID      :', doc.sessionUuid);\nconsole.log('Kích thước:', doc.widthPixels + 'x' + doc.heightPixels + ' px');\nconsole.log('DPI       :', doc.dpi);\n```\n4. **Gọi kết xuất MCP:** Truyền `doc.sessionUuid` vào `render_spread` để lấy ảnh xem trước trong ~180 ms.",
       "visual": {
         "type": "code",
         "content": "const doc = Document.current;\nconsole.log('Session UUID:', doc.sessionUuid);"
@@ -235,43 +235,43 @@
       "id": "S01-03-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Common Scripting Pitfalls",
-      "subtitle": "Avoid Null Pointers and Stale UUIDs",
-      "contentMarkdown": "### 1. Null Pointer on Document.current\n- **The Issue:** Running a script when no document is open throws `TypeError: Cannot read properties of null`.\n- **The Fix:** Always guard with `if (!doc) { ... }`.\n\n### 2. Using Stale Session UUIDs\n- **The Issue:** Hardcoding a UUID from yesterday causes `render_spread` to fail with 'Document session not found'.\n- **The Fix:** Query `doc.sessionUuid` dynamically on every execution.\n\n### 3. Out-of-Bounds Spread Index\n- **The Issue:** Calling `render_spread` with `spread_index: 2` on a 1-page document.\n- **The Fix:** Ensure requested index is less than `doc.spreadCount`.",
+      "title": "Những Lỗi Thường Gặp Khi Thao Tác Document",
+      "subtitle": "Tránh lỗi con trỏ null và dùng nhầm UUID cũ",
+      "contentMarkdown": "### 1. Lỗi con trỏ rỗng trên Document.current\n- **Hiện tượng:** Chạy script khi chưa mở tệp nào làm văng lỗi `TypeError: Cannot read properties of null`.\n- **Cách sửa:** Luôn đặt lệnh kiểm tra `if (!doc) { ... }` ngay đầu hàm.\n\n### 2. Dùng lại Session UUID cũ\n- **Hiện tượng:** Dán cứng một chuỗi UUID của ngày hôm qua khiến `render_spread` báo không tìm thấy phiên tài liệu.\n- **Cách sửa:** Truy xuất `doc.sessionUuid` động ở mỗi lần chạy.\n\n### 3. Chỉ số spreadIndex vượt giới hạn\n- **Hiện tượng:** Gọi `render_spread` với `spread_index: 2` cho tệp chỉ có 1 trang.\n- **Cách sửa:** Đảm bảo chỉ số truyền vào luôn nhỏ hơn `doc.spreadCount`.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "Never hardcode UUIDs. Extract them dynamically at runtime."
+        "label": "Nguyên Tắc Vàng",
+        "text": "Không bao giờ gán cứng UUID trong mã nguồn. Hãy luôn lấy mới trực tiếp lúc chạy."
       }
     },
     {
       "id": "S01-03-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Document Telemetry",
-      "subtitle": "Test Your Automation Logic",
-      "contentMarkdown": "Validate your understanding of document inspection.",
+      "title": "Kiểm Tra Nhanh: Thông Số Tài Liệu",
+      "subtitle": "Xác nhận logic tự động hóa",
+      "contentMarkdown": "Chọn phương án trả lời chính xác.",
       "quizData": {
         "id": "S01-03-Q1",
-        "question": "Why is the `doc.sessionUuid` property required when calling the Affinity MCP `render_spread` tool?",
+        "question": "Vì sao thuộc tính `doc.sessionUuid` lại bắt buộc phải có khi gọi công cụ `render_spread` của Affinity MCP?",
         "options": [
-          "It is used to bill the user's credit card.",
-          "It is the unique 36-character in-memory handle that tells the Affinity rendering subsystem which specific open document to render into an image.",
-          "It sets the font size.",
-          "It determines whether the file is CMYK or RGB."
+          "Để tính phí bản quyền theo từng lượt gọi.",
+          "Vì đây là mã định danh duy nhất gồm 36 ký tự trong bộ nhớ, cho biết chính xác tài liệu đang mở nào cần được hệ thống kết xuất thành ảnh.",
+          "Để quy định cỡ chữ mặc định.",
+          "Để quyết định tệp xuất ra thuộc hệ màu CMYK hay RGB."
         ],
         "correctIndex": 1,
-        "explanation": "Because multiple documents can be open simultaneously in Affinity, sessionUuid provides the exact cryptographic handle directing the render engine to the target document buffer."
+        "explanation": "Do người dùng có thể mở nhiều tệp cùng lúc trong Affinity, sessionUuid đóng vai trò mã chỉ trỏ duy nhất giúp bộ kết xuất tìm đúng vùng đệm tài liệu trên RAM."
       }
     },
     {
       "id": "S01-03-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Automated QA Auditor",
-      "subtitle": "Build an Automated Preflight Script",
-      "contentMarkdown": "### Your Mission:\nAuthor an autonomous preflight inspection script:\n\n1. Check `Document.current`. If null, output an alert and exit.\n2. Verify that `doc.dpi >= 300` (for print readiness). If below 300, log a warning.\n3. Output a structured JSON report object containing: `title`, `sessionUuid`, `dimensions`, `dpi`, and `isDirty`.\n4. Trigger `render_spread` to generate a visual verification record.\n\n### Acceptance Criteria:\n- Executes against active document in under 200ms.\n- Outputs clean, parseable JSON report to console.",
+      "title": "Thử Thách Độc Lập: Kiểm Định Preflight Tự Động",
+      "subtitle": "Xây dựng script tự kiểm tra chuẩn in trước khi xuất",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nViết một kịch bản kiểm tra tự động trước khi xuất bản:\n\n1. Kiểm tra `Document.current`; nếu bằng `null` thì in cảnh báo và thoát an toàn.\n2. Xác minh `doc.dpi >= 300` (đạt chuẩn in ấn); nếu thấp hơn 300 thì in thông báo cảnh báo.\n3. Xuất ra báo cáo JSON có cấu trúc gồm: `title`, `sessionUuid`, `dimensions`, `dpi` và `isDirty`.\n4. Gọi `render_spread` để tạo tệp ảnh lưu bằng chứng trực quan.\n\n### Tiêu chí nghiệm thu:\n- Thực thi trên tài liệu đang mở trong thời gian dưới 200 ms.\n- In ra báo cáo JSON sạch sẽ, hợp lệ trên Console.",
       "practiceData": {
-        "prompt": "Author and run S01_inspect_doc.js to verify active document telemetry.",
+        "prompt": "Hoàn thiện và chạy S01_inspect_doc.js để kiểm chứng trích xuất thông số tài liệu.",
         "starterAsset": {
           "filename": "S01_inspect_doc.js",
           "filepath": "curriculum/assets/scripting/S01_inspect_doc.js",
@@ -279,12 +279,12 @@
           "filetype": ".js",
           "assetStatus": "JAVASCRIPT_SCRIPT",
           "isVerified": true,
-          "statusNote": "Verified practice script for document inspection (JAVASCRIPT_SCRIPT)."
+          "statusNote": "Kịch bản thực hành kiểm tra thuộc tính tài liệu đã kiểm chứng (JAVASCRIPT_SCRIPT)."
         },
         "checkpoints": [
-          "Guarded against null document states",
-          "Session UUID successfully extracted",
-          "Spread rendered via MCP bridge"
+          "Đã chặn lỗi an toàn khi Document.current bằng null",
+          "Đã trích xuất thành công Session UUID",
+          "Đã kết xuất được trang đôi thông qua cầu nối MCP"
         ]
       }
     }

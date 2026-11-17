@@ -3,9 +3,9 @@
   "trackId": "photo",
   "order": 8,
   "moduleNumber": "P08",
-  "title": "Typography, Graphic Integration & Layer Effects",
-  "tagline": "Design commercial layouts, promotional key visuals, and integrated typography in Photo Persona.",
-  "description": "Learn typography and graphic design in Affinity Photo 3.0: Artistic vs Frame Text, Quick FX / Layer Effects (Bevel/Emboss, Shadows, Glows), vector shape integration, and creative commercial layouts such as text behind subject.",
+  "title": "Tích Hợp Kiểu Chữ Đồ Họa & Đồ Họa Vector Vào Ảnh",
+  "tagline": "Thiết kế bố cục thương mại, ấn phẩm chủ đạo và nghệ thuật chữ tích hợp ngay trong Pixel Studio.",
+  "description": "Bố cục chữ nghệ thuật và đồ họa trong Pixel Studio / Affinity Photo: phân biệt Artistic Text và Frame Text, hiệu ứng Quick FX / Layer Effects (Bevel/Emboss, Shadows, Glows), tích hợp hình khối vector và kỹ thuật đặt chữ sau chủ thể.",
   "difficulty": "Intermediate",
   "estimatedMinutes": 80,
   "prerequisites": ["P01", "P02", "P03"],
@@ -16,7 +16,7 @@
     "filesize": "4.4 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn nghệ thuật chữ và tích hợp đồ họa vector trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P08-01", "P08-02", "P08-03"]
 }

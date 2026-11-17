@@ -3,8 +3,8 @@
   "moduleId": "P06",
   "trackId": "photo",
   "order": 3,
-  "title": "Live Lighting, Bump Maps & Atmospheric Effects",
-  "subtitle": "3D Shader Illuminations, Texture Relief Maps, Vignettes & Procedural Mist",
+  "title": "Live Lighting, Bump Map và hiệu ứng khí quyển",
+  "subtitle": "Chiếu sáng 3D thời gian thực, bản đồ nổi bề mặt, tối bốn góc Vignette và sương mù",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P07 Image Compositing & Multi-Image Manipulation",
+          "title": "Học phần tiếp theo: P07 Lập kế hoạch thị giác, hướng sáng và khớp phối cảnh",
           "target": "P07-01",
           "type": "next-lesson"
         },
@@ -168,7 +168,7 @@
           "type": "guide"
         },
         {
-          "title": "Affinity Documentation: Lighting Filter",
+          "title": "Tài liệu Affinity: Bộ lọc Lighting Filter",
           "target": "https://affinity.help/photo/en-US.lproj/pages/Filters/filter_lighting.html",
           "type": "doc"
         }
@@ -221,7 +221,7 @@
       "contentMarkdown": "1. **Thêm Live Lighting:** Bấm biểu tượng đồng hồ cát ➔ Light ➔ chọn `Lighting`.\n2. **Chọn Spot Light:** Nhấp chọn Spot Light, đổi màu ánh sáng thành vàng ấm nhẹ nhàng.\n3. **Kéo widget định vị:** Đặt tâm đèn ở góc trên bên trái 45 độ chiếu xuống trán và gò má người mẫu.\n4. **Tinh chỉnh Bump & Vignette:** Kéo Bump 10%, sau đó thêm lớp `Live Vignette` giảm -1.2 EV để dìm tối nhẹ 4 góc!",
       "visual": {
         "type": "badge-grid",
-        "content": "Add Lighting | Spot Light | 45 Degree Angle | Bump 10% | Vignette Glow"
+        "content": "Thêm Lighting | Spot Light | Góc chiếu 45° | Bump 10% | Viền tối Vignette"
       }
     },
     {

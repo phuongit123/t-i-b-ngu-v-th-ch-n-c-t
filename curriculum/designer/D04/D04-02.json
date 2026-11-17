@@ -3,100 +3,100 @@
   "moduleId": "D04",
   "trackId": "designer",
   "order": 2,
-  "title": "Stroke Studio, Custom Dashes & Vector Pressure Curves",
-  "subtitle": "4 Dash/Gap Sequences, Pressure Graph Tapering & Presets",
+  "title": "Stroke Studio, nét đứt tùy chỉnh và biểu đồ lực nhấn",
+  "subtitle": "Chuỗi 4 cặp nét đứt, đồ thị Pressure thanh đậm và lưu mẫu preset",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Master the advanced controls of the Stroke Studio: Width, Alignment (Center, Inside, Outside), Caps, and Joins.",
-      "Design complex rhythmic dashed lines using the 4 dash/gap pattern input matrix.",
-      "Sculpt variable-width calligraphy and hair strands using the interactive Stroke Pressure Graph.",
-      "Save, manage, and recall custom stroke pressure presets across vector illustration projects."
+      "Làm chủ toàn bộ thông số nâng cao trong Stroke Studio (bảng thuộc tính nét viền): Độ dày, Căn lề (Center, Inside, Outside), Đầu nét và Kiểu nối góc.",
+      "Thiết kế các mẫu nét đứt nhịp điệu phức tạp bằng hệ thống 4 cặp thông số Dash/Gap.",
+      "Điêu khắc nét vẽ thư pháp, tóc hay nét đi mực thanh đậm ngay trên một đường cong duy nhất nhờ biểu đồ Pressure.",
+      "Lưu, quản lý và áp dụng nhanh các mẫu lực nhấn (Pressure Profile) cho nhiều đường nét khác nhau."
     ],
-    "foundationalKnowledge": "In basic graphic design, vector strokes have a uniform, rigid thickness from start to finish. In high-end digital illustration and calligraphy, organic strokes require dynamic weight variation: thin delicate hairlines that swell into thick bold curves and taper gracefully into razor-sharp points. Rather than requiring you to outline paths and manually nudge hundreds of Bezier nodes, Affinity Designer incorporates a real-time 'Pressure Studio' into every vector stroke. An interactive pressure curve graph maps stroke width dynamically along the path length, transforming a single mathematical curve into expressive, responsive brushwork.",
+    "foundationalKnowledge": "Ở mức cơ bản, nét viền vector thường có độ dày đều tăm tắp từ đầu đến cuối nên trông hơi cứng. Trong minh họa nhân vật, truyện tranh hay chữ thư pháp, nét vẽ cần sự chuyển biến uyển chuyển: mảnh ở đầu, phình dày ở thân rồi vuốt nhọn ở đuôi. Thay vì bắt người vẽ phải biến nét thành mảng rồi chỉnh từng trăm điểm neo, Affinity tích hợp thẳng biểu đồ lực nhấn (Pressure Graph) vào mọi nét vẽ vector trong Stroke Studio. Bạn chỉ cần kéo đường cong trên đồ thị là toàn bộ độ dày dọc theo chiều dài đường dẫn thay đổi theo thời gian thực.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Stroke Studio & Pressure Graph Specification",
+      "source": "Tài liệu chính thức về Stroke Studio & Biểu đồ Pressure — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Stroke Studio & Pressure Graph",
+      "toolName": "Stroke Studio & Biểu đồ Pressure",
       "persona": "Vector Persona (View > Studio > Stroke)",
       "shortcut": {
-        "win": "View > Studio > Stroke (or Context Bar stroke swatch)",
-        "mac": "View > Studio > Stroke (or Context Bar stroke swatch)"
+        "win": "View > Studio > Stroke (hoặc nhấn ô Stroke trên Context Toolbar)",
+        "mac": "View > Studio > Stroke (hoặc nhấn ô Stroke trên Context Toolbar)"
       },
-      "description": "Governs line weight, alignment, caps, dash sequences, and the variable pressure graph.",
+      "description": "Bảng điều khiển độ dày nét, căn lề viền, đầu nét, kiểu nét đứt nhiều nhịp và biểu đồ điều biến lực nhấn thanh đậm.",
       "contextBarOptions": [
-        "Align Stroke: Center (50/50), Inner (clamped inside boundary), Outer (clamped outside boundary)",
-        "Dash Pattern Inputs: 4 pairs of Dash and Gap inputs (e.g. 4-2-1-2 for Morse code / rhythm lines)",
-        "Dash Phase Offset: Shifts dash start position along the curve perimeter",
-        "Pressure Button: Opens the interactive curve graph editor (0% to 100% stroke variance)",
-        "Save Profile Button: Saves current pressure graph as a reusable preset"
+        "Align Stroke: Center (căn giữa 50/50), Inside (ép gọn bên trong đường bao), Outside (nằm hẳn bên ngoài đường bao)",
+        "Dash Pattern: 4 cặp ô nhập Dash (nét gạch) và Gap (khoảng hở) tạo nhịp điệu phức tạp",
+        "Phase: Dịch chuyển vị trí bắt đầu của chuỗi nét đứt quanh chu vi hình",
+        "Pressure: Mở hộp thoại đồ thị điều chỉnh độ dày từ 0% đến 100% dọc chiều dài đường nét",
+        "Save Profile: Lưu biểu đồ lực nhấn hiện tại thành mẫu dùng lại một lần bấm"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Draw a Freehand or Pen Path",
-        "instruction": "Using the Pen Tool (P) or Vector Brush Tool, draw an elegant S-shaped curve on your artboard.",
+        "title": "Vẽ một đường cong chữ S",
+        "instruction": "Dùng Pen Tool (P) hoặc Vector Brush Tool vẽ một đường lượn chữ S mềm mại trên artboard.",
         "shortcutTip": { "win": "P", "mac": "P" }
       },
       {
         "stepNumber": 2,
-        "title": "Configure Stroke Weight in the Stroke Studio",
-        "instruction": "Open the Stroke Studio (View > Studio > Stroke). Set the width to 32 pt so that pressure variations are clearly visible. Set Cap to 'Round Cap'.",
+        "title": "Đặt độ dày nét lớn để dễ quan sát",
+        "instruction": "Mở bảng Stroke Studio (View > Studio > Stroke), tăng Width lên 32 pt để thấy rõ biến đổi thanh đậm và chọn kiểu đầu nét 'Round Cap'.",
         "shortcutTip": { "win": "Stroke Studio", "mac": "Stroke Studio" }
       },
       {
         "stepNumber": 3,
-        "title": "Open the Pressure Graph",
-        "instruction": "At the bottom of the Stroke Studio, click the 'Pressure' button. A popup graph appears with a horizontal line across the top (representing 100% stroke thickness along the path).",
-        "shortcutTip": { "win": "Click Pressure", "mac": "Click Pressure" }
+        "title": "Mở biểu đồ lực nhấn Pressure",
+        "instruction": "Ở cạnh dưới bảng Stroke Studio, nhấn nút 'Pressure'. Một ô đồ thị hiện ra với đường ngang nằm ở mức đỉnh 100% (tương ứng nét dày đồng đều suốt chiều dài đường).",
+        "shortcutTip": { "win": "Nhấn nút Pressure", "mac": "Nhấn nút Pressure" }
       },
       {
         "stepNumber": 4,
-        "title": "Sculpt a Calligraphic Taper Profile",
-        "instruction": "Drag the leftmost node of the graph down to 0% (path start is needle sharp). Click the middle of the graph line to add a center control node and pull it to 100% (thick belly). Drag the rightmost node down to 0% (path end is needle sharp). Observe your path instantly transform into an organic hand-lettered brush stroke!",
-        "shortcutTip": { "win": "Drag Graph Nodes", "mac": "Drag Graph Nodes" }
+        "title": "Tạo dáng thanh đậm kiểu bút lông thư pháp",
+        "instruction": "Kéo điểm đầu bên trái đồ thị xuống đáy 0% (đầu nét vuốt nhọn). Nhấp vào giữa đường đồ thị để thêm một điểm mới rồi kéo lên đỉnh 100% (bụng nét dày). Kéo tiếp điểm đầu bên phải xuống 0% (đuôi nét vuốt nhọn). Đường cong 32 pt lập tức hóa thành nét bút lông mềm mại.",
+        "shortcutTip": { "win": "Kéo điểm trên đồ thị", "mac": "Kéo điểm trên đồ thị" }
       },
       {
         "stepNumber": 5,
-        "title": "Create a Custom Rhythmic Dash Pattern",
-        "instruction": "Draw a circle. In the Stroke Studio, switch Style to 'Dashed Line'. In the 4 dash boxes, enter: Dash 1: `6`, Gap 1: `2`, Dash 2: `2`, Gap 2: `2`. Notice a refined technical blueprint dash rhythm appear immediately around the circle.",
-        "shortcutTip": { "win": "Dashed Line Mode", "mac": "Dashed Line Mode" }
+        "title": "Thiết lập chuỗi nét đứt 4 cặp nhịp điệu",
+        "instruction": "Vẽ một hình tròn khác. Trong Stroke Studio, đổi Style sang 'Dash Line Style' (nét đứt). Nhập vào các ô: Dash 1 = 6, Gap 1 = 2, Dash 2 = 2, Gap 2 = 2 để tạo dãy nét gạch-chấm chuẩn bản vẽ kỹ thuật.",
+        "shortcutTip": { "win": "Dash Line Style", "mac": "Dash Line Style" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Pressure Graph Taper Profiles",
-        "description": "Standard stroke pressure configurations.",
+        "title": "Các mẫu biểu đồ lực nhấn (Pressure Profiles) phổ biến",
+        "description": "Hình dáng đường cong trên đồ thị Pressure và kết quả nét vẽ tương ứng.",
         "visualType": "table",
-        "visualContent": "| Profile Name | Graph Shape | Visual Stroke Result |\n|---|---|---|\n| Uniform | Flat line at 100% | Constant industrial thickness |\n| Calligraphy Taper | 0% start, 100% center, 0% end | Pointed ends with swollen middle belly |\n| Comet Tail | 100% start sloping down to 0% end | Heavy impact head with fading taper tail |\n| Dual Swell | 100% start, 20% center, 100% end | Pinched waist with bulbous terminals |"
+        "visualContent": "| Tên mẫu | Hình dáng đường đồ thị | Hiệu ứng nét vẽ thực tế |\n|---|---|---|\n| Đều (Uniform) | Đường ngang phẳng ở mức 100% | Độ dày công nghiệp đồng nhất suốt tuyến |\n| Thư pháp (Calligraphy Taper) | 0% đầu — 100% giữa — 0% cuối | Hai đầu vuốt nhọn, phần bụng phình tròn |\n| Đuôi sao chổi (Comet Tail) | 100% ở đầu dốc xuống 0% ở cuối | Đầu nét đậm chắc, đuôi vuốt nhỏ dần |\n| Thắt eo (Dual Swell) | 100% đầu — 20% giữa — 100% cuối | Thân giữa thắt mảnh, hai đầu phình to |"
       },
       {
-        "title": "Pressure Graph Coordinate Mapping",
-        "description": "How the graph translates along the physical path.",
+        "title": "Sơ đồ ánh xạ từ đồ thị Pressure ra nét vẽ thực tế",
+        "description": "Trục ngang của đồ thị tương ứng từ điểm đầu tới điểm cuối đường cong.",
         "visualType": "diagram",
-        "visualContent": "Pressure Graph: [100% Height]        .--- Peak Belly (100% Width) ---.\n                                     /                                 \\\n                [  0% Height] ● (Start: 0%)                        ● (End: 0%)\n                              | ◄────── Length of Vector Path ──────► |\nPath on Canvas:               ● ══════════════ ▰▰▰▰▰▰▰ ══════════════ ●\n                             (Fine Needle)    (Thick Swell)       (Fine Needle)"
+        "visualContent": "Đồ thị Pressure: [100%]        .--- Đỉnh bụng nét (100%) ---.\n                              /                              \\\n                 [  0%] ● (0%)                                ● (0%)\n                        | ◄───── Chiều dài đường vector ─────► |\nNét trên Canvas:        ● ═════════════ ▰▰▰▰▰▰ ═══════════════ ●\n                    (Đầu nhọn)        (Bụng dày)          (Đuôi nhọn)"
       }
     ],
     "guidedPractice": {
-      "title": "Dynamic Comic Inking with Vector Pressure",
-      "taskDescription": "Ink a dynamic action speed-line burst using variable stroke pressure profiles and save the custom preset.",
+      "title": "Vẽ tia tốc độ truyện tranh bằng Pressure Profile",
+      "taskDescription": "Tạo chùm tia hành động động lực học có đầu nhọn bén và lưu thành mẫu dùng hàng loạt.",
       "checkpoints": [
-        "Draw 5 radiating curved speed lines using the Pen Tool.",
-        "Set stroke width to 20 pt.",
-        "Configure the Pressure graph: Start at 0%, rise sharply to 100% at 20% length, taper to 0% at 100% length.",
-        "Click 'Save Profile' in the Pressure popup to store this 'Speed Line' preset.",
-        "Select the remaining 4 lines and apply the saved profile with one click."
+        "Vẽ 5 đường cong tỏa tia bằng Pen Tool (P).",
+        "Đặt độ dày nét 20 pt cho tất cả các tia.",
+        "Mở đồ thị Pressure: bắt đầu tại 0%, vọt lên 100% ở khoảng 20% chiều dài đầu, rồi vuốt thon dần về 0% ở cuối đường.",
+        "Nhấn 'Save Profile' trong hộp thoại Pressure để lưu thành mẫu riêng.",
+        "Chọn 4 đường tia còn lại và bấm chọn mẫu vừa lưu để áp dụng đồng loạt chỉ trong một cú nhấp."
       ],
-      "expectedOutcome": "A synchronized, high-impact comic book action burst with organic, tapered vector linework."
+      "expectedOutcome": "Cụm tia hành động sắc bén, uyển chuyển và đồng bộ hoàn toàn trên các nét vector."
     },
     "independentChallenge": {
-      "title": "Baroque Botanical Leaf Flourish",
-      "prompt": "Construct an ornate botanical vine flourish: (1) Main vine stem using a smooth continuous stroke with a tapering pressure profile; (2) Multiple leaf fronds sprouting from the vine, each created from a single stroke shaped purely by an asymmetrical pressure profile (bulbous base tapering to a leaf tip); (3) A decorative accent border around the composition using an 8-4-2-4 custom dashed pattern.",
+      "title": "Dây leo hoa văn lá cổ điển",
+      "prompt": "Thiết kế một nhánh dây leo trang trí: (1) Thân dây chính dùng một đường cong mượt có đồ thị lực nhấn thon dần về ngọn; (2) Nhiều chiếc lá mọc dọc thân, mỗi chiếc lá được tạo từ MỘT nét vẽ đơn duy nhất dùng biểu đồ Pressure bất đối xứng (phình bầu ở gốc lá và vuốt nhọn đầu lá); (3) Khung viền trang trí bao quanh dùng nét đứt 4 thông số nhịp 8-4-2-4.",
       "starterAsset": {
         "filename": "D04_gradients_stroke_contour_guide.md",
         "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -104,86 +104,86 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for stroke pressure graphs (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành biểu đồ lực nhấn và nét đứt (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Leaf flourishes constructed using single stroked paths with pressure curves (not outlined shapes).",
-        "At least 2 distinct pressure curve presets created and saved.",
-        "Border uses custom 4-pair dash pattern with zero seam overlapping glitches."
+        "Các chiếc lá được tạo từ nét đơn điều biến bằng biểu đồ Pressure (không vẽ viền bao thủ công).",
+        "Tạo và lưu ít nhất 2 mẫu Pressure profile khác nhau.",
+        "Khung viền sử dụng chuỗi nét đứt tùy chỉnh 4 thông số sạch sẽ không bị đè nhịp ở góc."
       ],
-      "bonusGoal": "Apply a subtle 2-stop gold gradient along the stroke of the main vine stem."
+      "bonusGoal": "Tô dải màu vàng ánh kim 2 điểm dừng trực tiếp lên nét Stroke của thân dây leo chính."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Stroke Pressure button is disabled (grayed out)",
-        "cause": "The active stroke style is set to 'Dashed Line' or 'No Stroke'.",
-        "solution": "Pressure curves only apply to continuous solid line styles. Set Style to 'Solid Line' in the Stroke Studio."
+        "pitfall": "Nút Pressure trong bảng Stroke Studio bị mờ không bấm được",
+        "cause": "Kiểu nét (Style) đang đặt ở chế độ nét đứt (Dashed Line) hoặc không có nét (No Line).",
+        "solution": "Biểu đồ Pressure chỉ hoạt động trên kiểu nét liền (Solid Line Style). Hãy chuyển Style về 'Solid Line' trong Stroke Studio."
       },
       {
-        "pitfall": "Strokes ballooning when artwork is scaled down",
-        "cause": "The 'Scale with object' checkbox is unchecked in the Stroke Studio.",
-        "solution": "Always check 'Scale with object' so that stroke widths and pressure profiles scale proportionally with your illustration."
+        "pitfall": "Nét viền bị phình to nuốt mất hình khi thu nhỏ icon",
+        "cause": "Chưa tích chọn ô 'Scale with object' trong bảng Stroke Studio.",
+        "solution": "Luôn tích chọn 'Scale with object' để khi phóng to hoặc thu nhỏ đối tượng, độ dày nét và biên độ thanh đậm co giãn theo đúng tỷ lệ."
       },
       {
-        "pitfall": "Tapered stroke looking pixelated on canvas",
-        "cause": "Viewing in Pixel Preview mode at a low zoom level.",
-        "solution": "Switch to Vector View Mode (View > View Mode > Vector) to preview infinite mathematical Bezier curves."
+        "pitfall": "Nét thanh đậm trông bị răng cưa trên bản vẽ",
+        "cause": "Đang bật chế độ xem Pixel Preview ở mức thu nhỏ.",
+        "solution": "Chuyển lại sang Vector View Mode (View > View Mode > Vector) để xem đúng đường cong sắc mịn."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D04-02-Q1",
-        "question": "What is the primary architectural function of the 'Pressure' graph in the Affinity Designer Stroke Studio?",
+        "question": "Chức năng chính của biểu đồ 'Pressure' trong bảng Stroke Studio là gì?",
         "options": [
-          "It measures how hard you press your keyboard keys.",
-          "It dynamically maps the thickness of a vector stroke along its length, allowing you to sculpt calligraphic tapers without outlining paths.",
-          "It compresses PNG files.",
-          "It closes open curves."
+          "Đo lực gõ lên bàn phím.",
+          "Điều biến độ dày nét vẽ dọc theo chiều dài đường cong để tạo nét thanh đậm thư pháp mà không phải dựng hình bao thủ công.",
+          "Nén dung lượng file PNG khi xuất.",
+          "Tự động khép kín các đường hở."
         ],
         "correctIndex": 1,
-        "explanation": "The Pressure graph allows artists to modulate the stroke width multiplier (0% to 100%) from the start node to the end node along any vector curve."
+        "explanation": "Biểu đồ Pressure nhân tỷ lệ độ dày (0% đến 100%) dọc từ điểm đầu tới điểm cuối của nét vẽ vector, giúp tạo nét thanh đậm linh hoạt."
       },
       {
         "id": "D04-02-Q2",
-        "question": "How many independent Dash and Gap parameter pairs does Affinity Designer support in its custom dashed line engine?",
+        "question": "Bộ tạo nét đứt tùy chỉnh trong Stroke Studio của Affinity hỗ trợ tối đa bao nhiêu cặp thông số Dash và Gap?",
         "options": [
-          "Only 1 pair (simple dash and gap).",
-          "Up to 4 pairs (Dash 1/Gap 1, Dash 2/Gap 2, Dash 3/Gap 3, Dash 4/Gap 4).",
-          "Unlimited pairs.",
-          "None; dashes are not supported."
+          "Chỉ 1 cặp (1 gạch, 1 khoảng trống).",
+          "Tối đa 4 cặp (Dash 1/Gap 1 đến Dash 4/Gap 4).",
+          "Không giới hạn số cặp.",
+          "Không hỗ trợ nét đứt."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer provides 4 consecutive pairs of Dash and Gap inputs, enabling intricate rhythmic dash sequences (such as Morse code or complex technical drafting lines)."
+        "explanation": "Affinity cung cấp 4 cặp ô nhập Dash/Gap liên tiếp, cho phép tạo các nhịp điệu kỹ thuật phức tạp như gạch dài – chấm – gạch ngắn."
       },
       {
         "id": "D04-02-Q3",
-        "question": "Why is the 'Scale with object' checkbox crucial when working with detailed vector strokes?",
+        "question": "Vì sao tùy chọn 'Scale with object' lại đặc biệt quan trọng khi thiết kế icon hoặc minh họa có nét viền?",
         "options": [
-          "It forces the stroke to convert into an artboard.",
-          "It ensures the stroke width shrinks and enlarges proportionally when the shape is resized, preventing line weights from overwhelming miniaturized graphics.",
-          "It changes the stroke color to black.",
-          "It saves the file automatically."
+          "Tự động biến nét viền thành một artboard mới.",
+          "Giúp độ dày nét tự co giãn tương ứng khi thu phóng kích thước hình, tránh trường hợp thu nhỏ icon nhưng nét vẫn giữ nguyên pt làm đen đặc toàn bộ hình.",
+          "Đổi màu nét sang màu đen.",
+          "Tự động lưu file."
         ],
         "correctIndex": 1,
-        "explanation": "Without 'Scale with object', a 20pt stroke remains 20pt even if you scale an icon down to 16x16 px, turning the artwork into a solid blob."
+        "explanation": "Nếu tắt 'Scale with object', một nét 20 pt vẫn giữ đúng 20 pt dù bạn thu icon từ 500 px xuống còn 16 px, khiến nét dày che lấp toàn bộ hình."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The Stroke Studio provides comprehensive control over weight, caps, joins, and alignments.",
-        "The Pressure graph transforms uniform vector strokes into expressive, tapered brushwork.",
-        "Custom dash engines accept up to 4 dash/gap sequence pairs.",
-        "Always enable 'Scale with object' to guarantee scalable vector portability."
+        "Stroke Studio quản lý độ dày, căn lề, đầu nét, góc nối và kiểu nét đứt.",
+        "Biểu đồ Pressure biến đường nét vector đơn điệu thành nét bút thanh đậm đầy biểu cảm.",
+        "Hệ thống nét đứt hỗ trợ tối đa 4 cặp nhịp Dash/Gap linh hoạt.",
+        "Luôn bật 'Scale with object' để nét vẽ giữ đúng tỷ lệ khi tái sử dụng ở kích thước khác nhau."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D04-03 Contour Tool (Offset Curves) & Expand Stroke",
+          "title": "Bài tiếp theo: D04-03 Contour Tool và mở rộng đường viền",
           "target": "D04-03",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Stroke Studio & Pressure Curves",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Stroke Studio & Pressure",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/Panels/strokePanel.html",
           "type": "doc"
         }
       ]
@@ -194,95 +194,95 @@
       "id": "D04-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Stroke Studio, Custom Dashes & Vector Pressure Curves",
-      "subtitle": "Breathing Organic Vitality into Precision Vector Linework",
-      "contentMarkdown": "Welcome to **Lesson D04-02**.\n\nUniform strokes look mechanical. True illustration—from manga inking to luxury calligraphy—demands **variable-width strokes**.\n\nIn this lesson, you will master the **Stroke Studio Pressure Graph**, sculpt custom calligraphic tapers on single Bezier paths, and build complex **4-stage rhythmic dash patterns**.",
+      "title": "Stroke Studio, Nét Đứt Tùy Chỉnh & Biểu Đồ Lực Nhấn",
+      "subtitle": "Thổi hồn biểu cảm vào từng đường nét vector",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D04-02**.\n\nNét vẽ dày đều tăm tắp tạo cảm giác khô cứng máy móc. Minh họa chuyên nghiệp—từ đi nét truyện tranh đến thư pháp hiện đại—luôn cần **độ thanh đậm linh hoạt**.\n\nTrong bài học này, bạn sẽ làm chủ **biểu đồ Pressure** ngay trong Stroke Studio để điêu khắc đường nét mềm mại trên một đường cong duy nhất, cùng **bộ nét đứt 4 nhịp** chuẩn bản vẽ kỹ thuật.",
       "actionBox": {
-        "label": "Illustration Breakthrough",
-        "text": "Never manually trace two sides of a tapered hair strand again! Draw a single line and sculpt it with Pressure."
+        "label": "Bước nhảy về tốc độ",
+        "text": "Không cần vẽ hai biên riêng cho một sợi tóc hay lá cây! Chỉ cần một đường nét đơn kết hợp đồ thị Pressure."
       }
     },
     {
       "id": "D04-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Mechanics of the Pressure Graph",
-      "subtitle": "Mapping Width Multipliers Along a Bezier Curve",
-      "contentMarkdown": "At the bottom of the Stroke Studio (`View > Studio > Stroke`), the **Pressure graph** modulates path thickness:\n\n- **X-Axis:** Represents the chronological progression of the path from `0%` (Start Node) to `100%` (End Node).\n- **Y-Axis:** Represents the stroke thickness multiplier from `0%` (razor-sharp hairline) to `100%` (maximum stroke width).\n- **Control Nodes:** Click anywhere on the curve to add inflection points; drag nodes up or down to swell or pinch the stroke.",
+      "title": "Cơ Chế Hoạt Động Của Biểu Đồ Pressure",
+      "subtitle": "Ánh xạ hệ số độ dày dọc theo chiều dài đường cong",
+      "contentMarkdown": "Ở phần dưới bảng **Stroke Studio** (`View > Studio > Stroke`), nút **Pressure** mở ra đồ thị điều chỉnh độ dày:\n\n- **Trục ngang (X):** Biểu diễn chiều dài đường cong từ `0%` (điểm đầu) đến `100%` (điểm cuối).\n- **Trục dọc (Y):** Biểu diễn tỷ lệ độ dày thực tế từ `0%` (mảnh nhọn tối đa) đến `100%` (đúng bằng thông số Width đã đặt).\n- **Điểm điều khiển:** Nhấp lên đường đồ thị để thêm điểm uốn; kéo lên xuống để làm nét phình ra hoặc thắt lại.",
       "visual": {
         "type": "diagram",
-        "content": "[100% Width] ────● (Thick Swell) ────\n                 /                    \\\n  [0% Width]   ● (Sharp Taper)         ● (Sharp Taper)\n               Start ═════════════════ End"
+        "content": "[100% Độ dày] ────● (Thân nét phình to) ────\n                  /                           \\\n  [  0% Độ dày] ● (Đầu nhọn)                   ● (Đuôi nhọn)\n                Điểm đầu ═════════════════════ Điểm cuối"
       }
     },
     {
       "id": "D04-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Stroke Alignment & Caps Refresher",
-      "subtitle": "Center, Inside & Outside Alignments",
-      "contentMarkdown": "The Stroke Studio provides 3 essential alignment modes for closed shapes:\n\n1. **Center Align:** The stroke straddles the path 50% inside, 50% outside (standard for illustration).\n2. **Inner Align:** The entire stroke is clamped *inside* the vector boundary. Essential for UI buttons to prevent 1px boundary bleeding.\n3. **Outer Align:** The entire stroke sits *outside* the boundary, preserving interior negative space.",
+      "title": "Ôn Lại Căn Lề Đường Viền (Stroke Alignment)",
+      "subtitle": "Center, Inside và Outside cho hình khép kín",
+      "contentMarkdown": "Stroke Studio cung cấp 3 chế độ căn vị trí nét viền so với đường biên hình:\n\n1. **Center Align:** Nét nằm 50% bên trong, 50% bên ngoài đường biên (mặc định).\n2. **Inside Align:** Toàn bộ độ dày nét ép gọn *vào bên trong* khung hình. Cực kỳ hữu ích cho nút bấm UI để không làm phình kích thước tổng.\n3. **Outside Align:** Toàn bộ nét vươn hẳn *ra bên ngoài*, giữ nguyên vẹn không gian lòng hình phía trong.",
       "actionBox": {
-        "label": "Golden Checkbox",
-        "text": "Always enable 'Scale with object' in the Stroke panel so strokes scale proportionally when graphics resize."
+        "label": "Tùy chọn không thể quên",
+        "text": "Luôn bật ô kiểm 'Scale with object' trong Stroke Studio để nét vẽ co giãn tỷ lệ thuận khi bạn phóng to hoặc thu nhỏ hình."
       }
     },
     {
       "id": "D04-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Sculpting a Calligraphy Stroke",
-      "subtitle": "Executing the Pressure Taper Workflow",
-      "contentMarkdown": "Follow these steps to turn a simple line into a calligraphic stroke:\n\n1. **Step 1:** Select the Pen Tool (`P`) and draw a smooth curved flourish.\n2. **Step 2:** In the Stroke Studio, set Width to `28 pt` and select **Round Cap**.\n3. **Step 3:** Click the **'Pressure'** button at the bottom of the panel.\n4. **Step 4:** Drag the left point down to `0%`. Drag the right point down to `0%`.\n5. **Step 5:** Click the center of the graph line to add a node and drag it to `100%`.\n6. **Step 6:** Click **'Save Profile'** to store this taper preset for future one-click use!",
+      "title": "Thực Hành: Tạo Nét Bút Lông Thư Pháp",
+      "subtitle": "Điều chỉnh đồ thị Pressure từ đầu nhọn đến thân dày",
+      "contentMarkdown": "Thực hiện theo từng bước sau:\n\n1. **Bước 1:** Dùng **Pen Tool (`P`)** vẽ một nét uốn cong mềm mại.\n2. **Bước 2:** Trong Stroke Studio, đặt Width `28 pt` và chọn đầu nét **Round Cap**.\n3. **Bước 3:** Nhấn nút **Pressure** ở cạnh dưới bảng.\n4. **Bước 4:** Kéo điểm đầu bên trái xuống `0%` và điểm cuối bên phải xuống `0%`.\n5. **Bước 5:** Nhấp vào khoảng giữa đồ thị thêm một điểm neo và kéo lên mức `100%`.\n6. **Bước 6:** Nhấn **Save Profile** để lưu mẫu nét thanh đậm dùng lại chỉ bằng một cú nhấp!",
       "visual": {
         "type": "comparison",
-        "content": "Uniform 28pt Line (Mechanical) ===[ Pressure Graph ]===> Calligraphic Ribbon (Organic)"
+        "content": "Nét 28pt thẳng đều (Cứng) ===[ Biểu đồ Pressure ]===> Nét cọ thư pháp thuôn hai đầu (Mềm mại)"
       }
     },
     {
       "id": "D04-02-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Architectural Dashes: The 4-Pair Sequence",
-      "subtitle": "Creating Morse Code and Blueprint Patterns",
-      "contentMarkdown": "Affinity Designer's dashed line engine is far more advanced than basic on/off toggles:\n\n- It accepts **4 consecutive pairs** of Dash and Gap inputs.\n- **Example 1 (Technical Blueprint):** `Dash 1: 8 | Gap 1: 2 | Dash 2: 2 | Gap 2: 2` (Long dash followed by dot).\n- **Example 2 (Security Ticket):** `Dash 1: 12 | Gap 1: 3 | Dash 2: 4 | Gap 2: 3 | Dash 3: 4 | Gap 3: 3`.\n- **Phase Offset:** Shift the phase slider to align corner dashes neatly without clipping.",
+      "title": "Nét Đứt Kỹ Thuật: Chuỗi 4 Cặp Thông Số",
+      "subtitle": "Tạo nhịp gạch-chấm chuẩn bản vẽ kiến trúc và tem nhãn",
+      "contentMarkdown": "Hệ thống nét đứt trong Affinity hỗ trợ tới **4 cặp Dash và Gap nối tiếp nhau**:\n\n- **Ví dụ 1 (Bản vẽ kỹ thuật):** `Dash 1: 8 | Gap 1: 2 | Dash 2: 2 | Gap 2: 2` (gạch dài xen chấm ngắn).\n- **Ví dụ 2 (Đường cắt tem vé):** `Dash 1: 12 | Gap 1: 3 | Dash 2: 4 | Gap 2: 3 | Dash 3: 4 | Gap 3: 3`.\n- **Phase Offset:** Kéo thanh Phase để dịch nhịp nét đứt sao cho các góc hình vuông vắn cân đối.",
       "visual": {
         "type": "table",
-        "content": "| Pattern Name | Dash 1 / Gap 1 | Dash 2 / Gap 2 | Visual Rhythm |\n|---|---|---|---|\n| Standard | 3 / 3 | - | ──  ──  ──  ── |\n| Long-Short | 8 / 2 | 2 / 2 | ──── ─ ──── ─ |\n| Stitched Seam | 4 / 2 | 4 / 2 | ── ── ── ── |"
+        "content": "| Tên nhịp nét | Dash 1 / Gap 1 | Dash 2 / Gap 2 | Nhịp hiển thị |\n|---|---|---|---|\n| Đều chuẩn | 3 / 3 | - | ──  ──  ──  ── |\n| Dài - Ngắn | 8 / 2 | 2 / 2 | ──── ─ ──── ─ |\n| Đường chỉ khâu | 4 / 2 | 4 / 2 | ── ── ── ── |"
       }
     },
     {
       "id": "D04-02-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Tablet Stylus Velocity & Pressure",
-      "subtitle": "Live Drawing with Wacom & Apple Pencil",
-      "contentMarkdown": "If you use a drawing tablet (Wacom, iPad Sidecar, Huion):\n\n1. Select the **Vector Brush Tool (`B`)**.\n2. On the Context Toolbar, change Controller from 'None' to **'Pressure'** or **'Velocity'**.\n3. Affinity Designer samples your hardware stylus pressure levels in real time at 120Hz, automatically recording custom pressure graphs onto every vector curve as you draw!",
+      "title": "Vẽ Trực Tiếp Bằng Lực Nhấn Bút Cảm Ứng",
+      "subtitle": "Kết hợp bảng vẽ Wacom, XP-Pen hoặc Apple Pencil",
+      "contentMarkdown": "Nếu bạn làm việc với bút vẽ cảm ứng lực nhấn:\n\n1. Chọn **Vector Brush Tool (`B`)** (cọ vector có gắn lực nhấn).\n2. Trên thanh Context Toolbar, đổi mục **Controller** từ 'None' sang **'Pressure'** hoặc **'Velocity'**.\n3. Affinity tự ghi lại biến thiên lực nhấn tay bạn theo thời gian thực và chuyển thành đường cong **Pressure** có thể chỉnh lại bất kỳ lúc nào!",
       "actionBox": {
-        "label": "Hardware Integration",
-        "text": "Every tablet stroke creates an editable vector path with an embedded Pressure curve."
+        "label": "Tính phi phá hủy",
+        "text": "Mỗi nét bút vẽ tay đều sinh ra một đường Bézier kèm đồ thị Pressure có thể nắn lại sau khi vẽ xong."
       }
     },
     {
       "id": "D04-02-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Stroke Studio Pitfalls & Troubleshooting",
-      "subtitle": "Avoid Common Vector Glitches",
-      "contentMarkdown": "### 1. Pressure Button is Grayed Out\n- **The Cause:** The stroke is set to 'Dashed Line' or has a texture brush nozzle applied.\n- **The Fix:** Switch the stroke style back to **Solid Line**.\n\n### 2. The Ballooning Stroke Trap\n- **The Issue:** You shrink an icon from 500px down to 50px, and the 20pt stroke fills the entire icon with black.\n- **The Fix:** Enable **'Scale with object'** in the Stroke Studio before resizing.\n\n### 3. Asymmetrical Pressure on Symmetrical Shapes\n- **The Fix:** Reset the Pressure curve by clicking the 'Reset' button inside the Pressure popup dialog.",
+      "title": "Lỗi Hay Gặp Với Stroke Studio & Cách Xử Lý",
+      "subtitle": "Tránh lỗi vỡ tỷ lệ nét khi thu phóng thiết kế",
+      "contentMarkdown": "### 1. Nút Pressure bị xám mờ không bấm được\n- **Nguyên nhân:** Kiểu nét đang để ở chế độ nét đứt (Dashed) hoặc chưa có nét.\n- **Cách sửa:** Chuyển lại về **Solid Line Style**.\n\n### 2. Nét viền phình to đen kịt khi thu nhỏ đối tượng\n- **Nguyên nhân:** Quên bật tùy chọn co giãn nét theo hình.\n- **Cách sửa:** Tích chọn **Scale with object** trong bảng Stroke Studio trước khi thu nhỏ.\n\n### 3. Muốn đưa nét thanh đậm về đều như cũ\n- **Cách sửa:** Mở hộp thoại Pressure và nhấn nút **Reset** để đưa đường đồ thị về phẳng ngang 100%.",
       "visual": {
         "type": "badge-grid",
-        "content": "Scale With Object: Mandatory | Solid Style for Pressure | Reset Button Restores Flat Line"
+        "content": "Bật Scale With Object | Solid Line mới dùng được Pressure | Nút Reset khôi phục nét đều"
       }
     },
     {
       "id": "D04-02-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Dynamic Manga Action Burst",
-      "subtitle": "Put Vector Pressure & Dashes into Practice",
-      "contentMarkdown": "### Your Mission:\nConstruct a high-intensity manga action speed burst around a central crest:\n\n1. Draw 8 radiating curved speed lines using the Pen Tool (`P`).\n2. Configure a custom **Pressure profile**: `0%` start, rising sharply to `100%` width, and tapering back to `0%`.\n3. Save the profile preset as **'Action Taper'** and apply it across all 8 lines.\n4. Draw an outer circular border frame and apply a custom **4-pair dash pattern** (`8-2-2-2-2-2`).\n\n### Acceptance Criteria:\n- Speed lines feature razor-sharp tapered ends sculpted via Pressure.\n- At least 1 pressure preset saved.\n- Frame features 4-pair rhythmic dashes.",
+      "title": "Thử Thách Độc Lập: Chùm Tia Hành Động Manga",
+      "subtitle": "Kết hợp Pressure Profile và khung nét đứt 4 nhịp",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng một khung hiệu ứng tia tốc độ đầy năng lượng bao quanh tâm:\n\n1. Dùng **Pen Tool (`P`)** vẽ 8 tia cong tỏa ra xung quanh tâm.\n2. Thiết lập **đồ thị Pressure**: bắt đầu `0%`, vọt lên `100%` rồi thuôn nhọn về `0%`.\n3. Lưu mẫu này với tên **'Action Taper'** và áp dụng đồng bộ lên cả 8 tia.\n4. Vẽ thêm một khung tròn bao ngoài bằng chuỗi **nét đứt 4 cặp thông số** (`8-2-2-2-2-2`).\n\n### Tiêu chí hoàn thành:\n- Các tia có độ vót thanh đậm sắc sảo nhờ đồ thị Pressure.\n- Lưu ít nhất 1 mẫu Pressure preset dùng lại được.\n- Khung viền ngoài thể hiện rõ nhịp nét đứt nhiều cặp.",
       "practiceData": {
-        "prompt": "Construct dynamic action linework using the Stroke Pressure graph and custom dashes.",
+        "prompt": "Dựng chùm tia hành động và khung viền sử dụng đồ thị Pressure và nét đứt tùy chỉnh.",
         "starterAsset": {
           "filename": "D04_gradients_stroke_contour_guide.md",
           "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -290,12 +290,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for stroke pressure graphs."
+          "statusNote": "Hướng dẫn thực hành biểu đồ lực nhấn và nét đứt."
         },
         "checkpoints": [
-          "Pen Tool linework created",
-          "Pressure graph customized with 0%-100%-0% taper",
-          "Pressure preset saved and applied across multiple lines"
+          "Đã vẽ chùm tia cong bằng Pen Tool",
+          "Đã tùy chỉnh đồ thị Pressure dạng 0%-100%-0%",
+          "Đã lưu mẫu Pressure và áp dụng đồng loạt"
         ]
       }
     }

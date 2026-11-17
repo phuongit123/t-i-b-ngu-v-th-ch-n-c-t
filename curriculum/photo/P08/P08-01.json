@@ -3,8 +3,8 @@
   "moduleId": "P08",
   "trackId": "photo",
   "order": 1,
-  "title": "Text Layers, Artistic vs Frame Text & Character/Paragraph Typography",
-  "subtitle": "Master professional typographic control, OpenType features, and text styling in Photo Persona.",
+  "title": "Các lớp chữ, Artistic Text, Frame Text và Typography",
+  "subtitle": "Làm chủ điều khiển kiểu chữ chuyên nghiệp, tính năng OpenType và trình bày chữ trong Pixel Studio.",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P08-02 Vector Shape Integration & Quick FX Layer Effects",
+          "title": "Bài tiếp theo: P08-02 Tích hợp hình Vector và hiệu ứng Layer (Quick FX)",
           "target": "P08-02",
           "type": "next-lesson"
         },
@@ -177,18 +177,18 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn nghệ thuật chữ và tích hợp đồ họa vector trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
       "id": "slide-p08-01-01",
       "order": 1,
       "title": "Hai công cụ Text cốt lõi trong Affinity Photo",
-      "subtitle": "Artistic Text Tool vs Frame Text Tool",
+      "subtitle": "Công cụ Artistic Text và Frame Text",
       "type": "concept",
       "content": "Affinity Photo cung cấp hai công cụ chữ chuyên biệt: 1) Artistic Text Tool dành cho tiêu đề, kéo dãn tự do kích thước theo thị giác; 2) Frame Text Tool dành cho nội dung văn bản khối, tự động bọc dòng theo ranh giới khung chữ nhật.",
       "tips": "Nhấn phím T liên tục hoặc nhấp giữ chuột vào icon chữ T trên thanh công cụ để chuyển đổi giữa hai chế độ.",
-      "codeSnippet": "Text Tool Selection Rule:\n- Single Words / Big Headlines / Display Typography -> Artistic Text Tool\n- Paragraphs / Body Copy / Captions / Multi-line Lists -> Frame Text Tool"
+      "codeSnippet": "Quy tắc chọn công cụ chữ (Text Tool):\n- Từ đơn / Tiêu đề lớn / Chữ trưng bày (Display) -> Artistic Text Tool\n- Đoạn văn bản / Nội dung dài / Chú thích / Danh sách nhiều dòng -> Frame Text Tool"
     },
     {
       "id": "slide-p08-01-02",
@@ -208,7 +208,7 @@
       "type": "interaction",
       "content": "Trong panel Character, bạn có thể thiết lập Baseline Shift (dịch chuyển trục chân chữ lên/xuống), Horizontal/Vertical Scale (kéo dãn tỉ lệ chữ cái), All Caps, Small Caps, Superscript (chỉ số trên), và Subscript (chỉ số dưới).",
       "tips": "Tránh dùng Horizontal Scale để bóp méo font chữ thiết kế chuẩn; hãy tìm các biến thể Condensed hoặc Extended nguyên bản của họ font.",
-      "codeSnippet": "Character Studio Metrics:\n- Font Family & Weight (Regular, Medium, Bold, Black)\n- Font Size (pt / px)\n- Tracking (‰)\n- Baseline Shift (pt)\n- Text Decoration (Underline, Strikethrough)"
+      "codeSnippet": "Các thông số trong Character Studio:\n- Font Family & Weight (Regular, Medium, Bold, Black)\n- Font Size (Cỡ chữ pt / px)\n- Tracking (Giãn cách ký tự ‰)\n- Baseline Shift (Dịch trục chân chữ pt)\n- Text Decoration (Gạch chân, Gạch ngang)"
     },
     {
       "id": "slide-p08-01-04",
@@ -228,7 +228,7 @@
       "type": "detail",
       "content": "Nhiều font cao cấp chứa các biến thể glyph ẩn. Mở Typography dialog trong panel Character để kích hoạt: Standard Ligatures (nối chữ 'fi', 'fl'), Discretionary Ligatures ('st', 'ct'), Swashes (nét vểnh đuôi hoa mỹ) và Stylistic Sets.",
       "tips": "Tính năng Ligatures ngăn chặn các dấu chấm của chữ 'i' va đập vào móc cong của chữ 'f'.",
-      "codeSnippet": "OpenType Features in Affinity:\n- Standard Ligatures: fl, fi, ffi\n- Contextual Alternates: Natural handwriting variations\n- Stylistic Sets (ss01 - ss20): Alternate letter designs\n- Tabular Figures: Equal-width numbers for price tables"
+      "codeSnippet": "Các tính năng OpenType trong Affinity:\n- Standard Ligatures: nối nét chuẩn fl, fi, ffi\n- Contextual Alternates: biến thể viết tay tự nhiên theo ngữ cảnh\n- Stylistic Sets (ss01 - ss20): bộ ký tự thay thế cách điệu\n- Tabular Figures: chữ số đồng rộng cho bảng giá và số liệu"
     },
     {
       "id": "slide-p08-01-06",
@@ -248,7 +248,7 @@
       "type": "summary",
       "content": "Một thiết kế key visual tốt luôn tuân thủ nguyên tắc 3 cấp: 1) Cấp 1 (Hero Title): To, ấn tượng, tương phản cao; 2) Cấp 2 (Subhead / Slogan): Cỡ vừa, dẫn dắt thông điệp; 3) Cấp 3 (Details / Call-to-action): Nhỏ gọn, rõ ràng, dễ đọc.",
       "tips": "Giới hạn thiết kế trong tối đa 2 họ font (Typeface Families) để tránh sự hỗn loạn thị giác.",
-      "codeSnippet": "Visual Hierarchy Blueprint:\nLevel 1: Big Bold Display (e.g. 72pt Sans Bold) -> 1-3 words\nLevel 2: Supporting Subhead (e.g. 24pt Sans Light Tracking +50%) -> 1 sentence\nLevel 3: Body & Disclaimers (e.g. 11pt Sans Regular Leading 140%)"
+      "codeSnippet": "Bản thiết kế phân cấp thị giác (Visual Hierarchy):\nCấp 1: Tiêu đề chính đậm lớn (vd: 72pt Sans Bold) -> 1-3 từ\nCấp 2: Tiêu đề phụ hỗ trợ (vd: 24pt Sans Light Tracking +50%) -> 1 câu ngắn\nCấp 3: Nội dung & chú thích (vd: 11pt Sans Regular Leading 140%)"
     }
   ]
 }

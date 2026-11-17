@@ -1,19 +1,19 @@
 /**
- * AFFINITY ACADEMY — S01-01 PRACTICE ASSET
- * Lesson: S01-01 Affinity JS Runtime Architecture & Sandbox Limits
- * Description: Hello World automation script verifying V8 runtime and application version.
+ * AFFINITY ACADEMY — TÀI NGUYÊN THỰC HÀNH S01-01
+ * Bài học: S01-01 Kiến trúc Runtime JavaScript Affinity, V8 Engine và giới hạn Sandbox
+ * Mô tả: Kịch bản Hello World kiểm tra môi trường thực thi V8 và thông tin phiên bản ứng dụng.
  */
 
 const { Application } = require('/application.js');
 
 console.log("=========================================");
-console.log("   AFFINITY ACADEMY: HELLO WORLD SCRIPT   ");
+console.log("   AFFINITY ACADEMY: KỊCH BẢN HELLO WORLD ");
 console.log("=========================================");
-console.log("Product Name   :", Application.productFullName);
-console.log("Build Version  :", Application.buildVersion);
-console.log("Full Version   :", Application.version);
-console.log("Platform       :", Application.platformName || "Desktop");
-console.log("Desktop Path   :", Application.userDesktopPath);
-console.log("Execution Time :", new Date().toISOString());
+console.log("Tên sản phẩm      :", Application.productFullName);
+console.log("Phiên bản build   :", Application.buildVersion);
+console.log("Phiên bản đầy đủ  :", Application.version);
+console.log("Nền tảng          :", Application.platformName || "Máy tính để bàn (Desktop)");
+console.log("Đường dẫn Desktop :", Application.userDesktopPath);
+console.log("Thời gian chạy    :", new Date().toISOString());
 console.log("=========================================");
-console.log("Result: PASS — Affinity JavaScript DOM is operational.");
+console.log("Kết quả: ĐẠT — Affinity JavaScript DOM đang hoạt động bình thường.");

@@ -3,9 +3,9 @@
   "trackId": "photo",
   "order": 5,
   "moduleNumber": "P05",
-  "title": "Color Correction, Tonal Control & Cinematic Grading",
-  "tagline": "Master scientific exposure calibration, Curves/Levels manipulation, and cinematic color palettes.",
-  "description": "Understand technical color correction versus creative color grading in Affinity Photo 3.0: Histogram dynamic range analysis, clipping warnings, 18% gray White Balance calibration, per-channel RGB Curves S-curves, HSL selective color wheel shifts, Gradient Maps, and importing 3D LUT (.cube) profiles.",
+  "title": "Cân Chỉnh Màu Sắc, Đường Cong Curves & Hiệu Ứng Sắc Độ",
+  "tagline": "Làm chủ hiệu chỉnh phơi sáng chuẩn xác, điều khiển Curves/Levels và phối màu điện ảnh.",
+  "description": "Kiểm soát ánh sáng và màu sắc chuyên sâu trong Pixel Studio / Affinity Photo: đọc biểu đồ Histogram theo từng kênh, cân bằng trắng theo điểm xám trung tính 18%, chỉnh đường cong RGB Curves chữ S, chọn dải màu HSL, Gradient Map và nạp hồ sơ 3D LUT (.cube).",
   "difficulty": "Intermediate",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P03"],
@@ -16,7 +16,7 @@
     "filesize": "4.4 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for color correction, histogram reading and color grading in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn hiệu chỉnh màu sắc, đọc Histogram và phối màu trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P05-01", "P05-02", "P05-03"]
 }

@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P10
 ## CHỦ ĐỀ: XUẤT BẢN, ĐÓNG GÓI & QUY TRÌNH CHUYÊN NGHIỆP (EXPORT PERSONA & PRODUCTION)
 
-**Tệp tài nguyên:** `P10_export_delivery_production_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Export Persona & Photo Persona  
+- **Tệp tài nguyên:** `P10_export_delivery_production_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Export Persona & Photo Persona
 
 ---
 
@@ -50,7 +50,7 @@
 
 ---
 
-### 4. ĐỒ ÁN TỐNG KẾT TRACK 2 (CAPSTONE PROJECT)
+### 4. ĐỒ ÁN TỔNG KẾT TRACK 2 (CAPSTONE PROJECT)
 Thực hiện toàn bộ quy trình chuyên nghiệp 6 giai đoạn:
 1. `Develop RAW:` Khôi phục chi tiết cháy sáng và cân bằng trắng chuẩn xác.
 2. `Non-Destructive Cleanup:` Xóa rác, đốm mụn trên Empty Pixel Layer.

@@ -3,8 +3,8 @@
   "moduleId": "P04",
   "trackId": "photo",
   "order": 3,
-  "title": "Frequency Separation & High-End Portrait Workflow",
-  "subtitle": "Splitting Texture from Tone, Gaussian Blur Radius Tuning & Micro Dodge/Burn",
+  "title": "Frequency Separation và quy trình Retouch chân dung chuyên sâu",
+  "subtitle": "Tách kết cấu khỏi sắc độ, tinh chỉnh bán kính Gaussian Blur và Dodge/Burn vi mô",
   "durationMinutes": 35,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P05 Color Correction & Creative Color Grading",
+          "title": "Học phần tiếp theo: P05 Exposure, dải tương phản và cân bằng trắng",
           "target": "P05-01",
           "type": "next-lesson"
         },
@@ -189,7 +189,7 @@
       "slideNumber": 2,
       "type": "theory",
       "title": "Bản Chất Khoa Học Của Tách Tần Số",
-      "subtitle": "High Frequency Texture vs Low Frequency Tone",
+      "subtitle": "Tần số cao (Texture) và Tần số thấp (Tone màu)",
       "contentMarkdown": "Mỗi hình ảnh được cấu tạo từ 2 dải tần số sóng ánh sáng:\n\n- 🔬 **High Frequency (Tần số cao - Lớp trên):** Chứa đựng các chi tiết bề mặt siêu nhỏ: Lỗ chân lông, nếp nhăn đuôi mắt, đầu mụn, gân máu. Lớp này hiển thị dưới dạng một bản đồ xám tương tự High Pass với chế độ hòa trộn **Linear Light**.\n- 🎨 **Low Frequency (Tần số thấp - Lớp dưới):** Chứa đựng màu da, sắc tố đỏ loang lổ, quầng thâm mắt, ánh sáng khối mặt.\n- Khi xếp chồng 2 lớp này lại, card đồ họa cộng các giá trị toán học và hiển thị lại chính xác bức ảnh gốc ban đầu!",
       "visual": {
         "type": "callout",

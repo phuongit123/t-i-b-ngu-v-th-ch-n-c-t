@@ -3,100 +3,100 @@
   "moduleId": "D10",
   "trackId": "designer",
   "order": 3,
-  "title": "Clean SVG Code Optimization & Press-Ready PDF/X",
-  "subtitle": "viewBox Precision, Font Embedding Rules, PDF/X-4 & Commercial Bleed Setup",
+  "title": "Tối ưu mã SVG và PDF/X sẵn sàng in ấn",
+  "subtitle": "Độ chính xác viewBox, quy tắc nhúng font chữ, PDF/X-4 và thiết lập lề tràn Bleed",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Audit and optimize SVG export presets to output clean, lightweight, semantic vector code with responsive viewBox coordinates.",
-      "Calibrate SVG decimal precision, transform flattening, and font outline conversion to eliminate bloated base64 raster blobs.",
-      "Distinguish between PDF/X-1a (flattened legacy press) and PDF/X-4 (modern live transparency press) standards.",
-      "Configure commercial document bleed (3mm / 0.125 in) and output printer crop marks, registration targets, and color bars."
+      "Kiểm tra và tinh chỉnh bộ thông số xuất SVG để tạo mã nguồn sạch, nhẹ, chuẩn ngữ nghĩa và co giãn linh hoạt theo viewBox.",
+      "Cài đặt số chữ số thập phân, làm phẳng ma trận biến đổi (flatten transforms) và chuyển chữ thành đường cong để tránh nhúng ảnh bitmap base64 phình dung lượng.",
+      "Phân biệt chuẩn in ấn thương mại PDF/X-1a (làm phẳng độ trong suốt) và PDF/X-4 (giữ độ trong suốt trực tiếp).",
+      "Thiết lập lề tràn xén (bleed 3 mm / 0.125 inch) cùng đầy đủ dấu cắt thành phẩm (crop marks), dấu căn chồng màu (registration marks) và thanh kiểm tra màu."
     ],
-    "foundationalKnowledge": "The culmination of professional vector mastery is the delivery of flawless production assets tailored to their ultimate destinations: either clean, semantic SVG code for digital developers or bulletproof, color-calibrated PDF/X documents for commercial offset printers. A poorly configured SVG export can inadvertently embed megabytes of base64 bitmap data or include non-responsive hardcoded pixel dimensions that break web layouts. Similarly, sending a standard digital PDF to a commercial print house without bleed or trim marks causes white paper edges and misregistration on high-speed guillotine cutters. Mastering SVG code optimization and PDF/X commercial standards completes the full-spectrum Designer toolchain.",
+    "foundationalKnowledge": "Chặng cuối của thiết kế vector chuyên nghiệp là bàn giao tệp đầu ra đạt chuẩn cho hai môi trường hoàn toàn khác nhau: mã SVG sạch gọn cho lập trình viên web/app, và tệp PDF/X chuẩn màu kèm lề xén cho nhà in offset. Một cấu hình xuất SVG cẩu thả có thể vô tình nhúng hàng megabyte ảnh bitmap mã hóa base64 hoặc khóa cứng kích thước pixel khiến CSS không co giãn được. Tương tự, gửi một tệp PDF thông thường đi in mà thiếu lề tràn (bleed) hoặc dấu cắt rất dễ khiến thành phẩm bị hở mép giấy trắng khi dao cắt công nghiệp xén lệch 0.5 mm. Làm chủ hai quy chuẩn xuất bản này sẽ hoàn thiện trọn vẹn quy trình sản xuất của bạn.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 SVG Engine Specification & ISO 15930 PDF/X Standards",
+      "source": "Đặc tả xuất mã SVG và các chuẩn in ấn ISO 15930 PDF/X trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "SVG Code Optimizer & PDF/X Export Engine",
+      "toolName": "Bộ xuất tối ưu SVG & PDF/X",
       "persona": "Designer Persona & Export Persona (File > Export... / Ctrl+Alt+Shift+S)",
       "shortcut": {
-        "win": "Ctrl+Alt+Shift+S (Export Dialog), Ctrl+Alt+P (Document Setup / Bleed)",
-        "mac": "Cmd+Option+Shift+S (Export Dialog), Cmd+Option+P (Document Setup / Bleed)"
+        "win": "Ctrl+Alt+Shift+S (Hộp thoại Export), Ctrl+Alt+P (Document Setup / Bleed)",
+        "mac": "Cmd+Option+Shift+S (Hộp thoại Export), Cmd+Option+P (Document Setup / Bleed)"
       },
-      "description": "Comprehensive production export engine delivering standards-compliant SVG markup and ISO-certified commercial PDF/X print archives.",
+      "description": "Bộ máy xuất bản sản xuất tạo ra mã SVG tối ưu cho trình duyệt và tệp PDF/X đạt chuẩn công nghiệp cho nhà in thương mại.",
       "contextBarOptions": [
-        "SVG Preset dropdown: SVG (for web), SVG (digital - small size), SVG (for print)",
-        "Use viewBox checkbox: Replaces fixed width/height with responsive viewBox coordinates",
-        "Flatten transforms checkbox: Bakes affine matrices into raw path d-coordinates for clean DOM",
-        "PDF/X Presets: PDF/X-1a:2001 (CMYK flattened), PDF/X-3:2002, PDF/X-4:2010 (Live transparency)",
-        "Include Bleed & Printer Marks checkboxes: Generates 3mm bleed margin, crop marks, and registration crosshairs"
+        "Danh sách Preset SVG: SVG (for web), SVG (digital - small size), SVG (for print)",
+        "Ô Use viewBox: Thay chiều rộng/cao pixel cứng bằng hệ tọa độ viewBox co giãn linh hoạt",
+        "Ô Flatten transforms: Nướng ma trận xoay/tỷ lệ trực tiếp vào tọa độ đường path cho mã DOM gọn sạch",
+        "Các Preset PDF/X: PDF/X-1a:2001 (CMYK làm phẳng), PDF/X-3:2002, PDF/X-4:2010 (giữ nguyên độ trong suốt trực tiếp)",
+        "Ô Include bleed & Printer marks: Bật lề tràn 3 mm, dấu cắt thành phẩm và dấu căn chồng màu"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Configure Document Bleed for Commercial Print",
-        "instruction": "In Designer Persona, press Ctrl+Alt+P (Cmd+Option+P) to open Document Setup. Switch to the 'Bleed' tab. Set Top, Bottom, Left, and Right bleed according to your print vendor's mechanical guidelines (commonly 3 mm in metric regions or 0.125 inches in imperial regions). Click OK. Notice the outer cyan bleed margin guide appearing around your canvas.",
-        "shortcutTip": { "win": "Ctrl+Alt+P -> Bleed Tab", "mac": "Cmd+Option+P -> Bleed Tab" }
+        "title": "Thiết lập lề tràn Bleed trong Document Setup",
+        "instruction": "Ở Designer Persona, nhấn Ctrl+Alt+P (Cmd+Option+P) để mở Document Setup rồi chuyển sang thẻ 'Bleed'. Nhập thông số Top, Bottom, Left, Right theo yêu cầu nhà in (phổ biến là 3 mm ở hệ mét hoặc 0.125 inch ở hệ Anh) và nhấn OK. Đường gióng xanh lơ bao ngoài khung trang sẽ hiện lên làm mốc kéo tràn nền.",
+        "shortcutTip": { "win": "Ctrl+Alt+P -> Thẻ Bleed", "mac": "Cmd+Option+P -> Thẻ Bleed" }
       },
       {
         "stepNumber": 2,
-        "title": "Open the Master Export Dialog",
-        "instruction": "Press Ctrl+Alt+Shift+S (Windows) or Cmd+Option+Shift+S (macOS) to open the comprehensive Export modal dialog.",
+        "title": "Mở hộp thoại xuất tệp tổng hợp",
+        "instruction": "Nhấn Ctrl+Alt+Shift+S (Windows) hoặc Cmd+Option+Shift+S (macOS) để mở hộp thoại Export đầy đủ.",
         "shortcutTip": { "win": "Ctrl+Alt+Shift+S", "mac": "Cmd+Option+Shift+S" }
       },
       {
         "stepNumber": 3,
-        "title": "Calibrate Clean SVG Web Code",
-        "instruction": "Select the SVG icon. From the Preset dropdown, choose 'SVG (for web)'. Click the 'More' button to inspect advanced markup rules: Ensure 'Use viewBox' is checked, set 'Decimal Places' to 2, check 'Flatten transforms', set 'Text' to 'Convert to curves', and set 'Rasterize' to 'Nothing'. Click Close.",
+        "title": "Tinh chỉnh cấu hình SVG sạch cho Web",
+        "instruction": "Chọn biểu tượng SVG, đặt Preset là 'SVG (for web)' rồi nhấn nút 'More' (hoặc mở phần cài đặt nâng cao). Kiểm tra: tích 'Use viewBox', đặt 'Decimal Places' bằng 2, tích 'Flatten transforms', đặt 'Text' thành 'Convert to curves' và đặt 'Rasterize' thành 'Nothing'.",
         "shortcutTip": { "win": "Export > SVG > More", "mac": "Export > SVG > More" }
       },
       {
         "stepNumber": 4,
-        "title": "Inspect Raw SVG Markup in a Text Editor",
-        "instruction": "Export the SVG file. Open it inside a text editor (e.g. VS Code). Verify that the file begins with a clean `<svg viewBox=\"0 0 24 24\">` tag, uses pure `<path d=\"...\">` coordinates without `matrix(...)` clutter, and contains zero `<image src=\"data:image/png;base64...\">` bloated raster blobs!",
-        "shortcutTip": { "win": "Inspect Code", "mac": "Inspect Code" }
+        "title": "Kiểm tra mã nguồn SVG trong trình soạn thảo",
+        "instruction": "Xuất tệp SVG và mở bằng trình soạn thảo mã (như VS Code). Xác nhận tệp bắt đầu bằng thẻ `<svg viewBox=\"0 0 24 24\">` sạch sẽ, dùng tọa độ `<path d=\"...\">` gọn gàng không lồng `matrix(...)` rườm rà và tuyệt đối không chứa đoạn `<image src=\"data:image/png;base64...\">` phình dung lượng.",
+        "shortcutTip": { "win": "Mở kiểm tra mã nguồn", "mac": "Mở kiểm tra mã nguồn" }
       },
       {
         "stepNumber": 5,
-        "title": "Generate Press-Ready PDF/X-4 with Printer Marks",
-        "instruction": "Re-open File > Export. Select PDF. Set Preset to 'PDF/X-4:2010'. Click 'More'. Under 'Raster DPI', confirm 300 DPI. Mandatory: Under 'Bleed and Marks', you MUST check 'Include bleed' (otherwise Affinity clips output to page trim regardless of Document Setup bleed!). Also check 'Include printer marks', 'Crop marks', and 'Registration marks'. Color space: CMYK. Click Export.",
-        "shortcutTip": { "win": "PDF/X-4 + Check 'Include bleed'", "mac": "PDF/X-4 + Check 'Include bleed'" }
+        "title": "Xuất tệp PDF/X-4 sẵn sàng in kèm dấu nhà in",
+        "instruction": "Mở lại File > Export, chọn PDF và đặt Preset là 'PDF/X-4:2010'. Trong phần cài đặt nâng cao: đặt Raster DPI là 300 DPI. Bắt buộc tích 'Include bleed' (nếu quên tích, Affinity sẽ cắt sạch phần lề tràn dù đã cài trong Document Setup). Đồng thời tích 'Include printer marks', 'Crop marks', 'Registration marks', chọn Color space là CMYK và nhấn Export.",
+        "shortcutTip": { "win": "PDF/X-4 + Tích 'Include bleed'", "mac": "PDF/X-4 + Tích 'Include bleed'" }
       }
     ],
     "visualExamples": [
       {
-        "title": "PDF/X Standards Comparison Matrix",
-        "description": "Technical differences between ISO PDF/X commercial print standards.",
+        "title": "Bảng so sánh các tiêu chuẩn ISO PDF/X trong in ấn",
+        "description": "Khác biệt kỹ thuật về không gian màu và xử lý độ trong suốt giữa các chuẩn PDF/X.",
         "visualType": "table",
-        "visualContent": "| Standard | Year | Color Spaces Allowed | Transparency Handling | Recommended Use Case |\n|---|---|---|---|---|\n| PDF/X-1a | 2001 | CMYK and Spot Colors only (RGB forbidden) | Flattened (All drop shadows and blend modes baked to bitmaps) | Traditional legacy offset presses, strict newspaper publishing |\n| PDF/X-3 | 2002 | CMYK, Spot, and Color-Managed RGB | Flattened (Requires transparency flattening) | European commercial color-managed workflows |\n| PDF/X-4 | 2010 | CMYK, Spot, RGB, and 16-bit Float | Live Transparency Preserved (RIP handles flattening at press time) | Modern commercial presses, packaging, high-end magazines, fine art |"
+        "visualContent": "| Chuẩn | Năm | Hệ màu cho phép | Xử lý độ trong suốt | Khuyến nghị sử dụng |\n|---|---|---|---|---|\n| PDF/X-1a | 2001 | Chỉ CMYK và màu Spot (cấm RGB) | Làm phẳng (bóng đổ và hòa trộn bị chuyển thành bitmap) | Máy in offset đời cũ, báo in truyền thống |\n| PDF/X-3 | 2002 | CMYK, Spot và RGB có quản lý màu | Làm phẳng (vẫn yêu cầu flatten độ trong suốt) | Quy trình in quản lý màu truyền thống tại châu Âu |\n| PDF/X-4 | 2010 | CMYK, Spot, RGB và dữ liệu 16-bit | Giữ nguyên độ trong suốt sống (bộ RIP nhà in tự xử lý) | Nhà in thương mại hiện đại, bao bì, tạp chí, ấn phẩm cao cấp |"
       },
       {
-        "title": "Clean SVG vs Bloated SVG Code Snippet",
-        "description": "Comparison of optimized markup versus un-optimized exporter output.",
+        "title": "So sánh mã nguồn SVG tối ưu và SVG phình dung lượng",
+        "description": "Sự khác biệt trực tiếp giữa cấu hình xuất sạch và cấu hình vô tình bị rasterize.",
         "visualType": "code",
-        "visualContent": "<!-- OPTIMIZED CLEAN SVG (viewBox, 2 decimals, flattened) -->\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n  <path d=\"M12 2L2 22h20L12 2zm0 3.8L18.5 20H5.5L12 5.8z\" fill=\"#4f46e5\"/>\n</svg>\n\n<!-- BLOATED DIRTY SVG (Fixed px, 6 decimals, base64 image blob) -->\n<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24.000000 24.000000\">\n  <image width=\"24\" height=\"24\" href=\"data:image/png;base64,iVBORw0KGgoAAA...\"/>\n</svg>"
+        "visualContent": "<!-- SVG TỐI ƯU SẠCH GỌN (Có viewBox, làm tròn 2 chữ số, làm phẳng biến đổi) -->\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n  <path d=\"M12 2L2 22h20L12 2zm0 3.8L18.5 20H5.5L12 5.8z\" fill=\"#4f46e5\"/>\n</svg>\n\n<!-- SVG KÉM TỐI ƯU PHÌNH TO (Khóa cứng px, 6 chữ số thập phân, nhúng ảnh base64) -->\n<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24.000000 24.000000\">\n  <image width=\"24\" height=\"24\" href=\"data:image/png;base64,iVBORw0KGgoAAA...\"/>\n</svg>"
       }
     ],
     "guidedPractice": {
-      "title": "Auditing SVG Code & Generating Press Proofs",
-      "taskDescription": "Export an optimized SVG navigation icon, inspect its raw markup for DOM cleanliness, and generate a certified PDF/X-4 print sheet with 3mm bleed.",
+      "title": "Kiểm tra mã SVG và xuất bản in thử PDF/X-4",
+      "taskDescription": "Xuất một icon điều hướng sang SVG tối ưu để kiểm tra mã nguồn, sau đó xuất bản thiết kế hoàn chỉnh ra PDF/X-4 có tràn lề 3 mm.",
       "checkpoints": [
-        "In Document Setup, configure a 3mm document bleed margin.",
-        "Export an icon using 'SVG (for web)' with 2 decimal precision, viewBox enabled, and text as curves.",
-        "Open the SVG in a code editor to confirm file size is under 2 KB with zero embedded base64 data.",
-        "Export the complete document to PDF/X-4 with Crop Marks, Registration Marks, and 300 DPI rasterization.",
-        "Open the PDF proof and verify that artwork extends fully across the 3mm bleed margin."
+        "Trong Document Setup, thiết lập lề tràn Bleed 3 mm đều cả 4 cạnh.",
+        "Xuất icon bằng preset 'SVG (for web)' với 2 chữ số thập phân, bật Use viewBox và chuyển chữ thành curves.",
+        "Mở tệp SVG trong trình soạn mã xác nhận dung lượng dưới 2 KB và không có chuỗi base64.",
+        "Xuất tài liệu hoàn chỉnh ra PDF/X-4 với Crop Marks, Registration Marks, Include bleed và 300 DPI.",
+        "Mở tệp PDF kiểm chứng màu nền phủ kín ra tận đường biên ngoài của vùng bleed 3 mm."
       ],
-      "expectedOutcome": "A pristine, lightweight SVG asset ready for web deployment alongside a certified PDF/X-4 press document ready for commercial offset printing."
+      "expectedOutcome": "Bộ tài nguyên đầu ra gồm SVG gọn nhẹ chuẩn web cùng tệp PDF/X-4 đủ tiêu chuẩn gửi thẳng sang xưởng in."
     },
     "independentChallenge": {
-      "title": "Commercial Product Delivery Handoff Package",
-      "prompt": "Finalize the complete Affinity Designer Track 1 capstone project: (1) Set up a commercial brand brochure layout with 3mm bleed; (2) Ensure all brand logo lockups and icons export to clean, responsive SVGs with zero rasterization; (3) Ensure all typography is converted to curves or embedded; (4) Generate a certified PDF/X-4 proof with CMYK color profile (ISO Coated v2 or US Web Coated SWOP) and full printer marks; (5) Compile an asset handoff directory containing the master .afdesign, optimized .svg icons, multi-density PNGs (@1x, @2x, @3x), and the print-ready .pdf.",
+      "title": "Hồ sơ bàn giao thương mại hoàn chỉnh cuối khóa",
+      "prompt": "Đóng gói hoàn chỉnh bộ sản phẩm bàn giao cho Lộ trình Vector Studio: (1) Thiết lập tờ gấp nhận diện thương hiệu có lề tràn 3 mm; (2) Đảm bảo mọi logo và bộ icon xuất ra SVG co giãn sạch sẽ, không bị rasterize; (3) Chuyển chữ tiêu đề sang curves hoặc nhúng đầy đủ phông chữ; (4) Xuất tệp PDF/X-4 chuẩn hệ màu CMYK (ISO Coated v2 hoặc US Web Coated SWOP) kèm đầy đủ dấu cắt và dấu căn màu; (5) Sắp xếp thư mục bàn giao gọn gàng gồm tệp gốc .afdesign, các .svg tối ưu, ảnh đa mật độ PNG (@1x, @2x, @3x) và tệp in .pdf.",
       "starterAsset": {
         "filename": "D10_export_slices_production_guide.md",
         "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
@@ -104,192 +104,190 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for SVG code optimization and commercial PDF/X setup (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn tối ưu mã SVG và xuất bản in PDF/X (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "SVG output verified semantic, responsive (viewBox), and under 3 KB per asset.",
-        "Document bleed (3mm) correctly established and filled by background artwork.",
-        "PDF/X-4 document successfully generated with visible crop marks and registration targets.",
-        "Zero missing font warnings or low-resolution image alerts."
+        "Tệp SVG xuất ra sạch sẽ, co giãn theo viewBox và nhẹ dưới 3 KB mỗi icon.",
+        "Thiết lập đúng lề tràn 3 mm và kéo nền phủ kín hết vùng tràn xén.",
+        "Tệp PDF/X-4 hiển thị đầy đủ dấu cắt thành phẩm và dấu căn chồng màu.",
+        "Không có cảnh báo thiếu phông chữ hay hình ảnh độ phân giải thấp."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Unchecking 'Use viewBox' when exporting SVG for responsive web development.",
-        "consequence": "The SVG embeds hardcoded width='500px' height='500px' attributes, preventing CSS from scaling the icon responsively.",
-        "solution": "Always check 'Use viewBox' in the SVG export settings so developers can scale the vector cleanly via CSS."
+        "mistake": "Bỏ tích 'Use viewBox' khi xuất SVG cho giao diện web đáp ứng.",
+        "consequence": "SVG ghi cứng thuộc tính width='500px' height='500px' khiến CSS không tự thu phóng linh hoạt được.",
+        "solution": "Luôn bật 'Use viewBox' trong cấu hình xuất SVG để lập trình viên điều khiển kích thước mượt mà bằng CSS."
       },
       {
-        "mistake": "Using unsupported layer effects (like Gaussian Blur) and setting Rasterize to 'Everything'.",
-        "consequence": "The SVG is no longer vector; it becomes a massive base64-encoded bitmap wrapped in an SVG tag.",
-        "solution": "In SVG export settings, set 'Rasterize: Nothing' or use pure vector gradients instead of heavy raster blurs for web assets."
+        "mistake": "Dùng hiệu ứng lớp raster (như Gaussian Blur) mà vẫn xuất SVG với tùy chọn Rasterize: Unsupported properties hoặc Everything.",
+        "consequence": "Tệp SVG mất tính vector, biến thành một khối ảnh bitmap base64 nặng nề bọc trong thẻ SVG.",
+        "solution": "Đặt 'Rasterize: Nothing' khi kiểm tra icon web, đồng thời dùng chuyển màu vector thuần thay cho hiệu ứng làm mờ nặng."
       },
       {
-        "mistake": "Sending a PDF to a commercial printer without checking 'Include bleed'.",
-        "consequence": "The printer's guillotine blade may cut 0.5mm off-center, leaving an unsightly white hairline border along the trimmed paper edge.",
-        "solution": "Always set 3mm bleed in Document Setup, extend background artwork to the bleed guide, and check 'Include bleed' when exporting PDF."
+        "mistake": "Gửi PDF cho xưởng in khi quên tích 'Include bleed' trong hộp thoại Export.",
+        "consequence": "Khi máy xén cắt lệch khoảng 0.5 mm, mép giấy thành phẩm bị hở viền trắng mất thẩm mỹ.",
+        "solution": "Luôn đặt 3 mm bleed trong Document Setup, kéo ảnh/màu nền tràn hết ra đường viền ngoài và nhớ tích 'Include bleed' lúc xuất PDF."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "Why is the 'Use viewBox' attribute essential when exporting SVG graphics for modern web and mobile applications?",
+        "question": "Vì sao thuộc tính 'Use viewBox' lại cần thiết khi xuất đồ họa SVG cho web và ứng dụng di động hiện đại?",
         "options": [
-          "It forces the SVG to open only in Adobe Acrobat.",
-          "It defines the relative aspect ratio and coordinate system, allowing the SVG to scale smoothly to any dimension via CSS without hardcoded pixel limits.",
-          "It converts the SVG into a 3D stereoscopic format.",
-          "It reduces the color palette to 16 colors."
+          "Vì giúp tệp SVG chỉ mở được trong Adobe Acrobat.",
+          "Vì viewBox định nghĩa hệ tọa độ và tỷ lệ khung hình tương đối, cho phép CSS co giãn biểu tượng sắc nét ở mọi kích thước mà không bị khóa cứng pixel.",
+          "Vì viewBox biến SVG thành định dạng 3D.",
+          "Vì viewBox giới hạn bảng màu còn 16 màu."
         ],
         "correctIndex": 1,
-        "explanation": "The viewBox attribute defines the vector coordinate boundaries (e.g. `viewBox='0 0 24 24'`), allowing CSS and HTML to resize the icon responsively to any width or height."
+        "explanation": "Thuộc tính viewBox (chẳng hạn `viewBox='0 0 24 24'`) xác lập khung tọa độ gốc để HTML/CSS tự do phóng to hoặc thu nhỏ SVG đáp ứng mọi kích cỡ màn hình."
       },
       {
-        "question": "What is the primary difference between the PDF/X-1a and PDF/X-4 commercial printing standards?",
+        "question": "Khác biệt chính giữa hai tiêu chuẩn in thương mại PDF/X-1a và PDF/X-4 là gì?",
         "options": [
-          "PDF/X-1a requires all transparency to be flattened and permits only CMYK/Spot colors; PDF/X-4 supports modern live transparency and color-managed workflows.",
-          "PDF/X-1a is for web only; PDF/X-4 is for laser printers only.",
-          "PDF/X-1a does not support typography.",
-          "PDF/X-4 can only be opened on macOS."
+          "PDF/X-1a làm phẳng mọi độ trong suốt và chỉ cho phép hệ màu CMYK/Spot; PDF/X-4 giữ nguyên độ trong suốt trực tiếp và hỗ trợ quy trình quản lý màu hiện đại.",
+          "PDF/X-1a chỉ dùng cho web; PDF/X-4 chỉ dùng cho máy in văn phòng.",
+          "PDF/X-1a không hỗ trợ chữ viết.",
+          "PDF/X-4 chỉ mở được trên macOS."
         ],
         "correctIndex": 0,
-        "explanation": "PDF/X-1a is an older standard that flattens all transparencies into static CMYK pixels at export; PDF/X-4 is the modern standard that preserves live vector transparency and handles RIP flattening at the press."
+        "explanation": "PDF/X-1a là chuẩn cũ ép phẳng toàn bộ vùng trong suốt ngay lúc xuất tệp, còn PDF/X-4 là chuẩn hiện đại bảo toàn lớp trong suốt vector để máy RIP nhà in xử lý sắc nét nhất."
       },
       {
-        "question": "How much bleed margin is standard for international commercial offset printing?",
+        "question": "Kích thước lề tràn xén (bleed) tiêu chuẩn phổ biến trong in ấn offset thương mại là bao nhiêu?",
         "options": [
           "50 mm",
           "0 mm",
-          "3 mm (or 0.125 inches)",
+          "3 mm (hoặc 0.125 inch)",
           "25 mm"
         ],
         "correctIndex": 2,
-        "explanation": "The international commercial standard for document bleed is 3 mm (or 0.125 inches in imperial regions), which accommodates minor physical paper shifting during mechanical guillotine trimming."
+        "explanation": "Mức lề tràn tiêu chuẩn quốc tế là 3 mm (tương đương 0.125 inch ở hệ đo Anh) để bù trừ sai số cơ học khi dao cắt công nghiệp xén thành phẩm."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Optimized SVGs require responsive viewBox attributes, 2 decimal precision, and flattened transforms.",
-        "Avoid base64 SVG bloating by setting 'Rasterize: Nothing' and relying on native vector paths.",
-        "PDF/X-4 is the definitive modern standard for commercial press printing with live transparency.",
-        "Always configure 3mm bleed and include printer crop marks to prevent white trim defects.",
-        "Congratulations! You have completed all 10 modules of the Affinity Designer Mastery Track!"
+        "SVG sạch cho lập trình cần bật Use viewBox, làm tròn 2 chữ số thập phân và Flatten transforms.",
+        "Tránh phình mã base64 trong SVG bằng cách đặt 'Rasterize: Nothing' và ưu tiên đường vector thuần.",
+        "PDF/X-4 là chuẩn xuất bản hiện đại tin cậy nhất cho in ấn có độ trong suốt và vector.",
+        "Luôn cài 3 mm bleed, kéo nền phủ kín vùng tràn và tích 'Include bleed' kèm dấu cắt khi xuất PDF."
       ],
-      "nextSteps": "Complete the D10 capstone project, review the Track 1 verification sign-off, and await user approval before proceeding to Track 2.",
+      "nextSteps": "Hoàn thành dự án tổng kết Module D10 trong D10_export_slices_production_guide.md và tự đối chiếu các tiêu chí đánh giá của lộ trình Vector Studio.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/ExportPersona/exportOptions.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "The Final Frontier: Production Output",
-      "subtitle": "Engineering Assets for Web, Mobile & Commercial Press",
+      "title": "Chặng cuối sản xuất: Xuất bản Web và In ấn",
+      "subtitle": "Chuẩn hóa tài sản đầu ra cho lập trình viên và xưởng in",
       "bullets": [
-        "A brilliant vector illustration is only as good as its final exported delivery.",
-        "Digital developers demand clean, lightweight, semantic SVG code.",
-        "Commercial printers demand certified, color-accurate PDF/X documents with bleed.",
-        "Affinity Designer provides industry-leading export engines for both worlds."
+        "Một bản vẽ đẹp chỉ phát huy trọn vẹn giá trị khi tệp xuất cuối cùng đạt đúng chuẩn kỹ thuật.",
+        "Đội ngũ lập trình cần mã nguồn SVG nhẹ, sạch và dễ tùy biến bằng CSS.",
+        "Xưởng in thương mại cần tệp PDF/X đúng hệ màu, có lề tràn xén và đủ dấu cắt.",
+        "Affinity cung cấp đầy đủ bộ tùy chỉnh xuất sâu cho cả hai môi trường ngay trong một ứng dụng."
       ],
-      "proTip": "Mastering production settings eliminates 99% of developer friction and printer rejection."
+      "proTip": "Nắm vững thông số xuất bản giúp loại bỏ hầu hết lỗi phải sửa đi sửa lại khi bàn giao."
     },
     {
       "slideNumber": 2,
-      "title": "Anatomy of an Optimized SVG",
-      "subtitle": "Clean Semantic Code vs Bloated Markup",
+      "title": "Giải phẫu một tệp SVG sạch chuẩn",
+      "subtitle": "Mã path gọn gàng hay khối ảnh base64 nặng nề",
       "bullets": [
-        "A clean SVG contains pure mathematical paths: `<path d='M12 2L2 22...' fill='#4f46e5'/>`.",
-        "A bloated SVG contains huge base64 images: `<image href='data:image/png;base64...'/>`.",
-        "Bloated SVGs occur when unsupported layer effects force the exporter to rasterize.",
-        "Clean SVGs load in milliseconds, scale infinitely, and can be styled with CSS."
+        "SVG tối ưu chỉ chứa các đường path toán học gọn sạch: `<path d='M12 2L2 22...' fill='#4f46e5'/>`.",
+        "SVG lỗi chứa nguyên khối ảnh nhúng nặng nề: `<image href='data:image/png;base64...'/>`.",
+        "Lỗi nhúng bitmap thường xảy ra khi dùng hiệu ứng lớp raster khiến bộ xuất buộc phải rasterize.",
+        "SVG sạch tải trang tức thì, co giãn sắc nét mọi kích cỡ và đổi màu dễ dàng qua CSS."
       ],
-      "callout": "In SVG export settings, always set 'Rasterize: Nothing' to prevent bitmap embedding!"
+      "callout": "Trong phần xuất SVG cho biểu tượng web, hãy đặt 'Rasterize: Nothing' để kiểm soát tuyệt đối không lọt ảnh bitmap!"
     },
     {
       "slideNumber": 3,
-      "title": "Essential SVG Settings: The 'More' Dialog",
-      "subtitle": "Precision Markup Calibration",
+      "title": "Bộ thông số xuất SVG tối ưu",
+      "subtitle": "Tinh chỉnh chính xác trong hộp thoại Export",
       "bullets": [
-        "Preset: Choose 'SVG (for web)' as your baseline.",
-        "Use viewBox: Checked (Removes hardcoded width/height for fluid CSS responsiveness).",
-        "Decimal Places: Set to 2 (Saves up to 40% file size without visible degradation).",
-        "Flatten Transforms: Checked (Bakes matrices into path coordinates for cleaner DOM).",
-        "Text: 'Convert to curves' guarantees exact font rendering on all client machines."
+        "Preset: chọn 'SVG (for web)' làm nền tảng.",
+        "Use viewBox: Bật (bỏ kích thước px cứng để CSS tự co giãn linh hoạt).",
+        "Decimal Places: đặt 2 (giảm mạnh dung lượng mã mà mắt thường không thấy sai lệch).",
+        "Flatten Transforms: Bật (gộp thẳng phép xoay/co giãn vào tọa độ đường path).",
+        "Text: chọn 'Convert to curves' nếu muốn hiển thị chuẩn phông trên mọi thiết bị không cài sẵn font."
       ],
-      "proTip": "Inspect your exported SVG in VS Code or Chrome DevTools to verify its markup cleanliness."
+      "proTip": "Mở thử tệp SVG bằng VS Code hoặc trình duyệt để kiểm tra mã nguồn trước khi gửi cho lập trình viên."
     },
     {
       "slideNumber": 4,
-      "title": "Commercial Print: Why We Need Bleed",
-      "subtitle": "Preventing Unsightly White Paper Edges",
+      "title": "In ấn thương mại: Vì sao bắt buộc có lề tràn Bleed",
+      "subtitle": "Tránh lỗi hở mép giấy trắng sau khi cắt thành phẩm",
       "bullets": [
-        "Commercial presses print multiple pages onto giant sheets of paper, then cut them with high-speed guillotines.",
-        "Guillotine blades can drift by 0.5mm to 1mm during physical trimming.",
-        "Bleed is the extra 3mm margin of artwork extending OUTSIDE the final cut line.",
-        "If the blade shifts slightly, it trims into the extra artwork instead of revealing raw white paper."
+        "Máy in công nghiệp in nhiều trang trên khổ giấy lớn rồi dùng dao xén tốc độ cao để cắt rời.",
+        "Dao xén vật lý luôn có dung sai xê dịch khoảng 0.5 mm đến 1 mm.",
+        "Bleed là phần hình nền được kéo dư thêm 3 mm ra phía NGOÀI đường cắt thành phẩm.",
+        "Nếu dao xén hơi lệch ra ngoài, nó sẽ cắt vào vùng màu dự phòng thay vì lộ dải giấy trắng."
       ],
-      "callout": "Never stop your background color at the document edge; always stretch it to the bleed line!"
+      "callout": "Không bao giờ dừng màu nền hoặc ảnh chụp sát đúng mép trang; hãy luôn kéo tràn ra tận đường bleed!"
     },
     {
       "slideNumber": 5,
-      "title": "Configuring Document Bleed (3mm Standard)",
-      "subtitle": "Document Setup Geometry",
+      "title": "Thiết lập lề tràn 3 mm trong Document Setup",
+      "subtitle": "Chuẩn bị khung bản vẽ trước khi xuất PDF",
       "bullets": [
-        "Open File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P).",
-        "Switch to the 'Bleed' tab.",
-        "Set Top, Bottom, Left, and Right to 3 mm (or 0.125 inches in imperial regions).",
-        "The canvas displays a cyan guide line indicating the outer bleed perimeter."
+        "Mở File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P).",
+        "Chuyển sang thẻ 'Bleed'.",
+        "Nhập 3 mm cho cả 4 cạnh Top, Bottom, Left, Right (hoặc 0.125 inch theo hệ Anh).",
+        "Quan sát đường viền phụ xanh lơ bao quanh bản vẽ để kéo hình nền phủ kín tới đó."
       ],
-      "proTip": "Press Ctrl+; (Cmd+;) to ensure guides and bleed lines are visible on your canvas."
+      "proTip": "Nhấn Ctrl+; (Cmd+;) để đảm bảo các đường gióng và ranh giới bleed đang hiển thị rõ trên màn hình."
     },
     {
       "slideNumber": 6,
-      "title": "Deciphering the PDF/X Standards",
-      "subtitle": "PDF/X-1a vs PDF/X-4",
+      "title": "Phân biệt hai chuẩn phổ biến: PDF/X-1a và PDF/X-4",
+      "subtitle": "Chọn đúng chuẩn ISO theo thiết bị của xưởng in",
       "bullets": [
-        "PDF/X-1a:2001: The traditional standard. Requires CMYK only; flattens all transparency into pixels.",
-        "PDF/X-4:2010: The modern standard. Supports live vector transparency, spot colors, and RGB color management.",
-        "Most high-end commercial printers today recommend PDF/X-4 for superior gradient and drop shadow reproduction.",
-        "Always check with your specific commercial print provider for their preferred ISO preset."
+        "PDF/X-1a:2001: chuẩn truyền thống chỉ nhận CMYK/Spot và làm phẳng toàn bộ vùng trong suốt thành pixel.",
+        "PDF/X-4:2010: chuẩn hiện đại giữ nguyên độ trong suốt sống của vector, màu Spot và quản lý màu chuẩn.",
+        "Phần lớn nhà in thương mại hiện nay ưu tiên PDF/X-4 vì giữ đổ bóng và chuyển sắc mịn hơn hẳn.",
+        "Luôn hỏi trước nhà in đối tác xem hệ thống của họ yêu cầu chuẩn nào trước khi xuất bản cuối."
       ],
-      "proTip": "When in doubt, PDF/X-4 delivers the highest visual fidelity with live transparency."
+      "proTip": "Khi xưởng in hỗ trợ đầy đủ, PDF/X-4 luôn mang lại chất lượng đường nét và chuyển sắc cao nhất."
     },
     {
       "slideNumber": 7,
-      "title": "Exporting Commercial PDF/X with Printer Marks",
-      "subtitle": "Crop Marks, Registration & Color Bars",
+      "title": "Xuất tệp PDF/X-4 kèm đầy đủ dấu nhà in",
+      "subtitle": "Include Bleed, Crop Marks và Registration Marks",
       "bullets": [
-        "Open File > Export... (Ctrl+Alt+Shift+S / Cmd+Option+Shift+S) -> Select PDF.",
-        "Choose Preset: 'PDF/X-4:2010'. Click 'More'.",
-        "Check 'Include bleed' (Crucial: Omitting this will clip the PDF at the trim boundary!).",
-        "Check 'Crop marks' (Trim lines for the guillotine cutter).",
-        "Check 'Registration marks' (Alignment crosshairs for multi-color press plates)."
+        "Mở File > Export... (Ctrl+Alt+Shift+S / Cmd+Option+Shift+S) và chọn PDF.",
+        "Chọn Preset: 'PDF/X-4:2010' rồi mở phần tùy chọn nâng cao.",
+        "Bắt buộc tích 'Include bleed' (nếu quên tích, phần tràn lề 3 mm sẽ bị cắt bỏ hoàn toàn!).",
+        "Tích 'Crop marks' (đánh dấu đường dao xén) và 'Registration marks' (tâm căn chồng 4 bản kẽm màu)."
       ],
-      "callout": "Confirm Raster DPI is set to 300 DPI for any embedded textured raster passes!"
+      "callout": "Kiểm tra mục Raster DPI luôn đặt ở mức 300 DPI cho các lớp hạt raster hoặc hiệu ứng đi kèm!"
     },
     {
       "slideNumber": 8,
-      "title": "Hands-on Exercise: Final Production Package",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Hồ sơ xuất Web và In hoàn chỉnh",
+      "subtitle": "Kiểm nghiệm cả hai đầu ra trên cùng một dự án",
       "bullets": [
-        "Follow instructions in 'D10_export_slices_production_guide.md'.",
-        "Set up a 3mm document bleed and stretch background art to the bleed guide.",
-        "Export your system icon suite as clean, optimized SVGs with responsive viewBoxes.",
-        "Verify in a code editor that SVG markup is under 3 KB with zero base64 images.",
-        "Export a certified PDF/X-4 proof with crop marks and verify that bleed artwork extends cleanly."
+        "Làm theo hướng dẫn trong tệp 'D10_export_slices_production_guide.md'.",
+        "Đặt lề tràn 3 mm và kéo nền phủ ra hết đường biên bleed.",
+        "Xuất bộ icon sang SVG tối ưu với viewBox và làm tròn 2 chữ số thập phân.",
+        "Mở kiểm tra mã nguồn SVG đảm bảo dưới 3 KB và không có thẻ `<image>` base64.",
+        "Xuất bản in PDF/X-4 kèm dấu cắt và kiểm tra vùng tràn lề hiển thị đủ bên trong dấu cắt."
       ],
-      "proTip": "Open the PDF in Adobe Acrobat or browser to inspect the crop marks and registration targets."
+      "proTip": "Mở tệp PDF vừa xuất bằng trình đọc PDF chuyên dụng để soi trực tiếp đường trim, bleed và crop marks."
     },
     {
       "slideNumber": 9,
-      "title": "TRACK 1 COMPLETE: AFFINITY DESIGNER MASTERY",
-      "subtitle": "Celebrating 10 Modules of Professional Vector Engineering",
+      "title": "HOÀN THÀNH LỘ TRÌNH 1: THIẾT KẾ VECTOR TRONG AFFINITY",
+      "subtitle": "Tổng kết 10 học phần từ nền tảng đến sản xuất thực chiến",
       "bullets": [
-        "You have conquered the complete spectrum of Serif Affinity Designer 3.3.3:",
-        "• D01–D03: Canvas architecture, Pen & Node geometry, and Boolean compounds.",
-        "• D04–D06: Gradients, layer scene graphs, and advanced micro-typography.",
-        "• D07–D08: Axonometric 3D projection, Symbols, and enterprise design systems.",
-        "• D09–D10: Pixel Persona hybrid shading, multi-density slicing, and press PDF/X.",
-        "You are now a certified master of vector design and graphic automation!"
+        "Bạn đã đi trọn 10 học phần Vector Studio / Designer trên Affinity (kiểm chứng trên bản 3.3.3):",
+        "• D01–D03: Tổ chức Artboard, điều khiển Pen & Node Bézier và hình học Boolean phi phá hủy.",
+        "• D04–D06: Gradient nhiều điểm, cây quản lý Layer/Mask và Typography chuyên sâu.",
+        "• D07–D08: Phối cảnh Isometric 3D, Symbols đồng bộ và hệ thống Assets Component.",
+        "• D09–D10: Tích hợp hạt raster trong Pixel Persona, Slices đa mật độ, SVG sạch và chuẩn in PDF/X.",
+        "Hãy rà soát lại các dự án capstone để tự tin ứng dụng vào công việc thiết kế thực tế!"
       ],
-      "proTip": "Take pride in your work: you now command the exact workflows of elite creative studios."
+      "proTip": "Giữ thói quen kiểm tra Wireframe (Ctrl+Y), kiểm tra 100% Pixel Preview và kiểm tra mã SVG trước mọi lần bàn giao."
     }
   ]
 }

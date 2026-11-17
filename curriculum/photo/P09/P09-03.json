@@ -3,8 +3,8 @@
   "moduleId": "P09",
   "trackId": "photo",
   "order": 3,
-  "title": "Batch Processing, Macro Recording & Photography Presets",
-  "subtitle": "Automate high-volume darkroom production with recorded macros and parallel batch jobs.",
+  "title": "Xử lý hàng loạt, ghi Macro và thiết lập sẵn cho nhiếp ảnh",
+  "subtitle": "Tự động hóa quy trình phòng tối sản lượng lớn với Macro ghi sẵn và tác vụ Batch Job song song.",
   "durationMinutes": 25,
   "difficulty": "Advanced",
   "standardSections": {
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P10-01 Export Persona Slices & Continuous Export",
+          "title": "Học phần tiếp theo: P10-01 Export Persona Slices, đa định dạng 1x/2x/3x và Continuous Export",
           "target": "P10-01",
           "type": "next-lesson"
         },
@@ -178,7 +178,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn phát triển RAW, hiệu chỉnh ống kính và xử lý hàng loạt trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -189,7 +189,7 @@
       "type": "concept",
       "content": "Sau một buổi chụp sự kiện hoặc thời trang, nhiếp ảnh gia thường đối mặt với 500 - 1000 file ảnh cần áp dụng cùng một tone màu, làm nét và xuất theo 3 kích thước khác nhau. Thay vì làm thủ công từng ảnh, Affinity Photo cung cấp giải pháp Macro & Batch Job chuyên nghiệp.",
       "tips": "Macro ghi lại toàn bộ chuỗi thuật toán và áp dụng lại với tốc độ chỉ vài mili-giây trên mỗi file ảnh.",
-      "codeSnippet": "Automation Pipeline:\nRecord Macro in Studio\n  └── Save to Category in Library Studio\n       └── Attach to File > New Batch Job\n            └── Process 500 images across multi-core CPU in minutes!"
+      "codeSnippet": "Quy trình tự động hóa (Automation Pipeline):\nGhi lại Macro trong Macro Studio\n  └── Lưu vào danh mục trong Library Studio\n       └── Gắn vào File > New Batch Job\n            └── Xử lý 500 bức ảnh trên CPU đa nhân chỉ trong vài phút!"
     },
     {
       "id": "slide-p09-03-02",
@@ -209,7 +209,7 @@
       "type": "interaction",
       "content": "Bên cạnh mỗi bước trong Macro có một biểu tượng con mắt hoặc bánh răng. Nhấp vào biểu tượng này để biến bước đó thành 'Interactive'. Khi kịch bản chạy đến bước đó, một hộp thoại sẽ bật lên để người dùng tinh chỉnh thông số cho phù hợp với từng ảnh cụ thể.",
       "tips": "Ví dụ: Bước cân bằng sáng để tự động hoàn toàn, nhưng bước làm nét (Sharpen) bật tương tác để chỉnh bán kính theo cỡ ảnh.",
-      "codeSnippet": "Macro Step Configuration:\n[Step 1]: Add HSL Adjustment (Automated - Fixed values)\n[Step 2]: Add High Pass Filter [⚙ Interactive Enabled] -> Pops dialog for custom radius\n[Step 3]: Add Vignette (Automated - Fixed values)"
+      "codeSnippet": "Cấu hình từng bước trong Macro:\n[Bước 1]: Thêm HSL Adjustment (Tự động - Giá trị cố định)\n[Bước 2]: Thêm High Pass Filter [⚙ Bật Tương tác] -> Hiện hộp thoại chỉnh bán kính tùy ý\n[Bước 3]: Thêm Vignette (Tự động - Giá trị cố định)"
     },
     {
       "id": "slide-p09-03-04",
@@ -229,7 +229,7 @@
       "type": "workflow",
       "content": "Vào File > New Batch Job. Thêm danh sách ảnh nguồn, chọn thư mục lưu (Save to into directory), thiết lập kích thước chuẩn (ví dụ Max Width: 2048px). Affinity Photo sẽ phân chia các file ảnh vào toàn bộ các nhân vi xử lý của máy tính để render song song.",
       "tips": "Có thể tích chọn cùng lúc nhiều Macro trong panel bên phải của hộp thoại Batch Job để chạy nối tiếp nhau.",
-      "codeSnippet": "Batch Job Setup Parameters:\nSource: 120 RAW / TIFF files\nDestination: C:\\Project\\Deliverables_Web\\\nDimensions: W: 1920 (H left blank to preserve aspect ratio)\nApplied Macros: [✓] Cinematic Grade  [✓] Web Sharpen\nFormats: JPEG 85% + WebP Lossless"
+      "codeSnippet": "Thông số thiết lập Batch Job:\nNguồn: 120 tệp RAW / TIFF\nThư mục đích: C:\\Project\\Deliverables_Web\\\nKích thước: W: 1920 (Để trống ô H để giữ nguyên tỷ lệ khung hình)\nMacro áp dụng: [✓] Phối màu điện ảnh  [✓] Làm nét cho Web\nĐịnh dạng xuất: JPEG 85% + WebP Lossless"
     },
     {
       "id": "slide-p09-03-06",
@@ -249,7 +249,7 @@
       "type": "summary",
       "content": "1) Copy ảnh RAW vào ổ cứng; 2) Mở 1 ảnh đại diện để tạo Develop Preset và ghi Macro tinh chỉnh; 3) Khởi động Batch Job nạp toàn bộ ảnh; 4) Thư giãn trong vài phút để máy hoàn tất hàng trăm tác phẩm đồng bộ chuẩn mực.",
       "tips": "Luôn kiểm tra ngẫu nhiên 5 file xuất trong thư mục kết quả để đảm bảo không có file nào bị lỗi tỷ lệ.",
-      "codeSnippet": "High-Volume Production Checklist:\n[✓] Golden reference photo tuned and verified\n[✓] Macro tested and saved to Library Studio\n[✓] Output directory isolated from originals\n[✓] Batch Job executed with multi-format export enabled"
+      "codeSnippet": "Danh sách kiểm tra sản xuất hàng loạt:\n[✓] Đã tinh chỉnh và kiểm chứng ảnh mẫu chuẩn (Golden reference)\n[✓] Đã kiểm thử Macro và lưu vào Library Studio\n[✓] Thư mục đầu ra tách biệt khỏi thư mục ảnh gốc\n[✓] Đã chạy Batch Job với xuất đa định dạng"
     }
   ]
 }

@@ -1,6 +1,24 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
+
+async function saveScreenshot(page: Page, filename: string): Promise<void> {
+  const buffer = await page.screenshot();
+  const targetPath = path.resolve('tests/screenshots', filename);
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      fs.writeFileSync(targetPath, buffer);
+      return;
+    } catch (err) {
+      const code = (err as NodeJS.ErrnoException).code;
+      if (attempt < 2 && (code === 'UNKNOWN' || code === 'EBUSY' || code === 'EPERM')) {
+        await new Promise((r) => setTimeout(r, 120));
+        continue;
+      }
+      throw err;
+    }
+  }
+}
 
 test.describe('Giáo trình Pixel Studio (Photo) & Trình mô phỏng Layer', () => {
   test.beforeAll(() => {
@@ -24,7 +42,7 @@ test.describe('Giáo trình Pixel Studio (Photo) & Trình mô phỏng Layer', ()
       await expect(page.getByTestId(`module-card-${modNumber}`)).toBeVisible();
     }
 
-    await page.screenshot({ path: 'tests/screenshots/photo-catalog-10-modules.png' });
+    await saveScreenshot(page, 'photo-catalog-10-modules.png');
   });
 
   test('TC-PHOTO-02: SlidePlayer khởi chạy và điều hướng bài học P02-01 bằng nhãn tiếng Việt', async ({ page }) => {
@@ -39,7 +57,7 @@ test.describe('Giáo trình Pixel Studio (Photo) & Trình mô phỏng Layer', ()
     await page.getByTestId('next-slide-btn').click();
     await expect(page.getByTestId('slide-counter')).toContainText('Trang 2 / 7');
 
-    await page.screenshot({ path: 'tests/screenshots/photo-slide-player-active.png' });
+    await saveScreenshot(page, 'photo-slide-player-active.png');
   });
 
   test('TC-PHOTO-04: Bài học P10-03 hiển thị nội dung và Mẹo thực hành tiếng Việt sạch', async ({ page }) => {
@@ -79,6 +97,6 @@ test.describe('Giáo trình Pixel Studio (Photo) & Trình mô phỏng Layer', ()
     const canvas = page.locator('canvas');
     await expect(canvas).toBeVisible();
 
-    await page.screenshot({ path: 'tests/screenshots/photo-layer-simulator-active.png' });
+    await saveScreenshot(page, 'photo-layer-simulator-active.png');
   });
 });

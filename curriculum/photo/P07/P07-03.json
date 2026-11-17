@@ -3,8 +3,8 @@
   "moduleId": "P07",
   "trackId": "photo",
   "order": 3,
-  "title": "Multi-Image Edge Blending, Light Wrap & 2-Tier Shadow Systems",
-  "subtitle": "Master professional contact shadows, cast perspective shadows, edge light wrapping, and grain matching.",
+  "title": "Hòa trộn biên nhiều ảnh, Light Wrap và hệ thống bóng hai tầng",
+  "subtitle": "Làm chủ bóng tiếp xúc, bóng đổ phối cảnh, ánh sáng tràn viền Light Wrap và đồng nhất hạt ảnh.",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P08-01 Typography & Graphic Integration",
+          "title": "Học phần tiếp theo: P08-01 Các lớp chữ, Artistic Text, Frame Text và Typography",
           "target": "P08-01",
           "type": "next-lesson"
         },
@@ -178,7 +178,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn ghép ảnh nâng cao và xử lý không gian trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -189,7 +189,7 @@
       "type": "concept",
       "content": "Trong tự nhiên, bóng của bất kỳ vật thể nào cũng gồm hai thành phần: 1) Contact Shadow (Ambient Occlusion) nơi bề mặt tiếp xúc trực tiếp chặn hoàn toàn ánh sáng tán xạ; 2) Cast Shadow hình chiếu của vật thể vươn dài trên mặt sàn theo hướng ánh sáng.",
       "tips": "Nếu chỉ làm bóng đổ dài mà quên bóng tiếp xúc hẹp, vật thể sẽ bị 'bồng bềnh' giữa không trung.",
-      "codeSnippet": "Two-Tier Shadow Mechanics:\n[Subject]\n  ├── Contact Shadow: 1-5px, Sharp edge, High opacity, Dark tone (Anchors subject)\n  └── Cast Shadow: Long, Directional, Blur increases with distance, Fades to floor"
+      "codeSnippet": "Cơ chế bóng đổ 2 tầng:\n[Chủ thể]\n  ├── Contact Shadow: 1-5px, Viền sắc, Opacity cao, Sắc đậm (Neo chặt chủ thể)\n  └── Cast Shadow: Kéo dài, Có hướng, Độ mờ tăng theo khoảng cách, Nhạt dần trên sàn"
     },
     {
       "id": "slide-p07-03-02",
@@ -209,7 +209,7 @@
       "type": "interaction",
       "content": "Nhân bản layer chủ thể, tô đen hoàn toàn rồi dùng Live Perspective kéo bóng ngả trên mặt đất. Áp dụng Live Gaussian Blur kèm theo một Gradient Mask trên mặt nạ để bóng càng xa chân thì càng mờ và nhạt dần.",
       "tips": "Luôn hút màu vùng tối của ảnh nền (Ambient Shadow Tint) thay vì dùng màu đen thuần 100%.",
-      "codeSnippet": "Cast Shadow Setup:\n1. Duplicate Subject -> Fill Dark Base Color\n2. Layer > New Live Filter Layer > Distort > Perspective\n3. Pull top handles to ground plane angle\n4. Add Live Gaussian Blur + Gradient Mask (Sharp at base, Blurred at tip)"
+      "codeSnippet": "Thiết lập bóng đổ Cast Shadow:\n1. Nhân bản chủ thể -> Tô màu nền tối\n2. Layer > New Live Filter Layer > Distort > Perspective\n3. Kéo hai tay nắm trên ngả theo mặt phẳng sàn\n4. Thêm Live Gaussian Blur + Gradient Mask (Sắc ở gốc, Mờ dần ở ngọn)"
     },
     {
       "id": "slide-p07-03-04",
@@ -229,7 +229,7 @@
       "type": "workflow",
       "content": "1) Copy ảnh nền -> Blur 40px -> Kéo vào làm con của layer chủ thể (Mask to Below). 2) Đặt Blend Mode là Screen hoặc Color Dodge. 3) Thêm mặt nạ để che bớt, chỉ cho hiện một đường mảnh 3-5px ở mép đón ánh sáng.",
       "tips": "Có thể dùng layer effect Inner Glow với màu ánh sáng môi trường thay thế cho các trường hợp composite đơn giản.",
-      "codeSnippet": "Light Wrap Layer Architecture:\n[Main Subject Layer] (Container Mask)\n   └── [Blurred Background Plate] (Blend: Screen, Opacity: 60%)\n        └── [Mask]: Inverted Black Mask -> Painted White on lit edges only"
+      "codeSnippet": "Kiến trúc lớp Light Wrap:\n[Main Subject Layer] (Lớp cha giới hạn vùng)\n   └── [Ảnh nền làm mờ] (Blend: Screen, Opacity: 60%)\n        └── [Mask]: Mặt nạ đen đảo ngược -> Tô trắng chỉ tại các cạnh đón sáng"
     },
     {
       "id": "slide-p07-03-06",
@@ -249,7 +249,7 @@
       "type": "summary",
       "content": "Mỗi cảm biến máy ảnh tạo ra một cấu trúc hạt ISO riêng. Nếu nền có hạt nhẹ nhưng chủ thể mịn như sáp, composite sẽ lộ tẩy. Thêm một lớp Live Add Noise hoặc sử dụng lớp Neutral Gray 50% với Blend Mode Overlay và noise để đồng bộ hạt.",
       "tips": "Đây là bước cuối cùng trước khi chuyển sang phân phối màu tổng thể (Master Color Grade).",
-      "codeSnippet": "Master Grain Matching:\n1. Top of stack: New Pixel Layer filled with 50% Gray (#808080)\n2. Blend Mode: Overlay\n3. Layer > New Live Filter Layer > Noise > Add Noise (Uniform / Gaussian: 2-3%)\n4. Opacity tuned to match native camera ISO texture"
+      "codeSnippet": "Đồng nhất hạt ảnh tổng thể (Grain Matching):\n1. Đỉnh ngăn xếp: Tạo Pixel Layer mới tô Xám 50% (#808080)\n2. Đặt Blend Mode: Overlay\n3. Layer > New Live Filter Layer > Noise > Add Noise (Uniform / Gaussian: 2-3%)\n4. Chỉnh Opacity khớp với độ hạt ISO tự nhiên của máy ảnh"
     }
   ]
 }

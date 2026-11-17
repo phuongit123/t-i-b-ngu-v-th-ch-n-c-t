@@ -3,8 +3,8 @@
   "moduleId": "P09",
   "trackId": "photo",
   "order": 2,
-  "title": "Optical Lens Corrections, Chromatic Aberration & Defringing",
-  "subtitle": "Eliminate optical lens distortions, chromatic aberration fringes, and perspective keystone errors.",
+  "title": "Hiệu chỉnh ống kính, quang sai màu và Defringe",
+  "subtitle": "Loại bỏ biến dạng quang học thấu kính, viền quang sai màu và lỗi hút phối cảnh hình thang.",
   "durationMinutes": 25,
   "difficulty": "Advanced",
   "standardSections": {
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P09-03 Batch Processing, Macro Recording & Photography Presets",
+          "title": "Bài tiếp theo: P09-03 Xử lý hàng loạt, ghi Macro và thiết lập sẵn cho nhiếp ảnh",
           "target": "P09-03",
           "type": "next-lesson"
         },
@@ -177,7 +177,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn phát triển RAW, hiệu chỉnh ống kính và xử lý hàng loạt trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -188,7 +188,7 @@
       "type": "concept",
       "content": "Ánh sáng khi đi qua hệ thấu kính cong thường gặp 3 vấn đề cố hữu: 1) Biến dạng hình học (Distortion); 2) Tán sắc quang sai màu (Chromatic Aberration); 3) Tối 4 góc (Vignetting). Affinity Photo xử lý triệt để các vấn đề này thông qua hồ sơ thấu kính toán học.",
       "tips": "Sửa quang học ngay trong giai đoạn RAW sẽ cho kết quả sắc nét hơn nhiều so với việc nắn chỉnh lại trên file raster 8-bit.",
-      "codeSnippet": "Optical Defects Catalog:\n- Barrel Distortion: Bulging center (common in wide-angle)\n- Pincushion Distortion: Pinched center (common in telephoto)\n- Lateral Chromatic Aberration: Color fringing at extreme corners\n- Longitudinal CA / Purple Fringe: High-contrast edge dispersion"
+      "codeSnippet": "Danh mục khuyết tật quang học ống kính:\n- Barrel Distortion: Phình tâm ảnh (thường gặp ở ống góc rộng)\n- Pincushion Distortion: Hóp tâm ảnh (thường gặp ở ống tele)\n- Lateral Chromatic Aberration: Viền sai màu ở các góc ngoài khung hình\n- Longitudinal CA / Purple Fringe: Tán sắc viền tím ở rìa tương phản cao"
     },
     {
       "id": "slide-p09-02-02",
@@ -208,7 +208,7 @@
       "type": "interaction",
       "content": "Khi sử dụng ống kính cổ hoặc chưa có profile, bật chế độ Manual Distortion. Kéo slider sang âm (-) để thu nhỏ vùng trung tâm phình to (sửa Barrel); kéo slider sang dương (+) để đẩy phồng vùng trung tâm lõm (sửa Pincushion).",
       "tips": "Bật lưới Grid (Ctrl+; / Cmd+;) để căn các đường thẳng trong ảnh thẳng song song với các ô lưới.",
-      "codeSnippet": "Manual Geometric Correction:\nDistortion: -100 to +100\nHorizontal Keystone: Corrects off-axis horizontal yaw angle\nVertical Keystone: Corrects camera tilted up/down pitch angle"
+      "codeSnippet": "Hiệu chỉnh hình học thủ công:\nDistortion: -100 đến +100\nHorizontal Keystone: Sửa lệch trục ngang khi chụp xiên góc\nVertical Keystone: Sửa đổ nghiêng khi ngửa hoặc chúc máy ảnh lên/xuống"
     },
     {
       "id": "slide-p09-02-04",
@@ -228,7 +228,7 @@
       "type": "workflow",
       "content": "Hiện tượng Purple Fringing xảy ra khi cảm biến bị quá tải ở các mép tương phản cực cao (như cành cây trước bầu trời chói chang). Bật Defringe, dùng ống hút màu chấm vào vệt tím, kéo Edge Threshold để khoanh vùng và xóa sạch màu tím.",
       "tips": "Có thể chọn cả dải màu tím (Purple) và dải màu lục lam (Cyan) trong danh sách preset của Defringe.",
-      "codeSnippet": "Defringe Protocol:\n1. Zoom 200% on high-contrast backlight rim\n2. Enable 'Defringe'\n3. Pick Eyedropper -> Sample exact offending purple tone\n4. Radius: 2px, Threshold: 50% -> Pristine contrast edge restored!"
+      "codeSnippet": "Quy trình khử viền tím Defringe:\n1. Phóng to 200% tại mép ngược sáng có tương phản gắt\n2. Bật tùy chọn 'Defringe'\n3. Dùng ống hút màu (Eyedropper) -> Chấm đúng sắc tím bị lem\n4. Đặt Radius: 2px, Threshold: 50% -> Khôi phục rìa tương phản sạch sẽ!"
     },
     {
       "id": "slide-p09-02-06",
@@ -248,7 +248,7 @@
       "type": "summary",
       "content": "Ống kính mở khẩu lớn (f/1.4 - f/2.8) thường làm 4 góc tối hơn trung tâm từ 1 đến 2 EV. Bật Remove Lens Vignette để cân bằng lại độ sáng phẳng phiu trước khi quyết định có thêm hiệu ứng tối góc nghệ thuật ở bước hậu kỳ hay không.",
       "tips": "Đảm bảo độ sáng 4 góc bằng phẳng giúp các thao tác ghép nền sau đó không bị lộ vết ghép.",
-      "codeSnippet": "Lens Polish Verification:\n[✓] Auto profile matched or manual distortion corrected\n[✓] CA reduction active\n[✓] Backlit fringes cleaned via Defringe\n[✓] Keystone aligned & Vignette normalized"
+      "codeSnippet": "Danh sách kiểm tra hiệu chỉnh ống kính:\n[✓] Đã khớp profile tự động hoặc sửa méo hình thủ công\n[✓] Đã bật khử quang sai màu (CA reduction)\n[✓] Đã làm sạch viền sáng ngược nắng bằng Defringe\n[✓] Đã cân thẳng Keystone và đồng đều độ sáng 4 góc"
     }
   ]
 }

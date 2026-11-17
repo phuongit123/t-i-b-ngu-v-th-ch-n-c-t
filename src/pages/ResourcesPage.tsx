@@ -1,13 +1,7 @@
-/// <reference types="vite/client" />
 import React, { useMemo, useState } from 'react';
 import { Download, FileCode2, FileImage, FileText, Search } from 'lucide-react';
 import { PageHeader } from '../components/layout/PageHeader';
-
-const assetUrls = import.meta.glob('../../curriculum/assets/**/*', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>;
+import { ALL_CURRICULUM_ASSET_URLS } from '../lib/curriculum-asset-urls';
 
 type ResourceCategory = 'all' | 'designer' | 'photo' | 'publisher' | 'scripting';
 const categoryLabels: Record<Exclude<ResourceCategory, 'all'>, string> = {
@@ -169,7 +163,7 @@ const VISUAL_PRACTICE_ASSETS: VisualAssetItem[] = [
 export const ResourcesPage: React.FC = () => {
   const [category, setCategory] = useState<ResourceCategory>('all');
   const [query, setQuery] = useState('');
-  const resources = useMemo(() => Object.entries(assetUrls).map(([path, url]) => {
+  const resources = useMemo(() => Object.entries(ALL_CURRICULUM_ASSET_URLS).map(([path, url]) => {
     const filename = path.split('/').pop() ?? path;
     const extension = filename.split('.').pop()?.toLowerCase() ?? 'file';
     const title = filename.replace(/\.[^.]+$/, '').replace(/^[A-Z]\d+_/, '').replaceAll('_', ' ');

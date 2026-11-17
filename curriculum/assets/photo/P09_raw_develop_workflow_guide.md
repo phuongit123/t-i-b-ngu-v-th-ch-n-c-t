@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P09
 ## CHỦ ĐỀ: XỬ LÝ ẢNH RAW & QUY TRÌNH NHIẾP ẢNH NÂNG CAO (RAW DEVELOP & BATCH WORKFLOW)
 
-**Tệp tài nguyên:** `P09_raw_develop_workflow_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Develop Persona & Photo Persona  
+- **Tệp tài nguyên:** `P09_raw_develop_workflow_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Develop Persona & Photo Persona
 
 ---
 

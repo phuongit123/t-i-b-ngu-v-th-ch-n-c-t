@@ -3,101 +3,101 @@
   "moduleId": "D09",
   "trackId": "designer",
   "order": 2,
-  "title": "Non-Destructive Child Pixel Clipping & Masking",
-  "subtitle": "Insert Inside Selection, Protect Alpha & Blend Mode Shading",
+  "title": "Clipping Pixel lồng lớp phi phá hủy và Masking",
+  "subtitle": "Chế độ Insert Inside Selection, khóa Protect Alpha và hòa trộn đổ bóng",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Nest raster pixel layers inside vector parent curves to create automatic, mathematically sharp clipping masks.",
-      "Utilize the 'Insert inside the selection' toolbar mode to draw and paint directly into target vector containers.",
-      "Construct a multi-pass shading stack using specialized blend modes (Multiply for core shadows, Screen for rim highlights).",
-      "Lock transparency using Protect Alpha to recolor existing texture grain without edge bleeding.",
-      "Manipulate vector parent bezier nodes while observing real-time recalculation of the nested raster textures."
+      "Lồng các lớp điểm ảnh (Pixel Layers) vào bên trong đường cong vector cha để tạo mặt nạ cắt sắc nét tự động.",
+      "Sử dụng chế độ 'Insert inside the selection' trên thanh công cụ để tạo và vẽ trực tiếp vào đúng khung vector mục tiêu.",
+      "Xây dựng chồng lớp đổ bóng nhiều tầng bằng các Blend Mode chuyên dụng (Multiply cho bóng tối, Screen cho viền sáng).",
+      "Khóa vùng trong suốt bằng Protect Alpha để nhuộm lại màu cho các hạt đã vẽ mà không làm lem ra vùng trống.",
+      "Chỉnh sửa các điểm neo Bézier trên lớp vector cha và quan sát lớp hạt con tự cắt lại theo hình dáng mới theo thời gian thực."
     ],
-    "foundationalKnowledge": "In traditional raster painting programs, painting inside a silhouette requires either maintaining fragile alpha channel selections or permanently locking transparency on flattened pixels, making subsequent changes to the silhouette destructive and painful. Affinity Designer revolutionizes this through its object-oriented Scene Graph. Any vector shape (Curve, Rectangle, Polygon, or Compound) can act as an active clipping mask for nested raster pixel layers. When you paint on a child pixel layer, Designer clips the raster rendering to the parent curve's bezier boundary. If you later reposition a node or reshape the vector curve, the raster shading is re-clipped dynamically with zero pixel distortion.",
+    "foundationalKnowledge": "Ở các trình vẽ ảnh thuần túy, muốn tô bóng gọn bên trong một hình dáng phức tạp thường phải giữ vùng chọn hoặc khóa alpha trên từng lớp raster, khiến việc chỉnh lại đường viền về sau rất bất tiện. Trong Affinity, mọi hình khối vector (Curve, Rectangle, Polygon hay Compound) đều có thể làm vỏ cắt (clipping shell) trực tiếp cho các Pixel Layer con đặt bên trong. Khi bạn tô trên lớp Pixel con đó, hệ thống cắt gọn toàn bộ nét cọ theo đúng đường bao Bézier của hình cha. Dù sau này bạn dùng Node Tool kéo thay đổi hình dáng vector cha, lớp hạt raster bên trong vẫn giữ nguyên vị trí và tự động cắt khít theo biên mới mà không hề bị méo.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Scene Graph, Child Layer Clipping & Protect Alpha Engine Specification",
+      "source": "Đặc tả cấu trúc Scene Graph, Child Layer Clipping và Protect Alpha trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Child Pixel Clipping & Protect Alpha",
-      "persona": "Dual Persona (Designer Persona & Pixel Persona)",
+      "toolName": "Lồng lớp Pixel con (Child Pixel Clipping) & Protect Alpha",
+      "persona": "Kết hợp hai không gian (Designer Persona & Pixel Persona)",
       "shortcut": {
-        "win": "Alt+Drag (Layer Nesting), Insert Inside (Top Toolbar), Protect Alpha Checkbox",
-        "mac": "Option+Drag (Layer Nesting), Insert Inside (Top Toolbar), Protect Alpha Checkbox"
+        "win": "Kéo thả lồng lớp con trong Layers, nút Insert Inside (thanh công cụ trên), ô tích Protect Alpha",
+        "mac": "Kéo thả lồng lớp con trong Layers, nút Insert Inside (thanh công cụ trên), ô tích Protect Alpha"
       },
-      "description": "Nests raster pixel layers beneath vector parent shapes to restrict paint strictly to vector boundaries with live node editability.",
+      "description": "Đặt các Pixel Layer làm lớp con bên dưới hình vector cha để mọi nét vẽ cọ chỉ hiển thị bên trong đường bao vector mà vẫn sửa được node tự do.",
       "contextBarOptions": [
-        "Insert inside the selection button: Blue square with inner target arrow on the top toolbar",
-        "Add Pixel Layer button: Bottom of Layers Studio (creates indented child layer when parent is active)",
-        "Protect Alpha checkbox: Context Bar of Paint Brush Tool (locks opacity of painted pixels)",
-        "Layer Blend Modes dropdown: Normal, Multiply, Darken, Screen, Overlay, Soft Light",
-        "Layer Opacity slider: Fine-tunes overall intensity of the child shading pass"
+        "Nút Insert inside the selection: Biểu tượng ô vuông có mũi tên hướng vào trong trên thanh công cụ chính",
+        "Nút Add Pixel Layer: Nằm ở đáy bảng Layers Studio (tự tạo lớp con thụt lề khi đang bật Insert Inside)",
+        "Ô Protect Alpha: Nằm trên thanh Context Bar của Paint Brush Tool (khóa toàn bộ vùng pixel trống)",
+        "Danh sách Blend Mode: Normal, Multiply, Darken, Screen, Overlay, Soft Light",
+        "Thanh trượt Opacity lớp: Điều chỉnh cường độ đậm nhạt tổng thể của từng lớp đổ bóng con"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Draw the Parent Vector Silhouette",
-        "instruction": "In the Designer Persona, use the Pen Tool (P) to draw an organic leaf or character arm. Apply a solid flat midtone fill (e.g. Sage Green #15803D), with stroke set to None.",
+        "title": "Dựng đường bao Vector cha cho hình khối",
+        "instruction": "Ở Designer Persona, dùng Pen Tool (P) vẽ một chiếc lá hoặc cánh tay nhân vật. Tô màu nền trung tính phẳng (chẳng hạn xanh rêu #15803D) và tắt đường viền (Stroke: None).",
         "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
       },
       {
         "stepNumber": 2,
-        "title": "Activate Insert Inside Selection",
-        "instruction": "With the vector leaf selected on canvas, click the 'Insert inside the selection' button on the top toolbar (or press Ctrl+Alt+Ins / Cmd+Option+Ins). This instructs Designer to place all subsequent layers directly inside the selected object.",
-        "shortcutTip": { "win": "Insert Inside Icon", "mac": "Insert Inside Icon" }
+        "title": "Bật chế độ Insert Inside Selection",
+        "instruction": "Khi hình chiếc lá đang được chọn, nhấp nút 'Insert inside the selection' trên thanh công cụ phía trên (hoặc nhấn Ctrl+Alt+Ins / Cmd+Option+Ins). Chế độ này ra lệnh cho mọi lớp tạo mới sau đó tự động chui vào bên trong đối tượng đang chọn.",
+        "shortcutTip": { "win": "Nút Insert Inside", "mac": "Nút Insert Inside" }
       },
       {
         "stepNumber": 3,
-        "title": "Switch to Pixel Persona & Add Child Layer",
-        "instruction": "Click the Pixel Persona icon on the top-left toolbar. In the Layers Studio, click the 'Add Pixel Layer' button. Notice the new layer appears indented directly under the vector curve with a child disclosure triangle.",
+        "title": "Chuyển sang Pixel Persona và thêm lớp Pixel con",
+        "instruction": "Nhấp biểu tượng Pixel Persona ở góc trên bên trái. Trong bảng Layers Studio, nhấn nút 'Add Pixel Layer'. Lớp Pixel mới xuất hiện thụt lề ngay bên dưới đường cong chiếc lá kèm mũi tên mở rộng.",
         "shortcutTip": { "win": "Add Pixel Layer", "mac": "Add Pixel Layer" }
       },
       {
         "stepNumber": 4,
-        "title": "Paint Shadow with Multiply Blend Mode",
-        "instruction": "Set the child pixel layer blend mode to 'Multiply' and opacity to 70%. Select a Dry Media grain brush (Flow: 20%). Sample deep evergreen (#052E16) and paint along the shaded edge of the leaf. Notice that even if you brush far outside the shape, all paint outside the vector boundary is clipped instantly!",
+        "title": "Đổ bóng với chế độ hòa trộn Multiply",
+        "instruction": "Đổi Blend Mode của lớp Pixel con thành 'Multiply' và Opacity khoảng 70%. Chọn cọ hạt Dry Media (Flow: 20%), lấy màu xanh rêu đậm (#052E16) rồi quét dọc theo mép tối của chiếc lá. Dù đầu cọ lấn ra ngoài viền, toàn bộ phần thừa tự động bị ẩn gọn ngoài biên vector.",
         "shortcutTip": { "win": "B (Paint Brush)", "mac": "B (Paint Brush)" }
       },
       {
         "stepNumber": 5,
-        "title": "Lock Transparency with Protect Alpha",
-        "instruction": "In the Paint Brush Context Bar, check 'Protect Alpha'. Choose a warm yellow-green tint (#84CC16). Lightly brush over the shaded grain. The color tints only the previously deposited grain particles without spilling onto the transparent areas of the child layer!",
-        "shortcutTip": { "win": "Check Protect Alpha", "mac": "Check Protect Alpha" }
+        "title": "Nhuộm màu chọn lọc bằng Protect Alpha",
+        "instruction": "Trên thanh Context Bar của cọ vẽ, tích chọn 'Protect Alpha'. Chọn một tông vàng xanh ấm (#84CC16) rồi quét nhẹ lên mảng hạt vừa tô. Màu mới chỉ bám lên những hạt đã có sẵn mà không hề vẽ thêm ra vùng trống xung quanh.",
+        "shortcutTip": { "win": "Tích Protect Alpha", "mac": "Tích Protect Alpha" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Child Layer Hierarchy Structure",
-        "description": "Layers Studio hierarchy for non-destructive vector-raster shading.",
+        "title": "Cây phân tầng lớp con trong Layers Studio",
+        "description": "Cách tổ chức lớp vector vỏ ngoài và các lớp hạt đổ bóng bên trong.",
         "visualType": "diagram",
-        "visualContent": "Layers Studio:\n[▲ │ (Curve) 'Leaf_Silhouette'] ──> Parent Vector Mask (Flat Fill: #15803D)\n    ├── [Pixel 'Highlight_Rim'] ──> Child Layer (Blend Mode: Screen, Opacity: 60%)\n    └── [Pixel 'Core_Shadow']   ──> Child Layer (Blend Mode: Multiply, Opacity: 70%)"
+        "visualContent": "Layers Studio:\n[▲ │ (Curve) 'Leaf_Silhouette'] ──> Vỏ cắt Vector cha (Màu phẳng: #15803D)\n    ├── [Pixel 'Highlight_Rim'] ──> Lớp con (Blend Mode: Screen, Opacity: 60%)\n    └── [Pixel 'Core_Shadow']   ──> Lớp con (Blend Mode: Multiply, Opacity: 70%)"
       },
       {
-        "title": "Shading Layer Stack Specifications",
-        "description": "Standard multi-pass blend modes for dimensional vector rendering.",
+        "title": "Quy chuẩn chồng lớp đổ bóng Vector–Raster",
+        "description": "Các tầng hòa trộn chuẩn để tạo khối có chiều sâu tự nhiên.",
         "visualType": "table",
-        "visualContent": "| Pass | Layer Type | Blend Mode | Color Palette | Typical Opacity |\n|---|---|---|---|---|\n| Foundation | Parent Vector Curve | Normal | Base local midtone | 100% |\n| Core Shadow | Child Pixel Layer | Multiply | Deep desaturated cool hue | 60% – 80% |\n| Ambient Occlusion | Child Pixel Layer | Multiply | Dark near-black tone at crevice joints | 40% – 60% |\n| Rim / Key Highlight | Child Pixel Layer | Screen or Overlay | Warm vibrant tint from light source | 40% – 70% |"
+        "visualContent": "| Tầng lớp | Loại Layer | Blend Mode | Sắc độ màu | Opacity tham khảo |\n|---|---|---|---|---|\n| Lớp nền | Vector Curve cha | Normal | Màu cơ bản trung tính | 100% |\n| Bóng chính (Core Shadow) | Pixel Layer con | Multiply | Tông trầm lạnh, độ bão hòa vừa | 60% – 80% |\n| Bóng kẽ (Ambient Occlusion) | Pixel Layer con | Multiply | Tông rất tối tại các khe hẹp | 40% – 60% |\n| Viền sáng (Rim Highlight) | Pixel Layer con | Screen hoặc Overlay | Tông ấm hoặc sáng theo hướng đèn | 40% – 70% |"
       }
     ],
     "guidedPractice": {
-      "title": "Shading a Multi-Tier Stylized Character Hand",
-      "taskDescription": "Construct a clean vector cartoon hand and apply contained grain shading across fingers and palm using nested child pixel layers.",
+      "title": "Đổ bóng bàn tay nhân vật cách điệu nhiều đốt",
+      "taskDescription": "Dựng một bàn tay vector và phủ lớp đổ bóng hạt lồng riêng vào từng ngón tay và lòng bàn tay mà không làm lem màu giữa các kẽ.",
       "checkpoints": [
-        "Draw a stylized vector hand with distinct fingers in Designer Persona.",
-        "Nest a child pixel layer inside each finger using 'Insert inside the selection'.",
-        "Switch to Pixel Persona, select a chalk stipple brush (Flow: 20%), and set blend mode to Multiply.",
-        "Paint soft cast shadows beneath finger joints; verify that zero paint bleeds into the gaps between fingers.",
-        "Select the parent palm vector with the Node Tool (A) and adjust its curve to verify dynamic live clipping."
+        "Vẽ hình khối bàn tay và các ngón tách lớp sạch sẽ trong Designer Persona.",
+        "Dùng 'Insert inside the selection' để lồng Pixel Layer con vào từng ngón tay.",
+        "Chuyển sang Pixel Persona, chọn cọ phấn hạt (Flow: 20%) và đặt lớp bóng ở chế độ Multiply.",
+        "Tô bóng đổ dưới các khớp ngón; xác nhận không có hạt màu nào bị lem sang ngón kế bên.",
+        "Chọn khối lòng bàn tay bằng Node Tool (A) và kéo chỉnh nhẹ đường cong để kiểm tra biên cắt tự động cập nhật."
       ],
-      "expectedOutcome": "A richly shaded character asset exhibiting tactile paper-like grain while retaining 100% vector scalability and node adjustability."
+      "expectedOutcome": "Bàn tay nhân vật có chất liệu hạt mềm mại, các kẽ ngón sắc nét và vẫn chỉnh sửa được dáng tay dễ dàng."
     },
     "independentChallenge": {
-      "title": "Editorial Retro-Futuristic Botanical Palm",
-      "prompt": "Construct a high-end editorial botanical illustration: (1) In Designer Persona, draw a large fan palm frond with 7 distinct tapering leaves; (2) Nest dedicated child pixel layers inside each frond leaf; (3) Paint dramatic gradient stippling on each frond with Multiply shadows and Screen highlights; (4) Use Protect Alpha to introduce a warm golden dual-tone tint into the deepest shadow crevices; (5) Return to Designer Persona, select 3 leaves, and rotate them into a dynamic overlapping fan composition, verifying that each leaf's texture stays perfectly contained within its own vector silhouette.",
+      "title": "Tán lá cọ Retro-Futuristic lồng lớp độc lập",
+      "prompt": "Xây dựng minh họa thực vật hoàn chỉnh: (1) Ở Designer Persona, vẽ một tàu lá cọ lớn gồm 7 phiến lá thuôn nhọn riêng biệt; (2) Lồng Pixel Layer con độc lập vào bên trong từng phiến lá; (3) Đánh bóng hạt chuyển sắc với Multiply cho phần tối và Screen cho mép sáng; (4) Bật Protect Alpha để nhuộm thêm ánh vàng ấm vào những vùng bóng sâu; (5) Quay lại Designer Persona, xoay chỉnh vị trí 3 phiến lá xếp chồng lên nhau và xác nhận lớp hạt của từng lá luôn nằm gọn trong hình dáng riêng của lá đó.",
       "starterAsset": {
         "filename": "D09_pixel_persona_shading_guide.md",
         "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
@@ -105,186 +105,186 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for child pixel clipping and botanical illustration (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn lồng lớp pixel clipping và minh họa thực vật (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "7 vector fronds configured with independent child pixel layer structures.",
-        "Zero overspray or bleeding between overlapping adjacent fronds.",
-        "Multiply and Screen blend modes calibrated for rich, non-muddy tonal depth.",
-        "Protect Alpha utilized for dual-tone color transitions inside grain particles."
+        "Cả 7 phiến lá vector đều có cấu trúc Pixel Layer con lồng độc lập.",
+        "Không có hiện tượng hạt màu lem chéo giữa các phiến lá xếp chồng lên nhau.",
+        "Blend Mode Multiply và Screen được cân chỉnh tạo chiều sâu trong trẻo, không bị xỉn bết.",
+        "Sử dụng Protect Alpha để chuyển hai tông màu ngay trên lớp hạt đã vẽ."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Painting on a standard top-level pixel layer above the vector art rather than nesting it as a child.",
-        "consequence": "Paint spills all over the canvas and background, destroying the crisp vector silhouette.",
-        "solution": "Drag the pixel layer directly over the text label or thumbnail of the vector shape in Layers Studio until the horizontal highlight indents beneath it."
+        "mistake": "Vẽ bóng lên một Pixel Layer nằm tự do ở trên cùng thay vì lồng làm lớp con.",
+        "consequence": "Nét hạt văng tràn ra ngoài nền xung quanh, phá hỏng đường biên vector sắc nét.",
+        "solution": "Kéo lớp Pixel đó thả trực tiếp vào tên hoặc nhãn của hình vector cha trong bảng Layers cho đến khi xuất hiện thanh gợi ý thụt lề bên dưới."
       },
       {
-        "mistake": "Leaving Protect Alpha enabled when trying to paint new shading onto an empty child layer.",
-        "consequence": "The brush appears completely broken and does not deposit any paint because the layer is currently 100% transparent.",
-        "solution": "Uncheck 'Protect Alpha' when painting initial strokes. Only check Protect Alpha when you want to recolor existing paint."
+        "mistake": "Quên tắt Protect Alpha khi chuyển sang một Pixel Layer con mới hoàn toàn trống.",
+        "consequence": "Cọ vẽ có vẻ như bị hỏng không ra màu chút nào vì toàn bộ lớp đang là vùng trong suốt bị khóa.",
+        "solution": "Chỉ bật Protect Alpha khi muốn tô đổi màu đè lên các hạt đã có sẵn; luôn bỏ tích khi bắt đầu tô lớp mới."
       },
       {
-        "mistake": "Converting the vector parent into curves and accidentally flattening the child pixel layers.",
-        "consequence": "Destroys the separation between vectors and pixels, turning the entire artwork into a static bitmap.",
-        "solution": "Never use 'Rasterize' on parent vector containers. Keep the vector shell and child pixel layers permanently distinct."
+        "mistake": "Chạy nhầm lệnh Rasterize lên hình vector cha khi đang chứa các Pixel Layer con.",
+        "consequence": "Làm gộp phẳng cả vỏ vector lẫn lớp hạt thành một tấm bitmap cố định, mất hoàn toàn khả năng chỉnh node.",
+        "solution": "Không bấm Rasterize lên đối tượng cha; luôn giữ tách biệt vỏ vector ngoài và các lớp hạt con bên trong."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "How do you nest an existing pixel layer as a child clipping mask inside a vector shape in the Layers Studio?",
+        "question": "Làm thế nào để lồng một Pixel Layer có sẵn vào làm mặt nạ cắt bên trong một hình vector trong bảng Layers Studio?",
         "options": [
-          "Right-click and select 'Delete'.",
-          "Drag the pixel layer onto the vector shape layer until an indented blue placement bar appears beneath it.",
-          "Press Ctrl+Alt+Shift+N.",
-          "Convert the document to CMYK color space."
+          "Nhấp chuột phải và chọn Delete.",
+          "Kéo thả Pixel Layer đó đặt lên phần tên của lớp vector cho đến khi hiện vạch xanh thụt lề nằm bên dưới.",
+          "Nhấn tổ hợp phím Ctrl+Alt+Shift+N.",
+          "Chuyển tài liệu sang hệ màu CMYK."
         ],
         "correctIndex": 1,
-        "explanation": "Dragging a layer onto another layer in Affinity's Layers Studio until the placement guide indents underneath creates a parent-child clipping mask relationship."
+        "explanation": "Kéo thả lớp con vào phần nhãn tên của lớp cha cho tới khi hiện vạch dẫn hướng thụt lề bên dưới sẽ tạo quan hệ cắt lồng lớp cha–con phi phá hủy."
       },
       {
-        "question": "What is the function of the 'Protect Alpha' checkbox in the Paint Brush Context Bar?",
+        "question": "Ô tích 'Protect Alpha' trên thanh Context Bar của Paint Brush Tool có tác dụng gì?",
         "options": [
-          "It password-protects the document.",
-          "It locks the transparency of the layer so new brush strokes only affect existing pixels without painting into transparent areas.",
-          "It renders the canvas in black and white.",
-          "It prevents the brush from using pressure sensitivity."
+          "Đặt mật khẩu bảo vệ cho tệp thiết kế.",
+          "Khóa toàn bộ vùng điểm ảnh trong suốt của lớp đang chọn để nét cọ mới chỉ vẽ đè lên phần hạt màu đã tồn tại.",
+          "Chuyển toàn bộ bản vẽ sang chế độ đen trắng.",
+          "Khóa không cho cọ nhận lực nhấn bút vẽ."
         ],
         "correctIndex": 1,
-        "explanation": "Protect Alpha locks transparent pixels: any brush stroke you make will only paint over pixels that already contain pigment, allowing effortless recoloring without edge bleeding."
+        "explanation": "Protect Alpha giữ nguyên vùng trong suốt và chỉ cho phép sơn phủ lại sắc độ lên các điểm ảnh đã có mực, cực kỳ hữu ích khi chuyển tông màu cho lớp hạt."
       },
       {
-        "question": "What happens if you modify the control handles of the parent vector curve with the Node Tool (A) after painting on its child pixel layer?",
+        "question": "Điều gì xảy ra nếu bạn dùng Node Tool (A) kéo sửa hình dáng đường cong vector cha sau khi đã tô bóng lên Pixel Layer con bên trong?",
         "options": [
-          "All child pixel layers are permanently deleted.",
-          "The pixel texture stretches and blurs like a bitmap.",
-          "The vector shape updates its outline, and the raster texture remains stationary, cleanly clipped to the new vector boundary in real time.",
-          "Affinity Designer displays a syntax error."
+          "Tất cả Pixel Layer con bị xóa sạch.",
+          "Lớp hạt raster bị kéo giãn và mờ nhòe như ảnh bitmap bị bẻ hình.",
+          "Đường bao vector cập nhật hình dáng mới và phần hạt raster bên trong tự động cắt khớp lại theo đường biên mới theo thời gian thực.",
+          "Phần mềm báo lỗi không cho phép sửa node."
         ],
         "correctIndex": 2,
-        "explanation": "Affinity Designer evaluates clipping non-destructively: reshaping the parent vector curve updates the clipping aperture immediately without distorting the underlying raster texture."
+        "explanation": "Affinity tính toán vùng cắt độc lập theo thời gian thực: sửa đường cong cha chỉ đổi khung cắt mà không làm biến dạng hay kéo giãn hạt raster bên trong."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Vector shapes act as non-destructive clipping shells for child pixel layers.",
-        "'Insert inside the selection' automatically nests new layers into the active vector object.",
-        "Multiply blend modes build realistic cast shadows; Screen blend modes generate luminous highlights.",
-        "Protect Alpha allows effortless recoloring of existing grain textures without edge overspill."
+        "Hình khối vector đóng vai trò vỏ cắt phi phá hủy cho các Pixel Layer lồng bên trong.",
+        "Chế độ 'Insert inside the selection' tự động đưa lớp mới tạo vào thẳng bên trong đối tượng cha.",
+        "Blend Mode Multiply tạo bóng đổ sâu trong trẻo; Screen tạo viền sáng nổi khối.",
+        "Protect Alpha cho phép đổi màu lớp hạt đã tô cực nhanh mà không sợ lem viền."
       ],
-      "nextSteps": "Proceed to D09-03 to master resolution governance, DPI boundaries, and commercial print preparation.",
+      "nextSteps": "Chuyển sang bài D09-03 để nắm vững kỹ thuật tạo hạt procedural trên vector, kiểm soát DPI và chuẩn bị xuất bản in ấn 300 DPI.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Layers/layerClip.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Non-Destructive Child Pixel Clipping",
-      "subtitle": "The Ultimate Marriage of Vector Shells and Raster Grain",
+      "title": "Lồng lớp Pixel Clipping phi phá hủy",
+      "subtitle": "Kết hợp đường bao Vector sắc bén với hạt Raster hữu cơ",
       "bullets": [
-        "Painting inside selections in Photoshop creates fragile, hard-to-edit pixel boundaries.",
-        "In Affinity Designer, any vector curve acts as a live, permanent clipping aperture.",
-        "Child pixel layers live physically inside the parent vector object in the Layers Studio.",
-        "All paint strokes outside the vector boundary are clipped away dynamically by the GPU."
+        "Tô màu theo vùng chọn trong phần mềm ảnh truyền thống rất dễ bị lộ viền khi cần sửa dáng hình.",
+        "Trong Affinity, mọi hình vector đều là một khung cắt sống luôn mở để đón lớp con.",
+        "Các Pixel Layer con nằm gọn ngay bên trong lớp vector cha trong bảng Layers.",
+        "Mọi nét cọ vung ra ngoài đường cong đều được cắt sạch tự động ở tầng hiển thị."
       ],
-      "proTip": "This architecture keeps your illustration 100% responsive to client shape revisions."
+      "proTip": "Cấu trúc cha–con này giúp bản minh họa sẵn sàng đáp ứng mọi yêu cầu sửa dáng hình từ khách hàng."
     },
     {
       "slideNumber": 2,
-      "title": "Setting Up the Vector Shell",
-      "subtitle": "Designer Persona Foundation",
+      "title": "Khởi tạo lớp vỏ Vector cha",
+      "subtitle": "Nền tảng sắc nét từ Designer / Vector Persona",
       "bullets": [
-        "In Designer Persona, draw your base silhouette with the Pen Tool (P).",
-        "Apply a flat local color (e.g. Sage Green #15803D).",
-        "Ensure all curves are closed paths with clean node geometry.",
-        "Select the object to designate it as the active clipping container."
+        "Ở Designer Persona, dùng Pen Tool (P) vẽ đường bao hình dáng gốc.",
+        "Tô màu phẳng trung tính làm nền cơ bản (ví dụ xanh rêu #15803D).",
+        "Đảm bảo các đường dẫn được khép kín gọn gàng với số điểm neo tối giản.",
+        "Chọn sẵn đối tượng này để đánh dấu làm khung chứa cho các lớp đổ bóng."
       ],
-      "proTip": "Use parametric shapes (Ellipses, Rounded Rectangles) for geometric mechanical parts."
+      "proTip": "Với chi tiết máy móc, ưu tiên dùng hình học tham số (Ellipse, Rounded Rectangle) để có đường cắt tròn đều hoàn hảo."
     },
     {
       "slideNumber": 3,
-      "title": "The 'Insert Inside Selection' Workflow",
-      "subtitle": "Direct In-Container Creation",
+      "title": "Quy trình với 'Insert Inside Selection'",
+      "subtitle": "Tạo lớp con trực tiếp bên trong đối tượng đang chọn",
       "bullets": [
-        "Click the 'Insert inside the selection' button on the top toolbar.",
-        "Switch to the Pixel Persona via the top-left toolbar icon.",
-        "Click 'Add Pixel Layer' at the bottom of the Layers Studio.",
-        "The new pixel layer is created already indented inside the parent vector curve!"
+        "Bật nút 'Insert inside the selection' trên thanh công cụ phía trên.",
+        "Chuyển sang Pixel Persona qua biểu tượng ở góc trên bên trái.",
+        "Nhấn nút 'Add Pixel Layer' ở đáy bảng Layers Studio.",
+        "Lớp Pixel mới sinh ra đã nằm thụt lề sẵn làm con của đường cong vector cha."
       ],
-      "callout": "Notice the small disclosure triangle next to the vector layer indicating child content."
+      "callout": "Để ý mũi tên thu gọn bên cạnh lớp vector cha báo hiệu bên trong đang có các lớp con lồng ghép."
     },
     {
       "slideNumber": 4,
-      "title": "Building the Shading Layer Stack",
-      "subtitle": "Multiply Shadows & Screen Highlights",
+      "title": "Xây dựng chồng lớp hòa trộn đổ bóng",
+      "subtitle": "Multiply cho bóng tối và Screen cho ánh sáng viền",
       "bullets": [
-        "Create Child Layer 1: Name it 'Shadow_Grain' -> Set Blend Mode to 'Multiply'.",
-        "Set Opacity to 60%–75% to let the base vector color tint through.",
-        "Create Child Layer 2: Name it 'Highlight_Rim' -> Set Blend Mode to 'Screen'.",
-        "Set Opacity to 40%–60% for radiant, warm rim lighting along light-facing edges."
+        "Tạo lớp con 1 đặt tên 'Shadow_Grain', đổi Blend Mode thành 'Multiply'.",
+        "Hạ Opacity xuống khoảng 60%–75% để màu nền vector vẫn xuyên nhẹ tạo độ trong.",
+        "Tạo lớp con 2 đặt tên 'Highlight_Rim', đổi Blend Mode thành 'Screen'.",
+        "Đặt Opacity khoảng 40%–60% và quét ánh sáng ấm dọc theo cạnh đón sáng."
       ],
-      "proTip": "Using Multiply and Screen prevents colors from turning into muddy gray washes."
+      "proTip": "Dùng Multiply và Screen giúp phần chuyển sáng tối giữ được độ tươi màu thay vì bị xám xịt."
     },
     {
       "slideNumber": 5,
-      "title": "Recoloring Texture with Protect Alpha",
-      "subtitle": "Precision Pigment Glazing",
+      "title": "Nhuộm màu cho hạt bằng Protect Alpha",
+      "subtitle": "Đổi sắc độ lớp hạt đã tô không lo lem ra ngoài",
       "bullets": [
-        "Once grain texture is deposited, you can lock its transparency boundary.",
-        "In the Paint Brush Context Bar, check 'Protect Alpha'.",
-        "Select a new color (e.g. warm gold or violet) and paint across the shaded area.",
-        "The brush ONLY recolors existing grain particles without bleeding onto blank areas!"
+        "Sau khi đã đánh xong mảng hạt, bạn có thể khóa vùng trong suốt của lớp đó.",
+        "Tích chọn 'Protect Alpha' trên thanh Context Bar của công cụ Paint Brush.",
+        "Chọn màu mới (ví dụ vàng nắng hoặc tím dịu) và quét phủ lên vùng hạt cũ.",
+        "Cọ chỉ nhuộm màu đúng những hạt điểm ảnh đang tồn tại, bỏ qua hoàn toàn phần nền trống."
       ],
-      "proTip": "Uncheck Protect Alpha when you want to paint new shading; check it to tint existing texture."
+      "proTip": "Nhớ tắt Protect Alpha khi muốn tô thêm hạt mới vào vùng còn trống, và chỉ bật khi cần nhuộm màu."
     },
     {
       "slideNumber": 6,
-      "title": "Live Node Re-Shaping in Action",
-      "subtitle": "Zero-Distortion Silhouette Revisions",
+      "title": "Chỉnh sửa đường cong cha theo thời gian thực",
+      "subtitle": "Sửa dáng hình mà không làm méo lớp chất liệu",
       "bullets": [
-        "Switch back to Designer Persona via the top-left toolbar.",
-        "Select the parent vector shape with the Node Tool (A).",
-        "Drag bezier nodes or bend curve segments to alter the silhouette.",
-        "The child pixel shading recalculates immediately, perfectly clipped to the new shape!"
+        "Chuyển lại về Designer / Vector Persona trên thanh công cụ góc trái.",
+        "Chọn đường cong cha bằng Node Tool (A).",
+        "Kéo di chuyển các điểm neo hoặc bẻ lại tay nắm tiếp tuyến để đổi hình khối.",
+        "Mảng hạt raster bên trong tự động cắt khớp lại theo đường bao mới ngay tức thì."
       ],
-      "callout": "The raster pixels do NOT stretch, warp, or blur when the vector parent is reshaped!"
+      "callout": "Các hạt điểm ảnh bên trong hoàn toàn KHÔNG bị kéo giãn hay mờ đi khi bạn sửa dáng vector cha!"
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Stylized Palm Frond",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Tàu lá cọ nhiều lớp hạt",
+      "subtitle": "Kết hợp nét vector sắc bén và hạt raster mềm mại",
       "bullets": [
-        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
-        "Draw an organic leaf silhouette filled with deep teal (#0F766E).",
-        "Nest a child pixel layer set to Multiply; paint soft stipple grain along the bottom edge.",
-        "Nest a second child pixel layer set to Screen; paint soft rim highlights along the top edge.",
-        "Switch to Designer Persona and add crisp 2pt vector leaf veins over the top."
+        "Làm theo hướng dẫn trong tệp 'D09_pixel_persona_shading_guide.md'.",
+        "Vẽ hình chiếc lá tô màu xanh ngọc trầm (#0F766E).",
+        "Lồng lớp Pixel con chế độ Multiply đánh hạt phấn dọc theo nửa mép tối.",
+        "Lồng lớp Pixel con thứ hai chế độ Screen đánh viền sáng dọc mép trên.",
+        "Quay lại Designer Persona vẽ chồng các đường gân lá vector 2 pt sắc gọn."
       ],
-      "proTip": "The contrast between sharp vector veins and analog grain delivers instant editorial charm."
+      "proTip": "Sự đối lập giữa nét gân vector sắc lẹm và nền hạt phấn mịn tạo nét thẩm mỹ rất cuốn hút cho tranh biên tập."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Child Layer & Clipping Competencies",
+      "title": "Kiểm tra nhanh kiến thức Clipping Pixel",
+      "subtitle": "Rà soát lại trước khi chuyển sang quản lý DPI",
       "bullets": [
-        "Explain how to establish a child layer relationship in the Layers Studio.",
-        "Describe the effect of the 'Protect Alpha' toggle on transparent pixels.",
-        "Evaluate the stability of raster textures when vector parent nodes are edited.",
-        "Ensure all exercise checkpoints pass before proceeding to DPI management."
+        "Trình bày cách kéo thả lồng lớp con bên dưới đối tượng cha trong Layers Studio.",
+        "Giải thích tác dụng của nút tích 'Protect Alpha' đối với điểm ảnh trống.",
+        "Xác nhận tính ổn định của lớp hạt khi kéo sửa điểm neo trên đường cong cha.",
+        "Đảm bảo mọi phiến lá đều tách lớp gọn gàng trước khi sang phần thiết lập in ấn."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Lesson Summary & Moving to DPI Standards",
-      "subtitle": "From Single Objects to Commercial Print Production",
+      "title": "Tổng kết & Chuyển sang quản lý DPI và Vector Noise",
+      "subtitle": "Từ minh họa đơn lẻ đến tiêu chuẩn sản xuất thương mại",
       "bullets": [
-        "Mastered non-destructive child pixel layer nesting inside vector parent curves.",
-        "Engineered multi-pass shading stacks utilizing Multiply and Screen blend modes.",
-        "Leveraged Protect Alpha for seamless dual-tone texture recoloring.",
-        "In Lesson D09-03, we explore hybrid DPI management, noise injection, and print preparation."
+        "Đã làm chủ kỹ thuật lồng lớp Pixel Layer con phi phá hủy bên trong vỏ vector.",
+        "Đã biết phối hợp Multiply và Screen để tạo chiều sâu khối không bị bết màu.",
+        "Đã ứng dụng Protect Alpha để nhuộm màu đa sắc độ lên lớp hạt sẵn có.",
+        "Ở bài D09-03, ta khám phá công cụ Vector Noise tích hợp sẵn và kiểm soát chuẩn 300 DPI khi xuất bản."
       ],
-      "proTip": "You now possess the foundational workflow used by the world's leading editorial illustrators."
+      "proTip": "Đây là quy trình lõi giúp minh họa vừa giàu chất liệu thủ công vừa linh hoạt sửa đổi không giới hạn."
     }
   ]
 }

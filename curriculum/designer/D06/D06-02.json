@@ -3,102 +3,102 @@
   "moduleId": "D06",
   "trackId": "designer",
   "order": 2,
-  "title": "Text-on-Path & Circular Badges",
-  "subtitle": "Curved Baselines, Green/Red Margin Handles & Path Direction Reversal",
+  "title": "Chữ chạy theo đường cong và huy hiệu tròn",
+  "subtitle": "Đường cơ sở uốn cong, điểm chặn xanh/đỏ và lệnh đảo chiều chữ trên đường dẫn",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Convert any open or closed vector curve into an interactive curved text path using the Artistic Text Tool.",
-      "Manipulate the green (Start Margin) and red (End Margin) on-canvas locator handles to position typography along curves.",
-      "Adjust Baseline Offset to slide text radially above, centered on, or inside circular path perimeters.",
-      "Execute 'Reverse Direction' on the Context Toolbar to flip inverted text right-side up along bottom badge arcs.",
-      "Construct multi-arc circular emblem seals with concentric upper and lower typography that share an identical center origin."
+      "Biến mọi đường cong vector hở hoặc khép kín thành đường dẫn chữ tương tác bằng Artistic Text Tool.",
+      "Điều khiển cặp tam giác giới hạn biên xanh lá (điểm đầu) và đỏ (điểm cuối) trực tiếp trên đường dẫn để căn vị trí dải chữ.",
+      "Sử dụng thông số Baseline Offset để đẩy dòng chữ trượt ra ngoài, nằm giữa hoặc tụt vào trong chu vi hình tròn.",
+      "Dùng lệnh Reverse Direction trên thanh Context Toolbar để lật dòng chữ bị ngược ở nửa cung dưới thành thuận chiều từ trái sang phải.",
+      "Hoàn thiện huy hiệu tròn hai vòng cung trên dưới đồng tâm với cùng một tâm quay hình học."
     ],
-    "foundationalKnowledge": "In badge, emblem, stamp, and packaging design, typography frequently flows along curved circular paths. In legacy applications, creating text that follows a circle requires confusing envelope distortions or separate warp effects that degrade font metrics. In Affinity Designer, any vector curve—whether drawn with the Pen Tool, Ellipse Tool, or Cog Tool—can instantly become a curved text baseline. When the Artistic Text Tool hovers over any curve perimeter, the cursor indicates path conversion. Once clicked, Designer provides two interactive on-canvas handles: a Green triangle marking the start margin, and a Red triangle marking the end margin.",
+    "foundationalKnowledge": "Trong thiết kế tem nhãn, huy hiệu, con dấu hay bao bì, chữ thường chạy men theo vòng tròn hoặc đường lượn sóng. Ở nhiều phần mềm cũ, việc uốn chữ đòi hỏi hiệu ứng biến dạng phức tạp dễ làm méo nét chữ. Trong Affinity, bất kỳ đường vector nào vẽ từ Pen Tool, Ellipse Tool hay Cog Tool đều có thể trở thành đường cơ sở (baseline) cho chữ. Khi đưa Artistic Text Tool chạm vào viền đường cong, con trỏ sẽ hiện biểu tượng chữ T kèm nét sóng; nhấp chuột một cái là có thể gõ chữ trực tiếp cùng hai tam giác xanh lá (điểm đầu) và đỏ (điểm cuối) để căn lề ngay trên bản vẽ.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Text-on-Path Engine Specification",
+      "source": "Đặc tả cơ chế chữ chạy theo đường cong (Text-on-Path) trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Text-on-Path Engine",
-      "persona": "Vector Persona (Artistic Text Tool + Context Toolbar)",
+      "toolName": "Text-on-Path (Chữ chạy theo đường dẫn)",
+      "persona": "Vector Persona (Artistic Text Tool + thanh Context Toolbar)",
       "shortcut": {
-        "win": "T (Hover over path edge until 'T with curve' cursor appears)",
-        "mac": "T (Hover over path edge until 'T with curve' cursor appears)"
+        "win": "T (Di chuột chạm viền đường dẫn đến khi hiện biểu tượng chữ T kèm nét cong)",
+        "mac": "T (Di chuột chạm viền đường dẫn đến khi hiện biểu tượng chữ T kèm nét cong)"
       },
-      "description": "Transforms any vector curve into a live editable text path with on-canvas margin limit handles and baseline offsets.",
+      "description": "Biến mọi đường cong vector thành đường chạy chữ còn chỉnh sửa sống với các điểm chặn biên ngay trên bản vẽ và thông số Baseline Offset.",
       "contextBarOptions": [
-        "Green Triangle Handle: Drag to adjust the Start margin boundary of the text",
-        "Red Triangle Handle: Drag to adjust the End margin boundary of the text",
-        "Reverse Direction Button: Inverts text flow and flips text to the opposing side of the curve",
-        "Baseline Offset Input: Shifts text radially inward or outward from the path spine",
-        "Alignment Options: Left, Center, Right, or Justified along the curved path span"
+        "Tay nắm tam giác xanh lá: Kéo để đặt điểm bắt đầu cho đoạn chữ trên đường cong",
+        "Tay nắm tam giác đỏ: Kéo để đặt điểm kết thúc đoạn chữ trên đường cong",
+        "Nút Reverse Direction: Đảo hướng chạy và lật chữ sang mặt đối diện của đường cong",
+        "Ô Baseline Offset: Dịch chữ hướng tâm vào trong hoặc ra ngoài so với xương đường dẫn",
+        "Tùy chọn căn lề: Trái, Giữa, Phải hoặc Căn đều trong phạm vi giữa hai tam giác biên"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Draw a Circular Baseline Path",
-        "instruction": "Press M for the Ellipse Tool. Hold Shift and draw a circle (e.g. 240 x 240 px). Give it a temporary thin stroke with no fill.",
+        "title": "Vẽ đường tròn làm đường dẫn cơ sở",
+        "instruction": "Nhấn M chọn Ellipse Tool. Giữ phím Shift và kéo vẽ một hình tròn kích thước 240 x 240 px. Tạm thời đặt nét viền mảnh và tắt màu tô nền.",
         "shortcutTip": { "win": "M (Ellipse)", "mac": "M (Ellipse)" }
       },
       {
         "stepNumber": 2,
-        "title": "Attach Text to the Path",
-        "instruction": "Select the Artistic Text Tool (T). Hover the cursor directly over the top perimeter outline of the circle until the cursor icon gains a wavy diagonal curve badge. Click once. Type your headline: 'ARTISANAL ROASTED COFFEE'.",
-        "shortcutTip": { "win": "Click on Path Edge", "mac": "Click on Path Edge" }
+        "title": "Gắn chữ lên đường dẫn tròn",
+        "instruction": "Chọn Artistic Text Tool (T). Di chuột chạm sát vào mép trên của đường tròn đến khi biểu tượng con trỏ hiện chữ T kèm đường sóng nhỏ, rồi nhấp chuột một lần. Gõ dòng tiêu đề: 'ARTISANAL ROASTED COFFEE'.",
+        "shortcutTip": { "win": "Nhấp lên viền đường dẫn", "mac": "Nhấp lên viền đường dẫn" }
       },
       {
         "stepNumber": 3,
-        "title": "Adjust Start and End Margin Handles",
-        "instruction": "Notice two small colored triangles appear on the circle. Drag the Green triangle to the 9 o'clock position (left) and the Red triangle to the 3 o'clock position (right). Click 'Center Align' on the Context Toolbar. The text centers perfectly along the top crown arc of the circle!",
-        "shortcutTip": { "win": "Drag Green/Red Handles", "mac": "Drag Green/Red Handles" }
+        "title": "Căn chỉnh hai điểm chặn xanh lá và đỏ",
+        "instruction": "Quan sát hai hình tam giác nhỏ hiện trên vòng tròn. Kéo tam giác xanh lá về vị trí 9 giờ (bên trái) và tam giác đỏ về vị trí 3 giờ (bên phải). Nhấn nút Center Align trên thanh Context Toolbar để dòng chữ tự căn chính giữa đỉnh cung trên.",
+        "shortcutTip": { "win": "Kéo tam giác Xanh/Đỏ", "mac": "Kéo tam giác Xanh/Đỏ" }
       },
       {
         "stepNumber": 4,
-        "title": "Build the Bottom Arc Text",
-        "instruction": "Duplicate the circle layer (Ctrl+J / Cmd+J). In the duplicated path, change the text to 'ESTABLISHED 2026'. Notice the text is currently upside down along the bottom rim. On the top Context Toolbar, click the 'Reverse Direction' button. The text instantly flips right-side up, reading naturally from left to right along the bottom!",
+        "title": "Tạo cung chữ dưới và lật chiều thuận",
+        "instruction": "Nhân bản lớp đường tròn chữ (Ctrl+J / Cmd+J), đổi nội dung thành 'ESTABLISHED 2026'. Nếu kéo xuống cung dưới, chữ ban đầu sẽ bị lộn ngược. Nhấp nút 'Reverse Direction' trên thanh Context Toolbar: chữ lập tức lật đúng chiều, đọc xuôi từ trái sang phải dọc theo cung đáy.",
         "shortcutTip": { "win": "Reverse Direction", "mac": "Reverse Direction" }
       },
       {
         "stepNumber": 5,
-        "title": "Calibrate Baseline Offset",
-        "instruction": "Notice that flipping text inside the circle caused it to sit inside the path radius, making the two circles slightly misaligned. In the Character Studio, adjust the 'Baseline' offset input (e.g. -6 pt) until the bottom text aligns along the identical optical radius as the top text.",
+        "title": "Cân chỉnh Baseline Offset để đồng tâm bán kính",
+        "instruction": "Do khi đảo chiều, dải chữ dưới thường lùi vào mặt trong của đường dẫn nên bán kính nhìn sẽ hơi lệch so với cung trên. Mở Character Studio, chỉnh ô 'Baseline' (ví dụ -6 pt hoặc -8 pt) để đẩy dải chữ dưới ra cùng bán kính quang học với dải chữ trên.",
         "shortcutTip": { "win": "Baseline Offset", "mac": "Baseline Offset" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Text-on-Path On-Canvas Handles",
-        "description": "Interactive controls governing curved type.",
+        "title": "Các điểm điều khiển trực tiếp của Text-on-Path",
+        "description": "Chức năng của từng tay nắm và nút lệnh điều khiển chữ trên đường cong.",
         "visualType": "table",
-        "visualContent": "| Handle / Control | Visual Indicator | Functionality |\n|---|---|---|\n| Start Margin | Green Triangle Handle | Sets where the text begins along the path |\n| End Margin | Red Triangle Handle | Sets where text terminates or wraps |\n| Reverse Direction | Double Arrow Button | Flips text to opposite side of curve and inverts winding |\n| Baseline Shift | Numeric Point Input | Slides letters radially above or below path line |"
+        "visualContent": "| Điều khiển | Dấu hiệu nhận biết | Chức năng |\n|---|---|---|\n| Điểm đầu (Start Margin) | Tam giác xanh lá | Xác định vị trí bắt đầu đặt chữ trên đường dẫn |\n| Điểm cuối (End Margin) | Tam giác đỏ | Xác định điểm dừng hoặc xuống dòng của chữ |\n| Reverse Direction | Nút hai mũi tên đảo | Lật chữ sang phía đối diện và đảo chiều đọc |\n| Baseline Shift | Ô nhập giá trị pt | Đẩy chữ trượt ra ngoài hoặc vào trong theo phương bán kính |"
       },
       {
-        "title": "Circular Badge Geometry Diagram",
-        "description": "Constructing matching top and bottom arcs.",
+        "title": "Cấu trúc hình học của huy hiệu tròn",
+        "description": "Cách phối hợp cung chữ trên và cung chữ dưới đồng tâm.",
         "visualType": "diagram",
-        "visualContent": "                [★ TOP CROWN TEXT: Normal Winding ★]\n             .─────────────────────────────────────────.\n            /                                           \\\n           │              [Central Logo]                 │\n            \\                                           /\n             '─────────────────────────────────────────'\n              [★ BOTTOM TEXT: Reverse Direction + Offset ★]"
+        "visualContent": "              [★ CHỮ CUNG TRÊN: Hướng mặc định ★]\n           .─────────────────────────────────────────.\n          /                                           \\\n         │               [Biểu tượng tâm]              │\n          \\                                           /\n           '─────────────────────────────────────────'\n        [★ CHỮ CUNG DƯỚI: Reverse Direction + Baseline Offset ★]"
       }
     ],
     "guidedPractice": {
-      "title": "Constructing an Official University Seal",
-      "taskDescription": "Construct a concentric double-arc academic seal with upper Latin motto and lower foundation year.",
+      "title": "Dựng con dấu trường đại học hai vòng cung",
+      "taskDescription": "Thiết kế con dấu học thuật cân đối với khẩu hiệu ở cung trên và năm thành lập ở cung dưới nằm trên cùng một quỹ đạo đồng tâm.",
       "checkpoints": [
-        "Create outer circle (diameter: 280px).",
-        "Attach upper text 'UNIVERSITAS ACADEMIA' with Green handle at 8 o'clock, Red handle at 4 o'clock, Center aligned.",
-        "Duplicate circle, change text to 'MCMLXXXVIII &bull; TRUTH &amp; LIGHT'.",
-        "Click 'Reverse Direction' on the duplicate.",
-        "Adjust Baseline Offset so font caps match the radius of the upper text arc.",
-        "Place a central heraldic crest primitive in the dead center."
+        "Vẽ hình tròn cơ sở đường kính 280 px.",
+        "Gắn dải chữ trên 'UNIVERSITAS ACADEMIA', đặt tam giác xanh lá ở 8 giờ, tam giác đỏ ở 4 giờ, căn giữa.",
+        "Nhân bản đường tròn chữ, sửa nội dung thành 'MCMLXXXVIII • TRUTH & LIGHT'.",
+        "Nhấn 'Reverse Direction' cho bản sao cung dưới.",
+        "Điều chỉnh Baseline Offset sao cho chiều cao chữ hoa cung dưới khớp bán kính vòng tròn với cung trên.",
+        "Đặt một biểu tượng huy hiệu nhỏ vào chính giữa tâm vòng tròn."
       ],
-      "expectedOutcome": "A dignified, perfectly balanced academic seal with top and bottom text arcs aligned along an identical optical baseline."
+      "expectedOutcome": "Con dấu cân đối hai nửa trên–dưới, đọc thuận mắt và không bị lệch bán kính."
     },
     "independentChallenge": {
-      "title": "Vintage Outdoor Adventure Badge",
-      "prompt": "Construct a rugged outdoor adventure embroidered patch: (1) Circular outer ring with stitched dashed stroke; (2) Top arc text 'PACIFIC CREST TRAIL' with generous tracking (+150‰); (3) Bottom arc text 'ELEVATION 14,411 FT' with Reverse Direction applied; (4) A mountain silhouette vector nested inside the center; (5) Two decorative five-pointed star glyphs placed between the top and bottom text margins.",
+      "title": "Phù hiệu thêu phong cách dã ngoại cổ điển",
+      "prompt": "Thiết kế mẫu phù hiệu ngoài trời hoàn chỉnh: (1) Vòng tròn nền có đường viền chỉ khâu nét đứt; (2) Chữ cung trên 'PACIFIC CREST TRAIL' giãn tracking +150‰; (3) Chữ cung dưới 'ELEVATION 14,411 FT' đã dùng Reverse Direction và cân Baseline Offset; (4) Hình bóng dãy núi vector đặt ở giữa; (5) Hai ngôi sao 5 cánh nhỏ ngăn cách khoảng trống hai bên giữa cung chữ trên và dưới.",
       "starterAsset": {
         "filename": "D06_typography_glyphs_guide.md",
         "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -106,85 +106,85 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Text-on-Path badges (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn thiết lập thực hành chữ chạy theo đường cong (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Top and bottom curved text share identical circular origin center.",
-        "Bottom text reads legibly from left to right with no upside-down letters.",
-        "Baseline offset tuned so upper and lower baselines match concentric circles."
+        "Hai cung chữ trên và dưới dùng chung tâm hình tròn chuẩn xác.",
+        "Cung chữ dưới đọc xuôi từ trái sang phải, không bị lộn ngược.",
+        "Baseline Offset căn chỉnh sao cho hai dải chữ nằm trên vòng tròn đồng tâm đẹp mắt."
       ],
-      "bonusGoal": "Attach secondary wavy text along the contour of a mountain ridge path."
+      "bonusGoal": "Gắn thêm một dòng chữ nhỏ uốn lượn men theo đường sống núi ở phần giữa."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Bottom text reads upside down and backwards",
-        "cause": "Typing along the bottom of a circle without reversing path direction.",
-        "solution": "Select the text path and click the 'Reverse Direction' button on the Context Toolbar."
+        "pitfall": "Chữ ở cung dưới bị lộn ngược và đọc ngược chiều",
+        "cause": "Gõ tiếp chữ trên vòng tròn mặc định mà không tách riêng đường dẫn để đảo chiều cho phần cung dưới.",
+        "solution": "Nhân bản đường dẫn chữ cho cung dưới rồi nhấn nút 'Reverse Direction' trên thanh Context Toolbar."
       },
       {
-        "pitfall": "Text disappears when moving margin handles",
-        "cause": "The Green (start) and Red (end) handles were dragged past each other, creating a negative margin span.",
-        "solution": "Ensure the Green triangle sits before the Red triangle in the direction of the text flow."
+        "pitfall": "Chữ đột ngột biến mất khi kéo tam giác xanh lá hoặc đỏ",
+        "cause": "Kéo tam giác xanh lá vượt qua vị trí tam giác đỏ làm độ dài vùng chứa chữ trở thành âm.",
+        "solution": "Luôn giữ tam giác xanh lá đứng trước tam giác đỏ theo chiều chạy của văn bản."
       },
       {
-        "pitfall": "Original circle shape loses its fill color",
-        "cause": "Converting a shape into a text path converts the shape into a pure typography baseline, stripping its original fill.",
-        "solution": "Duplicate the circle before attaching text! Use the original circle for the colored background, and use the duplicate for the text path."
+        "pitfall": "Hình tròn gốc bị mất màu nền và viền sau khi gắn chữ",
+        "cause": "Khi biến một hình khối thành đường dẫn chữ, hình đó chuyển thành đường baseline vô hình và mất màu tô ban đầu.",
+        "solution": "Luôn nhân bản hình tròn gốc trước khi nhấp gắn chữ: giữ một hình ở dưới làm nền màu, dùng bản sao ở trên làm đường dẫn chữ."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D06-02-Q1",
-        "question": "What happens when you duplicate a circle text path and click 'Reverse Direction' on the Context Toolbar?",
+        "question": "Khi nhân bản một đường tròn chữ và nhấn 'Reverse Direction' trên thanh Context Toolbar, điều gì xảy ra?",
         "options": [
-          "The letters convert to Japanese kanji.",
-          "The path's mathematical flow direction inverts, allowing bottom arc text to flip right-side up and read naturally from left to right.",
-          "The text is permanently rasterized into a PNG.",
-          "The circle is converted into a square."
+          "Chữ bị chuyển sang bảng mã khác.",
+          "Chiều chạy toán học của đường dẫn đảo ngược, giúp chữ ở nửa cung dưới lật đứng lại và đọc xuôi từ trái sang phải.",
+          "Chữ tự động bị rasterize thành ảnh PNG.",
+          "Hình tròn biến thành hình vuông."
         ],
         "correctIndex": 1,
-        "explanation": "Reverse Direction swaps start and end nodes, inverting the text baseline so text along the lower half of a circle reads naturally from left to right."
+        "explanation": "Lệnh Reverse Direction đảo hướng điểm đầu và điểm cuối của đường cong, giúp chữ ở nửa dưới vòng tròn lật thuận chiều đọc tự nhiên từ trái qua phải."
       },
       {
         "id": "D06-02-Q2",
-        "question": "What do the on-canvas Green and Red triangle handles represent when working with Text-on-Path?",
+        "question": "Hai hình tam giác xanh lá và đỏ hiển thị trên đường dẫn chữ đại diện cho điều gì?",
         "options": [
-          "Green sets color; Red sets size.",
-          "Green sets the Start margin boundary; Red sets the End margin boundary along the curve.",
-          "They are printing registration marks.",
-          "They represent RGB color channels."
+          "Xanh lá chỉnh màu chữ; Đỏ chỉnh cỡ chữ.",
+          "Xanh lá là điểm giới hạn bắt đầu (Start Margin); Đỏ là điểm giới hạn kết thúc (End Margin) của đoạn chữ trên đường cong.",
+          "Là dấu căn cắt của nhà in.",
+          "Là hai kênh màu trong hệ RGB."
         ],
         "correctIndex": 1,
-        "explanation": "The Green handle bounds the start of the text span, and the Red handle bounds the end. Text centers or justifies between these two boundary locators."
+        "explanation": "Tam giác xanh lá khóa vị trí đầu và tam giác đỏ khóa vị trí cuối trên đường dẫn; tùy chọn căn trái/giữa/phải sẽ tính toán dựa trên khoảng giữa hai điểm này."
       },
       {
         "id": "D06-02-Q3",
-        "question": "Why should you always duplicate a circular vector shape before clicking it with the Text Tool to create a badge?",
+        "question": "Vì sao cần nhân bản hình tròn nền trước khi dùng Artistic Text Tool nhấp vào viền để gắn chữ?",
         "options": [
-          "Affinity crashes if you don't.",
-          "Converting a vector shape to a text path removes its visible color fill; having a duplicate ensures the underlying colored circle remains behind the text.",
-          "Text paths cannot hold fonts.",
-          "Printers require two copies."
+          "Phần mềm không cho phép gắn chữ lên hình tròn đơn.",
+          "Vì chuyển một hình thành đường dẫn chữ sẽ làm mất màu nền và viền gốc của hình đó; nhân bản giúp giữ nguyên hình nền phía sau.",
+          "Đường dẫn chữ không thể chứa phông chữ nếu không nhân bản.",
+          "Máy in yêu cầu hai bản giống nhau."
         ],
         "correctIndex": 1,
-        "explanation": "A text path sacrifices its original fill and stroke to serve as a pure typographic baseline. Keeping an underlying duplicate preserves the colored badge background."
+        "explanation": "Khi trở thành đường baseline cho chữ, hình vector hy sinh phần tô màu và nét viền cũ. Giữ lại một hình tròn gốc bên dưới đảm bảo huy hiệu vẫn có nền màu hoàn chỉnh."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Any vector curve can be converted into a curved text baseline using the Artistic Text Tool.",
-        "Green and Red triangle handles control the start and end margins along the curve.",
-        "Reverse Direction inverts text flow, allowing bottom arcs to read naturally left-to-right.",
-        "Always duplicate background badge shapes before attaching text."
+        "Mọi đường cong vector đều có thể chuyển thành đường dẫn chữ sống bằng Artistic Text Tool.",
+        "Tam giác xanh lá và đỏ giới hạn trực tiếp phạm vi bắt đầu và kết thúc của dòng chữ.",
+        "Reverse Direction và Baseline Offset là bộ đôi bắt buộc để cân chữ trên cung dưới của huy hiệu tròn.",
+        "Nhân bản hình nền trước khi gắn chữ để không bị mất màu nền huy hiệu."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D06-03 OpenType Features, Glyph Browser & Text Styles Hierarchy",
+          "title": "Bài tiếp theo: D06-03 Tính năng OpenType, Glyph Browser và hệ thống Text Styles",
           "target": "D06-03",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Text on a Path",
+          "title": "Tài liệu Affinity: Chữ chạy theo đường dẫn",
           "target": "https://affinity.serif.com/designer/",
           "type": "doc"
         }
@@ -196,95 +196,95 @@
       "id": "D06-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Text-on-Path & Circular Badges",
-      "subtitle": "Curved Baselines, Flow Direction & Concentric Seal Layout",
-      "contentMarkdown": "Welcome to **Lesson D06-02**.\n\nFrom university seals and coffee logos to military patches, **Text-on-Path** is one of the most recognizable design techniques in the vector medium.\n\nIn this lesson, you will master attaching typography to open and closed curves, commanding on-canvas **Green/Red margin handles**, and executing **Direction Reversals** for balanced bottom arcs.",
+      "title": "Chữ chạy theo đường cong và huy hiệu tròn",
+      "subtitle": "Đường cơ sở uốn cong, chiều đọc và bố cục con dấu đồng tâm",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D06-02**.\n\nTừ con dấu trường học, nhãn quán cà phê đến phù hiệu thêu, kỹ thuật **Text-on-Path** (chữ chạy theo đường dẫn) là công cụ không thể thiếu trong thiết kế vector.\n\nTrong bài này, bạn sẽ thực hành gắn chữ lên đường cong mở và khép kín, làm chủ hai **tam giác biên xanh lá/đỏ** và kỹ thuật **Reverse Direction** để cân chữ ở nửa cung dưới.",
       "actionBox": {
-        "label": "Badge Secret",
-        "text": "Never type along a circle without duplicating it first! Text paths sacrifice their fill to become baselines."
+        "label": "Lưu ý trước khi gắn chữ",
+        "text": "Luôn nhân bản hình tròn gốc trước khi nhấp gắn chữ, vì đường dẫn chữ sẽ bỏ đi màu nền ban đầu."
       }
     },
     {
       "id": "D06-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Path Conversion Mechanics",
-      "subtitle": "How Any Vector Curve Becomes a Typography Rail",
-      "contentMarkdown": "In Affinity Designer, you do not need a special separate 'Path Text' tool:\n\n1. Select the standard **Artistic Text Tool (`T`)**.\n2. Hover directly over the perimeter line of any vector shape.\n3. The cursor changes to a **`T` with a wavy curve badge**.\n4. Click on the path! The curve instantly becomes an interactive baseline.\n5. You can edit the curve with the Node Tool (`A`) at any time, and the text reflows along the new curvature at 60fps!",
+      "title": "Cơ chế chuyển đường cong thành đường dẫn chữ",
+      "subtitle": "Bất kỳ đường vector nào cũng có thể dẫn chữ",
+      "contentMarkdown": "Trong Affinity, bạn không cần công cụ tách biệt chỉ để gõ chữ cong:\n\n1. Chọn **Artistic Text Tool (`T`)**.\n2. Rê chuột chạm sát viền của hình khối hoặc đường cong bất kỳ.\n3. Khi con trỏ đổi thành chữ **`T` kèm nét lượn sóng**, nhấp chuột một cái.\n4. Gõ nội dung: đường cong lập tức trở thành đường cơ sở (baseline) sống.\n5. Khi dùng **Node Tool (`A`)** kéo sửa lại hình dáng đường cong, hàng chữ tự động uốn theo ngay lập tức.",
       "visual": {
         "type": "diagram",
-        "content": "[Standard Vector Curve] ──(Hover with T & Click)──► [Live Text-on-Path Baseline]\n                                                            │\n                                                 Letters flow along arc!"
+        "content": "[Đường cong Vector] ──(Rê T chạm viền & Nhấp)──► [Đường dẫn chữ sống]\n                                                        │\n                                            Chữ chạy theo độ cong thực tế"
       }
     },
     {
       "id": "D06-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Green & Red Margin Locators",
-      "subtitle": "Interactive On-Canvas Boundary Control",
-      "contentMarkdown": "Once text is attached to a path, two interactive locator handles appear:\n\n- **Green Triangle Handle (Start Margin):** Marks the point on the path where text begins.\n- **Red Triangle Handle (End Margin):** Marks where text terminates or wraps.\n- **Centering Along Arcs:** Drag the Green handle to `9 o'clock` (left) and the Red handle to `3 o'clock` (right), then click **Center Align** on the Context Bar. Your text centers automatically at high noon!",
+      "title": "Điểm chặn biên Xanh lá và Đỏ",
+      "subtitle": "Giới hạn vùng chữ trực tiếp trên bản vẽ",
+      "contentMarkdown": "Khi chữ đã gắn lên đường dẫn, hai điểm điều khiển hình tam giác sẽ xuất hiện:\n\n- **Tam giác xanh lá (Start Margin):** Xác định điểm bắt đầu của đoạn chữ.\n- **Tam giác đỏ (End Margin):** Xác định điểm kết thúc hoặc ngắt dòng.\n- **Cách căn giữa chuẩn cung trên:** Kéo tam giác xanh lá về vị trí `9 giờ` (trái) và tam giác đỏ về `3 giờ` (phải), sau đó nhấn **Center Align** trên thanh Context Bar. Dòng chữ tự động cân đối ngay đỉnh cung tròn.",
       "actionBox": {
-        "label": "Locator Insight",
-        "text": "Dragging handles lets you position curved text anywhere along a 360° circle with zero guesswork."
+        "label": "Mẹo căn vị trí",
+        "text": "Kéo trực tiếp hai tam giác giúp bạn đặt chữ ở bất kỳ góc phần tư nào quanh vòng tròn 360°."
       }
     },
     {
       "id": "D06-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: The Bottom Arc Reversal Technique",
-      "subtitle": "How to Avoid Upside-Down Typography",
-      "contentMarkdown": "Follow these steps to build matching top and bottom circular text:\n\n1. **Step 1:** Create top crown text ('SUMMIT COFFEE ROASTERS') on a circular path.\n2. **Step 2:** Duplicate the layer with `Ctrl+J` (Win) / `Cmd+J` (Mac).\n3. **Step 3:** Change the text to 'ESTABLISHED 2026'. Notice it is currently upside-down along the bottom rim.\n4. **Step 4:** On the Context Toolbar, click the **'Reverse Direction'** button.\n5. **Inspect:** The letters immediately flip right-side up, reading naturally from left to right along the bottom arc!",
+      "title": "Kỹ thuật lật chữ cho cung tròn dưới",
+      "subtitle": "Tránh tình trạng chữ lộn ngược khó đọc",
+      "contentMarkdown": "Thực hiện theo 5 bước để ghép cặp chữ trên–dưới cho huy hiệu:\n\n1. **Bước 1:** Tạo cung chữ trên (`'SUMMIT COFFEE ROASTERS'`) trên đường dẫn tròn.\n2. **Bước 2:** Nhân bản lớp đường dẫn bằng `Ctrl+J` (Win) / `Cmd+J` (Mac).\n3. **Bước 3:** Đổi chữ thành `'ESTABLISHED 2026'` và kéo xuống cung dưới — lúc này chữ đang bị lộn ngược.\n4. **Bước 4:** Trên thanh Context Toolbar, nhấn nút **'Reverse Direction'**.\n5. **Kiểm tra:** Hàng chữ lập tức lật xuôi chiều và đọc tự nhiên từ trái sang phải dọc theo vòng đáy.",
       "visual": {
         "type": "comparison",
-        "content": "Before Reverse: Upside-down & unreadable VS After Reverse: Clean, right-side-up left-to-right flow"
+        "content": "Trước Reverse Direction: Lộn ngược khó đọc  |  Sau Reverse Direction: Thuận chiều trái sang phải"
       }
     },
     {
       "id": "D06-02-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Calibrating the Optical Baseline Offset",
-      "subtitle": "Equalizing Top and Bottom Arc Radii",
-      "contentMarkdown": "When you reverse direction on the bottom arc:\n\n- The top text sits **outside** the path line (cap-height touches outer radius).\n- The reversed bottom text sits **inside** the path line!\n- **The Fix:** In the Character Studio, enter a negative **Baseline Shift** (e.g. `-8 pt`) on the bottom text.\n- The bottom text shifts radially outward until its letters sit on the identical concentric optical circle as the top text.",
+      "title": "Cân chỉnh Baseline Offset đồng tâm",
+      "subtitle": "Đưa cung trên và cung dưới về cùng bán kính",
+      "contentMarkdown": "Sau khi nhấn đảo chiều ở cung dưới:\n\n- Chữ cung trên thường đứng **phía ngoài** nét đường dẫn.\n- Chữ cung dưới sau khi lật lại nằm tụt vào **phía trong** nét đường dẫn.\n- **Cách xử lý:** Trong bảng **Character Studio**, nhập giá trị âm cho **Baseline Shift** (chẳng hạn `-8 pt`) ở dòng chữ dưới.\n- Hàng chữ dưới sẽ tịnh tiến hướng tâm ra ngoài cho tới khi thẳng hàng với quỹ đạo vòng tròn của chữ trên.",
       "visual": {
         "type": "diagram",
-        "content": "Top Arc Text    ═══ (Rests on outer perimeter)\n                  ▲\n                  │ Equalized Radial Gap (via Baseline Offset)\n                  ▼\nBottom Arc Text ═══ (Pushed outward to match)"
+        "content": "Chữ cung trên  ═══ (Tựa trên mép ngoài đường dẫn)\n                 ▲\n                 │ Cân bằng bán kính bằng Baseline Offset\n                 ▼\nChữ cung dưới  ═══ (Đẩy hướng tâm ra ngoài cho khớp vòng tròn)"
       }
     },
     {
       "id": "D06-02-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Text on Open Wave Curves",
-      "subtitle": "Flowing Headlines Across Illustration Contours",
-      "contentMarkdown": "Text-on-Path is not limited to circles:\n\n1. Draw a graceful undulating wave with the Pen Tool (`P`).\n2. Click the start of the wave with the Artistic Text Tool (`T`).\n3. Type your headline. Words naturally rise and fall along the swell of the path.\n4. Switch to the Node Tool (`A`) and tweak node handles; notice typography tracks the wave dynamically in real time!",
+      "title": "Chữ chạy trên đường lượn sóng mở",
+      "subtitle": "Ứng dụng cho tiêu đề tạp chí và áp phích",
+      "contentMarkdown": "Text-on-Path không chỉ giới hạn ở hình tròn:\n\n1. Dùng **Pen Tool (`P`)** vẽ một đường cong chữ S mềm mại.\n2. Chọn **Artistic Text Tool (`T`)** và nhấp vào điểm đầu đường cong.\n3. Gõ cụm tiêu đề: từng chữ cái sẽ uốn theo nhịp lên xuống của nét cong.\n4. Chuyển sang **Node Tool (`A`)** kéo chỉnh tay nắm tiếp tuyến nếu muốn tăng hoặc giảm độ dốc của sóng chữ.",
       "actionBox": {
-        "label": "Editorial Power",
-        "text": "Combine wavy path text with high-contrast serif fonts for editorial magazine headlines."
+        "label": "Gợi ý thẩm mỹ",
+        "text": "Kết hợp chữ chạy sóng nhẹ cùng phông Serif có độ tương phản nét mảnh–đậm để tạo nhịp thị giác sinh động."
       }
     },
     {
       "id": "D06-02-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Text-on-Path Pitfalls & Troubleshooting",
-      "subtitle": "Avoid Common Badge Traps",
-      "contentMarkdown": "### 1. Vanishing Text After Moving Handles\n- **The Issue:** All letters disappear suddenly.\n- **The Cause:** Dragging the Green handle past the Red handle creates a negative boundary.\n- **The Fix:** Drag the Red handle forward along the curve to restore text space.\n\n### 2. Badge Color Fill Disappeared\n- **The Cause:** You clicked the original background circle with the text tool, transforming it into a baseline.\n- **The Fix:** Duplicate the circle before attaching text so the colored disc remains beneath.",
+      "title": "Lỗi thường gặp với Text-on-Path",
+      "subtitle": "Xử lý nhanh các sự cố hay gặp khi làm huy hiệu",
+      "contentMarkdown": "### 1. Chữ tự dưng biến mất khi kéo tam giác biên\n- **Nguyên nhân:** Kéo tam giác xanh lá vượt qua tam giác đỏ làm vùng chứa bị ép về 0.\n- **Khắc phục:** Kéo tam giác đỏ tiến ra xa hơn theo chiều chữ để mở lại không gian hiển thị.\n\n### 2. Mất màu nền của huy hiệu sau khi gõ chữ\n- **Nguyên nhân:** Nhấp trực tiếp công cụ chữ vào hình tròn nền duy nhất.\n- **Khắc phục:** Luôn nhân bản một hình tròn dự phòng làm nền màu bên dưới trước khi tạo đường dẫn chữ.",
       "visual": {
         "type": "badge-grid",
-        "content": "Keep Green Before Red | Duplicate Circle for Fill | Use Baseline Offset for Alignment"
+        "content": "Giữ Xanh trước Đỏ | Nhân bản hình nền | Cân bán kính bằng Baseline Offset"
       }
     },
     {
       "id": "D06-02-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Vintage Distillery Seal",
-      "subtitle": "Put Circular Typography to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct an authentic vintage circular spirit distillery seal:\n\n1. Base badge: Dark charcoal concentric circles with an inner dashed ring.\n2. Upper crown arc text: **'HIGHLAND SINGLE MALT'** (Serif typeface, +150‰ tracking).\n3. Lower arc text: **'AGED 18 YEARS IN OAK'** (Reversed direction with baseline offset aligned).\n4. Place 2 decorative star glyphs separating the top and bottom text margins.\n5. Centerpiece: An illustrative vector crest in the center.\n\n### Acceptance Criteria:\n- Top and bottom text share concentric alignment.\n- Zero upside-down or backwards letters.\n- Margin handles balanced symmetrically.",
+      "title": "Thử thách độc lập: Con dấu xưởng chưng cất cổ điển",
+      "subtitle": "Thực hành bố cục huy hiệu đồng tâm hoàn chỉnh",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng mẫu con dấu tròn phong cách cổ điển:\n\n1. Nền huy hiệu: hai vòng tròn đồng tâm nền tối kèm một vòng nét đứt bên trong.\n2. Cung chữ trên: **'HIGHLAND SINGLE MALT'** (phông Serif, tracking `+150‰`).\n3. Cung chữ dưới: **'AGED 18 YEARS IN OAK'** (đã đảo chiều Reverse Direction và chỉnh Baseline Offset khớp bán kính).\n4. Đặt 2 ký tự ngôi sao ngăn giữa khoảng trống hai bên.\n5. Chính giữa tâm: đặt một biểu tượng vector đơn giản làm điểm neo thị giác.\n\n### Tiêu chí đạt:\n- Cung trên và cung dưới đồng tâm gọn gàng.\n- Không có chữ nào bị ngược hay đọc ngược chiều.\n- Hai cặp điểm chặn xanh/đỏ đặt đối xứng qua trục dọc.",
       "practiceData": {
-        "prompt": "Construct a vintage circular emblem seal with concentric upper and lower text arcs.",
+        "prompt": "Thiết kế con dấu huy hiệu tròn với hai cung chữ đồng tâm cân đối.",
         "starterAsset": {
           "filename": "D06_typography_glyphs_guide.md",
           "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -292,12 +292,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Text-on-Path badges."
+          "statusNote": "Tài liệu hướng dẫn thiết lập thực hành chữ chạy theo đường cong."
         },
         "checkpoints": [
-          "Upper text on path created and centered",
-          "Lower text duplicated, reversed, and baseline-shifted",
-          "Concentric radial geometry verified"
+          "Tạo và căn giữa cung chữ trên bằng tam giác xanh/đỏ",
+          "Nhân bản, đảo chiều Reverse Direction và cân Baseline Offset cho cung dưới",
+          "Kiểm tra độ đồng tâm giữa hai vòng chữ"
         ]
       }
     }

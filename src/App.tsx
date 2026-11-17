@@ -6,9 +6,9 @@ import { SearchCommand, SearchResultItem } from './components/search/SearchComma
 import { Toast } from './components/ui/Toast';
 import { EmptyState } from './components/ui/EmptyState';
 import { PageHeader } from './components/layout/PageHeader';
-import { SlidePlayer } from './components/lesson/SlidePlayer';
 import { SimulatorPage } from './pages/SimulatorPage';
 import { HomePage } from './pages/HomePage';
+import { LessonPage } from './pages/LessonPage';
 import { Terminal } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
@@ -71,6 +71,7 @@ export const App: React.FC = () => {
       if (window.location.pathname !== targetPath) {
         window.history.pushState(null, '', targetPath);
       }
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     }
     if (route !== 'lesson') {
       setActiveLessonId(null);
@@ -112,6 +113,9 @@ export const App: React.FC = () => {
   const handleLaunchLesson = (lessonId: string) => {
     setActiveLessonId(lessonId);
     setActiveRoute('lesson');
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
   };
 
   const currentLesson = activeLessonId ? getLessonById(activeLessonId) : ALL_PILOT_LESSONS[0];
@@ -119,17 +123,22 @@ export const App: React.FC = () => {
   const renderContent = () => {
     if (activeRoute === 'lesson' && currentLesson) {
       const lessonTitleVi = lessonTranslationsVi[currentLesson.id] || currentLesson.title;
+      const currentModule = ALL_PILOT_MODULES.find((m) => m.id === currentLesson.moduleId);
       return (
-        <div className="py-4">
-          <SlidePlayer
+        <div className="py-2">
+          <LessonPage
             lesson={currentLesson}
+            module={currentModule}
+            allLessons={ALL_PILOT_LESSONS}
+            onSelectLesson={handleLaunchLesson}
+            onBackToCatalog={() => handleNavigate('catalog')}
+            onNavigate={handleNavigate}
             onLessonComplete={(id) => {
               setActiveToast({
                 title: 'Hoàn thành bài học!',
                 message: `Bạn đã hoàn thành ${id}: ${lessonTitleVi}. Tiến độ đã được lưu vào Hồ sơ học tập.`,
               });
             }}
-            onBackToCatalog={() => handleNavigate('catalog')}
           />
         </div>
       );

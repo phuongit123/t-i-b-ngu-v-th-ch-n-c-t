@@ -3,8 +3,8 @@
   "moduleId": "P08",
   "trackId": "photo",
   "order": 3,
-  "title": "Designing Promotional Commercial Compositions & Text Behind Subject",
-  "subtitle": "Create modern magazine covers, commercial key visuals, and dynamic text-behind-subject layouts.",
+  "title": "Bố cục quảng bá thương mại và kỹ thuật đặt chữ sau chủ thể",
+  "subtitle": "Thiết kế bìa tạp chí hiện đại, ấn phẩm chủ đạo thương mại và bố cục chữ đan xen sau chủ thể.",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P09-01 RAW Sensor Decoding & 32-bit Float Pipeline",
+          "title": "Học phần tiếp theo: P09-01 Giải mã cảm biến RAW, quy trình 32-bit Float và Tone Mapping",
           "target": "P09-01",
           "type": "next-lesson"
         },
@@ -178,7 +178,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn nghệ thuật chữ và tích hợp đồ họa vector trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -189,7 +189,7 @@
       "type": "concept",
       "content": "Các ấn phẩm thời trang hàng đầu như Vogue, GQ, Harper's Bazaar thường sử dụng kỹ thuật xếp chữ nằm lấp ló sau đầu người mẫu. Bố cục này tạo nên ảo giác chiều sâu 3D mạnh mẽ, khẳng định chủ thể là tâm điểm tự nhiên của khung hình.",
       "tips": "Mắt người có khả năng tự điền khuyết (Gestalt psychology) để nhận diện trọn vẹn từ ngữ quen thuộc dù bị che một phần.",
-      "codeSnippet": "Layer Stack Architecture for Text Behind Subject:\n[Top Layer]: Subject Cutout (Refined Mask on Edges)\n[Middle Layer 2]: Shadow on Text (Multiply, 35% Opacity)\n[Middle Layer 1]: Huge Artistic Headline ('TITLE')\n[Bottom Layer]: Original Background Scene"
+      "codeSnippet": "Cấu trúc Layer Stack cho Text Behind Subject:\n[Lớp trên cùng]: Chủ thể đã tách nền (Mặt nạ Refine tinh tế ở mép tóc)\n[Lớp giữa 2]: Bóng đổ lên chữ (Multiply, Opacity 35%)\n[Lớp giữa 1]: Tiêu đề Artistic Text cỡ lớn ('TITLE')\n[Lớp đáy]: Ảnh nền gốc ban đầu"
     },
     {
       "id": "slide-p08-03-02",
@@ -209,7 +209,7 @@
       "type": "interaction",
       "content": "Kéo Artistic Text Tool tạo dòng chữ chiếm từ 70% đến 90% chiều rộng canvas. Chọn các font sans-serif hình học mạnh mẽ (Heavy, Black) hoặc serif sang trọng có độ tương phản nét dày nét thanh cao.",
       "tips": "Đảm bảo các chữ cái đầu và cuối vươn ra khỏi hai bên vai của người mẫu để tên thương hiệu hoặc chủ đề không bị đọc sai lệch.",
-      "codeSnippet": "Typographic Specs for Cover Headlines:\nFont Weight: Bold / Extra Bold / Black\nLetter Spacing (Tracking): -20‰ to +40‰ depending on width\nColor: Sampled from model's jewelry, eyes, or pure Off-White (#F4F4F6)"
+      "codeSnippet": "Thông số chữ cho tiêu đề bìa (Cover Headline):\nFont Weight: Bold / Extra Bold / Black\nTracking (Giãn chữ): -20‰ đến +40‰ tùy độ rộng bộ chữ\nMàu sắc: Hút từ trang sức, mắt người mẫu hoặc trắng ngà (#F4F4F6)"
     },
     {
       "id": "slide-p08-03-04",
@@ -229,7 +229,7 @@
       "type": "layout",
       "content": "Muốn một chữ cái vắt qua trước ngực nhưng chữ bên cạnh lại chui ra sau lưng? Rất đơn giản: Trên mặt nạ của layer chân dung trên cùng, dùng Paint Brush màu đen tô che đi phần tay áo nơi bạn muốn chữ cái lộ ra phía trước.",
       "tips": "Nhấn phím X để hoán đổi cọ trắng/đen giúp bạn sửa sai mặt nạ tức thì.",
-      "codeSnippet": "Intertwining Trick:\n1. Subject sits on top -> hides whole text behind\n2. Paint Black on Subject's Mask at forearm area\n3. Foreground forearm disappears -> Text pops in front of forearm while remaining behind head!"
+      "codeSnippet": "Mẹo đan xen chữ (Intertwining):\n1. Lớp chủ thể nằm trên cùng -> che khuất toàn bộ phần chữ phía sau\n2. Dùng cọ đen tô lên Mask của chủ thể tại vùng cánh tay\n3. Phần cánh tay được ẩn đi -> Chữ bật lên phía trước tay nhưng vẫn nằm sau đầu!"
     },
     {
       "id": "slide-p08-03-06",
@@ -249,7 +249,7 @@
       "type": "summary",
       "content": "Sau khi hoàn tất mọi chi tiết, đặt một Gradient Map Adjustment Layer hoặc LUT ở trên cùng của toàn bộ file. Giảm Opacity xuống 15-20% và chọn Blend Mode 'Soft Light'. Bước này phủ một lớp tone màu đồng nhất lên cả ảnh chụp lẫn chữ cái đồ họa.",
       "tips": "Xuất file bằng Export Persona định dạng TIFF hoặc PNG-24 chất lượng cao nhất.",
-      "codeSnippet": "Final Polish Pipeline:\n1. Verify text readability at 50% zoom\n2. Check contact shadows on letters\n3. Top of stack: Curves Adjustment + Gradient Map (Soft Light 18%)\n4. File > Save -> Ready for high-res commercial distribution"
+      "codeSnippet": "Quy trình hoàn thiện cuối cùng:\n1. Kiểm tra độ dễ đọc của chữ ở mức thu phóng 50%\n2. Rà soát bóng tiếp xúc hắt lên mặt chữ\n3. Đỉnh ngăn xếp: Curves Adjustment + Gradient Map (Soft Light 18%)\n4. File > Save -> Sẵn sàng bàn giao bản phân giải cao"
     }
   ]
 }

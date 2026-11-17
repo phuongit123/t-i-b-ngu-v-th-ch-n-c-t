@@ -1,54 +1,60 @@
-# AFFINITY DESIGNER PRACTICE GUIDE — MODULE D02
-## Vector Nodes, Paths & Pen Tool Geometry Practice Guide
+# TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D02
+## CHỦ ĐỀ: ĐIỂM NODE VECTOR, ĐƯỜNG VẼ & HÌNH HỌC CÔNG CỤ PEN
 
-**Module ID:** `D02`  
-**Difficulty:** Beginner  
-**Track:** Affinity Designer  
-**Asset Status:** `GUIDE_DOCUMENT`  
-**Target File:** Manual canvas setup in Affinity Designer 3.3.3  
-
----
-
-### 1. Document Setup Instructions
-1. Open Affinity Designer 3.3.3.
-2. Press `Ctrl+N` (Windows) or `Cmd+N` (macOS).
-3. Select **Print > A4** (or Web FHD `1920 x 1080 px`).
-4. Set Units to **Pixels** or **Millimeters**.
-5. Check **Create Artboard** and click **Create**.
+- **Tệp tài nguyên:** `D02_pen_node_geometry_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity (kiểm chứng trên Affinity 3.3.3)
+- **Persona áp dụng:** Vector Persona (không gian thiết kế vector)
 
 ---
 
-### 2. Practice Exercises
-
-#### Exercise 1: Pen Tool 4-Mode Matrix (Lesson D02-01)
-- Activate Pen Tool by pressing `P`.
-- On the top Context Toolbar, test the 4 Pen modes:
-  1. **Standard Pen Mode:** Click to place sharp nodes, click-drag to pull symmetrical bezier control handles.
-  2. **Smart Mode:** Click sequence of points. Designer automatically computes optimal curvature curves through every point without pulling handles.
-  3. **Polygon Mode:** Click points to draw straight line polygons without inadvertent curve handles.
-  4. **Line Mode:** Click and drag two-point constrained line segments.
-- Hold `Alt` / `Option` while dragging a bezier handle to convert it into a sharp directional corner (cusp handle).
-
-#### Exercise 2: Node Types & Node Tool Conversions (Lesson D02-02)
-- Draw an organic wave curve.
-- Switch to Node Tool by pressing `A`.
-- Select various nodes along the path and test the 3 conversion buttons on the Context Toolbar:
-  - **Sharp (Cusp):** Disconnects handles for independent angle and length.
-  - **Smooth:** Forces handles to align collinearly (180 degrees) for seamless continuity.
-  - **Smart:** Auto-calculates curvature based on neighboring nodes.
-- Hold `Shift` while dragging a node to constrain movement along 45-degree angles.
-
-#### Exercise 3: Join, Break & Close Geometry (Lesson D02-03)
-- Draw two separate open line curves using the Pen Tool (`P`).
-- Select both curves with the Move Tool (`V`) or Node Tool (`A`).
-- On the Context Toolbar, click **Join Curves** to unite the closest end nodes into a single continuous path.
-- Select an intermediate node and click **Break Curve** to split the path into two independent segments.
-- Click **Close Curve** to bridge the start and end nodes with a final closing bezier segment.
+### 1. MỤC TIÊU THỰC HÀNH
+1. Phân biệt và thực hành 4 chế độ của **Pen Tool (P)** (công cụ vẽ đường cong Bézier): Pen, Smart, Polygon và Line.
+2. Nắm chắc cách chuyển đổi và tinh chỉnh 3 loại điểm neo (**Sharp**, **Smooth**, **Smart**) bằng **Node Tool (A)** (công cụ chỉnh điểm neo).
+3. Thành thạo các lệnh xử lý đường dẫn (**Join Curves**, **Break Curve**, **Close Curve**, **Reverse Curve**) cùng cấu hình đầu nét và góc nối trong **Stroke Studio** (bảng thuộc tính nét viền).
 
 ---
 
-### 3. Cap & Join Stroke Specifications
-- Open the **Stroke Studio** (`View > Studio > Stroke`).
-- Set stroke width to `6 pt`.
-- Test **Cap** styles: *Butt Cap*, *Round Cap*, *Square Cap*.
-- Test **Join** styles: *Miter Join* (sharp corners with adjustable miter limit), *Round Join* (soft corners), *Bevel Join* (chiseled flat corners).
+### 2. THIẾT LẬP TÀI LIỆU & MÔI TRƯỜNG THỰC HÀNH
+1. Mở Affinity và nhấn `Ctrl+N` (Windows) / `Cmd+N` (macOS).
+2. Chọn khổ **Print > A4** hoặc **Web > FHD (1920 × 1080 px)**.
+3. Đặt đơn vị đo là **Pixels** hoặc **Millimeters**.
+4. Tích chọn **Create Artboard** rồi nhấn **Create**.
+
+---
+
+### 3. QUY TRÌNH THỰC HÀNH TỪNG BƯỚC
+
+#### Bài 1: Thử nghiệm 4 chế độ của Pen Tool (Bài D02-01)
+- Nhấn `P` để chọn **Pen Tool**.
+- Trên thanh **Context Toolbar** phía trên, lần lượt thử 4 chế độ:
+  1. **Pen Mode (mặc định):** Nhấp chuột để tạo góc nhọn, nhấp và kéo để kéo hai tay cầm Bézier đối xứng.
+  2. **Smart Mode:** Chỉ cần nhấp lần lượt các điểm, phần mềm tự nội suy đường cong trơn đi qua từng điểm mà không cần kéo tay cầm.
+  3. **Polygon Mode:** Nhấp để vẽ các đoạn thẳng nối thành đa giác, tránh kéo nhầm ra đường cong.
+  4. **Line Mode:** Nhấp và kéo từng đoạn thẳng 2 điểm tách rời nhau.
+- Giữ phím `Alt` (Windows) / `Option` (macOS) khi đang kéo tay cầm để bẻ gãy đối xứng, tạo góc chuyển hướng đột ngột ngay lúc vẽ.
+
+#### Bài 2: Chuyển đổi 3 loại điểm neo bằng Node Tool (Bài D02-02)
+- Vẽ một đường lượn sóng tự do.
+- Nhấn `A` để chuyển sang **Node Tool**.
+- Chọn các điểm neo dọc đường cong và thử 3 nút chuyển đổi trên thanh Context Toolbar:
+  - **Sharp:** Tách rời hai tay cầm để chỉnh góc và độ dài độc lập, tạo đỉnh nhọn.
+  - **Smooth:** Khóa hai tay cầm thẳng hàng 180 độ để đường cong chuyển tiếp mượt mà.
+  - **Smart:** Tự động tính toán độ cong tự nhiên dựa trên các điểm neo liền kề.
+- Giữ phím `Shift` trong lúc kéo điểm neo hoặc tay cầm để khóa chuyển động theo góc 45 độ / 90 độ.
+
+#### Bài 3: Nối, ngắt và đóng kín đường cong (Bài D02-03)
+- Dùng **Pen Tool (P)** vẽ hai đoạn cong hở tách biệt nhau.
+- Chọn cả hai đường bằng **Move Tool (V)** hoặc **Node Tool (A)** (giữ `Shift` để chọn nhiều đường).
+- Dùng **Node Tool (A)** quét chọn hai điểm đầu mút gần nhau rồi nhấn **Join Curves** trên Context Toolbar để hàn thành một đường liên tục.
+- Chọn một điểm neo ở giữa đường và nhấn **Break Curve** để tách thành hai đoạn độc lập.
+- Nhấn **Close Curve** để nối kín điểm đầu và điểm cuối thành hình khép kín.
+
+---
+
+### 4. BÀI TẬP TỰ ĐÁNH GIÁ & CẤU HÌNH ĐẦU NÉT (CHALLENGE CHECKPOINTS)
+- Mở **Stroke Studio** (`View > Studio > Stroke`), đặt độ dày nét `6 pt`.
+- Kiểm tra cả 3 kiểu đầu nét (**Cap**): `Butt Cap` (cắt bằng tại điểm neo), `Round Cap` (bo tròn), `Square Cap` (vuông mở rộng).
+- Kiểm tra cả 3 kiểu nối góc (**Join**): `Miter Join` (góc nhọn có kiểm soát Miter Limit), `Round Join` (góc bo tròn), `Bevel Join` (góc vát phẳng).
+- [ ] Đường vẽ mẫu sử dụng ít nhất là số điểm neo cần thiết, đặt tại các điểm cực trị thay vì chấm dày đặc dọc theo cung cong.
+- [ ] Không còn đỉnh nhọn bị phóng gai dài bất thường nhờ điều chỉnh thông số **Miter Limit** hợp lý (`1.4 - 2.0`).

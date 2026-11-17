@@ -1,48 +1,58 @@
-# AFFINITY DESIGNER PRACTICE GUIDE — MODULE D05
-## Layer Organization, Masks & Clipping Paths Practice Guide
+# TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D05
+## CHỦ ĐỀ: QUẢN LÝ LAYER, MẶT NẠ VECTOR & ĐƯỜNG CẮT BỐ CỤC (CLIPPING)
 
-**Module ID:** `D05`  
-**Difficulty:** Intermediate  
-**Track:** Affinity Designer  
-**Asset Status:** `GUIDE_DOCUMENT`  
-**Target File:** Manual canvas setup in Affinity Designer 3.3.3  
-
----
-
-### 1. Document Setup Instructions
-1. Open Affinity Designer 3.3.3.
-2. Create a new document: `Web > FHD (1920 x 1080 px)` or `Print > A4`.
-3. Check **Create Artboard** and click **Create**.
+- **Tệp tài nguyên:** `D05_layers_masks_clipping_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity (kiểm chứng trên Affinity 3.3.3)
+- **Persona áp dụng:** Vector Persona (không gian thiết kế vector)
 
 ---
 
-### 2. Practice Exercises
+### 1. MỤC TIÊU THỰC HÀNH
+1. Tổ chức tệp thiết kế khoa học bằng **Layers Studio (F7)** (bảng quản lý phân cấp lớp), gộp nhóm (`Ctrl+G` / `Cmd+G`), đặt tên rõ nghĩa, gắn **Color Tag** (thẻ màu) và khóa lớp nền.
+2. Phân biệt và thao tác chính xác hai vùng thả trong Layers Studio: **Vector Clipping** (thả vào thân tên lớp) và **Vector Masking** (thả vào ảnh thu nhỏ Thumbnail).
+3. Kiểm soát hòa trộn ánh sáng, độ sâu bằng **Blend Modes**, **Blend Options** (biểu tượng bánh răng) và chỉnh sửa độc lập qua **Isolation Mode** (`Alt+Click` / `Option+Click`).
 
-#### Exercise 1: Hierarchy, Grouping & Color Tagging (Lesson D05-01)
-- Draw multiple geometric shapes representing parts of an illustration (e.g. background, character head, eyes, mouth).
-- In the **Layers Studio** (`View > Studio > Layers`):
-  - Select related shapes and press **`Ctrl+G`** (Win) / **`Cmd+G`** (Mac) to group them into a folder. Double-click the folder name to rename it (e.g. `Character_Head`).
-  - Right-click a group in the Layers panel and assign a **Color Tag** (e.g. Blue for Lineart, Orange for Shading, Green for Background).
-  - Click the Lock icon to prevent accidental moves on background elements.
+---
 
-#### Exercise 2: Vector Clipping vs Vector Masking (Lesson D05-02)
-- Draw a vector circle with a vibrant color fill.
-- Draw a jagged zigzag lightning bolt that extends far outside the circle.
-- Test **Vector Clipping (Insert Inside):**
-  - In the Layers Studio, drag the zigzag layer directly **onto the text label/body** of the circle layer.
-  - Notice the zigzag indents as a child under the circle, clipped strictly inside its boundary!
-  - You can still move the zigzag freely with the Move Tool (`V`).
-- Test **Vector Masking:**
-  - Create a new rectangle. Draw a wavy path over it.
-  - Drag the wavy path onto the **thumbnail icon** of the rectangle (notice the vertical drop indicator bar beside the thumbnail).
-  - The wavy path acts as a vector mask: the rectangle is masked to the wavy path while retaining its own fill!
+### 2. THIẾT LẬP TÀI LIỆU & MÔI TRƯỜNG THỰC HÀNH
+1. Mở Affinity và nhấn `Ctrl+N` (Windows) / `Cmd+N` (macOS).
+2. Chọn khổ **Web > FHD (1920 × 1080 px)** hoặc **Print > A4**.
+3. Tích chọn **Create Artboard** rồi nhấn **Create**.
 
-#### Exercise 3: Blend Modes & Isolation Mode (Lesson D05-03)
-- Place a colored vector shape over a dark textured background.
-- Change its Blend Mode in the Layers Studio dropdown from **Normal** to **Screen**, **Multiply**, **Overlay**, and **Color Dodge**.
-- Click the cog/gear icon at the top right of the Layers Studio to open the **Blend Options** dialog:
-  - Adjust the 'Source Layer' and 'Underlying Composition' tone curves to control which luminance levels blend smoothly into the background.
-- Test **Isolation Mode:**
-  - Hold **`Alt` (Windows) or `Option` (macOS)** and click on any layer thumbnail in the Layers panel.
-  - The entire canvas isolates only that selected layer, hiding all other artwork so you can edit in complete distraction-free focus!
-  - `Alt+Click` / `Option+Click` again to exit Isolation Mode.
+---
+
+### 3. QUY TRÌNH THỰC HÀNH TỪNG BƯỚC
+
+#### Bài 1: Tổ chức phân cấp, gom nhóm & gắn thẻ màu (Bài D05-01)
+- Vẽ nhiều hình khối tượng trưng cho các bộ phận của một bức minh họa (ví dụ: nền trời, đầu nhân vật, mắt, miệng).
+- Trong **Layers Studio** (`View > Studio > Layers` hoặc nhấn `F7` trên Windows):
+  - Chọn các hình cùng nhóm và nhấn **`Ctrl+G`** (Win) / **`Cmd+G`** (Mac) để gộp vào một thư mục `Group`. Nhấp đúp lên tên nhóm để đổi tên rõ nghĩa (ví dụ `Character_Head`).
+  - Nhấp chuột phải vào nhóm trong Layers Studio và gán **Color Tag** (ví dụ: Xanh dương cho nét viền, Cam cho bóng đổ, Xanh lá cho nền).
+  - Nhấn biểu tượng ổ khóa (hoặc `Ctrl+L` / `Cmd+L`) trên lớp nền để tránh chọn nhầm khi thao tác trên bản vẽ.
+
+#### Bài 2: Vector Clipping vs Vector Masking (Bài D05-02)
+- Vẽ một hình tròn vector tô màu rực rỡ, sau đó vẽ một tia sét zích-zắc vươn ra ngoài biên hình tròn.
+- **Thử Vector Clipping (lồng lớp con):**
+  - Trong Layers Studio, kéo lớp tia sét thả trực tiếp lên **phần chữ/thân hàng** của lớp hình tròn (thấy vạch ngang màu xanh thụt lề bên dưới).
+  - Tia sét bị cắt gọn bên trong hình tròn trong khi hình tròn vẫn giữ nguyên màu nền và nét viền; bạn vẫn kéo di chuyển tia sét thoải mái bằng **Move Tool (`V`)**.
+- **Thử Vector Masking (mặt nạ gắn thumbnail):**
+  - Tạo một hình chữ nhật mới và vẽ một đường uốn lượn đè lên trên.
+  - Kéo lớp đường uốn lượn thả đúng vào **ô ảnh thu nhỏ (Thumbnail)** của hình chữ nhật (thấy vạch đứng xuất hiện bên cạnh thumbnail).
+  - Đường uốn lượn đóng vai trò mặt nạ cắt cho hình chữ nhật và tự ẩn phần màu tô riêng của nó.
+
+#### Bài 3: Blend Modes, Blend Ranges & Isolation Mode (Bài D05-03)
+- Đặt một hình vector có màu lên trên một nền tối có họa tiết.
+- Đổi chế độ hòa trộn của hình đó từ **Normal** lần lượt sang **Screen**, **Multiply**, **Overlay** và **Color Dodge**.
+- Nhấn biểu tượng **bánh răng (Cog/Gear)** ở góc trên bên phải bảng Layers Studio để mở hộp thoại **Blend Options**:
+  - Kéo chỉnh hai đồ thị `Source Layer Ranges` và `Underlying Composition Ranges` để kiểm soát dải sáng tối nào được phép hòa trộn.
+- **Thử Isolation Mode:**
+  - Giữ **`Alt` (Win) hoặc `Option` (Mac)** rồi nhấp chuột lên thumbnail của một lớp bất kỳ trong Layers Studio.
+  - Toàn bộ khung vẽ tạm thời chỉ hiển thị duy nhất lớp đó để bạn chỉnh sửa tập trung không vướng mắt; `Alt+Click` / `Option+Click` thêm lần nữa để thoát về bình thường.
+
+---
+
+### 4. BÀI TẬP TỰ ĐÁNH GIÁ (CHALLENGE CHECKPOINTS)
+- [ ] Tất cả các lớp đều được đặt tên có ý nghĩa, chia nhóm gọn gàng và gắn thẻ màu phân loại.
+- [ ] Thực hiện phân biệt đúng giữa thao tác thả tạo **Vector Clipping** và thao tác thả lên thumbnail tạo **Vector Masking**.
+- [ ] Đã kiểm tra hiệu ứng **Blend Options** và thử bật/thoát **Isolation Mode** thành công.

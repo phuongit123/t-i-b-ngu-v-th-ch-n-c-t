@@ -3,100 +3,100 @@
   "moduleId": "D10",
   "trackId": "designer",
   "order": 2,
-  "title": "Multi-Density Formats & Continuous Export Engine",
-  "subtitle": "1x/2x/3x Scaling, PNG/WebP/JPEG XL, Suffix Syntax & Background Auto-Builds",
+  "title": "Định dạng đa mật độ và Continuous Export",
+  "subtitle": "Nhân tỷ lệ 1x/2x/3x, PNG/WebP/JPEG XL, cú pháp hậu tố và tự động xuất nền",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Configure multi-density asset pipelines generating 1x, 2x, and 3x resolution files simultaneously from a single vector source.",
-      "Select and calibrate modern digital formats including PNG-24, WebP, JPEG XL, and SVG for production delivery.",
-      "Utilize dynamic path template syntax and custom suffixes (@1x, @2x, @3x) for automated folder routing.",
-      "Activate the Continuous Export engine to automatically rebuild and overwrite assets upon document save (Ctrl+S / Cmd+S)."
+      "Cấu hình quy trình xuất đa mật độ tạo đồng thời các tệp 1x, 2x và 3x từ một nguồn vector duy nhất.",
+      "Chọn và cân chỉnh các định dạng số hiện đại gồm PNG-24, WebP, JPEG XL và SVG cho đầu ra sản phẩm.",
+      "Sử dụng cú pháp đường dẫn động và hậu tố chuẩn (@1x, @2x, @3x) để tự động phân luồng thư mục.",
+      "Kích hoạt chế độ Continuous Export để phần mềm tự động kết xuất lại tài sản nền ngay khi lưu tài liệu (Ctrl+S / Cmd+S)."
     ],
-    "foundationalKnowledge": "In mobile and web engineering, a single graphic asset must be deployed across varying device display pixel densities (e.g. 1x for standard monitors, 2x for Apple Retina and 1080p mobile, 3x for modern OLED smartphones). Manually resizing and exporting an icon three times in multiple formats is an enormous waste of development time. Affinity Designer's Slices Studio features a multi-tiered export engine where a single slice can output 1x PNG, 2x PNG, 3x WebP, and 1x SVG simultaneously. Coupled with the revolutionary 'Continuous' export toggle, Designer watches your document and silently re-renders every asset directly into your project's codebase whenever you save.",
+    "foundationalKnowledge": "Trong phát triển web và ứng dụng di động, cùng một biểu tượng phải phục vụ nhiều mật độ điểm ảnh màn hình khác nhau (1x cho màn hình tiêu chuẩn, 2x cho Retina/Full HD, 3x cho màn hình OLED di động mật độ cao). Việc tự nhân kích thước và xuất tay ba lần cho từng định dạng tốn rất nhiều thời gian. Slices Studio của Affinity cho phép một lát cắt duy nhất xuất đồng thời cả 1x PNG, 2x PNG, 3x WebP lẫn 1x SVG. Khi kết hợp thêm tùy chọn 'Continuous', phần mềm sẽ âm thầm tái kết xuất toàn bộ các tệp này vào thư mục dự án mỗi lần bạn lưu file.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Slices Studio Multi-Format & Continuous Export Specification",
+      "source": "Đặc tả xuất đa định dạng và cơ chế Continuous Export trong Slices Studio trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Slices Studio Multi-Format & Continuous Export",
+      "toolName": "Slices Studio (Xuất đa mật độ & Continuous Export)",
       "persona": "Export Persona (View > Studio > Slices)",
       "shortcut": {
-        "win": "Export Persona (Top-Left Toolbar), Check 'Continuous' checkbox in Slices panel, Ctrl+S (Save sync trigger)",
-        "mac": "Export Persona (Top-Left Toolbar), Check 'Continuous' checkbox in Slices panel, Cmd+S (Save sync trigger)"
+        "win": "Export Persona (góc trên bên trái), tích 'Continuous' trong bảng Slices, Ctrl+S (lưu kích hoạt xuất lại)",
+        "mac": "Export Persona (góc trên bên trái), tích 'Continuous' trong bảng Slices, Cmd+S (lưu kích hoạt xuất lại)"
       },
-      "description": "Multi-tier export matrix allowing simultaneous multi-scale asset rendering with automated background file rebuilding. Prerequisites: (1) Must click 'Export Slices' once to bind the destination directory; (2) Triggers include document save (Ctrl+S / Cmd+S), live layer edits inside the slice bounds, slice geometry changes, or export format updates; (3) Use selectively on active UI components to avoid rendering lag across large documents.",
+      "description": "Ma trận xuất đa tầng cho phép kết xuất đồng thời nhiều tỷ lệ và định dạng kèm cơ chế tự cập nhật tệp nền. Điều kiện vận hành: (1) Phải bấm 'Export Slices' một lần đầu tiên để gắn thư mục đích; (2) Các sự kiện kích hoạt gồm lưu file (Ctrl+S / Cmd+S), sửa trực tiếp hình/chữ bên trong vùng cắt, đổi kích thước slice hoặc đổi cấu hình định dạng; (3) Chỉ nên bật chọn lọc trên các thành phần đang làm việc để tránh chậm thao tác lưu ở tài liệu quá lớn.",
       "contextBarOptions": [
-        "Add Export Setup (+) button: Appends a new resolution/format tier to the selected slice",
-        "Scale dropdown: 1x, 2x, 3x, 0.5x, or custom pixel dimensions (e.g. 512w, 1024h)",
-        "Format dropdown: PNG, JPEG, WebP, SVG, PDF, TIFF, EXR, HDR, JPEG XL",
-        "Suffix input field: Automatically assigns file suffixes like '@1x', '@2x', or subfolder paths",
-        "Continuous checkbox: Toggles automatic background rebuilding upon saving the master document or editing slice contents"
+        "Nút Add Export Setup (+): Thêm một tầng tỷ lệ hoặc định dạng mới cho lát cắt đang chọn",
+        "Danh sách Scale: 1x, 2x, 3x, 0.5x hoặc gõ trực tiếp kích thước pixel cố định (ví dụ 512w, 1024h)",
+        "Danh sách Format: PNG, JPEG, WebP, SVG, PDF, TIFF, EXR, HDR, JPEG XL",
+        "Ô Suffix: Tự động gắn hậu tố tên tệp như '@1x', '@2x' hoặc đường dẫn thư mục con",
+        "Ô tích Continuous: Bật cơ chế tự động kết xuất lại trong nền khi lưu tài liệu hoặc chỉnh nội dung lát cắt"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open Slice Export Tiers",
-        "instruction": "In the Export Persona, locate your 'Component_Button_Primary' slice in the Slices Studio. Click the small disclosure arrow next to its name to expand its export format tiers.",
-        "shortcutTip": { "win": "Expand Slice Arrow", "mac": "Expand Slice Arrow" }
+        "title": "Mở danh sách tầng xuất của lát cắt",
+        "instruction": "Trong Export Persona, tìm lát cắt 'Component_Button_Primary' trong bảng Slices Studio và nhấp mũi tên nhỏ bên cạnh tên để mở rộng các tầng định dạng xuất.",
+        "shortcutTip": { "win": "Mở mũi tên Slice", "mac": "Mở mũi tên Slice" }
       },
       {
         "stepNumber": 2,
-        "title": "Configure 1x Standard & 2x Retina Tiers",
-        "instruction": "Set the first tier to: Scale: 1x, Format: PNG, Suffix: '@1x'. Click the '+' icon beside the tier to add a second tier. Set it to: Scale: 2x, Format: PNG, Suffix: '@2x'.",
-        "shortcutTip": { "win": "Click '+' Icon", "mac": "Click '+' Icon" }
+        "title": "Cấu hình hai tầng 1x chuẩn và 2x Retina",
+        "instruction": "Đặt tầng đầu tiên là Scale: 1x, Format: PNG, Suffix: '@1x'. Nhấp dấu '+' ngay cạnh dòng đó để thêm tầng thứ hai với Scale: 2x, Format: PNG, Suffix: '@2x'.",
+        "shortcutTip": { "win": "Nhấn dấu '+'", "mac": "Nhấn dấu '+'" }
       },
       {
         "stepNumber": 3,
-        "title": "Add Next-Gen WebP 3x & SVG Tiers",
-        "instruction": "Click '+' again. Set Tier 3 to: Scale: 3x, Format: WebP, Suffix: '@3x'. Click '+' a fourth time. Set Tier 4 to: Scale: 1x, Format: SVG (for web), Suffix: '' (clean filename).",
-        "shortcutTip": { "win": "Add WebP & SVG", "mac": "Add WebP & SVG" }
+        "title": "Bổ sung tầng WebP 3x và SVG",
+        "instruction": "Nhấn '+' lần nữa, đặt tầng 3 là Scale: 3x, Format: WebP, Suffix: '@3x'. Nhấn '+' thêm lần thứ tư, đặt Scale: 1x, Format: SVG (for web) và để trống ô Suffix cho tên tệp gọn sạch.",
+        "shortcutTip": { "win": "Thêm tầng WebP & SVG", "mac": "Thêm tầng WebP & SVG" }
       },
       {
         "stepNumber": 4,
-        "title": "Enable Continuous Export",
-        "instruction": "At the very top of the Slices Studio panel, check the 'Continuous' checkbox. Click the 'Export Slices' button at the bottom of the panel and select an output folder (e.g. 'src/assets/icons/'). All files are generated immediately.",
-        "shortcutTip": { "win": "Check 'Continuous'", "mac": "Check 'Continuous'" }
+        "title": "Kích hoạt Continuous Export và chọn thư mục đích",
+        "instruction": "Tích chọn ô 'Continuous' ở trên cùng bảng Slices Studio. Nhấn nút 'Export Slices' ở đáy bảng và chọn thư mục đầu ra (chẳng hạn 'src/assets/icons/') để xuất đợt đầu và gắn đường dẫn lưu.",
+        "shortcutTip": { "win": "Tích 'Continuous'", "mac": "Tích 'Continuous'" }
       },
       {
         "stepNumber": 5,
-        "title": "Verify Automatic Background Rebuilding",
-        "instruction": "Click the Designer Persona icon on the top-left Toolbar to return to vector editing. Change the button's color to bright magenta (#EC4899). Press Ctrl+S (Cmd+S) to save the document. Open your output folder: observe that all 4 files (@1x.png, @2x.png, @3x.webp, .svg) have been automatically re-rendered and overwritten in the background with zero prompts!",
-        "shortcutTip": { "win": "Ctrl+S (Auto-Rebuild)", "mac": "Cmd+S (Auto-Rebuild)" }
+        "title": "Kiểm chứng tự động cập nhật nền khi lưu",
+        "instruction": "Quay về Designer Persona từ thanh công cụ góc trên trái, đổi màu nút sang hồng tím (#EC4899) rồi nhấn Ctrl+S (Cmd+S). Mở thư mục đầu ra: cả 4 tệp (@1x.png, @2x.png, @3x.webp, .svg) đã được tự động cập nhật mới hoàn toàn mà không hiện hộp thoại hỏi lại.",
+        "shortcutTip": { "win": "Ctrl+S (Tự xuất lại)", "mac": "Cmd+S (Tự xuất lại)" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Multi-Density Output Matrix",
-        "description": "Standard scale targets and format selections across target operating systems.",
+        "title": "Ma trận đầu ra đa mật độ tiêu chuẩn",
+        "description": "Cấu hình tỷ lệ và định dạng khuyến nghị cho từng nhóm thiết bị đầu cuối.",
         "visualType": "table",
-        "visualContent": "| Tier | Target Device / Screen | Scale | Output Format | Output Filename Example |\n|---|---|---|---|---|\n| Tier 1 | Standard Web / Desktop (1080p) | 1x | PNG-24 (Alpha) | `btn-primary@1x.png` |\n| Tier 2 | Apple Retina / High-DPI Mobile | 2x | PNG-24 (Alpha) | `btn-primary@2x.png` |\n| Tier 3 | Modern OLED Smartphones (3x Density) | 3x | WebP (Lossless) | `btn-primary@3x.webp` |\n| Tier 4 | Scalable Modern Web Dom | 1x | SVG (Clean ViewBox) | `btn-primary.svg` |"
+        "visualContent": "| Tầng | Thiết bị mục tiêu | Tỷ lệ | Định dạng đầu ra | Ví dụ tên tệp xuất |\n|---|---|---|---|---|\n| Tầng 1 | Màn hình Desktop / Web chuẩn (1080p) | 1x | PNG-24 (Có kênh Alpha) | `btn-primary@1x.png` |\n| Tầng 2 | Màn hình Retina / Di động HiDPI | 2x | PNG-24 (Có kênh Alpha) | `btn-primary@2x.png` |\n| Tầng 3 | Điện thoại OLED mật độ cao 3x | 3x | WebP (Nén tối ưu) | `btn-primary@3x.webp` |\n| Tầng 4 | Giao diện Web DOM co giãn | 1x | SVG (ViewBox sạch) | `btn-primary.svg` |"
       },
       {
-        "title": "Continuous Export Pipeline Flowchart",
-        "description": "How document saves trigger background file updates.",
+        "title": "Luồng xử lý tự động của Continuous Export",
+        "description": "Cách thao tác lưu bản vẽ kích hoạt cập nhật đồng loạt các tệp đầu ra.",
         "visualType": "diagram",
-        "visualContent": "[Designer Persona Canvas] ──> [Ctrl+S (Save)]\n                                     │\n                                     ▼ (Affinity Background Daemon)\n     ┌───────────────────────────────┴───────────────────────────────┐\n     ▼                               ▼                               ▼\n[`btn-primary@1x.png`]     [`btn-primary@2x.png`]        [`btn-primary.svg`]"
+        "visualContent": "[Bản vẽ Designer Persona] ──> [Ctrl+S (Lưu tệp)]\n                                     │\n                                     ▼ (Tác vụ nền Affinity)\n     ┌───────────────────────────────┴───────────────────────────────┐\n     ▼                               ▼                               ▼\n[`btn-primary@1x.png`]     [`btn-primary@2x.png`]        [`btn-primary.svg`]"
       }
     ],
     "guidedPractice": {
-      "title": "Setting Up an Automated Mobile App Asset Pipeline",
-      "taskDescription": "Configure a complete 4-tier multi-density export preset for a suite of 4 navigation icons and verify automated continuous rebuilds.",
+      "title": "Dựng dây chuyền xuất bộ Icon cho ứng dụng di động",
+      "taskDescription": "Thiết lập đồng loạt cấu hình 4 tầng xuất đa mật độ cho 4 icon điều hướng và kiểm nghiệm cập nhật tự động.",
       "checkpoints": [
-        "In Export Persona, select all 4 icon slices in the Slices Studio.",
-        "Batch-assign 4 export tiers: 1x PNG (@1x), 2x PNG (@2x), 3x PNG (@3x), and 1x SVG.",
-        "Enable the 'Continuous' export checkbox.",
-        "Export once to establish the target build directory.",
-        "Return to Designer Persona, edit one icon's stroke profile, save with Ctrl+S, and confirm all 4 files update automatically."
+        "Trong Export Persona, chọn cả 4 lát cắt icon trong bảng Slices Studio.",
+        "Gán chung 4 tầng xuất: 1x PNG (@1x), 2x PNG (@2x), 3x PNG (@3x) và 1x SVG.",
+        "Tích bật ô 'Continuous' ở đầu bảng Slices.",
+        "Xuất thử một lần đầu để gắn thư mục build đầu ra.",
+        "Quay lại Designer Persona sửa độ dày nét của một icon, nhấn Ctrl+S và kiểm tra cả 4 tệp trên ổ đĩa tự đổi theo."
       ],
-      "expectedOutcome": "A fully automated build pipeline that updates multi-scale production assets seamlessly during active design work."
+      "expectedOutcome": "Đường ống tự động biên dịch tài sản đồ họa mỗi lần chỉnh sửa và lưu tệp thiết kế."
     },
     "independentChallenge": {
-      "title": "Cross-Platform Asset Distribution Architecture",
-      "prompt": "Construct an automated developer handoff pipeline: (1) Prepare an illustration containing 3 telemetry badges; (2) Create layer-based slices for all 3 badges; (3) Configure custom path templates in the Slices Studio to route files into separate directories (e.g. 'ios/{name}@{dpi}x.{ext}' and 'web/{name}.{ext}'); (4) Set up WebP with 90% quality and PNG with 24-bit transparency; (5) Engage Continuous Export and demonstrate background file generation across both iOS and Web directories upon document save.",
+      "title": "Hệ thống phân phối đa nền tảng theo đường dẫn tự động",
+      "prompt": "Thiết lập đường ống bàn giao tự động cho lập trình viên: (1) Chuẩn bị bản vẽ chứa 3 huy hiệu chỉ số; (2) Tạo Layer-Based Slices cho cả 3 huy hiệu; (3) Cấu hình mẫu đường dẫn trong Slices Studio để tự chia tệp vào hai thư mục riêng ('ios/{name}@{dpi}x.{ext}' và 'web/{name}.{ext}'); (4) Thiết lập WebP chất lượng 90% và PNG-24 có nền trong suốt; (5) Bật Continuous Export và chứng minh các tệp ở cả thư mục iOS lẫn Web tự động tạo lại mỗi khi lưu tài liệu.",
       "starterAsset": {
         "filename": "D10_export_slices_production_guide.md",
         "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
@@ -104,46 +104,46 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for multi-density and continuous export (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn xuất đa mật độ và Continuous Export (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Multi-density export tiers configured across 1x, 2x, and 3x scales.",
-        "Modern WebP and PNG-24 formats operating with proper compression parameters.",
-        "Continuous Export verified: background asset updates fire cleanly on Ctrl+S.",
-        "Zero modal dialogs or workflow interruptions during iterative design."
+        "Cấu hình đủ các tầng xuất đa mật độ qua 1x, 2x và 3x.",
+        "Sử dụng chuẩn xác định dạng WebP và PNG-24 bảo toàn độ trong suốt.",
+        "Kiểm chứng Continuous Export tự cập nhật tệp nền mượt mà khi nhấn Ctrl+S.",
+        "Không bị gián đoạn bởi hộp thoại chọn đường dẫn lặp lại trong quá trình chỉnh sửa."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Forgetting to click 'Export Slices' once after enabling the 'Continuous' checkbox.",
-        "consequence": "Affinity Designer does not know which target directory to save to, so Continuous Export does not initiate.",
-        "solution": "You must click 'Export Slices' one time to choose the output folder. After that initial export, Continuous Export handles all future updates."
+        "mistake": "Chỉ tích ô 'Continuous' mà quên nhấn nút 'Export Slices' lần đầu tiên.",
+        "consequence": "Affinity chưa biết thư mục đích cần ghi tệp vào đâu nên cơ chế Continuous Export không thể tự chạy.",
+        "solution": "Luôn nhấn 'Export Slices' một lần để chọn thư mục đích ngay sau khi bật Continuous; từ đó về sau phần mềm mới tự cập nhật được."
       },
       {
-        "mistake": "Using JPEG format for icons and logos that require transparent backgrounds.",
-        "consequence": "JPEG does not support alpha channels; transparent backgrounds turn into solid white boxes.",
-        "solution": "Always use PNG-24 or WebP for transparent UI assets and iconography."
+        "mistake": "Chọn định dạng JPEG cho bộ icon hoặc logo cần nền trong suốt.",
+        "consequence": "Định dạng JPEG không hỗ trợ kênh trong suốt Alpha nên toàn bộ phần nền rỗng biến thành ô vuông trắng đặc.",
+        "solution": "Luôn dùng PNG-24, WebP hoặc SVG cho icon và các thành phần giao diện cần nền trong suốt."
       },
       {
-        "mistake": "Setting up 3x scale on raster pixel layers originally painted at 72 DPI.",
-        "consequence": "The 3x export looks blurry because there is insufficient source raster data to scale cleanly.",
-        "solution": "Ensure your document was created at 300 DPI (Module D09) so raster textures upscale with razor-sharp fidelity."
+        "mistake": "Xuất tỷ lệ 3x cho tác phẩm có tô lớp Pixel Persona được khởi tạo ban đầu ở 72 DPI.",
+        "consequence": "Bản xuất 3x bị phóng nội suy nên lớp hạt cọ nhìn mờ nhòe thiếu chi tiết.",
+        "solution": "Đảm bảo tài liệu có chứa lớp raster được khởi tạo chuẩn 300 DPI (Module D09) để phóng xuất đa tỷ lệ vẫn sắc mịn."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary function of the 'Continuous' checkbox in Affinity Designer's Slices Studio?",
+        "question": "Chức năng chính của ô tích 'Continuous' trong bảng Slices Studio là gì?",
         "options": [
-          "It plays an animated slideshow of the canvas.",
-          "It automatically re-renders and overwrites all enabled slice files in the target directory whenever the document is saved.",
-          "It connects the document directly to a 3D printer.",
-          "It creates an infinite loop of undo states."
+          "Phát trình chiếu liên tục các trang trên màn hình.",
+          "Tự động kết xuất lại và ghi đè các tệp lát cắt đã bật vào thư mục đích ngay khi tài liệu được lưu hoặc nội dung lát cắt thay đổi.",
+          "Kết nối trực tiếp bản vẽ sang máy in 3D.",
+          "Tạo vòng lặp vô hạn cho lịch sử hoàn tác."
         ],
         "correctIndex": 1,
-        "explanation": "When 'Continuous' is checked, Affinity Designer watches the document: every time you press Ctrl+S (Cmd+S) in any persona, Designer quietly updates all exported slice files in the background without modal prompts."
+        "explanation": "Khi bật 'Continuous' và đã gắn thư mục đích qua lần xuất đầu, mỗi lần lưu file (Ctrl+S / Cmd+S) hoặc sửa nội dung lát cắt, Affinity tự xuất lại các tệp nền không cần hỏi lại."
       },
       {
-        "question": "Which modern image format provides both lossless transparency and superior compression (approximately 30% smaller than PNG) for web delivery?",
+        "question": "Định dạng ảnh hiện đại nào vừa hỗ trợ nền trong suốt đầy đủ vừa cho dung lượng nhỏ hơn khoảng 30% so với PNG truyền thống trên web?",
         "options": [
           "BMP",
           "WebP",
@@ -151,139 +151,139 @@
           "EPS"
         ],
         "correctIndex": 1,
-        "explanation": "WebP supports full 8-bit alpha transparency with significantly smaller file sizes than traditional PNGs, making it the preferred raster format for modern web and mobile apps."
+        "explanation": "WebP hỗ trợ kênh Alpha 8-bit đầy đủ nhưng nén hiệu quả hơn PNG đáng kể, rất phù hợp cho web và ứng dụng di động hiện đại."
       },
       {
-        "question": "What suffix naming convention is standard for Apple iOS Retina 2x and 3x image assets?",
+        "question": "Quy ước hậu tố tên tệp chuẩn cho tài nguyên ảnh mật độ 2x và 3x trên hệ sinh thái iOS Retina là gì?",
         "options": [
-          "_large and _huge",
-          "@2x and @3x",
-          "-retina and -super",
-          ".v2 and .v3"
+          "_large và _huge",
+          "@2x và @3x",
+          "-retina và -super",
+          ".v2 và .v3"
         ],
         "correctIndex": 1,
-        "explanation": "Apple's iOS asset catalog standard relies on the @2x and @3x suffixes (e.g. `icon@2x.png`, `icon@3x.png`) to identify display density tiers."
+        "explanation": "Chuẩn đóng gói ảnh đa mật độ dùng hậu tố @2x và @3x (ví dụ `icon@2x.png`, `icon@3x.png`) để hệ thống tự chọn đúng độ phân giải màn hình."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "A single slice can output multiple densities (1x, 2x, 3x) and formats (PNG, WebP, SVG) simultaneously.",
-        "The Continuous export engine turns Designer into an automated background asset compiler on save.",
-        "WebP delivers modern, high-efficiency transparency for mobile and web delivery.",
-        "Always execute one manual export to bind the output directory before relying on Continuous mode."
+        "Một lát cắt duy nhất có thể xuất đồng thời nhiều tỷ lệ (1x, 2x, 3x) và nhiều định dạng (PNG, WebP, SVG).",
+        "Continuous Export biến Designer thành trình biên dịch tài nguyên đồ họa tự động mỗi khi lưu bản vẽ.",
+        "WebP giúp giảm đáng kể dung lượng truyền tải mà vẫn giữ nền trong suốt mượt mà.",
+        "Luôn nhấn Export Slices một lần đầu để gắn thư mục lưu trước khi dùng chế độ Continuous."
       ],
-      "nextSteps": "Proceed to D10-03 to master clean SVG code optimization, decimal precision, and press-ready PDF/X commercial print preparation.",
+      "nextSteps": "Chuyển sang bài D10-03 để tối ưu mã SVG sạch đẹp cho lập trình viên và xuất tệp PDF/X chuẩn in thương mại.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/ExportPersona/exportSettings.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "The Multi-Density Challenge in Modern UI",
-      "subtitle": "Serving 1x, 2x, and 3x Displays Simultaneously",
+      "title": "Bài toán đa mật độ trong thiết kế giao diện",
+      "subtitle": "Phục vụ đồng thời màn hình 1x, 2x và 3x từ một bản gốc",
       "bullets": [
-        "Modern screens range from standard 1080p monitors to ultra-dense 3x OLED smartphones.",
-        "Deploying a single 1x bitmap looks blurry and low-res on modern phones.",
-        "Deploying an oversized 3x bitmap on standard screens wastes mobile bandwidth.",
-        "Affinity Designer allows a single vector slice to output all required density tiers at once."
+        "Màn hình thực tế trải dài từ màn hình văn phòng 1080p đến điện thoại OLED mật độ 3x.",
+        "Nếu chỉ xuất một ảnh 1x thì lên điện thoại đời mới sẽ bị mờ nhòe.",
+        "Nếu ép tất cả dùng ảnh 3x thì làm chậm tốc độ tải trang và tốn băng thông.",
+        "Slices Studio cho phép một lát cắt vector xuất cùng lúc cả 3 cấp độ phân giải."
       ],
-      "proTip": "Design at 1x base vector scale; let the Slices Studio generate the 2x and 3x assets."
+      "proTip": "Luôn thiết kế ở tỷ lệ gốc 1x chuẩn pixel, rồi để Slices Studio tự nhân lên 2x và 3x."
     },
     {
       "slideNumber": 2,
-      "title": "Configuring Export Tiers in Slices Studio",
-      "subtitle": "Building Your Asset Output Matrix",
+      "title": "Cấu hình nhiều tầng xuất trong Slices Studio",
+      "subtitle": "Xây dựng ma trận định dạng đầu ra linh hoạt",
       "bullets": [
-        "Expand any slice in the Slices Studio by clicking its disclosure arrow.",
-        "Click the '+' button to add multiple resolution and format targets.",
-        "Set Scale multipliers: 1x, 2x, 3x, or specify exact pixel widths (e.g. '512w').",
-        "Set Suffixes: '@1x', '@2x', '@3x' for standard developer file naming."
+        "Nhấp mũi tên mở rộng bất kỳ lát cắt nào trong bảng Slices Studio.",
+        "Nhấn nút '+' để bổ sung thêm các tầng kích thước và định dạng mới.",
+        "Đặt hệ số Scale: 1x, 2x, 3x hoặc nhập chiều rộng pixel cố định (như '512w').",
+        "Đặt Suffix: '@1x', '@2x', '@3x' khớp đúng quy chuẩn đặt tên của dự án lập trình."
       ],
-      "proTip": "Create a 0.5x tier if supporting legacy low-memory embedded displays."
+      "proTip": "Có thể thêm tầng 0.5x nếu dự án cần hỗ trợ thêm các màn hình nhúng độ phân giải thấp."
     },
     {
       "slideNumber": 3,
-      "title": "Modern Digital Formats: PNG, WebP & JPEG XL",
-      "subtitle": "Choosing the Right Codec for the Job",
+      "title": "Chọn đúng định dạng số: PNG, WebP và JPEG XL",
+      "subtitle": "Tối ưu dung lượng và chất lượng hiển thị",
       "bullets": [
-        "PNG-24: Universal compatibility, crisp transparency, but larger file size.",
-        "WebP: Modern web standard, full alpha transparency, 30% smaller than PNG.",
-        "JPEG XL: Next-generation high-efficiency compression with wide color gamut.",
-        "SVG: Mathematical scalability for pure vector icons and illustrations."
+        "PNG-24: tương thích rộng rãi mọi nền tảng, trong suốt sắc nét nhưng dung lượng hơi lớn.",
+        "WebP: chuẩn web hiện đại, hỗ trợ Alpha đầy đủ, dung lượng nhẹ hơn PNG đáng kể.",
+        "JPEG XL: chuẩn nén thế hệ mới hỗ trợ dải màu rộng và hiệu suất nén cao.",
+        "SVG: giữ nguyên toán học vector cho biểu tượng và minh họa phẳng trên web."
       ],
-      "callout": "Never export icons as standard JPEG or transparent backgrounds will turn solid white!"
+      "callout": "Không xuất biểu tượng cần nền trong suốt sang định dạng JPEG vì phần nền rỗng sẽ biến thành màu trắng đặc!"
     },
     {
       "slideNumber": 4,
-      "title": "The Magic of Continuous Export",
-      "subtitle": "Automated Background Asset Compiler",
+      "title": "Tự động hóa bằng Continuous Export",
+      "subtitle": "Cập nhật tệp đầu ra ngay trong nền",
       "bullets": [
-        "Check the 'Continuous' checkbox at the top of the Slices Studio.",
-        "Click 'Export Slices' once to designate your project's destination folder.",
-        "Return to Designer Persona and continue your normal creative workflow.",
-        "Whenever you press Ctrl+S (Cmd+S) to save, Designer automatically updates all files!"
+        "Tích chọn ô 'Continuous' ở phía trên bảng Slices Studio.",
+        "Nhấn 'Export Slices' một lần để chỉ định thư mục chứa tệp đầu ra của dự án.",
+        "Quay về Designer Persona tiếp tục chỉnh sửa màu sắc hoặc đường nét bình thường.",
+        "Mỗi khi bấm Ctrl+S (Cmd+S) hoặc sửa nội dung trong vùng cắt, tệp xuất tự động được làm mới."
       ],
-      "proTip": "Pair Continuous Export with a local dev server (Vite/Webpack) for instant hot-reload design!"
+      "proTip": "Kết hợp Continuous Export với máy chủ chạy web cục bộ (Vite/Webpack) giúp xem bản thiết kế cập nhật ngay trên trình duyệt."
     },
     {
       "slideNumber": 5,
-      "title": "Dynamic Path Templates & Subfolder Routing",
-      "subtitle": "Automating Directory Architecture",
+      "title": "Cú pháp đường dẫn động và tự chia thư mục",
+      "subtitle": "Tổ chức cây thư mục đầu ra ngay từ lúc thiết lập Slice",
       "bullets": [
-        "You can define subfolder paths directly in the slice or suffix fields.",
-        "Entering 'icons/{name}@{dpi}x' routes assets into an 'icons/' subfolder automatically.",
-        "Supports dynamic variables: {name}, {dpi}, {width}, {height}, {format}.",
-        "Eliminates manual file sorting after bulk asset exports."
+        "Bạn có thể viết luôn tên thư mục con ngay trong trường đường dẫn hoặc hậu tố.",
+        "Ví dụ mẫu 'icons/{name}@{dpi}x' sẽ tự tạo và đẩy tệp vào thư mục 'icons/'.",
+        "Hỗ trợ sẵn các biến động như {name}, {dpi}, {width}, {height}, {format}.",
+        "Loại bỏ hoàn toàn thao tác nhặt phân loại tệp thủ công sau mỗi đợt xuất lớn."
       ],
-      "proTip": "Use `{platform}/{name}` templates to separate iOS, Android, and Web builds in one click."
+      "proTip": "Dùng mẫu `{platform}/{name}` để tách gọn tài nguyên cho iOS, Android và Web chỉ với một lần bấm xuất."
     },
     {
       "slideNumber": 6,
-      "title": "Verifying Continuous Rebuilds in Code",
-      "subtitle": "The Friction-Free Developer Handoff",
+      "title": "Bàn giao liền mạch với môi trường lập trình",
+      "subtitle": "Thấy thay đổi tức thì không qua hộp thoại lặp lại",
       "bullets": [
-        "Open your code editor (e.g. VS Code) beside Affinity Designer.",
-        "Nudge a vector anchor point or change a brand accent color in Designer Persona.",
-        "Press Ctrl+S (Cmd+S).",
-        "Watch your local web app refresh immediately with the updated 1x/2x/3x graphics!"
+        "Mở song song trình soạn mã (như VS Code) bên cạnh Affinity.",
+        "Nhích một điểm neo hoặc đổi mã màu nhấn thương hiệu trong Designer Persona.",
+        "Nhấn Ctrl+S (Cmd+S) để lưu tệp gốc.",
+        "Trình duyệt hoặc ứng dụng thử nghiệm tự nạp ngay bộ ảnh 1x/2x/3x mới cập nhật!"
       ],
-      "callout": "Zero dialog boxes, zero file dialogs, zero repetitive export confirmations!"
+      "callout": "Không còn cảnh phải bấm lại qua hàng loạt hộp thoại File > Export sau mỗi chỉnh sửa nhỏ!"
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Mobile Navigation Suite",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Bộ biểu tượng điều hướng đa mật độ",
+      "subtitle": "Thiết lập và kiểm nghiệm Continuous Export thực tế",
       "bullets": [
-        "Follow instructions in 'D10_export_slices_production_guide.md'.",
-        "Configure 4 export tiers for each of your 5 navigation icons (1x PNG, 2x PNG, 3x WebP, 1x SVG).",
-        "Enable the Continuous Export checkbox and export once to your project asset directory.",
-        "Return to Designer Persona, adjust the icon stroke weight, and save with Ctrl+S.",
-        "Verify that all 20 output files regenerate in the background seamlessly."
+        "Làm theo hướng dẫn trong tệp 'D10_export_slices_production_guide.md'.",
+        "Gán 4 tầng xuất cho mỗi icon trong 5 icon điều hướng (1x PNG, 2x PNG, 3x WebP, 1x SVG).",
+        "Bật Continuous Export và xuất lần đầu vào thư mục tài nguyên thử nghiệm.",
+        "Quay lại Designer Persona, sửa độ dày nét vẽ rồi bấm lưu Ctrl+S.",
+        "Mở thư mục đích kiểm tra cả 20 tệp đều được cập nhật thời gian sửa đổi mới nhất."
       ],
-      "proTip": "Check file sizes in File Explorer to verify that WebP is significantly smaller than PNG."
+      "proTip": "So sánh thử dung lượng giữa tệp PNG và WebP ở cùng kích thước để thấy mức tiết kiệm thực tế."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Multi-Density & Continuous Competencies",
+      "title": "Kiểm tra nhanh kiến thức xuất đa mật độ",
+      "subtitle": "Ôn tập trước bài tối ưu mã SVG và in ấn PDF/X",
       "bullets": [
-        "Identify how to add multiple export tiers to a single slice.",
-        "Explain the workflow trigger that fires Continuous Export (saving the document).",
-        "Evaluate the advantages of WebP over PNG for modern mobile applications.",
-        "Confirm all background export files generated cleanly before proceeding."
+        "Nêu thao tác thêm nhiều tầng xuất kích thước cho cùng một Slice.",
+        "Trình bày điều kiện cần (xuất lần đầu gắn thư mục) và thao tác kích hoạt Continuous Export.",
+        "Nêu lý do ưu tiên WebP thay cho PNG ở một số dự án web/mobile.",
+        "Xác nhận toàn bộ tệp nền tự sinh đúng thư mục trước khi chuyển sang bài cuối."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Lesson Summary & Moving to SVG Optimization & Print",
-      "subtitle": "From Automated Pipelines to Code & Press Standards",
+      "title": "Tổng kết & Chuyển sang tối ưu SVG và chuẩn in PDF/X",
+      "subtitle": "Từ tự động xuất ảnh sang chuẩn mực mã nguồn và nhà in",
       "bullets": [
-        "Configured multi-density export matrices across 1x, 2x, and 3x scale factors.",
-        "Automated background asset generation via the Continuous Export engine.",
-        "Leveraged modern WebP and transparent PNG codecs for digital delivery.",
-        "In Lesson D10-03, we inspect raw SVG code optimization and prep commercial PDF/X for print."
+        "Đã thiết lập xong ma trận xuất đa mật độ qua 1x, 2x và 3x.",
+        "Đã vận hành mượt mà cơ chế Continuous Export tự cập nhật nền.",
+        "Đã lựa chọn đúng định dạng PNG-24 và WebP cho sản phẩm số.",
+        "Ở bài cuối D10-03, ta sẽ kiểm tra sạch mã XML của tệp SVG và đóng gói PDF/X-4 đạt chuẩn nhà in thương mại."
       ],
-      "proTip": "Continuous Export transforms Designer from a static drawing tool into a build-pipeline asset compiler."
+      "proTip": "Continuous Export biến phần mềm thiết kế thành công cụ build tài sản trực tiếp cho đội ngũ kỹ thuật."
     }
   ]
 }

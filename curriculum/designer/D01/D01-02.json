@@ -3,43 +3,43 @@
   "moduleId": "D01",
   "trackId": "designer",
   "order": 2,
-  "title": "Artboard Architecture vs Single Canvas Setup",
-  "subtitle": "Responsive Multi-Screen Layouts & Explicit Dimensions",
+  "title": "Cấu trúc Artboard và thiết lập bản vẽ đơn",
+  "subtitle": "Bố cục đa màn hình đáp ứng (Responsive) và quản lý kích thước rõ ràng",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Distinguish between single canvas documents and multi-artboard responsive design documents.",
-      "Create, resize, duplicate, and organize artboards using the Artboard Tool and Transform Studio.",
-      "Configure print bleed (3mm), margins, and color spaces (RGB vs CMYK) across artboards.",
-      "Manage artboard hierarchies in the Layers panel and understand how objects clip within artboard bounds."
+      "Phân biệt khi nào nên dùng bản vẽ đơn (Single Canvas) và khi nào nên dùng tài liệu nhiều Artboard (Multi-Artboard).",
+      "Tạo, thay đổi kích thước, nhân bản và sắp xếp nhiều artboard bằng Artboard Tool (công cụ quản lý khung bản vẽ) cùng bảng Transform Studio.",
+      "Thiết lập vùng bù xén in ấn (Bleed 3mm), lề (Margins) và không gian màu (RGB và CMYK) phù hợp mục đích sử dụng.",
+      "Quản lý cây phân cấp artboard trong Layers Studio và hiểu cách các đối tượng tự động cắt gọn theo biên của artboard."
     ],
-    "foundationalKnowledge": "In digital design, artboards act as independent design canvases residing inside a single infinite workspace. While a single-canvas setup is ideal for one-off standalone graphics (e.g. a poster or t-shirt print), modern creative workflows require designing responsive digital experiences across mobile, tablet, desktop, and watch screen dimensions simultaneously. In Affinity Designer, an artboard is fundamentally a specialized container layer with its own bounding box, background fill, and export properties. Elements placed on an artboard automatically clip to its boundaries, preventing visual bleed between adjacent screen variations.",
+    "foundationalKnowledge": "Trong thiết kế số, mỗi Artboard đóng vai trò như một khung bản vẽ độc lập nằm trong cùng một không gian làm việc mở rộng vô hạn. Thiết lập bản vẽ đơn rất phù hợp cho sản phẩm độc lập như áp phích hoặc hình in áo, nhưng thiết kế hiện đại thường đòi hỏi trình bày đồng thời nhiều kích thước màn hình: điện thoại, máy tính bảng và máy tính bàn. Trong Affinity, mỗi artboard về bản chất là một lớp chứa (container) đặc biệt có khung giới hạn và thuộc tính xuất file riêng. Những đối tượng đặt vào artboard sẽ tự động được cắt gọn trong ranh giới của artboard đó, tránh tràn hình sang các phiên bản màn hình kế bên.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer Multi-Artboard Engine & Transform Panel Documentation",
+      "source": "Tài liệu về hệ thống Multi-Artboard & bảng Transform Studio trong Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Artboard Tool",
-      "persona": "Vector Persona",
+      "persona": "Vector Persona (không gian thiết kế vector)",
       "shortcut": {
-        "win": "No shortcut or exact tool-access path verified from the retrieved Help Center article",
-        "mac": "No shortcut or exact tool-access path verified from the retrieved Help Center article"
+        "win": "Chưa xác minh phím tắt mặc định hay đường dẫn chi tiết từ trang Help Center đã truy xuất",
+        "mac": "Chưa xác minh phím tắt mặc định hay đường dẫn chi tiết từ trang Help Center đã truy xuất"
       },
-      "description": "The Artboard Tool creates and manages independent artboards within one document. The mapped lesson practice uses explicit pixel dimensions and names. The exact context-toolbar layout and any named device-preset catalogue remain unverified because the official Help Center article body was not accessible in this review.",
+      "description": "Artboard Tool dùng để tạo và quản lý các khung bản vẽ độc lập trong cùng một tệp tài liệu. Bài thực hành sử dụng kích thước pixel và tên gọi cụ thể. Bố cục chính xác của thanh Context Toolbar cũng như danh mục preset thiết bị có sẵn cần đối chiếu trực tiếp trên bản Affinity bạn đang cài do nội dung bài Help Center gốc chưa được trích xuất đầy đủ.",
       "contextBarOptions": [
-        "Mapped practice: create artboards with explicit pixel dimensions and names; exact size-entry controls require target-build confirmation.",
-        "Named device presets are not asserted until the current Help Center article body or target application has been checked.",
-        "Background-fill and transparency controls are not independently verified in this review.",
-        "Lock Children appears in lesson material; verify its exact current label and behavior on the target build."
+        "Thực hành theo bài: tạo artboard với kích thước pixel và tên gọi cụ thể; đối chiếu vị trí ô nhập kích thước trực tiếp trên bản Affinity đang dùng",
+        "Không mặc định khẳng định danh sách preset thiết bị có tên sẵn nếu chưa kiểm tra trực tiếp trên bản cài đặt hoặc trang Help Center đầy đủ",
+        "Các nút chỉnh màu nền riêng và độ trong suốt của artboard cần kiểm tra thực tế trên bản đang dùng",
+        "Tùy chọn Lock Children có xuất hiện trong quy trình học; hãy kiểm tra tên nhãn chính xác và hiệu ứng khi co giãn trên bản cài đặt mục tiêu"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Create a New Artboard-Enabled Document",
-        "instruction": "Press Ctrl+N (Windows) / Cmd+N (macOS). Under the 'Web' category, select 'FHD (1920 x 1080)'. Under Layout, check the box labeled 'Create Artboard'. Click Create.",
+        "title": "Khởi tạo tài liệu có bật sẵn Artboard",
+        "instruction": "Nhấn Ctrl+N (Windows) / Cmd+N (macOS). Ở nhóm 'Web', chọn mẫu 'FHD (1920 x 1080)'. Trong phần Layout, tích chọn ô 'Create Artboard', sau đó nhấn Create.",
         "shortcutTip": {
           "win": "Ctrl+N",
           "mac": "Cmd+N"
@@ -47,60 +47,60 @@
       },
       {
         "stepNumber": 2,
-        "title": "Add a Tablet Artboard with Explicit Dimensions",
-        "instruction": "Use the Artboard Tool to add a second artboard, set it to 768 x 1024 px using the custom-dimension controls available in the target build, then name it 'Web-Tablet'. Do not rely on a named device preset; the current preset catalogue has not been verified from the official article body.",
+        "title": "Thêm artboard Tablet với kích thước cụ thể",
+        "instruction": "Dùng Artboard Tool để thêm artboard thứ hai, thiết lập kích thước 768 x 1024 px qua các ô nhập kích thước tùy chỉnh có trên bản Affinity đang dùng, rồi đặt tên là 'Web-Tablet'. Không phụ thuộc vào tên preset thiết bị cố định vì danh mục preset hiện hành chưa được kiểm chứng từ nội dung bài Help Center.",
         "shortcutTip": {
-          "win": "Custom-size control path not verified",
-          "mac": "Custom-size control path not verified"
+          "win": "Kiểm tra ô nhập kích thước tùy chỉnh trên giao diện",
+          "mac": "Kiểm tra ô nhập kích thước tùy chỉnh trên giao diện"
         }
       },
       {
         "stepNumber": 3,
-        "title": "Duplicate an Artboard with Content",
-        "instruction": "Select the Desktop artboard and use the duplicate workflow available in the current build. Confirm that its contained layers are duplicated with it; the exact Alt/Option-drag shortcut is not asserted until checked on the target app.",
+        "title": "Nhân bản artboard kèm toàn bộ nội dung bên trong",
+        "instruction": "Chọn artboard Desktop và thực hiện thao tác nhân bản có sẵn trên bản Affinity đang dùng. Kiểm tra xem các lớp con bên trong có được nhân bản đầy đủ theo không; phím tắt Alt/Option+kéo chuột chưa được khẳng định chắc chắn cho tới khi kiểm tra trực tiếp trên ứng dụng.",
         "shortcutTip": {
-          "win": "Verify duplicate workflow in target build",
-          "mac": "Verify duplicate workflow in target build"
+          "win": "Kiểm tra thao tác nhân bản trên bản đang dùng",
+          "mac": "Kiểm tra thao tác nhân bản trên bản đang dùng"
         }
       },
       {
         "stepNumber": 4,
-        "title": "Verify Artboard Child-Resize Behavior",
-        "instruction": "Before relying on a 'Lock Children' option, verify that the control exists in the target build, confirm its current label, and test its effect on a duplicate artboard. This interaction is not certified by the available Help Center article body.",
+        "title": "Kiểm tra hành vi co giãn lớp con của Artboard",
+        "instruction": "Trước khi dựa vào tùy chọn 'Lock Children', hãy kiểm tra xem nút điều khiển này nằm ở đâu trên bản đang dùng, xác nhận tên nhãn hiện tại và thử nghiệm trực tiếp trên một artboard bản sao. Tương tác này chưa được xác nhận từ nội dung bài Help Center đã thu thập.",
         "shortcutTip": {
-          "win": "Target-build verification required",
-          "mac": "Target-build verification required"
+          "win": "Cần kiểm chứng trên bản cài đặt thực tế",
+          "mac": "Cần kiểm chứng trên bản cài đặt thực tế"
         }
       }
     ],
     "visualExamples": [
       {
-        "title": "Artboard vs Single Canvas Comparison",
-        "description": "Key structural differences between canvas models.",
+        "title": "So sánh Bản vẽ đơn và Hệ thống nhiều Artboard",
+        "description": "Các khác biệt cấu trúc chính giữa hai mô hình tổ chức trang vẽ.",
         "visualType": "table",
-        "visualContent": "| Feature | Single Canvas Setup | Multi-Artboard Setup |\n|---|---|---|\n| Multi-Screen UI | Impossible in one file | Seamless (Desktop + Mobile side-by-side) |\n| Export Persona | Exports whole canvas as 1 file | Auto-detects each artboard as a slice |\n| Bleed Display | Bleed shows outside page edge | Bleed is contained per artboard |\n| Asset Sharing | Objects outside canvas get lost | Shared assets can sit on pasteboard |"
+        "visualContent": "| Tiêu chí | Bản vẽ đơn (Single Canvas) | Nhiều Artboard (Multi-Artboard) |\n|---|---|---|\n| Thiết kế giao diện đa màn hình | Không thể đặt nhiều màn hình trong 1 file | Đặt Desktop, Tablet, Mobile song song dễ so sánh |\n| Cách Export Persona xử lý | Xuất cả vùng vẽ thành 1 tệp | Tự nhận diện từng artboard thành 1 vùng cắt (Slice) |\n| Hiển thị vùng xén (Bleed) | Bleed nằm ngoài mép trang duy nhất | Bleed quản lý tách biệt cho từng artboard |\n| Chia sẻ tài nguyên phụ trợ | Đối tượng ngoài vùng vẽ dễ bị khuất | Bảng màu, ghi chú đặt thoải mái ngoài vùng pasteboard |"
       },
       {
-        "title": "Responsive Layout Diagram",
-        "description": "How multi-device layouts align on the infinite pasteboard.",
+        "title": "Sơ đồ bố cục giao diện đa thiết bị (Responsive)",
+        "description": "Cách sắp xếp nhiều kích thước màn hình song song trên cùng không gian làm việc.",
         "visualType": "diagram",
-        "visualContent": "Infinite Pasteboard\n [Artboard: Desktop 1920x1080]   [Artboard: Tablet 768x1024]   [Artboard: Mobile 375x812]\n  ├── Header (3-col)             ├── Header (2-col)            ├── Header (Stacked)\n  └── Hero Grid                  └── Hero Grid                 └── Single Column"
+        "visualContent": "Không gian làm việc mở rộng (Pasteboard)\n [Artboard: Desktop 1920x1080]   [Artboard: Tablet 768x1024]   [Artboard: Mobile 375x812]\n  ├── Header (3 cột)             ├── Header (2 cột)            ├── Header (Xếp dọc)\n  └── Lưới Hero                  └── Lưới Hero                 └── Bố cục 1 cột"
       }
     ],
     "guidedPractice": {
-      "title": "Responsive UI Artboard Setup",
-      "taskDescription": "Set up a clean 3-artboard design system workspace for a SaaS web application.",
+      "title": "Thiết lập hệ thống Artboard cho giao diện Web SaaS",
+      "taskDescription": "Dựng nhanh bộ khung 3 artboard gọn gàng phục vụ thiết kế một ứng dụng web đa thiết bị.",
       "checkpoints": [
-        "Create Desktop artboard: 1920x1080 px, named 'Web-Desktop'.",
-        "Add Tablet artboard: 768x1024 px, named 'Web-Tablet'.",
-        "Add Mobile artboard: 375x812 px, named 'Web-Mobile'.",
-        "Align artboards with 100px uniform gap using the Alignment panel."
+        "Tạo artboard Desktop: 1920×1080 px, đặt tên 'Web-Desktop'.",
+        "Thêm artboard Tablet: 768×1024 px, đặt tên 'Web-Tablet'.",
+        "Thêm artboard Mobile: 375×812 px, đặt tên 'Web-Mobile'.",
+        "Căn đều khoảng cách giữa 3 artboard là 100 px bằng bảng Alignment."
       ],
-      "expectedOutcome": "A synchronized multi-device workspace ready for responsive typography and layout testing."
+      "expectedOutcome": "Không gian làm việc đồng bộ 3 kích thước màn hình, sẵn sàng cho việc thử nghiệm chữ và lưới bố cục."
     },
     "independentChallenge": {
-      "title": "Cross-Platform Social Media Suite",
-      "prompt": "Create a multi-artboard document containing exact aspect ratio artboards for a marketing campaign: (1) Instagram Post (1080x1080), (2) Instagram Story (1080x1920), (3) Twitter/X Header (1500x500), (4) LinkedIn Post (1200x627). Add a shared color palette on the pasteboard.",
+      "title": "Bộ ấn phẩm mạng xã hội đa nền tảng",
+      "prompt": "Tạo một tệp tài liệu gồm 4 artboard đúng tỷ lệ chuẩn cho một chiến dịch truyền thông: (1) Bài đăng Instagram vuông (1080×1080), (2) Instagram Story dọc (1080×1920), (3) Ảnh bìa Twitter/X (1500×500), (4) Bài đăng LinkedIn ngang (1200×627). Đặt thêm một bảng màu dùng chung bên ngoài artboard (trên pasteboard).",
       "starterAsset": {
         "filename": "D01_artboard_starter_guide.md",
         "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
@@ -108,85 +108,85 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Setup guide for social media artboard dimensions (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thiết lập kích thước artboard mạng xã hội (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "All 4 artboards created with exact pixel dimensions.",
-        "Each artboard properly named in the Layers panel.",
-        "Any Lock Children behavior used while adjusting banner margins is verified directly in the target build; do not assume the control or its exact behavior from this lesson alone."
+        "Cả 4 artboard đều đúng kích thước pixel yêu cầu.",
+        "Mỗi artboard được đặt tên rõ ràng trong bảng Layers Studio.",
+        "Nếu dùng hành vi 'Lock Children' khi chỉnh lại kích thước lề banner, cần kiểm chứng trực tiếp trên bản Affinity đang dùng thay vì mặc định suy đoán từ bài học."
       ],
-      "bonusGoal": "Set unique background fill colors for each social platform artboard."
+      "bonusGoal": "Đặt màu nền riêng biệt cho từng artboard của mỗi nền tảng mạng xã hội."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Unverified child-resize behavior when changing artboard dimensions",
-        "cause": "The exact effect of resizing an artboard on its child objects has not been confirmed from the current official Artboard Tool article body in this audit.",
-        "solution": "Test on a duplicate artboard and confirm the target build's current resize controls and behavior before applying them to production artwork."
+        "pitfall": "Chưa kiểm chứng hành vi co giãn lớp con khi đổi kích thước Artboard",
+        "cause": "Tác động cụ thể của việc kéo giãn artboard lên các đối tượng con bên trong chưa được xác nhận từ nội dung bài viết Artboard Tool chính thức trong đợt rà soát này.",
+        "solution": "Hãy thử trên một artboard bản sao để kiểm tra nhãn điều khiển và kết quả co giãn thực tế trên phiên bản Affinity đang cài trước khi áp dụng vào file sản xuất."
       },
       {
-        "pitfall": "Layers floating outside artboard containers",
-        "cause": "Dragging an element across artboards can place it onto the generic pasteboard root instead of inside the target artboard layer.",
-        "solution": "Check the Layers Studio. Drag the object directly into the target artboard layer hierarchy to ensure proper clipping and export association."
+        "pitfall": "Đối tượng bị trôi ra ngoài thư mục chứa của Artboard",
+        "cause": "Khi kéo một chi tiết qua lại giữa các artboard, đối tượng có thể vô tình nằm ở gốc pasteboard thay vì lồng bên trong lớp artboard đích.",
+        "solution": "Kiểm tra lại Layers Studio và kéo thả đối tượng vào đúng tầng của artboard mong muốn để đảm bảo cắt biên và xuất file chuẩn."
       },
       {
-        "pitfall": "Export Persona exporting only one screen",
-        "cause": "If artboards were not enabled and artwork was drawn on standard canvas layers, Export Persona does not automatically create discrete slices.",
-        "solution": "Convert layers to artboards via Layer > New Artboard, or use the Slice Tool in Export Persona."
+        "pitfall": "Export Persona chỉ nhận diện được một màn hình duy nhất",
+        "cause": "Khi tạo tài liệu ban đầu bạn quên tích 'Create Artboard', khiến mọi thứ nằm trên một bản vẽ đơn thông thường.",
+        "solution": "Chuyển đổi lớp sang artboard qua menu Layer > New Artboard, hoặc tự vẽ vùng cắt bằng Slice Tool trong Export Persona."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D01-02-Q1",
-        "question": "What should you do before relying on a 'Lock Children' workflow in the current Affinity build?",
+        "question": "Bạn nên làm gì trước khi áp dụng quy trình 'Lock Children' trên bản Affinity đang sử dụng?",
         "options": [
-          "Assume the control and behavior are identical across releases.",
-          "Verify the current control label and resizing effect on a duplicate artboard.",
-          "Choose a named device preset.",
-          "Convert the artboard to pixels."
+          "Mặc định coi nút điều khiển và hành vi luôn giống hệt mọi phiên bản cũ.",
+          "Kiểm tra tên nhãn điều khiển hiện hành và thử hiệu ứng co giãn trên một artboard bản sao.",
+          "Chọn đại một preset thiết bị có tên sẵn.",
+          "Chuyển đổi artboard thành lớp điểm ảnh."
         ],
         "correctIndex": 1,
-        "explanation": "The Artboard Tool Help Center article body was not accessible in this audit, so the exact control label and resize effect must be checked on the target build before being taught as verified."
+        "explanation": "Do nội dung chi tiết của bài Help Center về Artboard Tool chưa truy xuất được đầy đủ trong đợt kiểm tra, cần kiểm chứng trực tiếp nhãn nút và hành vi co giãn trên bản Affinity đang dùng trước khi áp dụng vào file thật."
       },
       {
         "id": "D01-02-Q2",
-        "question": "How can you quickly duplicate an entire artboard along with all of its contents?",
+        "question": "Cách làm an toàn nhất để nhân bản một artboard kèm toàn bộ nội dung bên trong là gì?",
         "options": [
           "File > Duplicate Canvas",
-          "Select the artboard and use the duplication workflow verified in the current target build.",
-          "Export to PDF and re-import",
-          "Press Ctrl+Shift+N"
+          "Chọn artboard và thực hiện thao tác nhân bản đã kiểm chứng trực tiếp trên bản Affinity đang dùng.",
+          "Xuất ra file PDF rồi nhập lại",
+          "Nhấn tổ hợp Ctrl+Shift+N"
         ],
         "correctIndex": 1,
-        "explanation": "The exact shortcut for duplicating an artboard with its contents has not been independently verified in this pass; confirm the current target-build workflow rather than assuming Alt/Option-drag."
+        "explanation": "Phím tắt nhân bản artboard kèm nội dung (như Alt/Option+kéo) chưa được kiểm chứng độc lập ở lượt rà soát này, nên cần đối chiếu trực tiếp thao tác đúng trên bản Affinity của bạn."
       },
       {
         "id": "D01-02-Q3",
-        "question": "How does Export Persona treat artboards created in Affinity Designer?",
+        "question": "Export Persona xử lý các artboard được tạo trong tài liệu như thế nào?",
         "options": [
-          "It forces the user to manually draw slices over each screen.",
-          "It automatically generates an individual export slice for every artboard in the document.",
-          "It merges all artboards into a single gigantic PNG.",
-          "It ignores artboards completely."
+          "Buộc người dùng phải vẽ thủ công vùng cắt đè lên từng màn hình.",
+          "Tự động tạo một vùng cắt xuất file (Slice) riêng cho từng artboard trong tài liệu.",
+          "Gộp tất cả artboard thành một ảnh PNG khổng lồ duy nhất.",
+          "Bỏ qua toàn bộ các artboard."
         ],
         "correctIndex": 1,
-        "explanation": "In Export Persona, every artboard automatically becomes a primary slice, allowing one-click batch export of all screen sizes."
+        "explanation": "Trong Export Persona, mỗi artboard mặc định trở thành một Slice độc lập, giúp bạn xuất hàng loạt tất cả kích thước màn hình chỉ với một thao tác."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Artboards provide independent, multi-dimensional canvases within a single project file.",
-        "Artboards automatically clip child content and streamline multi-density export.",
-        "Verify the target build's child-resize behavior before relying on a Lock Children control.",
-        "Multi-artboard setups are the industry standard for responsive UI design and multi-format campaigns."
+        "Artboard cho phép đặt nhiều khung bản vẽ độc lập với kích thước khác nhau trong một tệp dự án.",
+        "Artboard tự động cắt gọn nội dung tràn biên và hỗ trợ xuất hàng loạt trong Export Persona.",
+        "Cần kiểm tra trực tiếp hành vi co giãn lớp con ('Lock Children') trên bản Affinity đang cài trước khi sử dụng.",
+        "Thiết lập đa artboard là quy trình chuẩn cho thiết kế UI đa thiết bị và bộ ấn phẩm truyền thông."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D01-03 Vector View Modes, Grids & Snapping Systems",
+          "title": "Bài tiếp theo: D01-03 Chế độ xem Vector, Pixel Preview, lưới và căn gióng",
           "target": "D01-03",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Guide: Artboard Best Practices",
+          "title": "Tài liệu Affinity: Thực hành tốt nhất với Artboard",
           "target": "https://affinity.serif.com/designer/artboards/",
           "type": "doc"
         }
@@ -198,36 +198,36 @@
       "id": "D01-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Artboard Architecture vs Single Canvas Setup",
-      "subtitle": "Designing for the Multi-Device Era",
-      "contentMarkdown": "In modern digital product design, you rarely design for a single screen size.\n\nYou design responsive ecosystems that adapt across mobile phones, tablets, high-resolution desktops, and print collateral.\n\nIn this lesson, you will master **Affinity Designer's Artboard Architecture**—learning how to manage multi-device viewports, configure print bleeds, and unlock automated batch export.",
+      "title": "Cấu Trúc Artboard & Thiết Lập Bản Vẽ Đơn",
+      "subtitle": "Tổ chức bản vẽ cho thời đại đa thiết bị",
+      "contentMarkdown": "Khi làm sản phẩm số hiện đại, hiếm khi bạn chỉ thiết kế cho một kích thước màn hình cố định.\n\nGiao diện phải thích ứng mượt mà từ điện thoại, máy tính bảng đến màn hình máy tính độ phân giải cao hay ấn phẩm in.\n\nTrong bài học này, bạn sẽ nắm vững **kiến trúc Artboard trong Affinity**: cách tổ chức nhiều khung màn hình song song, đặt kích thước chuẩn xác và tận dụng xuất file tự động.",
       "actionBox": {
-        "label": "Core Principle",
-        "text": "Artboards are isolated canvas containers living in a unified pasteboard."
+        "label": "Nguyên lý cốt lõi",
+        "text": "Mỗi Artboard là một vùng chứa bản vẽ biệt lập cùng nằm trên một không gian pasteboard chung."
       }
     },
     {
       "id": "D01-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "When to Use Artboards vs Single Canvas",
-      "subtitle": "Choosing the Optimal Document Foundation",
-      "contentMarkdown": "Choosing your canvas structure at document creation sets the tone for your entire project:\n\n### Single Canvas Setup\n- **Best For:** Standalone digital illustrations, single-page posters, t-shirt prints, or photo matte paintings.\n- **Characteristics:** Fixed canvas boundary; elements outside the canvas are hidden.\n\n### Multi-Artboard Setup\n- **Best For:** UI/UX design, mobile app prototypes, multi-size social media ad sets, and brand identity kits.\n- **Characteristics:** Multiple independent canvases of varying dimensions and DPI living side-by-side in one `.afdesign` document.",
+      "title": "Khi Nào Dùng Artboard, Khi Nào Dùng Bản Vẽ Đơn?",
+      "subtitle": "Chọn đúng nền tảng ngay từ bước tạo file",
+      "contentMarkdown": "Quyết định chọn loại khung vẽ lúc khởi tạo ảnh hưởng trực tiếp tới tốc độ làm việc:\n\n### Bản vẽ đơn (Single Canvas)\n- **Phù hợp cho:** Tranh minh họa độc lập, poster một trang, hình in áo thun hoặc ghép ảnh.\n- **Đặc điểm:** Chỉ có một ranh giới khung vẽ duy nhất; chi tiết đặt ra ngoài ranh giới sẽ bị che khuất.\n\n### Hệ thống nhiều Artboard (Multi-Artboard)\n- **Phù hợp cho:** Thiết kế UI/UX, màn hình ứng dụng di động, bộ banner mạng xã hội nhiều kích thước và bộ nhận diện thương hiệu.\n- **Đặc điểm:** Nhiều bản vẽ độc lập khác kích thước và mật độ điểm ảnh nằm cạnh nhau trong cùng một tệp.",
       "visual": {
         "type": "callout",
-        "content": "Rule of Thumb: If your project produces more than one final asset or requires responsive testing, always choose Artboards."
+        "content": "Quy tắc nhanh: Nếu dự án cần xuất ra từ 2 phiên bản kích thước khác nhau trở lên, hãy luôn chọn tạo Artboard."
       }
     },
     {
       "id": "D01-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Artboard Tool & Context Toolbar",
-      "subtitle": "Precision Canvas Creation at Your Fingertips",
-      "contentMarkdown": "The **Artboard Tool** creates and manages separate artboards within one document.\n\n- **Explicit dimensions:** the mapped practice uses custom pixel sizes for Desktop, Tablet and Mobile.\n- **Preset list:** named device and paper presets are not asserted here because the official Artboard Tool article body was not retrievable during this review.\n- **Lock Children:** this lesson includes the workflow, but the exact current control label and behavior still require a target-build check.",
+      "title": "Công Cụ Artboard Tool & Thanh Context Toolbar",
+      "subtitle": "Tạo và quản lý khung bản vẽ linh hoạt",
+      "contentMarkdown": "**Artboard Tool** (công cụ quản lý khung bản vẽ) cho phép tạo và sắp xếp nhiều artboard trong một tài liệu.\n\n- **Kích thước tường minh:** Bài thực hành sử dụng thông số pixel cụ thể cho Desktop, Tablet và Mobile.\n- **Danh mục Preset:** Không mặc định khẳng định danh sách preset thiết bị hoặc giấy có tên sẵn vì nội dung bài viết Artboard Tool chính thức chưa trích xuất được đầy đủ trong đợt rà soát.\n- **Lock Children:** Quy trình này có nhắc tới tùy chọn khóa lớp con khi chỉnh kích thước, nhưng nhãn hiển thị và hành vi thực tế cần kiểm tra trực tiếp trên bản Affinity bạn đang dùng.",
       "actionBox": {
-        "label": "Essential Setting",
-        "text": "Test the current artboard child-resize behavior on a duplicate before relying on any Lock Children control.",
+        "label": "Kiểm tra an toàn",
+        "text": "Hãy thử đổi kích thước trên một artboard bản sao trước khi tin dùng tùy chọn Lock Children trên bản vẽ thật.",
         "shortcut": {
           "win": "Context Toolbar",
           "mac": "Context Toolbar"
@@ -238,55 +238,55 @@
       "id": "D01-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Building a Responsive Trio",
-      "subtitle": "Desktop, Tablet & Mobile Side-by-Side",
-      "contentMarkdown": "1. **Initialize Document:** Press `Ctrl+N` (Win) / `Cmd+N` (Mac). Choose `Web > FHD (1920x1080)` and ensure `[x] Create Artboard` is active.\n2. **Name the Desktop Artboard:** In the Layers panel, double-click the artboard name and rename to `Desktop-1920`.\n3. **Insert Tablet Screen:** Activate the Artboard Tool. Use the current build's custom-size workflow to create a Tablet artboard at `768 x 1024 px`; name it `Web-Tablet`. Do not rely on an unverified named preset.\n4. **Insert Mobile Screen:** Create a Mobile artboard at `375 x 812 px` using the same explicit-dimension workflow; name it `Web-Mobile`.\n5. **Organize Spacing:** Use the Move Tool to arrange all three artboards horizontally with equal 100px gaps on your pasteboard.",
+      "title": "Thực Hành: Dựng Bộ Ba Màn Hình Responsive",
+      "subtitle": "Desktop, Tablet và Mobile đặt song song",
+      "contentMarkdown": "Thực hiện theo các bước sau:\n\n1. **Khởi tạo tài liệu:** Nhấn `Ctrl+N` (Win) / `Cmd+N` (Mac). Chọn `Web > FHD (1920x1080)` và tích chọn `[x] Create Artboard`.\n2. **Đặt tên artboard đầu tiên:** Trong Layers Studio, nhấp đúp vào tên artboard và đổi thành `Desktop-1920`.\n3. **Thêm màn hình Tablet:** Kích hoạt **Artboard Tool**, nhập kích thước tùy chỉnh `768 x 1024 px` theo giao diện trên bản đang dùng và đặt tên `Web-Tablet` (không phụ thuộc preset chưa kiểm chứng).\n4. **Thêm màn hình Mobile:** Tạo tiếp artboard `375 x 812 px` bằng cách nhập kích thước tương tự và đặt tên `Web-Mobile`.\n5. **Sắp xếp khoảng cách:** Dùng **Move Tool (V)** căn cả 3 artboard nằm ngang cách đều nhau 100 px.",
       "visual": {
         "type": "diagram",
-        "content": "[Desktop 1920x1080]  80px  [Tablet 768x1024]  80px  [Mobile 393x852]"
+        "content": "[Desktop 1920x1080]  100px  [Tablet 768x1024]  100px  [Mobile 375x812]"
       }
     },
     {
       "id": "D01-02-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Artboard Pitfalls & Pro-Tips",
-      "subtitle": "Avoid Content Distortion and Layer Drift",
-      "contentMarkdown": "### 1. Child behavior during resize\n- **Check:** The effect of resizing an artboard on its contents must be confirmed in the current target build.\n- **Safe method:** Test on a duplicate artboard before relying on a Lock Children control; verify the current control label and result.\n\n### 2. Layers escaping the Artboard\n- **Cause:** Moving elements near the artboard edge can inadvertently place them on the root pasteboard.\n- **Fix:** Check the Layers panel and confirm that child elements are nested under the intended artboard layer.\n\n### 3. Bleed Preview\n- **Check:** Verify the current canvas clipping/bleed display mode before judging whether artwork extends beyond the page edge.",
+      "title": "Lỗi Thường Gặp Với Artboard & Cách Tránh",
+      "subtitle": "Giữ cấu trúc layer gọn gàng, không méo bố cục",
+      "contentMarkdown": "### 1. Hành vi lớp con khi co giãn Artboard\n- **Cần kiểm tra:** Tác động của việc đổi kích thước artboard lên các đối tượng bên trong cần được xác nhận trên bản Affinity đang cài.\n- **Cách làm an toàn:** Thử nghiệm trước trên bản sao để xác nhận tên nút và hành vi của `Lock Children`.\n\n### 2. Lớp đối tượng bị lọt ra ngoài Artboard\n- **Nguyên nhân:** Kéo đối tượng sát mép có thể khiến phần mềm đưa đối tượng ra ngoài gốc pasteboard.\n- **Cách xử lý:** Kiểm tra **Layers Studio** để chắc chắn đối tượng con nằm lồng đúng dưới tên artboard mong muốn.\n\n### 3. Kiểm tra vùng tràn lề (Bleed)\n- **Cần kiểm tra:** Xác nhận chế độ hiển thị cắt theo khung vẽ (Clip to Canvas / Show Bleed) trên bản đang dùng trước khi đánh giá phần đồ họa tràn mép.",
       "actionBox": {
-        "label": "Quick Fix",
-        "text": "Before relying on an artboard duplicate shortcut or child-resize option, verify its exact behavior in the current target build."
+        "label": "Thói quen tốt",
+        "text": "Luôn kiểm chứng thao tác nhân bản artboard và tùy chọn khóa lớp con ngay trên bản Affinity của bạn trước khi làm dự án lớn."
       }
     },
     {
       "id": "D01-02-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Artboard Mechanics",
-      "subtitle": "Test Your Mastery",
-      "contentMarkdown": "Validate your understanding of artboard behavior.",
+      "title": "Kiểm Tra Nhanh: Cơ Chế Artboard",
+      "subtitle": "Xác nhận lại kiến thức trọng tâm",
+      "contentMarkdown": "Trả lời câu hỏi dưới đây để củng cố kiến thức về thao tác an toàn với Artboard.",
       "quizData": {
         "id": "D01-02-Q1",
-        "question": "What should you do before relying on a 'Lock Children' workflow in the current Affinity build?",
+        "question": "Bạn nên làm gì trước khi áp dụng quy trình 'Lock Children' trên bản Affinity đang sử dụng?",
         "options": [
-          "Assume the control and behavior are identical across releases.",
-          "Verify the current control label and resizing effect on a duplicate artboard.",
-          "Choose a named device preset.",
-          "Convert the artboard to pixels."
+          "Mặc định coi nút điều khiển và hành vi luôn giống hệt mọi phiên bản cũ.",
+          "Kiểm tra tên nhãn điều khiển hiện hành và thử hiệu ứng co giãn trên một artboard bản sao.",
+          "Chọn đại một preset thiết bị có tên sẵn.",
+          "Chuyển đổi artboard thành lớp điểm ảnh."
         ],
         "correctIndex": 1,
-        "explanation": "The Artboard Tool Help Center article body was not accessible in this audit, so the exact control label and resize effect must be checked on the target build before being taught as verified."
+        "explanation": "Do nội dung chi tiết của bài Help Center về Artboard Tool chưa truy xuất được đầy đủ trong đợt kiểm tra, cần kiểm chứng trực tiếp nhãn nút và hành vi co giãn trên bản Affinity đang dùng trước khi áp dụng vào file thật."
       }
     },
     {
       "id": "D01-02-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Campaign Artboard Suite",
-      "subtitle": "Build a Cross-Platform Social Ad Set",
-      "contentMarkdown": "### Your Mission:\nCreate a multi-artboard marketing document with 4 exact social media formats:\n\n1. **Instagram Post:** 1080 x 1080 px (Square)\n2. **Instagram Story / Reel:** 1080 x 1920 px (Vertical 9:16)\n3. **Twitter / X Header:** 1500 x 500 px (Banner 3:1)\n4. **LinkedIn Post:** 1200 x 627 px (Landscape 1.91:1)\n\n### Acceptance Criteria:\n- All 4 artboards created with exact dimensions.\n- Each artboard named accurately in the Layers Studio.\n- Arrange artboards neatly on the pasteboard with consistent spacing.",
+      "title": "Thử Thách Độc Lập: Bộ Artboard Truyền Thông",
+      "subtitle": "Thiết lập trọn bộ kích thước mạng xã hội",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nTạo tài liệu đa artboard gồm đúng 4 định dạng mạng xã hội:\n\n1. **Instagram Post:** 1080 × 1080 px (Hình vuông)\n2. **Instagram Story / Reel:** 1080 × 1920 px (Dọc 9:16)\n3. **Twitter / X Header:** 1500 × 500 px (Ảnh bìa ngang 3:1)\n4. **LinkedIn Post:** 1200 × 627 px (Ngang 1.91:1)\n\n### Tiêu chí hoàn thành:\n- Cả 4 artboard đạt đúng thông số pixel yêu cầu.\n- Mỗi artboard được đặt tên rõ ràng trong Layers Studio.\n- Các artboard sắp xếp thẳng hàng với khoảng cách đồng đều.",
       "practiceData": {
-        "prompt": "Create 4 social media artboards with correct dimensions and clean hierarchy.",
+        "prompt": "Tạo 4 artboard mạng xã hội đúng kích thước và cấu trúc layer sạch sẽ.",
         "starterAsset": {
           "filename": "D01_artboard_starter_guide.md",
           "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
@@ -294,12 +294,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Setup guide for social media artboard dimensions (GUIDE_DOCUMENT)."
+          "statusNote": "Hướng dẫn thiết lập kích thước artboard mạng xã hội (GUIDE_DOCUMENT)."
         },
         "checkpoints": [
-          "Instagram square 1080x1080 configured",
-          "Vertical 1080x1920 story configured",
-          "Banner 1500x500 and LinkedIn 1200x627 configured"
+          "Artboard vuông Instagram 1080×1080 đã tạo đúng",
+          "Artboard dọc 1080×1920 cho Story đã tạo đúng",
+          "Banner 1500×500 và LinkedIn 1200×627 đã tạo và căn đều"
         ]
       }
     }

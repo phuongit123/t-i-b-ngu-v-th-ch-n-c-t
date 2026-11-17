@@ -2,20 +2,20 @@
   "id": "S01",
   "trackId": "scripting",
   "moduleNumber": "S01",
-  "title": "Affinity JS Runtime, Environment & Hello World",
-  "tagline": "Master programmatic graphic automation using the Affinity 3.0 JavaScript DOM and MCP server.",
-  "description": "Understand the internal JavaScript automation engine of Serif Affinity 3.0: the embedded Google V8 engine, sandbox filesystem boundaries, module resolution (/application.js, /document.js), MCP SSE connection on port 6767, and authoring your first automation scripts for real-time document inspection and session telemetry.",
+  "title": "Khởi Động Lập Trình V8 JavaScript DOM & Kết Nối Máy Chủ MCP",
+  "tagline": "Làm chủ quy trình tự động hóa đồ họa bằng mã lệnh thông qua JavaScript DOM của Affinity 3.0 và cầu nối máy chủ MCP.",
+  "description": "Tìm hiểu kiến trúc điều khiển phần mềm bằng mã lệnh trong Serif Affinity 3.0: bộ thực thi Google V8 nhúng trực tiếp, ranh giới bảo mật Sandbox của hệ thống tệp, cơ chế nạp module gốc (/application.js, /document.js), kết nối cầu nối MCP qua giao thức SSE trên cổng 6767 và viết các script tự động hóa đầu tiên để trích xuất thông số tài liệu và Session UUID.",
   "difficulty": "Beginner",
   "estimatedMinutes": 75,
   "prerequisites": [],
-  "primaryPersona": "JavaScript DOM & MCP Server",
+  "primaryPersona": "JavaScript DOM & Cầu nối MCP",
   "starterAsset": {
     "filename": "S01_hello_affinity.js",
     "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
     "filesize": "0.7 KB",
     "filetype": ".js",
     "isVerified": true,
-    "statusNote": "Verified runnable automation script tested against live Affinity 3.3.3 instance."
+    "statusNote": "Script thực hành đã kiểm chứng cú pháp và chạy thử trên phiên bản Affinity 3.3.3."
   },
   "lessonIds": ["S01-01", "S01-02", "S01-03"]
 }

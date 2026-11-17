@@ -3,8 +3,8 @@
   "moduleId": "P05",
   "trackId": "photo",
   "order": 3,
-  "title": "Creative Color Grading, HSL, Gradient Maps & 3D LUTs",
-  "subtitle": "Cinematic Palettes, 3D LUT Profiles (.cube) & Dual-Tone Gradient Remapping",
+  "title": "Color Grading sáng tạo, HSL, Gradient Map và 3D LUT",
+  "subtitle": "Bảng màu điện ảnh, hồ sơ 3D LUT (.cube) và ánh xạ sắc độ Gradient Map hai tông",
   "durationMinutes": 35,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P06 Live Filters & Photographic Effects",
+          "title": "Học phần tiếp theo: P06 Live Filters và quy trình làm việc với bộ lọc động",
           "target": "P06-01",
           "type": "next-lesson"
         },
@@ -216,7 +216,7 @@
       "contentMarkdown": "1. **Thêm lớp LUT:** Nhấn biểu tượng Adjustments ➔ chọn `LUT`.\n2. **Nạp tệp LUT:** Nhấp nút `Load LUT...` trên hộp thoại.\n3. **Chọn tệp .cube:** Duyệt tới tệp LUT trong máy tính và nhấn Open.\n4. **Tinh chỉnh Opacity:** Nếu màu sắc quá gắt, giảm Opacity của layer LUT xuống mức `60% - 80%` để màu hòa quyện êm ái vào ảnh gốc.",
       "visual": {
         "type": "badge-grid",
-        "content": "Add LUT | Load .cube File | Instant Grading | Tune Opacity | Movie Magic"
+        "content": "Thêm LUT | Nạp tệp .cube | Ánh xạ màu tức thì | Giảm Opacity | Sắc thái điện ảnh"
       }
     },
     {

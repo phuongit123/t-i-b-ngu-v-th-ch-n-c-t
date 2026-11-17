@@ -45,8 +45,10 @@ export interface VisualExample {
 }
 
 export interface PitfallItem {
-  pitfall: string;
-  cause: string;
+  pitfall?: string;
+  cause?: string;
+  mistake?: string;
+  consequence?: string;
   solution: string;
 }
 
@@ -108,18 +110,22 @@ export interface StandardLessonSections {
     title: string;
     prompt: string;
     starterAsset?: PracticeAssetInfo;
-    challengeCriteria: string[];
+    challengeCriteria?: string[];
+    successCriteria?: string[];
     bonusGoal?: string;
   };
   commonPitfalls: PitfallItem[];
   knowledgeCheck: QuizQuestion[];
   summaryAndResources: {
-    summaryPoints: string[];
-    relatedResources: {
+    summaryPoints?: string[];
+    relatedResources?: {
       title: string;
       target: string;
       type: 'doc' | 'asset' | 'next-lesson' | 'mcp-api' | 'next-track' | 'guide';
     }[];
+    keyTakeaways?: string[];
+    nextSteps?: string;
+    officialDocsUrl?: string;
   };
 }
 
@@ -165,6 +171,7 @@ export interface CurriculumLesson {
   subtitle: string;
   durationMinutes: number;
   difficulty: LessonDifficulty;
+  practiceAsset?: PracticeAssetInfo;
   standardSections: StandardLessonSections;
   slides: LessonSlide[];
 }

@@ -3,101 +3,101 @@
   "moduleId": "D09",
   "trackId": "designer",
   "order": 3,
-  "title": "Hybrid Vector-Raster Workflow & DPI Management",
-  "subtitle": "Resolution Boundaries, 300 DPI Print Standards & Visual Polish",
+  "title": "Quy trình Vector–Raster kết hợp và quản lý DPI",
+  "subtitle": "Giới hạn độ phân giải, chuẩn in ấn 300 DPI và hoàn thiện thị giác",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Navigate the technical resolution boundaries between infinite vector mathematics and DPI-dependent pixel layers.",
-      "Calibrate document resolution (DPI) and color profiles for commercial press reproduction (300 DPI) versus digital display.",
-      "Leverage the native Vector Noise engine in the Color Studio for procedural grain without generating raster layers.",
-      "Evaluate trade-offs between procedural vector noise and hand-painted Pixel Persona texture brushes.",
-      "Prepare and inspect hybrid vector-raster artwork for PDF/X and high-fidelity multi-format export."
+      "Nắm vững ranh giới kỹ thuật giữa độ nét vô hạn của toán học vector và giới hạn độ phân giải DPI của lớp điểm ảnh.",
+      "Cài đặt đúng độ phân giải tài liệu (DPI) và hồ sơ màu cho in ấn thương mại (300 DPI) so với hiển thị màn hình.",
+      "Khai thác bộ tạo hạt Vector Noise có sẵn trong Color Studio để thêm chất liệu hạt tức thì mà không cần tạo Pixel Layer.",
+      "Đánh giá ưu nhược điểm giữa Vector Noise tự động và cọ vẽ hạt thủ công trong Pixel Persona.",
+      "Kiểm tra và chuẩn bị tệp đồ họa lai vector–raster sẵn sàng xuất sang PDF/X và các định dạng đa nền tảng."
     ],
-    "foundationalKnowledge": "A hybrid vector-raster workflow offers the greatest creative freedom, but it introduces strict technical boundaries that professional designers must manage. Pure vector artwork can be printed on a skyscraper banner or shrunk to a smartwatch icon without quality loss. However, the moment a child pixel layer or raster filter is introduced, that specific element is bound to the document's physical DPI (Dots Per Inch). If a document is initialized at 72 DPI and later scaled up for a physical poster, the vector silhouettes will remain pin-sharp, but the textured grain will look severely pixelated and blurry. Mastering DPI governance, noise engines, and export formatting guarantees museum-grade commercial reproduction.",
+    "foundationalKnowledge": "Quy trình lai giữa vector và raster đem lại độ tự do sáng tạo cao, nhưng đi kèm những giới hạn kỹ thuật rõ ràng cần quản lý chặt chẽ. Đường nét vector thuần có thể phóng to in biển quảng cáo khổ lớn mà không vỡ nét; tuy nhiên ngay khi bản vẽ có thêm Pixel Layer con hay bộ lọc raster, lớp điểm ảnh đó bị khóa cố định theo DPI của tài liệu. Nếu lỡ dựng ở 72 DPI rồi đem in poster khổ lớn, đường viền vector vẫn sắc nhưng phần hạt tô bóng sẽ lộ ô vuông răng cưa. Nắm vững kiểm soát DPI, công cụ tạo hạt Noise và chế độ xem trước điểm ảnh giúp sản phẩm xuất ra đạt chuẩn thương mại.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Color Studio Noise Engine, DPI Architecture & PDF/X Specification",
+      "source": "Đặc tả công cụ Noise trong Color Studio, kiến trúc DPI và xuất PDF/X trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Color Studio Noise Engine & Document Setup",
+      "toolName": "Vector Noise trong Color Studio & Document Setup",
       "persona": "Designer Persona (File > Document Setup... & View > Studio > Color)",
       "shortcut": {
-        "win": "Ctrl+Alt+P (Document Setup), Click Opacity Well in Color Studio (Toggles Noise)",
-        "mac": "Cmd+Option+P (Document Setup), Click Opacity Well in Color Studio (Toggles Noise)"
+        "win": "Ctrl+Alt+P (Document Setup), Nhấp ô tròn Opacity trong Color Studio (Đổi sang Noise)",
+        "mac": "Cmd+Option+P (Document Setup), Nhấp ô tròn Opacity trong Color Studio (Đổi sang Noise)"
       },
-      "description": "Manages document resolution, color conversions, and injects procedural stippling directly into vector fill or stroke colors. Note: Applies only to vector fills, strokes, or gradient stops (not to groups or images). Adjusting color sliders after setting noise resets it; pure white/black exhibit minimal noise; and on SVG/PDF export, noisy fills are rasterized at document DPI.",
+      "description": "Quản lý độ phân giải tài liệu, chuyển đổi hệ màu và rải hạt stipple trực tiếp vào màu tô hoặc viền vector. Lưu ý: chỉ áp dụng cho màu tô, viền hoặc điểm dừng gradient của vector (không áp dụng cho Group hay ảnh); chỉnh lại thanh màu sau khi đặt Noise sẽ làm Noise đặt lại về 0%; trắng/đen thuần ít thấy hạt; và khi xuất SVG/PDF vùng có Noise sẽ được rasterize theo DPI tài liệu.",
       "contextBarOptions": [
-        "Document Setup DPI dropdown: 72, 96, 144, 192, 300, 400, 600 DPI presets",
-        "Objects will: Rescale vs Anchor options when altering canvas dimensions",
-        "Color Studio Opacity/Noise Well: Clicking the small circle toggles between Opacity (%) and Noise (%)",
-        "Noise Slider (0% to 100%): Injects procedural film-like stippling directly into solid or gradient vector fills (must be applied as final step)",
-        "Rasterize & Trim command: Bakes selected layers to document DPI when flattening is explicitly required"
+        "Danh sách DPI trong Document Setup: các mức chuẩn 72, 96, 144, 192, 300, 400, 600 DPI",
+        "Tùy chọn Objects will (Rescale hay Anchor) khi thay đổi kích thước khung tài liệu",
+        "Ô tròn Opacity/Noise trong Color Studio: nhấp một lần để chuyển đổi qua lại giữa Opacity (%) và Noise (%)",
+        "Thanh trượt Noise (0% đến 100%): thêm hạt trực tiếp vào màu tô đặc hoặc từng điểm dừng gradient (nên chỉnh ở bước cuối sau khi chốt màu)",
+        "Lệnh Rasterize & Trim: chuyển cứng lớp chọn thành bitmap theo DPI tài liệu khi thực sự cần gộp phẳng"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Audit Document DPI in Document Setup",
-        "instruction": "Press Ctrl+Alt+P (Windows) or Cmd+Option+P (macOS) to open Document Setup. In the Dimensions tab, verify that DPI is set to exactly 300 DPI. If it is set to 72, change it to 300 and ensure 'Objects will: Anchor' is selected, then click OK.",
+        "title": "Kiểm tra thông số DPI trong Document Setup",
+        "instruction": "Nhấn Ctrl+Alt+P (Windows) hoặc Cmd+Option+P (macOS) để mở hộp thoại Document Setup. Tại thẻ Dimensions, kiểm tra mục DPI đang ở mức chuẩn 300 DPI. Nếu đang là 72 DPI, hãy đổi lên 300, chọn 'Objects will: Anchor' rồi nhấn OK.",
         "shortcutTip": { "win": "Ctrl+Alt+P", "mac": "Cmd+Option+P" }
       },
       {
         "stepNumber": 2,
-        "title": "Inject Procedural Vector Noise in Color Studio",
-        "instruction": "Select a solid vector shape in Designer Persona. Open the Color Studio (View > Studio > Color). Locate the small circular well labeled 'Opacity' below the color wheel. Click the circle once. Notice the label transforms to 'Noise'!",
-        "shortcutTip": { "win": "Click Opacity Circle", "mac": "Click Opacity Circle" }
+        "title": "Mở thanh trượt Noise trong bảng Color Studio",
+        "instruction": "Chọn một hình vector tô màu đặc trong Designer Persona. Mở bảng Color Studio (View > Studio > Color), tìm ô tròn nhỏ ghi chữ 'Opacity' nằm ngay dưới bánh xe màu và nhấp chuột vào ô tròn đó: nhãn lập tức chuyển thành 'Noise'.",
+        "shortcutTip": { "win": "Nhấp ô tròn Opacity", "mac": "Nhấp ô tròn Opacity" }
       },
       {
         "stepNumber": 3,
-        "title": "Dial in Procedural Vector Grain",
-        "instruction": "Drag the Noise slider to 15%–25%. Notice the vector fill instantly develops a fine, organic stippled grain texture. Important: Finalize your color hue and saturation first, because moving the color wheel afterward will automatically reset the Noise slider back to 0%!",
+        "title": "Chỉnh lượng hạt cho màu tô vector",
+        "instruction": "Kéo thanh trượt Noise lên khoảng 15%–25% để phủ một lớp hạt mịn lên bề mặt hình. Lưu ý quan trọng: luôn chọn xong màu sắc trước rồi mới kéo Noise, vì thao tác kéo bánh xe hoặc thanh màu sau đó sẽ tự động đưa Noise trở về 0%.",
         "shortcutTip": { "win": "Noise: 20%", "mac": "Noise: 20%" }
       },
       {
         "stepNumber": 4,
-        "title": "Apply Noise to Gradient Stops",
-        "instruction": "Select the Fill Tool (G) and draw a linear gradient across a vector shape. Click on the shadow end stop. In the Color Studio, set Noise to 30%. The shadow end exhibits rich stipple grain while the highlight end remains smooth!",
+        "title": "Áp dụng Noise riêng lên từng điểm dừng Gradient",
+        "instruction": "Chọn Fill Tool (G) và kéo một dải chuyển màu tuyến tính qua hình khối. Nhấp chọn điểm dừng màu tối ở đầu dải chuyển, rồi kéo thanh Noise trong Color Studio lên 30%: chỉ phần chuyển tối có hạt sần trong khi đầu sáng vẫn mịn màng.",
         "shortcutTip": { "win": "G (Fill Tool)", "mac": "G (Fill Tool)" }
       },
       {
         "stepNumber": 5,
-        "title": "Compare Procedural Noise vs Pixel Persona Grain",
-        "instruction": "Zoom into 400%. Notice that procedural vector noise recalculates with sharp grain at any zoom level, while Pixel Persona hand-painted brushes offer bespoke directional shading and manual artistic control. Combine both for optimal depth.",
+        "title": "So sánh hạt Vector Noise và cọ Pixel Persona",
+        "instruction": "Phóng to bản vẽ lên 400%: Vector Noise tính toán lại hạt mịn ngay trên màn hình khi zoom, còn cọ Pixel Persona cho khả năng đánh bóng có hướng và kiểm soát khối bằng tay. Kết hợp cả hai mang lại chiều sâu tối ưu.",
         "shortcutTip": { "win": "Zoom (Ctrl++)", "mac": "Zoom (Cmd++)" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Procedural Vector Noise vs Pixel Persona Brushes",
-        "description": "Comparison between the two texture methodologies in Affinity Designer.",
+        "title": "So sánh Vector Noise (Color Studio) và Cọ Pixel Persona",
+        "description": "Khác biệt về bản chất lưu trữ, hành vi khi xuất tệp và ứng dụng thực tế.",
         "visualType": "table",
-        "visualContent": "| Dimension | Procedural Vector Noise (Color Studio) | Pixel Persona Shading (Brushes) |\n|---|---|---|\n| Layer Type | Attribute of Vector Fill / Stroke / Gradient | Dedicated Child Pixel Layer |\n| Resolution On Canvas | Procedural on canvas; recalculates during vector zoom | Resolution-dependent; bound to document DPI |\n| Export Behavior | Rasterized at document DPI upon SVG/PDF export | Exported as high-res raster bitmap at document DPI |\n| Control Limitations | Single slider (0-100%); coupled resets with color changes | Directional, pressure-sensitive hand-painted shading |\n| File Size Impact | Virtually zero bytes inside native .afdesign | Adds bitmap raster data per pixel layer |\n| Best Use Case | Quick atmospheric background grit, subtle UI cards | Atmospheric character art, bespoke analog illustration |"
+        "visualContent": "| Tiêu chí | Vector Noise (Color Studio) | Đổ bóng Pixel Persona (Brushes) |\n|---|---|---|\n| Bản chất lớp | Thuộc tính gắn trực tiếp vào màu tô / viền / gradient | Lớp Pixel Layer con tách biệt |\n| Hiển thị khi phóng to | Tính toán hạt theo thời gian thực khi zoom trên bản vẽ | Phụ thuộc trực tiếp vào mức DPI của tài liệu |\n| Hành vi khi xuất file | Bị rasterize theo DPI tài liệu khi xuất ra SVG/PDF | Xuất ra dạng dữ liệu điểm ảnh theo DPI tài liệu |\n| Giới hạn điều khiển | Chỉ có một thanh kéo 0–100%; dễ bị reset khi đổi màu | Chủ động vẽ theo hướng sáng và lực nhấn tay |\n| Dung lượng tệp gốc | Gần như không tốn thêm dung lượng trong tệp .afdesign | Tăng dung lượng theo số lượng và kích thước lớp điểm ảnh |\n| Trường hợp nên dùng | Phủ nhiễu nền nhanh, tạo bề mặt thẻ giao diện | Đánh khối nhân vật, đổ bóng định hướng nghệ thuật |"
       },
       {
-        "title": "Print DPI Resolution Pyramid",
-        "description": "Standard resolution benchmarks across commercial delivery channels.",
+        "title": "Tháp tiêu chuẩn độ phân giải DPI theo đầu ra",
+        "description": "Các mốc DPI chuẩn cho in ấn thương mại và hiển thị kỹ thuật số.",
         "visualType": "diagram",
-        "visualContent": "Resolution Standards:\n[600 DPI] ──> Fine Art Giclée / Museum Quality Intaglio Prints\n[300 DPI] ──> Commercial Offset Lithography, Books, Magazines & Posters (Standard)\n[144 DPI] ──> Apple Retina / High-Density Mobile Displays (2x Screen)\n[ 72 DPI] ──> Legacy Web Viewports (Insufficient for raster grain textures!)"
+        "visualContent": "Tiêu chuẩn độ phân giải:\n[600 DPI] ──> In mỹ thuật Giclée / Ấn phẩm trưng bày chất lượng bảo tàng\n[300 DPI] ──> In offset thương mại, sách, tạp chí, áp phích (Tiêu chuẩn phổ biến)\n[144 DPI] ──> Màn hình mật độ cao 2x (Retina / Thiết bị di động)\n[ 72 DPI] ──> Màn hình web cũ (Quá thấp cho lớp đổ bóng hạt raster!)"
       }
     ],
     "guidedPractice": {
-      "title": "Calibrating a Dual-Methodology Poster Asset",
-      "taskDescription": "Construct a hybrid vector poster combining procedural gradient noise with hand-painted directional stippling and prepare for 300 DPI print export.",
+      "title": "Thiết lập áp phích kết hợp hai kỹ thuật tạo hạt",
+      "taskDescription": "Dựng một tấm áp phích ở chuẩn 300 DPI phối hợp gradient có Vector Noise cho nền với các lớp hạt cọ Pixel Persona cho chủ thể chính.",
       "checkpoints": [
-        "Initialize document at 2400x3200 px at 300 DPI in sRGB or CMYK.",
-        "Create a background vector rectangle and apply a gradient with 20% procedural noise on the dark stop.",
-        "Construct a foreground vector vase with 2 child pixel layers for hand-painted directional shadow and highlight.",
-        "Inspect edges at 100% pixel preview (View > View Mode > Pixels).",
-        "Verify that vectors remain razor-sharp while raster textures exhibit velvety, non-pixelated grain."
+        "Khởi tạo tài liệu kích thước 2400x3200 px ở 300 DPI (hệ màu sRGB hoặc CMYK).",
+        "Tạo hình chữ nhật nền và kéo dải gradient có gắn 20% Vector Noise ở điểm dừng màu tối.",
+        "Dựng một chiếc bình vector ở tiền cảnh kèm 2 Pixel Layer con tô bóng tối và ánh sáng viền bằng tay.",
+        "Kiểm tra biên nét ở chế độ xem điểm ảnh thực 100% (View > View Mode > Pixels).",
+        "Xác nhận đường biên vector vẫn sắc nét trong khi lớp hạt raster mịn đều, không vỡ ô vuông."
       ],
-      "expectedOutcome": "A commercial-grade hybrid illustration that balances procedural vector efficiency with bespoke analog craftsmanship."
+      "expectedOutcome": "Bản thiết kế kết hợp mượt mà tốc độ phủ hạt nền tự động và độ tinh tế của nét vẽ tay, sẵn sàng xuất in."
     },
     "independentChallenge": {
-      "title": "Exhibition Print Ready Poster Preparation",
-      "prompt": "Finalize the retro-futuristic botanical illustration: (1) Audit all layers to ensure document is set to 300 DPI; (2) Apply 15% procedural noise to the background backdrop gradient; (3) Refine all botanical fronds with directional child pixel shading; (4) Add fine vector contour lines (1pt white) over the fronds to establish strong vector-raster contrast; (5) Export a press-ready PDF/X-4 document and inspect the resulting PDF to verify that vector text and outlines remain live vector paths while textures are preserved at 300 DPI.",
+      "title": "Hoàn thiện bản in áp phích triển lãm chuẩn 300 DPI",
+      "prompt": "Hoàn tất tác phẩm minh họa thực vật Retro-Futuristic: (1) Kiểm tra toàn bộ tài liệu đảm bảo đang ở đúng chuẩn 300 DPI; (2) Áp dụng 15% Vector Noise cho nền gradient phía sau; (3) Tinh chỉnh các lớp hạt Pixel Layer con trên từng phiến lá; (4) Thêm các đường gân lá vector mảnh 1 pt màu trắng để tăng độ tương phản sắc nét; (5) Xuất thử bản PDF/X-4 và mở kiểm tra để xác nhận đường nét vector cùng chữ giữ nguyên dạng đường cong trong khi phần hạt đạt đủ 300 DPI.",
       "starterAsset": {
         "filename": "D09_pixel_persona_shading_guide.md",
         "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
@@ -105,57 +105,57 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for 300 DPI hybrid print preparation (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn kiểm tra 300 DPI và hoàn thiện bản in hỗn hợp (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Document verified at 300 DPI with zero low-res bitmap assets.",
-        "Procedural vector noise and hand-painted pixel grain harmonized visually.",
-        "PDF/X-4 export preserves live vector curves with embedded 300 DPI raster textures.",
-        "Artwork satisfies commercial offset printing specifications without banding."
+        "Tài liệu giữ đúng 300 DPI và không chứa mảng bitmap độ phân giải thấp.",
+        "Vector Noise trên nền hòa hợp tự nhiên với hạt cọ tay trên chủ thể.",
+        "Tệp PDF/X-4 xuất ra bảo toàn đường vector sắc nét đi kèm lớp hạt raster 300 DPI.",
+        "Các vùng chuyển màu mượt, không có hiện tượng sọc dải (banding)."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Altering color sliders or wheel hue after setting the Noise slider.",
-        "consequence": "Affinity Designer's color engine automatically resets Opacity to 100% and Noise to 0%, wiping out your noise adjustment.",
-        "solution": "Always dial in your exact color hue, saturation, and luminance first, and apply the Noise slider as the final adjustment step."
+        "mistake": "Chỉnh lại màu sắc trên bánh xe hoặc thanh trượt màu sau khi đã kéo thanh Noise.",
+        "consequence": "Bộ xử lý màu của Affinity tự động đưa Opacity về 100% và xóa Noise về 0%, làm mất lớp hạt vừa tạo.",
+        "solution": "Luôn chốt xong tông màu, độ bão hòa và độ sáng trước rồi mới chỉnh thanh trượt Noise ở bước cuối cùng."
       },
       {
-        "mistake": "Scaling up a 72 DPI document containing child pixel layers to 300 DPI after painting is complete.",
-        "consequence": "The vector paths upscale cleanly, but all existing child pixel layers become soft, blurry, and pixelated.",
-        "solution": "Always establish your document at 300 DPI BEFORE beginning raster painting in the Pixel Persona."
+        "mistake": "Vẽ hoàn chỉnh toàn bộ lớp Pixel Persona trên tài liệu 72 DPI rồi mới tăng lên 300 DPI khi chuẩn bị in.",
+        "consequence": "Các đường vector tăng nét bình thường nhưng toàn bộ lớp hạt pixel đã vẽ trước đó bị phóng nội suy nên nhòe mờ.",
+        "solution": "Luôn cài đặt đúng 300 DPI trong Document Setup TRƯỚC KHI bắt đầu vẽ bất kỳ nét cọ nào trong Pixel Persona."
       },
       {
-        "mistake": "Expecting Color Studio noise to export as pure vector code in an SVG file.",
-        "consequence": "SVG 1.1 cannot natively represent procedural color noise without rasterization or feTurbulence filters, forcing Affinity to rasterize the fill.",
-        "solution": "Recognize that both vector noise and child pixel layers will be rendered to bitmaps at document DPI when exporting to standard web/print formats."
+        "mistake": "Kỳ vọng phần tô có Vector Noise trong Color Studio sẽ xuất ra thành mã SVG thuần vector.",
+        "consequence": "Chuẩn SVG cơ bản không hỗ trợ trực tiếp kiểu hạt này nên trình xuất sẽ buộc phải rasterize vùng có Noise thành ảnh bitmap nhúng trong SVG.",
+        "solution": "Chỉ dùng Vector Noise cho xuất ảnh raster, PDF in ấn hoặc khi chấp nhận phần nền đó được rasterize theo DPI tài liệu."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "How do you activate the procedural vector Noise slider in Affinity Designer's Color Studio?",
+        "question": "Làm thế nào để mở thanh trượt Vector Noise ngay trong bảng Color Studio của Affinity?",
         "options": [
-          "Go to Filter > Add Noise.",
-          "Click the small circular 'Opacity' well beneath the color wheel/sliders to toggle it to 'Noise'.",
-          "Right-click the canvas and choose 'Noise'.",
-          "Press Ctrl+Alt+N."
+          "Vào Filter > Add Noise.",
+          "Nhấp vào ô tròn nhỏ ghi chữ 'Opacity' ngay dưới bánh xe màu để chuyển đổi nó sang 'Noise'.",
+          "Nhấp chuột phải lên bản vẽ và chọn 'Noise'.",
+          "Nhấn tổ hợp phím Ctrl+Alt+N."
         ],
         "correctIndex": 1,
-        "explanation": "In the Color Studio, clicking the small circle under the color wheel toggles between Opacity and Noise, unlocking native procedural grain without creating any raster layers."
+        "explanation": "Nhấp chuột vào vòng tròn nhãn 'Opacity' ở góc dưới bảng Color Studio sẽ chuyển thanh trượt đó sang điều khiển 'Noise'."
       },
       {
-        "question": "What happens to child pixel layers if a document is initialized at 72 DPI and later printed at 300 DPI on physical paper?",
+        "question": "Điều gì xảy ra với các Pixel Layer con nếu tài liệu được tạo ở 72 DPI nhưng sau đó đem in ở chuẩn 300 DPI?",
         "options": [
-          "The printer will automatically upscale the pixels into vectors.",
-          "The vector lines will print sharp, but the child pixel textures will look noticeably blurry and pixelated.",
-          "The document will fail to print and output blank sheets.",
-          "All layers will be deleted."
+          "Máy in tự động chuyển các điểm ảnh thành đường vector sắc nét.",
+          "Đường viền vector vẫn sắc nét nhưng phần hạt raster vẽ bên trong sẽ bị mờ nhòe và vỡ ô vuông rõ rệt.",
+          "Tài liệu không in được và ra trang giấy trắng.",
+          "Tất cả các lớp tự động bị xóa."
         ],
         "correctIndex": 1,
-        "explanation": "Raster pixels are bound to their native resolution; if painted at 72 DPI, they will appear blurry and pixelated when printed at 300 DPI, even though the parent vector curves remain sharp."
+        "explanation": "Dữ liệu raster gắn chặt với độ phân giải khi vẽ; vẽ ở 72 DPI khiến các hạt thiếu mật độ điểm ảnh khi in khổ chuẩn 300 DPI."
       },
       {
-        "question": "Which export format is ideal for commercial print production containing hybrid vector paths and 300 DPI raster grain textures?",
+        "question": "Định dạng xuất nào phù hợp nhất cho in ấn thương mại khi bản thiết kế có cả đường vector sắc nét và lớp hạt raster 300 DPI?",
         "options": [
           "GIF",
           "PDF/X-4",
@@ -163,130 +163,130 @@
           "BMP"
         ],
         "correctIndex": 1,
-        "explanation": "PDF/X-4 is the modern commercial printing standard: it preserves mathematical vector paths and live text while embedding high-resolution 300 DPI CMYK raster textures with transparency support."
+        "explanation": "PDF/X-4 là chuẩn in thương mại hiện đại giúp giữ nguyên hình học vector và chữ sắc nét đồng thời nhúng ảnh/hạt raster 300 DPI có hỗ trợ độ trong suốt."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Vectors scale infinitely, but pixel layers depend strictly on document DPI.",
-        "Always set document resolution to 300 DPI for professional print illustrations.",
-        "Clicking the Opacity well in the Color Studio reveals the procedural Vector Noise slider.",
-        "Combine procedural noise on gradients with hand-painted child pixel passes for maximum visual richness.",
-        "PDF/X-4 is the definitive commercial standard for exporting hybrid vector-raster artwork."
+        "Đường nét vector phóng to vô hạn, nhưng mọi lớp điểm ảnh đều phụ thuộc chặt vào DPI của tài liệu.",
+        "Luôn thiết lập 300 DPI ngay từ khâu tạo tệp cho những dự án kết hợp tô hạt phục vụ in ấn.",
+        "Nhấp vào vòng tròn Opacity trong Color Studio để bật công cụ tạo hạt Vector Noise nhanh gọn.",
+        "Phối hợp Vector Noise trên dải gradient nền cùng cọ hạt tay trên lớp con tạo hiệu quả thị giác giàu chiều sâu.",
+        "PDF/X-4 là chuẩn đầu ra tin cậy nhất cho tác phẩm lai vector–raster mang đi in."
       ],
-      "nextSteps": "Complete the D09 capstone project in D09_pixel_persona_shading_guide.md, then proceed to the final Designer module: D10 (Vector Export, Slices & Production Output).",
+      "nextSteps": "Hoàn thành dự án thực hành Module D09 theo hướng dẫn trong D09_pixel_persona_shading_guide.md, sau đó chuyển sang học phần cuối cùng: Module D10 (Xuất Bản Dự Án, Cắt Lát Slices & Đóng Gói Sản Phẩm).",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Clr/noise.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "The Hybrid Resolution Frontier",
-      "subtitle": "Navigating Vector Scalability and Raster DPI",
+      "title": "Ranh giới độ phân giải trong quy trình lai",
+      "subtitle": "Cân bằng giữa tính vô hạn của Vector và DPI của Raster",
       "bullets": [
-        "Vector paths are pure mathematics: resolution-independent at any scale.",
-        "Pixel layers are fixed grids of color values: resolution-dependent.",
-        "When you paint in Pixel Persona, those brush strokes are tied to document DPI.",
-        "Professional workflows require strict resolution discipline to prevent commercial print blur."
+        "Đường cong vector là phương trình toán học nên không bao giờ bị vỡ nét khi phóng to.",
+        "Lớp điểm ảnh (Pixel Layer) là lưới ô màu cố định phụ thuộc vào mật độ điểm ảnh.",
+        "Mọi nét vẽ trong Pixel Persona đều được kết xuất dựa trên thông số DPI của tài liệu.",
+        "Quản lý DPI chặt chẽ là điều kiện tiên quyết để bản in không bị rạn hạt hoặc mờ viền."
       ],
-      "proTip": "Always verify document DPI before laying down the first brush stroke."
+      "proTip": "Luôn kiểm tra lại mục DPI trong Document Setup trước khi đặt nét cọ đầu tiên."
     },
     {
       "slideNumber": 2,
-      "title": "The Commercial Print Benchmark: 300 DPI",
-      "subtitle": "Why 72 DPI Fails on Paper",
+      "title": "Chuẩn mực in ấn thương mại: 300 DPI",
+      "subtitle": "Vì sao 72 DPI không thể dùng cho bản in có chất liệu hạt",
       "bullets": [
-        "72 DPI: 72 pixels per inch. Adequate for legacy displays, disastrous for physical printing.",
-        "300 DPI: 300 pixels per inch. The standard for offset lithography, books, and fine art posters.",
-        "At 300 DPI, stipple grain and paper tooth textures reproduce with microscopic, velvety fidelity.",
-        "Verify or change DPI in File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P)."
+        "72 DPI: chỉ đáp ứng kích thước xem trực tiếp 1:1 trên màn hình cũ, hoàn toàn thiếu chi tiết khi in.",
+        "300 DPI: chuẩn mực chung cho in offset, sách ảnh, tạp chí và áp phích chất lượng cao.",
+        "Ở 300 DPI, hạt phấn và hạt giấy hiện lên tơi mịn, chuyển khối tự nhiên.",
+        "Kiểm tra hoặc điều chỉnh DPI qua File > Document Setup... (Ctrl+Alt+P / Cmd+Option+P)."
       ],
-      "callout": "Changing DPI after painting cannot restore lost resolution; start at 300 DPI!"
+      "callout": "Tăng DPI sau khi đã vẽ xong không thể tái tạo lại độ nét bị thiếu — hãy chọn 300 DPI ngay từ lúc tạo tệp!"
     },
     {
       "slideNumber": 3,
-      "title": "Secret Weapon: The Vector Noise Engine",
-      "subtitle": "Procedural Grain Without Raster Layers",
+      "title": "Tính năng ít người để ý: Vector Noise trong Color Studio",
+      "subtitle": "Tạo lớp hạt trực tiếp trên màu Vector không cần Pixel Layer",
       "bullets": [
-        "Affinity Designer features a native procedural noise engine built into every color swatch.",
-        "Open View > Studio > Color.",
-        "Locate the small circular well labeled 'Opacity' beneath the color wheel.",
-        "Click the circle once: the label and slider transform into 'Noise'!"
+        "Affinity tích hợp sẵn bộ rải hạt procedural ngay trong thuộc tính của từng ô màu.",
+        "Mở bảng Color Studio qua View > Studio > Color.",
+        "Tìm ô tròn nhỏ mang nhãn 'Opacity' nằm ngay phía dưới bánh xe chọn màu.",
+        "Nhấp chuột vào ô tròn đó: nhãn và thanh trượt lập tức chuyển thành 'Noise'!"
       ],
-      "proTip": "This hidden toggle is one of the most powerful and overlooked features in Designer."
+      "proTip": "Đây là công cụ giúp phủ chất liệu bụi nhẹ cho nền và khối phẳng rất nhanh mà không làm nặng tệp gốc."
     },
     {
       "slideNumber": 4,
-      "title": "Dialing in Procedural Grain on Vectors",
-      "subtitle": "Zero File Size & Visual Limitations",
+      "title": "Cách tinh chỉnh Noise trên màu tô và Gradient",
+      "subtitle": "Những lưu ý kỹ thuật quan trọng cần biết",
       "bullets": [
-        "Drag the Noise slider from 0% to 100% to inject stippling directly into any fill or stroke.",
-        "Works on solid fills, strokes, and individual gradient stops.",
-        "Crucial gotcha: Adjusting color hue/wheel after setting noise resets it to 0% (apply noise last!).",
-        "Export caveat: SVG and PDF/X rasterize the noisy fill at document DPI during export."
+        "Kéo thanh Noise từ 0% đến 100% để phủ hạt trực tiếp lên màu đặc, nét viền hoặc điểm dừng gradient.",
+        "Mỗi điểm dừng màu trên dải gradient có thể mang một mức Noise riêng biệt.",
+        "Lưu ý: chỉnh lại màu sắc sau khi đặt Noise sẽ reset Noise về 0% (hãy chỉnh Noise sau cùng!).",
+        "Lưu ý xuất file: vùng vector có gắn Noise sẽ bị rasterize theo DPI tài liệu khi xuất ra SVG hoặc PDF."
       ],
-      "proTip": "Apply noise last on dark gradient stops (12%–18%) for subtle, retro atmospheric depth."
+      "proTip": "Đặt 12%–18% Noise cho đầu màu tối của gradient nền giúp bức tranh có chiều sâu ấm áp kiểu in thủ công."
     },
     {
       "slideNumber": 5,
-      "title": "Choosing the Right Texture Tool",
-      "subtitle": "Procedural Noise vs Pixel Persona Brushes",
+      "title": "Chọn công cụ tạo hạt phù hợp cho từng phần",
+      "subtitle": "Kết hợp Vector Noise và Cọ Pixel Persona",
       "bullets": [
-        "Procedural Noise: Best for uniform atmospheric grit across large backgrounds and cards.",
-        "Pixel Persona Brushes: Best for directional, hand-painted volume shading and rim highlights.",
-        "The Pro Hybrid Strategy: Use procedural noise on base gradient fills, then overlay child pixel grain for focal lighting.",
-        "Delivers both rapid production efficiency and bespoke analog charm."
+        "Vector Noise: tối ưu để rải hạt đồng đều lên mảng nền lớn, bầu trời hoặc thẻ giao diện.",
+        "Cọ Pixel Persona: tối ưu để đánh khối có hướng ánh sáng, tạo gân và điểm sáng nghệ thuật.",
+        "Chiến lược phối hợp: dùng Vector Noise cho mảng nền lớn và dùng cọ tay trên lớp con cho chủ thể chính.",
+        "Vừa rút ngắn thời gian thực hiện vừa giữ được dấu ấn hội họa thủ công."
       ],
-      "proTip": "Combining both techniques produces the distinctive look of modern editorial illustration."
+      "proTip": "Sự kết hợp này tạo nên phong cách minh họa biên tập hiện đại rất giàu sức sống."
     },
     {
       "slideNumber": 6,
-      "title": "Inspecting Pixel Preview Modes",
-      "subtitle": "Auditing How Your Work Renders on Screens",
+      "title": "Kiểm tra bằng chế độ xem trước điểm ảnh",
+      "subtitle": "Đánh giá trung thực cách tác phẩm hiển thị thực tế",
       "bullets": [
-        "Menu: View > View Mode > Pixels (Ctrl+Alt+Y / Cmd+Option+Y).",
-        "Toggles the canvas from vector wireframe math to actual rendered pixel output.",
-        "Pixel Retina (2x) mode simulates how artwork will appear on Apple Retina / 4K displays.",
-        "Use Pixel Preview to check for accidental jagged edges or over-softened textures."
+        "Vào View > View Mode > Pixels (Ctrl+Alt+Y / Cmd+Option+Y).",
+        "Chuyển hiển thị bản vẽ từ đường nét vector siêu mịn sang đúng lưới điểm ảnh đầu ra.",
+        "Chế độ Pixel (Retina) mô phỏng độ nét trên màn hình mật độ cao 2x.",
+        "Giúp phát hiện sớm các cạnh bị răng cưa hoặc mảng hạt bị quá gắt."
       ],
-      "proTip": "Check Pixel Preview at 100% actual size (Ctrl+1 / Cmd+1) for true output verification."
+      "proTip": "Luôn soi chế độ Pixel Preview ở đúng tỷ lệ 100% (Ctrl+1 / Cmd+1) trước khi xuất bàn giao."
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Finalizing the Botanical Art",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Hoàn thiện tác phẩm thực vật 300 DPI",
+      "subtitle": "Rà soát thông số và cân bằng tổng thể",
       "bullets": [
-        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
-        "Verify document is set to 300 DPI in Document Setup.",
-        "Apply 18% procedural noise to the deep navy background gradient in Color Studio.",
-        "Inspect all palm fronds to ensure child pixel layers are cleanly clipped.",
-        "Overlay crisp 2pt white vector leaf veins in Designer Persona."
+        "Làm theo hướng dẫn trong tệp 'D09_pixel_persona_shading_guide.md'.",
+        "Kiểm tra xác nhận tài liệu đang cài đặt đúng 300 DPI trong Document Setup.",
+        "Phủ 18% Vector Noise lên gradient nền xanh đêm trong Color Studio.",
+        "Rà soát toàn bộ các phiến lá đảm bảo lớp hạt con cắt khít bên trong đường bao vector.",
+        "Hoàn thiện bằng các đường gân lá vector 2 pt sắc nét bên trên."
       ],
-      "proTip": "Verify that moving the fronds preserves the razor-sharp vector silhouette."
+      "proTip": "Thử xoay hoặc di chuyển nhẹ một phiến lá để kiểm chứng toàn bộ bóng hạt vẫn đi theo gọn gàng."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Hybrid Resolution Competencies",
+      "title": "Kiểm tra nhanh kiến thức quản lý DPI",
+      "subtitle": "Ôn tập trước khi chuyển sang học phần xuất bản",
       "bullets": [
-        "Explain how to toggle the Noise slider in the Color Studio.",
-        "Identify the consequences of painting raster textures in a 72 DPI document.",
-        "Select the appropriate commercial print export format (PDF/X-4).",
-        "Ensure all artwork passes 100% zoom inspection before proceeding."
+        "Nêu thao tác bật thanh trượt Noise trong bảng Color Studio.",
+        "Giải thích hậu quả khi vẽ hạt trên tài liệu 72 DPI rồi đem đi in.",
+        "Chọn đúng chuẩn PDF thương mại hỗ trợ cả vector lẫn lớp hạt 300 DPI (PDF/X-4).",
+        "Hoàn tất kiểm tra ở mức zoom 100% trước khi chuyển sang Module D10."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Module D09 Complete: Hybrid Workflow Mastery",
-      "subtitle": "Summary of Vector-Raster Synergy",
+      "title": "Hoàn thành Module D09: Làm chủ quy trình Vector–Raster",
+      "subtitle": "Tổng kết sức mạnh kết hợp hai không gian vẽ",
       "bullets": [
-        "Mastered seamless persona switching between Designer and Pixel Personas.",
-        "Calibrated raster grain brushes with low Flow for velvety shading gradients.",
-        "Engineered non-destructive child pixel layer clipping inside vector shells.",
-        "Harnessed procedural vector noise and commercial 300 DPI print standards.",
-        "Next up: The final Track 1 capstone module — D10 (Vector Export, Slices & Production Output)."
+        "Đã chuyển đổi thuần thục giữa Designer Persona và Pixel Persona.",
+        "Đã biết hiệu chỉnh cọ hạt Flow thấp để đánh khối mượt không vệt ngấn.",
+        "Đã lồng lớp Pixel Layer con phi phá hủy bên trong vỏ vector cha.",
+        "Đã nắm vững kỹ thuật Vector Noise và tiêu chuẩn độ phân giải 300 DPI.",
+        "Tiếp theo: Module cuối cùng D10 (Xuất Bản Dự Án, Cắt Lát Slices & Đóng Gói Sản Phẩm)."
       ],
-      "proTip": "You are now fully equipped to produce gallery-grade commercial vector-raster art."
+      "proTip": "Bạn đã có đầy đủ kỹ năng dựng minh họa lai đạt chất lượng xuất bản chuyên nghiệp."
     }
   ]
 }

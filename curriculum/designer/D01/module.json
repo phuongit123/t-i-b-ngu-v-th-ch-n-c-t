@@ -2,9 +2,9 @@
   "id": "D01",
   "trackId": "designer",
   "moduleNumber": "D01",
-  "title": "Designer Interface, Personas & Canvas Setup",
-  "tagline": "Master the tri-persona workspace, responsive artboards, and precision snapping architecture.",
-  "description": "Understand the revolutionary dual-engine foundation of Affinity Designer: seamless transitions between Vector Persona, Pixel Persona, and Export Persona. Learn professional artboard organization for multi-screen responsive UI and print collateral, alongside vector pixel preview modes and dynamic snapping grids.",
+  "title": "Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
+  "tagline": "Làm chủ không gian ba Persona, Artboard đa thiết bị và hệ thống căn gióng chính xác.",
+  "description": "Nắm vững kiến trúc engine kép độc đáo của Affinity Designer: chuyển đổi linh hoạt giữa Vector Persona, Pixel Persona và Export Persona. Thực hành tổ chức artboard chuyên nghiệp cho giao diện đa thiết bị và ấn phẩm in ấn, kết hợp chế độ xem trước điểm ảnh và lưới căn gióng thông minh.",
   "difficulty": "Beginner",
   "estimatedMinutes": 75,
   "prerequisites": [],
@@ -15,7 +15,7 @@
     "filesize": "1.2 KB",
     "filetype": ".pdf",
     "isVerified": true,
-    "statusNote": "Verified setup specification for multi-device responsive artboard canvas."
+    "statusNote": "Hướng dẫn thiết lập đã kiểm chứng cho bản vẽ Artboard đa thiết bị."
   },
   "lessonIds": ["D01-01", "D01-02", "D01-03"]
 }

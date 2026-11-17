@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P04
 ## CHỦ ĐỀ: CHỈNH SỬA CHÂN DUNG & PHỤC HỒI ẢNH (RETOUCHING & RESTORATION)
 
-**Tệp tài nguyên:** `P04_retouching_restoration_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Photo Persona  
+- **Tệp tài nguyên:** `P04_retouching_restoration_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Photo Persona
 
 ---
 

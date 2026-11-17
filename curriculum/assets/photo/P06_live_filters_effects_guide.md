@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P06
 ## CHỦ ĐỀ: BỘ LỌC THỜI GIAN THỰC & HIỆU ỨNG ÁNH SÁNG (LIVE FILTERS & EFFECTS)
 
-**Tệp tài nguyên:** `P06_live_filters_effects_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Photo Persona  
+- **Tệp tài nguyên:** `P06_live_filters_effects_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Photo Persona
 
 ---
 

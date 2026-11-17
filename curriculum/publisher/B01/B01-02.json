@@ -3,99 +3,99 @@
   "moduleId": "B01",
   "trackId": "publisher",
   "order": 2,
-  "title": "Master Pages Foundations & Dynamic Page Numbering",
-  "subtitle": "Parent/Child Hierarchy, Running Headers & Field Insertion",
+  "title": "Master Pages và đánh số trang tự động",
+  "subtitle": "Hệ thống trang mẫu cha-con, tiêu đề chạy (Running Headers) và trường dữ liệu động",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Create and organize Master Pages (Spread Masters vs Single Page Masters) in the Pages Studio.",
-      "Insert dynamic fields: Page Number (#), Page Count, Section Name, and Running Headers.",
-      "Build a hierarchical parent-to-child Master Page inheritance tree (e.g. Master B inherits from Master A).",
-      "Override or detach master page items locally on specific pages without breaking master link synchronization."
+      "Khởi tạo và tổ chức Master Pages (trang mẫu dùng chung dạng trang đôi hoặc trang đơn) trong bảng Pages Studio.",
+      "Chèn các trường dữ liệu động (Dynamic Fields): số trang hiện tại (Page Number `#`), tổng số trang (Page Count), tên mục (Section Name) và tiêu đề chạy đầu trang (Running Headers).",
+      "Xây dựng cây kế thừa Master Page phân cấp cha-con (ví dụ Master B kế thừa bố cục từ Master A).",
+      "Tùy biến cục bộ hoặc ẩn bớt thành phần của trang mẫu trên từng trang cụ thể bằng Edit Detached mà không làm đứt liên kết đồng bộ."
     ],
-    "foundationalKnowledge": "In publications exceeding a few pages, repeating design elements manually—such as folios, chapter titles, page numbers, decorative header rules, and background grids—is prone to human error and unmaintainable when pages are rearranged. Master Pages act as dynamic templates in Affinity Publisher. Any element placed on a Master Page automatically broadcasts to every document page to which that master is applied. Furthermore, Publisher supports Multi-Master inheritance: a child master page can inherit background graphics from Master A while adding unique three-column text frames, creating an efficient modular template hierarchy.",
+    "foundationalKnowledge": "Với những ấn phẩm dày trên vài chục trang, việc gõ tay lặp đi lặp lại số trang, tên chương, tiêu đề chạy đầu trang hay đường kẻ phân cách vừa tốn thời gian vừa rất dễ sai sót mỗi khi khách hàng yêu cầu thêm bớt hoặc đảo thứ tự trang. Trong Affinity (Layout Studio), Master Pages đóng vai trò là bản thiết kế mẫu toàn cục. Mọi thành phần đặt trên Master Page sẽ tự động phát sóng đồng loạt xuống tất cả trang nội dung đang áp dụng mẫu đó. Không chỉ dừng lại ở một cấp, bạn còn có thể tạo cấu trúc kế thừa nhiều Master: trang mẫu con kế thừa bộ khung tiêu đề và số trang từ Master A rồi bổ sung thêm lưới cột bài viết riêng, hình thành hệ thống mẫu mô-đun gọn gàng và dễ bảo trì.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Publisher Master Pages & Dynamic Fields Documentation",
+      "source": "Tài liệu kiến trúc Master Pages & Dynamic Fields trong Affinity Layout Studio (Publisher)",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Master Pages Panel & Dynamic Fields",
-      "persona": "Publisher Persona (Pages Studio)",
+      "toolName": "Bảng Master Pages & Trường dữ liệu động (Dynamic Fields)",
+      "persona": "Layout Studio — Pages Studio (Publisher Persona)",
       "shortcut": {
-        "win": "Text > Insert > Fields > Page Number (or custom shortcut in Settings > Shortcuts), View > Studio > Pages",
-        "mac": "Text > Insert > Fields > Page Number (or custom shortcut in Settings > Shortcuts), View > Studio > Pages"
+        "win": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), View > Studio > Pages",
+        "mac": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), View > Studio > Pages"
       },
-      "description": "The top half of the Pages Studio displays Master Pages. Right-clicking allows creating new masters, applying masters to specific page ranges, and configuring parent inheritance. Dynamic fields are inserted via Text > Insert > Fields.",
+      "description": "Nửa trên của bảng Pages Studio là nơi quản lý các Master Pages. Nhấp chuột phải vào vùng này cho phép tạo trang mẫu mới, áp dụng trang mẫu cho dải trang bất kỳ và thiết lập kế thừa cha-con. Các trường động được chèn qua menu Text > Insert > Fields.",
       "contextBarOptions": [
-        "Apply Master to Pages: Choose target pages (e.g. '1, 3-5, 8') and replacement behavior (Replace vs Clear)",
-        "Edit Detached: Temporarily detaches master elements on a single page for local customization",
-        "Edit Linked: Edits propagate back to the master page and all sibling pages",
-        "Fields Panel: Access dynamic variables (Document Title, Author, Date, Section Name, Next Page Number)"
+        "Apply Master to Pages: Chọn dải trang đích (ví dụ '1, 3-5, 8') và chế độ ghi đè hay giữ lại mẫu cũ (Replace vs Clear)",
+        "Edit Detached: Tạm tách riêng các phần tử Master trên một trang đơn lẻ để chỉnh sửa cục bộ",
+        "Edit Linked: Chỉnh sửa trực tiếp và đẩy thay đổi ngược về trang mẫu gốc cùng toàn bộ các trang liên kết",
+        "Fields Studio: Truy cập các biến động (Document Title, Author, Date, Section Name, Next Page Number)"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Access Master Pages in the Pages Studio",
-        "instruction": "Open your publication. In the Pages Studio on the left, locate the upper section titled 'Master Pages'. Notice 'Master A' already exists as a default spread master.",
+        "title": "Mở khu vực Master Pages trong Pages Studio",
+        "instruction": "Mở tài liệu ấn phẩm của bạn. Ở bảng Pages Studio bên trái, nhìn lên ngăn phía trên có tiêu đề 'Master Pages'. Mặc định phần mềm đã tạo sẵn một trang mẫu đôi tên là 'Master A'.",
         "shortcutTip": { "win": "Pages Studio", "mac": "Pages Studio" }
       },
       {
         "stepNumber": 2,
-        "title": "Insert Dynamic Page Numbers on Master Spread",
-        "instruction": "Double-click 'Master A' to open it in the canvas. Draw a small Artistic Text frame in the bottom outer corner of the left page. Go to Text > Insert > Fields > Page Number (or your custom shortcut). A '#' symbol appears. Draw a matching frame on the bottom outer corner of the right page.",
+        "title": "Chèn số trang động lên trang mẫu đôi",
+        "instruction": "Nhấp đúp vào 'Master A' để mở trang mẫu lên vùng làm việc. Vẽ một khung chữ Artistic Text nhỏ ở góc dưới ngoài cùng của trang trái, vào Text > Insert > Fields > Page Number. Ký hiệu '#' sẽ xuất hiện. Làm tương tự ở góc dưới ngoài cùng của trang phải.",
         "shortcutTip": { "win": "Text > Insert > Fields > Page Number", "mac": "Text > Insert > Fields > Page Number" }
       },
       {
         "stepNumber": 3,
-        "title": "Create a Child Master Page (Inheritance)",
-        "instruction": "In the Master Pages panel, right-click and choose 'Add Master'. Name it 'Master B - Feature Article'. In the 'Based on' dropdown, select 'Master A'. Click OK. Master B now automatically displays the page numbers and headers from Master A, while allowing you to add unique layout grids.",
+        "title": "Tạo trang mẫu con kế thừa từ trang mẫu cha",
+        "instruction": "Nhấp chuột phải trong vùng Master Pages và chọn 'Add Master'. Đặt tên là 'Master B - Bai Viet Chinh'. Tại mục 'Based on', chọn 'Master A' rồi bấm OK. Lúc này Master B tự động nhận toàn bộ số trang và tiêu đề từ Master A, đồng thời cho phép bạn đặt thêm lưới cột riêng.",
         "shortcutTip": { "win": "Based On: Master A", "mac": "Based On: Master A" }
       },
       {
         "stepNumber": 4,
-        "title": "Apply Master Pages to Document Pages",
-        "instruction": "Right-click 'Master B' in the master panel and choose 'Apply Master to Pages'. In the Pages field, enter '4-7'. Click OK. Switch to Page 4 in the document. Notice it now displays both the Master B features and automatically resolves the '#' symbol to '4', while Page 5 resolves to '5'!",
+        "title": "Áp dụng Master Pages cho các trang nội dung",
+        "instruction": "Nhấp chuột phải vào 'Master B' và chọn 'Apply Master to Pages'. Ở ô Pages nhập '4-7' rồi bấm OK. Chuyển xuống xem Trang 4 trong tài liệu: bạn sẽ thấy bố cục của Master B hiện ra đầy đủ và ký hiệu '#' đã tự động đổi thành số '4', còn Trang 5 hiển thị số '5'.",
         "shortcutTip": { "win": "Apply Master to Pages", "mac": "Apply Master to Pages" }
       },
       {
         "stepNumber": 5,
-        "title": "Perform an 'Edit Detached' Local Override",
-        "instruction": "On Page 4, you want a full-page photo that covers the master page number. Right-click the master layer in the Layers panel and choose 'Edit Detached'. Move or hide the page number frame. Click the orange 'Finish' bar at the top of the canvas. The override is preserved without breaking the link to Master A on other pages.",
+        "title": "Ghi đè cục bộ bằng chế độ Edit Detached",
+        "instruction": "Giả sử trên Trang 4 bạn đặt một bức ảnh tràn trang che mất số trang của Master. Trong bảng Layers Studio, nhấp chuột phải vào lớp Master của Trang 4 và chọn 'Edit Detached'. Di chuyển hoặc ẩn khung số trang đó đi, rồi bấm nút 'Finish' trên thanh màu cam phía trên màn hình. Tùy biến này được lưu riêng cho Trang 4 mà không làm hỏng liên kết với Master A ở các trang còn lại.",
         "shortcutTip": { "win": "Edit Detached", "mac": "Edit Detached" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Master Page Inheritance Tree",
-        "description": "How parent masters propagate through a publication.",
+        "title": "Cây kế thừa phân cấp Master Page",
+        "description": "Cách thay đổi từ trang mẫu gốc lan truyền tự động xuống toàn bộ ấn phẩm.",
         "visualType": "diagram",
-        "visualContent": "[Master A: Universal Base]\n │  ├── Running Header (Magazine Title)\n │  └── Dynamic Page Numbers (#)\n ├── [Master B: Editorial Feature (Based on Master A)]\n │    ├── Inherits Master A Headers & Folios\n │    └── Adds 3-Column Text Thread Grid\n └── [Master C: Photo Spread (Based on Master A)]\n      ├── Inherits Master A Folios\n      └── Overrides background to Full Bleed Dark Tint"
+        "visualContent": "[Master A: Trang mẫu nền tảng]\n │  ├── Tiêu đề chạy đầu trang (Tên tạp chí)\n │  └── Số trang động (#)\n ├── [Master B: Bài viết chuyên đề (Based on Master A)]\n │    ├── Kế thừa tiêu đề & chân trang từ Master A\n │    └── Bổ sung khung lưới chia 3 cột văn bản\n └── [Master C: Trang đôi ảnh nghệ thuật (Based on Master A)]\n      ├── Kế thừa số trang từ Master A\n      └── Phủ nền màu tối tràn lề Bleed 3 mm"
       },
       {
-        "title": "Dynamic Text Fields Matrix",
-        "description": "Essential dynamic variables for editorial layout.",
+        "title": "Bảng tra cứu các trường văn bản động (Dynamic Fields)",
+        "description": "Những biến tự động thiết yếu trong dàn trang sách báo.",
         "visualType": "table",
-        "visualContent": "| Field Name | Menu Path | Display on Master | Evaluated Output on Page |\n|---|---|---|---|\n| Page Number | Text > Insert > Fields > Page Number | # | 1, 2, 3, 4, 5... |\n| Next Page Number | Text > Insert > Fields > Next Page Number | # | 14 (e.g. 'Continued on page 14') |\n| Section Name | Text > Insert > Fields > Section Name | Section | 'Architecture & Design' |\n| Total Pages | Text > Insert > Fields > Page Count | ## | 128 (e.g. 'Page 4 of 128') |"
+        "visualContent": "| Tên trường | Đường dẫn menu | Hiển thị trên Master | Giá trị thật trên trang |\n|---|---|---|---|\n| Page Number | Text > Insert > Fields > Page Number | # | 1, 2, 3, 4, 5... |\n| Next Page Number | Text > Insert > Fields > Next Page Number | # | 14 (ví dụ: 'Xem tiếp trang 14') |\n| Section Name | Text > Insert > Fields > Section Name | Section | 'Kiến trúc & Thiết kế' |\n| Total Pages | Text > Insert > Fields > Page Count | ## | 128 (ví dụ: 'Trang 4 / 128') |"
       }
     ],
     "guidedPractice": {
-      "title": "Automated Folio & Header Setup",
-      "taskDescription": "Set up a two-level master page hierarchy with dynamic running headers and automatic page numbering.",
+      "title": "Thiết lập hệ thống chân trang & tiêu đề tự động",
+      "taskDescription": "Xây dựng cấu trúc trang mẫu hai cấp có tiêu đề chạy đầu trang và hệ thống đánh số trang tự động hoàn toàn.",
       "checkpoints": [
-        "Open Master A. Place running header text 'AFFINITY ACADEMY JOURNAL' at the top of both pages.",
-        "Insert dynamic page number field (#) at the bottom outer margin of both pages.",
-        "Create Master B based on Master A. Add a subtle decorative hairline separator rule below the header.",
-        "Apply Master B to pages 2 through 7.",
-        "Navigate across pages 2, 3, 4, 5 and verify page numbers update dynamically."
+        "Mở Master A, đặt dòng tiêu đề chạy 'AFFINITY ACADEMY JOURNAL' ở mép trên của cả hai trang trái và phải.",
+        "Chèn trường số trang động (#) ở góc dưới lề ngoài của cả hai trang.",
+        "Tạo Master B kế thừa từ Master A (Based on: Master A), vẽ thêm một đường kẻ mảnh phân cách bên dưới tiêu đề đầu trang.",
+        "Áp dụng Master B cho dải trang từ trang 2 đến trang 7.",
+        "Chuyển qua lại các trang 2, 3, 4, 5 để kiểm chứng số trang tự động nhảy đúng thứ tự."
       ],
-      "expectedOutcome": "A fully automated, bulletproof editorial numbering and header template system."
+      "expectedOutcome": "Hệ thống mẫu trang nhất quán, số trang tự động cập nhật chính xác ngay cả khi xáo trộn hoặc thêm bớt trang."
     },
     "independentChallenge": {
-      "title": "Chapter Section Folio Architecture",
-      "prompt": "Using the Section Manager (Document > Section Manager), divide an 8-page document into two distinct editorial sections: (1) Section 1 (Pages 1-2): Roman numerals (i, ii) for Front Matter; (2) Section 2 (Pages 3-8): Arabic numerals (1, 2, 3...) restarting at 1 for the Main Story. Add dynamic Section Name fields to Master A headers.",
+      "title": "Phân chia chương mục với Section Manager",
+      "prompt": "Mở Document > Section Manager để chia một tài liệu 8 trang thành hai phần độc lập: (1) Section 1 (Trang 1–2): dùng kiểu số La Mã thường (i, ii) cho phần mở đầu; (2) Section 2 (Trang 3–8): dùng số Ả Rập (1, 2, 3...) và đặt lại bắt đầu từ trang 1 cho nội dung chính. Chèn thêm trường động Section Name lên tiêu đề đầu trang của Master A để tên chương tự động thay đổi theo từng phần.",
       "starterAsset": {
         "filename": "B01_magazine_spec_guide.md",
         "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
@@ -103,37 +103,37 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Contains Section Manager configuration notes (GUIDE_DOCUMENT)."
+        "statusNote": "Chứa ghi chú cấu hình Section Manager và phân cấp Master Pages (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Pages 1-2 display Roman numerals (i, ii).",
-        "Page 3 restarts page numbering at '1'.",
-        "Headers display the dynamic section name from the Section Manager.",
-        "Master pages link cleanly without broken field tokens."
+        "Trang 1 và 2 hiển thị đúng số trang La Mã thường (i, ii).",
+        "Trang vật lý thứ 3 khởi đầu lại số trang là '1'.",
+        "Tiêu đề đầu trang hiển thị đúng tên mục đã khai báo trong Section Manager.",
+        "Các Master Page liên kết gọn gàng, không xuất hiện ký tự lỗi hoặc trường bị ngắt."
       ],
-      "bonusGoal": "Use 'Edit Detached' to suppress the running header on Page 1 (Cover) only."
+      "bonusGoal": "Dùng Edit Detached (hoặc Clear Masters) để ẩn hoàn toàn tiêu đề chạy đầu trang riêng ở Trang 1 (Bìa trước)."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Typing literal numbers instead of inserting dynamic fields",
-        "cause": "Typing '3' on Master A creates a literal '3' on every single page of your entire publication.",
-        "solution": "Always use 'Text > Insert > Fields > Page Number'. It displays as '#' on the master page and resolves to the real page number on document pages."
+        "pitfall": "Gõ số tĩnh thay vì chèn trường dữ liệu động",
+        "cause": "Gõ trực tiếp chữ số '3' lên Master A khiến toàn bộ mọi trang trong ấn phẩm đều mang số '3'.",
+        "solution": "Luôn dùng lệnh 'Text > Insert > Fields > Page Number'. Trên Master nó hiện ký hiệu '#', còn khi ra trang thật mới tự tính đúng số thứ tự."
       },
       {
-        "pitfall": "Accidentally modifying master elements on a document page without Edit Detached",
-        "cause": "Dragging or editing master layers directly can cause confusion or break linked positioning.",
-        "solution": "Always click 'Edit Detached' in the top orange toolbar when making a local exception, then click 'Finish' to re-lock the master binding."
+        "pitfall": "Sửa nhầm phần tử Master trên trang nội dung mà không bật Edit Detached",
+        "cause": "Kéo dời hoặc chỉnh sửa trực tiếp lớp con của Master khiến vị trí không nhất quán hoặc bị khóa thao tác.",
+        "solution": "Luôn bấm 'Edit Detached' trên thanh màu cam phía trên khi cần ngoại lệ cục bộ cho một trang, chỉnh xong nhớ bấm 'Finish' để khóa lại liên kết."
       },
       {
-        "pitfall": "Master pages applied over covers where they shouldn't appear",
-        "cause": "Default master page applied automatically to Page 1.",
-        "solution": "Right-click Page 1 in the Pages Studio, select 'Clear Masters', or apply a dedicated 'Cover Master' with no headers or page numbers."
+        "pitfall": "Trang bìa vẫn dính số trang và tiêu đề của Master mặc định",
+        "cause": "Phần mềm tự động gán Master A cho toàn bộ tài liệu kể cả Trang 1.",
+        "solution": "Nhấp chuột phải vào Trang 1 trong bảng Pages Studio, chọn 'Clear Masters' hoặc gán một trang mẫu riêng tên 'Cover Master' không chứa số trang."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "B01-02-Q1",
-        "question": "What symbol is displayed on a Master Page when you insert a dynamic Page Number field via Text > Insert > Fields?",
+        "question": "Khi chèn trường số trang động qua Text > Insert > Fields > Page Number trên một Master Page, ký hiệu nào sẽ hiển thị tại khung chữ?",
         "options": [
           "0",
           "#",
@@ -141,48 +141,48 @@
           "@"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Publisher uses the hash symbol (#) as the visual placeholder token on Master Pages. When evaluated on actual document pages, it automatically calculates the numerical page value."
+        "explanation": "Affinity dùng ký hiệu dấu thăng (#) làm ký tự giữ chỗ đại diện cho số trang động trên Master Page. Khi xem trên từng trang nội dung thật, dấu này tự động quy đổi thành con số tương ứng."
       },
       {
         "id": "B01-02-Q2",
-        "question": "What is the primary benefit of basing 'Master B' on 'Master A' in Affinity Publisher?",
+        "question": "Lợi ích cốt lõi của việc thiết lập 'Master B' kế thừa từ 'Master A' (Based on Master A) là gì?",
         "options": [
-          "It doubles the memory cache.",
-          "Any future global changes made to Master A (e.g. updating the magazine title or font in the header) will automatically propagate into Master B and all pages using Master B.",
-          "It encrypts the PDF.",
-          "It forces all pages to be black and white."
+          "Tăng gấp đôi bộ nhớ đệm khi hiển thị ảnh.",
+          "Mọi thay đổi toàn cục thực hiện sau này trên Master A (như đổi phông chữ hay sửa tên tạp chí ở tiêu đề) sẽ tự động cập nhật lan truyền sang Master B và toàn bộ trang dùng Master B.",
+          "Tự động mã hóa mật khẩu cho tệp PDF.",
+          "Ép toàn bộ trang sang chế độ in đen trắng."
         ],
         "correctIndex": 1,
-        "explanation": "Parent/Child Master inheritance creates a single source of truth. Modifying the parent automatically cascades updates across all inherited child templates."
+        "explanation": "Kế thừa cha-con tạo ra một nguồn chuẩn duy nhất. Bạn chỉ cần sửa ở trang mẫu gốc là toàn bộ các mẫu nhánh con được đồng bộ theo mà không phải sửa tay từng cái."
       },
       {
         "id": "B01-02-Q3",
-        "question": "How do you locally hide or reposition a master page element on a single specific page without affecting other pages?",
+        "question": "Làm thế nào để ẩn hoặc dời vị trí một thành phần của Master Page trên duy nhất một trang cụ thể mà không ảnh hưởng đến các trang khác?",
         "options": [
-          "Delete the master page.",
-          "Select the master layer on that page, click 'Edit Detached' on the orange top bar, make the adjustment, and click 'Finish'.",
-          "Convert the document to a PNG.",
-          "Restart Affinity Publisher."
+          "Xóa bỏ hoàn toàn trang Master đó.",
+          "Chọn lớp Master trong bảng Layers của trang đó, chọn 'Edit Detached', điều chỉnh vị trí/hiển thị rồi bấm 'Finish' trên thanh cam.",
+          "Xuất trang đó thành tệp ảnh PNG rồi chèn lại.",
+          "Khởi động lại phần mềm."
         ],
         "correctIndex": 1,
-        "explanation": "'Edit Detached' unlocks the master elements on that specific page for local modification while preserving the master link for all other sibling pages."
+        "explanation": "Chế độ 'Edit Detached' tạm mở khóa các đối tượng thuộc Master trên riêng trang đang chọn để bạn tùy biến cục bộ, trong khi liên kết với các trang khác vẫn giữ nguyên."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Master Pages automate consistent headers, footers, margins, and page numbering across publications.",
-        "Dynamic text fields (#) calculate page numbers and section titles dynamically as pages move.",
-        "Multi-Master inheritance allows child templates to share global branding while introducing unique layouts.",
-        "'Edit Detached' empowers designers to craft local page exceptions without severing master links."
+        "Master Pages giúp đồng bộ hóa tiêu đề, chân trang, đường kẻ và số trang xuyên suốt ấn phẩm dài.",
+        "Trường dữ liệu động (#) tự động tính toán lại số trang và tên mục ngay cả khi bạn thêm hoặc đảo vị trí trang.",
+        "Kế thừa đa cấp (Multi-Master) giúp các trang mẫu con dùng chung khung nhận diện gốc nhưng vẫn có bố cục lưới riêng.",
+        "Edit Detached cho phép xử lý các ngoại lệ trên từng trang cụ thể mà không phá vỡ cấu trúc mẫu chung."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: B01-03 Baseline Grids, Text Frame Flow & Margins",
+          "title": "Bài tiếp theo: B01-03 Lưới Baseline, cột văn bản và lề khung",
           "target": "B01-03",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Publisher Master Pages Documentation",
+          "title": "Tài liệu Affinity chính thức: Master Pages thông minh",
           "target": "https://affinity.serif.com/publisher/master-pages/",
           "type": "doc"
         }
@@ -194,73 +194,73 @@
       "id": "B01-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Master Pages Foundations & Page Numbering",
-      "subtitle": "Automating Long-Form Publication Consistency",
-      "contentMarkdown": "Imagine manually typing page numbers and book titles on a 200-page book... and then having the client insert three new pages at the beginning!\n\nManual pagination is a recipe for disaster.\n\nIn this lesson, you will master **Affinity Publisher's Master Page Architecture**—learning how to automate running headers, build parent/child template trees, and harness dynamic fields.",
+      "title": "Master Pages & Đánh Số Trang Tự Động",
+      "subtitle": "Tự động hóa tính nhất quán cho ấn phẩm nhiều trang",
+      "contentMarkdown": "Hãy thử hình dung bạn gõ tay số trang và tên sách cho một tài liệu 200 trang... rồi ngay trước giờ gửi in, khách hàng yêu cầu chèn thêm 3 trang mục lục ở đầu sách!\n\nĐánh số trang thủ công chắc chắn dẫn đến sai sót.\n\nTrong bài học này, bạn sẽ nắm vững **kiến trúc Master Pages trong Affinity**: cách tự động hóa tiêu đề chạy, xây dựng cây trang mẫu kế thừa cha-con và khai thác trường dữ liệu động.",
       "actionBox": {
-        "label": "Editorial Rule",
-        "text": "Never type a literal page number. Always insert a dynamic field."
+        "label": "Quy Tắc Dàn Trang",
+        "text": "Không bao giờ gõ tay con số trang cố định. Luôn dùng trường dữ liệu động."
       }
     },
     {
       "id": "B01-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "Understanding Master Pages & Dynamic Fields",
-      "subtitle": "Single Source of Truth for Publication Design",
-      "contentMarkdown": "A **Master Page** is a global design blueprint:\n\n- Elements placed on Master A appear automatically on every assigned page.\n- **Dynamic Fields (#):** Special tokens that automatically compute the live page number, chapter name, or total page count.\n- **Spread Masters:** Design left and right pages together, placing running headers on outer edges and folios at the bottom.",
+      "title": "Hiểu Đúng Về Master Pages & Trường Động",
+      "subtitle": "Một nguồn chuẩn duy nhất cho toàn bộ thiết kế ấn phẩm",
+      "contentMarkdown": "Một **Master Page** hoạt động như bản vẽ khuôn mẫu dùng chung:\n\n- Mọi đối tượng đặt trên `Master A` tự động xuất hiện trên mọi trang nội dung được gán mẫu đó.\n- **Dynamic Fields (`#`):** Các biến đặc biệt tự tính toán số trang hiện tại, tên chương mục hoặc tổng số trang.\n- **Spread Masters (Trang mẫu đôi):** Cho phép thiết kế đồng thời hai trang trái-phải đối xứng, đặt tiêu đề và số trang cân đối ở mép ngoài.",
       "visual": {
         "type": "comparison",
-        "content": "Master View: [Header | #] (Blueprint) ---> Document View: [Affinity Journal | Page 4] (Resolved Output)"
+        "content": "Trên Master: [Tiêu đề | #] (Khuôn mẫu)  --->  Trên Trang 4: [Affinity Journal | Trang 4] (Kết quả thật)"
       }
     },
     {
       "id": "B01-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Master Pages Panel & Inheritance",
-      "subtitle": "Building a Parent/Child Template Tree",
-      "contentMarkdown": "In the Pages Studio on the left:\n\n- **Master Pages Section (Top):** Shows all master spread thumbnails.\n- **'Based On' Inheritance:** Create `Master B` based on `Master A`. If you update Master A's font next month, Master B updates automatically!\n- **Edit Detached Button:** When selected on a page, unlocks master items for local customization without touching the parent master.\n- **Edit Linked Button:** Changes made locally propagate back to the master blueprint.",
+      "title": "Bảng Master Pages & Cơ Chế Kế Thừa",
+      "subtitle": "Xây dựng cây trang mẫu cha-con",
+      "contentMarkdown": "Trong bảng **Pages Studio** bên trái:\n\n- **Ngăn Master Pages (phía trên):** Chứa ảnh thu nhỏ của toàn bộ các trang mẫu.\n- **Kế thừa 'Based on':** Tạo `Master B` dựa trên `Master A`. Tháng sau bạn đổi phông chữ tiêu đề ở `Master A`, `Master B` lập tức cập nhật theo.\n- **Edit Detached:** Mở khóa tạm thời phần tử Master trên một trang riêng lẻ để ẩn hoặc dời vị trí.\n- **Edit Linked:** Mọi sửa đổi trên trang con sẽ đẩy ngược về bản mẫu gốc.",
       "actionBox": {
-        "label": "Field Shortcut",
-        "text": "Insert Page Number: Ctrl+Alt+Shift+N (Win) / Cmd+Option+Shift+N (Mac).",
-        "shortcut": { "win": "Ctrl+Alt+Shift+N", "mac": "Cmd+Option+Shift+N" }
+        "label": "Đường Dẫn Chèn Trường Số Trang",
+        "text": "Vào Text > Insert > Fields > Page Number để chèn số trang động (có thể tự gán phím tắt riêng trong Settings > Shortcuts).",
+        "shortcut": { "win": "Text > Insert > Fields > Page Number", "mac": "Text > Insert > Fields > Page Number" }
       }
     },
     {
       "id": "B01-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Building an Automated Folio System",
-      "subtitle": "From Blank Spread to Dynamic Numbering",
-      "contentMarkdown": "1. **Open Master A:** Double-click `Master A` in the Pages panel.\n2. **Left Folio:** Draw an Artistic Text frame in the bottom left corner. Type: `Text > Insert > Fields > Page Number` followed by ` | AFFINITY ACADEMY`.\n3. **Right Folio:** Draw a matching frame in the bottom right corner: `ISSUE 01 | ` followed by `Text > Insert > Fields > Page Number`.\n4. **Notice `#` Symbol:** The frame displays `#`. This is completely normal on master blueprints!\n5. **Inspect Document Page 2:** Double-click Page 2 in the lower panel. Notice the `#` has resolved to `2` on the left and `3` on the right!\n6. **Rearrange Pages:** Drag Page 2 after Page 4. The numbers update instantly and automatically.",
+      "title": "Quy Trình Xây Dựng Hệ Thống Số Trang Tự Động",
+      "subtitle": "Từ trang mẫu trống đến đánh số trang linh hoạt",
+      "contentMarkdown": "1. **Mở Master A:** Nhấp đúp vào `Master A` trong ngăn trên của bảng Pages Studio.\n2. **Chân trang trái:** Vẽ khung `Artistic Text` ở góc dưới bên trái. Chèn `Text > Insert > Fields > Page Number` rồi gõ thêm ` | AFFINITY ACADEMY`.\n3. **Chân trang phải:** Vẽ khung tương ứng ở góc dưới bên phải, gõ `SỐ 01 | ` rồi chèn `Text > Insert > Fields > Page Number`.\n4. **Nhận diện ký hiệu `#`:** Khung chữ hiện dấu `#` là hoàn toàn bình thường trên trang mẫu.\n5. **Kiểm tra Trang 2:** Nhấp đúp vào Trang 2 ở ngăn dưới. Ký hiệu `#` đã tự biến thành `2` ở trang trái và `3` ở trang phải.\n6. **Thử đảo trang:** Kéo Trang 2 xuống sau Trang 4, số trang lập tức tự tính lại chính xác.",
       "visual": {
         "type": "callout",
-        "content": "To clear masters from Page 1 (Cover): Right-click Page 1 in Pages panel > Clear Masters."
+        "content": "Để gỡ bỏ trang mẫu khỏi Trang 1 (Bìa trước): Nhấp chuột phải vào Trang 1 trong Pages Studio > chọn Clear Masters."
       }
     },
     {
       "id": "B01-02-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Master Page Traps & Pro-Tips",
-      "subtitle": "Avoid Broken Layout Synchronization",
-      "contentMarkdown": "### 1. Typing Literal Numbers\n- **The Trap:** Typing '1' on Master A. Result: Every page in your entire publication says 'Page 1'!\n- **The Fix:** Always insert the dynamic field via `Text > Insert > Fields > Page Number`.\n\n### 2. Accidental Permanent Detachment\n- **The Issue:** Choosing 'Clear Masters' instead of 'Edit Detached' when hiding a header.\n- **The Fix:** Use 'Edit Detached' on the top orange bar to make single-page exceptions, then click 'Finish'.\n\n### 3. Numbering Over Full-Bleed Photos\n- **The Fix:** In the Layers panel, drag the Master Layer above the photo layer, or edit detached to switch the folio text color to white for contrast.",
+      "title": "Lỗi Thường Gặp Với Master Pages",
+      "subtitle": "Giữ nguyên sự đồng bộ bố cục trên mọi trang",
+      "contentMarkdown": "### 1. Gõ thẳng chữ số lên Master\n- **Lỗi:** Gõ số '1' lên Master A khiến trang nào trong sách cũng in thành 'Trang 1'.\n- **Cách sửa:** Luôn chèn qua menu `Text > Insert > Fields > Page Number`.\n\n### 2. Xóa nhầm liên kết Master vĩnh viễn\n- **Lỗi:** Chọn 'Clear Masters' trong khi chỉ muốn ẩn tiêu đề ở một trang duy nhất.\n- **Cách sửa:** Dùng 'Edit Detached', chỉnh xong bấm nút cam 'Finish'.\n\n### 3. Số trang bị ảnh tràn lề che khuất\n- **Cách sửa:** Trong Layers Studio, kéo lớp Master lên nằm trên lớp ảnh, hoặc dùng Edit Detached đổi màu chữ số trang sang màu trắng để nổi bật trên nền tối.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "Keep Master Pages minimal. Only place truly recurring elements on masters."
+        "label": "Nguyên Tắc Vàng",
+        "text": "Giữ Master Page gọn nhẹ. Chỉ đặt lên đó những thành phần thực sự lặp lại qua nhiều trang."
       }
     },
     {
       "id": "B01-02-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Master Architecture",
-      "subtitle": "Validate Your Template Mastery",
-      "contentMarkdown": "Test your grasp of master pages and field evaluation.",
+      "title": "Kiểm Tra Nhanh: Kiến Trúc Master",
+      "subtitle": "Xác nhận khả năng làm chủ trang mẫu",
+      "contentMarkdown": "Chọn câu trả lời đúng nhất.",
       "quizData": {
         "id": "B01-02-Q1",
-        "question": "What symbol is displayed on a Master Page when you insert a dynamic Page Number field via Text > Insert > Fields?",
+        "question": "Khi chèn trường số trang động qua Text > Insert > Fields > Page Number trên một Master Page, ký hiệu nào sẽ hiển thị tại khung chữ?",
         "options": [
           "0",
           "#",
@@ -268,18 +268,18 @@
           "@"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Publisher uses the hash symbol (#) as the visual placeholder token on Master Pages. When evaluated on actual document pages, it automatically calculates the numerical page value."
+        "explanation": "Affinity dùng ký hiệu dấu thăng (#) làm ký tự giữ chỗ đại diện cho số trang động trên Master Page. Khi xem trên từng trang nội dung thật, dấu này tự động quy đổi thành con số tương ứng."
       }
     },
     {
       "id": "B01-02-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Two-Tier Master Hierarchy",
-      "subtitle": "Construct an Editorial Magazine Template",
-      "contentMarkdown": "### Your Mission:\nBuild an automated two-tier Master Page hierarchy for an 8-page journal:\n\n1. **Master A (Parent):** Running Header with publication title and dynamic Page Number field (#) on both spreads.\n2. **Master B (Child, Based on Master A):** Adds a 3-column guide grid and an editorial tagline in small caps.\n3. Apply Master B to Pages 2, 3, 4, 5.\n4. Clear masters from Page 1 (Cover).\n5. Use 'Edit Detached' on Page 4 to hide the header for a feature headline.\n\n### Acceptance Criteria:\n- Master B inherits Master A headers.\n- Pages 2-5 evaluate numbers `2, 3, 4, 5` correctly.\n- Page 1 has zero folios.",
+      "title": "Thử Thách Độc Lập: Cây Master Hai Cấp",
+      "subtitle": "Xây dựng bộ khung mẫu cho ấn phẩm tạp chí",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết lập cây kế thừa Master Page 2 tầng cho tạp chí 8 trang:\n\n1. **Master A (Mẫu cha):** Đặt tiêu đề chạy đầu trang ghi tên ấn phẩm và trường số trang động (`#`) ở cả hai trang đôi.\n2. **Master B (Mẫu con, Based on Master A):** Thêm lưới 3 cột và dòng khẩu hiệu phụ bằng chữ in hoa nhỏ.\n3. Áp dụng `Master B` cho các trang `2, 3, 4, 5`.\n4. Gỡ mẫu (`Clear Masters`) khỏi Trang 1 (Bìa trước).\n5. Dùng `Edit Detached` trên Trang 4 để ẩn tiêu đề đầu trang nhường chỗ cho tiêu đề lớn của bài đinh.\n\n### Tiêu chí nghiệm thu:\n- Master B kế thừa trọn vẹn tiêu đề và số trang từ Master A.\n- Các trang 2–5 tự động hiển thị đúng số `2, 3, 4, 5`.\n- Trang bìa 1 hoàn toàn sạch bóng số trang.",
       "practiceData": {
-        "prompt": "Construct a two-tier master page hierarchy with dynamic folios.",
+        "prompt": "Xây dựng cây Master Page hai cấp có số trang động tự động.",
         "starterAsset": {
           "filename": "B01_magazine_spec_guide.md",
           "filepath": "curriculum/assets/publisher/B01_magazine_spec_guide.md",
@@ -287,12 +287,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Contains Section Manager configuration notes (GUIDE_DOCUMENT)."
+          "statusNote": "Chứa ghi chú cấu hình Section Manager và phân cấp Master Pages (GUIDE_DOCUMENT)."
         },
         "checkpoints": [
-          "Master A folios created with dynamic fields",
-          "Master B inherits from Master A",
-          "Page 1 cleared of master folios"
+          "Đã tạo chân trang động với trường # trên Master A",
+          "Master B kế thừa đúng từ Master A",
+          "Trang bìa 1 đã được gỡ bỏ số trang và tiêu đề mẫu"
         ]
       }
     }

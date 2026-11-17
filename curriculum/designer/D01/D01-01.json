@@ -3,91 +3,91 @@
   "moduleId": "D01",
   "trackId": "designer",
   "order": 1,
-  "title": "Designer Workspace Anatomy & Persona Switching",
-  "subtitle": "Unlocking the Tri-Persona Architecture: Vector, Pixel & Export Workspaces",
+  "title": "Cấu trúc giao diện Designer và chuyển đổi Persona",
+  "subtitle": "Kiến trúc ba không gian Persona: Vector, Pixel và Export trong cùng một tài liệu",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Understand the conceptual separation and seamless cohesion between Vector Persona, Pixel Persona, and Export Persona.",
-      "Navigate the Affinity Designer top Toolbar, Persona Switcher, Context Toolbar, Tools Panel, and Dockable Studios.",
-      "Switch between personas without leaving the current document, preserving layer hierarchy and object states.",
-      "Customize workspace Studio layouts and save optimized presets for vector illustration vs raster shading."
+      "Hiểu rõ vai trò riêng biệt nhưng gắn kết liền mạch giữa Vector Persona (không gian vector), Pixel Persona (không gian điểm ảnh) và Export Persona (không gian xuất file).",
+      "Làm quen 5 vùng giao diện chính trong Affinity: thanh công cụ trên cùng (Toolbar), bộ chuyển đổi Persona, Context Toolbar, thanh công cụ bên trái (Tools Panel) và các bảng Studio.",
+      "Chuyển đổi qua lại giữa các Persona ngay trong một tài liệu đang mở mà vẫn giữ nguyên cấu trúc layer và trạng thái đối tượng.",
+      "Sắp xếp lại các bảng Studio và ẩn/hiện giao diện gọn gàng để tập trung vẽ vector hoặc tô bóng raster."
     ],
-    "foundationalKnowledge": "Unlike legacy vector applications that treat vector geometry and raster pixel painting as completely isolated software silos, Affinity Designer integrates an ultra-fast dual-engine core. In Designer, vector and raster layers coexist inside a unified scene graph. Personas are not separate file modes; they are specialized modal toolsets tailored for distinct creative phases: (1) Vector Persona provides infinite resolution bezier precision, boolean curves, and typography; (2) Pixel Persona brings raster brushes, textured shading, eraser tools, and selection marquees; (3) Export Persona delivers production-grade multi-format asset slicing and batch export.",
+    "foundationalKnowledge": "Ở các phần mềm đồ họa truyền thống, vẽ đường nét vector và tô chất liệu điểm ảnh raster thường tách rời thành hai ứng dụng khác nhau. Affinity hợp nhất cả hai trên một lõi xử lý chung (dual-engine core), cho phép lớp vector và lớp pixel nằm cùng một cấu trúc cây đối tượng (scene graph) trong một tệp duy nhất. Ba Persona thực chất không phải ba định dạng file khác nhau, mà là ba bộ công cụ chuyên biệt cho từng giai đoạn thiết kế: (1) Vector Persona (không gian làm việc đồ họa vector) cung cấp đường cong Bézier vô hạn độ phân giải, phép toán hình học và typography; (2) Pixel Persona (không gian vẽ và xử lý điểm ảnh) mang lại cọ vẽ raster, tạo hạt texture, tẩy và vùng chọn pixel; (3) Export Persona (không gian xuất sản phẩm) giúp cắt lát và xuất nhiều định dạng, độ phân giải cùng lúc.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Official Affinity Designer 3.3.3 Interface & Persona Architecture Documentation",
+      "source": "Tài liệu chính thức về Kiến trúc Giao diện & Persona — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Persona Switcher",
-      "persona": "Top Left Application Toolbar",
+      "toolName": "Bộ chuyển đổi Persona (Persona Switcher)",
+      "persona": "Thanh công cụ góc trên bên trái (Top-Left Toolbar)",
       "shortcut": {
-        "win": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (e.g. Alt+D, Alt+P, Alt+E). Note: Ctrl+1 is Zoom 100%",
-        "mac": "Click Persona icons (Top-Left Toolbar) / Custom shortcut in Settings > Shortcuts (e.g. Opt+D, Opt+P, Opt+E). Note: Cmd+1 is Zoom 100%"
+        "win": "Nhấn biểu tượng Persona (góc trên bên trái) / Tự gán phím tắt trong Settings > Shortcuts. Lưu ý: Ctrl+1 là Zoom 100%, Ctrl+2 là Zoom 200%",
+        "mac": "Nhấn biểu tượng Persona (góc trên bên trái) / Tự gán phím tắt trong Settings > Shortcuts. Lưu ý: Cmd+1 là Zoom 100%, Cmd+2 là Zoom 200%"
       },
-      "description": "The Persona Switcher sits in the top-left corner of the main toolbar. Clicking an icon instantly swivels the left Tools Panel and right Studio panels to expose persona-specific capabilities while leaving the active artwork completely intact.",
+      "description": "Persona Switcher nằm ở góc trên bên trái thanh công cụ chính. Khi bạn nhấn chọn một biểu tượng Persona, thanh Tools bên trái và các bảng Studio bên phải lập tức đổi sang bộ công cụ tương ứng mà không làm gián đoạn bản vẽ hiện tại.",
       "contextBarOptions": [
-        "Vector Persona: Node selection, Pen mode, Boolean operations, Convert to Curves, Fill/Stroke swatches",
-        "Pixel Persona: Brush dynamics, Flow/Opacity sliders, Blend modes, Symmetry mode, Protect Alpha toggle",
-        "Export Persona: Slice Tool, Slice Selection Tool, Export Options panel, Slices batch list"
+        "Vector Persona: Tùy chọn chọn điểm neo (Node), chế độ Pen, phép toán Boolean, Convert to Curves, màu Fill/Stroke",
+        "Pixel Persona: Thông số động lực cọ, thanh Flow/Opacity, chế độ hòa trộn (Blend Mode), vẽ đối xứng, Protect Alpha",
+        "Export Persona: Công cụ Slice Tool, chọn vùng cắt Slice Selection Tool, bảng Export Options và danh sách Slices xuất hàng loạt"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Inspect the Vector Persona Default Workspace",
-        "instruction": "Launch Affinity Designer and open any vector artboard. Notice the top toolbar displaying the blue Pen icon (Vector Persona active). On the left, observe the vector toolset: Move Tool (V), Node Tool (A), Pen Tool (P), and Shape tools.",
+        "title": "Quan sát không gian mặc định của Vector Persona",
+        "instruction": "Mở Affinity và tạo hoặc mở một bản vẽ vector bất kỳ. Nhìn lên góc trên bên trái sẽ thấy biểu tượng ngòi bút màu xanh đang sáng (Vector Persona đang hoạt động). Ở thanh công cụ bên trái có các công cụ vector cốt lõi: Move Tool (V — chọn và di chuyển), Node Tool (A — sửa điểm neo), Pen Tool (P — vẽ đường cong Bézier) và nhóm công cụ hình khối.",
         "shortcutTip": { "win": "V", "mac": "V" }
       },
       {
         "stepNumber": 2,
-        "title": "Switch to Pixel Persona for Raster Embellishment",
-        "instruction": "Click the raster brush icon on the top-left Persona toolbar (or use a custom shortcut if configured). Notice the left toolbar instantly transform to display the Paint Brush Tool (B), Pixel Tool, Eraser Brush Tool (E), and Selection Marquees.",
-        "shortcutTip": { "win": "Pixel Persona Icon", "mac": "Pixel Persona Icon" }
+        "title": "Chuyển sang Pixel Persona để thêm chất liệu điểm ảnh",
+        "instruction": "Nhấn trực tiếp vào biểu tượng cọ vẽ raster của Pixel Persona trên thanh công cụ góc trên bên trái (hoặc dùng phím tắt riêng nếu bạn đã gán trong Settings > Shortcuts). Thanh công cụ bên trái sẽ lập tức chuyển sang Paint Brush Tool (B — cọ vẽ điểm ảnh), Pixel Tool, Eraser Brush Tool (E — tẩy) và nhóm công cụ tạo vùng chọn.",
+        "shortcutTip": { "win": "Nhấn biểu tượng Pixel Persona", "mac": "Nhấn biểu tượng Pixel Persona" }
       },
       {
         "stepNumber": 3,
-        "title": "Switch to Export Persona for Slice Extraction",
-        "instruction": "Click the Export Persona icon on the top-left Persona toolbar. The canvas switches to slice-generation mode, displaying the Slice Tool (S) on the left and the Slices panel on the right, displaying all defined asset bounding boxes.",
-        "shortcutTip": { "win": "Export Persona Icon", "mac": "Export Persona Icon" }
+        "title": "Chuyển sang Export Persona để kiểm tra vùng cắt xuất file",
+        "instruction": "Nhấn biểu tượng Export Persona trên thanh công cụ góc trên bên trái. Khung làm việc chuyển sang chế độ cắt lát xuất tài nguyên với công cụ Slice Tool (S) bên trái và bảng Slices Studio bên phải hiển thị danh sách các vùng xuất tự động.",
+        "shortcutTip": { "win": "Nhấn biểu tượng Export Persona", "mac": "Nhấn biểu tượng Export Persona" }
       },
       {
         "stepNumber": 4,
-        "title": "Reset and Organize Studio Panels",
-        "instruction": "Return to Vector Persona by clicking the Designer Persona icon. Go to Window > Studio > Reset Studio if panels have become disorganized, or toggle Studio visibility using Tab to focus purely on the canvas.",
+        "title": "Sắp xếp và khôi phục bố cục các bảng Studio",
+        "instruction": "Nhấn lại biểu tượng Vector Persona để quay về giao diện thiết kế vector. Nếu các bảng Studio bị kéo lệch hoặc rối, vào Window > Studio > Reset Studio để khôi phục mặc định, hoặc nhấn Tab để ẩn/hiện toàn bộ thanh công cụ khi cần soi kỹ bản vẽ.",
         "shortcutTip": { "win": "Tab", "mac": "Tab" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Tri-Persona Matrix Comparison",
-        "description": "Functional matrix distinguishing the 3 primary personas in Affinity Designer.",
+        "title": "Bảng so sánh ba Persona chính",
+        "description": "Phân biệt chức năng, định dạng đầu ra và công cụ tiêu biểu của từng Persona trong Vector Studio.",
         "visualType": "table",
-        "visualContent": "| Persona | Core Focus | Primary File Outputs | Signature Tools |\n|---|---|---|---|\n| Vector Persona | Bezier curves, logos, icons, layout | .afdesign, .svg, .eps, .pdf | Pen (P), Node (A), Vector Brush (B) |\n| Pixel Persona | Textured shading, grain, painting | Raster masks, pixel layers | Paint Brush (B), Eraser (E), Smudge |\n| Export Persona | Slicing, asset export, retina specs | 1x, 2x, 3x PNG, WebP, SVG | Slice Tool (S), Slices Studio |"
+        "visualContent": "| Persona | Trọng tâm xử lý | Đầu ra tiêu biểu | Công cụ đặc trưng |\n|---|---|---|---|\n| Vector Persona | Đường cong Bézier, logo, icon, dàn bố cục | .afdesign, .svg, .eps, .pdf | Pen Tool (P), Node Tool (A), Vector Brush Tool (B) |\n| Pixel Persona | Tô bóng hạt texture, vẽ minh họa raster | Mặt nạ raster, lớp điểm ảnh Pixel | Paint Brush Tool (B), Eraser Brush Tool (E), Smudge |\n| Export Persona | Cắt lát vùng xuất, xuất đa tỷ lệ Retina | PNG @1x/@2x/@3x, WebP, SVG | Slice Tool (S), Slices Studio |"
       },
       {
-        "title": "Unified Scene Graph Diagram",
-        "description": "How raster and vector layers nest together seamlessly without file conversion.",
+        "title": "Sơ đồ cây đối tượng hợp nhất (Unified Scene Graph)",
+        "description": "Cách các lớp vector và lớp pixel lồng ghép trực tiếp trong cùng một tài liệu mà không cần chuyển đổi file.",
         "visualType": "diagram",
-        "visualContent": "Document Root\n ├── Artboard (Desktop 1920x1080)\n │    ├── [Vector] Path (Hero Illustration)\n │    │    └── [Pixel Mask] Shading Grain Brush\n │    ├── [Vector] Text Frame (Headline Typography)\n │    └── [Pixel] Layer (Atmospheric Background Noise)"
+        "visualContent": "Gốc tài liệu (Document Root)\n ├── Artboard (Desktop 1920x1080)\n │    ├── [Vector] Đường nét minh họa chính (Hero Illustration)\n │    │    └── [Pixel Mask] Lớp cọ hạt tạo bóng lồng bên trong\n │    ├── [Vector] Khung chữ tiêu đề (Headline Typography)\n │    └── [Pixel] Lớp hạt nhiễu tạo chiều sâu nền"
       }
     ],
     "guidedPractice": {
-      "title": "Hands-On Tri-Persona Walkthrough",
-      "taskDescription": "Create a vector circle, switch to Pixel Persona to paint a textured shadow clipped inside the circle, and switch to Export Persona to define a slice.",
+      "title": "Thực hành quy trình phối hợp 3 Persona",
+      "taskDescription": "Vẽ một hình tròn vector, chuyển sang Pixel Persona để tô bóng hạt lồng bên trong hình tròn đó, rồi chuyển sang Export Persona để kiểm tra vùng cắt xuất file.",
       "checkpoints": [
-        "Draw an ellipse using the Ellipse Tool (M) with a vibrant teal fill (#00d2ff).",
-        "Switch to Pixel Persona (Ctrl+2 / Cmd+2). Select the Paint Brush Tool (B) and pick a dark charcoal color.",
-        "Paint across the lower half of the circle. Notice how the pixel stroke automatically nests as a child mask inside the vector shape.",
-        "Switch to Export Persona (Ctrl+3 / Cmd+3) and verify that the circle slice appears in the Slices panel."
+        "Chọn công cụ hình Elip/Tròn (Ellipse Tool — nhóm công cụ hình khối, phím M hoặc chọn từ thanh trái) và giữ Shift kéo một hình tròn tô màu xanh ngọc (#00d2ff).",
+        "Nhấn biểu tượng Pixel Persona trên thanh công cụ góc trên bên trái (hoặc dùng phím tắt bạn tự thiết lập trong Settings > Shortcuts). Chọn Paint Brush Tool (B) và chọn màu xám than đậm.",
+        "Tô cọ dọc theo mép dưới hình tròn (bật 'Insert inside the selection' hoặc để Affinity tự lồng lớp). Quan sát nét cọ điểm ảnh tự động nằm gọn bên trong hình tròn vector mà không làm mất đường nét vector.",
+        "Nhấn biểu tượng Export Persona trên thanh công cụ góc trên bên trái và kiểm tra vùng cắt tương ứng xuất hiện trong bảng Slices."
       ],
-      "expectedOutcome": "A vector circle containing organic raster texture, completely editable in vector without rasterizing the underlying bezier geometry."
+      "expectedOutcome": "Một hình tròn vector chứa lớp bóng hạt raster mềm mại bên trong, vẫn chỉnh sửa được đường cong vector bất cứ lúc nào mà không bị phẳng hóa (rasterize) khối gốc."
     },
     "independentChallenge": {
-      "title": "Multi-Persona Icon Construction",
-      "prompt": "Construct a clean vector app icon (1024x1024 px) in Vector Persona. In Pixel Persona, add hand-stippled highlight and shadow layers using a textured brush. In Export Persona, configure 1x, 2x, and 3x PNG export presets.",
+      "title": "Dựng biểu tượng ứng dụng phối hợp đa Persona",
+      "prompt": "Thiết kế một biểu tượng ứng dụng (app icon) kích thước 1024×1024 px trong Vector Persona. Tiếp theo, chuyển sang Pixel Persona để tô thêm vùng sáng và bóng đổ có hạt texture lồng bên trong hình gốc. Cuối cùng, mở Export Persona và thiết lập sẵn bộ xuất PNG @1x, @2x và @3x.",
       "starterAsset": {
         "filename": "D01_artboard_starter_guide.md",
         "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
@@ -95,85 +95,85 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Setup guide for 1024px icon artboard (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thiết lập khung artboard 1024px (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Base icon geometry must remain 100% scalable vector paths.",
-        "All raster shading must be clipped inside vector parent layers.",
-        "Export Persona must have 3 automated output scales (1x, 2x, 3x) configured for the icon slice."
+        "Hình khối nền tảng của icon phải giữ nguyên 100% ở dạng đường nét vector có thể phóng to vô hạn.",
+        "Mọi lớp tô bóng điểm ảnh phải được lồng cắt (clip) gọn bên trong lớp vector cha.",
+        "Export Persona phải cấu hình đủ 3 tỷ lệ xuất tự động (1x, 2x, 3x) cho vùng cắt của icon."
       ],
-      "bonusGoal": "Assign unique color tags to the vector vs pixel layers in the Layers Studio."
+      "bonusGoal": "Gắn nhãn màu (Color Tag) phân biệt giữa nhóm lớp vector và lớp pixel trong Layers Studio."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Mistaking Vector Brush for Pixel Brush",
-        "cause": "In Vector Persona, the Vector Brush Tool (B) draws a vector bezier path textured with a bitmap nozzle. In Pixel Persona, the Paint Brush Tool (B) draws raw raster pixels into a pixel layer.",
-        "solution": "Always check your active Persona icon before painting. For scalable paths, stay in Vector Persona; for hand-drawn grain or photorealistic shading, switch to Pixel Persona."
+        "pitfall": "Nhầm lẫn giữa Vector Brush Tool và Paint Brush Tool (cọ điểm ảnh)",
+        "cause": "Cùng mang phím tắt B, nhưng trong Vector Persona, Vector Brush Tool tạo ra đường cong Bézier có gắn họa tiết bitmap chạy dọc thân nét; còn trong Pixel Persona, Paint Brush Tool vẽ trực tiếp các điểm ảnh lên lớp Pixel.",
+        "solution": "Luôn nhìn kiểm tra biểu tượng Persona đang sáng ở góc trên bên trái trước khi vẽ. Cần đường nét chỉnh sửa node thì ở Vector Persona; cần tô hạt texture hay tả chất liệu tự nhiên thì chuyển sang Pixel Persona."
       },
       {
-        "pitfall": "Accidentally rasterizing vector layers when painting",
-        "cause": "Painting with a pixel brush over an unmasked vector shape can prompt Designer to rasterize the entire vector layer if 'Insert Inside' is not enabled.",
-        "solution": "Create a dedicated Pixel Layer as a child clip of the vector shape, or ensure the 'Insert inside the selection' toggle is active on the top toolbar."
+        "pitfall": "Vô tình biến lớp vector thành ảnh điểm ảnh (rasterize) khi tô cọ",
+        "cause": "Tô cọ pixel trực tiếp lên một hình vector đang chọn mà chưa tạo lớp Pixel riêng hoặc chưa bật chế độ vẽ lồng bên trong, khiến phần mềm tự rasterize cả khối vector.",
+        "solution": "Tạo một Pixel Layer mới và kéo lồng vào trong lớp vector cha, hoặc bật nút 'Insert inside the selection' trên thanh công cụ trên cùng trước khi tô."
       },
       {
-        "pitfall": "Panels disappeared from the screen",
-        "cause": "Accidentally pressing Tab hides all studio panels and toolbars for distraction-free canvas preview.",
-        "solution": "Press Tab again, or go to Window > Studio > Reset Studio to restore default layout."
+        "pitfall": "Toàn bộ thanh công cụ và bảng Studio biến mất khỏi màn hình",
+        "cause": "Vô tình bấm nhầm phím Tab khiến giao diện chuyển sang chế độ xem toàn màn hình không thanh công cụ.",
+        "solution": "Nhấn phím Tab thêm một lần nữa để bật lại, hoặc vào Window > Studio > Reset Studio để đưa các bảng về vị trí chuẩn."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D01-01-Q1",
-        "question": "What is the primary architectural advantage of Personas in Affinity Designer compared to opening separate vector and raster applications?",
+        "question": "Ưu điểm kiến trúc cốt lõi của hệ thống Persona trong Affinity so với việc phải mở hai phần mềm vector và chỉnh ảnh riêng lẻ là gì?",
         "options": [
-          "Personas automatically convert all vector artwork into 300 DPI bitmaps.",
-          "Personas allow vector and pixel operations to coexist non-destructively within the exact same document without file export or conversion.",
-          "Personas reduce file size by disabling the undo history.",
-          "Personas require three separate user licenses."
+          "Các Persona tự động chuyển toàn bộ bản vẽ vector thành ảnh bitmap 300 DPI.",
+          "Các Persona cho phép thao tác vector và điểm ảnh cùng tồn tại phi phá hủy trên một tài liệu duy nhất, không cần xuất qua lại hay chuyển đổi định dạng.",
+          "Các Persona giảm dung lượng file bằng cách tắt lịch sử hoàn tác (Undo).",
+          "Người dùng phải mua ba gói bản quyền riêng cho từng Persona."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer shares a single unified core engine. Switching personas immediately changes the active toolset while keeping the document, vector mathematics, raster layers, and undo stack intact."
+        "explanation": "Affinity dùng chung một lõi xử lý hợp nhất. Khi đổi Persona, phần mềm chỉ thay bộ công cụ làm việc trong khi vẫn giữ nguyên tệp tài liệu, hình học vector, lớp pixel và toàn bộ lịch sử thao tác."
       },
       {
         "id": "D01-01-Q2",
-        "question": "By default out-of-the-box in Affinity Designer, how do you switch between Personas?",
+        "question": "Theo thiết lập mặc định của Affinity, làm thế nào để chuyển đổi qua lại giữa các Persona?",
         "options": [
-          "Press Ctrl+1, Ctrl+2, or Ctrl+3 (which actually control canvas zoom to 100%, 200%)",
-          "Click the Persona Switcher icons on the top-left toolbar, or configure custom shortcuts under Settings > Shortcuts",
-          "Restart the application with a command line flag",
-          "Export the file to PSD and re-open it"
+          "Nhấn Ctrl+1, Ctrl+2 hoặc Ctrl+3 (những phím này mặc định dùng để thu phóng 100%, 200%)",
+          "Nhấn vào các biểu tượng Persona trên thanh công cụ góc trên bên trái, hoặc tự gán phím tắt trong Settings > Shortcuts",
+          "Khởi động lại ứng dụng kèm tham số dòng lệnh",
+          "Xuất file sang định dạng PSD rồi mở lại"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer does not assign default keyboard shortcuts to switch personas; Ctrl+1 is Zoom 100%. Users click the Persona Switcher icons in the top-left toolbar or assign custom shortcuts in Settings > Keyboard Shortcuts."
+        "explanation": "Mặc định Affinity không gán sẵn phím tắt chuyển Persona; Ctrl+1 và Ctrl+2 (Win) / Cmd+1 và Cmd+2 (Mac) là phím phóng to 100% và 200%. Bạn nhấn trực tiếp biểu tượng Persona ở góc trên bên trái hoặc tự gán phím tắt riêng tại Settings > Shortcuts."
       },
       {
         "id": "D01-01-Q3",
-        "question": "If you paint with the Paint Brush Tool in Pixel Persona while a vector shape is selected with 'Insert Inside' active, what happens to the painted pixels?",
+        "question": "Nếu bạn dùng Paint Brush Tool trong Pixel Persona để tô khi đang chọn một hình vector với tùy chọn 'Insert inside the selection' đang bật, điều gì sẽ xảy ra với nét cọ?",
         "options": [
-          "The vector shape is permanently flattened into a JPEG.",
-          "The pixels are clipped non-destructively inside the vector shape boundaries as a child mask layer.",
-          "The stroke disappears because vector shapes cannot hold pixels.",
-          "An error dialog is displayed."
+          "Hình vector bị gộp cứng vĩnh viễn thành ảnh JPEG.",
+          "Các điểm ảnh vẽ ra được tự động lồng gọn bên trong biên giới của hình vector như một lớp con phi phá hủy.",
+          "Nét cọ biến mất vì hình vector không thể chứa điểm ảnh.",
+          "Phần mềm hiện hộp thoại báo lỗi không tương thích."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer nests the pixel layer directly inside the vector curve, creating a non-destructive clipping mask where the vector curve defines the visible boundary."
+        "explanation": "Affinity tự tạo một Pixel Layer con nằm bên trong lớp vector cha, giúp đường bao vector đóng vai trò khung cắt phi phá hủy cho toàn bộ nét tô bên trong."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Affinity Designer unifies Vector, Pixel, and Export capabilities into a single seamless document model.",
-        "Vector Persona provides infinite mathematical precision for branding, logos, and UI layout.",
-        "Pixel Persona enables tactile raster texturing, stippling, and photorealistic shading directly on vector artwork.",
-        "Export Persona automates modern multi-density asset generation without manual cropping."
+        "Affinity hợp nhất khả năng thiết kế Vector, tô vẽ Pixel và cắt xuất Export trên cùng một cấu trúc tài liệu.",
+        "Vector Persona đảm nhận độ chính xác toán học cho logo, biểu tượng và bố cục giao diện.",
+        "Pixel Persona bổ sung độ sâu chất liệu bằng cọ raster và bóng đổ hạt mà không phá vỡ hình học vector.",
+        "Export Persona tự động hóa quy trình cắt và xuất tài nguyên đa mật độ màn hình."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D01-02 Artboards vs Single Canvas Setup",
+          "title": "Bài tiếp theo: D01-02 Cấu trúc Artboard và thiết lập bản vẽ đơn",
           "target": "D01-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Understanding Personas",
+          "title": "Tài liệu chính thức Affinity: Tìm hiểu về các Persona",
           "target": "https://affinity.serif.com/designer/personas/",
           "type": "doc"
         }
@@ -185,36 +185,36 @@
       "id": "D01-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Affinity Designer Workspace & Tri-Persona Architecture",
-      "subtitle": "A Paradigm Shift in Digital Design Software",
-      "contentMarkdown": "Welcome to **Affinity Designer 3.0**.\n\nUnlike traditional creative workflows that force you to jump between different standalone software for vector drawing and bitmap retouching, Designer is built upon a **unified dual-engine core**.\n\nIn this lesson, you will master the **Tri-Persona architecture**: navigating between vector precision, raster texturing, and automated export in a single click.",
+      "title": "Giao Diện Vector Studio & Kiến Trúc Ba Persona",
+      "subtitle": "Cách tiếp cận thống nhất giữa đồ họa Vector và xử lý điểm ảnh",
+      "contentMarkdown": "Chào mừng bạn đến với bài học đầu tiên của **Vector Studio trong Affinity**.\n\nThay vì buộc người thiết kế phải nhảy qua lại giữa hai phần mềm riêng để vẽ nét vector rồi ghép chất liệu ảnh bitmap, Affinity chạy trên một **lõi xử lý kép thống nhất**.\n\nTrong bài học này, bạn sẽ làm chủ **kiến trúc 3 Persona**: chuyển đổi nhanh giữa độ chính xác vector, tô bóng raster và xuất file sản xuất ngay trên cùng một bản vẽ.",
       "actionBox": {
-        "label": "Key Insight",
-        "text": "Personas are not file formats; they are specialized tool modes operating on the exact same document."
+        "label": "Điểm cốt lõi",
+        "text": "Persona không phải là các định dạng file khác nhau; chúng là ba bộ công cụ chuyên biệt cùng thao tác trên một tài liệu duy nhất."
       }
     },
     {
       "id": "D01-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Tri-Persona Ecosystem Explained",
-      "subtitle": "Vector, Pixel & Export Workspaces",
-      "contentMarkdown": "Affinity Designer organizes your creative workflow into three specialized personas:\n\n1. **Vector Persona (Designer Persona):** Your primary design studio. Precision bezier curves, infinite scaling, typography, boolean geometry, and symbols.\n2. **Pixel Persona:** Direct raster manipulation. Textured shading, custom grain brushes, selection marquees, and pixel-level retouching.\n3. **Export Persona:** Production export station. Define continuous slices, export 1x/2x/3x assets, and generate SVG/PDF specs in one click.\n\n*Note on Navigation:* By default, switch between Personas by clicking the top-left toolbar switcher. Shortcuts like `Ctrl+1` / `Cmd+1` default to 100% Zoom, though custom shortcuts can be configured in Settings.",
+      "title": "Hệ Sinh Thái Ba Persona Hoạt Động Như Thế Nào?",
+      "subtitle": "Không gian Vector, Pixel và Export",
+      "contentMarkdown": "Affinity chia quy trình sáng tạo đồ họa thành ba không gian chuyên dụng:\n\n1. **Vector Persona:** Không gian thiết kế chính. Vẽ đường cong Bézier chuẩn xác, phóng to không vỡ nét, xử lý chữ, phép toán hình học và Symbol.\n2. **Pixel Persona:** Không gian tô vẽ điểm ảnh. Thêm hạt texture, cọ vẽ mềm, tẩy chi tiết và tạo vùng chọn raster.\n3. **Export Persona:** Trạm xuất bản sản phẩm. Định nghĩa vùng cắt (Slice), xuất hàng loạt kích thước @1x/@2x/@3x và tối ưu SVG/PDF.\n\n*Lưu ý điều hướng:* Mặc định, bạn nhấn trực tiếp vào biểu tượng Persona ở góc trên bên trái thanh công cụ. Các phím như `Ctrl+1` / `Cmd+1` hay `Ctrl+2` / `Cmd+2` là phím tắt thu phóng 100% / 200%, còn phím tắt đổi Persona có thể tự gán thêm trong `Settings > Shortcuts`.",
       "visual": {
         "type": "badge-grid",
-        "content": "Vector Persona (Electric Cyan #00d2ff) | Pixel Persona (Cobalt Blue #38bdf8) | Export Persona (Neon Emerald #10b981)"
+        "content": "Vector Persona (Vẽ & Dựng hình) | Pixel Persona (Chất liệu & Tô bóng) | Export Persona (Cắt lát & Xuất file)"
       }
     },
     {
       "id": "D01-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Anatomy of the Designer Interface",
-      "subtitle": "Navigating the 5 Core Workspace Zones",
-      "contentMarkdown": "Every element of the Affinity Designer interface has been engineered for maximum creative focus:\n\n- **Top Toolbar:** Home to the Persona Switcher, Document Setup, Snapping toggles, and Geometry buttons.\n- **Context Toolbar:** Dynamically updates to display modifiers and settings for your currently active tool.\n- **Left Tools Panel:** Houses primary tool icons (Move, Node, Pen, Shapes, Brushes).\n- **Right Studio Panels:** Dockable inspectors for Layers, Color, Swatches, Stroke, Appearance, and Transform.\n- **Canvas Viewport:** Ultra-smooth 60fps pan/zoom hardware-accelerated rendering stage.",
+      "title": "Giải Phẫu 5 Vùng Giao Diện Làm Việc",
+      "subtitle": "Làm chủ bố cục màn hình thiết kế",
+      "contentMarkdown": "Mọi khu vực trên giao diện đều được bố trí để bạn giữ sự tập trung vào khung vẽ:\n\n- **Thanh công cụ trên cùng (Top Toolbar):** Chứa bộ chuyển đổi Persona, thiết lập tài liệu, bật/tắt bắt dính (Snapping) và các phép toán hình học.\n- **Thanh ngữ cảnh (Context Toolbar):** Tự động đổi tùy chọn theo đúng công cụ bạn đang cầm.\n- **Thanh công cụ bên trái (Tools Panel):** Nơi đặt các công cụ chính như Move, Node, Pen, Shape và cọ vẽ.\n- **Các bảng Studio bên phải:** Bảng Layers, Color, Swatches, Stroke, Appearance và Transform có thể kéo thả tùy biến.\n- **Vùng làm việc chính (Canvas Viewport):** Sân khấu vẽ có tăng tốc phần cứng mượt mà.",
       "actionBox": {
-        "label": "Pro Shortcut",
-        "text": "Press Tab at any time to instantly hide all toolbars and studio panels for distraction-free full canvas viewing.",
+        "label": "Phím tắt tiện lợi",
+        "text": "Nhấn phím Tab bất kỳ lúc nào để ẩn toàn bộ thanh công cụ và bảng Studio khi muốn quan sát trọn vẹn bản vẽ.",
         "shortcut": { "win": "Tab", "mac": "Tab" }
       }
     },
@@ -222,55 +222,55 @@
       "id": "D01-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Hands-On Step-by-Step Persona Switching",
-      "subtitle": "Execute the Multi-Persona Workflow",
-      "contentMarkdown": "Follow these steps to experience seamless persona switching:\n\n1. **Vector Stage:** Press `M` to activate the Ellipse Tool. Click and drag on the canvas while holding `Shift` to create a perfect circle.\n2. **Color Fill:** Assign a bright electric cyan fill `#00d2ff` in the Color Studio.\n3. **Switch to Pixel Persona:** Click the Pixel Persona icon on the top-left toolbar. Notice your left toolbar transform to raster tools.\n4. **Clip Pixel Brush:** Press `B` for the Paint Brush Tool, choose a soft grain brush, and paint across the bottom rim.\n5. **Inspect Layers:** Notice the pixel layer is automatically nested inside your vector circle as a child clipping mask!\n6. **Export Stage:** Click the Export Persona icon to view your automatically generated export slice in Export Persona.",
+      "title": "Thực Hành Từng Bước: Chuyển Đổi 3 Persona",
+      "subtitle": "Phối hợp Vector và Pixel trên cùng một đối tượng",
+      "contentMarkdown": "Hãy thực hiện lần lượt các bước sau để thấy rõ sự liền mạch của 3 Persona:\n\n1. **Ở Vector Persona:** Chọn công cụ hình Elip (trong nhóm hình khối bên trái), giữ `Shift` và kéo chuột để tạo một hình tròn chuẩn.\n2. **Tô màu:** Chọn màu xanh ngọc `#00d2ff` trong bảng Color Studio.\n3. **Chuyển sang Pixel Persona:** Nhấn biểu tượng **Pixel Persona** ở góc trên bên trái thanh công cụ. Thanh công cụ bên trái lập tức chuyển sang bộ cọ raster.\n4. **Vẽ lồng vào hình tròn:** Nhấn `B` chọn **Paint Brush Tool**, chọn đầu cọ có hạt mềm rồi tô nhẹ dọc viền dưới hình tròn.\n5. **Kiểm tra Layers Studio:** Bạn sẽ thấy lớp Pixel mới tự động thụt vào làm lớp con (clipping) bên trong hình tròn vector.\n6. **Chuyển sang Export Persona:** Nhấn biểu tượng **Export Persona** ở góc trên bên trái để xem vùng cắt xuất file vừa tạo sẵn.",
       "visual": {
         "type": "comparison",
-        "content": "Vector Shape (Infinite Math) + Pixel Texture (Organic Grain) = Unified Masterpiece"
+        "content": "Hình khối Vector (Toán học vô hạn) + Chất liệu Pixel (Hạt tự nhiên) = Tác phẩm hợp nhất phi phá hủy"
       }
     },
     {
       "id": "D01-01-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Common Pitfalls & Troubleshooting",
-      "subtitle": "Avoid These Beginner Missteps",
-      "contentMarkdown": "### 1. Vector Brush vs Pixel Brush Confusion\n- **The Issue:** Choosing the Vector Brush Tool (B in Vector Persona) thinking it acts like a Photoshop brush.\n- **The Fix:** The Vector Brush produces an editable bezier path with an image nozzle. For true raster painting and grain, switch to Pixel Persona (`Ctrl+2` / `Cmd+2`).\n\n### 2. Accidental Destructive Rasterization\n- **The Issue:** Painting on a vector layer without clipping, causing Designer to rasterize the entire shape.\n- **The Fix:** Enable 'Insert inside the selection' on the top toolbar or nest a dedicated Pixel Layer as a child in the Layers panel.\n\n### 3. Missing Studio Panels\n- **The Fix:** If panels disappear, press `Tab` or navigate to `Window > Studio > Reset Studio`.",
+      "title": "Những Lỗi Hay Gặp & Cách Khắc Phục",
+      "subtitle": "Tránh các nhầm lẫn phổ biến khi mới làm quen",
+      "contentMarkdown": "### 1. Nhầm Vector Brush với cọ điểm ảnh (Paint Brush)\n- **Vấn đề:** Chọn nhầm Vector Brush Tool (`B` trong Vector Persona) rồi thắc mắc vì sao nét vẽ lại ra đường cong có điểm neo.\n- **Cách xử lý:** Vector Brush luôn tạo đường Bézier. Muốn tô hạt hay đổ bóng điểm ảnh tự nhiên, hãy nhấn biểu tượng **Pixel Persona** ở góc trên bên trái (hoặc dùng phím tắt bạn tự gán trong `Settings > Shortcuts`).\n\n### 2. Lỡ làm phẳng (rasterize) đối tượng vector\n- **Vấn đề:** Tô cọ pixel trực tiếp lên lớp vector chưa bật chế độ lồng, làm toàn bộ hình biến thành ảnh điểm ảnh.\n- **Cách xử lý:** Bật nút `Insert inside the selection` trên thanh công cụ trên cùng hoặc tạo riêng một Pixel Layer rồi kéo lồng vào trong lớp vector.\n\n### 3. Mất toàn bộ bảng Studio\n- **Cách xử lý:** Nhấn lại `Tab`, hoặc vào `Window > Studio > Reset Studio`.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "Never rasterize a vector shape just to shade it. Nest a pixel layer inside the vector parent instead."
+        "label": "Nguyên tắc vàng",
+        "text": "Không bao giờ rasterize hình vector chỉ để tô bóng. Hãy lồng một lớp Pixel vào bên trong lớp vector cha."
       }
     },
     {
       "id": "D01-01-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Master the Personas",
-      "subtitle": "Test Your Understanding",
-      "contentMarkdown": "Check your comprehension of the Tri-Persona architecture before continuing.",
+      "title": "Kiểm Tra Nhanh: Kiến Trúc Ba Persona",
+      "subtitle": "Củng cố kiến thức vừa học",
+      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây để kiểm tra mức độ hiểu bài trước khi sang phần thử thách.",
       "quizData": {
         "id": "D01-01-Q1",
-        "question": "What is the primary architectural advantage of Personas in Affinity Designer compared to opening separate vector and raster applications?",
+        "question": "Ưu điểm kiến trúc cốt lõi của hệ thống Persona trong Affinity so với việc phải mở hai phần mềm vector và chỉnh ảnh riêng lẻ là gì?",
         "options": [
-          "Personas automatically convert all vector artwork into 300 DPI bitmaps.",
-          "Personas allow vector and pixel operations to coexist non-destructively within the exact same document without file export or conversion.",
-          "Personas reduce file size by disabling the undo history.",
-          "Personas require three separate user licenses."
+          "Các Persona tự động chuyển toàn bộ bản vẽ vector thành ảnh bitmap 300 DPI.",
+          "Các Persona cho phép thao tác vector và điểm ảnh cùng tồn tại phi phá hủy trên một tài liệu duy nhất, không cần xuất qua lại hay chuyển đổi định dạng.",
+          "Các Persona giảm dung lượng file bằng cách tắt lịch sử hoàn tác (Undo).",
+          "Người dùng phải mua ba gói bản quyền riêng cho từng Persona."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer shares a single unified core engine. Switching personas immediately changes the active toolset while keeping the document, vector mathematics, raster layers, and undo stack intact."
+        "explanation": "Affinity dùng chung một lõi xử lý hợp nhất. Khi đổi Persona, phần mềm chỉ thay bộ công cụ làm việc trong khi vẫn giữ nguyên tệp tài liệu, hình học vector, lớp pixel và toàn bộ lịch sử thao tác."
       }
     },
     {
       "id": "D01-01-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Tri-Persona App Icon",
-      "subtitle": "Put Your Knowledge into Practice",
-      "contentMarkdown": "### Your Mission:\nConstruct a clean vector app icon (1024x1024 px) in Vector Persona.\n\n1. In **Vector Persona**, draw base geometric shapes using the Ellipse and Rectangle tools.\n2. In **Pixel Persona**, add subtle hand-stippled highlight and shadow layers using a textured brush nested inside the shapes.\n3. In **Export Persona**, configure 1x, 2x, and 3x PNG export presets in the Slices studio.\n\n### Acceptance Criteria:\n- Base geometry remains 100% vector curves.\n- Raster shading is clipped non-destructively.\n- Slices panel shows automated 1x, 2x, 3x configurations.",
+      "title": "Thử Thách Độc Lập: Icon Ứng Dụng Đa Persona",
+      "subtitle": "Vận dụng trọn vẹn quy trình 3 Persona",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết kế một icon ứng dụng sắc nét (1024×1024 px) kết hợp cả 3 Persona:\n\n1. Trong **Vector Persona**, dựng hình khối cơ bản của icon bằng các công cụ hình chữ nhật, hình tròn.\n2. Trong **Pixel Persona**, thêm lớp ánh sáng và bóng đổ chấm hạt mềm bằng cọ có texture, lồng gọn bên trong hình vector.\n3. Trong **Export Persona**, cấu hình sẵn các mức xuất PNG @1x, @2x và @3x trong bảng Slices.\n\n### Tiêu chí hoàn thành:\n- Toàn bộ khung hình nền tảng giữ nguyên 100% dạng đường nét vector.\n- Lớp tô bóng raster được lồng cắt phi phá hủy bên trong lớp cha.\n- Bảng Slices hiển thị đầy đủ 3 cấu hình xuất @1x, @2x, @3x.",
       "practiceData": {
-        "prompt": "Create an icon utilizing all 3 Personas without rasterizing the vector foundation.",
+        "prompt": "Tạo một biểu tượng ứng dụng tận dụng cả 3 Persona mà không làm mất tính chỉnh sửa vector gốc.",
         "starterAsset": {
           "filename": "D01_artboard_starter_guide.md",
           "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
@@ -278,12 +278,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Verified setup guide for icon artboard (GUIDE_DOCUMENT)."
+          "statusNote": "Hướng dẫn thiết lập khung artboard cho thử thách dựng icon (GUIDE_DOCUMENT)."
         },
         "checkpoints": [
-          "Vector paths drawn in Vector Persona",
-          "Raster texture nested in Pixel Persona",
-          "Multi-scale slices configured in Export Persona"
+          "Dựng hình vector hoàn chỉnh trong Vector Persona",
+          "Lồng lớp chất liệu raster trong Pixel Persona",
+          "Cấu hình vùng xuất đa tỷ lệ trong Export Persona"
         ]
       }
     }
