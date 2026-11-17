@@ -1133,7 +1133,7 @@ export const PhotoLayerSimulator: React.FC<PhotoLayerSimulatorProps> = ({
               <span>Nguyên lý cốt lõi:</span>
             </div>
             <p className="text-zinc-400 text-[11px] leading-relaxed">
-              <strong>Black Conceals, White Reveals:</strong> Mặt nạ đen ẩn chi tiết và trắng khôi phục chi tiết trên ảnh chân dung thật, không bao giờ xóa hỏng pixel gốc.
+              <strong>Đen ẩn đi, Trắng hiện lại:</strong> Mặt nạ đen ẩn chi tiết và trắng khôi phục chi tiết trên ảnh chân dung thật, không bao giờ xóa hỏng pixel gốc.
             </p>
           </div>
         </div>

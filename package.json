@@ -17,6 +17,7 @@
     "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\"",
     "test:translations": "node scripts/test-vietnamese-translations.js",
     "test:curriculum-vi": "node scripts/audit-vi-curriculum.js",
+    "test:ui-vi": "node scripts/audit-vi-localization.js",
     "test:capstone": "node scripts/test-capstone-evaluator.js",
     "test:backend": "node scripts/test-supabase-backend.js",
     "generate:seo": "node scripts/generate-seo-files.js"

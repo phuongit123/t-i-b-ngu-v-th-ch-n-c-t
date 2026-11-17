@@ -2,9 +2,9 @@
 
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED — RELEASE_READINESS_REPORT.md published; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
-- **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (Capstone system, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — ALL 8 AUTOMATED CHECKS, 14 FUNCTIONAL AREAS, AND 7 SECURITY CHECKS PASS AT EXACT COMMIT d501cc8 — PR #6 targets main — BLK-007 ACTIVE / LOCKED — NO DEPLOYMENT / NO MERGE WITHOUT DIRECTIVE`
+- **Version:** `6.0.0` (6-PHASE FULL PLATFORM OVERHAUL COMPLETED ON `feat/full-platform-overhaul` — 28 COMPLETED / 3 IN_PROGRESS / 22 PENDING across 53 total registry rows; 66/66 Playwright E2E PASS; 0 UI/curriculum localization violations; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
+- **Timestamp:** `2026-11-18 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — FULL 6-PHASE OVERHAUL VERIFIED ON feat/full-platform-overhaul (VIETNAMESE LOCALIZATION, FIGMA/CANVA DESIGN, BOOLEAN VECTOR & PHOTO CURVES/HSL SIMULATORS, LIVE CHALLENGE CANVAS, JS DOM PLAYGROUND, TECHNICAL SEO 84-URL SITEMAP, ZERO LEAKS) — TASK-079 COMPLETED — TASK-080 IN_PROGRESS — TASK-081 COMPLETED — BLK-007 ACTIVE / LOCKED — NO DEPLOYMENT / NO MERGE WITHOUT DIRECTIVE`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -510,4 +510,25 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
 - Branch `qa/task-080-independent-evidence-audit` pushed to remote for PR #6.
 
+---
 
+## 27. Round 16 — Full 6-Phase Platform Overhaul Handoff & Local Quality Gate Certification (2026-11-18)
+
+### Active Branch & Phased Commit Trail
+- **Branch:** `feat/full-platform-overhaul` (branched from `main` at `22aa4cf`; no merge into `main`, no force-push, and no live deployment performed without explicit Project Owner authorization).
+- **Verified Sequential Overhaul Commits:**
+  1. `5401e08` — **Phase 1:** Eliminated backend/debug UI leaks (`503` test trigger, `Offline Test` role switcher, student self-grading leak, internal IDs), extracted `CatalogPage`, connected `LearningStore` (`0/66` live progression).
+  2. `5d94168` — **Phase 2:** Redesigned unified single-row navigation header & Creative Academy homepage in Figma (`cSRe5Wv0orAS63LYPxQc8w`), created & exported 4 Canva studio slides (`DAHbNQlWSCk`), purged 18 unrelated furniture images (`/assets/interia/`), generated 10 photography/studio/color-grade PNGs + 6 Vietnamese SVG workflow diagrams, and integrated `BeforeAfterSlider.tsx`.
+  3. `acd5174` — **Phase 3:** Delivered `LessonPage.tsx`, `OutlineSidebar.tsx`, `SafeMarkdown.tsx`, `LessonSectionsReader.tsx` (10-section deep reader + lightbox + `BeforeAfterSlider` + starter bundle download), and localized 100% of all 22 `module.json`, 66 lesson `.json`, 20 `.md` guides, and 3 `.js` scripts into natural Vietnamese (`npm run test:curriculum-vi`: 0 violations).
+  4. `cfac16f` — **Phase 4:** Synced Phase 4 Studio/Playground UI on Figma (`node 4:2`); rebuilt `PenNodeSimulator.tsx` (multi-layer paths, parametric shapes, Fill/Stroke, Corner Tool, 4 true Boolean ops in `src/lib/boolean-geometry.ts`); rebuilt `PhotoLayerSimulator.tsx` (real portrait + backdrop studio compositing, edge-flood matte, real `ImageData` Curves LUT + HSL engine in `src/lib/pixel-processing.ts`, `<svg>` Tone Curve + Histogram in `PhotoAdjustmentsPanel.tsx`, layer management); embedded live Vector/Pixel grading in `ChallengesPage.tsx`; built `PlaygroundPage.tsx` + `src/lib/scripting-sandbox.ts` (4 presets + 14 DOM classes + Live Document Canvas) bridged with `EncyclopediaPage.tsx`.
+  5. `8258b6c` — **Phase 5:** Implemented clean Vietnamese SEO URLs & dual routing compatibility in `src/lib/seo-router.ts`, dynamic meta/canonical & JSON-LD schemas (`EducationalOrganization`, `Course`, `LearningResource`, `BreadcrumbList`, `FAQPage`) in `src/lib/seo-metadata.ts`, bidirectional Silo links in `KnowledgePage.tsx` & `LessonPage.tsx`, cleaned raw `$...$` LaTeX tokens, and generated `public/sitemap.xml` (84 URLs: 18 core + 66 lessons), `public/robots.txt`, and `public/_redirects`.
+  6. **Phase 6 (Current Commit on Branch):** Localized remaining UI/component polish (`VectorLayersSidebar.tsx`, `PhotoLayerSimulator.tsx`, `HeroSection.tsx`, `MainNavigation.tsx` 375px header spacing) and Section 10 completion trigger in `LessonSectionsReader.tsx`, added `scripts/audit-vi-localization.js` (`npm run test:ui-vi`), added `tests/e2e/final-overhaul-audit-phase6.spec.ts` (learner journey `0->1/66`, anti-cheat `0%` & RBAC check, responsive overflow checks across `1440×900`, `768×1024`, `375×812`), and synchronized governance registries.
+
+### Honest Scope & Governance Boundaries
+- **Registry Totals (`TASK_REGISTRY.md` v6.0.0):** `28 COMPLETED / 3 IN_PROGRESS / 22 PENDING = 52.8%` across 53 rows (`25 / 2 / 22 = 51.0%` original 49 rows). Newly completed: `TASK-021`, `TASK-022`, `TASK-053`, `TASK-072`, `TASK-073`.
+- **Unchanged Open Boundaries:** `TASK-076` remains `PENDING` (offline in-browser JS DOM sandbox Playground delivered in `PlaygroundPage.tsx`, while live `localhost:6767` Affinity bridge tasks `TASK-023`/`TASK-024` remain `PENDING`). `TASK-012`, `TASK-013`, and `TASK-080` remain `IN_PROGRESS`. `BLK-007` remains strictly **ACTIVE — LOCKED** (60 core + 6 pilot = 66 existing lessons; zero B02–B10 or S02–S10 lessons authored).
+- **Evidence Boundary:** Technical E2E pass (`66/66`) confirms web-platform stability, UI localization, interactive tool physics, and SEO routing; it does not close `TASK-080` semantic audit or substitute for human-graded learner `A5` capstone competency.
+
+### Local Environment & Optional Cloud Setup Reminder
+- All frontend interactive tracks, local progress persistence, challenges, simulators, and JS DOM Playground run 100% locally offline without secrets.
+- When the Project Owner later authorizes cloud deployment (Netlify + Supabase), configure `.env` from `.env.example` with `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`, and apply SQL migrations under `supabase/migrations/` before triggering `npm run build` / Netlify deploy.

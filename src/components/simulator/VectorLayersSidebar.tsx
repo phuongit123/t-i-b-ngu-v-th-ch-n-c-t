@@ -201,7 +201,11 @@ export const VectorLayersSidebar: React.FC<VectorLayersSidebarProps> = ({
                           : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
                       }`}
                     >
-                      {ex.difficulty}
+                      {ex.difficulty === 'Beginner'
+                        ? 'Cơ bản'
+                        : ex.difficulty === 'Intermediate'
+                        ? 'Trung cấp'
+                        : 'Nâng cao'}
                     </span>
                   </div>
                   <p className="text-[11px] text-zinc-500 mt-1 line-clamp-2 leading-relaxed">

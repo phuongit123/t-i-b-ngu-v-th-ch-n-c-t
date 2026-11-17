@@ -36,6 +36,8 @@ export interface LessonSectionsReaderProps {
   onSelectLesson?: (lessonId: string) => void;
   onNavigate?: (route: string) => void;
   onOpenLightbox?: (visual: { src: string; alt: string; caption?: string; isDiagram?: boolean }) => void;
+  isCompleted?: boolean;
+  onCompleteLesson?: () => void;
 }
 
 export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
@@ -48,6 +50,8 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
   onSelectLesson,
   onNavigate,
   onOpenLightbox,
+  isCompleted = false,
+  onCompleteLesson,
 }) => {
   const { preferences } = usePreferences();
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
@@ -604,6 +608,18 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
               <span>Thực hành ngay trên Bộ mô phỏng</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
+          )}
+
+          {onCompleteLesson && (
+            <Button
+              variant={isCompleted ? 'outline' : 'accent-scripting'}
+              size="sm"
+              data-testid="sections-complete-lesson-btn"
+              onClick={onCompleteLesson}
+              leftIcon={<CheckCircle2 className="w-4 h-4 text-emerald-400" />}
+            >
+              {isCompleted ? 'Đã hoàn thành bài học ✓' : 'Đánh dấu hoàn thành bài học'}
+            </Button>
           )}
         </div>
       </section>

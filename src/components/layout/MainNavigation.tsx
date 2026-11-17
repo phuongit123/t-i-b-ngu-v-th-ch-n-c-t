@@ -136,21 +136,21 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
   return (
     <header className={cn('sticky top-0 z-40 w-full border-b border-hairline bg-canvas/85 backdrop-blur-md', className)}>
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-6 h-16 flex items-center justify-between gap-3">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-4 lg:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
         {/* Brand Logo & Platform Title */}
-        <div className="flex items-center gap-4 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0">
           <button
             type="button"
             data-testid="nav-home"
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2.5 text-left group focus:outline-none whitespace-nowrap shrink-0"
+            className="flex items-center gap-2 sm:gap-2.5 text-left group focus:outline-none whitespace-nowrap shrink-0"
             aria-label="Về trang chủ Affinity Academy"
           >
             <div className="w-8 h-8 rounded-sm bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 p-0.5 shadow-subtle group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
               <span className="font-serif font-black text-sm text-zinc-950 tracking-tighter">A</span>
             </div>
-            <div className="leading-tight">
-              <span className="text-xs font-semibold tracking-wider uppercase font-mono text-zinc-200 block">
+            <div className="leading-tight min-w-0">
+              <span className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase font-mono text-zinc-200 block">
                 AFFINITY<span className="text-amber-400 font-bold ml-1">ACADEMY</span>
               </span>
               <span className="hidden sm:block text-[9px] text-zinc-400 uppercase tracking-widest font-mono">
@@ -190,11 +190,11 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
         </div>
 
         {/* Right Tools: Search, Cloud Sync, Auth/Profile, Settings, Theme */}
-        <div className="flex items-center gap-1.5 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           <button
             type="button"
             onClick={onOpenSearch}
-            className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-zinc-400 bg-surface border border-hairline rounded-sm hover:border-subtle transition-colors whitespace-nowrap shrink-0"
+            className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs text-zinc-400 bg-surface border border-hairline rounded-sm hover:border-subtle transition-colors whitespace-nowrap shrink-0"
             aria-label="Mở bảng tìm kiếm lệnh"
             title="Tìm kiếm nhanh (Ctrl+K)"
           >
@@ -211,7 +211,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
             type="button"
             data-testid="nav-auth-btn"
             onClick={() => setIsAuthModalOpen(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-sm border transition-colors bg-surface border-hairline hover:border-amber-500/40 text-zinc-300 hover:text-zinc-100 whitespace-nowrap shrink-0"
+            className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-medium rounded-sm border transition-colors bg-surface border-hairline hover:border-amber-500/40 text-zinc-300 hover:text-zinc-100 whitespace-nowrap shrink-0"
             aria-label="Tài khoản và hồ sơ học viên"
           >
             <div className="w-4 h-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px] font-bold shrink-0">

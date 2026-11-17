@@ -407,6 +407,10 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               onSelectLesson={onSelectLesson}
               onNavigate={onNavigate}
               onOpenLightbox={setLightboxVisual}
+              isCompleted={isCompleted}
+              onCompleteLesson={() => {
+                void handleManualComplete();
+              }}
             />
 
             <div className="pt-5 border-t border-hairline flex items-center justify-between gap-3">

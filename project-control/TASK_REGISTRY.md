@@ -2,11 +2,11 @@
 
 ## Document Control
 - **Document ID:** `TASK-REGISTRY-001`
-- **Version:** `5.0.0` (Final QA, Security & Release Readiness audit completed; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `6.0.0` (Full 6-Phase Platform Overhaul completed on `feat/full-platform-overhaul`; 28 COMPLETED / 3 IN_PROGRESS / 22 PENDING across 53 total registry rows; 66/66 Playwright E2E PASS; 0 UI/curriculum localization violations; 44/44 backend tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE / REAL-TIME`
-- **Last Updated:** `2026-11-16`
+- **Last Updated:** `2026-11-18`
 - **Governing Agent:** `Orchestrator`
-- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (23 COMPLETED / 3 IN_PROGRESS / 27 PENDING = 43.4% completed; original tasks: 20 COMPLETED / 2 IN_PROGRESS / 27 PENDING = 40.8% completed).
+- **Task Invariant:** 49 original architectural tasks mapped 1:1 to requirements + 1 dedicated re-audit task (`TASK-010-REAUDIT`) + 3 programme-learning tasks (`TASK-079`–`TASK-081`) = 53 total registry task rows (28 COMPLETED / 3 IN_PROGRESS / 22 PENDING = 52.8% completed; original tasks: 25 COMPLETED / 2 IN_PROGRESS / 22 PENDING = 51.0% completed).
 
 ---
 
@@ -40,8 +40,8 @@
 | `TASK-016` | Comprehensive Tool Encyclopedia Dataset | `CurriculumAgent` | `REQ-CURR-007` | `TASK-005` | `data/tool-encyclopedia.json` | Complete dictionary of every tool, shortcut, and modifier across 3 apps. | `PENDING` |
 | `TASK-017` | Curated Resource Library Content Pack | `DesignAgent` | `REQ-CURR-008` | `TASK-003` | `data/resources/` (palettes, brushes, templates, cheat sheets) | Verified asset bundles ready for one-click student download. | `PENDING` |
 | `TASK-020` | Design System & Visual Tokens ("Mastero") | `DesignAgent` | `REQ-FE-001` | `TASK-002` | `src/styles/tokens.css`, Tailwind theme setup, 21 components, `docs/DESIGN_SYSTEM.md` | Minimalist, high-aesthetic theme with typography, color scale, 21 components. QA signed off. | **COMPLETED** |
-| `TASK-021` | Course Catalog & Track Browser Components | `FrontendAgent` | `REQ-FE-002` | `TASK-020` | `src/components/catalog/` components | Responsive catalog browser with search, filters, and track progress. | `PENDING` |
-| `TASK-022` | Interactive Multi-Pane Lesson Viewer Shell | `FrontendAgent` | `REQ-FE-003` | `TASK-020` | `src/components/lesson/LessonShell.tsx` | Split layout shell housing slide deck, checklist, and asset trigger. | `PENDING` |
+| `TASK-021` | Course Catalog & Track Browser Components | `FrontendAgent` | `REQ-FE-002` | `TASK-020` | `src/components/catalog/TrackFilterBar.tsx`, `src/components/catalog/ModuleGrid.tsx` | Responsive catalog browser with NFD accent-insensitive Vietnamese search, difficulty filter, and live track progress. E2E verified (`catalog-page.spec.ts`). | **COMPLETED** |
+| `TASK-022` | Interactive Multi-Pane Lesson Viewer Shell | `FrontendAgent` | `REQ-FE-003` | `TASK-020` | `src/pages/LessonPage.tsx`, `src/components/lesson/OutlineSidebar.tsx`, `LessonSectionsReader.tsx`, `SafeMarkdown.tsx` | Split layout shell housing Slide + 10-Section Reader, collapsible module/section outline, starter download trigger, and keyboard shortcuts. E2E verified. | **COMPLETED** |
 | `TASK-023` | Integrated Monaco Scripting Editor | `FrontendAgent` | `REQ-FE-004` | `TASK-005`, `TASK-022` | `src/components/editor/ScriptEditor.tsx` | Monaco editor with Affinity DOM API autocomplete and run trigger. | `PENDING` |
 | `TASK-024` | Live Affinity Render Preview Viewport | `FrontendAgent` | `REQ-FE-005` | `TASK-022`, `TASK-042` | `src/components/preview/RenderPreview.tsx` | Viewport rendering Affinity MCP image output with pan/zoom. | `PENDING` |
 | `TASK-025` | Visual Diff & Overlay Comparison Tool | `FrontendAgent` | `REQ-FE-006` | `TASK-024` | `src/components/preview/VisualDiffSlider.tsx` | Interactive split slider comparing student work to benchmark. | `PENDING` |
@@ -61,14 +61,14 @@
 | `TASK-050` | Playwright End-to-End Test Suite | `QAAgent` | `REQ-QA-001` | `TASK-071` to `TASK-078` | `tests/e2e/*.spec.ts`, `playwright.config.ts` | 100% test pass rate across all 8 major pages. | `PENDING` |
 | `TASK-051` | Playwright Visual Regression Suite | `QAAgent` | `REQ-QA-002` | `TASK-050` | `tests/visual/*.spec.ts` | Baseline screenshots verified across desktop and mobile viewports. | `PENDING` |
 | `TASK-052` | Curriculum Script Automated Runner | `QAAgent` | `REQ-QA-003` | `TASK-013`, `TASK-041` | `scripts/test-curriculum-scripts.js` | 100% of curriculum exercise scripts execute successfully via MCP. | `PENDING` |
-| `TASK-053` | Static Analysis & Type Check Pipeline | `QAAgent` | `REQ-QA-004` | `TASK-002` | `npm run lint` & `npm run typecheck` scripts | 0 ESLint warnings, 0 TypeScript compilation errors. | `PENDING` |
+| `TASK-053` | Static Analysis & Type Check Pipeline | `QAAgent` | `REQ-QA-004` | `TASK-002` | `npm run lint`, `npm run typecheck`, `scripts/audit-vi-localization.js`, `scripts/audit-vi-curriculum.js` | 0 ESLint warnings, 0 TypeScript errors, 0 localization/leak violations across codebase and 66 lessons. | **COMPLETED** |
 | `TASK-054` | Independent Verification Gatekeeping Protocol | `QAAgent` | `REQ-QA-005` | `TASK-050` to `TASK-053` | `project-control/QA_PHASE1_SIGNOFF.md` | Formal sign-off workflow preventing self-certification by authoring agents. | `PENDING` |
 | `TASK-060` | Production Build & Netlify Deployment | `Orchestrator` | `REQ-OPS-001` | `TASK-050`, `TASK-053` | `netlify.toml`, build pipeline | Automated deploy succeeds, SPA routing handles direct deep links. | `PENDING` |
 | `TASK-061` | Onboarding & Developer Documentation | `Orchestrator` | `REQ-OPS-002` | `TASK-001`, `TASK-002` | `README.md`, `docs/LOCAL_SETUP.md` | Comprehensive setup guide verified on fresh environment. | `PENDING` |
 | `TASK-062` | Security & Secrets Audit | `Orchestrator` | `REQ-OPS-003` | `TASK-031`, `TASK-060` | `.env.example`, `docs/SECURITY_AUDIT.md` | Zero hardcoded API keys or credentials; RLS validated. | `PENDING` |
 | `TASK-071` | Major Page: Home / Landing Page | `FrontendAgent` | `REQ-PAGE-001` | `TASK-020`, `TASK-040` | `src/pages/HomePage.tsx` | Hero, MCP status pill, 4 track cards, feature highlights, Dark Luxury aesthetic, responsive across all viewports. E2E verified. | **COMPLETED** |
-| `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx` | 4 tracks, 40 modules grid, search/filter, visual prerequisite path. | `PENDING` |
-| `TASK-073` | Major Page: Interactive Slide Lesson Player | `FrontendAgent` | `REQ-PAGE-003` | `TASK-022`, `TASK-026` | `src/pages/LessonPage.tsx` | Slide player stage, drawer outline, checklist, asset download trigger. | `PENDING` |
+| `TASK-072` | Major Page: Course Catalog & Tracks Browser | `FrontendAgent` | `REQ-PAGE-002` | `TASK-021` | `src/pages/CatalogPage.tsx` | 4 Studio tracks showing 22 active modules / 66 lessons (18 expansion modules B02–B10, S02–S10 gated by `BLK-007`), NFD Vietnamese instant search, difficulty filter, lazy-loaded chunk. E2E verified. | **COMPLETED** |
+| `TASK-073` | Major Page: Interactive Slide Lesson Player | `FrontendAgent` | `REQ-PAGE-003` | `TASK-022`, `TASK-026` | `src/pages/LessonPage.tsx` | Multi-pane Slide + 10-Section deep reader, collapsible outline sidebar, bundled starter download trigger, global keyboard shortcuts, SEO Silo links. E2E verified. | **COMPLETED** |
 | `TASK-074` | Major Page: Tool Simulator Sandbox | `FrontendAgent` | `REQ-PAGE-004` | `TASK-027` | `src/pages/SimulatorPage.tsx` | Full interactive simulator page with PageHeader, simulator integration, routing in AppShell, responsive across all viewports. | **COMPLETED** |
 | `TASK-075` | Major Page: Tool Encyclopedia & Shortcuts | `FrontendAgent` | `REQ-PAGE-005` | `TASK-028` | `src/pages/EncyclopediaPage.tsx` | Searchable browser with 401 SDK topics from AFFINITY_DOM_API_REFERENCE.json, live search, module filter, code examples, lazy-loaded chunk. | **COMPLETED** |
 | `TASK-076` | Major Page: Scripting & MCP Playground | `FrontendAgent` | `REQ-PAGE-006` | `TASK-023`, `TASK-024` | `src/pages/PlaygroundPage.tsx` | Split-pane IDE, Monaco editor, live render preview, run/render buttons. | `PENDING` |

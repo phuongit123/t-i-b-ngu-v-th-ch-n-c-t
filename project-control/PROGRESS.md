@@ -2,12 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `5.0.0` (FINAL QA, SECURITY & RELEASE READINESS AUDIT COMPLETED; RELEASE_READINESS_REPORT.md published; 23/53 tasks COMPLETED, 3 IN_PROGRESS, 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `6.0.0` (6-PHASE PLATFORM OVERHAUL COMPLETED ON `feat/full-platform-overhaul`; 28/53 tasks COMPLETED, 3 IN_PROGRESS, 22 PENDING; 66/66 Playwright E2E PASS; 0 UI & curriculum localization violations; 44/44 backend tests PASS; 66/66 curriculum PASS)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
-- **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
+- **Project Phase:** `Phase 5/6/7 — Full Platform Overhaul & Local Quality Gate Certification`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `All 8 automated quality gates, 14 functional areas, and 7 security perimeters verified at exact HEAD commit d501cc87d6b8050296f1bdef5be9fff01bb0ee9d. Playwright E2E 46/46 PASS in 1.7m; npm run build PASS in 8.59s; backend test suite 44/44 PASS; capstone evaluator 7/7 PASS; curriculum validator 66/66 PASS.`
-- **Last Updated:** `2026-11-16`
+- **Last completed verification boundary:** `Full 6-phase overhaul verified locally on feat/full-platform-overhaul via 13 verification gates including Playwright E2E 66/66 PASS, UI localization leak audit 0 violations, curriculum audit 66/66 & 0 violations, backend 44/44 PASS, capstone 7/7 PASS, ESLint 0 warnings, and TypeScript 0 errors. Platform E2E pass does not close TASK-080 or establish learner A5 competency.`
+- **Last Updated:** `2026-11-18`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -20,19 +20,19 @@
 | **Phase 1** | Environment, Toolchain & MCP Capability Extraction | 5 | 5 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 2** | Design System & Visual Foundations ("Mastero") | 1 | 1 | 0 | 0 | **COMPLETED (QA Signed Off)** |
 | **Phase 3** | 40-Module Curriculum Development & Asset Packs | 8 | 2 | 2 | 4 | **TRACK 1 & 2 VERIFIED (60 Core + 6 Pilot = 66/120 Lessons Done; 54 Expansion Lessons Specified)** |
-| **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 2 | 0 | 8 | **PHASE 4 MVP & PHOTO SIMULATOR COMPLETED (`SlidePlayer`, `PenNodeSimulator` & `PhotoLayerSimulator` Operational)** |
-| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 5 | 0 | 3 | **5 MAJOR PAGES OPERATIONAL (`HomePage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
+| **Phase 4** | Interactive Engines (Slide, Simulator, MCP Client) | 10 | 4 | 0 | 6 | **COMPLETED FOR CORE VIEWER & SIMULATORS (`TASK-021`, `TASK-022`, `SlidePlayer`, Boolean `PenNodeSimulator` & Curves/HSL `PhotoLayerSimulator`)** |
+| **Phase 5** | 8 Major Pages Implementation (Web Platform) | 8 | 7 | 0 | 1 | **7 MAJOR PAGES OPERATIONAL (`HomePage`, `CatalogPage`, `LessonPage`, `SimulatorPage`, `EncyclopediaPage`, `ResourcesPage`, `DashboardPage/SettingsPage`)** |
 | **Phase 6** | Cloud Infrastructure, Auth & Storage (Supabase) | 4 | 4 | 0 | 0 | **COMPLETED (`TASK-030` to `TASK-033`: Schemas, RLS, Storage Buckets, Offline Sync)** |
-| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 0 | 0 | 5 | `46/46 Playwright E2E passed; formal phase sign-off pending release directive` |
+| **Phase 7** | Independent QA, Playwright E2E & Visual Testing | 5 | 1 | 0 | 4 | `TASK-053 static/audit checks COMPLETED; 66/66 Playwright E2E passed on feat/full-platform-overhaul; formal release sign-off pending` |
 | **Phase 8** | Production Deployment & Final Launch | 3 | 0 | 0 | 3 | `PENDING (Gated by PO authorization & BLK-007)` |
-| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **20** | **2** | **27** | **40.8% Completed** |
-| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **23** | **3** | **27** | **43.4% Completed** |
+| **TOTAL (Original Tasks)** | **Entire Project Scope** | **49** | **25** | **2** | **22** | **51.0% Completed** |
+| **TOTAL (Registry Rows)** | **Inclusive of TASK-010-REAUDIT & TASK-079–081** | **53** | **28** | **3** | **22** | **52.8% Completed** |
 
 > [!NOTE]
 > **Đối soát Tiến độ & Bài học (Progress & Curriculum Reconciliation):**
 > - **Tiến độ Tác vụ (Task Progress):**
->   - **40.8% (20 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-071` (Home), `TASK-074` (Simulator), `TASK-075` (Encyclopedia), `TASK-077` (Resources), `TASK-078` (Dashboard/Settings), `TASK-030`..`033` (Supabase backend), `TASK-026` (SlidePlayer), `TASK-027` (Simulator sandbox) đã hoàn tất.
->   - **43.4% (23 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-010-REAUDIT`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
+>   - **51.0% (25 / 49 tác vụ gốc):** Tính trên 49 tác vụ gốc ánh xạ 1:1 từ 49 yêu cầu kỹ thuật (`REQ-SYS-001` đến `REQ-OPS-003`). `TASK-021`, `TASK-022`, `TASK-053`, `TASK-072` (`CatalogPage`), `TASK-073` (`LessonPage`) đã hoàn tất cùng `TASK-071`, `TASK-074`, `TASK-075`, `TASK-077`, `TASK-078`, `TASK-030`..`033`, `TASK-026`, `TASK-027`. (`TASK-076` vẫn `PENDING` do điều kiện tiên quyết `TASK-023`/`TASK-024` chưa mở kết nối localhost:6767 live, dù phiên bản JS DOM Playground sandbox nội bộ đã hoạt động trong `PlaygroundPage.tsx`).
+>   - **52.8% (28 / 53 hàng tác vụ):** Tính trên tổng số 53 hàng hiện tại; `TASK-010-REAUDIT`, `TASK-079`, `TASK-081` đã COMPLETED; 3 task đang IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`).
 > - **Phân định Rõ ràng về Số lượng Bài học (Explicit Lesson Reconciliation):**
 >   - **60 Bài học Cốt lõi Hoàn thành (Completed Core Lessons - 50.0%):** Gồm Track 1 Designer (30 bài, D01–D10) và Track 2 Photo (30 bài, P01–P10).
 >   - **6 Bài học Pilot Đã Nghiệm thu (Pilot Lessons - 5.0%):** Gồm Track 3 Publisher Pilot (3 bài, B01-01 đến B01-03) và Track 4 Scripting Pilot (3 bài, S01-01 đến S01-03).
@@ -48,12 +48,12 @@
 | System Architecture & Environment (`REQ-SYS`) | 4 | 4 (`REQ-SYS-001` to `004`) | 0 | **100.0%** |
 | Affinity MCP Research & Automation (`REQ-MCP`) | 7 | 2 (`REQ-MCP-006`, `007`) | 5 | **28.6%** |
 | Comprehensive 40-Module Curriculum (`REQ-CURR`) | 8 | 2 (`REQ-CURR-001`, `002`) | 6 | **25.0%** |
-| Frontend & Interactive Engines (`REQ-FE`) | 10 | 1 (`REQ-FE-001`) | 9 | **10.0%** |
-| `Major Page Content & Functionality (`REQ-PAGE`)` | 8 | 5 (`REQ-PAGE-001`, `004`, `005`, `007`, `008`) | 3 | **62.5%** |
+| Frontend & Interactive Engines (`REQ-FE`) | 10 | 5 (`REQ-FE-001`..`003`, `007`, `008`) | 5 | **50.0%** |
+| Major Page Content & Functionality (`REQ-PAGE`) | 8 | 7 (`REQ-PAGE-001`..`005`, `007`, `008`) | 1 | **87.5%** |
 | Backend Database, Auth & Storage (`REQ-BE`) | 4 | 4 (`REQ-BE-001` to `004`) | 0 | **100.0%** |
-| Independent Quality Assurance (`REQ-QA`) | 5 | 0 | 5 | 0.0% |
+| Independent Quality Assurance (`REQ-QA`) | 5 | 1 (`REQ-QA-004`) | 4 | **20.0%** |
 | Deployment & Operations (`REQ-OPS`) | 3 | 0 | 3 | 0.0% |
-| **TOTAL** | **49** | **14** | **35** | **28.6%** |
+| **TOTAL** | **49** | **25** | **24** | **51.0%** |
 
 ---
 
@@ -309,4 +309,18 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   - Total repository Playwright E2E suite expanded to **42 / 42 tests PASS**.
 - **Governance:** `TASK-071` and `TASK-078` marked **COMPLETED**; `TASK-080` remains **IN_PROGRESS**; `BLK-007` remains **ACTIVE — LOCKED**.
 
+---
 
+## 21. Full 6-Phase Platform Overhaul — Vietnamese Localization, Creative Studio Tools & Technical SEO (2026-11-18)
+
+- **Branch:** `feat/full-platform-overhaul` (branched from `main` at `22aa4cf`; no merge or deployment performed without Project Owner authorization).
+- **End-to-End Scope Delivered Across 6 Sequential Phases:**
+  - **Phase 1 (`5401e08`):** Removed internal debug triggers (`503`), `Offline Test` role switcher, student self-grading RBAC exposure, and exposed task/group IDs from UI chrome; extracted `CatalogPage.tsx`; wired unified live progress in `LearningStore`.
+  - **Phase 2 (`5d94168`):** Redesigned unified single-row navigation header & Creative Studio homepage blueprint in Figma (`cSRe5Wv0orAS63LYPxQc8w`), created and exported 4 Canva studio slides (`DAHbNQlWSCk`), purged 18 mismatched furniture images (`public/assets/interia/`), generated 10 Studio/Photography/Retouching/Color-Grade PNG plates + 6 Vietnamese SVG diagrams, and implemented `BeforeAfterSlider.tsx`.
+  - **Phase 3 (`acd5174`):** Built Multi-Pane `LessonPage.tsx`, `OutlineSidebar.tsx`, `SafeMarkdown.tsx`, and `LessonSectionsReader.tsx` (10-section deep reader, lightbox zoom, `BeforeAfterSlider`, starter bundle downloads); translated/localized 100% of all 22 `module.json`, 66 lesson `.json`, 20 `.md` guides, and 3 `.js` scripts into natural Vietnamese (`npm run test:curriculum-vi`: 0 violations).
+  - **Phase 4 (`cfac16f`):** Added Phase 4 Studio/Playground UI frame in Figma (`node 4:2`); rebuilt `PenNodeSimulator.tsx` (multi-layer vector stack, Rectangle/Ellipse/Star parametric tools, Fill/Stroke controls, non-destructive Corner Tool, and 4 real Boolean operations `Add/Subtract/Intersect/Xor` in `src/lib/boolean-geometry.ts`); rebuilt `PhotoLayerSimulator.tsx` (real portrait + backdrop studio compositing, edge-flood matte, real `ImageData` Curves LUT + HSL processing in `src/lib/pixel-processing.ts`, interactive Tone Curve & Luminance Histogram in `PhotoAdjustmentsPanel.tsx`, layer reordering/renaming); embedded live grading canvases in `ChallengesPage.tsx`; built `PlaygroundPage.tsx` + `src/lib/scripting-sandbox.ts` (4 presets, 14 Affinity DOM classes, Live Document Canvas) bridged with `EncyclopediaPage.tsx`.
+  - **Phase 5 (`8258b6c`):** Implemented clean Vietnamese URL routing & legacy route compatibility in `src/lib/seo-router.ts`, dynamic per-route metadata and JSON-LD schemas (`EducationalOrganization`, `Course`, `LearningResource`, `BreadcrumbList`, `FAQPage`) in `src/lib/seo-metadata.ts`, bidirectional Silo internal links in `KnowledgePage.tsx` and `LessonPage.tsx`, cleaned raw `$...$` LaTeX tokens, and generated `public/sitemap.xml` (84 URLs: 18 core + 66 lessons), `public/robots.txt`, and `public/_redirects`.
+  - **Phase 6 (Final Polish & Anti-Regression Audit):** Completed Vietnamese polish on `VectorLayersSidebar.tsx`, `PhotoLayerSimulator.tsx`, `HeroSection.tsx`, mobile header spacing in `MainNavigation.tsx`, and Section 10 completion trigger (`sections-complete-lesson-btn`) in `LessonSectionsReader.tsx`; added automated UI leak auditor `scripts/audit-vi-localization.js` (`npm run test:ui-vi`); added full learner-journey + anti-cheat + multi-viewport responsive suite `tests/e2e/final-overhaul-audit-phase6.spec.ts`; expanded local quality gates to **66 / 66 Playwright E2E PASS**.
+- **Governance & Evidence Separation:**
+  - Updated `TASK_REGISTRY.md` to **28 COMPLETED / 3 IN_PROGRESS / 22 PENDING = 52.8%** (`25 / 2 / 22 = 51.0%` original tasks): transitioned `TASK-021`, `TASK-022`, `TASK-053`, `TASK-072`, `TASK-073` to **COMPLETED**; kept `TASK-076` **PENDING** (awaiting live `TASK-023`/`TASK-024`); kept `TASK-012`, `TASK-013`, `TASK-080` **IN_PROGRESS**; kept **`BLK-007` ACTIVE — LOCKED**.
+  - Technical E2E and UI verification proves platform behavior, localization quality, tool simulation physics, and SEO routing; it does not complete `TASK-080` desktop introspection/operation audit or establish learner `A5` graduation competence.
