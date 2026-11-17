@@ -18,6 +18,9 @@ import {
   CHEATSHEET_SECTIONS,
   GLOSSARY_TERMS,
 } from '@/data/knowledge-hub-data';
+import { getLessonById } from '@/data/curriculum/index';
+import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
+import { getLessonCanonicalPath, getRoutePath } from '@/lib/seo-router';
 import { usePreferences, formatShortcutForOs } from '@/lib/preferences-context';
 
 export type KnowledgeTab = 'search' | 'shortcuts' | 'cheatsheet' | 'glossary';
@@ -25,11 +28,20 @@ export type KnowledgeTab = 'search' | 'shortcuts' | 'cheatsheet' | 'glossary';
 export interface KnowledgePageProps {
   initialTab?: KnowledgeTab;
   onNavigate?: (route: string) => void;
+  onLaunchLesson?: (lessonId: string) => void;
 }
+
+const TAB_TO_ROUTE: Record<KnowledgeTab, string> = {
+  search: 'knowledge',
+  shortcuts: 'shortcuts',
+  cheatsheet: 'cheatsheet',
+  glossary: 'glossary',
+};
 
 export const KnowledgePage: React.FC<KnowledgePageProps> = ({
   initialTab = 'search',
   onNavigate,
+  onLaunchLesson,
 }) => {
   const { preferences, updatePreferences } = usePreferences();
   const [activeTab, setActiveTab] = useState<KnowledgeTab>(initialTab);
@@ -151,8 +163,15 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
             <button
               key={tab.id}
               onClick={() => {
-                setActiveTab(tab.id as KnowledgeTab);
+                const nextTab = tab.id as KnowledgeTab;
+                setActiveTab(nextTab);
                 setSelectedCategory('all');
+                if (typeof window !== 'undefined') {
+                  const targetPath = getRoutePath(TAB_TO_ROUTE[nextTab]);
+                  if (window.location.pathname !== targetPath) {
+                    window.history.replaceState(null, '', targetPath);
+                  }
+                }
               }}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono whitespace-nowrap transition-all ${
                 activeTab === tab.id
@@ -316,6 +335,26 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                                 </div>
                                 <p className="text-xs text-zinc-300 leading-relaxed">{gl.definition}</p>
                                 <p className="text-[11px] text-zinc-500 italic">Bối cảnh áp dụng: {gl.exampleContext}</p>
+                                <div className="pt-2 border-t border-zinc-800/70 flex flex-wrap items-center gap-2 text-[11px] font-mono">
+                                  {gl.relatedLessonIds.map((lId) => {
+                                    const lessonObj = getLessonById(lId);
+                                    const href = getLessonCanonicalPath(lessonObj ?? lId);
+                                    const lTitle = lessonTranslationsVi[lId] || lessonObj?.title || lId;
+                                    return (
+                                      <a
+                                        key={lId}
+                                        href={href}
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          onLaunchLesson?.(lId);
+                                        }}
+                                        className="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 transition-colors"
+                                      >
+                                        Bài học {lId}: {lTitle}
+                                      </a>
+                                    );
+                                  })}
+                                </div>
                               </div>
                             ))}
                           </div>
@@ -579,6 +618,47 @@ export const KnowledgePage: React.FC<KnowledgePageProps> = ({
                       <div className="text-emerald-400/90 font-mono text-[10px] italic">
                         Ví dụ: {term.exampleContext}
                       </div>
+                    </div>
+
+                    {/* Silo Internal Links to Lessons & Interactive Practice */}
+                    <div className="pt-2.5 border-t border-zinc-800/80 flex flex-wrap items-center gap-2 text-[11px] font-mono">
+                      {term.relatedLessonIds.map((lId) => {
+                        const lessonObj = getLessonById(lId);
+                        const href = getLessonCanonicalPath(lessonObj ?? lId);
+                        const lTitle = lessonTranslationsVi[lId] || lessonObj?.title || lId;
+                        return (
+                          <a
+                            key={lId}
+                            href={href}
+                            data-testid={`glossary-silo-lesson-${lId}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              onLaunchLesson?.(lId);
+                            }}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 transition-colors"
+                          >
+                            <span>Học ngay {lId}: {lTitle}</span>
+                          </a>
+                        );
+                      })}
+                      {term.relatedPracticeRoute && (
+                        <a
+                          href={getRoutePath(term.relatedPracticeRoute)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onNavigate?.(term.relatedPracticeRoute!);
+                          }}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 transition-colors"
+                        >
+                          <span>
+                            {term.relatedPracticeRoute === 'capstone'
+                              ? 'Mở Đồ án A5'
+                              : term.relatedPracticeRoute === 'playground'
+                              ? 'Mở Thực hành DOM'
+                              : 'Mở Phòng mô phỏng'}
+                          </span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}

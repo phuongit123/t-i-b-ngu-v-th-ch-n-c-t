@@ -11,6 +11,8 @@ import type { CurriculumLesson, CurriculumModule } from '@/types/curriculum';
 import { OutlineSidebar } from '@/components/lesson/OutlineSidebar';
 import { SlidePlayer } from '@/components/lesson/SlidePlayer';
 import { resolveCurriculumAssetUrl } from '@/lib/curriculum-asset-urls';
+import { getLessonCanonicalPath, getRoutePath } from '@/lib/seo-router';
+import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
 
 export interface LessonPageProps {
   lesson: CurriculumLesson;
@@ -192,6 +194,70 @@ export const LessonPage: React.FC<LessonPageProps> = ({
             onSelectLesson={handleLessonSwitch}
             onNavigate={onNavigate}
           />
+
+          {/* Semantic Internal SEO Silo Footer */}
+          <nav
+            aria-label="Liên kết bài học và học liệu liên quan"
+            data-testid="lesson-seo-silo-bar"
+            className="mt-5 p-4 rounded-xl border border-hairline bg-surface flex flex-wrap items-center justify-between gap-3 text-xs font-mono"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <a
+                href={getRoutePath('catalog', { trackId: lesson.trackId })}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onBackToCatalog();
+                }}
+                className="px-2.5 py-1 rounded bg-canvas border border-hairline text-zinc-300 hover:border-cyan-500/40 hover:text-cyan-300 transition-colors"
+              >
+                Lộ trình {TRACK_LABELS_VI[lesson.trackId] || lesson.trackId}
+              </a>
+              <a
+                href={lesson.trackId === 'scripting' ? '/thuc-hanh-tu-dong-hoa' : '/phong-mo-phong'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(lesson.trackId === 'scripting' ? 'playground' : 'simulator');
+                }}
+                className="px-2.5 py-1 rounded bg-canvas border border-hairline text-amber-300 hover:border-amber-500/40 transition-colors"
+              >
+                {lesson.trackId === 'scripting' ? 'Thực hành JS DOM IDE' : 'Mở Phòng mô phỏng tương tác'}
+              </a>
+              <a
+                href="/tri-thuc/tu-dien-thuat-ngu"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('glossary');
+                }}
+                className="px-2.5 py-1 rounded bg-canvas border border-hairline text-zinc-300 hover:border-cyan-500/40 hover:text-cyan-300 transition-colors"
+              >
+                Từ điển thuật ngữ
+              </a>
+              <a
+                href="/tai-nguyen"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('resources');
+                }}
+                className="px-2.5 py-1 rounded bg-canvas border border-hairline text-zinc-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
+              >
+                Thư viện học liệu
+              </a>
+            </div>
+
+            {nextLesson && (
+              <a
+                href={getLessonCanonicalPath(nextLesson)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLessonSwitch(nextLesson.id);
+                }}
+                className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 transition-colors"
+              >
+                <span>Bài tiếp: {nextLesson.id} — {lessonTranslationsVi[nextLesson.id] || nextLesson.title}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </nav>
         </div>
       </div>
     </div>

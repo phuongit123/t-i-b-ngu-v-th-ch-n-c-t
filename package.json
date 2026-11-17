@@ -18,7 +18,8 @@
     "test:translations": "node scripts/test-vietnamese-translations.js",
     "test:curriculum-vi": "node scripts/audit-vi-curriculum.js",
     "test:capstone": "node scripts/test-capstone-evaluator.js",
-    "test:backend": "node scripts/test-supabase-backend.js"
+    "test:backend": "node scripts/test-supabase-backend.js",
+    "generate:seo": "node scripts/generate-seo-files.js"
   },
   "dependencies": {
     "@rollup/wasm-node": "^4.68.1",

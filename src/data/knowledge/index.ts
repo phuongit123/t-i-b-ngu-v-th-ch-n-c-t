@@ -37,6 +37,8 @@ export interface GlossaryTerm {
   definition: string;
   relatedTools: string[];
   exampleContext: string;
+  relatedLessonIds: string[];
+  relatedPracticeRoute?: 'simulator' | 'playground' | 'capstone';
 }
 
 // ---------------------------------------------------------------------------
@@ -278,7 +280,7 @@ export const CHEATSHEET_SECTIONS: CheatSheetSection[] = [
       },
       {
         title: 'Smooth Node (Điểm neo đường cong mượt)',
-        description: 'Hai tay đòn nằm thẳng hàng (tiếp tuyến $180^\\circ$). Khi xoay một tay đòn, tay đòn đối diện tự động xoay theo.',
+        description: 'Hai tay đòn nằm thẳng hàng (tiếp tuyến 180°). Khi xoay một tay đòn, tay đòn đối diện tự động xoay theo.',
         badge: 'Mượt mà',
         tips: 'Độ dài tay đòn quyết định bán kính phồng của đường lượn sóng.',
       },
@@ -298,7 +300,7 @@ export const CHEATSHEET_SECTIONS: CheatSheetSection[] = [
     items: [
       {
         title: 'Multiply (Làm tối)',
-        description: 'Nhân các giá trị màu sắc: màu trắng ($1.0$) biến mất thành trong suốt, màu đen ($0.0$) giữ nguyên.',
+        description: 'Nhân các giá trị màu sắc: màu trắng (1.0) biến mất thành trong suốt, màu đen (0.0) giữ nguyên.',
         badge: 'Darken Group',
         tips: 'Dùng để ghép chữ đen, tạo bóng đổ hoặc ghép texture lên bề mặt sáng.',
       },
@@ -310,7 +312,7 @@ export const CHEATSHEET_SECTIONS: CheatSheetSection[] = [
       },
       {
         title: 'Overlay (Tăng tương phản trung thực)',
-        description: 'Kết hợp Multiply cho vùng tối và Screen cho vùng sáng. Màu xám trung tính $50\\%$ biến mất.',
+        description: 'Kết hợp Multiply cho vùng tối và Screen cho vùng sáng. Màu xám trung tính 50% biến mất.',
         badge: 'Contrast Group',
         tips: 'Tạo độ đanh và thêm texture chất liệu mà không làm bạc màu ảnh.',
       },
@@ -363,6 +365,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Phương pháp giải quyết vấn đề lấy con người làm trung tâm, trải qua 8 bước: Discover → Define → Explore → Plan → Create → Evaluate → Iterate → Deliver.',
     relatedTools: ['Tất cả các Studio', 'Rubric Đồ án A5'],
     exampleContext: 'Thay vì mở phần mềm và vẽ ngẫu hứng, nhà thiết kế giải mã Brief trước để xác định tiêu chí thành công.',
+    relatedLessonIds: ['D01-01', 'P01-01'],
+    relatedPracticeRoute: 'capstone',
   },
   {
     id: 'gl-dt-02',
@@ -370,8 +374,10 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     termVi: 'Phân rã yêu cầu khách hàng',
     category: 'Design Thinking',
     definition: 'Quá trình bóc tách 6 thành phần cốt lõi của một đề tài: Khách hàng, Mục tiêu, Khán giả, Thông điệp, Ràng buộc kỹ thuật và Tiêu chí đo lường (PLO-07).',
-    relatedTools: ['brief-deconstruction.md'],
+    relatedTools: ['Tài liệu phân rã đề bài', 'Hồ sơ Đồ án A5'],
     exampleContext: 'Xác định rõ bảng màu cà phê di sản và quy chuẩn in ấn trước khi phác thảo logo.',
+    relatedLessonIds: ['D10-03', 'P10-03'],
+    relatedPracticeRoute: 'capstone',
   },
   {
     id: 'gl-dt-03',
@@ -379,8 +385,10 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     termVi: 'Vòng lặp sửa đổi có đối chiếu',
     category: 'Design Thinking',
     definition: 'Hành vi đối chiếu bản phác thảo Draft 1 với tiêu chuẩn kỹ thuật, phát hiện ít nhất 3 lỗi kỹ thuật và viết nhật ký sửa đổi có dẫn chứng (PLO-08).',
-    relatedTools: ['iteration-critique-log.md'],
+    relatedTools: ['Nhật ký sửa đổi kỹ thuật'],
     exampleContext: 'Phát hiện clipping ở kênh đỏ của poster và dùng Curves cục bộ để hồi phục chi tiết điểm cháy sáng.',
+    relatedLessonIds: ['P05-03', 'D10-03'],
+    relatedPracticeRoute: 'capstone',
   },
 
   // Technical Studio Terms
@@ -392,6 +400,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Khoảng diện tích mở rộng ra ngoài đường cắt thành phẩm (thường là 3mm), đảm bảo khi máy xén giấy xê dịch sẽ không để lại vệt trắng mép giấy.',
     relatedTools: ['Document Setup', 'Spread Setup', 'PDF/X Export'],
     exampleContext: 'Các hình ảnh nền và mảng màu chạm mép ấn phẩm phải được kéo phủ hết đường chỉ đỏ Bleed.',
+    relatedLessonIds: ['B01-01', 'B01-03'],
   },
   {
     id: 'gl-tech-02',
@@ -399,8 +408,10 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     termVi: 'Đường cong tham số điều khiển bằng tay đòn',
     category: 'Vector Studio',
     definition: 'Mô hình toán học tạo ra đường cong mượt mà thông qua điểm neo (Anchor Node) và các tay đòn tiếp tuyến (Control Handles).',
-    relatedTools: ['Pen Tool', 'Node Tool', 'PenNodeSimulator'],
+    relatedTools: ['Pen Tool', 'Node Tool', 'Bộ mô phỏng Vector Bézier'],
     exampleContext: 'Điều chỉnh độ dài tay đòn để tăng giảm độ cong mà không làm tăng số lượng điểm neo không cần thiết.',
+    relatedLessonIds: ['D02-01', 'D02-02'],
+    relatedPracticeRoute: 'simulator',
   },
   {
     id: 'gl-tech-03',
@@ -408,8 +419,10 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     termVi: 'Nguyên lý bảo toàn dữ liệu gốc',
     category: 'Pixel Studio',
     definition: 'Kỹ thuật xử lý hình ảnh sử dụng Layer Masks, Adjustment Layers và Live Filters, cho phép sửa đổi hoặc hoàn tác bất kỳ lúc nào mà không làm mất pixel ảnh mộc.',
-    relatedTools: ['Layer Masks', 'Live Filter Layers', 'PhotoLayerSimulator'],
+    relatedTools: ['Layer Masks', 'Live Filter Layers', 'Bộ mô phỏng Pixel Layer'],
     exampleContext: 'Tô cọ đen trên Mask để ẩn đối tượng thay vì dùng Eraser Tool xóa vĩnh viễn pixel.',
+    relatedLessonIds: ['P02-02', 'P03-01'],
+    relatedPracticeRoute: 'simulator',
   },
   {
     id: 'gl-tech-04',
@@ -419,6 +432,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Studio chuyên biệt trong Affinity Photo dùng để giải mã tệp ảnh RAW từ máy ảnh, hỗ trợ cân bằng trắng, kiểm soát dải động (Dynamic Range) và xuất lớp ảnh Pixel hoặc RAW liên kết.',
     relatedTools: ['Develop Studio', 'Basic Panel', 'Tones Panel'],
     exampleContext: 'Mở ảnh mộc Cold Brew trong Develop Studio để cứu chi tiết vùng tối trước khi chuyển sang Pixel Studio.',
+    relatedLessonIds: ['P09-01', 'P09-02'],
+    relatedPracticeRoute: 'simulator',
   },
   {
     id: 'gl-tech-05',
@@ -428,6 +443,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Hình khối được tạo ra từ nhiều đường cong vector thông qua phép toán Boolean (Add, Subtract) nhưng vẫn cho phép nhấp đúp chọn và chỉnh sửa hình con bên trong.',
     relatedTools: ['Create Compound', 'Boolean Engine'],
     exampleContext: 'Dựng biểu tượng logo chữ A bằng Compound để có thể thay đổi độ dày thanh ngang sau này.',
+    relatedLessonIds: ['D03-02', 'D03-03'],
+    relatedPracticeRoute: 'simulator',
   },
   {
     id: 'gl-tech-06',
@@ -437,6 +454,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Bảng điều khiển cho phép người dùng khám phá toàn bộ bộ ký tự (Glyphs) của font chữ, bao gồm chữ hoa nhỏ (Small Caps), chữ ghép (Ligatures) và biểu tượng tiền tệ.',
     relatedTools: ['Window > Text > Glyph Browser', 'Context Toolbar'],
     exampleContext: 'Chèn ký tự bản quyền © và dấu gạch dài Em Dash (—) chính xác vào văn bản menu.',
+    relatedLessonIds: ['D06-02', 'B01-02'],
   },
   {
     id: 'gl-tech-07',
@@ -446,6 +464,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Công cụ hỗ trợ hít điểm neo và cạnh đối tượng vào lề trang, trục tọa độ, tâm đối tượng hoặc lưới pixel hoàn hảo (Force Pixel Alignment).',
     relatedTools: ['Snapping Manager', 'Move Tool'],
     exampleContext: 'Bật Force Pixel Alignment khi vẽ biểu tượng vector cho web để tránh đường viền bị mờ đục.',
+    relatedLessonIds: ['D01-03', 'D07-02'],
   },
   {
     id: 'gl-tech-08',
@@ -455,5 +474,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Histogram biểu diễn mật độ điểm ảnh từ vùng tối đen (Shadows) đến vùng sáng trắng (Highlights). Curves cho phép uốn đường dốc để tăng tương phản chữ S.',
     relatedTools: ['Histogram Panel', 'Curves Adjustment', 'Levels'],
     exampleContext: 'Nhìn vào Histogram để nhận biết ảnh bị cháy sáng (clipping ở cạnh phải) và kéo đỉnh Curve xuống để xử lý.',
+    relatedLessonIds: ['P05-01', 'P05-02'],
+    relatedPracticeRoute: 'simulator',
   },
 ];
