@@ -221,6 +221,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.designer.lessons}
           completedLessonsCount={designerProgress.completed}
           progressPercentage={designerProgress.percentage}
+          coverImage="/assets/academy/studio-vector-art.png"
           onClick={() => handleTrackChange('designer')}
         />
         <TrackCard
@@ -232,6 +233,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.photo.lessons}
           completedLessonsCount={photoProgress.completed}
           progressPercentage={photoProgress.percentage}
+          coverImage="/assets/academy/studio-pixel-retouch.png"
           onClick={() => handleTrackChange('photo')}
         />
         <TrackCard
@@ -243,6 +245,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.publisher.lessons}
           completedLessonsCount={publisherProgress.completed}
           progressPercentage={publisherProgress.percentage}
+          coverImage="/assets/academy/studio-layout-editorial.png"
           onClick={() => handleTrackChange('publisher')}
         />
         <TrackCard
@@ -254,13 +257,14 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.scripting.lessons}
           completedLessonsCount={scriptingProgress.completed}
           progressPercentage={scriptingProgress.percentage}
+          coverImage="/assets/academy/studio-automation-dom.png"
           onClick={() => handleTrackChange('scripting')}
         />
       </div>
 
       {/* Filter and Search Controls */}
       <div className="space-y-3 pt-2">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        <div className="flex flex-col gap-3">
           {/* Track Filter Tabs */}
           <TrackFilterBar
             activeTrack={selectedTrack}
@@ -269,7 +273,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           />
 
           {/* Search & Difficulty Filter Group */}
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2.5">
             {/* Search Input */}
             <div className="relative flex-1 sm:w-72">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 pointer-events-none" />
@@ -304,7 +308,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                       type="button"
                       onClick={() => setSelectedDifficulty(opt.id)}
                       className={cn(
-                        'px-2.5 py-1 rounded text-[11px] font-mono transition-colors',
+                        'px-2.5 py-1 rounded text-[11px] font-mono whitespace-nowrap shrink-0 transition-colors',
                         isActive
                           ? 'bg-zinc-800 text-zinc-100 font-semibold'
                           : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850'

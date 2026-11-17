@@ -14,6 +14,7 @@ export interface TrackCardProps {
   plannedModuleCount?: number;
   plannedLessonCount?: number;
   progressPercentage?: number;
+  coverImage?: string;
   onClick: () => void;
   className?: string;
 }
@@ -27,6 +28,7 @@ export const TrackCard: React.FC<TrackCardProps> = ({
   lessonCount,
   completedLessonsCount = 0,
   progressPercentage = 0,
+  coverImage,
   onClick,
   className,
 }) => {
@@ -80,6 +82,15 @@ export const TrackCard: React.FC<TrackCardProps> = ({
       )}
     >
       <div>
+        {coverImage && (
+          <div className="mb-4 -mx-2 -mt-2 h-32 overflow-hidden rounded-sm border border-hairline bg-obsidian">
+            <img
+              src={coverImage}
+              alt={`Tác phẩm minh họa ${name}`}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
         {/* Header Icon & Tagline */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="w-10 h-10 rounded-sm bg-zinc-850 flex items-center justify-center border border-hairline group-hover:scale-105 transition-transform shrink-0">

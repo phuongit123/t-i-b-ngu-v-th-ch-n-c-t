@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" fill="none">
+  <rect width="800" height="420" rx="16" fill="#09090B"/>
+  <text x="32" y="44" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="18" font-weight="700">5 Phép Toán Hình Học Boolean (Geometry &amp; Compound)</text>
+  <text x="32" y="66" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="12">Giữ phím Alt / Option khi bấm để tạo Compound Shape chỉnh sửa phi phá hủy</text>
+  <!-- 5 Tiles -->
+  <g transform="translate(32, 96)">
+    <rect width="136" height="284" rx="12" fill="#111118" stroke="#00D2FF" stroke-opacity="0.45"/>
+    <circle cx="56" cy="110" r="32" fill="#00D2FF" fill-opacity="0.8"/>
+    <rect x="58" y="102" width="52" height="52" rx="8" fill="#00D2FF" fill-opacity="0.8"/>
+    <text x="16" y="210" fill="#00D2FF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">1. Add</text>
+    <text x="16" y="232" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="11">Hợp nhất khối</text>
+    <text x="16" y="252" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">Gộp thành một</text>
+    <text x="16" y="266" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">đường biên chung.</text>
+  </g>
+  <g transform="translate(182, 96)">
+    <rect width="136" height="284" rx="12" fill="#111118" stroke="#FB7185" stroke-opacity="0.45"/>
+    <circle cx="56" cy="110" r="32" fill="#FB7185" fill-opacity="0.85"/>
+    <rect x="58" y="102" width="52" height="52" rx="8" fill="#111118" stroke="#FB7185" stroke-dasharray="3 3"/>
+    <text x="16" y="210" fill="#FB7185" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">2. Subtract</text>
+    <text x="16" y="232" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="11">Khoét cắt trừ</text>
+    <text x="16" y="252" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">Hình trên cắt bỏ</text>
+    <text x="16" y="266" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">phần của hình dưới.</text>
+  </g>
+  <g transform="translate(332, 96)">
+    <rect width="136" height="284" rx="12" fill="#111118" stroke="#38BDF8" stroke-opacity="0.45"/>
+    <circle cx="56" cy="110" r="32" stroke="#3F3F46" stroke-dasharray="3 3"/>
+    <rect x="58" y="102" width="52" height="52" rx="8" stroke="#3F3F46" stroke-dasharray="3 3"/>
+    <path d="M58 102 A32 32 0 0 1 88 110 A32 32 0 0 1 58 142 Z" fill="#38BDF8"/>
+    <text x="16" y="210" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">3. Intersect</text>
+    <text x="16" y="232" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="11">Giữ phần giao</text>
+    <text x="16" y="252" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">Chỉ giữ diện tích</text>
+    <text x="16" y="266" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">hai hình giao nhau.</text>
+  </g>
+  <g transform="translate(482, 96)">
+    <rect width="136" height="284" rx="12" fill="#111118" stroke="#F59E0B" stroke-opacity="0.45"/>
+    <circle cx="56" cy="110" r="32" fill="#F59E0B" fill-opacity="0.75"/>
+    <rect x="58" y="102" width="52" height="52" rx="8" fill="#F59E0B" fill-opacity="0.75"/>
+    <rect x="58" y="102" width="28" height="36" fill="#111118"/>
+    <text x="16" y="210" fill="#F59E0B" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">4. Xor</text>
+    <text x="16" y="232" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="11">Đục rỗng phần giao</text>
+    <text x="16" y="252" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">Loại bỏ vùng chồng</text>
+    <text x="16" y="266" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">chéo ở chính giữa.</text>
+  </g>
+  <g transform="translate(632, 96)">
+    <rect width="136" height="284" rx="12" fill="#111118" stroke="#10B981" stroke-opacity="0.45"/>
+    <circle cx="52" cy="110" r="30" fill="#10B981" fill-opacity="0.65" stroke="#09090B" stroke-width="3"/>
+    <rect x="64" y="102" width="48" height="48" rx="8" fill="#34D399" fill-opacity="0.75" stroke="#09090B" stroke-width="3"/>
+    <text x="16" y="210" fill="#10B981" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">5. Divide</text>
+    <text x="16" y="232" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="11">Tách từng mảnh</text>
+    <text x="16" y="252" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">Chia cắt mọi giao</text>
+    <text x="16" y="266" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">điểm thành mảnh rời.</text>
+  </g>
+</svg>

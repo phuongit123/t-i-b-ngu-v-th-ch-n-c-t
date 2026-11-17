@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" rx="16" fill="#09090B"/>
+  <text x="32" y="44" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="18" font-weight="700">Kiến Trúc Tự Động Hóa JavaScript DOM &amp; Cầu Nối MCP</text>
+  <text x="32" y="66" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="12">Tự động hóa quy trình lặp lại mà không thay thế tư duy thẩm mỹ của nhà thiết kế</text>
+  <!-- Box 1: Script -->
+  <rect x="36" y="112" width="210" height="220" rx="12" fill="#111118" stroke="#10B981" stroke-opacity="0.5"/>
+  <text x="54" y="144" fill="#10B981" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">1. KỊCH BẢN JS DOM</text>
+  <text x="54" y="176" fill="#E4E4E7" font-family="JetBrains Mono, monospace" font-size="11">app.activeDocument</text>
+  <text x="54" y="198" fill="#E4E4E7" font-family="JetBrains Mono, monospace" font-size="11">doc.createRectangle()</text>
+  <text x="54" y="220" fill="#E4E4E7" font-family="JetBrains Mono, monospace" font-size="11">layer.transform()</text>
+  <text x="54" y="268" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Thực thi trong V8 Sandbox</text>
+  <text x="54" y="286" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">của tiến trình Affinity.</text>
+  <!-- Arrow 1 -->
+  <path d="M254 222 L288 222" stroke="#10B981" stroke-width="2.5"/>
+  <path d="M282 216 L292 222 L282 228" fill="#10B981"/>
+  <!-- Box 2: MCP Bridge -->
+  <rect x="296" y="112" width="208" height="220" rx="12" fill="#111118" stroke="#00D2FF" stroke-opacity="0.5"/>
+  <text x="314" y="144" fill="#00D2FF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">2. CẦU NỐI MCP (SSE)</text>
+  <text x="314" y="176" fill="#E4E4E7" font-family="JetBrains Mono, monospace" font-size="11">localhost:6767/sse</text>
+  <text x="314" y="206" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">execute_script(code)</text>
+  <text x="314" y="226" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">render_spread(uuid)</text>
+  <text x="314" y="268" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Truyền lệnh an toàn từ</text>
+  <text x="314" y="286" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Agent tới phần mềm máy trạm.</text>
+  <!-- Arrow 2 -->
+  <path d="M512 222 L546 222" stroke="#00D2FF" stroke-width="2.5"/>
+  <path d="M540 216 L550 222 L540 228" fill="#00D2FF"/>
+  <!-- Box 3: Visual Output -->
+  <rect x="554" y="112" width="210" height="220" rx="12" fill="#111118" stroke="#F59E0B" stroke-opacity="0.5"/>
+  <text x="572" y="144" fill="#F59E0B" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">3. KẾT XUẤT TÀI LIỆU</text>
+  <text x="572" y="176" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="12">Tạo Artboard hàng loạt</text>
+  <text x="572" y="198" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="12">Chuẩn hóa tên Layer</text>
+  <text x="572" y="220" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="12">Kiểm tra cấu trúc &amp; Render</text>
+  <text x="572" y="268" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Kiểm tra trực quan bằng</text>
+  <text x="572" y="286" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">render_spread / PNG.</text>
+</svg>

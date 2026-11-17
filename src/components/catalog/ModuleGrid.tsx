@@ -22,6 +22,61 @@ const TRACK_BADGE_VI: Record<string, string> = {
   scripting: 'Tự động hóa',
 };
 
+function getModuleThumbnail(moduleId: string): { src: string; alt: string } {
+  if (moduleId === 'D01') {
+    return {
+      src: '/assets/lessons/diagram-vector-workspace-vi.svg',
+      alt: 'Sơ đồ giao diện Vector Studio và thanh công cụ Affinity',
+    };
+  }
+  if (moduleId === 'D02') {
+    return {
+      src: '/assets/lessons/diagram-bezier-nodes-vi.svg',
+      alt: 'Sơ đồ giải phẫu điểm neo và tay nắm tiếp tuyến Bézier',
+    };
+  }
+  if (moduleId === 'D03') {
+    return {
+      src: '/assets/lessons/diagram-boolean-ops-vi.svg',
+      alt: 'Sơ đồ phép toán hình học Boolean (Add, Subtract, Intersect, Xor)',
+    };
+  }
+  if (moduleId.startsWith('D')) {
+    return {
+      src: '/assets/academy/studio-vector-art.png',
+      alt: 'Tác phẩm minh họa hình học chính xác trong Vector Studio',
+    };
+  }
+  if (moduleId === 'P01' || moduleId === 'P02' || moduleId === 'P03') {
+    return {
+      src: '/assets/lessons/diagram-pixel-masking-vi.svg',
+      alt: 'Sơ đồ cấu trúc mặt nạ lớp (Layer Mask) và chỉnh sửa phi phá hủy',
+    };
+  }
+  if (moduleId === 'P04' || moduleId === 'P05' || moduleId === 'P06') {
+    return {
+      src: '/assets/lessons/after-color-graded.png',
+      alt: 'Mẫu hậu kỳ cân chỉnh màu sắc Curves & RAW trong Pixel Studio',
+    };
+  }
+  if (moduleId.startsWith('P')) {
+    return {
+      src: '/assets/academy/studio-pixel-retouch.png',
+      alt: 'Ảnh ghép thương mại ánh sáng phòng studio Pixel Studio',
+    };
+  }
+  if (moduleId.startsWith('B')) {
+    return {
+      src: '/assets/lessons/diagram-layout-bleed-vi.svg',
+      alt: 'Sơ đồ hệ lưới trang đôi, Margin và tràn lề Bleed 3mm trong Layout Studio',
+    };
+  }
+  return {
+    src: '/assets/lessons/diagram-mcp-bridge-vi.svg',
+    alt: 'Sơ đồ kiến trúc cầu nối JavaScript DOM và Affinity MCP',
+  };
+}
+
 export const ModuleGrid: React.FC<ModuleGridProps> = ({
   modules,
   activeLessonId = null,
@@ -78,6 +133,7 @@ export const ModuleGrid: React.FC<ModuleGridProps> = ({
         const displayTitle = moduleTranslationsVi[mod.id]?.title || mod.title;
         const displayDescription = moduleTranslationsVi[mod.id]?.description || mod.description;
         const modProgress = getModuleProgress(mod.id);
+        const thumbnail = getModuleThumbnail(mod.id);
 
         return (
           <div
@@ -89,46 +145,58 @@ export const ModuleGrid: React.FC<ModuleGridProps> = ({
           >
             {/* Module Header Bar */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[var(--color-border-hairline)]">
-              <div className="flex-1 min-w-0 space-y-2">
-                {/* Badges row */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]">
-                    {modNumber}
-                  </span>
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-hairline">
-                    {TRACK_BADGE_VI[mod.trackId] || mod.trackId}
-                  </span>
-                  <span
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1 min-w-0">
+                <div className="w-full sm:w-40 h-24 shrink-0 overflow-hidden rounded-lg border border-[var(--color-border-hairline)] bg-[#090b10]">
+                  <img
+                    src={thumbnail.src}
+                    alt={thumbnail.alt}
                     className={cn(
-                      'text-xs px-2.5 py-0.5 rounded-full font-mono border',
-                      difficultyConfig.badgeClass
+                      'h-full w-full',
+                      thumbnail.src.endsWith('.svg') ? 'object-contain p-1.5' : 'object-cover'
                     )}
-                  >
-                    {difficultyConfig.label}
-                  </span>
-                  <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-zinc-500" />
-                    {mod.estimatedMinutes} phút
-                  </span>
-                  <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
-                    <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
-                    {mod.lessons.length} bài học
-                  </span>
-                  <span className="text-xs font-mono flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-900/80 border border-hairline text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    Đã hoàn thành {modProgress.completed}/{modProgress.total} bài
-                  </span>
+                  />
                 </div>
+                <div className="flex-1 min-w-0 space-y-2">
+                  {/* Badges row */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]">
+                      {modNumber}
+                    </span>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-hairline">
+                      {TRACK_BADGE_VI[mod.trackId] || mod.trackId}
+                    </span>
+                    <span
+                      className={cn(
+                        'text-xs px-2.5 py-0.5 rounded-full font-mono border',
+                        difficultyConfig.badgeClass
+                      )}
+                    >
+                      {difficultyConfig.label}
+                    </span>
+                    <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-zinc-500" />
+                      {mod.estimatedMinutes} phút
+                    </span>
+                    <span className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center gap-1">
+                      <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
+                      {mod.lessons.length} bài học
+                    </span>
+                    <span className="text-xs font-mono flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-900/80 border border-hairline text-emerald-400">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      Đã hoàn thành {modProgress.completed}/{modProgress.total} bài
+                    </span>
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-wide">
-                  {displayTitle}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-wide">
+                    {displayTitle}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-4xl">
-                  {displayDescription}
-                </p>
+                  {/* Description */}
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-4xl">
+                    {displayDescription}
+                  </p>
+                </div>
               </div>
 
               {/* Right Action: Quick Start Button */}

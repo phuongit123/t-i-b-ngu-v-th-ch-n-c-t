@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" fill="none">
+  <rect width="800" height="420" rx="16" fill="#09090B"/>
+  <text x="32" y="44" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="18" font-weight="700">Nguyên Lý Mặt Nạ Layer Phi Phá Hủy (Non-Destructive Mask)</text>
+  <text x="32" y="66" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="12">Trắng để hiện (White reveals) · Đen để che (Black conceals) · Đảo cọ nhanh bằng phím X</text>
+  <!-- Step 1: Pixel Layer -->
+  <rect x="32" y="96" width="218" height="288" rx="12" fill="#111118" stroke="#27272A"/>
+  <rect x="52" y="122" width="178" height="142" rx="8" fill="#0284C7" fill-opacity="0.35" stroke="#38BDF8"/>
+  <circle cx="141" cy="182" r="38" fill="#F4F4F5" fill-opacity="0.9"/>
+  <text x="52" y="294" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">1. LAYER ẢNH GỐC</text>
+  <text x="52" y="318" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="12">Bảo toàn 100% pixel gốc</text>
+  <text x="52" y="340" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Không bao giờ xóa trực tiếp</text>
+  <text x="52" y="356" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">lên ảnh bằng công cụ Eraser.</text>
+  <!-- Plus icon -->
+  <text x="262" y="210" fill="#71717A" font-family="Inter, sans-serif" font-size="24" font-weight="700">+</text>
+  <!-- Step 2: Mask Grayscale Map -->
+  <rect x="290" y="96" width="218" height="288" rx="12" fill="#111118" stroke="#27272A"/>
+  <rect x="310" y="122" width="178" height="142" rx="8" fill="#09090B" stroke="#52525B"/>
+  <circle cx="399" cy="182" r="38" fill="#FFFFFF"/>
+  <text x="310" y="294" fill="#F4F4F5" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">2. KÊNH ALPHA MASK</text>
+  <text x="310" y="318" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12">● Trắng: Hiện 100% chủ thể</text>
+  <text x="310" y="340" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">● Xám: Chuyển mờ viền tóc</text>
+  <text x="310" y="358" fill="#71717A" font-family="Inter, sans-serif" font-size="11">● Đen: Che ẩn vùng nền</text>
+  <!-- Equals icon -->
+  <text x="520" y="210" fill="#71717A" font-family="Inter, sans-serif" font-size="24" font-weight="700">=</text>
+  <!-- Step 3: Composite Output -->
+  <rect x="548" y="96" width="220" height="288" rx="12" fill="#111118" stroke="#10B981" stroke-opacity="0.5"/>
+  <rect x="568" y="122" width="180" height="142" rx="8" fill="#1E1B4B" stroke="#10B981"/>
+  <circle cx="658" cy="182" r="38" fill="#F4F4F5"/>
+  <text x="568" y="294" fill="#10B981" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">3. GHÉP NỀN ĐỒ HỌA</text>
+  <text x="568" y="318" fill="#E4E4E7" font-family="Inter, sans-serif" font-size="12">Tách nền sạch · Sửa bất cứ lúc nào</text>
+  <text x="568" y="340" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Dùng Refine Edge để lọc sạch</text>
+  <text x="568" y="356" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">tóc mảnh và khử ám viền màu.</text>
+</svg>

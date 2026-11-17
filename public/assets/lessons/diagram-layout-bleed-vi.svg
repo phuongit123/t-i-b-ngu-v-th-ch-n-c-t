@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" fill="none">
+  <rect width="800" height="440" rx="16" fill="#09090B"/>
+  <text x="32" y="44" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="18" font-weight="700">Cấu Trúc Trang Đôi In Ấn (Facing Pages · Bleed 3mm &amp; Margin)</text>
+  <text x="32" y="66" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="12">Áp dụng cho tạp chí, catalogue và bao bì xuất PDF/X-4 CMYK 300 DPI</text>
+  <!-- Bleed Outer Frame (Red) -->
+  <rect x="70" y="96" width="660" height="296" rx="4" fill="#181822" stroke="#FB7185" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- Trim Box (White) -->
+  <rect x="94" y="120" width="612" height="248" fill="#111118" stroke="#F4F4F5" stroke-width="1.5"/>
+  <!-- Spine Center Line -->
+  <line x1="400" y1="96" x2="400" y2="392" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Margin Safe Boxes (Cyan) -->
+  <rect x="122" y="144" width="250" height="200" stroke="#00D2FF" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="428" y="144" width="250" height="200" stroke="#00D2FF" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Sample Columns -->
+  <rect x="136" y="160" width="106" height="168" rx="4" fill="#27272A" fill-opacity="0.6"/>
+  <rect x="252" y="160" width="106" height="168" rx="4" fill="#27272A" fill-opacity="0.6"/>
+  <rect x="442" y="160" width="222" height="90" rx="4" fill="#FB7185" fill-opacity="0.2" stroke="#FB7185" stroke-opacity="0.5"/>
+  <rect x="442" y="262" width="106" height="66" rx="4" fill="#27272A" fill-opacity="0.6"/>
+  <rect x="558" y="262" width="106" height="66" rx="4" fill="#27272A" fill-opacity="0.6"/>
+  <!-- Annotations -->
+  <text x="82" y="112" fill="#FB7185" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">Đường Bleed 3mm (Vùng ảnh nền tràn mép chống hụt dao xén)</text>
+  <text x="410" y="138" fill="#F59E0B" font-family="JetBrains Mono, monospace" font-size="10">Gáy sách (Spine)</text>
+  <text x="128" y="340" fill="#00D2FF" font-family="JetBrains Mono, monospace" font-size="10">Vùng an toàn chữ (Margin)</text>
+  <text x="448" y="210" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="12" font-weight="600">Trang phải · Khung hình biên tập</text>
+  <text x="32" y="422" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Mọi mảng màu chạm mép bắt buộc kéo ra sát đường Bleed đỏ bên ngoài đường Trim trắng.</text>
+</svg>
