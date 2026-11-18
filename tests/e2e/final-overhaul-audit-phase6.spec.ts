@@ -2,9 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-const SCRATCH_SCREENSHOT_DIR = path.resolve(
-  'C:/Users/tuanl/.gemini/antigravity/brain/6ee2d022-f66c-498f-b9dc-1fb0c1957b2e/scratch'
-);
+const SCRATCH_SCREENSHOT_DIR = path.resolve('test-results', 'phase6-audit');
 
 async function saveAuditScreenshot(page: Page, filename: string): Promise<void> {
   if (!fs.existsSync(SCRATCH_SCREENSHOT_DIR)) {
