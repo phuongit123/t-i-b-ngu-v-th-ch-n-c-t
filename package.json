@@ -16,8 +16,9 @@
     "test:e2e": "playwright test",
     "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\"",
     "test:translations": "node scripts/test-vietnamese-translations.js",
-    "test:capstone": "node scripts/test-capstone-evaluator.js",
-    "test:backend": "node scripts/test-supabase-backend.js"
+    "test:capstone": "node --experimental-strip-types scripts/test-capstone-evaluator.js",
+    "test:backend": "node scripts/test-supabase-backend.js",
+    "test:cloud-seed": "node scripts/test-cloud-seed.js"
   },
   "dependencies": {
     "@rollup/wasm-node": "^4.68.1",
@@ -32,6 +33,7 @@
     "rollup": "npm:@rollup/wasm-node@^4.68.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.17",
     "@playwright/test": "^1.51.0",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",

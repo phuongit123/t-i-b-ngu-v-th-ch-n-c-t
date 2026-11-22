@@ -84,7 +84,7 @@ export interface OfficialEvaluationResult {
   criticalViolations: string[];
   evaluatedAt: string;
   certificateId?: string;
-  isOfficial: true;
+  isOfficial: boolean;
 }
 
 export type SubmissionStatus =

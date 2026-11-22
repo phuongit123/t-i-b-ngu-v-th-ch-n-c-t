@@ -27,7 +27,7 @@ A task cannot be marked `COMPLETED` unless it meets all five strict criteria:
 | `REQ-SYS-001` | Project Control System & Pre-Phase Audit | File & Traceability Audit | Automated PowerShell integrity audit | All 12 markdown control files exist; 100% of tasks have owners, deps, criteria; audit report approved. |
 | `REQ-SYS-002` | Toolchain & Scaffolding | Build & Typecheck | `npm install && npm run build` | Exits with code 0; `dist/` directory generated with optimized bundle. |
 | `REQ-SYS-003` | Directory Layout | Structural Verification | `Get-ChildItem -Directory -Recurse` | Matches architectural specification without orphan files. |
-| `REQ-SYS-004` | Local Affinity Detection | Diagnostic Execution | `node scripts/check-affinity-env.js` | Returns JSON status verifying Affinity 3.0 installation and port 6767 listener. |
+| `REQ-SYS-004` | Local Affinity Detection | Diagnostic Execution | `node scripts/check-affinity-env.js` | Exit 0 only when port 6767 serves HTTP 200 with `text/event-stream`; exit 1 on invalid or missing response. Installation and DOM checks require separate runtime evidence. |
 | `REQ-MCP-001` | Affinity MCP Health Bridge | Connection Health Ping | `affinity_status` tool call | Returns active connection to `http://localhost:6767/sse` with upstream tool count. |
 | `REQ-MCP-002` | Live Script Execution | Script Execution Verification | `execute_script` tool call | Evaluates test JavaScript payload in Affinity DOM and returns valid JSON response. |
 | `REQ-MCP-003` | Spread & Selection Render | Render Tool Invocation | `render_spread` / `render_selection` | Outputs valid image file (JPEG/PNG) to disk with non-zero byte size. |

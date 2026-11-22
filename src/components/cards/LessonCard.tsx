@@ -41,7 +41,9 @@ export const LessonCard: React.FC<LessonCardProps> = ({
       <div className="flex items-center gap-3 min-w-0">
         <div className="w-7 h-7 rounded-xs bg-zinc-850 flex items-center justify-center shrink-0 border border-hairline">
           {lesson.completed ? (
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <span title="Đã hoàn thành" aria-label="Đã hoàn thành">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+            </span>
           ) : (
             <PlayCircle className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200" />
           )}

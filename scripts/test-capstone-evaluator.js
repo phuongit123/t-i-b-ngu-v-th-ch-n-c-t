@@ -12,43 +12,13 @@
 
 import assert from 'node:assert';
 
-// Rubric definitions matching src/lib/capstone-service.ts
-const RUBRIC_DIMENSIONS = [
-  { id: 'brief_interpretation', weight: 15, isCritical: true, plo: 'PLO-07' },
-  { id: 'visual_communication', weight: 15, isCritical: false, plo: 'PLO-05, PLO-06' },
-  { id: 'tool_selection', weight: 20, isCritical: true, plo: 'PLO-01, PLO-02, PLO-03' },
-  { id: 'non_destructive', weight: 15, isCritical: true, plo: 'PLO-04' },
-  { id: 'iteration_critique', weight: 15, isCritical: true, plo: 'PLO-08' },
-  { id: 'production_readiness', weight: 10, isCritical: true, plo: 'PLO-09' },
-  { id: 'independent_transfer', weight: 10, isCritical: false, plo: 'PLO-10' },
-];
-
-function calculateWeightedScore(scores) {
-  let total = 0;
-  for (const dim of RUBRIC_DIMENSIONS) {
-    const lvl = scores[dim.id] || 1;
-    const normalizedPercent = (lvl / 4) * 100;
-    total += (normalizedPercent * dim.weight) / 100;
-  }
-  return Math.round(total * 10) / 10;
-}
-
-function evaluatePassFail(scores) {
-  const score = calculateWeightedScore(scores);
-  const criticalViolations = [];
-
-  for (const dim of RUBRIC_DIMENSIONS) {
-    if (dim.isCritical) {
-      const lvl = scores[dim.id] || 1;
-      if (lvl < 3) {
-        criticalViolations.push(`Critical failure on ${dim.id}: Level ${lvl} < 3`);
-      }
-    }
-  }
-
-  const passed = score >= 75 && criticalViolations.length === 0;
-  return { passed, score, criticalViolations };
-}
+import {
+  CAPSTONE_RUBRIC_DIMENSIONS as RUBRIC_DIMENSIONS,
+  calculateWeightedScore,
+  evaluatePassFail,
+  loadCurrentSubmission,
+  savePracticeEvaluation,
+} from '../src/lib/capstone-service.ts';
 
 console.log('======================================================');
 console.log('   AFFINITY ACADEMY: CAPSTONE EVALUATION HARNESS     ');
@@ -71,7 +41,7 @@ function runTest(testName, fn) {
 // Test 1: Dimensions count and weight sum
 runTest('Rubric has exactly 7 dimensions summing to 100%', () => {
   assert.strictEqual(RUBRIC_DIMENSIONS.length, 7, 'Must have 7 dimensions');
-  const totalWeight = RUBRIC_DIMENSIONS.reduce((sum, d) => sum + d.weight, 0);
+  const totalWeight = RUBRIC_DIMENSIONS.reduce((sum, d) => sum + d.weightPercentage, 0);
   assert.strictEqual(totalWeight, 100, 'Weights must sum to 100%');
 });
 
@@ -80,12 +50,12 @@ runTest('PLO-07 (Brief) and PLO-08 (Iteration) are designated as CRITICAL', () =
   const plo07 = RUBRIC_DIMENSIONS.find(d => d.id === 'brief_interpretation');
   assert.ok(plo07, 'brief_interpretation must exist');
   assert.strictEqual(plo07.isCritical, true, 'brief_interpretation must be critical');
-  assert.strictEqual(plo07.plo, 'PLO-07');
+  assert.strictEqual(plo07.mappedPlo, 'PLO-07');
 
   const plo08 = RUBRIC_DIMENSIONS.find(d => d.id === 'iteration_critique');
   assert.ok(plo08, 'iteration_critique must exist');
   assert.strictEqual(plo08.isCritical, true, 'iteration_critique must be critical');
-  assert.strictEqual(plo08.plo, 'PLO-08');
+  assert.strictEqual(plo08.mappedPlo, 'PLO-08');
 });
 
 // Test 3: Benchmark calculations
@@ -158,7 +128,7 @@ runTest('High score cannot compensate for Critical failure on PLO-07 (Brief)', (
   assert.strictEqual(res.passed, false, 'Must FAIL despite high 92.5 score due to critical PLO-07 violation');
   assert.ok(res.score >= 75, 'Score is above 75');
   assert.strictEqual(res.criticalViolations.length, 1, 'Must record 1 critical violation');
-  assert.ok(res.criticalViolations[0].includes('brief_interpretation'));
+  assert.ok(res.criticalViolations[0].includes('PLO-07'));
 });
 
 // Test 6: Critical failure on PLO-08 (Iteration log)
@@ -174,7 +144,7 @@ runTest('High score cannot compensate for Critical failure on PLO-08 (Iteration)
   };
   const res = evaluatePassFail(failingIterationScores);
   assert.strictEqual(res.passed, false, 'Must FAIL due to critical PLO-08 violation');
-  assert.ok(res.criticalViolations[0].includes('iteration_critique'));
+  assert.ok(res.criticalViolations[0].includes('PLO-08'));
 });
 
 // Test 7: Non-critical dimension does not cause auto-fail if score >= 75
@@ -193,6 +163,22 @@ runTest('Level 2 on non-critical dimension (visual_communication) passes if tota
   assert.strictEqual(res.passed, true, 'Non-critical dim at Level 2 is allowed if total >= 75');
   assert.strictEqual(res.criticalViolations.length, 0);
   assert.strictEqual(res.score, 90.0);
+});
+
+runTest('Local practice persists scores without issuing a certificate or changing submission status', () => {
+  const data = new Map();
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: {
+    getItem: (key) => data.get(key) ?? null,
+    setItem: (key, value) => data.set(key, value),
+  } });
+  const scores = Object.fromEntries(RUBRIC_DIMENSIONS.map(({ id }) => [id, 4]));
+  const before = loadCurrentSubmission();
+  const saved = savePracticeEvaluation('LOCAL-PRACTICE', 'Practice', scores, {}, '');
+  assert.equal(saved.status, before.status);
+  assert.equal(saved.officialEvaluation.passed, true);
+  assert.equal(saved.officialEvaluation.isOfficial, false);
+  assert.equal(saved.officialEvaluation.certificateId, undefined);
+  assert.deepEqual(loadCurrentSubmission().officialEvaluation, saved.officialEvaluation);
 });
 
 console.log('\n------------------------------------------------------');

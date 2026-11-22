@@ -353,3 +353,10 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Verification:** Local documentation diff passed whitespace and changed-line conflict-marker checks. Earlier test results are attributed to their recorded revisions in the release report; they do not certify an untested candidate.
 - **Local database reproduction:** PGlite 0.5.17 (PostgreSQL 18.7) with mock Supabase auth/storage, using all five baseline migrations unchanged at `42aa164`: 4 tracks / 7 modules / 0 lessons; the `D01-01` progress upsert failed with SQLSTATE `23503` and succeeded after a temporary lesson insert. Replaying migration 5 in a separate disposable database doubled resources from 3 to 6. No live Auth, Storage, or UI was exercised.
 - **Next:** After owner review and merge of PR #7, begin `TASK-072` (Course Catalog). Cloud seed and fresh-database sync verification require a separate change. `BLK-007` remains **ACTIVE — LOCKED**.
+
+## 23. Existing-platform defect review (2026-11-22)
+
+- TASK-030 / REQ-BE-001 and TASK-033 / REQ-BE-004: added an unapplied forward curriculum-index migration for the existing 22 modules and 66 lessons. Disposable PostgreSQL verifies fresh install, upgrade, replay, and a persisted D01-01 progress row. Hosted Auth, Storage, and application cloud sync remain unverified.
+- TASK-033 and TASK-078 / REQ-PAGE-008: lesson completion is stored in this browser and reflected on reload and reset. Failed writes no longer display a success notice. The dashboard no longer simulates cloud sync or fabricates lesson progress.
+- TASK-004 / REQ-SYS-004: diagnostic accepts only HTTP 200 with SSE, and times out and exits nonzero otherwise. It still cannot verify the installed Affinity build or DOM operations.
+- TASK-081 / REQ-LEARN-003: local scoring is labeled practice, does not issue certificates, and documents which starter files are not available. TASK-080 certification evidence remains pending. BLK-007 stays locked.

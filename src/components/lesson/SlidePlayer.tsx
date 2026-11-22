@@ -18,17 +18,18 @@ import { Button } from '../ui/Button.tsx';
 
 export interface SlidePlayerProps {
   lesson: CurriculumLesson;
+  isCompleted: boolean;
   onLessonComplete?: (lessonId: string) => void;
   onBackToCatalog?: () => void;
 }
 
 export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   lesson,
+  isCompleted,
   onLessonComplete,
   onBackToCatalog,
 }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
   const [selectedQuizOption, setSelectedQuizOption] = useState<number | null>(null);
   const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
@@ -78,13 +79,6 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
       ...prev,
       [id]: !prev[id],
     }));
-  };
-
-  const handleManualComplete = () => {
-    setIsCompleted(true);
-    if (onLessonComplete) {
-      onLessonComplete(lesson.id);
-    }
   };
 
   const trackColorMap: Record<string, string> = {
@@ -450,7 +444,8 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             <Button
               variant={isCompleted ? 'outline' : 'accent-scripting'}
               size="sm"
-              onClick={handleManualComplete}
+              onClick={() => onLessonComplete?.(lesson.id)}
+              disabled={isCompleted || !onLessonComplete}
               leftIcon={<CheckCircle2 className="w-4 h-4 text-emerald-400" />}
             >
               {isCompleted ? 'Đã hoàn thành bài học ✓' : 'Đánh dấu hoàn thành'}

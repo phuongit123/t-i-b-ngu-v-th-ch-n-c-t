@@ -6,7 +6,7 @@ import {
   evaluatePassFail,
   loadCurrentSubmission,
   saveStudentSubmission,
-  submitOfficialEvaluation,
+  savePracticeEvaluation,
   getSubmissionHistory,
 } from '@/lib/capstone-service';
 import type {
@@ -27,7 +27,6 @@ import {
   UserCheck,
   ShieldAlert,
   Sparkles,
-  Download,
   Info,
 } from 'lucide-react';
 
@@ -117,27 +116,35 @@ export const CapstoneAssessmentPage: React.FC = () => {
       return;
     }
 
-    const updated = saveStudentSubmission(artifacts, {
-      scores: selfScores,
-      justifications: selfJustifications,
-      submittedAt: new Date().toISOString(),
-    });
+    try {
+      const updated = saveStudentSubmission(artifacts, {
+        scores: selfScores,
+        justifications: selfJustifications,
+        submittedAt: new Date().toISOString(),
+      });
 
-    setSubmission(updated);
-    setHistory(getSubmissionHistory());
-    showToast(`Đã nộp thành công bài làm phiên bản v${updated.version}!`);
+      setSubmission(updated);
+      setHistory(getSubmissionHistory());
+      showToast(`Đã lưu bản nộp trên trình duyệt, phiên bản v${updated.version}!`);
+    } catch {
+      showToast('Không thể lưu vào bộ nhớ trình duyệt.');
+    }
   };
 
   const handleSubmitEvaluation = () => {
-    const updated = submitOfficialEvaluation(
-      'EVAL-LEAD-AUDITOR',
-      'Hội Đồng Giám Khảo Độc Lập Affinity Academy',
-      evalScores,
-      evalFeedback,
-      evalOverall
-    );
-    setSubmission(updated);
-    showToast('Đã lưu kết quả Đánh giá Chính thức và cấp Chứng chỉ A5 (nếu đạt)!');
+    try {
+      const updated = savePracticeEvaluation(
+        'LOCAL-PRACTICE',
+        'Chấm thử trên trình duyệt',
+        evalScores,
+        evalFeedback,
+        evalOverall
+      );
+      setSubmission(updated);
+      showToast('Đã lưu kết quả chấm thử trên trình duyệt.');
+    } catch {
+      showToast('Không thể lưu vào bộ nhớ trình duyệt.');
+    }
   };
 
   const studentEstimatedScore = calculateWeightedScore(selfScores);
@@ -194,7 +201,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              Giám khảo (Chấm điểm)
+              Giám khảo (Chấm thử)
             </button>
           </div>
         </div>
@@ -205,7 +212,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
             { id: 'brief', label: '1. Đề tài & Hướng dẫn', icon: <FileText className="w-3.5 h-3.5" /> },
             { id: 'rubric', label: '2. Tiêu chí & Rubric', icon: <Layers className="w-3.5 h-3.5" /> },
             { id: 'submit', label: '3. Nộp bài & Tự đánh giá', icon: <Send className="w-3.5 h-3.5" /> },
-            { id: 'results', label: '4. Kết quả & Chứng chỉ A5', icon: <Award className="w-3.5 h-3.5" /> },
+            { id: 'results', label: '4. Kết quả chấm thử', icon: <Award className="w-3.5 h-3.5" /> },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -269,9 +276,10 @@ export const CapstoneAssessmentPage: React.FC = () => {
 
             <div className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-3">
               <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
-                <Download className="w-4 h-4 text-cyan-400" />
-                Tài nguyên Đầu vào Cung cấp (Starter Assets)
+                <FileText className="w-4 h-4 text-cyan-400" />
+                Danh mục tài nguyên mẫu
               </h3>
+              <p className="text-xs text-zinc-400">Các tệp dưới đây có trong đặc tả nhưng chưa có bản tải xuống trong ứng dụng.</p>
               <div className="space-y-2">
                 {DEFAULT_LUMINA_PROJECT.starterAssets.map((asset, i) => (
                   <div
@@ -598,7 +606,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
 
             <div className="flex items-center justify-end gap-4 pt-4 border-t border-zinc-800">
               <span className="text-xs text-zinc-500 font-mono">
-                Sau khi nộp, bài làm sẽ được gửi tới Giám khảo Độc lập để chấm chính thức.
+                Bản nộp chỉ lưu trên trình duyệt này, không gửi tới giám khảo.
               </span>
               <button
                 type="submit"
@@ -617,6 +625,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
       {/* ========================================================= */}
       {activeTab === 'results' && (
         <div className="space-y-8 animate-in fade-in duration-200">
+          <p className="text-sm text-amber-300">Đây là chấm thử trên trình duyệt. Chưa cấp chứng chỉ chính thức (TASK-080).</p>
           {/* EVALUATOR MODE CONSOLE (When toggled on) */}
           {isEvaluatorMode && (
             <div className="p-6 rounded-xl border border-purple-500/40 bg-purple-950/20 space-y-6">
@@ -624,7 +633,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="w-5 h-5 text-purple-400" />
                   <span className="font-mono text-xs font-bold text-purple-300 uppercase tracking-wider">
-                    BẢNG ĐIỀU KHIỂN CHẤM ĐIỂM CHÍNH THỨC CỦA GIÁM KHẢO ĐỘC LẬP
+                    BẢNG ĐIỀU KHIỂN CHẤM THỬ
                   </span>
                 </div>
                 <div className="font-mono text-xs text-purple-400">
@@ -685,7 +694,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                   onClick={handleSubmitEvaluation}
                   className="px-6 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono font-bold text-xs shadow-lg transition-all"
                 >
-                  Ký Duyệt Kết Quả Chính Thức &amp; Cấp Chứng Chỉ
+                  Lưu kết quả chấm thử
                 </button>
               </div>
             </div>
@@ -710,12 +719,12 @@ export const CapstoneAssessmentPage: React.FC = () => {
                       <AlertTriangle className="w-5 h-5 text-red-400" />
                     )}
                     <span className="text-xs font-mono uppercase font-bold tracking-wider">
-                      KẾT QUẢ ĐÁNH GIÁ CHÍNH THỨC CẤP ĐỘ A5
+                      KẾT QUẢ CHẤM THỬ CẤP ĐỘ A5
                     </span>
                   </div>
                   <h3 className="text-2xl font-extrabold text-zinc-100">
                     {submission.officialEvaluation.passed
-                      ? 'ĐẠT CHUẨN TỐT NGHIỆP — XÁC NHẬN NĂNG LỰC ĐỘC LẬP'
+                      ? 'ĐẠT NGƯỠNG TRONG LẦN CHẤM THỬ'
                       : 'YÊU CẦU ĐIỀU CHỈNH & SỬA ĐỔI (NEEDS REVISION)'}
                   </h3>
                   <p className="text-xs text-zinc-400 max-w-2xl leading-relaxed">
@@ -724,7 +733,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
 
                 <div className="text-center font-mono px-5 py-3 rounded-lg bg-zinc-900 border border-zinc-800 shrink-0">
-                  <span className="text-[10px] text-zinc-500 uppercase block">Điểm Chính Thức</span>
+                  <span className="text-[10px] text-zinc-500 uppercase block">Điểm chấm thử</span>
                   <span
                     className={`text-3xl font-extrabold ${
                       submission.officialEvaluation.passed ? 'text-emerald-400' : 'text-red-400'
@@ -751,43 +760,10 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
               )}
 
-              {/* Certificate Card (When Passed) */}
-              {submission.officialEvaluation.passed && (
-                <div className="p-8 rounded-xl border border-amber-500/30 bg-gradient-to-br from-zinc-900 via-zinc-900/90 to-amber-950/20 relative overflow-hidden space-y-4 shadow-2xl">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
-                        <Award className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block">
-                          AFFINITY ACADEMY GRADUATION CERTIFICATE
-                        </span>
-                        <h4 className="text-lg font-bold text-zinc-100">
-                          Chứng Nhận Năng Lực Thiết Kế Độc Lập (Cấp độ A5)
-                        </h4>
-                      </div>
-                    </div>
-                    <span className="font-mono text-xs text-zinc-500">
-                      Mã xác thực: {submission.officialEvaluation.certificateId}
-                    </span>
-                  </div>
-
-                  <p className="text-xs text-zinc-300 leading-relaxed max-w-3xl">
-                    Chứng nhận học viên <strong className="text-zinc-100">{submission.studentName}</strong> đã hoàn thành xuất sắc đồ án tốt nghiệp Capstone <strong className="text-zinc-100">{DEFAULT_LUMINA_PROJECT.title}</strong>, chứng minh năng lực tư duy thiết kế độc lập, làm chủ 100% công cụ Vector &amp; Pixel Studio, và giải quyết trọn vẹn hai chuẩn đầu ra then chốt PLO-07 và PLO-08.
-                  </p>
-
-                  <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-400">
-                    <span>Đánh giá bởi: {submission.officialEvaluation.evaluatorName}</span>
-                    <span>Ngày cấp: {new Date(submission.officialEvaluation.evaluatedAt).toLocaleDateString('vi-VN')}</span>
-                  </div>
-                </div>
-              )}
-
               {/* Comparison Matrix: Self vs Evaluator */}
               <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-4">
                 <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-300">
-                  Đối soát Điểm Tự Đánh Giá vs Điểm Giám Khảo Chính Thức
+                  So sánh điểm tự đánh giá và điểm chấm thử
                 </h4>
                 <div className="space-y-3">
                   {CAPSTONE_RUBRIC_DIMENSIONS.map((dim) => {
@@ -829,9 +805,9 @@ export const CapstoneAssessmentPage: React.FC = () => {
           ) : (
             <div className="p-8 rounded-xl border border-dashed border-zinc-800 text-center space-y-3">
               <Info className="w-8 h-8 text-zinc-600 mx-auto" />
-              <h4 className="text-sm font-bold text-zinc-300">Bài làm đang chờ Giám khảo Độc lập chấm điểm</h4>
+              <h4 className="text-sm font-bold text-zinc-300">Chưa có kết quả chấm thử</h4>
               <p className="text-xs text-zinc-500 max-w-md mx-auto">
-                Sau khi nộp bài ở Tab 3, Giám khảo sẽ đối soát các file nguồn .afdesign, .afphoto và nhật ký phản biện để cấp kết quả đánh giá chính thức. Bạn có thể bật Chế độ Giám khảo ở góc phải để trải nghiệm quy trình chấm thi.
+                Bật chế độ chấm thử để luyện áp dụng rubric. Kết quả chỉ lưu cục bộ và không dùng để cấp chứng chỉ.
               </p>
             </div>
           )}

@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { Terminal, Play, Sparkles, Clock, BookOpen } from 'lucide-react';
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
+import { readLessonCompletion, recordLessonCompletion } from './lib/local-lesson-progress';
 import { moduleTranslationsVi } from './data/curriculum/translationsVi';
 
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
@@ -60,6 +61,9 @@ export const App: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeToast, setActiveToast] = useState<{ title: string; message?: string } | null>(null);
 
+  const [completion, setCompletion] = useState(readLessonCompletion);
+  const completedLessonIds = new Set(completion.completedLessons);
+
   const sampleModules: ModuleSummary[] = ALL_PILOT_MODULES.map((m) => ({
     id: m.id,
     trackId: m.trackId,
@@ -93,12 +97,22 @@ export const App: React.FC = () => {
       return (
         <div className="py-4">
           <SlidePlayer
+            key={currentLesson.id}
             lesson={currentLesson}
+            isCompleted={completedLessonIds.has(currentLesson.id)}
             onLessonComplete={(id) => {
-              setActiveToast({
-                title: 'Hoàn thành bài học! 🎉',
-                message: `Bạn đã hoàn thành xuất sắc ${id}: ${currentLesson.title}.`,
-              });
+              try {
+                setCompletion(recordLessonCompletion(id));
+                setActiveToast({
+                  title: 'Hoàn thành bài học! 🎉',
+                  message: `Đã lưu bài ${id} trên trình duyệt này.`,
+                });
+              } catch {
+                setActiveToast({
+                  title: 'Chưa lưu được tiến độ',
+                  message: 'Không thể ghi dữ liệu vào bộ nhớ trình duyệt.',
+                });
+              }
             }}
             onBackToCatalog={() => setActiveRoute('catalog')}
           />
@@ -296,7 +310,7 @@ export const App: React.FC = () => {
                                 lessonNumber: les.order,
                                 title: les.title,
                                 durationMinutes: les.durationMinutes,
-                                completed: false,
+                                completed: completedLessonIds.has(les.id),
                               }}
                               isActive={activeLessonId === les.id}
                               onClick={() => handleLaunchLesson(les.id)}
@@ -336,9 +350,12 @@ export const App: React.FC = () => {
       case 'encyclopedia':
         return <EncyclopediaPage />;
       case 'dashboard':
-        return <DashboardPage onNavigate={setActiveRoute} />;
+        return <DashboardPage completion={completion} onNavigate={setActiveRoute} />;
       case 'settings':
-        return <SettingsPage onBackToDashboard={() => setActiveRoute('dashboard')} />;
+        return <SettingsPage
+          onBackToDashboard={() => setActiveRoute('dashboard')}
+          onProgressReset={() => setCompletion(readLessonCompletion())}
+        />;
       case 'resources':
         return <ResourcesPage />;
       case 'capstone':
