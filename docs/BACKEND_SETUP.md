@@ -30,6 +30,10 @@ Các file migration nằm trong thư mục `supabase/migrations/`:
 
 ---
 
+Các migration 20261122 bổ sung danh mục 22 học phần và 66 bài hiện có, bảo vệ hồ sơ theo tài khoản và lưu từng phiên bản đồ án qua hai hàm RPC. Chạy đủ migration theo thứ tự. Kiểm hồ sơ đang có số liệu cũ trước khi xác nhận ràng buộc fk_result_submission_owner trên một cơ sở dữ liệu đã dùng.
+
+Khi cấu hình Auth, thêm đường dẫn /reset-password của đúng origin vào danh sách Redirect URLs. Trang này chỉ đổi mật khẩu sau khi Supabase phát sự kiện PASSWORD_RECOVERY. Chạy npm run test:backend để kiểm tra SQL trên PostgreSQL nhúng và ca hàng đợi đồng bộ trả lỗi. Dùng Supabase local với SMTP thử nghiệm để xác nhận riêng Auth, PostgREST và Storage.
+
 ## 3. Hướng Dẫn Thiết Lập Cục Bộ (Local Development với Supabase CLI)
 
 ### Bước 1: Cài đặt Supabase CLI

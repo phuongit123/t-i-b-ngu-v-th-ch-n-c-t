@@ -105,10 +105,12 @@ if (!fs.existsSync(indexHtmlPath)) {
 const sitemapPath = path.resolve('public/sitemap.xml');
 let sitemapUrlCount = 0;
 let sitemapLessonCount = 0;
+let sitemapRoutes = [];
 if (!fs.existsSync(sitemapPath)) {
   violations.push('[SEO] Missing public/sitemap.xml');
 } else {
   const sitemap = fs.readFileSync(sitemapPath, 'utf8');
+  sitemapRoutes = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => new URL(url).pathname);
   const urlMatches = sitemap.match(/<url>/g) || [];
   const lessonMatches = sitemap.match(/<loc>[^<]*\/bai-hoc\/[^<]+<\/loc>/g) || [];
   sitemapUrlCount = urlMatches.length;
@@ -138,9 +140,12 @@ if (!fs.existsSync(redirectsPath)) {
   violations.push('[SEO] Missing public/_redirects');
 } else {
   const redirects = fs.readFileSync(redirectsPath, 'utf8');
-  if (!/\/\*\s+\/index\.html\s+200/.test(redirects)) {
-    violations.push('[SEO] public/_redirects missing SPA rule "/* /index.html 200"');
-  }
+  const rules = redirects.split(/\r?\n/).filter(Boolean).map(line => line.trim().split(/\s+/));
+  const validRoutes = new Set(rules.filter(([, file, status]) => file === '/index.html' && status === '200').map(([route]) => route));
+  const missing = [...sitemapRoutes, '/reset-password'].filter(route => !validRoutes.has(route));
+  if (missing.length) violations.push('[SEO] Missing SPA routes: ' + missing.join(', '));
+  if (validRoutes.has('/*')) violations.push('[SEO] A catch-all 200 hides missing routes.');
+  if (!fs.existsSync('public/404.html')) violations.push('[SEO] Missing public/404.html');
 }
 
 if (violations.length > 0) {

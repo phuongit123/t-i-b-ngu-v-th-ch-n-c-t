@@ -25,6 +25,7 @@ const SLUG_TO_TRACK: Record<string, AffinityTrackId> = {
 
 const ROUTE_TO_PATH: Record<string, string> = {
   home: '/',
+  'reset-password': '/reset-password',
   catalog: '/lo-trinh',
   simulator: '/phong-mo-phong',
   sandbox: '/phong-mo-phong',
@@ -47,6 +48,7 @@ const ROUTE_TO_PATH: Record<string, string> = {
 const PATH_TO_ROUTE: Record<string, string> = {
   '': 'home',
   'home': 'home',
+  'reset-password': 'reset-password',
   'lo-trinh': 'catalog',
   'catalog': 'catalog',
   'phong-mo-phong': 'simulator',
@@ -158,7 +160,7 @@ export function parseLocationPathname(pathname: string): ParsedRouteState {
         };
       }
     }
-    return { route: 'catalog' };
+    return { route: 'not-found' };
   }
 
   // Match /lo-trinh/:trackSlug
@@ -168,7 +170,7 @@ export function parseLocationPathname(pathname: string): ParsedRouteState {
     if (mappedTrack) {
       return { route: 'catalog', trackId: mappedTrack };
     }
-    return { route: 'catalog' };
+    return { route: 'not-found' };
   }
 
   const direct = PATH_TO_ROUTE[clean];
@@ -176,5 +178,5 @@ export function parseLocationPathname(pathname: string): ParsedRouteState {
     return { route: direct };
   }
 
-  return { route: 'home' };
+  return { route: 'not-found' };
 }

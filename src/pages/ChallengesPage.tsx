@@ -58,6 +58,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({ onNavigateToSand
     score: number;
     feedback: string;
     sourceLabel?: string;
+    checklist?: boolean;
   } | null>(null);
 
   const currentChallenge =
@@ -197,22 +198,19 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({ onNavigateToSand
       completedCount === 0 || stepCount === 0
         ? 0
         : Math.round((completedCount / stepCount) * 100);
-    const passed =
-      completedCount > 0 && calculatedScore >= threshold;
+    if (completedCount === 0) { evaluateFromLiveCanvas(); return; }
+    const passed = completedCount === stepCount;
 
     const result = {
       evaluated: true,
       passed,
       score: calculatedScore,
-      feedback: passed
-        ? `Hoàn thành tốt các bước thực hành với tỷ lệ đạt ${calculatedScore}% (ngưỡng yêu cầu: ${threshold}%).`
-        : completedCount === 0
-        ? `Bạn chưa hoàn thành bước thực hành nào (0 / ${stepCount} bước). Hãy thao tác trực tiếp trên Canvas bên dưới hoặc xác nhận từng bước trước khi kiểm tra.`
-        : `Chưa đạt ngưỡng yêu cầu. Mức hoàn thành hiện tại là ${calculatedScore}% (yêu cầu tối thiểu ${threshold}%). Hãy hoàn tất đầy đủ các bước hướng dẫn.`,
+      checklist: true,
+      feedback: `Bạn đã đánh dấu ${completedCount} / ${stepCount} bước. Luyện trên Canvas để đo độ chính xác.`,
     };
 
     setEvaluationResult(result);
-    recordChallengeAttempt(currentChallenge.id, calculatedScore, passed);
+
   };
 
   const handleResetChallenge = () => {
@@ -481,13 +479,13 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({ onNavigateToSand
                       <AlertCircle className="w-5 h-5 text-amber-400" />
                     )}
                     <span className="font-mono font-bold text-xs">
-                      {evaluationResult.passed
+                      {evaluationResult.checklist ? 'CHECKLIST TỰ ĐÁNH GIÁ' : evaluationResult.passed
                         ? 'KẾT QUẢ: ĐẠT CHUẨN THỬ THÁCH'
                         : 'KẾT QUẢ: CẦN CẢI THIỆN'}
                     </span>
                   </div>
                   <span className="font-mono text-sm font-bold">
-                    Độ chính xác: {evaluationResult.score}%
+                    {evaluationResult.checklist ? 'Số bước đã đánh dấu' : 'Độ chính xác'}: {evaluationResult.score}%
                   </span>
                 </div>
                 <p className="text-xs leading-relaxed opacity-90">{evaluationResult.feedback}</p>

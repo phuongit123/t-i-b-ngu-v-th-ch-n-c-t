@@ -122,7 +122,7 @@ export const PlaygroundPage: React.FC<PlaygroundPageProps> = ({
     <div className="space-y-6">
       <PageHeader
         title="Phòng Thí Nghiệm Lập Trình Scripting & MCP"
-        description="Viết và chạy trực tiếp kịch bản JavaScript DOM của Affinity 3.3.3 trong môi trường mô phỏng an toàn, quan sát kết quả dàn trang và hình học ngay trên Live Document Canvas."
+        description="Chạy các ví dụ JavaScript DOM có sẵn và xem kết quả mô phỏng trên Canvas. Có thể tải tệp .js để thực hành trong Affinity."
         badge="Thực hành tự động hóa · JavaScript DOM IDE"
       />
 
@@ -222,9 +222,9 @@ export const PlaygroundPage: React.FC<PlaygroundPageProps> = ({
               </div>
               <textarea
                 data-testid="playground-editor"
-                aria-label="Trình soạn thảo mã Affinity JavaScript DOM"
+                aria-label="Mã ví dụ Affinity JavaScript DOM"
                 value={code}
-                onChange={(e) => setCode(e.target.value)}
+                readOnly
                 spellCheck={false}
                 rows={18}
                 className="w-full bg-transparent text-zinc-100 font-mono text-xs leading-6 p-3 outline-none resize-y"
@@ -240,7 +240,7 @@ export const PlaygroundPage: React.FC<PlaygroundPageProps> = ({
             <div className="px-4 py-2.5 border-b border-[var(--color-border-hairline)] flex items-center justify-between bg-zinc-900/70">
               <div className="flex items-center gap-2 text-xs font-mono text-zinc-200">
                 <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>Nhật ký thực thi V8 Sandbox</span>
+                <span>Nhật ký mô phỏng ví dụ</span>
               </div>
               <div className="flex items-center gap-2 text-[11px] font-mono">
                 {execResult.success ? (

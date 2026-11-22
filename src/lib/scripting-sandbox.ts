@@ -538,8 +538,7 @@ function stripCommentsAndStrings(source: string): string {
 }
 
 /**
- * Safely runs Affinity JavaScript DOM scripting code in an isolated runtime bridge
- * with zero access to browser globals, network, or localStorage.
+ * Runs bundled Affinity DOM examples against the browser-only mock API.
  */
 export function runAffinityDomSandbox(code: string): SandboxExecutionResult {
   const startMs = performance.now();
@@ -881,7 +880,10 @@ export function runAffinityDomSandbox(code: string): SandboxExecutionResult {
   };
 
   try {
-    // Isolate execution inside an explicit strict-mode closure shadowing DOM/network/storage identifiers
+    const examples = [...PLAYGROUND_PRESETS.map(item => item.code), ...Object.values(SDK_CLASS_DOCS_VI).map(item => item.sampleCode)];
+    if (!examples.includes(code)) {
+      throw new Error('Chỉ chạy được các ví dụ có sẵn. Hãy chọn ví dụ hoặc khôi phục mã mẫu.');
+    }
     const runner = new Function(
       'require',
       'console',

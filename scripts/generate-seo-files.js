@@ -118,7 +118,17 @@ const robotsTxt = [
   '',
 ].join('\n');
 
-const netlifyRedirects = '/* /index.html 200\n';
+const aliases = [
+  'home', 'catalog', 'simulator', 'sandbox', 'challenges', 'knowledge', 'search', 'shortcuts', 'cheatsheet',
+  'glossary', 'resources', 'playground', 'encyclopedia', 'dashboard', 'settings', 'capstone', 'design-system',
+  'preview', 'reset-password', 'lo-trinh/designer', 'lo-trinh/photo', 'lo-trinh/publisher', 'lo-trinh/scripting',
+  'bai-hoc/p05-01-nguyen-ly-can-chinh-mau-sac-bieu-do-histogram-va-curves',
+].map(route => '/' + route);
+const validRoutes = new Set([
+  ...aliases, ...allUrls.map(entry => new URL(entry.loc).pathname),
+  ...lessonRoutes.map(entry => new URL(entry.loc).pathname.slice(0, '/bai-hoc/d00-00'.length)),
+]);
+const netlifyRedirects = [...validRoutes].map(route => route + ' /index.html 200').join('\n') + '\n';
 
 const publicDir = path.join(ROOT, 'public');
 fs.mkdirSync(publicDir, { recursive: true });

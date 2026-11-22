@@ -391,6 +391,8 @@ export interface Database {
     };
     Views: Record<string, never>;
     Functions: {
+      submit_lumina_capstone: { Args: { files: Json; self_review: Json }; Returns: string };
+      evaluate_lumina_capstone: { Args: { submission: string; levels: Json; feedback: Json; notes: string }; Returns: string };
       is_admin: {
         Args: Record<string, never>;
         Returns: boolean;

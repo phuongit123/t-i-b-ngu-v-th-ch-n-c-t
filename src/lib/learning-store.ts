@@ -1,16 +1,22 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   getAllLocalProgress,
+  clearProgressQueue,
+  LOCAL_PROGRESS_STORAGE_KEY,
+  LEARNING_UPDATED_EVENT,
   saveLessonProgress,
   type LocalLessonProgress,
 } from '@/lib/supabase/progress-sync';
 import { ALL_PILOT_LESSONS, ALL_PILOT_MODULES } from '@/data/curriculum/index';
 import type { AffinityTrackId } from '@/types/design-system';
+import { learningStorageKey } from '@/lib/learning-storage';
+import { useAuth } from '@/lib/supabase/auth-context';
 
 export interface ChallengeScoreRecord {
   score: number;
   passed: boolean;
   completedAt: string;
+  measured?: true;
 }
 
 export interface LearningActivityState {
@@ -20,10 +26,7 @@ export interface LearningActivityState {
 }
 
 export const ACTIVITY_STORAGE_KEY = 'affinity_academy_activity_v1';
-export const LEARNING_UPDATED_EVENT = 'affinity-learning-updated';
 
-const LOCAL_PROGRESS_STORAGE_KEY = 'affinity_academy_progress_v2';
-const SYNC_QUEUE_STORAGE_KEY = 'affinity_academy_sync_queue';
 const LEGACY_PROGRESS_STORAGE_KEY = 'affinity_lesson_progress';
 const LEGACY_CHALLENGES_STORAGE_KEY = 'affinity_challenges_progress';
 
@@ -40,7 +43,7 @@ function readActivityState(): LearningActivityState {
     return { studyDates: [], extraStudyMinutes: 0, challengeScores: {} };
   }
   try {
-    const raw = localStorage.getItem(ACTIVITY_STORAGE_KEY);
+    const raw = localStorage.getItem(learningStorageKey(ACTIVITY_STORAGE_KEY));
     if (!raw) {
       return { studyDates: [], extraStudyMinutes: 0, challengeScores: {} };
     }
@@ -51,7 +54,7 @@ function readActivityState(): LearningActivityState {
         typeof parsed.extraStudyMinutes === 'number' ? parsed.extraStudyMinutes : 0,
       challengeScores:
         parsed.challengeScores && typeof parsed.challengeScores === 'object'
-          ? parsed.challengeScores
+          ? Object.fromEntries(Object.entries(parsed.challengeScores).filter(([, score]) => score?.measured === true))
           : {},
     };
   } catch {
@@ -62,7 +65,7 @@ function readActivityState(): LearningActivityState {
 function writeActivityState(state: LearningActivityState): void {
   if (typeof window === 'undefined') return;
   try {
-    localStorage.setItem(ACTIVITY_STORAGE_KEY, JSON.stringify(state));
+    localStorage.setItem(learningStorageKey(ACTIVITY_STORAGE_KEY), JSON.stringify(state));
   } catch (err) {
     console.warn('Không thể lưu dữ liệu hoạt động học tập:', err);
   }
@@ -125,7 +128,7 @@ export function recordLessonSlideVisit(
     lastSlideIndex: slideIndex,
     quizScore: existing?.quizScore ?? null,
     completedAt: existing?.completedAt ?? null,
-  });
+  }).then(notifyLearningUpdated, console.warn);
 
   recordStudyDayAndMinutes(1);
   notifyLearningUpdated();
@@ -180,6 +183,7 @@ export function recordChallengeAttempt(
         score: prev ? Math.max(prev.score, score) : score,
         passed: Boolean(prev?.passed || passed),
         completedAt,
+        measured: true,
       },
     },
   };
@@ -190,14 +194,13 @@ export function recordChallengeAttempt(
 /**
  * Clears all local lesson, activity, queue, and legacy progress caches.
  */
-export function resetAllLearningProgress(): void {
+function resetAllLearningProgress(userId?: string): void {
   if (typeof window === 'undefined') return;
   try {
-    localStorage.removeItem(LOCAL_PROGRESS_STORAGE_KEY);
-    localStorage.removeItem(SYNC_QUEUE_STORAGE_KEY);
-    localStorage.removeItem(ACTIVITY_STORAGE_KEY);
-    localStorage.removeItem(LEGACY_PROGRESS_STORAGE_KEY);
-    localStorage.removeItem(LEGACY_CHALLENGES_STORAGE_KEY);
+    clearProgressQueue(userId);
+    for (const key of [LOCAL_PROGRESS_STORAGE_KEY, ACTIVITY_STORAGE_KEY, LEGACY_PROGRESS_STORAGE_KEY, LEGACY_CHALLENGES_STORAGE_KEY]) {
+      localStorage.removeItem(learningStorageKey(key));
+    }
   } catch (err) {
     console.warn('Lỗi khi đặt lại tiến độ học tập:', err);
   }
@@ -228,6 +231,7 @@ export interface UseLearningProgressResult {
  * React hook subscribing to live lesson completion, study streak, and challenge progress.
  */
 export function useLearningProgress(): UseLearningProgressResult {
+  const { user } = useAuth();
   const [progressMap, setProgressMap] = useState<Record<string, LocalLessonProgress>>(() =>
     getAllLocalProgress()
   );
@@ -325,6 +329,6 @@ export function useLearningProgress(): UseLearningProgressResult {
     challengeScores: activity.challengeScores,
     getModuleProgress,
     getTrackProgress,
-    resetAllLearningProgress,
+    resetAllLearningProgress: () => resetAllLearningProgress(user?.id),
   };
 }

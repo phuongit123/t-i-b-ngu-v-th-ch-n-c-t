@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Lock, Mail, User, Shield, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
 import { useAuth } from '@/lib/supabase/auth-context';
@@ -27,7 +27,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setLocalOfflineUser,
   } = useAuth();
 
-  const showDemoSwitcher = !isConfigured && import.meta.env.VITE_ENABLE_DEMO_AUTH === 'true';
+  const showDemoSwitcher = !isConfigured && import.meta.env.DEV && import.meta.env.VITE_ENABLE_DEMO_AUTH === 'true';
 
   const [activeTab, setActiveTab] = useState<'signin' | 'signup' | 'forgot'>(initialTab);
   const [email, setEmail] = useState('');
@@ -37,6 +37,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  useLayoutEffect(() => {
+    const dialog = dialogRef.current;
+    if (!isOpen || !dialog) return;
+    const previousFocus = document.activeElement;
+    dialog.showModal();
+    return () => {
+      dialog.close();
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -52,7 +64,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     if (error) {
       setErrorMsg(error.message);
     } else {
-      setSuccessMsg('Đăng nhập thành công!');
+      setSuccessMsg(isConfigured ? 'Đăng nhập thành công!' : 'Đã mở hồ sơ trên thiết bị này.');
       setTimeout(() => {
         onClose();
       }, 700);
@@ -65,13 +77,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setSuccessMsg(null);
     setIsSubmitting(true);
 
-    const { error } = await signUp(email, password, displayName, careerTrack);
+    const { error, confirmationRequired } = await signUp(email, password, displayName, careerTrack);
     setIsSubmitting(false);
 
     if (error) {
       setErrorMsg(error.message);
     } else {
-      setSuccessMsg('Tài khoản đã tạo thành công! Bạn có thể bắt đầu học ngay.');
+      if (confirmationRequired) {
+        setSuccessMsg('Kiểm tra email để xác nhận tài khoản trước khi đăng nhập.');
+        return;
+      }
+      setSuccessMsg(isConfigured ? 'Tài khoản đã tạo thành công!' : 'Đã tạo hồ sơ trên thiết bị này.');
       setTimeout(() => {
         onClose();
       }, 900);
@@ -103,8 +119,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+    <dialog
+      ref={dialogRef}
+      onCancel={event => { event.preventDefault(); onClose(); }}
+      className="fixed inset-0 m-0 h-full w-full max-h-none max-w-none items-center justify-center overflow-auto p-4 bg-black/80 backdrop-blur-sm open:flex"
       role="dialog"
       aria-modal="true"
       aria-labelledby="auth-modal-title"
@@ -206,8 +224,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             <button
               onClick={async () => {
-                await signOut();
-                onClose();
+                try { await signOut(); onClose(); }
+                catch { setErrorMsg('Không thể đăng xuất. Hãy thử lại.'); }
               }}
               className="w-full py-2.5 px-4 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-sm font-medium transition-colors"
             >
@@ -452,7 +470,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
         )}
       </div>
-    </div>,
+    </dialog>,
     document.body
   );
 };

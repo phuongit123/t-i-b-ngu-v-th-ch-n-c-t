@@ -136,7 +136,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
   return (
     <header className={cn('sticky top-0 z-40 w-full border-b border-hairline bg-canvas/85 backdrop-blur-md', className)}>
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-4 lg:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
+      <div className="max-w-[1600px] mx-auto px-3 sm:px-4 lg:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
         {/* Brand Logo & Platform Title */}
         <div className="flex items-center gap-2 sm:gap-4 min-w-0">
           <button
@@ -160,7 +160,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center gap-0.5">
             {navItems.map((item) => {
               const isActive =
                 activeRoute === item.id ||
@@ -175,7 +175,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
                   data-testid={`nav-${item.id}`}
                   onClick={() => handleNavClick(item.id)}
                   className={cn(
-                    'flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-xs transition-colors whitespace-nowrap shrink-0',
+                    'flex items-center gap-1 px-1.5 min-[1440px]:px-2 py-1.5 text-xs font-medium rounded-xs transition-colors whitespace-nowrap shrink-0',
                     isActive
                       ? 'text-zinc-100 bg-surface font-semibold shadow-subtle'
                       : 'text-zinc-400 hover:text-zinc-200 hover:bg-surface/50'
@@ -207,17 +207,26 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
           {getSyncBadge()}
 
+          <a
+            href="/tai-nguyen?nguon=drive"
+            aria-label="Google Drive trong thư viện tài nguyên"
+            className="hidden xl:flex items-center gap-1.5 px-2 py-1 text-[11px] font-mono rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 whitespace-nowrap shrink-0 hover:bg-cyan-500/20 transition cursor-pointer"
+          >
+            <Cloud className="w-3 h-3 text-cyan-400 shrink-0" />
+            <span className="hidden min-[1600px]:inline">Google Drive</span>
+          </a>
+
           <button
             type="button"
             data-testid="nav-auth-btn"
-            onClick={() => setIsAuthModalOpen(true)}
+            onClick={event => { event.currentTarget.focus(); setIsAuthModalOpen(true); }}
             className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-medium rounded-sm border transition-colors bg-surface border-hairline hover:border-amber-500/40 text-zinc-300 hover:text-zinc-100 whitespace-nowrap shrink-0"
             aria-label="Tài khoản và hồ sơ học viên"
           >
             <div className="w-4 h-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[10px] font-bold shrink-0">
               {(profile?.display_name || user?.email || 'H')[0].toUpperCase()}
             </div>
-            <span className="hidden md:inline max-w-[96px] truncate">
+            <span className="hidden md:inline max-w-[72px] min-[1440px]:max-w-[96px] truncate">
               {profile?.display_name || (user?.email ? user.email.split('@')[0] : 'Đăng nhập')}
             </span>
             {role !== 'student' && (

@@ -12,11 +12,14 @@ test.describe('Phase 3 Multi-Pane Lesson Viewer, Safe Markdown & Vietnamese Curr
     await expect(page.locator('h2')).toContainText('Cấu trúc giao diện Designer và chuyển đổi Persona');
 
     // Starter asset link must resolve and return real guide content (not HTML 404 fallback)
-    const starterHref = await page.getByTestId('lesson-starter-download').getAttribute('href');
-    expect(starterHref).toBeTruthy();
-    const assetResponse = await page.request.get(new URL(starterHref!, page.url()).href);
-    expect(assetResponse.status()).toBe(200);
-    expect(await assetResponse.text()).toContain('TÀI LIỆU HƯỚNG DẪN');
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.getByTestId('lesson-starter-download').click(),
+    ]);
+    const stream = await download.createReadStream();
+    const chunks = [];
+    for await (const chunk of stream) chunks.push(chunk);
+    expect(Buffer.concat(chunks).toString()).toContain('TÀI LIỆU HƯỚNG DẪN');
 
     // Visual diagram loads and opens lightbox on click
     const diagramImg = page.locator('img[src="/assets/lessons/diagram-vector-workspace-vi.svg"]');

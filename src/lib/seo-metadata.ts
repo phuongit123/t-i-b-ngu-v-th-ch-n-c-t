@@ -124,16 +124,17 @@ function buildDescriptor(opts: SeoMetadataOptions): PageSeoDescriptor {
   switch (activeRoute) {
     case 'catalog': {
       const tm = TRACK_META[activeTrack] ?? TRACK_META.designer;
-      const path = getRoutePath('catalog', { trackId: activeTrack });
+      const overview = /^\/(lo-trinh|catalog)\/?$/.test(window.location.pathname);
+      const path = overview ? '/lo-trinh' : getRoutePath('catalog', { trackId: activeTrack });
       return {
-        title: tm.title,
+        title: overview ? 'Lộ trình đào tạo — Affinity Academy' : tm.title,
         description: tm.description,
         canonicalPath: path,
         ogImage: tm.image,
         breadcrumbs: [
           { name: 'Trang chủ', path: '/' },
           { name: 'Lộ trình đào tạo', path: '/lo-trinh' },
-          { name: tm.name, path },
+          ...(overview ? [] : [{ name: tm.name, path }]),
         ],
       };
     }
@@ -286,6 +287,11 @@ function buildDescriptor(opts: SeoMetadataOptions): PageSeoDescriptor {
           { name: 'Đồ án tốt nghiệp', path: '/do-an-tot-nghiep' },
         ],
       };
+    case 'design-system':
+      return { title: 'Hệ thống thiết kế — Affinity Academy', description: 'Các thành phần và token giao diện của Affinity Academy.', canonicalPath: '/he-thong-thiet-ke', ogImage: '/assets/academy/hero-studio-showcase.png', breadcrumbs: [] };
+    case 'reset-password':
+    case 'not-found':
+      return { title: activeRoute === 'not-found' ? 'Không tìm thấy trang — Affinity Academy' : 'Đặt lại mật khẩu — Affinity Academy', description: '', canonicalPath: window.location.pathname, ogImage: '/assets/academy/hero-studio-showcase.png', breadcrumbs: [] };
     case 'home':
     default:
       return {
@@ -404,6 +410,7 @@ export function useSeoMetadata({
       : `${SITE_ORIGIN}${descriptor.ogImage}`;
 
     document.title = descriptor.title;
+    upsertMetaTag('name', 'robots', ['not-found', 'reset-password'].includes(activeRoute) ? 'noindex' : 'index,follow');
     upsertMetaTag('name', 'description', descriptor.description);
     upsertMetaTag('property', 'og:title', descriptor.title);
     upsertMetaTag('property', 'og:description', descriptor.description);

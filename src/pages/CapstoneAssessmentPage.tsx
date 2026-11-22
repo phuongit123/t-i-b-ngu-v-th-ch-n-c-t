@@ -6,14 +6,17 @@ import {
   evaluatePassFail,
   loadCurrentSubmission,
   saveStudentSubmission,
-  submitOfficialEvaluation,
   getSubmissionHistory,
 } from '@/lib/capstone-service';
 import {
   validateSubmissionFile,
   uploadSubmissionArtifact,
+  getSubmissionSignedUrl,
 } from '@/lib/supabase/storage';
 import { useAuth } from '@/lib/supabase/auth-context';
+import { listCloudSubmissions, submitCloudCapstone, gradeCloudCapstone } from '@/lib/cloud-capstone';
+import { readOfflineArtifact } from '@/lib/offline-artifacts';
+import { learningStorageKey } from '@/lib/learning-storage';
 import { usePreferences } from '@/lib/preferences-context';
 import type {
   RubricDimensionId,
@@ -127,14 +130,19 @@ function formatBytes(bytes: number): string {
 }
 
 export const CapstoneAssessmentPage: React.FC = () => {
-  const { user, profile, role } = useAuth();
+  const { user, profile, role, isConfigured } = useAuth();
   const { preferences } = usePreferences();
 
   // Strict RBAC check: evaluator console is ONLY rendered for authenticated evaluators or admins
-  const canEvaluate = Boolean((user || profile) && (role === 'evaluator' || role === 'admin'));
+  const canEvaluate = Boolean(user && (role === 'evaluator' || role === 'admin'));
 
   const [activeTab, setActiveTab] = useState<'brief' | 'rubric' | 'submit' | 'results'>('brief');
-  const [submission, setSubmission] = useState<CapstoneSubmissionRecord>(loadCurrentSubmission);
+  const [submission, setSubmission] = useState<CapstoneSubmissionRecord>(() => loadCurrentSubmission(!isConfigured));
+  const [assignedWork, setAssignedWork] = useState<CapstoneSubmissionRecord[]>([]);
+  const [reviewId, setReviewId] = useState('');
+  const [saving, setSaving] = useState(false);
+  const userId = user?.id;
+  const review = assignedWork.find(row => row.id === reviewId);
   const [history, setHistory] = useState<SubmissionHistoryEntry[]>([]);
   const [toastMessage, setToastMessage] = useState<{ text: string; isError?: boolean } | null>(null);
 
@@ -180,24 +188,33 @@ export const CapstoneAssessmentPage: React.FC = () => {
     }
   );
   const [evalFeedback, setEvalFeedback] = useState<Record<RubricDimensionId, string>>(
-    submission.officialEvaluation?.dimensionFeedback || {
-      brief_interpretation: 'Phân tích brief mạch lạc, hiểu đúng đối tượng khách hàng specialty.',
-      visual_communication: 'Phân cấp thị giác rõ nét, kiểu chữ kết hợp hài hòa.',
-      tool_selection: 'Sử dụng Corner Tool và Live Lighting Filter chuẩn xác.',
-      non_destructive: 'Cấu trúc layer phi phá hủy tốt, quản lý mặt nạ chặt chẽ.',
-      iteration_critique: 'Nhật ký sửa đổi đối chiếu rõ ràng sự tiến bộ giữa các bản nháp.',
-      production_readiness: 'Tệp PDF/X-4 đạt chuẩn 300 DPI với 3mm bleed đầy đủ.',
-      independent_transfer: 'Tư duy thiết kế độc lập, lập luận rõ ràng.',
-    }
+    () => Object.fromEntries(CAPSTONE_RUBRIC_DIMENSIONS.map(dim => [dim.id, ''])) as Record<RubricDimensionId, string>
   );
-  const [evalOverall, setEvalOverall] = useState<string>(
-    submission.officialEvaluation?.overallFeedback ||
-      'Bài làm thể hiện năng lực thiết kế độc lập tốt, đáp ứng chuẩn đầu ra tốt nghiệp.'
-  );
+  const [evalOverall, setEvalOverall] = useState('');
 
   useEffect(() => {
-    setHistory(getSubmissionHistory());
-  }, []);
+    let active = true;
+    if (!userId) {
+      if (!isConfigured) setHistory(getSubmissionHistory());
+      return;
+    }
+    listCloudSubmissions(userId).then(rows => {
+      if (!active) return;
+      if (rows[0]) {
+        setSubmission(rows[0]);
+        setArtifacts(previous => Object.values(previous).some(Boolean) ? previous : rows[0].artifacts);
+      }
+      setHistory(rows.slice(1).map(row => ({ ...row, timestamp: row.createdAt, changelogSummary: `Bản nộp v${row.version}` })));
+    }).catch(() => {
+      if (active) setToastMessage({ text: 'Không tải được hồ sơ đồ án từ máy chủ.', isError: true });
+    });
+    if (canEvaluate) listCloudSubmissions().then(rows => {
+      if (active) setAssignedWork(rows.filter(row => row.studentId !== userId));
+    }).catch(() => {
+      if (active) setToastMessage({ text: 'Không tải được danh sách bài cần chấm.', isError: true });
+    });
+    return () => { active = false; };
+  }, [userId, canEvaluate, isConfigured]);
 
   const showToast = (text: string, isError = false) => {
     setToastMessage({ text, isError });
@@ -209,6 +226,12 @@ export const CapstoneAssessmentPage: React.FC = () => {
     file: File | undefined
   ): Promise<void> => {
     if (!file) return;
+    if (isConfigured && !userId) { showToast('Đăng nhập để nộp tệp lên máy chủ.', true); return; }
+    const extension = '.' + (file.name.split('.').pop() ?? '').toLowerCase();
+    if (!field.accept.split(',').includes(extension)) {
+      setUploadErrors(prev => ({ ...prev, [field.key]: 'Chọn đúng định dạng của mục này.' }));
+      return;
+    }
 
     const validation = validateSubmissionFile(file);
     if (!validation.isValid) {
@@ -250,9 +273,10 @@ export const CapstoneAssessmentPage: React.FC = () => {
     }));
   };
 
-  const handleSaveStudentSubmission = (e: React.FormEvent) => {
+  const handleSaveStudentSubmission = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (saving || uploadingField) return;
+    if (isConfigured && !userId) { showToast('Đăng nhập để nộp hồ sơ lên máy chủ.', true); return; }
     for (const field of UPLOAD_FIELDS) {
       if (!artifacts[field.key]?.trim()) {
         const errText = `Vui lòng tải lên tệp cho mục "${field.label.replace(' *', '')}".`;
@@ -263,35 +287,70 @@ export const CapstoneAssessmentPage: React.FC = () => {
     }
 
     const learnerName = profile?.display_name || preferences.displayName;
-    const updated = saveStudentSubmission(
-      artifacts,
-      {
-        scores: selfScores,
-        justifications: selfJustifications,
-        submittedAt: new Date().toISOString(),
-      },
-      learnerName
-    );
-
-    setSubmission(updated);
-    setHistory(getSubmissionHistory());
-    showToast(`Đã nộp thành công hồ sơ đồ án phiên bản v${updated.version}!`);
+    const selfReview = {
+      scores: selfScores, justifications: selfJustifications, submittedAt: new Date().toISOString(),
+    };
+    setSaving(true);
+    try {
+      if (userId) {
+        await submitCloudCapstone(artifacts, selfReview);
+        const rows = await listCloudSubmissions(userId);
+        if (rows[0]) setSubmission(rows[0]);
+        setHistory(rows.slice(1).map(row => ({ ...row, timestamp: row.createdAt, changelogSummary: `Bản nộp v${row.version}` })));
+        showToast('Đã nộp hồ sơ đồ án lên máy chủ.');
+      } else {
+        for (const field of UPLOAD_FIELDS) {
+          if (!await readOfflineArtifact(learningStorageKey(artifacts[field.key]))) {
+            throw new Error('Một số tệp chưa có trên thiết bị. Hãy đính kèm lại.');
+          }
+        }
+        const updated = saveStudentSubmission(artifacts, selfReview, learnerName);
+        setSubmission(updated);
+        setHistory(getSubmissionHistory());
+        showToast(`Đã nộp thành công hồ sơ đồ án phiên bản v${updated.version} trên thiết bị này.`);
+      }
+    } catch (error) {
+      showToast(error instanceof Error ? error.message : 'Không lưu được hồ sơ đồ án.', true);
+    } finally { setSaving(false); }
   };
 
-  const handleSubmitEvaluation = () => {
-    if (!canEvaluate) return;
+  async function downloadEvidence(path: string) {
+    try {
+      if (path.startsWith('local://')) {
+        const file = await readOfflineArtifact(learningStorageKey(path));
+        if (!file) throw new Error('Tệp chưa có trên thiết bị. Hãy đính kèm lại.');
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = file.name;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      } else {
+        const url = await getSubmissionSignedUrl(path);
+        if (!url) throw new Error('Không mở được tệp minh chứng.');
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.click();
+      }
+    } catch (error) { showToast(error instanceof Error ? error.message : 'Không mở được tệp.', true); }
+  }
 
-    const evaluatorId = user?.id || profile?.id || 'EVAL-PANEL-01';
-    const evaluatorName = profile?.display_name || 'Hội Đồng Giám Khảo Độc Lập';
-    const updated = submitOfficialEvaluation(
-      evaluatorId,
-      evaluatorName,
-      evalScores,
-      evalFeedback,
-      evalOverall
-    );
-    setSubmission(updated);
-    showToast('Đã lưu kết quả thẩm định chính thức của Hội đồng Giám khảo!');
+  const handleSubmitEvaluation = async () => {
+    if (!canEvaluate || !review || review.officialEvaluation || saving) return;
+    if (!evalOverall.trim() || Object.values(evalFeedback).some(value => !value.trim())) {
+      showToast('Nhập nhận xét cho từng tiêu chí và nhận xét chung trước khi chấm.', true);
+      return;
+    }
+    setSaving(true);
+    try {
+      await gradeCloudCapstone(review.id, evalScores, evalFeedback, evalOverall);
+      setAssignedWork((await listCloudSubmissions()).filter(row => row.studentId !== userId));
+      showToast('Đã lưu kết quả thẩm định chính thức.');
+    } catch (error) {
+      showToast(error instanceof Error ? error.message : 'Không thể lưu kết quả thẩm định.', true);
+    } finally { setSaving(false); }
   };
 
   const studentEstimatedScore = calculateWeightedScore(selfScores);
@@ -557,7 +616,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
       {/* TAB 3: FILE UPLOAD SUBMISSION & SELF-ASSESSMENT */}
       {/* ========================================================= */}
       {activeTab === 'submit' && (
-        <form onSubmit={handleSaveStudentSubmission} className="space-y-8 animate-in fade-in duration-200">
+        <form onSubmit={event => { void handleSaveStudentSubmission(event); }} className="space-y-8 animate-in fade-in duration-200">
           <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-5">
             <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
               <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
@@ -634,7 +693,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
                     {!meta && savedPath && !fieldErr && (
                       <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
                         <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                        <span className="truncate">Tệp đã lưu: {savedPath}</span>
+                        <button type="button" className="truncate underline" onClick={() => { void downloadEvidence(savedPath); }}>Tệp đã lưu: {savedPath.split('/').pop()}</button>
                       </div>
                     )}
 
@@ -740,6 +799,7 @@ export const CapstoneAssessmentPage: React.FC = () => {
               <button
                 type="submit"
                 data-testid="submit-capstone-btn"
+                disabled={saving || Boolean(uploadingField)}
                 className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs font-mono shadow-subtle transition-all"
               >
                 <Send className="w-4 h-4" />
@@ -775,6 +835,24 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 </div>
               </div>
 
+              <label className="block">
+                Chọn hồ sơ thẩm định
+                <select className="block w-full bg-surface border border-hairline rounded p-2" value={reviewId}
+                  onChange={event => {
+                    setReviewId(event.target.value);
+                    setEvalScores(Object.fromEntries(CAPSTONE_RUBRIC_DIMENSIONS.map(dim => [dim.id, 3])) as Record<RubricDimensionId, RubricLevelId>);
+                    setEvalFeedback(Object.fromEntries(CAPSTONE_RUBRIC_DIMENSIONS.map(dim => [dim.id, ''])) as Record<RubricDimensionId, string>);
+                    setEvalOverall('');
+                  }}>
+                  <option value="">Chọn bản nộp</option>
+                  {assignedWork.map(row => <option key={row.id} value={row.id}>Hồ sơ {row.id.slice(0, 8)} · v{row.version} · {new Date(row.createdAt).toLocaleDateString('vi-VN')}</option>)}
+                </select>
+              </label>
+              {review && <div className="flex flex-wrap gap-2">
+                {UPLOAD_FIELDS.map(field => <button type="button" key={field.key} className="underline"
+                  onClick={() => { void downloadEvidence(review.artifacts[field.key]); }}>{field.label}</button>)}
+                {review.officialEvaluation && <p>Đã thẩm định: {review.officialEvaluation.weightedScore} điểm</p>}
+              </div>}
               <div className="space-y-4">
                 {CAPSTONE_RUBRIC_DIMENSIONS.map((dim) => {
                   const currentScore = evalScores[dim.id] || 3;
@@ -832,7 +910,8 @@ export const CapstoneAssessmentPage: React.FC = () => {
                 <button
                   type="button"
                   data-testid="evaluator-signoff-btn"
-                  onClick={handleSubmitEvaluation}
+                  onClick={() => { void handleSubmitEvaluation(); }}
+                  disabled={!review || Boolean(review.officialEvaluation) || saving}
                   className="px-6 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono font-bold text-xs shadow-lg transition-all"
                 >
                   Ký Duyệt Kết Quả Chính Thức &amp; Cấp Chứng Nhận

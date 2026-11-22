@@ -14,7 +14,7 @@ test.describe('Thử thách thực hành & Đồng bộ điểm với Học tậ
     await expect(page.locator('h4:has-text("Biểu Tượng Trái Tim Kết Hợp Cusp & Smooth")')).toBeVisible();
   });
 
-  test('TC-PRAC-02: Kiểm tra 0 bước phải đạt 0%, hoàn thành đủ 4 bước mới đạt 100% và đồng bộ Dashboard', async ({ page }) => {
+  test('TC-PRAC-02: Kiểm tra 0 bước phải đạt 0%, checklist đủ bước không tính là điểm Canvas', async ({ page }) => {
     await page.goto('/challenges');
 
     await expect(page.locator('text=Hướng dẫn thực hiện từng bước')).toBeVisible();
@@ -34,12 +34,12 @@ test.describe('Thử thách thực hành & Đồng bộ điểm với Học tậ
     await page.getByTestId('challenge-step-4').click();
     await evalBtn.click();
 
-    await expect(resultBox).toContainText('KẾT QUẢ: ĐẠT CHUẨN THỬ THÁCH');
-    await expect(resultBox).toContainText('Độ chính xác: 100%');
+    await expect(resultBox).toContainText('CHECKLIST TỰ ĐÁNH GIÁ');
+    await expect(resultBox).toContainText('Số bước đã đánh dấu: 100%');
 
     // Verify synced to Dashboard
     await page.getByTestId('nav-dashboard').click();
-    await expect(page.locator('text=Đã hoàn thành thử thách kỹ thuật')).toBeVisible();
+    await expect(page.getByText('Đã hoàn thành thử thách kỹ thuật')).toHaveCount(0);
   });
 
   test('TC-PRAC-03: Chuyển tiếp từ Thử thách sang Phòng mô phỏng tương tác', async ({ page }) => {

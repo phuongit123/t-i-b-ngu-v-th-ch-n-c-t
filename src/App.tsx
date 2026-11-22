@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { AppShell } from './components/layout/AppShell';
 import { SidebarNavigation } from './components/layout/SidebarNavigation';
-import { DesignSystemPreview } from './components/preview/DesignSystemPreview';
+const DesignSystemPreview = React.lazy(() => import('./components/preview/DesignSystemPreview').then(module => ({ default: module.DesignSystemPreview })));
 import { SearchCommand, SearchResultItem } from './components/search/SearchCommand';
 import { Toast } from './components/ui/Toast';
-import { SimulatorPage } from './pages/SimulatorPage';
+const SimulatorPage = React.lazy(() => import('./pages/SimulatorPage').then(module => ({ default: module.SimulatorPage })));
 import { HomePage } from './pages/HomePage';
-import { LessonPage } from './pages/LessonPage';
+const LessonPage = React.lazy(() => import('./pages/LessonPage').then(module => ({ default: module.LessonPage })));
 import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 import { lessonTranslationsVi } from './data/curriculum/translationsVi';
@@ -27,6 +27,7 @@ const CapstoneAssessmentPage = React.lazy(() => import('./pages/CapstoneAssessme
 const KnowledgePage = React.lazy(() => import('./pages/KnowledgePage'));
 const ChallengesPage = React.lazy(() => import('./pages/ChallengesPage'));
 const DashboardPage = React.lazy(() => import('./pages/DashboardPage'));
+const ResetPasswordPage = React.lazy(() => import('./pages/ResetPasswordPage'));
 const SettingsPage = React.lazy(() => import('./pages/SettingsPage'));
 
 function getInitialParsedState(): ParsedRouteState {
@@ -158,6 +159,10 @@ export const App: React.FC = () => {
     }
 
     switch (activeRoute) {
+      case 'reset-password':
+        return <ResetPasswordPage />;
+      case 'not-found':
+        return <section className="space-y-4"><h1 className="text-2xl font-bold">Không tìm thấy trang</h1><a href="/" className="underline">Về trang chủ</a></section>;
       case 'home':
         return (
           <HomePage

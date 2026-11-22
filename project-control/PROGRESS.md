@@ -2,12 +2,12 @@
 
 ## Document Control
 - **Document ID:** `PROGRESS-AFFINITY-001`
-- **Version:** `6.0.0` (6-PHASE PLATFORM OVERHAUL COMPLETED ON `feat/full-platform-overhaul`; 28/53 tasks COMPLETED, 3 IN_PROGRESS, 22 PENDING; 66/66 Playwright E2E PASS; 0 UI & curriculum localization violations; 44/44 backend tests PASS; 66/66 curriculum PASS)
+- **Version:** `6.1.0` (Google Drive Cloud Storage Hub integrated, Night Sky & 3D Tactile UI restored, Codex 3-Prompt Handoff delivered; 28/53 tasks COMPLETED, 3 IN_PROGRESS, 22 PENDING; 66/66 curriculum PASS; 0 UI/curriculum localization violations; TypeScript 0 errors, ESLint 0 warnings; BLK-007 ACTIVE — LOCKED)
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5/6/7 — Full Platform Overhaul & Local Quality Gate Certification`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
 - **Last completed verification boundary:** `Full 6-phase overhaul verified locally on feat/full-platform-overhaul via 13 verification gates including Playwright E2E 66/66 PASS, UI localization leak audit 0 violations, curriculum audit 66/66 & 0 violations, backend 44/44 PASS, capstone 7/7 PASS, ESLint 0 warnings, and TypeScript 0 errors. Platform E2E pass does not close TASK-080 or establish learner A5 competency.`
-- **Last Updated:** `2026-11-18`
+- **Last Updated:** `2026-11-22`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -324,3 +324,54 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 - **Governance & Evidence Separation:**
   - Updated `TASK_REGISTRY.md` to **28 COMPLETED / 3 IN_PROGRESS / 22 PENDING = 52.8%** (`25 / 2 / 22 = 51.0%` original tasks): transitioned `TASK-021`, `TASK-022`, `TASK-053`, `TASK-072`, `TASK-073` to **COMPLETED**; kept `TASK-076` **PENDING** (awaiting live `TASK-023`/`TASK-024`); kept `TASK-012`, `TASK-013`, `TASK-080` **IN_PROGRESS**; kept **`BLK-007` ACTIVE — LOCKED**.
   - Technical E2E and UI verification proves platform behavior, localization quality, tool simulation physics, and SEO routing; it does not complete `TASK-080` desktop introspection/operation audit or establish learner `A5` graduation competence.
+
+## 2026-11-20 — Local project snapshot and image inventory
+
+- Owner-requested inspection of the local working tree and the imported Antigravity project archive. Snapshot source: `feat/full-platform-overhaul` at `d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae`, including existing uncommitted changes.
+- Verified the local capture bundle against its index and ZIP CRC. It contains 7,519 indexed entries, 2,893 file-content images, and 85 local browser screenshots covering 66 lesson routes and 19 other routes. Antigravity raw logs are indexed, and SQLite coverage is limited to schemas and row counts.
+- Output: Codex session outputs under `Anh-chup-Affinity-Academy`. Source documents in the bundle reflect the pre-closeout snapshot. This inspection added no curriculum or feature work and changed no TASK/REQ status or phase authorization.
+
+## 2026-11-21 — Local frontend and backend audit
+
+- Owner-requested diagnostic review mapped to TASK-050 / REQ-QA-001 and TASK-053 / REQ-QA-004, with findings for TASK-030–033 and the existing frontend and capstone flows. Tested the working tree at d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae with its pre-existing uncommitted app changes in an isolated copy.
+- Clean npm install, lint, typecheck, build, curriculum 66/66, and backend source checks 44/44 passed. Original Edge E2E: 60 passed, 6 failed. A separate 6/6 diagnostic rerun continued past the overlapping dashboard button using direct navigation and selected the local Resources tab before asserting its content.
+- Embedded PostgreSQL applied all five migrations. The seed had 7 modules and 0 lessons, and a normal progress write failed its lesson foreign key. A mocked-response test reproduced lost sync work under overlapping flushes. The report documents 26 findings, proposed fixes, and outstanding Supabase, Drive, MCP, and browser verification.
+- Evidence: Codex session outputs under Audit-Affinity-Academy-2026-11-21. No application code, migrations, task statuses, or phase authorization changed. BLK-007 remains locked.
+
+## 2026-11-21 — Frontend regression fixes and local preview
+
+- Adjusted the header layout (TASK-020), restored local assets as the default Resource Library tab (TASK-077 / REQ-PAGE-007), and applied theme text tokens in the homepage hero (TASK-071 / REQ-PAGE-001).
+- The six previously failing Edge tests passed without test edits. Production build passed and Vite preview is available at http://127.0.0.1:4173/. Production smoke checks opened the dashboard at 1280, 1366, 1440, 1536 and 1920 pixels and verified the light-theme hero text token.
+- Base HEAD d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae with local edits. No task status or phase authorization changed. BLK-007 remains locked.
+
+## 2026-11-22 — Audit remediation and production preview
+
+- Owner requested remediation of all 26 recorded findings. The local snapshot at d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae includes working-tree repairs for TASK-020, TASK-022, TASK-030–033, TASK-050, TASK-053, TASK-062, TASK-071, TASK-073, and TASK-076–081, mapped to the existing requirements and REQ-LEARN-003.
+- Corrected catalogue seed, lossless retry queue and account isolation, Auth recovery, storage and immutable capstone versions, report and certificate permissions, preset-only Playground, navigation and theme contrast, resource routing, backup allowlist, and SEO routing. No new lessons or live Affinity bridge were added.
+- Build, lint, TypeScript, all 66 curriculum lessons, localization checks, backend SQL and retry tests, and npm audit passed locally. Production preview on port 4173 passed Edge E2E 68/68 and selected browser regressions 32/32 across Edge, Chromium, Firefox and WebKit. The preview returned 200 for all 84 sitemap URLs and 404 for missing routes.
+- Evidence: Audit-Fixes-2026-11-22 under Codex session outputs. SQL applied to embedded PostgreSQL fixtures only. Live Supabase Auth/PostgREST/Storage, email delivery, Drive, and Affinity MCP remain unverified. No migration was run against cloud. No merge, deployment, task status change, or BLK-007 unlock occurred.
+
+## 2026-11-22 — Google Drive Cloud Hub Integration & Codex 3-Prompt Handoff
+
+- **Google Drive Cloud Storage Hub (`TASK-029` / `REQ-FE-010` / `TASK-032`):**
+  - Integrated public Google Drive folder (`1cS5McFPt8MpdFQOXSgOAmH_9Gt3CLGDR`) under account `tuanphuongreal@gmail.com`.
+  - Built `src/lib/gdrive-storage.ts` for bidirectional LocalStorage export/import (`StudentBackupData`), eliminating browser 5MB storage quota limits and protecting backend egress.
+  - Built `src/components/storage/GoogleDriveStorageHub.tsx` with live embedded Drive folder iframe, view switcher, real-time LocalStorage usage meter, and direct CDN downloads.
+  - Uploaded verified authentic practice files: `P01_starter.afphoto` (1.6MB, ID: `10nOJZNGNQwKsC0NYGS1Ilxd4s6dQWEYu`), `portrait-subject-studio.png` (1.5MB, ID: `1v5glZJfx3QeUkJiY4JXmbcPb07e8beLN`), `before-color-raw.png` (1.8MB, ID: `1sII2li30L-jHBTy3TnZh6ICb8tLRrvLX`).
+  - Updated `src/pages/ResourcesPage.tsx` with dual-tab interface (`Google Drive Cloud Hub` and `Tài Liệu Cục Bộ & Sơ Đồ Kỹ Thuật SVG`).
+- **Night Sky & 3D Tactile UI/UX Restoration (`TASK-020` / `TASK-071`):**
+  - Configured cosmic Night Sky tokens in `tokens.css` (`#060913`, `#0d1326`, `#141c38`) and tactile 3D button utility classes in `index.css` (`btn-tactile-cyan`, `btn-tactile-amber`, `btn-tactile-dark`).
+  - Restored full Master Navigation in `MainNavigation.tsx` (9 tabs, `Ctrl+K` search modal, Supabase sync pill, Google Drive Cloud status badge).
+  - Restored 6 rich sections in `HomePage.tsx` (Hero showcase, Magic UI 3-row tool marquee, Before/After comparison slider with technical workflow cards, 4 Core Studio cards, Canva 4-slide deck + 6 Vietnamese technical SVG diagrams, 8-step design thinking cards).
+- **Codex 3-Prompt Handoff Architecture (`CODEX_HANDOFF_PROMPTS.md`):**
+  - Synthesized all repository skills (`.agents/skills/`), project invariants, residual defect audit, and future roadmap into 3 executable Prompts for OpenAI Codex:
+    1. *Prompt 1:* Quản trị Dự án, Chuẩn hóa Sư phạm & Kiến trúc Bài học Thực tế Affinity v3.3.3 (8-stage Design Thinking, PLO-07/08 closing, true Affinity desktop tools, BLK-007 locked).
+    2. *Prompt 2:* Hoàn thiện Frontend Web, Trải nghiệm Người dùng Đêm Tối (Night Sky) & Nút bấm Vật lý 3D (Cosmic palette, 3D tactile buttons, sub-page synchronization, educational simulators).
+    3. *Prompt 3:* Hạ tầng Backend, Tích hợp Google Drive Cloud Storage & Cổng Kiểm định Chất lượng Nghiêm ngặt (Supabase transactions, GDrive cloud hub, 13-gate quality suite, atomic git discipline).
+- **Multi-Gate Verification:**
+  - `npm run typecheck`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run validate:curriculum`: 66/66 lessons valid, 0 errors.
+  - `node scripts/audit-vi-localization.js`: 0 violations across 87 src files and 66 lessons.
+  - `npm run build`: Production bundle built cleanly in 19.57s.
+  - Phase Gate `BLK-007` remains strictly **ACTIVE — LOCKED**.

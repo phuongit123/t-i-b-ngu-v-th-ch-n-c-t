@@ -1,3 +1,4 @@
+import { learningStorageKey } from '@/lib/learning-storage';
 /**
  * AFFINITY ACADEMY — CAPSTONE EVALUATION SERVICE & RUBRIC ENGINE
  * Implements business logic, validation, scoring, and persistence for TASK-081
@@ -11,7 +12,6 @@ import type {
   CapstoneSubmissionRecord,
   SubmissionArtifacts,
   StudentSelfAssessment,
-  OfficialEvaluationResult,
   SubmissionHistoryEntry,
 } from '@/types/capstone';
 
@@ -292,7 +292,7 @@ export const CAPSTONE_RUBRIC_DIMENSIONS: RubricDimension[] = [
 ];
 
 export const DEFAULT_LUMINA_PROJECT: CapstoneProjectSpec = {
-  id: 'CAPSTONE-001',
+  id: 'capstone-a5-lumina',
   title: 'Lumina Artisanal Roastery Launch Campaign',
   titleVi: 'Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina',
   clientName: 'Lumina Artisanal Roastery',
@@ -439,11 +439,11 @@ export function evaluatePassFail(
 /**
  * Loads current capstone submission from storage, or creates initial state
  */
-export function loadCurrentSubmission(): CapstoneSubmissionRecord {
+export function loadCurrentSubmission(readLocal = true): CapstoneSubmissionRecord {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY_SUBMISSION);
+    const stored = readLocal ? localStorage.getItem(learningStorageKey(STORAGE_KEY_SUBMISSION)) : null;
     if (stored) {
-      return JSON.parse(stored);
+      return { ...JSON.parse(stored), officialEvaluation: undefined };
     }
   } catch (err) {
     console.error('Failed to load submission from localStorage', err);
@@ -523,61 +523,10 @@ export function saveStudentSubmission(
     artifacts: { ...artifacts },
     selfAssessment: selfAssessment ? { ...selfAssessment } : current.selfAssessment,
     updatedAt: new Date().toISOString(),
-    // Preserve existing official evaluation (immutable by student)
-    officialEvaluation: current.officialEvaluation,
+    officialEvaluation: undefined,
   };
 
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save submission to localStorage', err);
-  }
-
-  return updatedRecord;
-}
-
-/**
- * Submits an official evaluation by an independent evaluator
- * Produces immutable official result and issues verification certificate if passed
- */
-export function submitOfficialEvaluation(
-  evaluatorId: string,
-  evaluatorName: string,
-  scores: Record<RubricDimensionId, RubricLevelId>,
-  dimensionFeedback: Record<RubricDimensionId, string>,
-  overallFeedback: string
-): CapstoneSubmissionRecord {
-  const current = loadCurrentSubmission();
-  const evaluation = evaluatePassFail(scores);
-
-  const officialResult: OfficialEvaluationResult = {
-    evaluatorId,
-    evaluatorName,
-    scores,
-    dimensionFeedback,
-    overallFeedback,
-    weightedScore: evaluation.score,
-    passed: evaluation.passed,
-    criticalViolations: evaluation.criticalViolations,
-    evaluatedAt: new Date().toISOString(),
-    certificateId: evaluation.passed
-      ? `CERT-A5-${Date.now().toString(36).toUpperCase()}-AFFINITY`
-      : undefined,
-    isOfficial: true,
-  };
-
-  const updatedRecord: CapstoneSubmissionRecord = {
-    ...current,
-    status: evaluation.passed ? 'approved' : 'needs_revision',
-    officialEvaluation: officialResult,
-    updatedAt: new Date().toISOString(),
-  };
-
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save official evaluation', err);
-  }
+  localStorage.setItem(learningStorageKey(STORAGE_KEY_SUBMISSION), JSON.stringify(updatedRecord));
 
   return updatedRecord;
 }
@@ -587,7 +536,7 @@ export function submitOfficialEvaluation(
  */
 export function getSubmissionHistory(): SubmissionHistoryEntry[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_HISTORY);
+    const raw = localStorage.getItem(learningStorageKey(STORAGE_KEY_HISTORY));
     if (raw) {
       return JSON.parse(raw);
     }
@@ -601,7 +550,7 @@ function appendSubmissionHistory(entry: SubmissionHistoryEntry): void {
   const history = getSubmissionHistory();
   history.push(entry);
   try {
-    localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+    localStorage.setItem(learningStorageKey(STORAGE_KEY_HISTORY), JSON.stringify(history));
   } catch (err) {
     console.error('Failed to append history', err);
   }

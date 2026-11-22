@@ -43,6 +43,7 @@ test.describe('Hồ sơ học tập, Đồng bộ LearningStore & Cài đặt h�
   test('TC-DASH-03: Cài đặt phím tắt macOS và Đặt lại toàn bộ tiến độ đưa Dashboard về 0/66', async ({ page }) => {
     await page.goto('/catalog');
     await page.getByTestId('lesson-card-D01-01').click();
+    await expect(page.getByTestId('slide-counter')).toContainText('Trang 1');
     while (await page.getByTestId('next-slide-btn').isVisible()) {
       await page.getByTestId('next-slide-btn').click();
     }

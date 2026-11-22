@@ -1,33 +1,9 @@
 import { test, expect, type Page } from '@playwright/test';
-import * as fs from 'fs';
-import * as path from 'path';
-
 async function saveScreenshot(page: Page, filename: string): Promise<void> {
-  const buffer = await page.screenshot();
-  const targetPath = path.resolve('tests/screenshots', filename);
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      fs.writeFileSync(targetPath, buffer);
-      return;
-    } catch (err) {
-      const code = (err as NodeJS.ErrnoException).code;
-      if (attempt < 2 && (code === 'UNKNOWN' || code === 'EBUSY' || code === 'EPERM')) {
-        await new Promise((r) => setTimeout(r, 120));
-        continue;
-      }
-      throw err;
-    }
-  }
+  await page.screenshot({ path: test.info().outputPath(filename) });
 }
 
 test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () => {
-  test.beforeAll(() => {
-    const screenshotsDir = path.resolve('tests/screenshots');
-    if (!fs.existsSync(screenshotsDir)) {
-      fs.mkdirSync(screenshotsDir, { recursive: true });
-    }
-  });
-
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.getByTestId('nav-simulator').click();

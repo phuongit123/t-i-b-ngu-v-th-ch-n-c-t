@@ -1,10 +1,29 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { readFileSync } from 'node:fs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), {
+    name: 'academy-preview-404',
+    configurePreviewServer(server) {
+      const publicRoot = path.resolve(server.config.root, 'public');
+      const routes = new Set(readFileSync(path.join(publicRoot, '_redirects'), 'utf8')
+        .split(/\r?\n/).filter(Boolean).map(line => line.split(' ')[0]));
+      const notFound = readFileSync(path.join(publicRoot, '404.html'));
+      server.middlewares.use((request, response, next) => {
+        const pathname = new URL(request.url ?? '/', 'http://localhost').pathname.replace(/\/$/, '') || '/';
+        if ((request.method === 'GET' || request.method === 'HEAD') && !routes.has(pathname.toLowerCase()) && !path.extname(pathname)) {
+          response.statusCode = 404;
+          response.setHeader('Content-Type', 'text/html; charset=utf-8');
+          response.end(request.method === 'HEAD' ? undefined : notFound);
+          return;
+        }
+        next();
+      });
+    },
+  }],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -13,6 +32,7 @@ export default defineConfig({
   server: {
     port: 3000,
     open: false,
+    watch: { ignored: ['**/test-results/**', '**/playwright-report/**', '**/tests/screenshots/**'] },
   },
   build: {
     rollupOptions: {

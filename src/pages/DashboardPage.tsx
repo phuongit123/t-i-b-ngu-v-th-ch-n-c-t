@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useSyncExternalStore } from 'react';
 import { PageHeader } from '@/components/layout/PageHeader';
 import {
   Award,
@@ -18,7 +18,8 @@ import { PRACTICE_CHALLENGES } from '@/data/challenges/index';
 import { useLearningProgress } from '@/lib/learning-store';
 import { usePreferences } from '@/lib/preferences-context';
 import { useAuth } from '@/lib/supabase/auth-context';
-import { flushSyncQueue } from '@/lib/supabase/progress-sync';
+import { flushSyncQueue, subscribeSyncStatus, getSyncStatus, getLastSyncAt } from '@/lib/supabase/progress-sync';
+import { listCloudSubmissions } from '@/lib/cloud-capstone';
 import { loadCurrentSubmission } from '@/lib/capstone-service';
 
 export interface DashboardPageProps {
@@ -40,7 +41,8 @@ const DIFFICULTY_VI: Record<string, string> = {
 };
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
-  const { user, profile } = useAuth();
+  const { user, profile, isConfigured } = useAuth();
+  const userId = user?.id;
   const { preferences } = usePreferences();
   const {
     completedLessonIds,
@@ -53,19 +55,28 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
     getTrackProgress,
   } = useLearningProgress();
 
-  const [syncStatus, setSyncStatus] = useState<'synced' | 'syncing'>('synced');
-  const [lastSyncTime, setLastSyncTime] = useState<string>(() =>
-    new Date().toLocaleTimeString('vi-VN')
-  );
+  const syncStatus = useSyncExternalStore(subscribeSyncStatus, getSyncStatus);
+  const lastSyncAt = useSyncExternalStore(subscribeSyncStatus, getLastSyncAt);
+  const syncLabel = {
+    offline: 'Lưu tiến độ trên thiết bị', pending: 'Đang chờ đồng bộ', synced: 'Tiến độ đã đồng bộ',
+    syncing: 'Đang đồng bộ hóa dữ liệu…', error: 'Đồng bộ chưa thành công. Có thể thử lại.',
+  }[syncStatus];
   const [activeFilterTrack, setActiveFilterTrack] = useState<string>('all');
 
-  const capstoneStatus = useMemo(() => {
-    const record = loadCurrentSubmission();
-    const isPassed = Boolean(record.officialEvaluation?.passed);
-    const score = record.officialEvaluation?.weightedScore ?? 0;
-    const isSubmitted = record.status !== 'draft' && record.version > 0;
-    return { isPassed, score, isSubmitted };
-  }, []);
+  const [capstone, setCapstone] = useState(() => loadCurrentSubmission(!isConfigured));
+  useEffect(() => {
+    if (!userId) return;
+    let active = true;
+    listCloudSubmissions(userId).then(rows => {
+      if (active && rows[0]) setCapstone(rows[0]);
+    }).catch(console.warn);
+    return () => { active = false; };
+  }, [userId]);
+  const capstoneStatus = {
+    isPassed: Boolean(capstone.officialEvaluation?.passed),
+    score: capstone.officialEvaluation?.weightedScore ?? 0,
+    isSubmitted: capstone.version > 0,
+  };
 
   const passedChallengesCount = useMemo(
     () => Object.values(challengeScores).filter((item) => item.passed).length,
@@ -89,17 +100,8 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
     ];
   }, [getTrackProgress]);
 
-  useEffect(() => {
-    setLastSyncTime(new Date().toLocaleTimeString('vi-VN'));
-  }, [completedCount, activeStreakDays]);
-
-  const handleTriggerSync = async () => {
-    setSyncStatus('syncing');
-    if (user?.id) {
-      await flushSyncQueue(user.id);
-    }
-    setLastSyncTime(new Date().toLocaleTimeString('vi-VN'));
-    setSyncStatus('synced');
+  const handleTriggerSync = () => {
+    if (userId) void flushSyncQueue(userId, true);
   };
 
   const filteredLessons = useMemo(
@@ -131,14 +133,12 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
           />
           <div className="space-y-0.5">
             <span className="text-xs font-mono text-zinc-200 font-bold block">
-              {syncStatus === 'synced'
-                ? 'Đã lưu tiến độ cục bộ an toàn'
-                : 'Đang đồng bộ hóa dữ liệu...'}
+              {syncLabel}
             </span>
             <span className="text-[11px] text-zinc-500 font-mono flex items-center gap-2">
               <UserCheck className="w-3 h-3 text-emerald-400" />
               <span>
-                Học viên: {learnerName} &bull; Cập nhật lúc: {lastSyncTime}
+                Học viên: {learnerName}{lastSyncAt !== null && ` · Đồng bộ lúc ${new Date(lastSyncAt).toLocaleTimeString('vi-VN')}`}
               </span>
             </span>
           </div>
@@ -150,7 +150,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             onClick={() => {
               void handleTriggerSync();
             }}
-            disabled={syncStatus === 'syncing'}
+            disabled={!userId || syncStatus === 'syncing'}
             className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
           >
             <RotateCw

@@ -89,34 +89,31 @@ test.describe('Đồ án tốt nghiệp — Tải tệp thật & Bảo mật ph�
     await expect(page.locator('text=Đã nộp thành công hồ sơ đồ án phiên bản v1')).toBeVisible();
   });
 
-  test('TC-CAP-04: Chỉ tài khoản vai trò Giám khảo mới mở được Bảng thẩm định và khóa điểm liệt PLO-07', async ({ page }) => {
-    await page.addInitScript(() => {
-      window.localStorage.setItem(
-        'affinity_academy_offline_user',
-        JSON.stringify({
-          role: 'evaluator',
-          email: 'evaluator@affinity.academy',
-          displayName: 'Giám Khảo Độc Lập',
-        })
-      );
-    });
-
+  test('TC-CAP-04: Tệp minh chứng vẫn tải được sau khi tải lại trang', async ({ page }) => {
     await page.goto('/capstone');
-    await expect(page.getByTestId('evaluator-role-badge')).toBeVisible();
-
-    await page.getByTestId('capstone-tab-results').click();
-    await expect(page.getByTestId('evaluator-console')).toBeVisible();
-
-    // Critical violation on PLO-07 (< Level 3) must force FAILED preview even when others pass
-    await page.getByTestId('eval-brief_interpretation-lvl-2').click();
-    await expect(page.getByTestId('evaluator-preview-verdict')).toContainText('KHÔNG ĐẠT');
-
-    // Raise back to Level 3 and sign off
-    await page.getByTestId('eval-brief_interpretation-lvl-3').click();
-    await expect(page.getByTestId('evaluator-preview-verdict')).toContainText('ĐẠT');
-
-    await page.getByTestId('evaluator-signoff-btn').click();
-    await expect(page.locator('text=ĐẠT CHUẨN TỐT NGHIỆP — XÁC NHẬN NĂNG LỰC ĐỘC LẬP')).toBeVisible();
-    await expect(page.locator('text=CHỨNG NHẬN TỐT NGHIỆP AFFINITY ACADEMY')).toBeVisible();
+    await page.getByTestId('capstone-tab-submit').click();
+    const text = '# Brief test';
+    const fixtures = [
+      ['brief', 'brief.md', 'text/markdown'], ['iteration', 'iteration.md', 'text/markdown'],
+      ['vector', 'vector.afdesign', 'application/octet-stream'], ['pixel', 'pixel.afphoto', 'application/octet-stream'],
+      ['print-pdf', 'print.pdf', 'application/pdf'], ['digital-webp', 'poster.webp', 'image/webp'],
+    ];
+    for (const [id, name, mimeType] of fixtures) {
+      await page.getByTestId('upload-' + id).setInputFiles({ name, mimeType, buffer: Buffer.from(text) });
+      await expect(page.getByTestId('upload-' + id + '-status')).toBeVisible();
+    }
+    await page.getByTestId('submit-capstone-btn').click();
+    await expect(page.getByText(/Đã nộp thành công hồ sơ đồ án phiên bản v1/)).toBeVisible();
+    await page.reload();
+    await page.getByTestId('capstone-tab-submit').click();
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.getByRole('button', { name: /Tệp đã lưu: .*brief\.md/ }).click(),
+    ]);
+    expect(download.suggestedFilename()).toBe('brief.md');
+    const stream = await download.createReadStream();
+    const chunks = [];
+    for await (const chunk of stream) chunks.push(chunk);
+    expect(Buffer.concat(chunks).toString()).toBe(text);
   });
 });

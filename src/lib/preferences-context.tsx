@@ -1,3 +1,4 @@
+import { learningStorageKey } from '@/lib/learning-storage';
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/lib/supabase/auth-context';
 
@@ -32,7 +33,7 @@ const CAREER_TRACK_NORMALIZATION: Record<string, string> = {
 function readStoredPreferences(): UserPreferences {
   if (typeof window === 'undefined') return DEFAULT_PREFERENCES;
   try {
-    const raw = localStorage.getItem(PREFS_STORAGE_KEY);
+    const raw = localStorage.getItem(learningStorageKey(PREFS_STORAGE_KEY));
     if (!raw) return DEFAULT_PREFERENCES;
     const parsed = JSON.parse(raw) as Partial<UserPreferences>;
     const normalizedTrack = parsed.careerTrack
@@ -118,7 +119,7 @@ export const PreferencesProvider: React.FC<{ children: React.ReactNode }> = ({ c
       setPreferences((prev) => {
         const next: UserPreferences = { ...prev, ...updates };
         try {
-          localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(next));
+          localStorage.setItem(learningStorageKey(PREFS_STORAGE_KEY), JSON.stringify(next));
           window.dispatchEvent(new CustomEvent(PREFS_UPDATED_EVENT));
         } catch (err) {
           console.warn('Không thể lưu cấu hình người dùng:', err);

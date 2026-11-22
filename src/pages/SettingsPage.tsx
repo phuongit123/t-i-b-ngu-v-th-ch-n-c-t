@@ -1,3 +1,4 @@
+import { learningStorageKey } from '@/lib/learning-storage';
 import React, { useState, useEffect } from 'react';
 import { PageHeader } from '@/components/layout/PageHeader';
 import {
@@ -56,10 +57,10 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
       const data = {
         exportedAt: new Date().toISOString(),
         preferences: draft,
-        lessonProgressV2: localStorage.getItem('affinity_academy_progress_v2'),
-        learningActivity: localStorage.getItem('affinity_academy_activity_v1'),
-        capstoneSubmission: localStorage.getItem('affinity_academy_capstone_submission'),
-        capstoneHistory: localStorage.getItem('affinity_academy_capstone_history'),
+        lessonProgressV2: localStorage.getItem(learningStorageKey('affinity_academy_progress_v2')),
+        learningActivity: localStorage.getItem(learningStorageKey('affinity_academy_activity_v1')),
+        capstoneSubmission: localStorage.getItem(learningStorageKey('affinity_academy_capstone_submission')),
+        capstoneHistory: localStorage.getItem(learningStorageKey('affinity_academy_capstone_history')),
       };
 
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -77,11 +78,11 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
   const handleResetAllProgress = () => {
     try {
       resetAllLearningProgress();
-      localStorage.removeItem('affinity_academy_capstone_submission');
-      localStorage.removeItem('affinity_academy_capstone_history');
-      localStorage.removeItem('affinity_capstone_submission');
-      localStorage.removeItem('affinity_capstone_official_evaluation');
-      localStorage.removeItem('affinity_capstone_history');
+      localStorage.removeItem(learningStorageKey('affinity_academy_capstone_submission'));
+      localStorage.removeItem(learningStorageKey('affinity_academy_capstone_history'));
+      localStorage.removeItem(learningStorageKey('affinity_capstone_submission'));
+      localStorage.removeItem(learningStorageKey('affinity_capstone_official_evaluation'));
+      localStorage.removeItem(learningStorageKey('affinity_capstone_history'));
       setIsResetConfirmOpen(false);
       setImportStatus('Đã đặt lại toàn bộ tiến độ học tập và đưa hồ sơ về trạng thái ban đầu.');
       setTimeout(() => setImportStatus(null), 3000);
