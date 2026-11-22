@@ -3,8 +3,8 @@
 ## Document Control
 - **Document ID:** `HANDOFF-AFFINITY-001`
 - **Version:** `5.1.0` (POST-MERGE MAIN AUDIT & DEVELOPMENT CONTINUATION — PR #6 merged into main at 22aa4cf; POST_MERGE_DEVELOPMENT_ROADMAP.md published; 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING; 46/46 Playwright E2E PASS; 44/44 backend tests PASS; 66/66 curriculum PASS; 7/7 capstone tests PASS; BLK-007 ACTIVE — LOCKED)
-- **Timestamp:** `2026-11-16 (Asia/Ho_Chi_Minh)`
-- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PR #6 MERGED INTO MAIN (commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c) — LOCAL MAIN AND ORIGIN/MAIN SYNCHRONIZED — WORKING BRANCH: docs/post-merge-development-roadmap — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (A5 Capstone: Lumina Artisanal Roastery Launch Campaign, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — ALL 11 AUTOMATED CHECKS, 14 FUNCTIONAL AREAS, AND 7 SECURITY CHECKS PASS AT MERGE COMMIT 22aa4cf — BLK-007 ACTIVE / LOCKED — NO UNCONTROLLED DIRECT COMMIT TO MAIN`
+- **Timestamp:** `2026-11-22 (Asia/Ho_Chi_Minh)`
+- **Current State:** `60 CORE + 6 PILOT = 66 EXISTING / 120 PLANNED — PR #6 MERGED INTO MAIN (commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c) — LOCAL MAIN AND ORIGIN/MAIN SYNCHRONIZED — WORKING BRANCH: docs/post-merge-development-roadmap — TASK-079 COMPLETED & MERGED INTO MAIN — TASK-080 IN_PROGRESS (68 combined provisional records: 63 native Affinity + 5 project MCP; 50 P4 / 17 V1 / 1 U0 / 3 exclusions) — TASK-081 COMPLETED (A5 Capstone: Lumina Artisanal Roastery Launch Campaign, 7 rubric dimensions, immutable evaluator grading, 7/7 evaluator tests PASS, 5/5 E2E PASS; graduation certificate gated by TASK-080) — VERIFICATION EVIDENCE SEPARATED BY REVISION IN §27 AND RELEASE_READINESS_REPORT.md — BLK-007 ACTIVE / LOCKED — NO UNCONTROLLED DIRECT COMMIT TO MAIN`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
@@ -519,7 +519,9 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 - Working branch: `docs/post-merge-development-roadmap`.
 - PR #7 scope: strictly governance reconciliation and development roadmap alignment. No runtime code changes.
 
-### Post-Merge Quality Gate (11 Checks Verified)
+### Verification Evidence by Revision
+
+The local checks below are reported in [PR #7](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/7) at `42aa164`; the Playwright result is a separate CI run. This is not a fresh 11-check run on merged `main`.
 1. `npm run lint`: ESLint static analysis clean (0 errors, 0 warnings).
 2. `npm run typecheck`: TypeScript type checking clean (0 compilation errors).
 3. `npm run validate:curriculum`: 66/66 curriculum lessons valid against schema.
@@ -528,15 +530,23 @@ The Project Owner requested that Antigravity (the workspace builder agent) follo
 6. `npm run test:translations`: Vietnamese translation coverage (66/66 lessons mapped).
 7. `npm run test:backend`: Supabase backend integration suite (44/44 unit & integration assertions passed).
 8. `npm run test:capstone`: Capstone evaluator harness (7/7 evaluation test scenarios passed).
-9. `npm run build`: Production Vite build successful (dist/ generated, 0 chunk warnings).
-10. `npx playwright test`: Complete Playwright E2E suite (46/46 tests passed on Microsoft Edge).
-11. `git diff --check`: Git whitespace and merge conflict markers clean pass.
+9. `npm run build`: Production Vite build successful (PR report: 9.21s).
+10. [Quality Gate #93](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43903663001) at `42aa164`: 46/46 Playwright E2E tests passed on Microsoft Edge.
+11. `git diff --check`: clean working-tree check reported; the PR commit range and conflict-marker scan must be verified separately.
 
 ### Reconciled Architectural Invariants
-1. **Curriculum Status:** 66 physical lessons verified in production (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot; 55.0% completion). 54 expansion lessons (B02–B10, S02–S10) specified under Phase Gate `BLK-007` (ACTIVE — LOCKED).
-2. **Database Schema:** Exactly 9 relational tables (`profiles`, `tracks`, `modules`, `lessons`, `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`). Verified in Local/Mock engine; live remote cloud deployment remains unverified and pending Project Owner credentials.
+1. **Curriculum Status:** 66 physical lesson files validated in the repository (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot; 55.0% completion). 54 expansion lessons (B02–B10, S02–S10) specified under Phase Gate `BLK-007` (ACTIVE — LOCKED).
+2. **Database Schema:** Exactly 9 relational tables (`profiles`, `tracks`, `modules`, `lessons`, `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`). Verified in Local/Mock engine; live remote deployment is pending owner authorization and a complete curriculum seed verified on an empty database.
 3. **Phase 5 Architecture:** 12 Functional Areas delivered across 8 Major Page tasks: 5 completed Major Pages (`TASK-071` Home, `TASK-074` Simulator, `TASK-075` Encyclopedia, `TASK-077` Resources, `TASK-078` Dashboard/Settings) and 3 pending tasks (`TASK-072` CatalogPage, `TASK-073` LessonPage, `TASK-076` PlaygroundPage).
 4. **Task Registry Consistency:** Exactly 23 COMPLETED, 3 IN_PROGRESS (`TASK-012`, `TASK-013`, `TASK-080`), 27 PENDING across 53 total registry rows (43.4%).
 5. **Programme Learning & Capstone:** Canonical name `A5 Capstone: Lumina Artisanal Roastery Launch Campaign`; `TASK-080` remains `IN_PROGRESS` (68 tracked tools: 50 P4, 17 V1, 1 U0); `TASK-081` is implemented, but formal graduation certificate issuance remains gated until `TASK-080` concludes.
 6. **Branch Consistency:** All documentation and roadmap workflows consistently reference `docs/post-merge-development-roadmap`.
 
+
+## 28. PR #7 Review Follow-up (2026-11-22)
+
+- **Base for the follow-up:** `docs/post-merge-development-roadmap` at `42aa164dc524b115c3d2e6e8e2d290d2d461ed9d`; merged `main` baseline `22aa4cf`.
+- **Files:** `POST_MERGE_DEVELOPMENT_ROADMAP.md`, `RELEASE_READINESS_REPORT.md`, `TASK_REGISTRY.md`, `PROGRESS.md`, and this handoff. Updated cloud prerequisites, test evidence attribution, next PR sequencing, and installed Affinity verification requirements.
+- **QA boundary:** Documentation diff whitespace and changed-line conflict-marker checks passed locally. Review the exact candidate's CI before merge; older CI cannot certify a later SHA. No live Supabase, Netlify, or installed Affinity validation occurred in this follow-up.
+- **Seed reproduction:** Original migrations at `42aa164` applied locally to PostgreSQL 18.7/PGlite 0.5.17 with mock Supabase auth/storage. No lessons were seeded; `D01-01` progress failed the lesson foreign key until a temporary lesson row was inserted. See [PROGRESS §22](./PROGRESS.md#22-pr-7-review-follow-up-2026-11-22).
+- **Remaining work:** Preserve the owner-only merge/deploy boundary. After PR #7 merge, start `TASK-072`; prepare the Windows audit when the target host is available. Track the production seed/verification follow-up separately. `BLK-007` and the graduation gate remain in force.

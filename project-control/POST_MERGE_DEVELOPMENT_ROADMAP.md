@@ -15,12 +15,12 @@
 
 Following the successful merge of Pull Request #6 into `main` via merge commit `22aa4cf`, Affinity Academy has reached **Release Candidate v1.0.0** maturity for its core learning platform:
 - **Verified Curriculum:** 66 physical lessons (30 Designer, 30 Photo, 3 Publisher pilot, 3 Scripting pilot) passing 100% of schema and content validations.
-- **Specification Blueprint:** 54 expansion lessons (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) fully architected in [`CURRICULUM_EXPANSION_SPEC_66_TO_120.md`](file:///c:/affinity%20h%E1%BB%8Dc/project-control/CURRICULUM_EXPANSION_SPEC_66_TO_120.md).
+- **Specification Blueprint:** 54 expansion lessons (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) fully architected in [`CURRICULUM_EXPANSION_SPEC_66_TO_120.md`](./CURRICULUM_EXPANSION_SPEC_66_TO_120.md).
 - **Web Application:** 12 functional areas operational, Dark Luxury design system, dual simulator engine (Vector Bézier + Photo Layer/Masking), instant search, and challenges.
 - **Backend Architecture:** 5 SQL migrations defining 9 relational tables, zero-trust RLS policies, 50MB storage bucket with MIME whitelisting, and an Offline-First synchronization engine with exponential backoff retry.
 - **Assessment Subsystem:** Authentic A5 Capstone (*A5 Capstone: Lumina Artisanal Roastery Launch Campaign*), 7-dimension scoring rubric, 5 critical dimensions enforcing `PLO-07` and `PLO-08`, and an immutable evaluator grading console.
 - **Task & Governance Metrics:** 23 COMPLETED, 3 IN_PROGRESS, 27 PENDING across 53 total registry task rows (43.4% completed; original architectural tasks: 20 COMPLETED, 2 IN_PROGRESS, 27 PENDING across 49 tasks = 40.8%).
-- **Post-Merge Quality Gate:** 11 checks verified PASS at merge commit `22aa4cf`: 46/46 Playwright E2E tests PASS; 44/44 backend unit/integration tests PASS; 7/7 capstone evaluator tests PASS; 66/66 curriculum schema PASS; 41/41 validator assertions PASS; 3/3 scripts PASS; 66/66 translations PASS; 0 ESLint warnings; 0 TypeScript compilation errors; production build clean; 0 git whitespace errors.
+- **Verification evidence:** `22aa4cf` is the merged baseline for PR #6. [PR #7](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/7) records 10 local checks and a separate CI gate on its original head `42aa164`; [Quality Gate #93](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43903663001) passed 46/46 Playwright tests on Microsoft Edge. These are not 11 checks all run on `22aa4cf`. See [Release Readiness §2](./RELEASE_READINESS_REPORT.md#2-automated-checks-11-evidence-entries) for evidence scope.
 
 ---
 
@@ -45,20 +45,20 @@ Following the successful merge of Pull Request #6 into `main` via merge commit `
 +-----------------------------------------------------------------------------------+
 |                           ENGINEERING PRIORITY PYRAMID                            |
 +-----------------------------------------------------------------------------------+
-| P0: GOVERNANCE ALIGNMENT & DESKTOP AUDIT HARNESS (Immediate, zero-risk, no blocks)|
+| P0: GOVERNANCE ALIGNMENT; DESKTOP AUDIT WHEN THE WINDOWS HOST IS AVAILABLE|
 | P1: PHASE 5 REMAINING MAJOR PAGES (TASK-072, TASK-073, TASK-076 - code-splitting) |
 | P2: PHASE 6 SUPABASE CLOUD PROVISIONING (Pending Project Owner cloud credentials) |
 | P3: BLK-007 UNLOCKING & 54 EXPANSION LESSON AUTHORING (Pending explicit PO approval) |
 +-----------------------------------------------------------------------------------+
 ```
 
-### 3.1. Priority P0 — Immediate Governance Alignment & Task-080 Audit Harness
+### 3.1. Priority P0 — Governance Alignment & Host-Dependent TASK-080 Audit
 1. **P0-1: Governance Consistency:**
    - Synchronize table count across all documents to exactly **9 relational tables**.
    - Explicitly distinguish the **12 Functional Areas** from the **8 Major Page Tasks** in `TASK_REGISTRY.md` and `PROGRESS.md`.
    - Update `RELEASE_READINESS_REPORT.md` to reference the final merge commit `22aa4cf`.
 2. **P0-2: Task-080 Runtime Diagnostic Harness:**
-   - Author `scripts/audit-affinity-runtime.js` to introspect running Affinity 3.3.3 desktop process over port 6767, inspect DOM methods, and extract verified version metadata to close the target-build evidence gap.
+   - Prepare the audit in parallel when the Windows 11 host with Affinity build `3.3.3.5004` is available. `scripts/check-affinity-env.js` checks endpoint reachability only. Separately record the installed build and successful representative DOM calls with observed results. This audit gates graduation, not the Course Catalog PR.
 
 ### 3.2. Priority P1 — Phase 5 Remaining Major Pages (`TASK-072`, `TASK-073`, `TASK-076`)
 These tasks extract inline UI components from `src/App.tsx` into dedicated, code-split pages within `src/pages/`:
@@ -116,7 +116,7 @@ These tasks extract inline UI components from `src/App.tsx` into dedicated, code
   - Responsive split layout with draggable separator.
 
 ### 3.3. Priority P2 — Phase 6 Supabase Live Cloud Readiness
-- Triggered once the Project Owner provides production cloud credentials (`SUPABASE_URL` and `SUPABASE_ANON_KEY`).
+- Triggered once the Project Owner provides the project URL and public anon key, and the curriculum seed follow-up passes on a fresh database. Configure the frontend as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 - Execution of operational checklist: remote migrations, storage bucket linking, live RLS testing.
 
 ### 3.4. Priority P3 — Curriculum Expansion (54 Lessons) under Gate `BLK-007`
@@ -131,17 +131,17 @@ To maintain uncompromising repository safety and linear verification, all future
 
 | PR # | Working Branch | Scope & Tasks Addressed | Deliverables & Verification |
 |:---:|:---|:---|:---|
-| **PR #7** | `docs/post-merge-development-roadmap` | Governance alignment & roadmap reconciliation | Synchronize all 5 governance docs (merge commit 22aa4cf, 9 tables, 66/120 lessons, 12 functional areas / 8 major pages, 11 quality gate checks, A5 Capstone canonical name). |
+| **PR #7** | `docs/post-merge-development-roadmap` | Governance alignment & roadmap reconciliation | Synchronize all 5 governance docs (merge commit 22aa4cf, 9 tables, 66/120 lessons, 12 functional areas / 8 major pages, test evidence by revision, A5 Capstone canonical name). |
 | **PR #8** | `feat/task-072-catalog-page` | `TASK-072`: Course Catalog & Track Browser | `src/pages/CatalogPage.tsx`, `src/components/catalog/*`, unit tests, Playwright E2E suite (`catalog-page.spec.ts`). |
 | **PR #9** | `feat/task-073-lesson-page-shell` | `TASK-073`: Multi-Pane Lesson Viewer Shell | `src/pages/LessonPage.tsx`, `src/components/lesson/LessonOutlineSidebar.tsx`, deep-link routing tests (`lesson-page.spec.ts`). |
 | **PR #10** | `feat/task-076-scripting-playground` | `TASK-076`: Scripting & MCP Playground | `src/pages/PlaygroundPage.tsx`, execution console, sample scripts, Playwright E2E suite (`playground-page.spec.ts`). |
-| **PR #11** | `feat/task-080-runtime-audit` | `TASK-080`: Desktop Executable Audit | `scripts/audit-affinity-runtime.js`, runtime handshake capture, conclude `TASK-080` to unblock `TASK-081` graduation. |
+| **PR #11** | `feat/task-080-runtime-audit` | `TASK-080`: Desktop Executable Audit | `scripts/audit-affinity-runtime.js` and installed build/DOM evidence. Graduation remains blocked until all `TASK-080` closure criteria are satisfied. |
 
 ---
 
 ## 5. Phase 6 Live Cloud Readiness Checklist
 
-The following checklist is prepared for the Project Owner to safely commission the Supabase cloud backend without exposing credentials or risking data leakage:
+Use this checklist on a disposable Supabase project first. Do not link or migrate production until the separate seed follow-up and live smoke test pass and the Project Owner authorizes deployment.
 
 ### Pre-Requisites (Owner Action in Supabase Console)
 - [ ] Create a new Supabase project in the desired cloud region (e.g., `Singapore - ap-southeast-1`).
@@ -149,18 +149,22 @@ The following checklist is prepared for the Project Owner to safely commission t
 - [ ] **NEVER** copy or commit the `service_role secret` into frontend `.env` or client files.
 
 ### Database Migration Deployment
-- [ ] Option A (CLI): Link project via `supabase link --project-ref <id>` and run `supabase db push`.
-- [ ] Option B (SQL Editor): Execute the 5 migration scripts in exact chronological order:
-  1. `supabase/migrations/20261116000001_initial_schema.sql` (Creates `profiles`, `tracks`, `modules`, `lessons`).
-  2. `supabase/migrations/20261116000002_progress_and_assessments.sql` (Creates 5 progress/assessment tables).
+- [ ] Option A (preferred): Verify the disposable project reference, link it with `supabase link --project-ref <id>`, check the recorded migration history, and run `supabase db push` against that project.
+- [ ] Option B (SQL Editor): For a fresh database, execute the baseline migrations in exact chronological order. Record each successful application. If a run times out, inspect the actual objects and seed data before resuming at the first confirmed unapplied migration, or stop and reconcile a partial application. Do not replay from the start: triggers and policies may already exist, and migration 5 can duplicate resource rows.
+  1. `supabase/migrations/20261116000001_initial_schema.sql` (Creates 5 tables: `profiles`, `tracks`, `modules`, `lessons`, `learning_resources`).
+  2. `supabase/migrations/20261116000002_progress_and_assessments.sql` (Creates 4 tables: `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`).
   3. `supabase/migrations/20261116000003_rls_policies.sql` (Enables RLS across all 9 tables).
   4. `supabase/migrations/20261116000004_storage_buckets.sql` (Provisions `submissions` & `resources` buckets).
-  5. `supabase/migrations/20261116000005_seed_data.sql` (Populates tracks and 66 curriculum lessons).
+  5. `supabase/migrations/20261116000005_seed_data.sql` (Seeds 4 tracks, 7 modules, no lesson rows, a legacy tea-brand Capstone record, and starter resources).
 
 ### Live Verification Smoke Test
+
+**Cloud readiness is pending.** Before production provisioning, validate a separate forward migration on a disposable empty Supabase database. Seed the 22 existing modules and 66 existing lessons using their canonical IDs, and align the Capstone seed with [TASK-081](./TASK-081_CAPSTONE_SPEC.md). Do not seed the 54 expansion lessons blocked by `BLK-007`.
+Local reproduction at `42aa164`: PostgreSQL 18.7 (PGlite 0.5.17, mock Supabase auth/storage) produced 4 tracks, 7 modules, and 0 lessons. The `D01-01` progress write failed its lesson foreign key and succeeded once a temporary lesson row existed. Replaying migration 5 duplicated the three starter resources. This is not live Supabase evidence.
+
 - [ ] Register a new test user account via live Auth modal.
 - [ ] Verify profile auto-creation in `public.profiles`.
-- [ ] Mark lesson `D01-01` complete and observe cloud sync badge turn green (`synced`).
+- [ ] Confirm Supabase returns `D01-01`, mark it complete as a test learner, and verify the persisted `lesson_progress` row after signing into a fresh browser context. The sync badge or local fallback alone is not evidence.
 - [ ] Attempt an assessment upload (50MB cap, MIME whitelist).
 
 ---
@@ -176,13 +180,10 @@ To transition `TASK-080` from `IN_PROGRESS` to `COMPLETED`, the following 6 evid
 | **GAP-03** | **Histogram Panel Documentation Body** | Review full clipping warning and channel display documentation beyond the located Serif URL. | Article URL verified; practice exercise claims narrowed to match help text. |
 | **GAP-04** | **17 V1 Capability Review** | Evaluate whether any of the 17 V1 tools (e.g., Vector Flood Fill, Knife Tool) have sufficient lesson depth to warrant P4 promotion. | Held strictly at V1 until dedicated practice exercises exist. |
 | **GAP-05** | **1 U0 Unvetted Candidate Audit** | Perform dedicated inspection of the single unvetted tool record to determine inclusion or exclusion. | U0 candidate documented in matrix; awaiting verification. |
-| **GAP-06** | **Target Desktop Runtime Handshake** | Execute live socket/HTTP handshake with running Affinity desktop process on Windows 11 host (build 3.3.3.5004). | Awaiting active application process execution on host. |
+| **GAP-06** | **Installed Desktop Build & DOM Evidence** | On Windows 11, record the installed Affinity build `3.3.3.5004`, verify endpoint connectivity separately, and capture successful representative DOM calls with observed outputs. | Pending target-host evidence. |
 
 ---
 
 ## 7. Recommended Next Implementation Step
 
-The recommended immediate action is **PR #7 (`docs/post-merge-development-roadmap`)**:
-1. Reconcile minor governance discrepancies across control files on branch `docs/post-merge-development-roadmap`.
-2. Commit `project-control/POST_MERGE_DEVELOPMENT_ROADMAP.md`.
-3. Submit PR #7 for Project Owner review to establish the baseline before starting `TASK-072` (`src/pages/CatalogPage.tsx`).
+Once the Project Owner reviews and merges PR #7, start the first app PR (planned PR #8): `TASK-072`, Course Catalog & Track Browser. Prepare the `TASK-080` audit in parallel when the target Windows host is available; land the executable audit in its own PR. `TASK-078` is the already-completed Student Dashboard & Portfolio UI, not part of `TASK-072`.

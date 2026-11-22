@@ -6,8 +6,8 @@
 - **Status:** `ACTIVE — PHASE GATE BLK-007 LOCKED`
 - **Project Phase:** `Phase 5/6/7 — Verification & Release Evaluation`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
-- **Last completed verification boundary:** `PR #6 officially merged into main at commit 22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c. Post-merge quality gate completely passed: ESLint (0 errors, 0 warnings), TypeScript (0 errors), curriculum 66/66 PASS, validator regression 41/41 PASS, script checks 3/3 PASS, Vietnamese translation 66/66 PASS, Supabase backend integration 44/44 PASS, Capstone evaluator 7/7 PASS, production build PASS in 9.04s, and Playwright E2E 46/46 PASS in 1.8m.`
-- **Last Updated:** `2026-11-16`
+- **Last completed verification boundary:** PR #6 merged into `main` at `22aa4cf`. [PR #7](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/pull/7) records local verification and [Quality Gate #93](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43903663001) passed 46/46 Playwright tests on the original PR head `42aa164`, not the merge commit.
+- **Last Updated:** `2026-11-22`
 - **Governing Agent:** `Orchestrator` / `QAAgent` / `Documentation Auditor`
 
 ---
@@ -324,7 +324,7 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
 ## 21. Post-Merge Baseline Audit & PR #7 Development Roadmap Alignment (2026-11-16)
 
 - **Post-Merge Baseline Confirmed:** PR #6 officially merged into `main` at commit `22aa4cf08d74e564bf371e2adbe4cfb56e5e3a6c` (short: `22aa4cf`). Working branch for post-merge governance alignment is `docs/post-merge-development-roadmap`.
-- **Post-Merge Quality Gate Verified (11 Checks):**
+- **Verification evidence reported on PR head `42aa164` (local checks and one separate CI run):**
   - ESLint static analysis (`npm run lint`): 0 errors, 0 warnings.
   - TypeScript typecheck (`npm run typecheck`): 0 compilation errors.
   - Curriculum schema validation (`npm run validate:curriculum`): 66/66 lessons valid.
@@ -333,15 +333,23 @@ Track 1 (Designer) và Track 2 (Photo) hiện có 60 bài cốt lõi; Publisher 
   - Vietnamese translation coverage (`npm run test:translations`): 66/66 lessons mapped.
   - Supabase backend integration (`npm run test:backend`): 44/44 unit & integration assertions passed.
   - Capstone evaluation engine (`npm run test:capstone`): 7/7 test scenarios passed.
-  - Production Vite build (`npm run build`): clean bundle, 0 chunk warnings.
-  - Playwright E2E suite (`npx playwright test`): 46/46 tests passed on Microsoft Edge.
-  - Git diff integrity (`git diff --check`): clean pass, 0 whitespace errors.
+  - Production Vite build (`npm run build`): Vite build passed (PR report: 9.21s).
+  - Playwright E2E: 46/46 tests passed on Microsoft Edge in [Quality Gate #93](https://github.com/phuongit123/t-i-b-ngu-v-th-ch-n-c-t/actions/runs/43903663001) at `42aa164`.
+  - Working-tree whitespace check (`git diff --check`): reported clean. The committed PR range and conflict-marker scan require separate verification.
 - **Canonical Architecture Reconciled Across All Governance Documents:**
   1. *Curriculum Status:* 66 verified physical lessons (60 core + 6 pilot; 55.0%) / 120 planned lessons. 54 expansion lessons (Publisher B02–B10: 27 lessons; Scripting S02–S10: 27 lessons) specified under Phase Gate `BLK-007` (ACTIVE — LOCKED).
-  2. *Database Architecture:* Exactly 9 relational tables (`profiles`, `tracks`, `modules`, `lessons`, `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`). Verified in Local/Mock engine; live remote cloud deployment remains pending user credentials.
+  2. *Database Architecture:* Exactly 9 relational tables (`profiles`, `tracks`, `modules`, `lessons`, `learning_resources`, `lesson_progress`, `assessments`, `assessment_submissions`, `assessment_results`). Verified in Local/Mock engine; live remote deployment is pending owner authorization and a complete curriculum seed verified on an empty database.
   3. *Phase 5 Architecture:* 12 Functional Areas delivered across 8 Major Page tasks (5 completed: `TASK-071`, `TASK-074`, `TASK-075`, `TASK-077`, `TASK-078`; 3 pending: `TASK-072`, `TASK-073`, `TASK-076`).
   4. *Task Registry Arithmetic:* 23 COMPLETED / 3 IN_PROGRESS / 27 PENDING across 53 total registry rows (43.4% completed; original architectural tasks: 20 COMPLETED / 2 IN_PROGRESS / 27 PENDING = 40.8%).
   5. *A5 Capstone & Tool Inventory:* Canonical name "A5 Capstone: Lumina Artisanal Roastery Launch Campaign"; `TASK-080` remains `IN_PROGRESS` (68 provisional records: 50 P4, 17 V1, 1 U0); `TASK-081` is implemented, but formal graduation certificate issuance remains gated until `TASK-080` concludes.
   6. *Branch Naming:* Uniformly references `docs/post-merge-development-roadmap`.
 - **PR #7 Scope Guardrails Strictly Preserved:** Documentation and governance reconciliation only. No runtime code for TASK-072/073/076/080, no 54 blocked curriculum JSON files, BLK-007 stays ACTIVE — LOCKED.
 
+
+## 22. PR #7 Review Follow-up (2026-11-22)
+
+- **Scope:** Reconciled governance documentation against original PR #7 head `42aa164dc524b115c3d2e6e8e2d290d2d461ed9d`. No application, migration, or curriculum files changed in this PR follow-up.
+- **Traceability:** `TASK-030` / `REQ-BE-001` now distinguishes local schema verification from cloud seed coverage. `TASK-080` remains **IN_PROGRESS**; endpoint connectivity cannot substitute for installed-build and DOM evidence. Formal `TASK-081` graduation is still gated.
+- **Verification:** Local documentation diff passed whitespace and changed-line conflict-marker checks. Earlier test results are attributed to their recorded revisions in the release report; they do not certify an untested candidate.
+- **Local database reproduction:** PGlite 0.5.17 (PostgreSQL 18.7) with mock Supabase auth/storage, using all five baseline migrations unchanged at `42aa164`: 4 tracks / 7 modules / 0 lessons; the `D01-01` progress upsert failed with SQLSTATE `23503` and succeeded after a temporary lesson insert. Replaying migration 5 in a separate disposable database doubled resources from 3 to 6. No live Auth, Storage, or UI was exercised.
+- **Next:** After owner review and merge of PR #7, begin `TASK-072` (Course Catalog). Cloud seed and fresh-database sync verification require a separate change. `BLK-007` remains **ACTIVE — LOCKED**.
