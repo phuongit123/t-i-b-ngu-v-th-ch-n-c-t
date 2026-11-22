@@ -22,9 +22,11 @@ test.describe('TASK-081: Independent A5 Capstone Assessment Subsystem', () => {
     // Brief tab is active by default
     await expect(page.locator('h2:has-text("Lumina Artisanal Roastery Launch Campaign")')).toBeVisible();
     await expect(page.locator('text=Ràng buộc Kỹ thuật Bắt buộc')).toBeVisible();
-    await expect(page.locator('text=Tài nguyên Đầu vào Cung cấp (Starter Assets)')).toBeVisible();
+    await expect(page.locator('text=Danh mục tài nguyên mẫu')).toBeVisible();
 
-    // Check specific starter assets
+    await expect(page.getByText(/chưa có bản tải xuống/)).toBeVisible();
+
+    // Check documented filenames, not downloads
     await expect(page.locator('text=lumina_project_brief.md')).toBeVisible();
     await expect(page.locator('text=lumina_coldbrew_raw_plate.jpg')).toBeVisible();
     await expect(page.locator('text=coffee_texture_bump_map.png')).toBeVisible();
@@ -70,29 +72,31 @@ test.describe('TASK-081: Independent A5 Capstone Assessment Subsystem', () => {
     await submitBtn.click();
 
     // Verify success toast appears
-    await expect(page.locator('text=Đã nộp thành công bài làm phiên bản')).toBeVisible();
+    await expect(page.locator('text=Đã lưu bản nộp trên trình duyệt, phiên bản')).toBeVisible();
   });
 
-  test('TC-CAP-05: Evaluator Mode toggles grading console and updates official verdict', async ({ page }) => {
+  test('TC-CAP-05: Local grading cannot issue a certificate', async ({ page }) => {
     await page.goto('/');
     await page.locator('button:has-text("Đồ án A5")').click();
     await expect(page.locator('h1')).toContainText('Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina');
 
     // Switch to Results tab
-    await page.locator('button:has-text("4. Kết quả & Chứng chỉ A5")').click();
+    await page.locator('button:has-text("4. Kết quả chấm thử")').click();
 
     // Toggle Evaluator mode on
-    await page.locator('button:has-text("Giám khảo (Chấm điểm)")').click();
+    await page.locator('button:has-text("Giám khảo (Chấm thử)")').click();
 
     // Verify Evaluator Console visible
-    await expect(page.locator('text=BẢNG ĐIỀU KHIỂN CHẤM ĐIỂM CHÍNH THỨC CỦA GIÁM KHẢO ĐỘC LẬP')).toBeVisible();
+    await expect(page.locator('text=BẢNG ĐIỀU KHIỂN CHẤM THỬ')).toBeVisible();
 
     // Click evaluate & sign-off
-    const signOffBtn = page.locator('button:has-text("Ký Duyệt Kết Quả Chính Thức & Cấp Chứng Chỉ")');
+    const signOffBtn = page.locator('button:has-text("Lưu kết quả chấm thử")');
     await expect(signOffBtn).toBeVisible();
     await signOffBtn.click();
 
-    // Verify official certificate card or result banner appears
-    await expect(page.locator('text=KẾT QUẢ ĐÁNH GIÁ CHÍNH THỨC CẤP ĐỘ A5')).toBeVisible();
+    // Practice is not formal evaluation or certification
+    await expect(page.getByText('KẾT QUẢ CHẤM THỬ CẤP ĐỘ A5')).toBeVisible();
+    await expect(page.getByText(/Chưa cấp chứng chỉ chính thức/)).toBeVisible();
+    await expect(page.getByText(/Mã xác thực:/)).toHaveCount(0);
   });
 });

@@ -32,7 +32,7 @@ const MAX_RETRY_ATTEMPTS = 5;
 
 // Global listeners for sync status changes
 const statusListeners = new Set<(status: SyncStatus) => void>();
-let currentSyncStatus: SyncStatus = 'synced';
+let currentSyncStatus: SyncStatus = 'offline';
 
 const setSyncStatus = (status: SyncStatus) => {
   currentSyncStatus = status;

@@ -116,7 +116,7 @@ These tasks extract inline UI components from `src/App.tsx` into dedicated, code
   - Responsive split layout with draggable separator.
 
 ### 3.3. Priority P2 — Phase 6 Supabase Live Cloud Readiness
-- Triggered once the Project Owner provides the project URL and public anon key, and the curriculum seed follow-up passes on a fresh database. Configure the frontend as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+- Triggered once the Project Owner provides the project URL and public anon key, and the curriculum seed passes a smoke test on a disposable Supabase project. Configure the frontend as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 - Execution of operational checklist: remote migrations, storage bucket linking, live RLS testing.
 
 ### 3.4. Priority P3 — Curriculum Expansion (54 Lessons) under Gate `BLK-007`
@@ -141,7 +141,7 @@ To maintain uncompromising repository safety and linear verification, all future
 
 ## 5. Phase 6 Live Cloud Readiness Checklist
 
-Use this checklist on a disposable Supabase project first. Do not link or migrate production until the separate seed follow-up and live smoke test pass and the Project Owner authorizes deployment.
+Use this checklist on a disposable Supabase project first. Do not link or migrate production until the forward seed migration and hosted smoke test pass and the Project Owner authorizes deployment.
 
 ### Pre-Requisites (Owner Action in Supabase Console)
 - [ ] Create a new Supabase project in the desired cloud region (e.g., `Singapore - ap-southeast-1`).
@@ -156,10 +156,11 @@ Use this checklist on a disposable Supabase project first. Do not link or migrat
   3. `supabase/migrations/20261116000003_rls_policies.sql` (Enables RLS across all 9 tables).
   4. `supabase/migrations/20261116000004_storage_buckets.sql` (Provisions `submissions` & `resources` buckets).
   5. `supabase/migrations/20261116000005_seed_data.sql` (Seeds 4 tracks, 7 modules, no lesson rows, a legacy tea-brand Capstone record, and starter resources).
+  6. `supabase/migrations/20261116000006_curriculum_index_backfill.sql` (Backfills the existing curriculum index, totaling 22 modules and 66 lessons on a clean database; preserves existing rows). If migrations 1–5 were already applied, apply only the pending migration.
 
 ### Live Verification Smoke Test
 
-**Cloud readiness is pending.** Before production provisioning, validate a separate forward migration on a disposable empty Supabase database. Seed the 22 existing modules and 66 existing lessons using their canonical IDs, and align the Capstone seed with [TASK-081](./TASK-081_CAPSTONE_SPEC.md). Do not seed the 54 expansion lessons blocked by `BLK-007`.
+**Cloud readiness is pending.** Run `npm run test:cloud-seed` for the local fresh-database and upgrade regression, then verify real Auth, progress readback, and Storage on a disposable Supabase project. PostgreSQL tests use simulated Supabase infrastructure and are not hosted evidence. The separate legacy Capstone record still needs alignment with [TASK-081](./TASK-081_CAPSTONE_SPEC.md). The 54 expansion lessons remain blocked by `BLK-007`.
 Local reproduction at `42aa164`: PostgreSQL 18.7 (PGlite 0.5.17, mock Supabase auth/storage) produced 4 tracks, 7 modules, and 0 lessons. The `D01-01` progress write failed its lesson foreign key and succeeded once a temporary lesson row existed. Replaying migration 5 duplicated the three starter resources. This is not live Supabase evidence.
 
 - [ ] Register a new test user account via live Auth modal.

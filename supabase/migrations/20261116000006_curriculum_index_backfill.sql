@@ -1,0 +1,108 @@
+-- TASK-030 / REQ-BE-001; unblocks lesson foreign keys for TASK-033 / REQ-BE-004.
+-- Snapshot of the 22 modules and 66 lessons already shipped in curriculum/,
+-- with localized metadata from src/data/curriculum/translationsVi.ts.
+-- Tracks exist from migration 5. Bundle JSON remains the source of lesson
+-- content; these rows represent the public curriculum index and progress keys.
+-- Preserve existing rows (including manual additions) and all learner data.
+-- Do not replay migration 5 on upgraded databases.
+
+INSERT INTO public.modules (
+  id, track_id, module_number, title_vi, title_en, description_vi,
+  difficulty, estimated_minutes, order_index
+)
+VALUES
+  ('D01', 'designer', '01', 'Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)', 'Designer Interface, Personas & Canvas Setup', 'Nắm vững kiến trúc engine kép độc đáo của Affinity Designer: chuyển đổi linh hoạt giữa Vector Persona, Pixel Persona và Export Persona. Thực hành tổ chức artboard chuyên nghiệp cho giao diện đa thiết bị và ấn phẩm in ấn, kết hợp chế độ xem trước điểm ảnh và lưới căn gióng thông minh.', 'Beginner', 75, 1),
+  ('D02', 'designer', '02', 'Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen', 'Vector Nodes, Paths & Pen Tool Geometry', 'Làm chủ các cơ chế tạo và hiệu chỉnh đường cong Bézier, phân loại node (Sharp, Smooth, Smart) và thao tác tiếp tuyến chuẩn xác.', 'Beginner', 80, 2),
+  ('D03', 'designer', '03', 'Tạo Hình Nâng Cao & Thao Tác Hình Học Boolean', 'Advanced Shape Creation & Boolean Geometry', 'Thực hành các công cụ tạo hình thông minh, Corner Tool và bộ phép toán Boolean (Add, Subtract, Intersect, Xor, Divide) phi phá hủy.', 'Beginner', 85, 3),
+  ('D04', 'designer', '04', 'Tô Màu, Dải Chuyển Màu, Đường Viền & Biểu Đồ Lực Nhấn', 'Fill, Gradient, Stroke & Pressure Profiles', 'Kiểm soát màu sắc, dải màu gradient đa điểm, tùy biến nét vẽ và áp dụng biểu đồ lực nhấn (pressure profile) cho nét vẽ vector.', 'Intermediate', 90, 4),
+  ('D05', 'designer', '05', 'Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)', 'Layer Organization, Masks & Clipping Paths', 'Thấu hiểu cấu trúc phân tầng (scene graph), mặt nạ vector, nhóm lớp và các kỹ thuật lồng ghép hình ảnh phi phá hủy.', 'Intermediate', 90, 5),
+  ('D06', 'designer', '06', 'Nghệ Thuật Chữ (Typography), Chữ Uốn Cong & Phân Cấp Thị Giác', 'Typography, Text-on-Path & Glyph Styling', 'Sử dụng khung chữ nghệ thuật và chữ đoạn văn, gắn chữ chạy theo đường cong Bézier, tinh chỉnh tracking/kerning và xây dựng kiểu mẫu chữ (text styles).', 'Intermediate', 90, 6),
+  ('D07', 'designer', '07', 'Hệ Lưới Isometric, Phối Cảnh Trục Đo & Mặt Phẳng 3D', 'Isometric Grids, 3D Projections & Snapping', 'Thiết lập hệ lưới Isometric đa góc nhìn, căn gióng mặt phẳng chiếu và dựng đối tượng không gian ba chiều chuẩn kỹ thuật.', 'Intermediate', 90, 7),
+  ('D08', 'designer', '08', 'Biểu Tượng Tái Sử Dụng (Symbols), Tài Nguyên Liên Kết & Thư Viện Asset', 'Symbols, Linked Assets & Component Systems', 'Xây dựng hệ thống component tái sử dụng, đồng bộ hóa thay đổi trên toàn thiết kế và quản lý danh mục tài nguyên thông minh.', 'Advanced', 90, 8),
+  ('D09', 'designer', '09', 'Tích Hợp Pixel Persona, Đổ Bóng & Kết Cấu Hạt (Texture)', 'Pixel Persona Integration & Textured Vector Shading', 'Kết hợp sức mạnh điểm ảnh vào thiết kế vector: sử dụng cọ vẽ raster, tạo hạt noise, tạo khối và bóng đổ tự nhiên.', 'Advanced', 90, 9),
+  ('D10', 'designer', '10', 'Xuất Bản Dự Án Thực Chiến, Cắt Lát (Slices) & Đóng Gói Sản Phẩm', 'Vector Export, Slices & Production Output', 'Sử dụng Export Persona để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.', 'Advanced', 90, 10),
+  ('P01', 'photo', '01', 'Giao Diện Photo, Thanh Điều Khiển & Các Bảng Studio', 'Photo Interface, RAW Develop Persona & Color Profiles', 'Khám phá không gian làm việc chuyên nghiệp của Affinity Photo, quy trình xử lý ảnh phi phá hủy và điều hướng bản vẽ tốc độ cao.', 'Beginner', 80, 1),
+  ('P02', 'photo', '02', 'Công Cụ Vùng Chọn & Nguyên Lý Tách Nền Chuẩn Xác', 'Selections, Edge Refinement & Layer Masking', 'Làm chủ các công cụ chọn điểm ảnh: Marquee, Lasso, Smart Selection Brush và tinh chỉnh viền chọn tóc phức tạp (Refine Edge).', 'Beginner', 85, 2),
+  ('P03', 'photo', '03', 'Hệ Thống Layer Nâng Cao, Masking & Chỉnh Sửa Phi Phá Hủy', 'Layers, Adjustments & Non-Destructive Blend Modes', 'Nắm vững kiến trúc layer lồng ghép, mặt nạ đen trắng (masking) và các kỹ thuật bảo toàn 100% dữ liệu gốc của hình ảnh.', 'Beginner', 85, 3),
+  ('P04', 'photo', '04', 'Chấm Sửa Chân Dung, Phục Chế Chi Tiết & Inpainting', 'Retouching, Object Removal & Image Restoration', 'Thực hành các công cụ phục chế: Inpainting Brush, Healing Brush, Clone Stamp và Patch Tool để làm sạch khuyết điểm tự nhiên.', 'Intermediate', 90, 4),
+  ('P05', 'photo', '05', 'Cân Chỉnh Màu Sắc, Đường Cong Curves & Hiệu Ứng Sắc Độ', 'Color Correction, Tonal Control & Cinematic Grading', 'Kiểm soát ánh sáng và màu sắc chuyên sâu bằng Curves, Levels, HSL, Color Balance và quản lý không gian màu 32-bit HDR.', 'Intermediate', 90, 5),
+  ('P06', 'photo', '06', 'Bộ Lọc Động Trực Tiếp (Live Filters) & Hiệu Ứng Layer', 'Live Filters, Sharpening & Optical Lighting Effects', 'Áp dụng các bộ lọc làm nét, làm mờ, khử nhiễu và biến dạng không phá hủy với khả năng điều chỉnh thông số bất kỳ lúc nào.', 'Intermediate', 85, 6),
+  ('P07', 'photo', '07', 'Ghép Ảnh Nghệ Thuật (Compositing) & Hòa Trộn Ánh Sáng', 'Compositing, Perspective Matching & Photo Manipulation', 'Kỹ thuật kết hợp nhiều bức ảnh vào một khung cảnh chân thực: khớp phối cảnh, cân bằng nhiệt độ màu và đổ bóng tương tác.', 'Advanced', 90, 7),
+  ('P08', 'photo', '08', 'Tích Hợp Kiểu Chữ Đồ Họa & Đồ Họa Vector Vào Ảnh', 'Typography, Graphic Integration & Layer Effects', 'Bố cục chữ nghệ thuật trên ảnh, sử dụng mặt nạ cắt chữ và kết hợp các chi tiết đồ họa bổ trợ cho ấn phẩm truyền thông.', 'Intermediate', 80, 8),
+  ('P09', 'photo', '09', 'Quy Trình Phát Triển Ảnh RAW & Không Gian Màu 32-Bit', 'RAW Development & Professional Photography Workflow', 'Làm việc trong Develop Persona: hiệu chỉnh cân bằng trắng, cứu chi tiết vùng cháy sáng/vùng tối và xuất file chất lượng tối đa.', 'Advanced', 90, 9),
+  ('P10', 'photo', '10', 'Đồ Án Tốt Nghiệp Capstone — Quy Trình Xử Lý Ảnh Thương Mại', 'Export, Delivery & Professional Production Masterclass', 'Thực hiện dự án thương mại hoàn chỉnh từ file RAW đến ấn phẩm bàn giao cuối cùng với đầy đủ ghi chú phản biện và đánh giá chất lượng.', 'Advanced', 95, 10),
+  ('B01', 'publisher', '01', 'Thiết Lập Trang Đôi Tạp Chí, Lề Tràn 3mm & Hệ Thống Lưới', 'Publication Architecture, Document Setup & Bleed', 'Làm chủ cấu trúc dàn trang trong Layout Studio: tính toán lề an toàn, lề xén in ấn, hệ lưới cột và trang Master đôi.', 'Beginner', 80, 1),
+  ('S01', 'scripting', '01', 'Khởi Động Lập Trình V8 JavaScript DOM & Kết Nối Máy Chủ MCP', 'Affinity JS Runtime, Environment & Hello World', 'Tìm hiểu kiến trúc điều khiển phần mềm bằng mã lệnh: thực thi script JavaScript tương tác trực tiếp với phiên bản Affinity trên cổng 6767.', 'Beginner', 75, 1)
+ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.lessons (
+  id, module_id, track_id, order_index, title_vi, title_en, duration_minutes, difficulty
+)
+VALUES
+  ('D01-01', 'D01', 'designer', 1, 'Cấu trúc giao diện Designer và chuyển đổi Persona', 'Designer Workspace Anatomy & Persona Switching', 25, 'Beginner'),
+  ('D01-02', 'D01', 'designer', 2, 'Cấu trúc Artboard và thiết lập bản vẽ đơn', 'Artboard Architecture vs Single Canvas Setup', 25, 'Beginner'),
+  ('D01-03', 'D01', 'designer', 3, 'Chế độ xem Vector, Pixel Preview, lưới và căn gióng', 'Vector View Modes, Pixel Preview, Grids & Snapping Systems', 25, 'Beginner'),
+  ('D02-01', 'D02', 'designer', 1, 'Các chế độ Pen Tool và cơ chế tay cầm Bézier', 'Pen Tool Modes & Bezier Handle Mechanics', 25, 'Beginner'),
+  ('D02-02', 'D02', 'designer', 2, 'Phân loại node và thao tác bằng Node Tool', 'Node Classifications & Node Tool Manipulation', 25, 'Beginner'),
+  ('D02-03', 'D02', 'designer', 3, 'Thao tác đường cong: nối, ngắt và kiểu nối nét', 'Path Operations, Joining, Breaking & Stroke Joins', 30, 'Beginner'),
+  ('D03-01', 'D03', 'designer', 1, 'Hình khối tham số và cơ chế Corner Tool', 'Parametric Shape Primitives & Corner Tool Mechanics', 25, 'Beginner'),
+  ('D03-02', 'D03', 'designer', 2, 'Năm phép toán hình học Boolean', 'Boolean Geometry Operations (5 Operations)', 30, 'Beginner'),
+  ('D03-03', 'D03', 'designer', 3, 'Compound Shapes phi phá hủy và tối ưu hình học', 'Non-Destructive Compound Shapes & Geometry Optimization', 30, 'Beginner'),
+  ('D04-01', 'D04', 'designer', 1, 'Fill Tool và dải chuyển màu Gradient nhiều điểm', 'Fill Tool & Multi-Stop Gradients (5 Types)', 30, 'Intermediate'),
+  ('D04-02', 'D04', 'designer', 2, 'Stroke Studio, nét đứt tùy chỉnh và biểu đồ lực nhấn', 'Stroke Studio, Custom Dashes & Vector Pressure Curves', 30, 'Intermediate'),
+  ('D04-03', 'D04', 'designer', 3, 'Contour Tool và mở rộng đường viền', 'Contour Tool (Offset Curves) & Expand Stroke', 30, 'Intermediate'),
+  ('D05-01', 'D05', 'designer', 1, 'Phân cấp Layers Studio, nhóm và gắn màu đối tượng', 'Layers Studio Hierarchy, Grouping & Color Tagging', 30, 'Intermediate'),
+  ('D05-02', 'D05', 'designer', 2, 'Clipping Vector (lồng lớp con) và Vector Mask', 'Vector Clipping (Child Nesting) vs Vector Masking', 30, 'Intermediate'),
+  ('D05-03', 'D05', 'designer', 3, 'Chế độ hòa trộn Layer, Blend Ranges và Isolation Mode', 'Layer Blend Modes, Blend Ranges & Isolation Mode', 30, 'Intermediate'),
+  ('D06-01', 'D06', 'designer', 1, 'Artistic Text, Frame Text và phân cấp kiểu chữ', 'Artistic Text vs Frame Text & Text Hierarchy', 30, 'Intermediate'),
+  ('D06-02', 'D06', 'designer', 2, 'Chữ chạy theo đường cong và huy hiệu tròn', 'Text-on-Path & Circular Badges', 30, 'Intermediate'),
+  ('D06-03', 'D06', 'designer', 3, 'Tính năng OpenType, Glyph Browser và hệ thống Text Styles', 'OpenType Features, Glyph Browser & Text Styles Hierarchy', 30, 'Intermediate'),
+  ('D07-01', 'D07', 'designer', 1, 'Thiết lập lưới Axonometric và Isometric', 'Axonometric & Isometric Grid Configuration', 30, 'Intermediate'),
+  ('D07-02', 'D07', 'designer', 2, 'Isometric Studio và quy trình Fit to Plane', 'Isometric Studio & Fit-to-Plane Workflow', 30, 'Intermediate'),
+  ('D07-03', 'D07', 'designer', 3, 'Đối tượng căn gióng và lắp ghép Vector 3D', 'Snapping Candidates & 3D Vector Assembly', 30, 'Intermediate'),
+  ('D08-01', 'D08', 'designer', 1, 'Tạo Symbol và đồng bộ nhiều phiên bản', 'Symbol Creation & Multi-Instance Synchronization', 30, 'Advanced'),
+  ('D08-02', 'D08', 'designer', 2, 'Assets Studio và thư viện tài nguyên .afassets', 'Assets Studio & Portable .afassets Libraries', 30, 'Advanced'),
+  ('D08-03', 'D08', 'designer', 3, 'Hệ thống component Vector co giãn và các biến thể', 'Scalable Vector Component Systems & Variants', 30, 'Advanced'),
+  ('D09-01', 'D09', 'designer', 1, 'Pixel Persona và động lực cọ Raster trong Designer', 'Pixel Persona & Raster Brush Dynamics in Designer', 30, 'Advanced'),
+  ('D09-02', 'D09', 'designer', 2, 'Clipping Pixel lồng lớp phi phá hủy và Masking', 'Non-Destructive Child Pixel Clipping & Masking', 30, 'Advanced'),
+  ('D09-03', 'D09', 'designer', 3, 'Quy trình Vector–Raster kết hợp và quản lý DPI', 'Hybrid Vector-Raster Workflow & DPI Management', 30, 'Advanced'),
+  ('D10-01', 'D10', 'designer', 1, 'Export Persona và cấu trúc Slices', 'Export Persona Workspace & Slices Architecture', 30, 'Advanced'),
+  ('D10-02', 'D10', 'designer', 2, 'Định dạng đa mật độ và Continuous Export', 'Multi-Density Formats & Continuous Export Engine', 30, 'Advanced'),
+  ('D10-03', 'D10', 'designer', 3, 'Tối ưu mã SVG và PDF/X sẵn sàng in ấn', 'Clean SVG Code Optimization & Press-Ready PDF/X', 30, 'Advanced'),
+  ('P01-01', 'P01', 'photo', 1, 'Giao diện Photo, thanh công cụ và các bảng Studio', 'Photo Interface, Toolbars & Studio Panels', 25, 'Beginner'),
+  ('P01-02', 'P01', 'photo', 2, 'RAW Develop Persona và quy trình màu HDR 32-bit', 'RAW Develop Studio & 32-bit HDR Color Pipelines', 25, 'Beginner'),
+  ('P01-03', 'P01', 'photo', 3, 'Hình học vùng vẽ phi phá hủy, Crop Tool, DPI và lấy mẫu lại', 'Non-Destructive Canvas Geometry, Crop Tool, DPI & Resampling', 25, 'Beginner'),
+  ('P02-01', 'P02', 'photo', 1, 'Các công cụ vùng chọn và nguyên lý tạo vùng chọn', 'Selection Tools & Core Selection Principles', 25, 'Beginner'),
+  ('P02-02', 'P02', 'photo', 2, 'Tinh chỉnh vùng chọn và phát hiện biên phức tạp', 'Refining Selections & Complex Edge Detection', 30, 'Intermediate'),
+  ('P02-03', 'P02', 'photo', 3, 'Pixel Mask và kiến trúc Masking phi phá hủy', 'Pixel Masks & Non-Destructive Masking Architectures', 30, 'Intermediate'),
+  ('P03-01', 'P03', 'photo', 1, 'Các loại Layer, tổ chức và phân cấp tài liệu', 'Layer Types, Organization & Scene Hierarchy', 25, 'Beginner'),
+  ('P03-02', 'P03', 'photo', 2, 'Adjustment Layers và kiến trúc Live Filter', 'Adjustment Layers & Live Filter Architecture', 30, 'Intermediate'),
+  ('P03-03', 'P03', 'photo', 3, 'Clipping, Grouping và nguyên lý Blend Mode', 'Clipping, Grouping & Blend Mode Mathematics', 30, 'Intermediate'),
+  ('P04-01', 'P04', 'photo', 1, 'Inpainting, Patch Tool và xóa đối tượng thông minh', 'Inpainting, Patch Tool & Smart Object Removal', 25, 'Intermediate'),
+  ('P04-02', 'P04', 'photo', 2, 'Clone Stamp, Healing Brush và nguyên lý phục chế', 'Clone Stamp, Healing Brush & Restoration Concepts', 30, 'Intermediate'),
+  ('P04-03', 'P04', 'photo', 3, 'Frequency Separation và quy trình Retouch chân dung chuyên sâu', 'Frequency Separation & High-End Portrait Workflow', 35, 'Intermediate'),
+  ('P05-01', 'P05', 'photo', 1, 'Exposure, dải tương phản và cân bằng trắng', 'Exposure, Dynamic Range & White Balance Calibration', 25, 'Intermediate'),
+  ('P05-02', 'P05', 'photo', 2, 'Curves, Levels và kiểm soát sắc độ chính xác', 'Curves, Levels & Precision Tonal Control', 30, 'Intermediate'),
+  ('P05-03', 'P05', 'photo', 3, 'Color Grading sáng tạo, HSL, Gradient Map và 3D LUT', 'Creative Color Grading, HSL, Gradient Maps & 3D LUTs', 35, 'Intermediate'),
+  ('P06-01', 'P06', 'photo', 1, 'Live Filters và quy trình làm việc với bộ lọc động', 'Live Filters & Dynamic Filter Workflows', 25, 'Intermediate'),
+  ('P06-02', 'P06', 'photo', 2, 'Làm mờ, làm nét và khử nhiễu cảm biến', 'Blur, Sharpening & Sensor Noise Reduction', 30, 'Intermediate'),
+  ('P06-03', 'P06', 'photo', 3, 'Live Lighting, Bump Map và hiệu ứng khí quyển', 'Live Lighting, Bump Maps & Atmospheric Effects', 30, 'Intermediate'),
+  ('P07-01', 'P07', 'photo', 1, 'Lập kế hoạch thị giác, hướng sáng và khớp phối cảnh', 'Visual Planning, Light Direction & Perspective Matching', 25, 'Advanced'),
+  ('P07-02', 'P07', 'photo', 2, 'Căn chỉnh đường chân trời, Live Perspective và Warp Groups', 'Horizon Alignment, Live Perspective & Warp Groups', 25, 'Advanced'),
+  ('P07-03', 'P07', 'photo', 3, 'Hòa trộn biên nhiều ảnh, Light Wrap và hệ thống bóng hai tầng', 'Multi-Image Edge Blending, Light Wrap & 2-Tier Shadow Systems', 30, 'Advanced'),
+  ('P08-01', 'P08', 'photo', 1, 'Các lớp chữ, Artistic Text, Frame Text và Typography', 'Text Layers, Artistic vs Frame Text & Character/Paragraph Typography', 25, 'Intermediate'),
+  ('P08-02', 'P08', 'photo', 2, 'Tích hợp hình Vector và hiệu ứng Layer (Quick FX)', 'Vector Shape Integration & Quick FX / Studio Layer Effects', 25, 'Intermediate'),
+  ('P08-03', 'P08', 'photo', 3, 'Bố cục quảng bá thương mại và kỹ thuật đặt chữ sau chủ thể', 'Designing Promotional Commercial Compositions & Text Behind Subject', 30, 'Advanced'),
+  ('P09-01', 'P09', 'photo', 1, 'Giải mã cảm biến RAW, quy trình 32-bit Float và Tone Mapping', 'RAW Sensor Decoding, Develop Studio & Basic Panel Tone Mapping', 30, 'Advanced'),
+  ('P09-02', 'P09', 'photo', 2, 'Hiệu chỉnh ống kính, quang sai màu và Defringe', 'Optical Lens Corrections, Chromatic Aberration & Defringing', 25, 'Advanced'),
+  ('P09-03', 'P09', 'photo', 3, 'Xử lý hàng loạt, ghi Macro và thiết lập sẵn cho nhiếp ảnh', 'Batch Processing, Macro Recording & Photography Presets', 25, 'Advanced'),
+  ('P10-01', 'P10', 'photo', 1, 'Export Persona Slices, đa định dạng 1x/2x/3x và Continuous Export', 'Export Persona Slices, Multi-Format 1x/2x/3x & Continuous Export', 25, 'Advanced'),
+  ('P10-02', 'P10', 'photo', 2, 'Không gian màu và nén tệp: sRGB, P3, Adobe RGB, WebP, JPEG XL, TIFF, PSD', 'Color Spaces (sRGB vs P3 vs Adobe RGB) & File Compression (WebP, JPEG XL, TIFF, PSD)', 30, 'Advanced'),
+  ('P10-03', 'P10', 'photo', 3, 'Đồ án cuối khóa: quy trình thương mại hoàn chỉnh với chân dung và phong cảnh', 'Capstone Project — End-to-End Commercial Portrait/Landscape Master Workflow', 35, 'Advanced'),
+  ('B01-01', 'B01', 'publisher', 1, 'Kiến trúc ấn phẩm, trang đôi, Slug và tiêu chuẩn Bleed', 'Publication Architecture, Facing Pages, Slug & Bleed Standards', 25, 'Beginner'),
+  ('B01-02', 'B01', 'publisher', 2, 'Master Pages và đánh số trang tự động', 'Master Pages Foundations & Dynamic Page Numbering', 25, 'Beginner'),
+  ('B01-03', 'B01', 'publisher', 3, 'Lưới Baseline, cột văn bản và lề khung', 'Baseline Grids, Flow Columns & Frame Margins', 25, 'Beginner'),
+  ('S01-01', 'S01', 'scripting', 1, 'Kiến trúc Runtime JavaScript Affinity, V8 Engine và giới hạn Sandbox', 'Affinity JS Runtime Architecture, V8 Engine & Sandbox Limits', 25, 'Beginner'),
+  ('S01-02', 'S01', 'scripting', 2, 'Kết nối máy chủ Affinity MCP cục bộ và cầu nối SSE', 'Connecting to Local Affinity MCP Server (Port 6767) & SSE Bridge', 25, 'Beginner'),
+  ('S01-03', 'S01', 'scripting', 3, 'Script tự động hóa đầu tiên: trích xuất thuộc tính tài liệu và Session UUID', 'First Automation Script: Programmatic Document & Session UUID Extraction', 25, 'Beginner')
+ON CONFLICT (id) DO NOTHING;

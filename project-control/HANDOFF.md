@@ -550,3 +550,9 @@ The local checks below are reported in [PR #7](https://github.com/phuongit123/t-
 - **QA boundary:** Documentation diff whitespace and changed-line conflict-marker checks passed locally. Review the exact candidate's CI before merge; older CI cannot certify a later SHA. No live Supabase, Netlify, or installed Affinity validation occurred in this follow-up.
 - **Seed reproduction:** Original migrations at `42aa164` applied locally to PostgreSQL 18.7/PGlite 0.5.17 with mock Supabase auth/storage. No lessons were seeded; `D01-01` progress failed the lesson foreign key until a temporary lesson row was inserted. See [PROGRESS §22](./PROGRESS.md#22-pr-7-review-follow-up-2026-11-22).
 - **Remaining work:** Preserve the owner-only merge/deploy boundary. After PR #7 merge, start `TASK-072`; prepare the Windows audit when the target host is available. Track the production seed/verification follow-up separately. `BLK-007` and the graduation gate remain in force.
+
+## 29. Existing-platform defect review (2026-11-22)
+
+- Base: main at f02d79f. Review the stabilization branch separately from the divergent overhaul branch. Do not overwrite the author's uncommitted overhaul files or merge the stacked, stale PR #5 into the stabilization branch.
+- Changes: data backfill and disposable database test, browser-local lesson progress, HTTP/SSE false-positive regression, practice-only capstone, and CI coverage. These changes do not implement new tracks, activate live sync, or authorize hosted migrations.
+- Remaining: confirm Microsoft Edge E2E for the reviewed SHA in GitHub Actions; verify usable starter assets, a disposable hosted Supabase project and authenticated sync, and the actual installed Affinity build and representative DOM operations. Keep TASK-080, the certification gate and BLK-007 unchanged.

@@ -53,6 +53,18 @@ jobs:
       - name: Vietnamese lesson translation coverage
         run: npm run test:translations
 
+      - name: Backend source assertions
+        run: npm run test:backend
+
+      - name: Capstone rubric checks
+        run: npm run test:capstone
+
+      - name: Cloud curriculum seed (disposable PostgreSQL)
+        run: npm run test:cloud-seed
+
+      - name: Affinity HTTP/SSE diagnostic regression
+        run: node --test scripts/test-affinity-env.js
+
       - name: Production build
         run: npm run build
 

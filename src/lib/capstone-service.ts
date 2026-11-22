@@ -512,8 +512,6 @@ export function saveStudentSubmission(
     changelogSummary: `Cập nhật bài nộp phiên bản v${current.version}`,
   };
 
-  appendSubmissionHistory(historyEntry);
-
   const updatedRecord: CapstoneSubmissionRecord = {
     ...current,
     version: current.version + 1,
@@ -525,20 +523,16 @@ export function saveStudentSubmission(
     officialEvaluation: current.officialEvaluation,
   };
 
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save submission to localStorage', err);
-  }
+  localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
+  appendSubmissionHistory(historyEntry);
 
   return updatedRecord;
 }
 
 /**
- * Submits an official evaluation by an independent evaluator
- * Produces immutable official result and issues verification certificate if passed
+ * Records a local rubric practice result. It is not evaluator verification or a credential.
  */
-export function submitOfficialEvaluation(
+export function savePracticeEvaluation(
   evaluatorId: string,
   evaluatorName: string,
   scores: Record<RubricDimensionId, RubricLevelId>,
@@ -558,24 +552,17 @@ export function submitOfficialEvaluation(
     passed: evaluation.passed,
     criticalViolations: evaluation.criticalViolations,
     evaluatedAt: new Date().toISOString(),
-    certificateId: evaluation.passed
-      ? `CERT-A5-${Date.now().toString(36).toUpperCase()}-AFFINITY`
-      : undefined,
-    isOfficial: true,
+    isOfficial: false,
   };
 
   const updatedRecord: CapstoneSubmissionRecord = {
     ...current,
-    status: evaluation.passed ? 'approved' : 'needs_revision',
+    // Practice results cannot change the formal submission status.
     officialEvaluation: officialResult,
     updatedAt: new Date().toISOString(),
   };
 
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save official evaluation', err);
-  }
+  localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
 
   return updatedRecord;
 }

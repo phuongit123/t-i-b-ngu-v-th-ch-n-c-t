@@ -35,9 +35,10 @@ const PREFS_STORAGE_KEY = 'affinity_user_preferences';
 
 export interface SettingsPageProps {
   onBackToDashboard?: () => void;
+  onProgressReset?: () => void;
 }
 
-export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard }) => {
+export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard, onProgressReset }) => {
   const [preferences, setPreferences] = useState<UserPreferences>(DEFAULT_PREFERENCES);
   const [isSavedToastVisible, setIsSavedToastVisible] = useState(false);
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
@@ -95,6 +96,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onBackToDashboard })
       localStorage.removeItem('affinity_challenges_progress');
       localStorage.removeItem('affinity_capstone_submission');
       localStorage.removeItem('affinity_capstone_official_evaluation');
+      onProgressReset?.();
       setIsResetConfirmOpen(false);
       setImportStatus('Đã thiết lập lại toàn bộ tiến độ học tập thành công.');
       setTimeout(() => setImportStatus(null), 3000);

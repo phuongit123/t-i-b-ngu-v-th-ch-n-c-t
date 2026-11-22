@@ -173,7 +173,7 @@ PR #6 was officially merged into `main` at commit `22aa4cf`. The current working
    - Use `scripts/check-affinity-env.js` only to check HTTP reachability. Record the installed build and representative Affinity DOM calls and outputs separately. Do not close `TASK-080` or enable formal graduation certificates until all closure criteria in the [roadmap](./POST_MERGE_DEVELOPMENT_ROADMAP.md#6-task-080-closure-requirements--verification-matrix) are satisfied.
 3. **Provision Remote Supabase Project:**
    - Create Supabase project in user's cloud console.
-   - Validate the nine-table baseline and the separate curriculum seed follow-up on an empty disposable database first. Migration 5 alone inserts no lesson rows. Verify `D01-01` and persisted cloud progress before provisioning a live instance.
+   - Validate the nine-table schema and migration 6 on a disposable Supabase project. The PostgreSQL regression verifies the seed and `D01-01` foreign key locally; confirm hosted Auth and persisted progress separately before production provisioning.
    - Configure project storage buckets (`submissions` and `resources`) and link storage policies.
    - Provide production environment variables (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) in Netlify dashboard.
 4. **Obtain Project Owner Authorization for Production Deployment:**

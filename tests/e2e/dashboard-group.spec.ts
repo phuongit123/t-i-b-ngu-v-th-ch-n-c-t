@@ -35,26 +35,57 @@ test.describe('Phase 5 — Nhóm Dashboard: ProgressDashboard & Settings', () =>
     await expect(page.locator('text=P01-01').first()).toBeVisible();
   });
 
-  test('TC-DASH-03: Cloud Sync status bar and simulated sync error handling with retry', async ({ page }) => {
+  test('TC-DASH-03: real lesson completion persists across reload and respects reset', async ({ page }) => {
     await page.goto('/');
-    await page.locator('button:has-text("Hồ sơ học tập")').first().click();
+    const dashNav = page.locator('button:has-text("Hồ sơ học tập")').first();
+    const goToLesson = async () => {
+      await page.locator('button:has-text("Tracks")').click();
+      await page.getByTitle('Bắt đầu bài học D01-01').click();
+      await page.getByTitle(/^Chuyển đến trang /).last().click();
+    };
+    const totalCompleted = (count: number) => page.getByText(new RegExp(`\\(${count} / 66 bài học\\)`));
+    await dashNav.click();
+    await expect(totalCompleted(0)).toBeVisible();
+    await expect(page.getByText('Tiến độ bài học chỉ lưu trên trình duyệt này')).toBeVisible();
+    await expect(page.getByText('Lần lưu gần nhất:')).toHaveCount(0);
+    await expect(page.getByText('ĐÃ ĐỒNG BỘ', { exact: true })).toHaveCount(0);
 
-    // Click "Giả lập lỗi mạng"
-    const simErrorBtn = page.locator('button:has-text("Giả lập lỗi mạng")');
-    await expect(simErrorBtn).toBeVisible();
-    await simErrorBtn.click();
+    await goToLesson();
+    await page.getByRole('button', { name: 'Đánh dấu hoàn thành' }).click();
+    await expect(page.getByRole('button', { name: 'Đã hoàn thành bài học ✓' })).toBeDisabled();
+    await dashNav.click();
+    await expect(totalCompleted(1)).toBeVisible();
+    await expect(page.getByText(/Lần lưu gần nhất:/)).toBeVisible();
 
-    // Verify error banner appears
-    await expect(page.locator('text=Lỗi kết nối đồng bộ đám mây')).toBeVisible();
-    await expect(page.locator('text=503 Service Unavailable')).toBeVisible();
+    await page.reload();
+    await dashNav.click();
+    await expect(totalCompleted(1)).toBeVisible();
+    await goToLesson();
+    await expect(page.getByRole('button', { name: 'Đã hoàn thành bài học ✓' })).toBeDisabled();
 
-    // Click retry
-    const retryBtn = page.locator('button:has-text("Thử lại đồng bộ")').first();
-    await expect(retryBtn).toBeVisible();
-    await retryBtn.click();
+    await page.getByRole('button', { name: 'Cài đặt hệ thống & tài khoản' }).click();
+    await page.getByRole('button', { name: /Đặt Lại Toàn Bộ Tiến Độ/ }).click();
+    await page.getByRole('button', { name: 'Đồng ý xóa sạch' }).click();
+    await dashNav.click();
+    await expect(totalCompleted(0)).toBeVisible();
+  });
 
-    // Verify recovered to synced
-    await expect(page.locator('text=Đã đồng bộ cục bộ an toàn')).toBeVisible();
+  test('TC-DASH-06: storage failure does not mark lesson complete', async ({ page }) => {
+    await page.addInitScript(() => {
+      const original = Storage.prototype.setItem;
+      Storage.prototype.setItem = function (key, value) {
+        if (key === 'affinity_lesson_progress') throw new Error('Unavailable in this test');
+        return original.call(this, key, value);
+      };
+    });
+    await page.goto('/');
+    await page.locator('button:has-text("Tracks")').click();
+    await page.getByTitle('Bắt đầu bài học D01-01').click();
+    await page.getByTitle(/^Chuyển đến trang /).last().click();
+    const complete = page.getByRole('button', { name: 'Đánh dấu hoàn thành' });
+    await complete.click();
+    await expect(page.getByText('Chưa lưu được tiến độ')).toBeVisible();
+    await expect(complete).toBeEnabled();
   });
 
   test('TC-DASH-04: Settings page configuration and preferences saving', async ({ page }) => {
