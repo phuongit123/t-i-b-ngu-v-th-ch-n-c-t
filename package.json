@@ -10,14 +10,17 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "check:env": "node scripts/check-affinity-env.js",
-    "validate:curriculum": "node scripts/validate-curriculum.js",
+    "validate:curriculum": "node scripts/validate-curriculum.js && node scripts/validate-lesson-illustrations.js",
     "test:validator": "node scripts/test-curriculum-validator.js",
     "test:scripts": "node scripts/test-curriculum-scripts.js",
     "test:e2e": "playwright test",
     "postinstall": "node -e \"const fs=require('fs'); if(fs.existsSync('node_modules/@rollup/wasm-node/dist')) fs.cpSync('node_modules/@rollup/wasm-node/dist', 'node_modules/rollup/dist', {recursive:true, force:true});\"",
     "test:translations": "node scripts/test-vietnamese-translations.js",
+    "test:curriculum-vi": "node scripts/audit-vi-curriculum.js",
+    "test:ui-vi": "node scripts/audit-vi-localization.js",
     "test:capstone": "node scripts/test-capstone-evaluator.js",
-    "test:backend": "node scripts/test-supabase-backend.js"
+    "test:backend": "node scripts/test-supabase-backend.js && node scripts/test-postgres-runtime.js && node scripts/test-progress-sync.js",
+    "generate:seo": "node scripts/generate-seo-files.js"
   },
   "dependencies": {
     "@rollup/wasm-node": "^4.68.1",
@@ -32,6 +35,7 @@
     "rollup": "npm:@rollup/wasm-node@^4.68.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.17",
     "@playwright/test": "^1.51.0",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",

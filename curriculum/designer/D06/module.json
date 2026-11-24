@@ -2,51 +2,54 @@
   "id": "D06",
   "trackId": "designer",
   "order": 6,
-  "title": "Typography, Text-on-Path & Glyph Styling",
-  "subtitle": "Artistic Text vs Frame Text, Path Text, OpenType Features, Glyph Browser & Text Styles",
-  "description": "Master professional typographic design: the fundamental distinction between Artistic Text and Frame Text, precision micro-kerning with keyboard modifiers, circular Text-on-Path badge layout, advanced OpenType stylistic alternates, and reusable Text Style hierarchies.",
+  "title": "Nghệ Thuật Chữ (Typography), Chữ Uốn Cong & Phân Cấp Thị Giác",
+  "subtitle": "Artistic Text và Frame Text, chữ chạy theo đường cong, tính năng OpenType, Glyph Browser và hệ thống Text Styles",
+  "description": "Sử dụng khung chữ nghệ thuật và chữ đoạn văn, gắn chữ chạy theo đường cong Bézier, tinh chỉnh tracking/kerning và xây dựng kiểu mẫu chữ (text styles).",
   "difficulty": "Intermediate",
   "estimatedMinutes": 90,
-  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry", "D04: Fill, Gradient, Stroke & Pressure Profiles"],
+  "prerequisites": [
+    "D02: Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen",
+    "D04: Tô Màu, Dải Chuyển Màu, Đường Viền & Biểu Đồ Lực Nhấn"
+  ],
   "learningOutcomes": [
-    "Choose appropriately between Artistic Text (display logos) and Frame Text (editorial body reflow).",
-    "Perform optical and metric micro-kerning and tracking using Alt/Option arrow key shortcuts.",
-    "Attach, position, and flip typography along open and closed vector curves using Text-on-Path handles.",
-    "Inspect, unlock, and assign OpenType glyph variants (ligatures, swashes, stylistic sets) via Typography & Glyph Studios.",
-    "Build a unified Text Style hierarchy (H1, H2, Body, Caption) for brand and product typography systems."
+    "Chọn đúng giữa Artistic Text (công cụ chữ nghệ thuật cho tiêu đề, logo) và Frame Text (công cụ khung chữ cho đoạn văn bản tự ngắt dòng).",
+    "Tinh chỉnh khoảng cách cặp chữ (kerning) và khoảng cách cụm chữ (tracking) chuẩn xác bằng phím tắt kết hợp Alt/Option và mũi tên.",
+    "Gắn, căn chỉnh và đảo chiều chữ chạy theo đường cong mở hoặc khép kín bằng các điểm điều khiển biên trên Text-on-Path.",
+    "Tra cứu và áp dụng các biến thể ký tự OpenType (chữ ghép ligatures, nét uốn swashes, bộ ký tự thay thế) qua thanh điều khiển chữ và Glyph Browser.",
+    "Xây dựng hệ thống kiểu mẫu chữ (Text Style) đồng nhất gồm H1, H2, nội dung chính và chú thích cho nhận diện thương hiệu và sản phẩm số."
   ],
   "capstoneProject": {
-    "title": "Vintage Hand-Lettered Distillery Seal",
-    "description": "Construct an authentic vintage circular emblem featuring curved text along concentric outer and inner arcs, OpenType swash flourishes, and customized kerning pairs.",
+    "title": "Con dấu xưởng chưng cất phong cách cổ điển",
+    "description": "Thiết kế biểu tượng con dấu hình tròn mang nét cổ điển với chữ chạy dọc theo hai vòng cung đồng tâm trên và dưới, nét uốn OpenType trang trí và kerning căn chỉnh thủ công.",
     "deliverableAsset": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
     "evaluationCriteria": [
-      "Top and bottom circular text arcs aligned symmetrically using Text-on-Path.",
-      "OpenType ligatures or swashes utilized on headline typography.",
-      "Manual optical kerning applied to eliminate awkward character gaps."
+      "Hai dải chữ vòng cung trên và dưới cân đối qua trục tâm bằng kỹ thuật Text-on-Path.",
+      "Sử dụng hợp lý chữ ghép OpenType hoặc nét uốn swashes trên dòng tiêu đề chính.",
+      "Áp dụng kerning thủ công để xử lý triệt để các khoảng hở thị giác giữa những cặp ký tự khó."
     ]
   },
   "lessons": [
     {
       "id": "D06-01",
       "order": 1,
-      "title": "Artistic Text vs Frame Text & Text Hierarchy",
-      "subtitle": "Display Headlines vs Body Copy, Kerning, Tracking & Leading",
+      "title": "Artistic Text, Frame Text và phân cấp kiểu chữ",
+      "subtitle": "Tiêu đề hiển thị và văn bản đoạn, Kerning, Tracking và khoảng cách dòng (Leading)",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     },
     {
       "id": "D06-02",
       "order": 2,
-      "title": "Text-on-Path & Circular Badges",
-      "subtitle": "Curved Baselines, Green/Red Margin Handles & Path Direction Reversal",
+      "title": "Chữ chạy theo đường cong và huy hiệu tròn",
+      "subtitle": "Đường cơ sở uốn cong, điểm chặn xanh/đỏ và lệnh đảo chiều chữ trên đường dẫn",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     },
     {
       "id": "D06-03",
       "order": 3,
-      "title": "OpenType Features, Glyph Browser & Text Styles Hierarchy",
-      "subtitle": "Ligatures, Stylistic Alternates, Swashes & Paragraph/Character Styles",
+      "title": "Tính năng OpenType, Glyph Browser và hệ thống Text Styles",
+      "subtitle": "Chữ ghép Ligatures, ký tự thay thế, nét uốn Swashes và kiểu mẫu đoạn/ký tự",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     }

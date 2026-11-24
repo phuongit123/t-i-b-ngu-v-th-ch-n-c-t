@@ -5,9 +5,8 @@ test.describe('Phase 5 — Nhóm Existing: Resources, Encyclopedia & Simulator',
     await page.goto('/');
 
     // Navigate to Resources
-    const resNav = page.locator('button:has-text("Tài nguyên")').first();
-    await expect(resNav).toBeVisible();
-    await resNav.click();
+    await page.getByRole('button', { name: 'Học liệu', exact: true }).click();
+    await page.getByTestId('nav-resources').click();
 
     await expect(page.locator('h1')).toContainText('Thư Viện Tài Nguyên & Học Liệu');
 
@@ -24,9 +23,8 @@ test.describe('Phase 5 — Nhóm Existing: Resources, Encyclopedia & Simulator',
     await page.goto('/');
 
     // Navigate to Encyclopedia
-    const encNav = page.locator('button:has-text("Bách khoa thư")').first();
-    await expect(encNav).toBeVisible();
-    await encNav.click();
+    await page.getByRole('button', { name: 'Học liệu', exact: true }).click();
+    await page.getByTestId('nav-encyclopedia').click();
 
     await expect(page.locator('h1')).toContainText('Bách Khoa Toàn Thư Affinity DOM API');
     await expect(page.locator('text=Phiên bản SDK')).toBeVisible();
@@ -44,9 +42,8 @@ test.describe('Phase 5 — Nhóm Existing: Resources, Encyclopedia & Simulator',
     await page.goto('/');
 
     // Navigate to Simulator
-    const simNav = page.locator('button:has-text("Bộ mô phỏng")').first();
-    await expect(simNav).toBeVisible();
-    await simNav.click();
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
+    await page.getByTestId('nav-simulator').click();
 
     await expect(page.locator('h1')).toContainText('Bộ Mô Phỏng Bézier Pen & Node Tool');
 

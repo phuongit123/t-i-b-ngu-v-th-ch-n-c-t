@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P02
 ## CHỦ ĐỀ: KỸ THUẬT VÙNG CHỌN & MẶT NẠ PIXEL (SELECTIONS & MASKING)
 
-**Tệp tài nguyên:** `P02_selections_masking_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Photo Persona  
+- **Tệp tài nguyên:** `P02_selections_masking_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Photo Persona
 
 ---
 
@@ -16,7 +16,7 @@
 ---
 
 ### 2. THIẾT LẬP DỰ ÁN & MÔI TRƯỜNG THỰC HÀNH
-1. Khởi động Affinity Photo 3.0, mở tệp hình ảnh chân dung hoặc mẫu vật thể có nền tương phản vừa phải.
+1. Khởi động Affinity (Pixel Studio), mở tệp hình ảnh chân dung hoặc mẫu vật thể có nền tương phản vừa phải.
 2. Nếu sử dụng tệp thực hành kèm sẵn từ khóa học, mở tệp `curriculum/assets/photo/P01_starter.afphoto` hoặc tạo tài liệu mới:
    - Kích thước: `3840 x 2160 px` (4K UHD) hoặc ảnh chân dung tối thiểu `2000 px`.
    - Hệ màu: `RGB / 16-bit` (sRGB IEC61966-2.1) để tối ưu dải chuyển sắc (smooth gradation).

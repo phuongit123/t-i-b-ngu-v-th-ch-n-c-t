@@ -2,56 +2,56 @@
   "id": "D09",
   "trackId": "designer",
   "order": 9,
-  "title": "Pixel Persona Integration & Textured Vector Shading",
-  "subtitle": "Raster Brushes, Grain Shading, Child Pixel Layers & Non-Destructive Vector Masking",
-  "description": "Harness the hybrid creative superpower of Affinity Designer: switch seamlessly into the Pixel Persona, leverage pressure-sensitive raster grain brushes, clip textured shading non-destructively inside mathematical vector shells, and balance raster DPI with vector scalability for commercial print and digital workflows.",
+  "title": "Tích Hợp Pixel Studio, Đổ Bóng & Kết Cấu Hạt (Texture)",
+  "subtitle": "Cọ vẽ Raster, đổ bóng hạt Noise, lớp Pixel con và mặt nạ vector phi phá hủy",
+  "description": "Kết hợp sức mạnh điểm ảnh vào thiết kế vector: sử dụng cọ vẽ raster, tạo hạt noise, tạo khối và bóng đổ tự nhiên.",
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": [
-    "D01: Designer Interface, Personas & Canvas Setup",
-    "D04: Fill, Gradient, Stroke & Pressure Profiles",
-    "D05: Layer Organization, Masks & Clipping Paths"
+    "D01: Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
+    "D04: Tô Màu, Dải Chuyển Màu, Đường Viền & Biểu Đồ Lực Nhấn",
+    "D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)"
   ],
   "learningOutcomes": [
-    "Switch fluidly between Designer Persona and Pixel Persona using verified keyboard shortcuts.",
-    "Master raster brush dynamics including Flow, Opacity, Hardness, Spacing, and Pressure Jitter.",
-    "Clip raster pixel layers non-destructively inside parent vector curves via child layer nesting.",
-    "Lock transparency using Protect Alpha to recolor existing texture passes without overspill.",
-    "Govern document DPI settings to prevent pixelation while maintaining infinite vector scalability."
+    "Chuyển đổi linh hoạt giữa không gian vector và Pixel Studio qua thanh công cụ hoặc phím tắt tự thiết lập.",
+    "Làm chủ thông số cọ raster gồm Flow, Opacity, Hardness, Spacing và độ biến thiên theo lực nhấn bút vẽ.",
+    "Lồng lớp điểm ảnh làm lớp con bên trong đường cong vector để tạo vùng cắt gọn gàng, phi phá hủy.",
+    "Khóa vùng trong suốt bằng Protect Alpha để phủ lại sắc độ cho lớp hạt sẵn có mà không lem ra ngoài.",
+    "Kiểm soát thông số DPI tài liệu để lớp hạt raster không bị vỡ điểm ảnh mà vẫn giữ khả năng phóng to vector vô hạn."
   ],
   "capstoneProject": {
-    "title": "Retro-Futuristic Botanical Vector-Raster Masterpiece",
-    "description": "Construct an editorial illustration combining sharp vector silhouettes, parametric curves, and multi-pass analog grain shading clipped non-destructively within vector leaf and stem shells at 300 DPI.",
+    "title": "Tranh minh họa thực vật lai Vector–Raster phong cách Retro-Futuristic",
+    "description": "Sáng tác bức minh họa biên tập kết hợp hình khối vector sắc nét với nhiều lớp đổ bóng hạt cọ vẽ tự nhiên lồng gọn bên trong từng phiến lá ở độ phân giải chuẩn in 300 DPI.",
     "deliverableAsset": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
     "evaluationCriteria": [
-      "Document calibrated at 300 DPI for high-resolution raster reproduction.",
-      "Textured shading isolated onto child pixel layers inside parent vector curves.",
-      "Flow dynamics (15%–25%) utilized for velvety, non-banding grain gradients.",
-      "Vector curves remain editable with live clipping boundaries updating in real time."
+      "Tài liệu thiết lập chuẩn 300 DPI đảm bảo độ nét cho lớp chất liệu raster.",
+      "Toàn bộ nét tô đổ bóng hạt được cô lập trong các Pixel Layer con đặt dưới đường cong vector cha.",
+      "Sử dụng dải Flow thấp (15%–25%) để chuyển sắc hạt mịn, không bị ngấn vệt cọ.",
+      "Đường cong vector cha vẫn chỉnh sửa node tự do với biên cắt cập nhật theo thời gian thực."
     ]
   },
   "lessons": [
     {
       "id": "D09-01",
       "order": 1,
-      "title": "Pixel Persona & Raster Brush Dynamics in Designer",
-      "subtitle": "Persona Switching, Brush Categories, Flow vs Opacity & Jitter Engine",
+      "title": "Pixel Studio và động lực cọ Raster trong Designer",
+      "subtitle": "Chuyển đổi Persona, nhóm cọ vẽ, Flow với Opacity và bộ điều chỉnh Jitter",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D09-02",
       "order": 2,
-      "title": "Non-Destructive Child Pixel Clipping & Masking",
-      "subtitle": "Insert Inside Selection, Protect Alpha & Blend Mode Shading",
+      "title": "Clipping Pixel lồng lớp phi phá hủy và Masking",
+      "subtitle": "Chế độ Insert Inside Selection, khóa Protect Alpha và hòa trộn đổ bóng",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D09-03",
       "order": 3,
-      "title": "Hybrid Vector-Raster Workflow & DPI Management",
-      "subtitle": "Resolution Boundaries, 300 DPI Print Standards & Visual Polish",
+      "title": "Quy trình Vector–Raster kết hợp và quản lý DPI",
+      "subtitle": "Giới hạn độ phân giải, chuẩn in ấn 300 DPI và hoàn thiện thị giác",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     }

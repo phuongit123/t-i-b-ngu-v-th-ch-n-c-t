@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P07
 ## CHỦ ĐỀ: KỸ THUẬT GHÉP ẢNH & THAO TÁC KHÔNG GIAN (COMPOSITING & MANIPULATION)
 
-**Tệp tài nguyên:** `P07_compositing_manipulation_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Photo Persona  
+- **Tệp tài nguyên:** `P07_compositing_manipulation_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Photo Persona
 
 ---
 

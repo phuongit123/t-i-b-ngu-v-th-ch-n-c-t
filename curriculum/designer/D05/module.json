@@ -2,51 +2,54 @@
   "id": "D05",
   "trackId": "designer",
   "order": 5,
-  "title": "Layer Organization, Masks & Clipping Paths",
-  "subtitle": "Layer Hierarchy, Vector Clipping, Vector Masking, Blend Modes & Isolation Mode",
-  "description": "Master enterprise-scale vector organization: complex layer nesting, the critical mechanical distinction between Vector Clipping (child nesting) and Vector Masking (thumbnail drop), advanced Blend Ranges, and distraction-free Isolation Mode.",
+  "title": "Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)",
+  "subtitle": "Phân cấp Layer, Vector Clipping, Vector Masking, Blend Modes và Isolation Mode",
+  "description": "Thấu hiểu cấu trúc phân tầng (scene graph), mặt nạ vector, nhóm lớp và các kỹ thuật lồng ghép hình ảnh phi phá hủy.",
   "difficulty": "Intermediate",
   "estimatedMinutes": 90,
-  "prerequisites": ["D02: Vector Nodes, Paths & Pen Tool Geometry", "D03: Advanced Shape Creation & Boolean Geometry"],
+  "prerequisites": [
+    "D02: Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen",
+    "D03: Tạo Hình Nâng Cao & Thao Tác Hình Học Boolean"
+  ],
   "learningOutcomes": [
-    "Structure professional scene graphs using Groups, Layer Containers, Locks, and Color Tags.",
-    "Distinguish mechanically between Vector Clipping (child nesting) and Vector Masking (thumbnail docking).",
-    "Employ the 'Insert Inside the Selection' workflow (Ctrl+Alt+X / Cmd+Opt+X) for rapid contained drafting.",
-    "Manipulate layer Blend Modes and fine-tune tonal transition curves in the Blend Ranges dialog.",
-    "Engage and exit Isolation Mode (Alt+Click / Option+Click on layer thumbnail) for distraction-free editing."
+    "Tổ chức cấu trúc bản vẽ chuyên nghiệp bằng Group, vùng chứa (Layer), khóa lớp (Lock) và thẻ màu (Color Tag).",
+    "Phân biệt rạch ròi về cơ chế giữa Vector Clipping (lồng lớp con vào thân hàng) và Vector Masking (gắn mặt nạ vào ảnh thu nhỏ).",
+    "Sử dụng chế độ 'Insert inside the selection' (Ctrl+Alt+X / Cmd+Opt+X) để vẽ lồng trực tiếp vào bên trong hình đang chọn.",
+    "Áp dụng các chế độ hòa trộn Blend Mode và tinh chỉnh đường cong sắc độ trong hộp thoại Blend Options (Blend Ranges).",
+    "Bật và thoát Isolation Mode (Alt+Click / Option+Click lên thumbnail lớp) để chỉnh sửa tập trung không bị vướng lớp khác."
   ],
   "capstoneProject": {
-    "title": "Layered Fantasy Isometric Citadel",
-    "description": "Construct an intricate multi-tier fantasy tower featuring nested vector clipping masks for stone textures, masked shadow cast planes, and color-tagged layer groups with Blend Ranges.",
+    "title": "Thành Trì Isometric Giả Tưởng Nhiều Tầng Lớp",
+    "description": "Dựng một tòa tháp giả tưởng nhiều tầng với các lớp vân đá lồng bằng Vector Clipping, mặt phẳng bóng đổ cắt qua Vector Mask, các nhóm lớp gắn thẻ màu và điều chỉnh hòa trộn bằng Blend Ranges.",
     "deliverableAsset": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
     "evaluationCriteria": [
-      "Scene graph organized into color-tagged and named groups.",
-      "Vector clipping masks used cleanly without raster flattening.",
-      "Blend mode shadows interact dynamically with underlying architecture."
+      "Cấu trúc scene graph tổ chức theo nhóm đặt tên rõ ràng và gắn thẻ màu.",
+      "Sử dụng Vector Clipping và Vector Mask sạch sẽ, không làm phẳng raster.",
+      "Các lớp bóng và ánh sáng hòa trộn tự nhiên với kiến trúc bên dưới qua Blend Mode."
     ]
   },
   "lessons": [
     {
       "id": "D05-01",
       "order": 1,
-      "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
-      "subtitle": "Scene Graph Architecture, Layer Types, Locks & Naming Conventions",
+      "title": "Phân cấp Layers Studio, nhóm và gắn màu đối tượng",
+      "subtitle": "Cấu trúc cây đối tượng, các loại lớp, khóa lớp và quy ước đặt tên",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     },
     {
       "id": "D05-02",
       "order": 2,
-      "title": "Vector Clipping (Child Nesting) vs Vector Masking",
-      "subtitle": "Thumbnail Drop vs Body Drop, Insert Inside & Unmasking",
+      "title": "Clipping Vector (lồng lớp con) và Vector Mask",
+      "subtitle": "Thả vào ảnh thu nhỏ hay thả vào thân lớp, Insert Inside và tách lớp ra ngoài",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     },
     {
       "id": "D05-03",
       "order": 3,
-      "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
-      "subtitle": "Multiply, Screen, Blend Options Gear, Luminance Graphs & Alt+Click Solo",
+      "title": "Chế độ hòa trộn Layer, Blend Ranges và Isolation Mode",
+      "subtitle": "Multiply, Screen, nút bánh răng Blend Options, đường cong sắc độ và Alt+Click xem đơn lớp",
       "durationMinutes": 30,
       "difficulty": "Intermediate"
     }

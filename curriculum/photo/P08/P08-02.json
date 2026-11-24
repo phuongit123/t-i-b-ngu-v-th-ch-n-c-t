@@ -3,13 +3,13 @@
   "moduleId": "P08",
   "trackId": "photo",
   "order": 2,
-  "title": "Vector Shape Integration & Quick FX / Studio Layer Effects",
-  "subtitle": "Enrich photo compositions with crisp vector shapes and non-destructive Quick FX layer styles.",
+  "title": "Tích hợp hình Vector và hiệu ứng Layer (Quick FX)",
+  "subtitle": "Làm giàu bố cục ảnh chụp với hình khối vector sắc nét và hiệu ứng Quick FX phi phá hủy.",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Vẽ và hiệu chỉnh các hình khối vector tham số (Rectangle, Ellipse, Star, Callout) trực tiếp trong Photo Persona.",
+      "Vẽ và hiệu chỉnh các hình khối vector tham số (Rectangle, Ellipse, Star, Callout) trực tiếp trong Pixel Studio.",
       "Thiết lập các hiệu ứng Layer FX chuyên nghiệp: Outer Shadow, Inner Shadow, Outline, 3D / Bevel Emboss, Color Overlay.",
       "Kích hoạt và hiểu rõ tầm quan trọng của tùy chọn 'Scale with Object' khi co giãn kích thước layer hiệu ứng.",
       "Sử dụng Quick FX panel để lưu trữ, sao chép và đồng bộ phong cách đồ họa (Layer Styles) giữa các đối tượng."
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Shape Tools & Layer Effects (Quick FX)",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Ctrl + Alt + V)",
         "mac": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Cmd + Option + V)"
@@ -151,14 +151,14 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Hình khối vector trong Photo Persona luôn sắc nét vô hạn ở mọi độ phóng đại.",
+        "Hình khối vector trong Pixel Studio luôn sắc nét vô hạn ở mọi độ phóng đại.",
         "Layer FX cung cấp 10 hiệu ứng bề mặt phi hủy diệt tính toán bằng GPU thời gian thực.",
         "Luôn kích hoạt 'Scale with Object' để bảo vệ tỉ lệ hiệu ứng khi co giãn đồ họa.",
         "Lệnh Paste FX cho phép sao chép công thức hiệu ứng cho hàng loạt phần tử tức thì."
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P08-03 Designing Promotional Commercial Compositions & Text Behind Subject",
+          "title": "Bài tiếp theo: P08-03 Bố cục quảng bá thương mại và kỹ thuật đặt chữ sau chủ thể",
           "target": "P08-03",
           "type": "next-lesson"
         },
@@ -177,7 +177,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for typography and graphic integration in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn nghệ thuật chữ và tích hợp đồ họa vector trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -188,7 +188,7 @@
       "type": "concept",
       "content": "Trong Affinity Photo, các công cụ Shape (U) và Pen Tool (P) hoạt động hoàn toàn dưới dạng Vector. Bạn có thể phóng to hình khối lên 1000% mà không bao giờ bị vỡ hạt hay mờ mép, mang lại sự tương phản thị giác đắt giá khi đặt cạnh ảnh chụp.",
       "tips": "Hình khối vector có thể làm mặt nạ clipping mask chứa các ảnh chụp bên trong cực kỳ mượt mà.",
-      "codeSnippet": "Vector in Photo Persona:\n- Shapes (Rectangle, Ellipse, Star, Donut, Callout)\n- Parametric Controls: Rounded corners, cog teeth, star points\n- Infinite Resolution: Re-renderable at any DPI without blur"
+      "codeSnippet": "Vector trong Pixel Studio (Pixel Studio):\n- Hình khối cơ bản: Rectangle, Ellipse, Star, Donut, Callout\n- Điều khiển tham số: Bo góc, số răng bánh xe, số cánh sao\n- Độ phân giải vô hạn: Kết xuất sắc nét ở mọi mức DPI không bị nhòe"
     },
     {
       "id": "slide-p08-02-02",
@@ -208,7 +208,7 @@
       "type": "interaction",
       "content": "Đổ bóng chuyên nghiệp cần sự tiết chế: Không dùng màu đen đặc với Opacity 100%. Hãy sử dụng Opacity 25-45%, tăng Radius để bóng lan tỏa êm ái, và chỉnh Offset để xác định khoảng cách giữa đối tượng và mặt nền.",
       "tips": "Hòa trộn bóng với Blend Mode Multiply để màu bóng tương tác với các sắc tố màu của ảnh nền phía dưới.",
-      "codeSnippet": "Professional Drop Shadow Settings:\nBlend Mode: Multiply\nColor: Dark Slate / Deep Ambient Tint (not pure #000000)\nOpacity: 30% - 40%\nRadius: 15px - 25px\nOffset: 8px - 12px\nIntensity: 0%"
+      "codeSnippet": "Thông số Drop Shadow chuẩn chuyên nghiệp:\nBlend Mode: Multiply\nMàu sắc: Xám đá đậm / Tông môi trường sâu (tránh đen thuần #000000)\nOpacity: 30% - 40%\nRadius: 15px - 25px\nOffset: 8px - 12px\nIntensity: 0%"
     },
     {
       "id": "slide-p08-02-04",
@@ -228,7 +228,7 @@
       "type": "workflow",
       "content": "Nếu bạn vẽ một nút bấm nhỏ với viền Outline 2px và đổ bóng 5px, khi bạn phóng to nút bấm này lên gấp 5 lần để làm biển quảng cáo, viền và bóng vẫn giữ nguyên 2px nếu bạn quên bật 'Scale with Object'. Bật tùy chọn này để các thông số fx tự động nhân đôi nhân ba.",
       "tips": "Nút kiểm tra 'Scale with Object' nằm ở góc dưới cùng bên trái của hộp thoại Layer Effects.",
-      "codeSnippet": "Scale with Object Rule:\n[ ] OFF: 2px stroke remains 2px stroke when object scales from 100px to 1000px (looks thin!)\n[✓] ON:  2px stroke automatically expands to 20px stroke (maintains perfect proportions!)"
+      "codeSnippet": "Quy tắc Scale with Object:\n[ ] TẮT: Viền 2px vẫn giữ 2px khi phóng vật thể từ 100px lên 1000px (bị mảnh!)\n[✓] BẬT: Viền 2px tự động tăng thành 20px (giữ nguyên tỷ lệ hình học!)"
     },
     {
       "id": "slide-p08-02-06",
@@ -246,9 +246,9 @@
       "title": "Tóm lược hệ sinh thái đồ họa trong Photo",
       "subtitle": "Cầu nối giữa chỉnh sửa ảnh và thiết kế truyền thông",
       "type": "summary",
-      "content": "Khả năng xử lý vector và Layer FX ngay trong Photo Persona giúp bạn hoàn thiện các ấn phẩm banner, thumbnail YouTube, poster sự kiện mà không cần phải chuyển đổi qua lại giữa nhiều phần mềm khác nhau.",
+      "content": "Khả năng xử lý vector và Layer FX ngay trong Pixel Studio giúp bạn hoàn thiện các ấn phẩm banner, thumbnail YouTube, poster sự kiện mà không cần phải chuyển đổi qua lại giữa nhiều phần mềm khác nhau.",
       "tips": "Sử dụng tính năng Studio Presets để lưu lại không gian làm việc vừa có công cụ ảnh vừa có công cụ text thuận tiện.",
-      "codeSnippet": "Graphic Integration Checklist:\n[✓] Vector shapes drawn with crisp anti-aliasing\n[✓] Layer FX applied with subtle opacities and matching light angle\n[✓] 'Scale with Object' enabled on all production assets\n[✓] Layer styles duplicated via Paste FX for consistency"
+      "codeSnippet": "Danh sách kiểm tra tích hợp đồ họa:\n[✓] Hình khối vector hiển thị sắc nét với khử răng cưa chuẩn\n[✓] Layer FX áp dụng độ mờ dịu và đúng hướng sáng\n[✓] Bật 'Scale with Object' trên mọi thành phần sản xuất\n[✓] Đồng bộ phong cách hàng loạt qua lệnh Paste FX"
     }
   ]
 }

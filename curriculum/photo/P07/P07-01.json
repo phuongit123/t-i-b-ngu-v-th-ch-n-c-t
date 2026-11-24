@@ -3,8 +3,8 @@
   "moduleId": "P07",
   "trackId": "photo",
   "order": 1,
-  "title": "Visual Planning, Light Direction & Perspective Matching",
-  "subtitle": "Establish realistic compositing fundamentals by aligning light angle, color temperature, and perspective.",
+  "title": "Lập kế hoạch thị giác, hướng sáng và khớp phối cảnh",
+  "subtitle": "Xây dựng nền tảng ghép ảnh chân thực bằng cách đồng bộ góc chiếu sáng, nhiệt độ màu và phối cảnh.",
   "durationMinutes": 25,
   "difficulty": "Advanced",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Move Tool & Guides Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "V (Move Tool) / Ctrl + R (Rulers) / Ctrl + ; (Guides)",
         "mac": "V (Move Tool) / Cmd + R (Rulers) / Cmd + ; (Guides)"
@@ -39,7 +39,7 @@
       {
         "stepNumber": 1,
         "title": "Phân tích Background Plate",
-        "instruction": "Mở ảnh nền trong Photo Persona. Nhấn Ctrl+R (Cmd+R) để hiện Rulers. Kéo một thước dóng ngang xuống đúng vị trí đường chân trời (Horizon Line) của ảnh nền.",
+        "instruction": "Mở ảnh nền trong Pixel Studio. Nhấn Ctrl+R (Cmd+R) để hiện Rulers. Kéo một thước dóng ngang xuống đúng vị trí đường chân trời (Horizon Line) của ảnh nền.",
         "shortcutTip": { "win": "Ctrl + R", "mac": "Cmd + R" }
       },
       {
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P07-02 Horizon Alignment, Live Perspective & Warp Groups",
+          "title": "Bài tiếp theo: P07-02 Căn chỉnh đường chân trời, Live Perspective và Warp Groups",
           "target": "P07-02",
           "type": "next-lesson"
         },
@@ -177,7 +177,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn ghép ảnh nâng cao và xử lý không gian trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -188,7 +188,7 @@
       "type": "concept",
       "content": "Compositing chuyên nghiệp không đơn thuần là cắt dán pixel, mà là nghệ thuật đồng nhất 4 trụ cột thị giác: Phối cảnh (Perspective), Hướng sáng (Lighting), Cân bằng màu (Color Harmony) và Cấu trúc hạt quang học (Grain & Focus).",
       "tips": "Nếu 4 trụ cột này đồng bộ, mắt người sẽ tin rằng bức ảnh được chụp từ một lần bấm máy duy nhất.",
-      "codeSnippet": "// 4 Trụ cột Compositing:\n1. Perspective & Horizon Line\n2. Light Angle & Shadow Dynamics\n3. Color Temperature & Black Levels\n4. Camera Optics (DOF & Film Grain)"
+      "codeSnippet": "// 4 Trụ cột Compositing:\n1. Phối cảnh & Đường chân trời (Perspective & Horizon Line)\n2. Góc sáng & Động lực bóng đổ (Light Angle & Shadow Dynamics)\n3. Nhiệt độ màu & Điểm đen (Color Temperature & Black Levels)\n4. Quang học máy ảnh (Độ sâu trường ảnh DOF & Hạt ảnh Film Grain)"
     },
     {
       "id": "slide-p07-01-02",
@@ -208,7 +208,7 @@
       "type": "interaction",
       "content": "Kiểm tra hướng nguồn sáng chính (Key Light) trên nền: Nắng gắt giữa trưa tạo bóng ngắn và viền sắc nét; nắng chiều tạo bóng dài và viền tán xạ mềm. Đối tượng ghép vào bắt buộc phải nhận nguồn sáng tương thích.",
       "tips": "Nếu nguồn sáng đối tượng bị lệch 180 độ, hãy thử Flip Horizontal nếu cấu trúc cơ thể hoặc chữ viết trên áo không bị sai lệch.",
-      "codeSnippet": "Key Light: Hướng, Độ cao góc tới, Độ cứng viền (Hard vs Soft)\nFill Light: Ánh sáng môi trường phản xạ, tông màu vùng tối (Cool vs Warm)"
+      "codeSnippet": "Key Light: Hướng, Độ cao góc tới, Độ cứng viền (Gắt vs Mềm)\nFill Light: Ánh sáng môi trường phản xạ, tông màu vùng tối (Lạnh vs Ấm)"
     },
     {
       "id": "slide-p07-01-04",
@@ -228,7 +228,7 @@
       "type": "workflow",
       "content": "Một file composite lớn có thể chứa hàng chục layer. Hãy nhóm thành các group có thứ tự từ dưới lên: [01_Background], [02_Midground_Elements], [03_Subject], [04_Foreground_Elements], [05_Atmosphere_FX], [06_Master_Grade].",
       "tips": "Đặt tên rõ ràng và gán màu (Color Tag) cho layer giúp bạn dễ dàng quản lý khi dự án phức tạp.",
-      "codeSnippet": "Layer Stack Hierarchy:\n└── [Group] 06_Master_Color_Grade (LUTs, Grain, Vignette)\n└── [Group] 05_Atmospheric_Effects (Fog, Haze, Dust)\n└── [Group] 04_Foreground_Overlap\n└── [Group] 03_Main_Subject (Shadows, Subject, Light Wrap)\n└── [Group] 02_Midground_Extensions\n└── [Group] 01_Base_Background_Plate"
+      "codeSnippet": "Cấu trúc phân tầng Layer Stack:\n└── [Group] 06_Master_Color_Grade (LUT, Hạt ảnh, Vignette)\n└── [Group] 05_Atmospheric_Effects (Sương mù, Khói, Bụi sáng)\n└── [Group] 04_Foreground_Overlap (Tiền cảnh che phủ)\n└── [Group] 03_Main_Subject (Bóng đổ, Chủ thể, Light Wrap)\n└── [Group] 02_Midground_Extensions (Chi tiết trung cảnh)\n└── [Group] 01_Base_Background_Plate (Ảnh nền gốc)"
     },
     {
       "id": "slide-p07-01-06",
@@ -248,7 +248,7 @@
       "type": "summary",
       "content": "Đặt một Black & White Adjustment Layer ở trên cùng để loại bỏ hoàn toàn thông tin màu sắc. Lúc này mắt bạn chỉ quan sát độ sáng tối (Luminance). Nếu đối tượng hòa quyện trong ảnh đen trắng, bức ảnh ghép đã đạt chuẩn tương phản.",
       "tips": "Tắt bật layer B&W này liên tục trong quá trình tinh chỉnh ánh sáng để kiểm soát độ trung thực.",
-      "codeSnippet": "Quick Luminosity Test:\n1. Add Black & White Adjustment Layer at top of stack\n2. Inspect: Does subject pop out like a sticker?\n3. Tweak Levels/Curves on subject until values blend into scene"
+      "codeSnippet": "Kiểm tra nhanh độ sáng tối (Luminosity Test):\n1. Thêm Black & White Adjustment Layer ở đỉnh ngăn xếp layer\n2. Quan sát: Chủ thể có bị nổi cộm như dán sticker không?\n3. Chỉnh Levels/Curves cho chủ thể đến khi sắc độ hòa vào bối cảnh"
     }
   ]
 }

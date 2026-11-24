@@ -4,6 +4,8 @@
  * and signed/public URL generation with offline resilience.
  */
 
+import { learningStorageKey } from '../learning-storage';
+import { writeOfflineArtifact } from '../offline-artifacts';
 import { getSupabaseClient, isSupabaseConfigured } from './client.ts';
 
 export const MAX_SUBMISSION_FILE_SIZE = 50 * 1024 * 1024; // 50MB
@@ -18,6 +20,8 @@ export const ALLOWED_EXTENSIONS = [
   'jpg',
   'jpeg',
   'webp',
+  'md',
+  'txt',
 ];
 
 export const ALLOWED_MIME_TYPES = [
@@ -28,6 +32,9 @@ export const ALLOWED_MIME_TYPES = [
   'application/zip',
   'application/x-zip-compressed',
   'application/octet-stream', // Used for native Affinity files (.afdesign, .afphoto, .afpub)
+  'text/markdown',
+  'text/x-markdown',
+  'text/plain',
 ];
 
 export interface FileValidationResult {
@@ -47,6 +54,7 @@ export interface UploadResult {
  */
 export const validateSubmissionFile = (file: File): FileValidationResult => {
   // 1. Size check
+  if (!file.size) return { isValid: false, error: 'Tệp trống.' };
   if (file.size > MAX_SUBMISSION_FILE_SIZE) {
     const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
     return {
@@ -100,16 +108,17 @@ export const uploadSubmissionArtifact = async (
 
   const supabase = getSupabaseClient();
   const cleanName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-  const filePath = `${userId}/${assessmentId}/${Date.now()}_${artifactType}_${cleanName}`;
+  const filePath = `${userId}/${assessmentId}/${crypto.randomUUID()}_${artifactType}_${cleanName}`;
 
   // Offline / Mock mode fallback
   if (!isSupabaseConfigured() || !supabase) {
-    const mockUrl = URL.createObjectURL(file);
-    return {
-      path: `local://submissions/${filePath}`,
-      url: mockUrl,
-      sizeBytes: file.size,
-    };
+    const path = `local://submissions/${filePath}`;
+    try {
+      await writeOfflineArtifact(learningStorageKey(path), file);
+      return { path, url: '', sizeBytes: file.size };
+    } catch {
+      return { path: '', url: '', sizeBytes: file.size, error: 'Không lưu được tệp trên thiết bị này.' };
+    }
   }
 
   try {
@@ -117,7 +126,8 @@ export const uploadSubmissionArtifact = async (
       .from('submissions')
       .upload(filePath, file, {
         cacheControl: '3600',
-        upsert: true,
+        upsert: false,
+        contentType: file.type || 'application/octet-stream',
       });
 
     if (error) {
@@ -129,16 +139,7 @@ export const uploadSubmissionArtifact = async (
       };
     }
 
-    // Generate signed URL (expires in 1 hour)
-    const { data: signedData, error: signedError } = await supabase.storage
-      .from('submissions')
-      .createSignedUrl(data.path, 3600);
-
-    return {
-      path: data.path,
-      url: signedError ? '' : signedData.signedUrl,
-      sizeBytes: file.size,
-    };
+    return { path: data.path, url: '', sizeBytes: file.size };
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Lỗi ngoại lệ khi tải lên tệp';
     return {
@@ -155,18 +156,18 @@ export const uploadSubmissionArtifact = async (
  */
 export const getSubmissionSignedUrl = async (path: string, expiresInSeconds = 3600): Promise<string | null> => {
   if (path.startsWith('local://') || path.startsWith('blob:')) {
-    return path;
+    return null;
   }
 
   const supabase = getSupabaseClient();
   if (!isSupabaseConfigured() || !supabase) {
-    return path;
+    return null;
   }
 
   try {
     const { data, error } = await supabase.storage
       .from('submissions')
-      .createSignedUrl(path, expiresInSeconds);
+      .createSignedUrl(path, expiresInSeconds, { download: true });
 
     if (error || !data) {
       console.warn('Không tạo được signed URL:', error?.message);

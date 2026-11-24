@@ -2,56 +2,56 @@
   "id": "D10",
   "trackId": "designer",
   "order": 10,
-  "title": "Vector Export, Slices & Production Output",
-  "subtitle": "Export Persona, Multi-Density Slices, Continuous Export, SVG Optimization & Press PDF/X",
-  "description": "Master commercial production output in Affinity Designer: harness the dedicated Export Persona, create dynamic layer-based slices, automate multi-density (1x/2x/3x) asset pipelines with Continuous Export, optimize clean semantic SVG code for web and app development, and generate press-ready PDF/X files with bleed and printer marks.",
+  "title": "Xuất Bản Dự Án Thực Chiến, Cắt Lát (Slices) & Đóng Gói Sản Phẩm",
+  "subtitle": "Slice Studio, cắt lát đa mật độ, Continuous Export, tối ưu mã SVG và xuất PDF/X chuẩn in",
+  "description": "Sử dụng Slice Studio để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.",
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": [
-    "D01: Designer Interface, Personas & Canvas Setup",
-    "D08: Symbols, Linked Assets & Component Systems",
-    "D09: Pixel Persona Integration & Textured Vector Shading"
+    "D01: Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
+    "D08: Biểu Tượng Tái Sử Dụng (Symbols), Tài Nguyên Liên Kết & Thư Viện Asset",
+    "D09: Tích Hợp Pixel Studio, Đổ Bóng & Kết Cấu Hạt (Texture)"
   ],
   "learningOutcomes": [
-    "Navigate the Export Persona workspace and distinguish document, artboard, and layer-based slices.",
-    "Configure automated multi-density asset pipelines across 1x, 2x, and 3x scale factors for PNG, WebP, and SVG.",
-    "Operate the Continuous Export engine to trigger automated background asset rebuilding upon saving.",
-    "Audit and optimize SVG export presets with clean viewBox coordinates, decimal precision, and flattened transforms.",
-    "Generate press-ready PDF/X-1a and PDF/X-4 commercial print documents with 300 DPI rasterization and bleed marks."
+    "Làm chủ không gian làm việc Slice Studio và phân biệt vùng cắt lát toàn tài liệu, theo Artboard và theo Layer.",
+    "Thiết lập đường ống xuất tự động đa mật độ 1x, 2x, 3x cho các định dạng PNG, WebP và SVG.",
+    "Vận hành cơ chế Continuous Export để tự động kết xuất lại tài nguyên nền mỗi khi lưu bản thiết kế.",
+    "Kiểm tra và tinh gọn cấu hình xuất SVG với tọa độ viewBox chuẩn, giảm chữ số thập phân và làm phẳng biến đổi.",
+    "Xuất tệp in thương mại PDF/X-1a và PDF/X-4 đạt chuẩn 300 DPI kèm lề tràn xén (bleed) và dấu căn cắt nhà in."
   ],
   "capstoneProject": {
-    "title": "Multi-Platform Production Delivery Package",
-    "description": "Prepare a comprehensive commercial delivery package from an enterprise brand system: automate continuous multi-density slicing (1x/2x/3x PNG and WebP), export optimized lightweight SVGs with responsive viewBoxes, and generate a preflight-verified PDF/X-4 print sheet with trim marks and 3mm bleed.",
+    "title": "Bộ hồ sơ bàn giao sản xuất đa nền tảng",
+    "description": "Đóng gói bộ tài sản thương mại hoàn chỉnh từ hệ thống nhận diện thương hiệu: thiết lập cắt lát tự động đa mật độ (1x/2x/3x PNG và WebP), xuất tệp SVG gọn nhẹ có viewBox linh hoạt và xuất bản in PDF/X-4 kèm dấu cắt thành phẩm và lề tràn 3mm.",
     "deliverableAsset": "curriculum/assets/designer/D10_export_slices_production_guide.md",
     "evaluationCriteria": [
-      "Layer-based slices established in Export Persona for all core icons and UI cards.",
-      "Multi-density presets configured with correct scale suffixes (@1x, @2x, @3x).",
-      "Exported SVG files verified clean in code editor without bloated base64 raster blobs.",
-      "Press PDF/X-4 rendered with active trim marks, registration marks, and 3mm bleed margin."
+      "Tạo đầy đủ Layer-Based Slices trong Slice Studio cho các biểu tượng và thẻ giao diện cốt lõi.",
+      "Cấu hình đúng hậu tố tỷ lệ cho các cấp mật độ (@1x, @2x, @3x).",
+      "Kiểm tra mã nguồn tệp SVG xuất ra sạch sẽ, không chứa khối ảnh raster mã hóa base64 phình dung lượng.",
+      "Tệp PDF/X-4 xuất ra có đủ dấu cắt (crop marks), dấu căn chồng màu (registration marks) và lề tràn 3mm."
     ]
   },
   "lessons": [
     {
       "id": "D10-01",
       "order": 1,
-      "title": "Export Persona Workspace & Slices Architecture",
-      "subtitle": "Persona Navigation, Slice Tool, Layer Slices & Bounding Box Tracking",
+      "title": "Slice Studio và cấu trúc Slices",
+      "subtitle": "Điều hướng Slice Studio, Slice Tool, cắt lát theo Layer và tự động bám khung bao",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D10-02",
       "order": 2,
-      "title": "Multi-Density Formats & Continuous Export Engine",
-      "subtitle": "1x/2x/3x Scaling, PNG/WebP/JPEG XL, Suffix Syntax & Background Auto-Builds",
+      "title": "Định dạng đa mật độ và Continuous Export",
+      "subtitle": "Nhân tỷ lệ 1x/2x/3x, PNG/WebP/JPEG XL, cú pháp hậu tố và tự động xuất nền",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },
     {
       "id": "D10-03",
       "order": 3,
-      "title": "Clean SVG Code Optimization & Press-Ready PDF/X",
-      "subtitle": "viewBox Precision, Font Embedding Rules, PDF/X-4 & Commercial Bleed Setup",
+      "title": "Tối ưu mã SVG và PDF/X sẵn sàng in ấn",
+      "subtitle": "Độ chính xác viewBox, quy tắc nhúng font chữ, PDF/X-4 và thiết lập lề tràn Bleed",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     }

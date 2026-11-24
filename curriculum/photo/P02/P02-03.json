@@ -3,8 +3,8 @@
   "moduleId": "P02",
   "trackId": "photo",
   "order": 3,
-  "title": "Pixel Masks & Non-Destructive Masking Architectures",
-  "subtitle": "Black Conceals, White Reveals, Inverted Masks & Quick Mask Workflows",
+  "title": "Pixel Mask và kiến trúc Masking phi phá hủy",
+  "subtitle": "Đen che đi, Trắng hé mở, đảo ngược mặt nạ và quy trình Quick Mask",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Layer Mask System & Paint Brush Tool",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Ctrl+I (Invert Mask)",
         "mac": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Cmd+I (Invert Mask)"
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P03 Layers & Non-Destructive Editing",
+          "title": "Học phần tiếp theo: P03 Các loại Layer, tổ chức và phân cấp tài liệu",
           "target": "P03-01",
           "type": "next-lesson"
         },
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Gắn Mặt Nạ:** Chọn layer ảnh, nhấn biểu tượng Mask ở đáy Layers Studio (F7).\n2. **Chuẩn bị cọ:** Bấm `D` để lấy màu chuẩn, bấm `X` lấy màu Đen, bấm `B` chọn Paint Brush.\n3. **Tô che giấu:** Quét cọ lên những phần thừa cần ẩn đi.\n4. **Đảo ngược mặt nạ (Kỹ thuật Pro):** Nhấn `Ctrl+I` (Win) / `Cmd+I` (Mac). Mặt nạ lập tức biến thành đen tuyền, giấu toàn bộ ảnh. Bây giờ bạn chỉ việc dùng cọ Trắng tô hé lộ đúng những điểm cần khoe!",
       "visual": {
         "type": "badge-grid",
-        "content": "Add Mask | Key D & X | Paint Brush (B) | Invert Mask (Ctrl+I) | Restore with White"
+        "content": "Thêm Mask | Phím D & X | Paint Brush (B) | Đảo Mask (Ctrl+I) | Khôi phục bằng màu Trắng"
       }
     },
     {

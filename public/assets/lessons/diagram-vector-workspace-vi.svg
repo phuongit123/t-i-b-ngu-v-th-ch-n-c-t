@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" fill="none">
+  <rect width="800" height="480" rx="16" fill="#09090B"/>
+  <rect x="20" y="20" width="760" height="440" rx="12" fill="#111118" stroke="#27272A" stroke-width="1.5"/>
+  <!-- Studio selector and context toolbar -->
+  <rect x="20" y="20" width="760" height="44" rx="12" fill="#181822"/>
+  <circle cx="48" cy="42" r="8" fill="#00D2FF"/>
+  <text x="64" y="47" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="13" font-weight="700">Vector Studio</text>
+  <rect x="175" y="30" width="84" height="24" rx="6" fill="#27272A"/>
+  <text x="188" y="46" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Pixel</text>
+  <rect x="267" y="30" width="84" height="24" rx="6" fill="#27272A"/>
+  <text x="279" y="46" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Layout</text>
+  <text x="380" y="46" fill="#00D2FF" font-family="JetBrains Mono, monospace" font-size="11">Thanh tùy chọn thay đổi theo công cụ</text>
+  <!-- Left Toolbar -->
+  <rect x="32" y="76" width="52" height="370" rx="8" fill="#181822" stroke="#27272A"/>
+  <rect x="42" y="90" width="32" height="32" rx="6" fill="#00D2FF" fill-opacity="0.18" stroke="#00D2FF"/>
+  <path d="M58 97 L66 112 L58 109 L50 112 Z" fill="#00D2FF"/>
+  <rect x="42" y="132" width="32" height="32" rx="6" fill="#27272A"/>
+  <circle cx="58" cy="148" r="5" stroke="#A1A1AA" stroke-width="1.8"/>
+  <rect x="42" y="174" width="32" height="32" rx="6" fill="#27272A"/>
+  <rect x="49" y="181" width="18" height="18" rx="3" stroke="#A1A1AA" stroke-width="1.8"/>
+  <text x="41" y="428" fill="#71717A" font-family="JetBrains Mono, monospace" font-size="9">Tools</text>
+  <!-- Center Artboard Canvas -->
+  <rect x="98" y="76" width="466" height="370" rx="8" fill="#0B0B0F" stroke="#27272A"/>
+  <rect x="134" y="110" width="394" height="280" rx="6" fill="#14161F" stroke="#38BDF8" stroke-dasharray="5 4"/>
+  <text x="148" y="132" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="11">Artboard 01 — Thiết kế biểu tượng vector (1080 × 1080 px)</text>
+  <path d="M210 290 C250 175, 410 175, 450 290" stroke="#00D2FF" stroke-width="3.5" fill="none"/>
+  <line x1="210" y1="290" x2="250" y2="175" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="450" y1="290" x2="410" y2="175" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="250" cy="175" r="5" fill="#F59E0B"/>
+  <circle cx="410" cy="175" r="5" fill="#F59E0B"/>
+  <rect x="204" y="284" width="12" height="12" fill="#09090B" stroke="#00D2FF" stroke-width="2.5"/>
+  <rect x="444" y="284" width="12" height="12" fill="#09090B" stroke="#00D2FF" stroke-width="2.5"/>
+  <!-- Right Studio Panels -->
+  <rect x="578" y="76" width="190" height="370" rx="8" fill="#181822" stroke="#27272A"/>
+  <text x="594" y="102" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="12" font-weight="700">Bảng Studio (Layers &amp; Stroke)</text>
+  <rect x="592" y="118" width="162" height="34" rx="6" fill="#00D2FF" fill-opacity="0.14" stroke="#00D2FF" stroke-opacity="0.5"/>
+  <text x="604" y="139" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11">Đường cong chính (Curve)</text>
+  <rect x="592" y="160" width="162" height="34" rx="6" fill="#111118" stroke="#27272A"/>
+  <text x="604" y="181" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Khung lưới chuẩn (Grid)</text>
+  <rect x="592" y="202" width="162" height="34" rx="6" fill="#111118" stroke="#27272A"/>
+  <text x="604" y="223" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="11">Màu nền Artboard</text>
+  <rect x="592" y="260" width="162" height="104" rx="6" fill="#111118" stroke="#27272A"/>
+  <text x="604" y="282" fill="#F4F4F5" font-family="Inter, sans-serif" font-size="11" font-weight="600">Chú thích vùng thao tác:</text>
+  <text x="604" y="302" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">1. Thanh công cụ trái [P, A, V]</text>
+  <text x="604" y="320" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">2. Context Toolbar ngữ cảnh</text>
+  <text x="604" y="338" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="10">3. Artboard &amp; Bảng Layers</text>
+</svg>

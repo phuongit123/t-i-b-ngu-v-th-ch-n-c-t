@@ -3,99 +3,99 @@
   "moduleId": "D08",
   "trackId": "designer",
   "order": 1,
-  "title": "Symbol Creation & Multi-Instance Synchronization",
-  "subtitle": "Symbols Panel, Sync ON/OFF Toggle & Non-Destructive Overrides",
+  "title": "Tạo Symbol và đồng bộ nhiều phiên bản",
+  "subtitle": "Symbols Studio, công tắc Sync ON/OFF và ghi đè thuộc tính phi phá hủy",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Master the Symbols panel as the central hub for reusable linked vector components.",
-      "Convert complex vector illustrations, icons, and UI groups into master symbols.",
-      "Operate the Synchronize (Sync) toggle to switch seamlessly between global propagation and local instance overrides.",
-      "Understand the internal link graph of Affinity Designer to avoid accidental detached master states."
+      "Sử dụng bảng Symbols Studio làm trung tâm quản lý các thành phần vector tái sử dụng có liên kết động.",
+      "Chuyển đổi các nhóm giao diện, biểu tượng hoặc hình minh họa phức tạp thành biểu tượng gốc (Master Symbol).",
+      "Điều khiển công tắc Synchronize (Sync) để chuyển đổi linh hoạt giữa cập nhật hàng loạt và tùy biến cục bộ trên từng bản sao.",
+      "Hiểu cơ chế liên kết bên trong của Affinity để tránh vô tình ngắt kết nối (Detach) khỏi bản gốc."
     ],
-    "foundationalKnowledge": "In professional UI/UX, branding, and multi-artboard design, maintaining identical vector elements across dozens of screens manually is impossible without severe human error. Affinity Designer solves this through its intelligent Symbols architecture. Unlike static copy-pasting, a Symbol creates a live, bidirectional linkage across all instances in the document. The crowning feature of Designer's symbols is the 'Synchronize' (Sync) toggle in the Symbols panel (Window > Vector > Symbols): when Sync is ON, any change to geometry, color, or style ripples across all instances; when Sync is OFF, an artist can execute local overrides (such as changing button copy or avatar images) while keeping the foundational geometry and future style updates perfectly synchronized.",
+    "foundationalKnowledge": "Trong thiết kế giao diện UI/UX, nhận diện thương hiệu hay dự án nhiều Artboard, việc sửa thủ công hàng chục bản sao của cùng một nút bấm hay thẻ thông tin rất dễ gây sai sót. Affinity giải quyết bài toán này bằng kiến trúc Symbols. Khác với sao chép thông thường, mỗi Symbol duy trì liên kết hai chiều giữa tất cả các bản sao trong tài liệu. Điểm cốt lõi nằm ở nút 'Synchronize' (Sync) trong bảng Symbols (Window > Vector > Symbols): khi Sync bật (ON), mọi chỉnh sửa hình dáng, màu sắc hay bo góc lan truyền đồng loạt sang mọi bản sao; khi Sync tắt (OFF), bạn có thể đổi nội dung chữ hoặc sắc thái riêng trên một bản sao mà không làm đứt liên kết cấu trúc với các bản còn lại.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Symbols Panel & Dynamic Instance Architecture Specification",
+      "source": "Đặc tả bảng Symbols và cơ chế đồng bộ bản sao động trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Symbols panel",
+      "toolName": "Symbols Studio (bảng Symbols)",
       "persona": "Vector Studio (Window > Vector > Symbols)",
       "shortcut": {
-        "win": "Window > Vector > Symbols (Legacy: View > Studio > Symbols), Sync Toggle Button",
-        "mac": "Window > Vector > Symbols (Legacy: View > Studio > Symbols), Sync Toggle Button"
+        "win": "Window > Vector > Symbols (Bản cũ: View > Studio > Symbols), nút bật/tắt Sync",
+        "mac": "Window > Vector > Symbols (Bản cũ: View > Studio > Symbols), nút bật/tắt Sync"
       },
-      "description": "Manages creation, instantiation, and bidirectional synchronization of linked vector symbols across the document via the Symbols panel.",
+      "description": "Bảng quản lý khởi tạo, nhân bản và đồng bộ hai chiều các biểu tượng vector liên kết trong cùng một tài liệu.",
       "contextBarOptions": [
-        "Create Button: Converts the currently selected layer or group into a master symbol",
-        "Synchronize (Sync) Button: Active (orange) propagates edits globally; Inactive (gray) isolates edits locally",
-        "Detach Button: Permanently severs a selected instance from the symbol master, converting it into a normal group",
-        "Symbol Palette: Visual gallery of all symbols created within the active document"
+        "Nút Create: Chuyển đổi lớp hoặc nhóm đang chọn thành một Master Symbol",
+        "Nút Synchronize (Sync): Bật (nền cam) để đồng bộ toàn cục; Tắt (nền xám) để ghi đè cục bộ trên từng bản sao",
+        "Nút Detach: Ngắt vĩnh viễn bản sao đang chọn khỏi Symbol gốc, trả về dạng Group thông thường",
+        "Danh sách Symbol: Kho hiển thị toàn bộ các biểu tượng đã tạo trong tài liệu hiện hành"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open and Dock Symbols Panel",
-        "instruction": "Go to Window > Vector > Symbols (or Window > Symbols; legacy: View > Studio > Symbols). Dock the Symbols panel into the right dock next to the Layers panel.",
+        "title": "Mở và gắn bảng Symbols vào không gian làm việc",
+        "instruction": "Vào Window > Vector > Symbols (hoặc Window > Symbols; ở bản cũ là View > Studio > Symbols). Gắn bảng Symbols vào thanh dock bên phải cạnh bảng Layers để tiện quan sát.",
         "shortcutTip": { "win": "Window > Vector > Symbols", "mac": "Window > Vector > Symbols" }
       },
       {
         "stepNumber": 2,
-        "title": "Create a Master Button Symbol",
-        "instruction": "Select your grouped button component ('Component_Button_Primary'). In the Symbols panel, click the 'Create' button. Observe that the symbol appears in the palette, and the layer in the Layers panel is marked with an orange vertical bar and labeled 'Symbol'.",
-        "shortcutTip": { "win": "Click 'Create'", "mac": "Click 'Create'" }
+        "title": "Tạo Master Symbol từ nhóm nút bấm",
+        "instruction": "Chọn nhóm nút bấm bạn đã dựng ('Component_Button_Primary'). Trong bảng Symbols, nhấn nút 'Create'. Biểu tượng mới hiện ngay trong bảng, đồng thời lớp này trong bảng Layers có vạch dọc màu cam kèm nhãn 'Symbol'.",
+        "shortcutTip": { "win": "Nhấn 'Create'", "mac": "Nhấn 'Create'" }
       },
       {
         "stepNumber": 3,
-        "title": "Place Multiple Instances",
-        "instruction": "Drag the button from the Symbols panel palette onto the canvas 3 times to create 3 sister instances (or select the button and press Ctrl+J / Cmd+J three times).",
+        "title": "Đặt nhiều bản sao lên bản vẽ",
+        "instruction": "Kéo nút từ bảng Symbols thả ra bản vẽ 3 lần để tạo 3 bản sao liên kết (hoặc chọn đối tượng và nhấn Ctrl+J / Cmd+J ba lần).",
         "shortcutTip": { "win": "Ctrl+J", "mac": "Cmd+J" }
       },
       {
         "stepNumber": 4,
-        "title": "Execute Local Overrides with Sync OFF",
-        "instruction": "In the Symbols panel, click the 'Sync' button to turn it OFF (the button becomes unlit). Select Instance 2, double-click its text label, and change it to 'Save Changes'. Select Instance 3 and change its text to 'Cancel'. Notice that Instance 1's text remains unchanged!",
+        "title": "Ghi đè chữ cục bộ khi tắt Sync (Sync OFF)",
+        "instruction": "Nhấp nút 'Sync' trên bảng Symbols để chuyển sang trạng thái OFF (màu xám). Chọn bản sao thứ 2, nhấp đúp sửa nhãn chữ thành 'Save Changes'. Chọn bản sao thứ 3 và đổi chữ thành 'Cancel'. Quan sát: chữ trên bản sao thứ 1 vẫn giữ nguyên.",
         "shortcutTip": { "win": "Sync OFF", "mac": "Sync OFF" }
       },
       {
         "stepNumber": 5,
-        "title": "Propagate Global Edits with Sync ON",
-        "instruction": "Click the 'Sync' button back to ON (highlighted in orange). Select Instance 1. Change its fill color from Indigo (#4F46E5) to Emerald (#059669), and adjust its corner radius to 20 px. Observe that all 3 instances update to emerald with 20px corners, while their custom text labels remain intact!",
+        "title": "Đồng bộ thay đổi toàn cục khi bật Sync (Sync ON)",
+        "instruction": "Nhấp lại nút 'Sync' sang trạng thái ON (nền cam). Chọn bản sao thứ 1, đổi màu nền từ xanh chàm (#4F46E5) sang xanh lục (#059669) và đặt bo góc 20 px. Cả 3 bản sao lập tức đổi màu và bo góc đồng loạt nhưng vẫn giữ nguyên nhãn chữ riêng của từng nút.",
         "shortcutTip": { "win": "Sync ON", "mac": "Sync ON" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Symbols Panel Sync Modes Matrix",
-        "description": "Behavior comparison when editing with Sync ON versus Sync OFF.",
+        "title": "Ma trận trạng thái Sync của Symbols Studio",
+        "description": "Phạm vi tác động khi chỉnh sửa ở trạng thái Sync ON, Sync OFF và Detach.",
         "visualType": "table",
-        "visualContent": "| Mode | Visual State | Edit Action | Scope of Impact |\n|---|---|---|---|\n| Sync ON | Orange Highlight | Change corner radius, color, or shape | All instances update synchronously across the document |\n| Sync ON | Orange Highlight | Add a new child layer (e.g. badge icon) | All instances receive the new child layer instantly |\n| Sync OFF | Gray / Inactive | Change text string or swap fill color | Modifies ONLY the selected instance (Local Override) |\n| Detach | Context Action | Click 'Detach' in Symbols panel | Permanently breaks symbol link; reverts to plain Group |"
+        "visualContent": "| Trạng thái | Dấu hiệu trên nút | Thao tác chỉnh sửa | Phạm vi ảnh hưởng |\n|---|---|---|---|\n| Sync ON | Sáng nền cam | Đổi bo góc, màu nền hoặc hình dáng | Toàn bộ các bản sao trong tài liệu cập nhật cùng lúc |\n| Sync ON | Sáng nền cam | Thêm lớp con mới (ví dụ huy hiệu thông báo) | Tất cả bản sao đều nhận thêm lớp con mới ngay lập tức |\n| Sync OFF | Nền xám / Tắt | Đổi nội dung chữ hoặc đổi màu cục bộ | Chỉ thay đổi đúng bản sao đang chọn (Local Override) |\n| Detach | Lệnh tách rời | Nhấn nút 'Detach' trong bảng Symbols | Cắt vĩnh viễn liên kết Symbol; chuyển lại thành Group thường |"
       },
       {
-        "title": "Symbol Layer Indicator in Layers Studio",
-        "description": "Visual identification of linked symbol instances.",
+        "title": "Nhận diện Symbol trong bảng Layers",
+        "description": "Cách nhận biết lớp đang liên kết và thuộc tính đã được ghi đè cục bộ.",
         "visualType": "diagram",
-        "visualContent": "Layers Studio:\n[🟠 │ Symbol] ──> Master/Instance linked container (Orange bar)\n    ├── [Rectangle] (Corner radius linked)\n    ├── [Icon_Check] (Vector geometry linked)\n    └── [Text: 'Save Draft'] (Locally overridden text)"
+        "visualContent": "Layers Studio:\n[🟠 │ Symbol] ──> Khối chứa đang liên kết (Vạch dọc màu cam)\n    ├── [Rectangle] (Bo góc vẫn đồng bộ toàn cục)\n    ├── [Icon_Check] (Hình học vector vẫn đồng bộ toàn cục)\n    └── [Text: 'Save Draft'] (Nội dung chữ đã ghi đè riêng cục bộ)"
       }
     ],
     "guidedPractice": {
-      "title": "Creating a Synchronized Navigation Bar",
-      "taskDescription": "Construct a responsive navigation bar across three desktop artboards using linked symbols and local active-state overrides.",
+      "title": "Dựng thanh điều hướng đồng bộ cho nhiều màn hình",
+      "taskDescription": "Thiết kế thanh điều hướng dùng chung trên ba Artboard màn hình desktop bằng một Master Symbol kết hợp ghi đè trạng thái đang chọn.",
       "checkpoints": [
-        "Design a 5-item horizontal navigation bar and convert the container into a Symbol.",
-        "Duplicate the nav symbol onto three distinct artboards ('Home', 'Analytics', 'Settings').",
-        "Turn Sync OFF in the Symbols panel.",
-        "Highlight the 'Home' tab on Artboard 1, 'Analytics' on Artboard 2, and 'Settings' on Artboard 3.",
-        "Turn Sync ON, add a brand logo to the left edge of Artboard 1, and verify that the logo propagates to all artboards."
+        "Thiết kế thanh điều hướng ngang gồm 5 mục và nhấn Create để biến thành Symbol.",
+        "Đặt bản sao thanh điều hướng lên 3 Artboard riêng biệt ('Home', 'Analytics', 'Settings').",
+        "Tắt nút Sync (Sync OFF) trong bảng Symbols.",
+        "Đổi màu nhấn mục 'Home' ở Artboard 1, mục 'Analytics' ở Artboard 2 và mục 'Settings' ở Artboard 3.",
+        "Bật lại Sync ON, thêm logo thương hiệu vào mép trái trên Artboard 1 và kiểm tra logo tự xuất hiện trên cả 3 Artboard."
       ],
-      "expectedOutcome": "A unified multi-artboard navigation system where brand updates propagate globally while active tab highlights remain distinct."
+      "expectedOutcome": "Hệ thống thanh điều hướng đồng nhất: thay đổi logo chỉ cần sửa một chỗ nhưng trạng thái mục đang chọn vẫn khác nhau trên từng màn hình."
     },
     "independentChallenge": {
-      "title": "Metric Analytics Card Component with Overrides",
-      "prompt": "Construct a scalable KPI metric card system: (1) Build a 280x160 px metric card containing a title ('Total Revenue'), a large numerical value ('$124,500'), a percentage trend pill ('+14.2%'), and a subtle sparkline curve; (2) Convert the card into a master Symbol; (3) Place 4 instances in a dashboard grid; (4) With Sync OFF, override each card's title, value, and pill color (Green for positive, Red for negative); (5) With Sync ON, modify the card background blur and border gradient, verifying that all 4 cards update simultaneously without wiping your local data.",
+      "title": "Thẻ chỉ số KPI có ghi đè dữ liệu cục bộ",
+      "prompt": "Xây dựng hệ thống thẻ chỉ số phân tích dữ liệu: (1) Vẽ thẻ 280x160 px gồm tiêu đề ('Total Revenue'), con số lớn ('$124,500'), nhãn xu hướng ('+14.2%') và đường biểu đồ nhỏ; (2) Chuyển thẻ thành Master Symbol; (3) Xếp 4 bản sao thành lưới 2x2; (4) Tắt Sync để nhập riêng tiêu đề, số liệu và màu nhãn (xanh cho tăng, đỏ cho giảm) cho từng thẻ; (5) Bật lại Sync để chỉnh màu nền và độ dày viền khung thẻ, xác nhận cả 4 thẻ đều đổi dáng mà không mất dữ liệu riêng.",
       "starterAsset": {
         "filename": "D08_symbols_assets_guide.md",
         "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
@@ -103,186 +103,186 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for Symbols panel and component overrides (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn làm việc với bảng Symbols và ghi đè thuộc tính cục bộ (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Master symbol created with orange indicator in Layers panel.",
-        "4 dashboard instances populated with unique local text and color overrides via Sync OFF.",
-        "Global card border styling modified with Sync ON without corrupting local data.",
-        "Zero broken or detached symbol errors."
+        "Tạo thành công Master Symbol có vạch dọc màu cam trong bảng Layers.",
+        "4 thẻ dashboard hiển thị số liệu và màu xu hướng riêng nhờ thao tác với Sync OFF.",
+        "Thay đổi viền thẻ khi bật Sync ON lan tỏa sang cả 4 thẻ mà không xóa nội dung chữ đã ghi đè.",
+        "Không có bản sao nào bị ngắt kết nối (Detach) ngoài ý muốn."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Editing text while Sync is inadvertently left ON.",
-        "consequence": "The text string changes across all symbol instances across all artboards, overwriting unique titles.",
-        "solution": "Always verify the Sync button state in the Symbols panel before editing. Turn Sync OFF before changing local text."
+        "mistake": "Quên tắt nút Sync khi đang sửa chữ hoặc số liệu cho một bản sao riêng lẻ.",
+        "consequence": "Nội dung vừa sửa bị ghi đè sang tất cả các màn hình khác trong tài liệu, làm mất sạch tiêu đề riêng của từng nút.",
+        "solution": "Luôn liếc nhìn màu nút Sync trong bảng Symbols trước khi gõ chữ. Tắt Sync sang màu xám nếu chỉ muốn sửa cục bộ."
       },
       {
-        "mistake": "Clicking 'Detach' when simply wanting to edit a single property.",
-        "consequence": "Permanently severs the instance from the symbol graph; future global design updates will no longer affect this object.",
-        "solution": "Never click Detach unless you intend to completely abandon component linkage. Use Sync OFF for overrides."
+        "mistake": "Nhấn 'Detach' khi chỉ muốn đổi màu hoặc sửa chữ cho một nút.",
+        "consequence": "Cắt đứt vĩnh viễn liên kết với Symbol gốc; mọi cập nhật bố cục về sau sẽ không áp dụng lên nút đó nữa.",
+        "solution": "Chỉ dùng Detach khi thực sự muốn biến bản sao thành một nhóm độc lập hoàn toàn. Để tùy biến giữ liên kết, hãy dùng Sync OFF."
       },
       {
-        "mistake": "Deleting a child layer while Sync is ON.",
-        "consequence": "The deleted child element is deleted from every single instance throughout the entire document.",
-        "solution": "If a child layer should only be hidden on one instance, turn Sync OFF and toggle that child's visibility checkmark in Layers."
+        "mistake": "Xóa một lớp con bên trong Symbol khi Sync đang bật (ON).",
+        "consequence": "Lớp con đó bị xóa sạch khỏi toàn bộ mọi bản sao trên tất cả Artboard.",
+        "solution": "Nếu chỉ muốn giấu một chi tiết trên duy nhất một bản sao, hãy tắt Sync trước rồi mới bỏ dấu tích hiển thị của lớp con đó trong bảng Layers."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary function of turning the 'Sync' button OFF in the Symbols panel?",
+        "question": "Tác dụng chính của việc chuyển nút 'Sync' sang trạng thái OFF trong bảng Symbols là gì?",
         "options": [
-          "It deletes the master symbol from the document.",
-          "It allows you to make local overrides (such as text or color) on a specific instance without affecting other instances.",
-          "It converts the vector symbol into a raster pixel layer.",
-          "It pauses the GPU acceleration for the Layers Studio."
+          "Xóa vĩnh viễn Master Symbol khỏi tài liệu.",
+          "Cho phép ghi đè cục bộ (như đổi chữ hoặc màu sắc) trên riêng bản sao đang chọn mà không ảnh hưởng đến các bản sao khác.",
+          "Chuyển đổi Symbol vector thành lớp ảnh raster.",
+          "Tạm dừng tăng tốc GPU cho bảng Layers."
         ],
         "correctIndex": 1,
-        "explanation": "When Sync is OFF, edits made to an instance are treated as local overrides, allowing unique copy or colors without breaking the master symbol linkage for future global updates."
+        "explanation": "Khi Sync tắt (OFF), mọi thay đổi chỉ áp dụng cục bộ cho bản sao đang chọn nhưng vẫn giữ nguyên liên kết với bản gốc cho các lần cập nhật cấu trúc sau này."
       },
       {
-        "question": "How can you identify that a layer is a linked Symbol in the Layers Studio?",
+        "question": "Dấu hiệu nhận biết một lớp là Symbol đang liên kết trong bảng Layers Studio là gì?",
         "options": [
-          "It has a red exclamation mark next to its name.",
-          "It displays an orange vertical bar on its left edge and is titled 'Symbol'.",
-          "It is colored in grayscale.",
-          "It cannot be expanded in the layer tree."
+          "Có dấu chấm than màu đỏ bên cạnh tên lớp.",
+          "Có một vạch dọc màu cam ở cạnh trái và nhãn tên mặc định là 'Symbol'.",
+          "Lớp hiển thị bằng màu xám đen trắng.",
+          "Không thể bấm mũi tên mở rộng cây lớp con."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer marks linked Symbol containers in the Layers Studio with an orange vertical bar along their left border and the word 'Symbol'."
+        "explanation": "Affinity đánh dấu mọi đối tượng chứa Symbol bằng một thanh dọc màu cam nổi bật ở cạnh trái kèm chữ 'Symbol' trong bảng Layers."
       },
       {
-        "question": "What happens if you turn Sync back ON and add a new vector icon into one of the symbol instances?",
+        "question": "Điều gì xảy ra nếu bạn bật lại Sync (ON) và thêm một biểu tượng vector mới vào bên trong một bản sao Symbol?",
         "options": [
-          "Affinity Designer crashes with a fatal error.",
-          "The new icon is automatically added to all linked symbol instances across the document, while preserving existing local text overrides.",
-          "All local overrides are immediately reset to default values.",
-          "The icon is only added to the first page."
+          "Phần mềm tự động đóng đột ngột.",
+          "Biểu tượng mới tự động xuất hiện trong tất cả các bản sao liên kết trên toàn tài liệu, trong khi các phần chữ đã ghi đè riêng vẫn được giữ nguyên.",
+          "Toàn bộ chữ đã ghi đè trước đó bị xóa về mặc định.",
+          "Biểu tượng chỉ xuất hiện ở trang đầu tiên."
         ],
         "correctIndex": 1,
-        "explanation": "Designer preserves local overrides intelligently: structural changes made with Sync ON propagate to all instances without erasing previous local text or color overrides."
+        "explanation": "Cơ chế đồng bộ thông minh của Affinity lan truyền các thay đổi cấu trúc mới (khi Sync ON) mà không phá bỏ những thuộc tính đã được ghi đè riêng khi Sync OFF."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Symbols establish live, bidirectional component linkages across artboards.",
-        "The Sync button controls whether modifications propagate globally (ON) or apply locally (OFF).",
-        "Orange bars in the Layers Studio denote active symbol containers.",
-        "Never Detach a symbol unless you intend to permanently orphan the object from the design system."
+        "Symbols tạo liên kết đồng bộ hai chiều giữa các bản sao trên nhiều Artboard trong cùng tệp.",
+        "Công tắc Sync quyết định thao tác chỉnh sửa sẽ lan toàn cục (ON) hay chỉ áp dụng cục bộ (OFF).",
+        "Thanh dọc màu cam trong Layers Studio là dấu hiệu nhận biết lớp Symbol đang liên kết.",
+        "Không bấm Detach trừ khi bạn chủ ý muốn tách hẳn đối tượng khỏi hệ thống component."
       ],
-      "nextSteps": "Proceed to D08-02 to learn the Assets Studio and package portable .afassets component libraries.",
+      "nextSteps": "Chuyển sang bài D08-02 để làm việc với Assets Studio và đóng gói thư viện thành phần .afassets dùng chung giữa nhiều dự án.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/symbolsPanel.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Introduction to Reusable Vector Symbols",
-      "subtitle": "Eliminating Repetitive Edits Across Artboards",
+      "title": "Giới thiệu hệ thống Symbols tái sử dụng",
+      "subtitle": "Chấm dứt việc sửa thủ công lặp lại qua nhiều Artboard",
       "bullets": [
-        "In modern UI, app design, and identity systems, consistency across screens is paramount.",
-        "Manual copy-pasting creates maintenance nightmares when brand styles change.",
-        "Affinity Designer Symbols provide live, bidirectional component linking.",
-        "Updating geometry or color on one symbol instance can propagate to 100+ screens in milliseconds."
+        "Trong thiết kế UI và nhận diện thương hiệu, tính nhất quán qua hàng chục màn hình là yêu cầu bắt buộc.",
+        "Sao chép thủ công kiểu copy-paste khiến việc đổi màu hay bo góc về sau tốn rất nhiều công sức.",
+        "Symbols tạo ra liên kết hai chiều sống động giữa tất cả các bản sao trong tài liệu.",
+        "Chỉ cần sửa hình dáng một lần, hàng trăm màn hình có thể cập nhật đồng loạt trong tích tắc."
       ],
-      "proTip": "Convert every recurring UI element (buttons, headers, cards) into a Symbol early in the project."
+      "proTip": "Hãy biến mọi thành phần lặp lại (nút bấm, thanh tiêu đề, thẻ thông tin) thành Symbol ngay từ đầu dự án."
     },
     {
       "slideNumber": 2,
-      "title": "The Symbols Panel Architecture",
-      "subtitle": "Your Central Component Palette",
+      "title": "Cấu trúc bảng Symbols Studio",
+      "subtitle": "Trung tâm quản lý component của tài liệu",
       "bullets": [
-        "Open via Window > Vector > Symbols (or Window > Symbols; legacy: View > Studio > Symbols).",
-        "Select any vector object or group, then click 'Create' to register a master symbol.",
-        "Drag instances freely from the Symbols palette onto any artboard.",
-        "Layers panel marks all linked instances with a prominent orange vertical bar."
+        "Mở qua Window > Vector > Symbols (hoặc Window > Symbols; bản cũ: View > Studio > Symbols).",
+        "Chọn bất kỳ đối tượng hoặc nhóm vector nào rồi nhấn 'Create' để đăng ký Master Symbol.",
+        "Kéo trực tiếp từ bảng Symbols thả ra bất kỳ Artboard nào để tạo bản sao mới.",
+        "Bảng Layers đánh dấu mọi bản sao liên kết bằng vạch dọc màu cam dễ nhận biết."
       ],
-      "proTip": "Rename your symbols in the Symbols panel with semantic naming (e.g. 'Btn_Primary_Large')."
+      "proTip": "Đặt tên ngữ nghĩa rõ ràng cho từng Symbol ngay khi tạo (ví dụ: 'Btn_Primary_Large')."
     },
     {
       "slideNumber": 3,
-      "title": "The Synchronization Engine (Sync Toggle)",
-      "subtitle": "Global Updates vs Local Overrides",
+      "title": "Cơ chế đồng bộ với công tắc Sync",
+      "subtitle": "Cập nhật toàn cục hay Ghi đè cục bộ",
       "bullets": [
-        "The 'Sync' button in the Symbols panel governs propagation behavior.",
-        "Sync ON (Orange active): Edits apply to all linked instances in the document.",
-        "Sync OFF (Gray unlit): Edits apply strictly to the selected instance as local overrides.",
-        "Switch between Sync ON and OFF fluidly based on whether you are editing structure or content."
+        "Nút 'Sync' trên bảng Symbols điều phối phạm vi áp dụng của mọi chỉnh sửa.",
+        "Sync ON (Sáng cam): mọi chỉnh sửa lan truyền sang toàn bộ các bản sao trong tài liệu.",
+        "Sync OFF (Xám tắt): chỉnh sửa chỉ tác động lên riêng bản sao đang chọn (Local Override).",
+        "Bật/tắt Sync linh hoạt tùy theo việc bạn đang sửa khung cấu trúc chung hay nội dung riêng."
       ],
-      "callout": "Always check the Sync button color before typing text to avoid overwriting all screens!"
+      "callout": "Luôn kiểm tra màu của nút Sync trước khi gõ sửa chữ để tránh ghi đè nhầm sang tất cả màn hình!"
     },
     {
       "slideNumber": 4,
-      "title": "Executing Safe Local Overrides",
-      "subtitle": "Customizing Copy and Media Without Breaking Links",
+      "title": "Thực hiện ghi đè cục bộ an toàn",
+      "subtitle": "Đổi chữ và màu sắc riêng mà không làm đứt liên kết",
       "bullets": [
-        "Turn Sync OFF in the Symbols panel.",
-        "Select an instance and double-click its text label to change button copy.",
-        "Swap fill colors or adjust opacity for hover and active state simulations.",
-        "The underlying geometry, corner radii, and stroke styling remain linked to the master."
+        "Nhấn tắt nút Sync (Sync OFF) trong bảng Symbols.",
+        "Chọn một bản sao và nhấp đúp vào chữ để đổi nhãn riêng cho nút đó.",
+        "Có thể đổi màu nền hoặc độ trong suốt riêng để mô phỏng trạng thái Hover / Disabled.",
+        "Khung hình học, bán kính bo góc và cấu trúc bên trong vẫn giữ kết nối với Master Symbol."
       ],
-      "proTip": "Use Sync OFF to swap avatar photos across user cards in a team directory."
+      "proTip": "Dùng Sync OFF khi cần thay ảnh đại diện hoặc tên người dùng riêng cho từng thẻ trong danh sách."
     },
     {
       "slideNumber": 5,
-      "title": "Re-Engaging Global Propagation",
-      "subtitle": "Preserving Overrides During Structural Updates",
+      "title": "Bật lại Sync để cập nhật cấu trúc chung",
+      "subtitle": "Bảo toàn dữ liệu đã ghi đè khi nâng cấp thiết kế",
       "bullets": [
-        "Turn Sync back ON in the Symbols panel.",
-        "Alter the master corner radius (e.g. from 8px to 24px pill shape).",
-        "Add a new vector badge or notification dot inside the symbol container.",
-        "Designer updates all instances globally while intelligently preserving your local text overrides!"
+        "Nhấn bật lại nút Sync (Sync ON) sang màu cam.",
+        "Thay đổi bán kính bo góc của nút gốc (ví dụ từ 8 px lên 24 px dạng viên thuốc).",
+        "Hoặc thêm một chấm tròn thông báo mới vào bên trong lớp Symbol.",
+        "Phần mềm cập nhật khung mới cho tất cả bản sao nhưng vẫn giữ nguyên nhãn chữ bạn đã ghi đè trước đó."
       ],
-      "proTip": "This non-destructive override engine puts Affinity Designer on par with dedicated Figma components."
+      "proTip": "Cơ chế bảo toàn ghi đè này giúp hệ thống component của Affinity vận hành linh hoạt không kém các công cụ UI chuyên dụng."
     },
     {
       "slideNumber": 6,
-      "title": "Detaching vs Unlinking Symbols",
-      "subtitle": "When and How to Break Component Ties",
+      "title": "Phân biệt Detach và tắt Sync",
+      "subtitle": "Khi nào mới thực sự cần ngắt kết nối",
       "bullets": [
-        "Clicking 'Detach' in the Symbols panel permanently cuts the cord to the symbol master.",
-        "The orange bar disappears from the Layers panel, converting the instance to a normal Group.",
-        "Use Detach sparingly, such as when creating a bespoke one-off marketing hero asset.",
-        "Once detached, an object cannot be re-linked to the original symbol without re-instantiating."
+        "Nhấn 'Detach' trong bảng Symbols sẽ cắt vĩnh viễn mối liên kết với bản gốc.",
+        "Vạch dọc màu cam biến mất trong bảng Layers và đối tượng quay về dạng Group thường.",
+        "Chỉ dùng Detach cho các ngoại lệ hoàn toàn riêng biệt (ví dụ một banner chiến dịch độc bản).",
+        "Một khi đã Detach, đối tượng không thể tự nối lại vào Symbol cũ được nữa."
       ],
-      "callout": "Do NOT use Detach for simple text or color variations; use Sync OFF instead."
+      "callout": "KHÔNG dùng Detach chỉ để đổi chữ hay đổi màu; hãy dùng Sync OFF!"
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Button Component System",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Hệ thống nút bấm đa nhãn",
+      "subtitle": "Tạo Master Symbol và kiểm chứng Sync ON/OFF",
       "bullets": [
-        "Follow specifications in 'D08_symbols_assets_guide.md'.",
-        "Create 'Component_Button_Primary' (160x44 px, 8px corners, Indigo fill).",
-        "Instantiate 4 button instances across canvas using the Symbols panel.",
-        "Turn Sync OFF: override text to 'Save Draft', 'Export PDF', and 'Delete Record'.",
-        "Turn Sync ON: adjust corner radius to 22px pill shape and add an inner stroke."
+        "Mở tệp hướng dẫn 'D08_symbols_assets_guide.md' để xem thông số chuẩn.",
+        "Dựng nút 'Component_Button_Primary' (160x44 px, bo góc 8 px, nền xanh chàm).",
+        "Tạo 4 bản sao đặt thành hàng ngang từ bảng Symbols.",
+        "Tắt Sync OFF: đổi nhãn lần lượt thành 'Save Draft', 'Export PDF' và 'Delete Record'.",
+        "Bật lại Sync ON: chỉnh bo góc lên 22 px và thêm nét viền trong 1 pt."
       ],
-      "proTip": "Verify that all 4 buttons receive the pill shape without losing their distinct text labels."
+      "proTip": "Kiểm tra kết quả để xác nhận cả 4 nút cùng chuyển sang dáng viên thuốc mà không mất nhãn chữ riêng."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Core Symbol Competencies",
+      "title": "Kiểm tra nhanh kiến thức Symbols",
+      "subtitle": "Nắm chắc cơ chế đồng bộ trước khi sang Assets Studio",
       "bullets": [
-        "Explain the behavioral difference between Sync ON and Sync OFF.",
-        "Identify the visual indicator for symbols in the Layers panel.",
-        "Evaluate the consequences of clicking 'Detach'.",
-        "Ensure all exercise checkpoints are met before proceeding to the Assets panel."
+        "Phân biệt tác dụng của Sync ON và Sync OFF.",
+        "Nhận biết ký hiệu vạch dọc màu cam của Symbol trong bảng Layers.",
+        "Nắm rõ hệ quả không thể đảo ngược khi nhấn nhầm nút 'Detach'.",
+        "Đảm bảo 4 nút thực hành giữ đúng nhãn riêng sau khi đồng bộ bo góc mới."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Lesson Summary & Moving to Assets Panel",
-      "subtitle": "From Single Document Symbols to Global Libraries",
+      "title": "Tổng kết & Chuyển sang Assets Studio",
+      "subtitle": "Từ Symbol nội bộ trong một tệp sang thư viện dùng chung toàn cục",
       "bullets": [
-        "Mastered the Symbols panel, master creation, and multi-instance linking.",
-        "Leveraged Sync ON/OFF for non-destructive local overrides and global propagation.",
-        "Preserved component architecture across complex multi-artboard workflows.",
-        "In Lesson D08-02, we expand into the Assets panel to package and share .afassets libraries."
+        "Đã làm chủ quy trình tạo Master Symbol và quản lý nhiều bản sao liên kết.",
+        "Đã ứng dụng Sync ON/OFF để vừa đồng bộ cấu trúc vừa ghi đè nội dung linh hoạt.",
+        "Giữ gọn cấu trúc thiết kế qua nhiều Artboard mà không lo trùng lặp chỉnh sửa.",
+        "Ở bài D08-02 tiếp theo, ta tìm hiểu Assets Studio để lưu và xuất thư viện .afassets dùng cho mọi dự án."
       ],
-      "proTip": "Symbols live in the active document; Assets live globally across all documents!"
+      "proTip": "Symbols chỉ sống trong tài liệu hiện tại; Assets sống xuyên suốt mọi tài liệu và dự án!"
     }
   ]
 }

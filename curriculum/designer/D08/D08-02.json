@@ -3,100 +3,100 @@
   "moduleId": "D08",
   "trackId": "designer",
   "order": 2,
-  "title": "Assets Studio & Portable .afassets Libraries",
-  "subtitle": "Categories, Subcategories, Importing/Exporting & Cloud Sync",
+  "title": "Assets Studio và thư viện tài nguyên .afassets",
+  "subtitle": "Phân nhóm danh mục, xuất nhập thư viện dùng chung và đồng bộ giữa các tệp",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Distinguish between document-scoped Symbols and application-scoped persistent Assets.",
-      "Organize enterprise design libraries using Categories and Subcategories inside the Assets Studio.",
-      "Add, update, and manage vector components, icons, and UI groups into the Assets library.",
-      "Export and import portable .afassets library files for team distribution and StudioLink cross-app usage."
+      "Phân biệt phạm vi lưu trữ giữa Symbols (chỉ trong tài liệu hiện hành) và Assets (lưu toàn cục trong ứng dụng).",
+      "Tổ chức kho thành phần thiết kế gọn gàng bằng Category (Danh mục lớn) và Subcategory (Danh mục con) trong Assets Studio.",
+      "Thêm, cập nhật và quản lý các thành phần vector, bộ biểu tượng và nhóm UI vào thư viện Assets.",
+      "Xuất và nhập tệp thư viện .afassets di động để phân phối cho nhóm và dùng chung xuyên suốt giữa các studio Vector, Pixel, Layout."
     ],
-    "foundationalKnowledge": "While Symbols allow live synchronization within a single active document, professional creative workflows require component libraries that persist globally across entirely separate projects, client files, and even across Affinity Photo and Affinity Publisher via StudioLink. This is the domain of the Assets Studio (View > Studio > Assets). Any completed vector illustration, icon set, typographic lockup, or UI kit can be added to an Assets category. These assets are saved in the user's global application application data and can be compiled into portable binary packages with the .afassets extension for team-wide design system deployment.",
+    "foundationalKnowledge": "Trong khi Symbols xử lý đồng bộ bên trong một tệp duy nhất, quy trình thiết kế chuyên nghiệp còn cần những bộ thành phần dùng đi dùng lại qua hàng loạt dự án khác nhau và xuyên suốt giữa các studio Vector, Pixel, Layout (cũng như StudioLink ở các phiên bản Affinity V2). Đây chính là vai trò của Assets Studio (View > Studio > Assets). Mọi hình minh họa, bộ icon, cụm logo hay bộ UI kit sau khi hoàn thiện đều có thể lưu thành tài sản trong một danh mục Assets, lưu trữ cục bộ ở mức ứng dụng và xuất ra tệp .afassets nhỏ gọn để chia sẻ cho cả nhóm.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Assets Studio Specification & .afassets Architecture",
+      "source": "Đặc tả Assets Studio và định dạng gói tài nguyên .afassets trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Assets Studio",
-      "persona": "Vector Persona (View > Studio > Assets)",
+      "toolName": "Assets Studio (Thư viện tài nguyên dùng chung)",
+      "persona": "Vector Studio (View > Studio > Assets)",
       "shortcut": {
-        "win": "View > Studio > Assets (Dock Panel), Drag-and-Drop Insertion",
-        "mac": "View > Studio > Assets (Dock Panel), Drag-and-Drop Insertion"
+        "win": "View > Studio > Assets (Mở bảng), Kéo thả trực tiếp ra bản vẽ để chèn",
+        "mac": "View > Studio > Assets (Mở bảng), Kéo thả trực tiếp ra bản vẽ để chèn"
       },
-      "description": "Global persistent library manager for storing, organizing, and distributing reusable vector graphics, UI kits, and branding assets.",
+      "description": "Trình quản lý thư viện tài nguyên toàn cục dùng để lưu trữ, phân loại và chia sẻ đồ họa vector, UI kit và bộ nhận diện thương hiệu giữa các dự án.",
       "contextBarOptions": [
-        "Category Dropdown: Selects the active high-level asset library (e.g. 'iOS UI Kit', 'Company Branding')",
-        "Subcategory Sections: Collapsible groupings (e.g. 'Buttons', 'Navigation', 'Logos')",
-        "Panel Menu (≡): Create Category, Rename Category, Delete Category, Export Assets, Import Assets",
-        "Subcategory Menu (≡): Add from Selection, Rename Subcategory, Delete Subcategory",
-        "Show as List vs Show as Icons: Toggles thumbnail grid versus detailed list view"
+        "Danh sách Category: Chọn bộ thư viện chính đang mở (ví dụ 'iOS UI Kit', 'Company Branding')",
+        "Các mục Subcategory: Các ngăn nhóm có thể thu gọn (ví dụ 'Buttons', 'Navigation', 'Logos')",
+        "Menu bảng (≡): Create Category, Rename Category, Delete Category, Export Assets, Import Assets",
+        "Menu mục con (≡): Add from Selection, Rename Subcategory, Delete Subcategory",
+        "Show as List / Show as Icons: Chuyển đổi giữa kiểu xem lưới hình thu nhỏ và danh sách chi tiết"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open the Assets Studio",
-        "instruction": "Go to View > Studio > Assets. Dock the panel on the left or right studio panel. Notice that Affinity ships with a default 'iOS' or sample asset category.",
+        "title": "Mở bảng Assets Studio",
+        "instruction": "Vào View > Studio > Assets (hoặc mục tương ứng trong menu Window). Gắn bảng vào thanh dock bên trái hoặc bên phải để tiện kéo thả các thành phần ra bản vẽ.",
         "shortcutTip": { "win": "View > Studio > Assets", "mac": "View > Studio > Assets" }
       },
       {
         "stepNumber": 2,
-        "title": "Create a Custom Enterprise Category",
-        "instruction": "Click the burger menu (≡) in the top-right corner of the Assets Studio panel. Select 'Create New Category'. Click the burger menu again and select 'Rename Category...', naming it 'Affinity Academy UI Kit'.",
+        "title": "Tạo Category riêng cho dự án",
+        "instruction": "Nhấp biểu tượng menu ba gạch (≡) ở góc trên bên phải bảng Assets Studio, chọn 'Create New Category'. Nhấp lại menu đó và chọn 'Rename Category...', đặt tên là 'Affinity Academy UI Kit'.",
         "shortcutTip": { "win": "≡ > Create New Category", "mac": "≡ > Create New Category" }
       },
       {
         "stepNumber": 3,
-        "title": "Establish Structured Subcategories",
-        "instruction": "By default, a new category contains a subcategory named 'Assets'. Click the subcategory burger menu, select 'Rename...', and name it 'Buttons'. Click the top panel burger menu and select 'Create New Subcategory', naming it 'Telemetry Badges'.",
+        "title": "Tổ chức các Subcategory rõ ràng",
+        "instruction": "Mỗi Category mới tạo sẵn một mục con tên 'Assets'. Nhấp menu ba gạch của mục con đó, chọn 'Rename...' và đổi thành 'Buttons'. Tiếp tục vào menu trên cùng chọn 'Create New Subcategory' và đặt tên 'Telemetry Badges'.",
         "shortcutTip": { "win": "≡ > Create New Subcategory", "mac": "≡ > Create New Subcategory" }
       },
       {
         "stepNumber": 4,
-        "title": "Add Vector Components from Canvas",
-        "instruction": "Select your completed primary button component on the canvas with the Move Tool (V). In the Assets Studio under the 'Buttons' subcategory, click the burger menu and choose 'Add from Selection'. A crisp preview thumbnail of the button appears in the Assets palette.",
+        "title": "Thêm thành phần từ bản vẽ vào thư viện",
+        "instruction": "Dùng Move Tool (V) chọn cụm nút bấm đã nhóm gọn trên bản vẽ. Trong bảng Assets Studio tại mục 'Buttons', nhấp menu ba gạch và chọn 'Add from Selection'. Ảnh xem trước sắc nét của nút lập tức xuất hiện trong thư viện.",
         "shortcutTip": { "win": "Add from Selection", "mac": "Add from Selection" }
       },
       {
         "stepNumber": 5,
-        "title": "Export as Portable .afassets Bundle",
-        "instruction": "Click the top panel burger menu (≡) and select 'Export Assets...'. Choose a destination folder and save the file as 'Affinity_Academy_UI_v1.afassets'. This package can now be sent to any Affinity user on Windows, macOS, or iPad.",
+        "title": "Xuất thư viện thành tệp .afassets di động",
+        "instruction": "Nhấp menu ba gạch trên cùng của bảng Assets Studio và chọn 'Export Assets...'. Lưu tệp với tên 'Affinity_Academy_UI_v1.afassets'. Gói thư viện này có thể gửi cho bất kỳ máy tính Windows, macOS hay iPad nào đang cài Affinity.",
         "shortcutTip": { "win": "≡ > Export Assets...", "mac": "≡ > Export Assets..." }
       }
     ],
     "visualExamples": [
       {
-        "title": "Symbols vs Assets Architecture Comparison",
-        "description": "Functional differences between Symbols and Assets.",
+        "title": "So sánh kiến trúc Symbols Studio và Assets Studio",
+        "description": "Khác biệt về phạm vi lưu trữ, liên kết và mục đích sử dụng.",
         "visualType": "table",
-        "visualContent": "| Dimension | Symbols Studio | Assets Studio |\n|---|---|---|\n| Storage Scope | Local to the active document only | Global across all documents and projects |\n| Live Bidirectional Linking | Yes: Editing one updates all instances (with Sync ON) | No: Dragging an asset creates an independent copy |\n| File Format | Contained within .afdesign document file | Exportable as standalone .afassets package |\n| Cross-App Sharing | Requires copying between open documents | Instantly accessible in Photo and Publisher via StudioLink |\n| Primary Purpose | Multi-artboard responsive consistency and state overrides | Long-term design system distribution and icon kits |"
+        "visualContent": "| Tiêu chí | Symbols Studio | Assets Studio |\n|---|---|---|\n| Phạm vi lưu trữ | Chỉ tồn tại bên trong tệp tài liệu đang mở | Lưu toàn cục cho mọi tài liệu và dự án |\n| Liên kết đồng bộ sống | Có: sửa một bản cập nhật toàn bộ (khi Sync ON) | Không: kéo thả ra bản vẽ tạo một bản sao độc lập |\n| Định dạng lưu | Nằm bên trong tệp .afdesign | Xuất riêng thành gói tệp .afassets |\n| Dùng chung xuyên studio | Phải sao chép thủ công giữa các tệp đang mở | Có sẵn ngay ở Vector, Pixel và Layout studio |\n| Mục đích chính | Đồng bộ nhiều Artboard và ghi đè trạng thái | Lưu kho tài nguyên dài hạn và phát hành UI/Icon kit |"
       },
       {
-        "title": "Assets Studio Taxonomy Hierarchy",
-        "description": "Structural organization of enterprise asset packages.",
+        "title": "Cây phân loại tiêu chuẩn trong Assets Studio",
+        "description": "Cách đặt tên danh mục rõ ràng cho kho tài nguyên thiết kế.",
         "visualType": "diagram",
-        "visualContent": "Assets Studio:\n[Category: 'Enterprise Design System']\n    ├── [Subcategory: '01_Buttons'] ──> (Primary, Secondary, Ghost, Destructive)\n    ├── [Subcategory: '02_Form Inputs'] ──> (Text Field, Dropdown, Toggle, Checkbox)\n    ├── [Subcategory: '03_Navigation'] ──> (Header Bar, Sidebar, Breadcrumb, Tabs)\n    └── [Subcategory: '04_Iconography'] ──> (24px Solid, 24px Outline, 16px Micro)"
+        "visualContent": "Assets Studio:\n[Danh mục Category: 'Hệ thống UI Doanh nghiệp']\n    ├── [Mục con: '01_Buttons'] ──> (Nút chính, Nút phụ, Viền mảnh, Cảnh báo)\n    ├── [Mục con: '02_Form Inputs'] ──> (Ô nhập liệu, Danh sách chọn, Nút gạt, Ô tích)\n    ├── [Mục con: '03_Navigation'] ──> (Thanh đầu trang, Thanh bên, Điều hướng nhánh, Thẻ tab)\n    └── [Mục con: '04_Iconography'] ──> (Bộ nét đặc 24px, Bộ nét mảnh 24px, Icon nhỏ 16px)"
       }
     ],
     "guidedPractice": {
-      "title": "Curating an Icon Pack in the Assets Studio",
-      "taskDescription": "Organize a cohesive set of 6 vector system icons into a dedicated subcategory and export as a team distribution bundle.",
+      "title": "Đóng gói bộ 6 biểu tượng hệ thống vào Assets Studio",
+      "taskDescription": "Sắp xếp bộ 6 biểu tượng vector kích thước chuẩn vào hai danh mục con rồi xuất thành tệp .afassets để kiểm thử trên tài liệu trắng.",
       "checkpoints": [
-        "Create an Assets category named 'System Icons 24px'.",
-        "Create two subcategories: 'Navigation' and 'Media Controls'.",
-        "Draw or place 6 vector icons (Home, Search, User, Play, Pause, Mute) on 24x24 px bounds.",
-        "Add each icon to its respective subcategory using 'Add from Selection'.",
-        "Export the category as 'System_Icons_24px.afassets' and test importing it into a blank document."
+        "Tạo Category tên 'System Icons 24px'.",
+        "Tạo hai Subcategory: 'Navigation' và 'Media Controls'.",
+        "Vẽ hoặc đặt 6 biểu tượng vector (Home, Search, User, Play, Pause, Mute) vừa khung 24x24 px.",
+        "Thêm từng biểu tượng vào đúng mục con bằng lệnh 'Add from Selection'.",
+        "Xuất Category thành 'System_Icons_24px.afassets' rồi mở một tài liệu trắng để thử kéo thả."
       ],
-      "expectedOutcome": "A fully functional, categorized .afassets icon library that instantly populates when dragged onto any canvas."
+      "expectedOutcome": "Thư viện icon .afassets phân nhóm khoa học, kéo thả ra dùng ngay trên mọi bản vẽ mới."
     },
     "independentChallenge": {
-      "title": "Cross-App StudioLink Asset Deployment",
-      "prompt": "Build an enterprise brand asset kit: (1) Create category 'Corporate Identity Assets'; (2) Add vector logo lockups (Horizontal, Stacked, Monogram), color chip swatches, and social media watermarks into organized subcategories; (3) Export the category as 'Brand_Kit_2026.afassets'; (4) Open Affinity Photo or Publisher (or switch Persona) and verify that the 'Corporate Identity Assets' category is instantly visible in the Assets Studio; (5) Drag an asset onto a photo canvas to confirm 100% vector fidelity preservation across apps.",
+      "title": "Triển khai bộ tài nguyên nhận diện thương hiệu xuyên suốt các studio",
+      "prompt": "Xây dựng bộ tài sản thương hiệu dùng chung: (1) Tạo Category 'Corporate Identity Assets'; (2) Đưa các phiên bản logo vector (Ngang, Dọc, Chữ lồng Monogram), bảng chip màu và dấu bản quyền vào các Subcategory gọn gàng; (3) Xuất thành tệp 'Brand_Kit_2026.afassets'; (4) Chuyển sang không gian Pixel hoặc Layout (hoặc ứng dụng Affinity tương ứng) kiểm tra để thấy Category này xuất hiện ngay trong Assets Studio; (5) Kéo thả một logo vector lên ảnh chụp để xác nhận độ sắc nét vector được bảo toàn nguyên vẹn.",
       "starterAsset": {
         "filename": "D08_symbols_assets_guide.md",
         "filepath": "curriculum/assets/designer/D08_symbols_assets_guide.md",
@@ -104,57 +104,57 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for Assets Studio packaging and distribution (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn quản lý Assets Studio và xuất gói .afassets (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Category and subcategories created with clean semantic naming.",
-        "Vector artwork stored with exact stroke scaling and fill settings intact.",
-        ".afassets file exported successfully with clean metadata.",
-        "Asset operates seamlessly across all Affinity Suite applications."
+        "Category và Subcategory đặt tên mạch lạc, dễ tìm kiếm.",
+        "Thành phần vector lưu vào thư viện giữ nguyên thuộc tính co giãn viền và màu tô.",
+        "Xuất thành công tệp .afassets dùng lại được trên tài liệu mới.",
+        "Tài nguyên kéo thả trơn tru khi chuyển sang các studio khác."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Adding ungrouped loose layers into the Assets Studio.",
-        "consequence": "Only one individual shape is added, leaving related text or icon vectors behind on canvas.",
-        "solution": "Always group the entire component (Ctrl+G / Cmd+G) before clicking 'Add from Selection'."
+        "mistake": "Quên nhóm (Group) các lớp rời trước khi nhấn 'Add from Selection' vào Assets Studio.",
+        "consequence": "Mỗi hình tròn, chữ và icon rời sẽ bị tách thành nhiều asset lẻ tẻ riêng biệt thay vì một component hoàn chỉnh.",
+        "solution": "Luôn gom cả component vào một Group duy nhất (Ctrl+G / Cmd+G) trước khi bấm 'Add from Selection'."
       },
       {
-        "mistake": "Assuming an asset dragged onto canvas will update if the original asset in the studio is altered.",
-        "consequence": "Assets do NOT have live links like Symbols; they are independent copies at the moment of insertion.",
-        "solution": "If live synchronization across instances is required, convert the component into a Symbol FIRST, and then add that Symbol to the Assets Studio!"
+        "mistake": "Tưởng rằng sửa asset trong bản vẽ sẽ tự cập nhật tất cả bản đã kéo từ Assets Studio trước đó.",
+        "consequence": "Assets Studio chỉ lưu khuôn mẫu tĩnh; các bản kéo ra là bản sao độc lập không có liên kết đồng bộ sống như Symbols.",
+        "solution": "Nếu muốn asset kéo ra vẫn liên kết đồng bộ với nhau trong cùng tài liệu, hãy biến đối tượng thành Symbol TRƯỚC rồi mới đưa Symbol đó vào Assets Studio."
       },
       {
-        "mistake": "Forgetting to check 'Scale with object' on strokes before adding an asset.",
-        "consequence": "When an asset is dragged and scaled onto a smaller or larger artboard, stroke borders look massive or paper-thin.",
-        "solution": "Always check 'Scale with object' in the Stroke Studio before adding any asset to your library."
+        "mistake": "Quên tích 'Scale with object' cho nét viền trước khi lưu vào Assets Studio.",
+        "consequence": "Khi kéo asset thả vào một Artboard lớn hơn hoặc nhỏ hơn nhiều lần, nét viền bị quá mỏng hoặc quá dày lệch tỷ lệ.",
+        "solution": "Luôn kiểm tra và bật 'Scale with object' trong Stroke Studio cho mọi nét viền trước khi lưu vào thư viện."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary difference in scope between Symbols and Assets in Affinity Designer?",
+        "question": "Sự khác biệt chính về phạm vi hoạt động giữa Symbols và Assets trong Affinity là gì?",
         "options": [
-          "Symbols only work with pixel brushes, while Assets only work with vectors.",
-          "Symbols are scoped to the active document and maintain live linking; Assets are saved globally across the application and can be shared via .afassets files.",
-          "Symbols can only contain one shape, while Assets can contain multiple shapes.",
-          "Assets can only be used on macOS."
+          "Symbols chỉ dùng cho cọ pixel, còn Assets chỉ dùng cho vector.",
+          "Symbols lưu trong phạm vi tài liệu đang mở kèm liên kết đồng bộ sống; Assets lưu toàn cục trên ứng dụng và xuất được thành tệp .afassets để chia sẻ giữa các dự án.",
+          "Symbols chỉ chứa được một hình đơn, còn Assets chứa được nhiều hình.",
+          "Assets chỉ chạy trên macOS."
         ],
         "correctIndex": 1,
-        "explanation": "Symbols are contained within the active document and maintain live bidirectional synchronization between instances; Assets are stored globally in your application settings and can be exported as .afassets files for cross-project sharing."
+        "explanation": "Symbols quản lý liên kết sống bên trong một tệp tài liệu, trong khi Assets lưu kho tài nguyên toàn cục dùng chung xuyên suốt mọi dự án."
       },
       {
-        "question": "How can you combine the benefits of Assets and Symbols so that dragged assets retain live linking?",
+        "question": "Làm thế nào để một thành phần kéo từ Assets Studio ra bản vẽ vẫn giữ được khả năng đồng bộ như Symbol?",
         "options": [
-          "It is technically impossible in Affinity Designer.",
-          "Convert the component into a Symbol first in the Symbols Studio, and then add that Symbol container into the Assets Studio.",
-          "Save the file as a PDF/X-4 document.",
-          "Hold Shift+Ctrl while dragging from the Assets panel."
+          "Không thể kết hợp hai tính năng này với nhau.",
+          "Chuyển đối tượng thành Symbol trước trong bảng Symbols, sau đó mới thêm chính lớp Symbol đó vào bảng Assets Studio.",
+          "Lưu tài liệu dưới định dạng PDF/X-4.",
+          "Giữ phím Shift+Ctrl khi kéo từ bảng Assets."
         ],
         "correctIndex": 1,
-        "explanation": "If you convert an object into a Symbol and then drag it into the Assets Studio, dragging that asset out into any document will instantiate it as an active Symbol!"
+        "explanation": "Khi bạn lưu một đối tượng đang là Symbol vào Assets Studio, mỗi lần kéo thả nó vào tài liệu mới sẽ tạo ra sẵn một Symbol có thanh cam liên kết."
       },
       {
-        "question": "What file extension is used when exporting a standalone asset library from Affinity Designer?",
+        "question": "Đuôi tệp chuẩn khi xuất một thư viện tài nguyên từ Assets Studio của Affinity là gì?",
         "options": [
           ".afdesign",
           ".afphoto",
@@ -162,128 +162,128 @@
           ".svgz"
         ],
         "correctIndex": 2,
-        "explanation": "Affinity's native portable asset library package uses the .afassets file extension, which works across Designer, Photo, and Publisher."
+        "explanation": "Gói thư viện tài nguyên di động của Affinity sử dụng phần mở rộng chuẩn .afassets."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "The Assets Studio provides global, persistent component storage across documents and projects.",
-        "Categories and Subcategories establish a clean, enterprise-ready taxonomy for design systems.",
-        "Always group components and enable 'Scale with object' before adding to Assets.",
-        "Storing Symbols inside the Assets Studio enables instant live-linking upon canvas insertion."
+        "Assets Studio cung cấp kho lưu trữ thành phần dùng chung xuyên suốt mọi dự án thiết kế.",
+        "Phân cấp Category và Subcategory rõ ràng giúp đội nhóm quản lý bộ thiết kế lớn không bị rối.",
+        "Luôn nhóm (Group) đối tượng và bật 'Scale with object' cho viền trước khi đưa vào Assets.",
+        "Lưu Symbol vào trong Assets Studio giúp vừa dùng chung toàn cục vừa giữ khả năng đồng bộ sống."
       ],
-      "nextSteps": "Proceed to D08-03 to construct an enterprise vector component library with variants, states, and responsive constraints.",
+      "nextSteps": "Chuyển sang bài D08-03 để kết hợp Symbol lồng nhau, bảng Constraints và Global Swatches tạo hệ thống component co giãn linh hoạt.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/assetsPanel.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Persistent Libraries: The Assets Studio",
-      "subtitle": "Beyond Single-Document Symbols",
+      "title": "Kho lưu trữ toàn cục: Assets Studio",
+      "subtitle": "Vượt ra ngoài giới hạn một tệp tài liệu đơn lẻ",
       "bullets": [
-        "Symbols solve synchronization within a single active document.",
-        "Professional teams require component libraries that persist across hundreds of distinct files.",
-        "The Assets Studio stores reusable vector art in the global application memory.",
-        "Assets are instantly accessible in Affinity Designer, Photo, and Publisher without re-importing."
+        "Symbols giúp đồng bộ bên trong một tệp đang thiết kế.",
+        "Đội ngũ thực chiến cần các bộ thành phần có thể gọi ra ở hàng trăm dự án khác nhau.",
+        "Assets Studio lưu trữ đồ họa vector tái sử dụng ở cấp độ toàn ứng dụng.",
+        "Kho tài nguyên này hiển thị sẵn sàng khi bạn chuyển sang các studio Vector, Pixel hay Layout."
       ],
-      "proTip": "Assets can be exported as standalone .afassets packages for team distribution."
+      "proTip": "Mỗi Category trong Assets Studio có thể xuất thành tệp .afassets gọn nhẹ để chia sẻ cho cả nhóm."
     },
     {
       "slideNumber": 2,
-      "title": "Assets Studio Taxonomy Architecture",
-      "subtitle": "Categories & Subcategories Organization",
+      "title": "Cách tổ chức thư mục trong Assets Studio",
+      "subtitle": "Phân cấp Category và Subcategory hợp lý",
       "bullets": [
-        "Access via View > Studio > Assets in the Vector Persona.",
-        "Top Level: Category (e.g. 'Enterprise Mobile UI Kit', 'Brand Identity Assets').",
-        "Second Level: Subcategory (e.g. 'Buttons', 'Inputs', 'Avatars', 'Cards').",
-        "Clean folder structures prevent design libraries from devolving into visual chaos."
+        "Mở bảng qua View > Studio > Assets trong không gian Vector.",
+        "Cấp lớn nhất là Category (ví dụ: 'Enterprise Mobile UI Kit', 'Brand Identity Assets').",
+        "Cấp con là Subcategory (ví dụ: 'Buttons', 'Inputs', 'Avatars', 'Cards').",
+        "Cấu trúc đặt tên rõ ràng giúp kho tài nguyên lớn luôn dễ tìm kiếm sau nhiều tháng."
       ],
-      "proTip": "Prefix subcategory names with numbers (e.g. '01_Headers', '02_Buttons') for strict sorting."
+      "proTip": "Đánh số thứ tự đầu tên mục con (như '01_Headers', '02_Buttons') để cố định thứ tự hiển thị."
     },
     {
       "slideNumber": 3,
-      "title": "Adding Assets from Canvas",
-      "subtitle": "One-Click Library Ingestion",
+      "title": "Đưa thành phần từ bản vẽ vào thư viện",
+      "subtitle": "Thao tác nạp nhanh chỉ với một lệnh",
       "bullets": [
-        "Ensure the component is grouped into a single tidy container layer (Ctrl+G / Cmd+G).",
-        "Verify that 'Scale with object' is enabled in the Stroke Studio for all borders.",
-        "In the Assets Studio, click the subcategory burger menu (≡) -> 'Add from Selection'.",
-        "A thumbnail preview is generated instantly in the Assets palette."
+        "Nhóm toàn bộ thành phần vào một Group gọn gàng (Ctrl+G / Cmd+G).",
+        "Kiểm tra đã tích 'Scale with object' trong bảng Stroke Studio cho mọi nét viền.",
+        "Trong Assets Studio, bấm menu ba gạch (≡) ở mục con cần lưu rồi chọn 'Add from Selection'.",
+        "Hình thu nhỏ xem trước sẽ xuất hiện ngay trong danh sách tài nguyên."
       ],
-      "callout": "Never add ungrouped layers or only part of your component will be saved!"
+      "callout": "Đừng bao giờ chọn từng lớp rời khi thêm vào Assets vì mỗi lớp sẽ bị tách thành một mục riêng lẻ!"
     },
     {
       "slideNumber": 4,
-      "title": "Symbols Inside Assets: The Ultimate Hybrid",
-      "subtitle": "Instantiating Linked Symbols from Global Libraries",
+      "title": "Đưa Symbol vào Assets: Quy trình kết hợp tối ưu",
+      "subtitle": "Vừa lưu toàn cục vừa giữ liên kết đồng bộ sống",
       "bullets": [
-        "Normal assets are static independent copies when dragged onto canvas.",
-        "If you convert a component to a Symbol FIRST, and then add that Symbol to Assets...",
-        "Dragging instances onto canvas preserves active Symbol linkage and orange layer bars!",
-        "This combines global persistent storage with live multi-instance synchronization."
+        "Tài sản thông thường kéo từ Assets ra là những bản sao tĩnh độc lập.",
+        "Nếu bạn chuyển thành phần thành Symbol TRƯỚC rồi mới nạp vào Assets...",
+        "Khi kéo từ Assets vào bản vẽ mới, đối tượng vẫn mang vạch dọc màu cam của Symbol!",
+        "Cách này kết hợp trọn vẹn ưu điểm lưu trữ toàn cục của Assets và khả năng đồng bộ hàng loạt của Symbols."
       ],
-      "proTip": "This workflow enables true cross-document design system distribution."
+      "proTip": "Đây là quy trình chuẩn để phát hành bộ UI Kit dùng chung cho nhiều dự án."
     },
     {
       "slideNumber": 5,
-      "title": "Exporting and Distributing .afassets Bundles",
-      "subtitle": "Packaging Libraries for Design Teams",
+      "title": "Xuất và chia sẻ gói tệp .afassets",
+      "subtitle": "Đóng gói thư viện cho cả đội ngũ thiết kế",
       "bullets": [
-        "Click the top panel burger menu (≡) and select 'Export Assets...'.",
-        "Outputs a compact, standalone .afassets binary archive file.",
-        "Colleagues simply double-click the .afassets file or choose 'Import Assets...' to install.",
-        "Compatible across Windows, macOS, and iPad versions of Affinity Suite."
+        "Nhấp menu ba gạch (≡) trên cùng của bảng Assets Studio và chọn 'Export Assets...'.",
+        "Phần mềm tạo ra một tệp lưu trữ nhị phân độc lập có đuôi .afassets.",
+        "Đồng nghiệp chỉ cần nhấp đúp tệp hoặc chọn 'Import Assets...' để nạp ngay toàn bộ bộ sưu tập.",
+        "Tệp .afassets tương thích xuyên suốt giữa các phiên bản Windows, macOS và iPad."
       ],
-      "proTip": "Store .afassets bundles in your team's Git or cloud repository for versioned design systems."
+      "proTip": "Lưu trữ các tệp .afassets vào kho lưu trữ chung (Git hoặc Drive nội bộ) theo từng phiên bản để dễ quản lý."
     },
     {
       "slideNumber": 6,
-      "title": "StudioLink Cross-App Integration",
-      "subtitle": "Using Vector Assets in Photo and Publisher",
+      "title": "Chia sẻ liền mạch giữa các studio Vector, Pixel và Layout",
+      "subtitle": "Tái sử dụng đồ họa vector mọi lúc không cần xuất tệp trung gian",
       "bullets": [
-        "Assets saved in Designer are instantly visible in Affinity Photo and Publisher.",
-        "Drag vector UI badges directly onto photography compositions in Photo.",
-        "Place master vector logos directly onto editorial multi-page layouts in Publisher.",
-        "Zero loss of vector precision, color profiles, or layer hierarchy across apps."
+        "Tài nguyên đã lưu trong Assets Studio hiện hữu đồng thời ở mọi studio (cũng như qua StudioLink trên bản V2).",
+        "Kéo trực tiếp huy hiệu vector đặt lên ảnh hậu kỳ trong Pixel Studio.",
+        "Thả thẳng logo gốc vào trang dàn tạp chí trong Layout Studio.",
+        "Giữ nguyên 100% độ nét vector, hồ sơ màu và cây phân lớp mà không cần xuất SVG/PNG tạm."
       ],
-      "proTip": "StudioLink eliminates the friction of exporting intermediary SVG/PNG assets between apps."
+      "proTip": "Không cần xuất tệp trung gian giúp giảm hẳn rủi ro sai lệch phiên bản logo giữa các khâu."
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: Curating a Brand Kit",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Đóng gói bộ nhận diện thương hiệu",
+      "subtitle": "Thiết lập Category và kiểm tra kéo thả thực tế",
       "bullets": [
-        "Follow instructions in 'D08_symbols_assets_guide.md'.",
-        "Create category 'Affinity Academy UI Kit' with subcategories 'Buttons' and 'Badges'.",
-        "Add completed master buttons and metric pills to the library.",
-        "Export the category as 'Affinity_Academy_UI_v1.afassets'.",
-        "Open a fresh blank canvas and drag your assets to test instant reusability."
+        "Làm theo hướng dẫn trong tệp 'D08_symbols_assets_guide.md'.",
+        "Tạo Category 'Affinity Academy UI Kit' kèm hai mục con 'Buttons' và 'Badges'.",
+        "Nạp nút bấm gốc và các nhãn chỉ số vào thư viện.",
+        "Xuất Category thành tệp 'Affinity_Academy_UI_v1.afassets'.",
+        "Mở một tài liệu trắng mới và kéo các thành phần ra để kiểm tra tỷ lệ co giãn."
       ],
-      "proTip": "Inspect stroke thickness when dragging onto large vs small canvases."
+      "proTip": "Thử kéo thả lên cả bản vẽ cỡ nhỏ và cỡ lớn để kiểm tra lại tùy chọn 'Scale with object' của đường viền."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Asset Studio Competencies",
+      "title": "Kiểm tra nhanh kiến thức Assets Studio",
+      "subtitle": "Rà soát lại khái niệm trước khi sang hệ thống co giãn",
       "bullets": [
-        "Contrast the storage lifecycle of Symbols vs Assets.",
-        "Explain how to preserve live symbol links when saving to the Assets Studio.",
-        "Identify the file format used for exporting portable asset packages.",
-        "Ensure all assets are tested in a blank document before finalizing."
+        "So sánh vòng đời lưu trữ giữa Symbols và Assets.",
+        "Nêu cách giữ nguyên liên kết Symbol khi lưu thành phần vào Assets Studio.",
+        "Nhớ đúng định dạng tệp xuất ra khi chia sẻ thư viện (.afassets).",
+        "Kiểm chứng các tài sản đều kéo thả sạch sẽ sang tài liệu mới."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Summary & Transition to Component Systems",
-      "subtitle": "From Raw Assets to Unified Design Systems",
+      "title": "Tổng kết & Chuyển sang hệ thống Component co giãn",
+      "subtitle": "Từ kho tài sản tĩnh đến hệ thống giao diện đáp ứng",
       "bullets": [
-        "Constructed structured enterprise asset libraries with Categories and Subcategories.",
-        "Packaged and exported portable .afassets bundles for cross-team deployment.",
-        "Leveraged StudioLink for seamless asset sharing across Photo and Publisher.",
-        "In Lesson D08-03, we will assemble scalable component systems with variants and nested symbols."
+        "Đã tổ chức gọn gàng thư viện tài nguyên theo Category và Subcategory.",
+        "Đã biết xuất đóng gói tệp .afassets để dùng chung giữa nhiều dự án và thành viên.",
+        "Tận dụng đồng bộ xuyên suốt giữa các studio Vector, Pixel và Layout.",
+        "Ở bài D08-03 tiếp theo, ta xây dựng component có khả năng co giãn thông minh nhờ Constraints và Global Swatches."
       ],
-      "proTip": "A well-organized asset library cuts UI production time by over 60%."
+      "proTip": "Một thư viện Assets tổ chức tốt có thể rút ngắn hơn một nửa thời gian dựng giao diện lặp lại."
     }
   ]
 }

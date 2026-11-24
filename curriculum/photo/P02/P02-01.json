@@ -3,8 +3,8 @@
   "moduleId": "P02",
   "trackId": "photo",
   "order": 1,
-  "title": "Selection Tools & Core Selection Principles",
-  "subtitle": "Selection Brush, Marquee, Lasso & Edge Snapping Architecture",
+  "title": "Các công cụ vùng chọn và nguyên lý tạo vùng chọn",
+  "subtitle": "Kiến trúc Selection Brush, Marquee, Lasso và bắt dính biên tự động",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Selection Brush Tool & Selection Family",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)",
         "mac": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)"
@@ -64,7 +64,7 @@
     "visualExamples": [
       {
         "title": "Bảng so sánh các công cụ chọn vùng pixel",
-        "description": "Đặc tính và trường hợp sử dụng tối ưu của từng công cụ trong Photo Persona.",
+        "description": "Đặc tính và trường hợp sử dụng tối ưu của từng công cụ trong Pixel Studio.",
         "visualType": "table",
         "visualContent": "| Công cụ | Phím tắt | Thuật toán cốt lõi | Trường hợp sử dụng tối ưu |\n|---|---|---|---|\n| Selection Brush | W | Edge Snapping dựa trên contrast gradient | Chủ thể người, xe cộ, đồ vật tách biệt khỏi nền |\n| Freehand Lasso | L | Tọa độ điểm vector hoặc vẽ tay tự do | Cắt nhanh đa giác phẳng, kiến trúc, hình khối cơ học |\n| Flood Select | W | Dung sai màu (Tolerance) & Contiguous | Bầu trời phẳng, phông nền studio đơn sắc |\n| Marquee (Rect/Elliptical) | M | Hình học cơ bản kèm ràng buộc tỷ lệ | Cắt khung hình chữ nhật, hình tròn, tạo mặt nạ vignette |"
       }
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P02-02 Refining Selections & Complex Edge Detection",
+          "title": "Bài tiếp theo: P02-02 Tinh chỉnh vùng chọn và phát hiện biên phức tạp",
           "target": "P02-02",
           "type": "next-lesson"
         },
@@ -168,7 +168,7 @@
           "type": "guide"
         },
         {
-          "title": "Affinity Documentation: Selection Brush Tool",
+          "title": "Tài liệu Affinity: Công cụ Selection Brush Tool",
           "target": "https://affinity.help/photo/en-US.lproj/pages/Tools/tools_selectionBrush.html",
           "type": "doc"
         }
@@ -204,7 +204,7 @@
       "id": "P02-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Selection Brush Tool & Thanh Context Bar",
+      "title": "Công cụ Selection Brush Tool & Thanh Context Bar",
       "subtitle": "Cỗ máy bắt dính biên thần tốc",
       "contentMarkdown": "Nhấn phím `W` để chọn **Selection Brush Tool**.\n\nQuan sát thanh Context Bar phía trên:\n- **Mode Add / Subtract:** Cộng thêm hoặc khoét bớt vùng chọn.\n- **Snap to Edges (Khuyên dùng):** Bắt dính mép vật thể dựa trên độ tương phản.\n- **Size (Kích thước cọ):** Phím tắt `[` thu nhỏ, `]` phóng to.\n- **All Layers:** Bật nếu muốn lấy mẫu từ toàn bộ các layer bên dưới, tắt nếu chỉ muốn chọn trên layer đang active.",
       "actionBox": {

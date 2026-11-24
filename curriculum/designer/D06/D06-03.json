@@ -3,53 +3,53 @@
   "moduleId": "D06",
   "trackId": "designer",
   "order": 3,
-  "title": "OpenType Features, Glyph Browser & Text Styles Hierarchy",
-  "subtitle": "Ligatures, Stylistic Alternates, Swashes & Paragraph/Character Styles",
+  "title": "Tính năng OpenType, Glyph Browser và hệ thống Text Styles",
+  "subtitle": "Chữ ghép Ligatures, ký tự thay thế, nét uốn Swashes và kiểu mẫu đoạn/ký tự",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Use the OpenType controls available from the text Context Toolbar to apply font-supported typographic features.",
-      "Activate and manage Standard Ligatures, Discretionary Ligatures, Contextual Alternates, and Swash flourishes.",
-      "Use the Glyph Browser panel to browse and insert Unicode characters and font-specific alternate glyphs.",
-      "Build a reusable hierarchy of paragraph and character styles; confirm the current style-creation UI in the target build.",
-      "Understand character-level style overrides versus paragraph-level structural formatting."
+      "Sử dụng các tùy chọn OpenType ngay trên thanh Context Toolbar của văn bản để kích hoạt tính năng kiểu chữ mà phông đang chọn hỗ trợ.",
+      "Bật và quản lý Standard Ligatures (chữ ghép tiêu chuẩn), Discretionary Ligatures (chữ ghép trang trí), Contextual Alternates và nét uốn Swashes.",
+      "Sử dụng bảng Glyph Browser (bảng duyệt ký tự đặc biệt) để tìm và chèn ký tự Unicode cùng các biến thể glyph có trong phông.",
+      "Xây dựng hệ thống kiểu mẫu đoạn (paragraph styles) và kiểu mẫu ký tự (character styles) tái sử dụng, đồng thời đối chiếu vị trí nút tạo style thực tế trên bản dựng đang cài.",
+      "Hiểu rõ sự khác biệt giữa ghi đè định dạng cấp ký tự cục bộ và định dạng cấu trúc cấp đoạn văn."
     ],
-    "foundationalKnowledge": "Modern professional typography uses OpenType features, including standard and discretionary ligatures, stylistic alternates and swashes. Affinity exposes OpenType features from the text Context Toolbar, with the available options depending on the selected font. The Glyph Browser panel lets you insert Unicode characters and font-specific alternates: create a text insertion point, open Window > Text > Glyph Browser, choose the font family, style and subset, then double-click a glyph. Affinity supports reusable paragraph and character styles; the exact current UI location for creating and managing them should be verified on the target build.",
+    "foundationalKnowledge": "Nghệ thuật chữ hiện đại khai thác sâu các bảng tính năng OpenType tích hợp trong phông chữ, bao gồm chữ ghép tiêu chuẩn, chữ ghép trang trí, bộ ký tự thay thế (stylistic alternates) và nét uốn swashes. Trong Affinity, các tùy chọn OpenType hiển thị ngay trên thanh Context Toolbar của văn bản, và danh sách bật được sẽ tùy thuộc hoàn toàn vào việc phông chữ bạn chọn có chứa bảng ký tự đó hay không. Ngoài ra, bảng Glyph Browser cho phép tra cứu và chèn ký tự Unicode hoặc biến thể riêng của phông: đặt con trỏ gõ chữ, mở Window > Text > Glyph Browser, chọn họ phông, kiểu nét và nhóm ký tự (subset), rồi nhấp đúp vào glyph cần chèn. Phần mềm cũng hỗ trợ paragraph styles và character styles tái sử dụng; vị trí menu/nút tạo style cụ thể cần đối chiếu trực tiếp trên bản dựng đang dùng.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 OpenType Engine, Glyph Browser & Text Styles Specification",
+      "source": "Đặc tả bộ xử lý OpenType, Glyph Browser và Text Styles trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "OpenType text controls & Glyph Browser panel",
-      "persona": "Vector Studio (OpenType controls in the text Context Toolbar)",
+      "toolName": "Tùy chọn OpenType & Bảng Glyph Browser",
+      "persona": "Vector Studio (tùy chọn OpenType trên thanh Context Toolbar của văn bản)",
       "shortcut": {
-        "win": "OpenType features: text Context Toolbar; Glyph Browser: Window > Text > Glyph Browser",
-        "mac": "OpenType features: text Context Toolbar; Glyph Browser: Window > Text > Glyph Browser"
+        "win": "Tính năng OpenType: thanh Context Toolbar của chữ; Glyph Browser: Window > Text > Glyph Browser",
+        "mac": "Tính năng OpenType: thanh Context Toolbar của chữ; Glyph Browser: Window > Text > Glyph Browser"
       },
-      "description": "OpenType features are available from the text Context Toolbar. The Glyph Browser panel inserts Unicode characters and font-specific alternates. Reusable paragraph and character styles are supported, but their exact current creation/control location needs target-build confirmation.",
+      "description": "Các tùy chọn OpenType mở trực tiếp từ thanh Context Toolbar của văn bản. Bảng Glyph Browser dùng để duyệt và chèn ký tự Unicode hoặc biến thể riêng của phông. Phần mềm hỗ trợ tái sử dụng paragraph và character styles, tuy nhiên vị trí menu/nút tạo style chính xác cần xác nhận theo bản dựng mục tiêu.",
       "contextBarOptions": [
-        "Standard and discretionary ligatures: enable when supported by the selected font",
-        "Stylistic alternates and swashes: available only when included in the selected font",
-        "Glyph Browser panel: Window > Text > Glyph Browser; choose font family, style and subset, then double-click a glyph",
-        "Paragraph and character styles: reusable text formatting structures; exact style-creation UI path needs target-build confirmation"
+        "Standard và Discretionary Ligatures: chỉ kích hoạt được khi phông chữ đang chọn có hỗ trợ",
+        "Stylistic Alternates và Swashes: chỉ khả dụng khi bộ phông có thiết kế sẵn biến thể tương ứng",
+        "Bảng Glyph Browser: mở từ Window > Text > Glyph Browser; chọn họ phông, kiểu chữ và subset rồi nhấp đúp để chèn",
+        "Paragraph và Character Styles: cấu trúc định dạng tái sử dụng; kiểm tra vị trí giao diện tạo style thực tế trên bản dựng đang chạy"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Select text and inspect OpenType controls",
-        "instruction": "Select an Artistic Text or Frame Text object. Inspect the text Context Toolbar for OpenType controls available to the selected font. The available feature options vary by font.",
+        "title": "Chọn chữ và kiểm tra các nút OpenType",
+        "instruction": "Chọn một đối tượng Artistic Text hoặc Frame Text. Quan sát thanh Context Toolbar của văn bản để xem những tính năng OpenType nào đang khả dụng cho phông chữ bạn chọn. Các tùy chọn hiện ra sẽ thay đổi tùy theo từng phông.",
         "shortcutTip": {
-          "win": "Text Context Toolbar",
-          "mac": "Text Context Toolbar"
+          "win": "Thanh Context Toolbar của chữ",
+          "mac": "Thanh Context Toolbar của chữ"
         }
       },
       {
         "stepNumber": 2,
-        "title": "Apply font-supported ligatures",
-        "instruction": "Use the OpenType controls in the text Context Toolbar to enable Standard Ligatures and, where the font supports them, Discretionary Ligatures. Compare the rendering and keep decorative ligatures for display text when appropriate.",
+        "title": "Áp dụng chữ ghép Ligatures khi phông hỗ trợ",
+        "instruction": "Dùng điều khiển OpenType trên thanh Context Toolbar để bật Standard Ligatures và, nếu phông có sẵn, thử bật thêm Discretionary Ligatures. So sánh độ liền mạch của nét chữ và chỉ dùng chữ ghép trang trí cho tiêu đề lớn khi phù hợp.",
         "shortcutTip": {
           "win": "Context Toolbar > OpenType",
           "mac": "Context Toolbar > OpenType"
@@ -57,8 +57,8 @@
       },
       {
         "stepNumber": 3,
-        "title": "Insert a glyph with the Glyph Browser",
-        "instruction": "Create a text insertion point. From the Window menu, open Text > Glyph Browser. Choose the font family, font style and subset from the available menus, then double-click a glyph to insert it. Available glyphs depend on the selected font.",
+        "title": "Chèn ký tự đặc biệt bằng Glyph Browser",
+        "instruction": "Đặt con trỏ nhấp nháy vào vị trí muốn chèn trong đoạn chữ. Vào menu Window > Text > Glyph Browser. Chọn họ phông, kiểu chữ và nhóm ký tự (Subset) từ các danh sách thả xuống rồi nhấp đúp vào glyph muốn chèn. Danh sách ký tự hiển thị phụ thuộc vào phông đang chọn.",
         "shortcutTip": {
           "win": "Window > Text > Glyph Browser",
           "mac": "Window > Text > Glyph Browser"
@@ -66,43 +66,43 @@
       },
       {
         "stepNumber": 4,
-        "title": "Create and reuse paragraph and character styles",
-        "instruction": "Format a headline and create a reusable paragraph style using the current text-style controls in the target build. Apply the style to another text frame. The feature supports reusable paragraph and character styles, but the exact current menu/panel label for style creation is not asserted here.",
+        "title": "Tạo và tái sử dụng Paragraph Style và Character Style",
+        "instruction": "Định dạng hoàn chỉnh một dòng tiêu đề rồi tạo paragraph style tái sử dụng bằng bộ điều khiển Text Styles trên bản dựng bạn đang dùng, sau đó áp dụng lại style đó cho một khung chữ khác. Affinity hỗ trợ paragraph và character styles dùng lại, nhưng tên menu/nút cụ thể cần đối chiếu trực tiếp trên phiên bản đang chạy.",
         "shortcutTip": {
-          "win": "Verify current style-creation control",
-          "mac": "Verify current style-creation control"
+          "win": "Kiểm tra điều khiển tạo style trên bản dựng",
+          "mac": "Kiểm tra điều khiển tạo style trên bản dựng"
         }
       }
     ],
     "visualExamples": [
       {
-        "title": "OpenType Feature Directory",
-        "description": "Essential features supported in Affinity Designer.",
+        "title": "Danh mục tính năng OpenType cốt lõi",
+        "description": "Các thẻ OpenType phổ biến và ứng dụng thực tế trong thiết kế.",
         "visualType": "table",
-        "visualContent": "| OpenType Feature | Tag | Visual Result | Best Design Use Case |\n|---|---|---|---|\n| Standard Ligatures | `liga` | Fuses 'fi', 'fl', 'ff' to avoid colliding dots | All body copy and editorial reading |\n| Discretionary Ligatures | `dlig` | Connects 'st', 'ct' with historical bridge | Vintage packaging, certificates, wine labels |\n| Swashes | `swsh` | Extends calligraphic flourish tails on capitals | Brand logotypes, wedding invitations, hero monograms |\n| Stylistic Sets | `ss01-20`| Activates cohesive designer-crafted alternate cuts | Modernizing classic sans-serif fonts |"
+        "visualContent": "| Tính năng OpenType | Mã thẻ | Kết quả hiển thị | Tình huống sử dụng tối ưu |\n|---|---|---|---|\n| Standard Ligatures | `liga` | Nối mượt cặp 'fi', 'fl', 'ff' tránh va chạm dấu chấm | Mọi đoạn văn đọc và nội dung biên tập |\n| Discretionary Ligatures | `dlig` | Nối nghệ thuật cặp 'st', 'ct' mang nét cổ điển | Bao bì cổ điển, chứng nhận, nhãn rượu |\n| Swashes | `swsh` | Kéo dài đuôi uốn lượn trên chữ hoa đầu hoặc cuối | Logotype, thiệp mời, chữ cái monogram |\n| Stylistic Sets | `ss01-20` | Kích hoạt dáng chữ thay thế do tác giả phông thiết kế | Làm mới dáng chữ Sans-serif hoặc Serif |"
       },
       {
-        "title": "Text Style Hierarchy Diagram",
-        "description": "Cascading style architecture in a design system.",
+        "title": "Sơ đồ phân tầng hệ thống Text Style",
+        "description": "Cấu trúc kế thừa kiểu chữ trong một hệ thống thiết kế.",
         "visualType": "diagram",
-        "visualContent": "[Base Style: Inter Regular 14pt]\n  ├── [Paragraph Style: Heading_1 (Playfair Bold 48pt + Swashes)]\n  ├── [Paragraph Style: Subhead (Inter SemiBold 18pt + Tracking +100‰)]\n  └── [Paragraph Style: Body_Copy (Inter Regular 14pt + Leading 22pt)]\n         └── [Character Style: Accent_Highlight (Electric Cyan Fill + Bold)]"
+        "visualContent": "[Style nền: Inter Regular 14pt]\n  ├── [Paragraph Style: Heading_1 (Playfair Bold 48pt + Swashes)]\n  ├── [Paragraph Style: Subhead (Inter SemiBold 18pt + Tracking +100‰)]\n  └── [Paragraph Style: Body_Copy (Inter Regular 14pt + Leading 22pt)]\n         └── [Character Style: Accent_Highlight (Màu nhấn xanh ngọc + In đậm)]"
       }
     ],
     "guidedPractice": {
-      "title": "Building a Complete Brand Typography Kit",
-      "taskDescription": "Establish a 4-tier reusable Text Style hierarchy with OpenType swashes and ligatures for a luxury hospitality brand.",
+      "title": "Xây dựng bộ kiểu chữ hoàn chỉnh cho thương hiệu",
+      "taskDescription": "Thiết lập hệ thống 4 cấp Text Style tái sử dụng kết hợp nét uốn và chữ ghép OpenType cho một thương hiệu dịch vụ cao cấp.",
       "checkpoints": [
-        "Create Heading_Display using a serif typeface and enable Standard Ligatures where supported by that font.",
-        "Create Subheading_Airy using a sans-serif typeface, All Caps and +200‰ tracking.",
-        "Create Body_Text using a legible typeface, 11pt size, 16pt leading and appropriate kerning.",
-        "Create Caption_Muted using a small sans-serif typeface and reduced opacity.",
-        "Save the four formats as reusable paragraph or character styles with the current style controls, then apply them across two artboards."
+        "Tạo Heading_Display bằng phông Serif và bật Standard Ligatures nếu phông hỗ trợ.",
+        "Tạo Subheading_Airy bằng phông Sans-serif, viết hoa toàn bộ (All Caps) và tracking +200‰.",
+        "Tạo Body_Text bằng phông dễ đọc cỡ 11 pt, leading 16 pt và chỉnh kerning cân đối.",
+        "Tạo Caption_Muted bằng phông Sans-serif cỡ nhỏ kèm giảm nhẹ độ mờ đục.",
+        "Lưu cả 4 định dạng thành paragraph hoặc character styles bằng điều khiển trên bản dựng rồi áp dụng đồng loạt lên hai Artboard."
       ],
-      "expectedOutcome": "A professional design system typography kit where modifying 'Heading_Display' updates every artboard synchronously."
+      "expectedOutcome": "Bộ kiểu mẫu chữ đồng nhất: khi chỉnh sửa 'Heading_Display', các khung chữ dùng chung style trên các Artboard đều cập nhật theo."
     },
     "independentChallenge": {
-      "title": "Vintage Book Title Page with Flourished Initials",
-      "prompt": "Construct a classic novel title page: (1) Set the headline in a historic serif font with Discretionary Ligatures where supported; (2) open Window > Text > Glyph Browser, choose a suitable font family/style/subset and insert available alternate or swash characters for the opening and closing capitals; (3) use an OpenType Small Caps subtitle ('VOL. I • LONDON 1894') if supported by the font; (4) create reusable paragraph and character styles for the title, author and metadata.",
+      "title": "Trang tiêu đề sách cổ điển với chữ hoa uốn lượn",
+      "prompt": "Thiết kế trang tựa cho một cuốn tiểu thuyết kinh điển: (1) Đặt tiêu đề chính bằng phông Serif cổ điển có bật Discretionary Ligatures nếu phông hỗ trợ; (2) Mở Window > Text > Glyph Browser, chọn đúng họ phông, kiểu nét và subset rồi chèn các ký tự thay thế hoặc có nét uốn swashes cho chữ cái đầu và cuối; (3) Dùng OpenType Small Caps cho dòng phụ ('VOL. I • LONDON 1894') nếu phông có hỗ trợ; (4) Tạo bộ paragraph và character styles tái sử dụng cho tên sách, tên tác giả và thông tin xuất bản.",
       "starterAsset": {
         "filename": "D06_typography_glyphs_guide.md",
         "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -110,85 +110,85 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for OpenType and Glyph Studio (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn thiết lập thực hành OpenType và Glyph Browser (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Discretionary ligatures and swashes utilized appropriately from genuine OpenType font tables.",
-        "Glyph Browser panel used to browse and insert available alternate characters from the chosen font.",
-        "Reusable paragraph and character styles are applied consistently; exact style-management UI path is confirmed in the target build."
+        "Áp dụng hợp lý Discretionary Ligatures và Swashes từ đúng bảng OpenType của phông.",
+        "Sử dụng bảng Glyph Browser để duyệt và chèn ký tự thay thế phù hợp từ phông đã chọn.",
+        "Áp dụng nhất quán paragraph và character styles; kiểm chứng vị trí nút quản lý style trên bản dựng đang dùng."
       ],
-      "bonusGoal": "Apply oldstyle proportional figures (numbers with ascenders and descenders) to the date."
+      "bonusGoal": "Áp dụng chữ số cổ điển dạng Oldstyle Proportional (có nét lên xuống tự nhiên theo dòng chữ) cho phần năm xuất bản."
     },
     "commonPitfalls": [
       {
-        "pitfall": "OpenType features button is grayed out or has no effect",
-        "cause": "The active font does not contain OpenType font tables for that feature (many cheap or web-ripped fonts lack ligatures and swashes).",
-        "solution": "Switch to an authentic OpenType font (e.g. Adobe Garamond, Playfair Display, Montserrat, or Cormorant Garamond)."
+        "pitfall": "Nút tính năng OpenType bị mờ hoặc bấm không có tác dụng",
+        "cause": "Phông chữ đang dùng không chứa bảng dữ liệu OpenType cho tính năng đó (nhiều phông miễn phí đơn giản cắt bỏ ligatures và swashes).",
+        "solution": "Đổi sang các bộ phông OpenType đầy đủ bảng ký tự như Adobe Garamond, Playfair Display, Montserrat hoặc Cormorant Garamond."
       },
       {
-        "pitfall": "Accidentally styling whole paragraph when trying to format one word",
-        "cause": "Applying a Paragraph Style instead of a Character Style to a localized selection.",
-        "solution": "Use Paragraph Styles for whole-block formatting (margins, leading); use Character Styles for inline word accents (bold, color, swash)."
+        "pitfall": "Đổi định dạng nhầm cả đoạn văn khi chỉ muốn nhấn mạnh một từ",
+        "cause": "Áp dụng nhầm Paragraph Style thay vì Character Style cho một cụm từ bôi đen.",
+        "solution": "Dùng Paragraph Style cho cấu trúc cả khối đoạn (căn lề, khoảng cách dòng); dùng Character Style cho phần nhấn nhá ngắn trong dòng (in đậm, đổi màu, nét uốn)."
       },
       {
-        "pitfall": "Manual overrides overriding global Text Style updates",
-        "cause": "Editing point size manually after applying a text style adds a '+' override badge.",
-        "solution": "Click the 'Clear Overrides' button in the Text Styles panel to re-synchronize the text with its master style definition."
+        "pitfall": "Chỉnh tay ghi đè làm mất khả năng cập nhật theo Text Style gốc",
+        "cause": "Sửa cỡ chữ hoặc màu sắc thủ công sau khi đã gắn style khiến phát sinh dấu cộng (+) báo ghi đè.",
+        "solution": "Dùng lệnh Clear Overrides trong phần quản lý Text Styles để đưa đoạn chữ trở lại khớp hoàn toàn với định nghĩa style gốc."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D06-03-Q1",
-        "question": "What is the documented way to insert a glyph using the Glyph Browser panel?",
+        "question": "Cách thao tác được tài liệu chính thức hướng dẫn để chèn một ký tự từ bảng Glyph Browser là gì?",
         "options": [
-          "Use the Layers panel to convert text into curves.",
-          "Place a text insertion point, open Window > Text > Glyph Browser, choose a font/style/subset and double-click a glyph.",
-          "Open the Symbols panel and select a symbol.",
-          "Export the document as PDF."
+          "Mở bảng Layers để chuyển chữ thành đường cong.",
+          "Đặt con trỏ chèn chữ, mở Window > Text > Glyph Browser, chọn họ phông/kiểu nét/subset rồi nhấp đúp vào glyph cần chèn.",
+          "Mở bảng Symbols rồi kéo một symbol ra.",
+          "Xuất tài liệu sang định dạng PDF."
         ],
         "correctIndex": 1,
-        "explanation": "The current Help Center instructions are to create an insertion point, open Window > Text > Glyph Browser, choose the font family, style and subset, then double-click the glyph."
+        "explanation": "Quy trình chuẩn là đặt con trỏ gõ chữ, mở Window > Text > Glyph Browser, chọn họ phông, kiểu chữ và subset phù hợp rồi nhấp đúp vào ký tự để chèn."
       },
       {
         "id": "D06-03-Q2",
-        "question": "What is the difference between 'Standard Ligatures' and 'Discretionary Ligatures'?",
+        "question": "Sự khác biệt giữa 'Standard Ligatures' và 'Discretionary Ligatures' là gì?",
         "options": [
-          "Standard ligatures are free; discretionary ligatures cost money.",
-          "Standard ligatures fix physical character collisions for readability (fi, fl, ffi); Discretionary ligatures are decorative or historical joints (st, ct) used for artistic styling.",
-          "Standard ligatures only work in English; Discretionary ligatures work in French.",
-          "There is no difference."
+          "Standard Ligatures miễn phí còn Discretionary Ligatures mất phí.",
+          "Standard Ligatures xử lý các cặp chữ dễ va chạm nét nhằm tăng độ dễ đọc (fi, fl, ffi); Discretionary Ligatures là nét nối trang trí hoặc cổ điển (st, ct) dùng cho tiêu đề tạo phong cách.",
+          "Standard Ligatures chỉ dùng cho tiếng Anh; Discretionary Ligatures dùng cho tiếng Pháp.",
+          "Hai tùy chọn này hoàn toàn giống nhau."
         ],
         "correctIndex": 1,
-        "explanation": "Standard ligatures resolve optical collisions to improve body copy legibility, whereas Discretionary ligatures add stylistic, historical, or vintage flair."
+        "explanation": "Standard Ligatures giải quyết va chạm hình học để chữ nội dung dễ đọc hơn, còn Discretionary Ligatures mang tính trang trí thẩm mỹ, phù hợp cho tiêu đề hoặc nhãn cổ điển."
       },
       {
         "id": "D06-03-Q3",
-        "question": "Why use reusable paragraph and character styles instead of formatting every text frame manually?",
+        "question": "Vì sao nên dùng paragraph và character styles tái sử dụng thay vì chỉnh tay từng khung chữ riêng lẻ?",
         "options": [
-          "They prevent users from changing words.",
-          "They let related text keep consistent formatting and make later style changes easier to apply consistently.",
-          "They automatically translate text.",
-          "They remove all text from the document."
+          "Vì style khóa không cho người khác sửa nội dung chữ.",
+          "Vì giúp toàn bộ hệ thống chữ giữ đồng nhất định dạng và cập nhật hàng loạt nhanh chóng khi thay đổi thiết kế.",
+          "Vì style tự động dịch ngôn ngữ cho văn bản.",
+          "Vì style xóa bớt các lớp chữ thừa trong tài liệu."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity supports reusable paragraph and character styles to maintain consistency across text in a design."
+        "explanation": "Sử dụng paragraph và character styles tái sử dụng giúp đảm bảo tính nhất quán trên toàn bộ bản thiết kế và dễ dàng đồng bộ khi cần đổi phông hoặc cỡ chữ."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "OpenType features are available from the text Context Toolbar when supported by the font.",
-        "The Glyph Browser panel inserts Unicode characters and font-specific alternate glyphs.",
-        "Reusable paragraph and character styles support consistent typography across a project.",
-        "Confirm the current style-creation UI path on the target build before documenting exact menu or panel labels."
+        "Các tùy chọn OpenType xuất hiện trên thanh Context Toolbar của văn bản tùy theo mức độ hỗ trợ của từng phông.",
+        "Bảng Glyph Browser giúp duyệt và chèn ký tự Unicode cùng các biến thể glyph ẩn bên trong phông chữ.",
+        "Paragraph styles và character styles tái sử dụng giữ cho hệ thống typography thống nhất qua nhiều Artboard.",
+        "Nên đối chiếu vị trí nút tạo và xóa ghi đè style thực tế trên bản dựng Affinity đang dùng trước khi thao tác hàng loạt."
       ],
       "relatedResources": [
         {
-          "title": "Next Module: D07 Isometric Grids, 3D Projections & Snapping",
+          "title": "Học phần tiếp theo: D07 Hệ Lưới Isometric, Phối Cảnh Trục Đo & Mặt Phẳng 3D",
           "target": "D07-01",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: OpenType Typography & Glyphs",
+          "title": "Tài liệu Affinity: OpenType Typography & Glyphs",
           "target": "https://affinity.serif.com/designer/",
           "type": "doc"
         }
@@ -200,95 +200,95 @@
       "id": "D06-03-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "OpenType Features, Glyph Browser & Text Styles Hierarchy",
-      "subtitle": "Unlocking Hidden Font Treasures & Enterprise Style Systems",
-      "contentMarkdown": "Welcome to **Lesson D06-03**. In this lesson, use the text Context Toolbar to explore font-supported OpenType features, the **Glyph Browser panel** to insert Unicode and alternate glyphs, and reusable paragraph and character styles to maintain typographic consistency.",
+      "title": "Tính năng OpenType, Glyph Browser và hệ thống Text Styles",
+      "subtitle": "Khai thác kho biến thể ẩn của phông chữ và quản lý style chuẩn hệ thống",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D06-03**. Trong bài học cuối của Module D06, bạn sẽ khai thác các tùy chọn **OpenType** trên thanh Context Toolbar của chữ, dùng bảng **Glyph Browser** để chèn ký tự Unicode cùng biến thể glyph, và tổ chức hệ thống **paragraph / character styles** giữ cho toàn bộ bản thiết kế đồng bộ.",
       "actionBox": {
-        "label": "Typography Superpower",
-        "text": "Turn ordinary typing into bespoke hand-lettered art using OpenType swashes and alternates."
+        "label": "Điểm cộng của OpenType",
+        "text": "Biến dòng chữ gõ bình thường thành tiêu đề mang dấu ấn thủ công nhờ chữ ghép và nét uốn swashes có sẵn trong phông."
       }
     },
     {
       "id": "D06-03-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The World of OpenType Features",
-      "subtitle": "Ligatures, Swashes & Stylistic Sets",
-      "contentMarkdown": "Professional OpenType fonts are mini software programs packed with features:\n\n1. **Standard Ligatures (`liga`):** Eliminates collisions where letter dots hit crossbars (e.g. `fi`, `fl`, `ffi`).\n2. **Discretionary Ligatures (`dlig`):** Vintage artistic bridges (e.g. `ct`, `st`, `sp`).\n3. **Swashes (`swsh`):** Extends calligraphic flourish tails on capital letters.\n4. **Stylistic Sets (`ss01-20`):** Alternate letter cuts (e.g. swapping between a geometric circular 'a' and a humanist double-story 'a').",
+      "title": "Thế giới tính năng OpenType trong phông chữ",
+      "subtitle": "Ligatures, Swashes và Stylistic Sets",
+      "contentMarkdown": "Các bộ phông OpenType chất lượng cao chứa sẵn nhiều biến thể đồ họa bên trong:\n\n1. **Standard Ligatures (`liga`):** Nối tự nhiên các cặp hay dính dấu như `fi`, `fl`, `ffi`.\n2. **Discretionary Ligatures (`dlig`):** Nhịp nối mang phong cách cổ điển như `ct`, `st`, `sp`.\n3. **Swashes (`swsh`):** Nét vẩy kéo dài ở chữ hoa mở đầu hoặc kết thúc.\n4. **Stylistic Sets (`ss01–20`):** Bộ dáng chữ thay thế (chẳng hạn đổi từ chữ `'a'` hai tầng sang `'a'` tròn đơn giản).",
       "visual": {
         "type": "badge-grid",
-        "content": "Standard Ligatures (fi, fl) | Discretionary (st, ct) | Swashes (Flourishes) | Stylistic Sets"
+        "content": "Standard Ligatures (fi, fl) | Discretionary (st, ct) | Swashes (Nét uốn) | Stylistic Sets"
       }
     },
     {
       "id": "D06-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "OpenType controls in the text Context Toolbar",
-      "subtitle": "Your Control Center for Font Features",
-      "contentMarkdown": "Select a text object and inspect the **Context Toolbar** for OpenType controls supported by the selected font.\n\n- **Ligatures:** standard and discretionary ligatures where included in the font.\n- **Stylistic alternates and swashes:** available only when the font contains those glyphs.\n- **Font dependency:** the exact features shown vary by typeface.",
+      "title": "Điều khiển OpenType trên thanh Context Toolbar",
+      "subtitle": "Bật tắt tính năng tùy theo phông đang chọn",
+      "contentMarkdown": "Chọn một đối tượng chữ và quan sát thanh **Context Toolbar** để thấy các tùy chọn OpenType khả dụng:\n\n- **Ligatures:** bật chữ ghép tiêu chuẩn hoặc trang trí khi phông có thiết kế sẵn.\n- **Stylistic alternates và swashes:** chỉ sáng lên nếu phông chữ chứa các glyph biến thể tương ứng.\n- **Phụ thuộc phông:** danh sách tính năng hiển thị thay đổi theo từng họ phông.",
       "actionBox": {
-        "label": "Quality Note",
-        "text": "OpenType features require a font that contains them! Quality typefaces (Playfair, Baskerville, Montserrat) shine here."
+        "label": "Lưu ý chọn phông",
+        "text": "OpenType chỉ hoạt động với phông có tích hợp bảng ký tự mở rộng (như Playfair, Garamond, Baskerville, Montserrat)."
       }
     },
     {
       "id": "D06-03-S4",
       "slideNumber": 4,
       "type": "tool-anatomy",
-      "title": "The Glyph Browser panel",
-      "subtitle": "Discovering Every Embedded Character",
-      "contentMarkdown": "Open the panel using `Window > Text > Glyph Browser`.\n\n1. Create a text insertion point.\n2. Choose the font family, style and subset from the panel menus.\n3. Double-click a glyph to insert it at the insertion point.\n\nAvailable characters and alternates depend on the selected font.",
+      "title": "Bảng Glyph Browser",
+      "subtitle": "Tra cứu toàn bộ ký tự ẩn trong phông chữ",
+      "contentMarkdown": "Mở bảng bằng lệnh `Window > Text > Glyph Browser`.\n\n1. Đặt con trỏ nhấp nháy vào trong đoạn chữ.\n2. Chọn họ phông, kiểu chữ (style) và nhóm ký tự (subset) trên menu của bảng.\n3. Nhấp đúp vào một glyph để chèn ngay tại vị trí con trỏ.\n\nKho ký tự và biến thể hiển thị tùy thuộc hoàn toàn vào phông bạn đang chọn.",
       "visual": {
         "type": "diagram",
-        "content": "Text insertion point → Window > Text > Glyph Browser → choose font family/style/subset → double-click glyph"
+        "content": "Đặt con trỏ chữ → Window > Text > Glyph Browser → Chọn phông / kiểu / subset → Nhấp đúp glyph"
       }
     },
     {
       "id": "D06-03-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Paragraph Styles vs Character Styles",
-      "subtitle": "The Two Pillars of Text Architecture",
-      "contentMarkdown": "Affinity supports reusable **paragraph styles** and **character styles**.\n\n- Paragraph styles apply consistent formatting to paragraph-level text.\n- Character styles apply consistent formatting to selected characters or runs of text.\n- The exact current menu/panel location for creating, updating and clearing style overrides should be checked on the target build.",
+      "title": "Paragraph Styles và Character Styles",
+      "subtitle": "Hai trụ cột định dạng chữ tái sử dụng",
+      "contentMarkdown": "Affinity hỗ trợ cả **paragraph styles** và **character styles** để tái sử dụng:\n\n- **Paragraph styles** lưu trọn bộ thuộc tính định dạng cho cả đoạn văn bản.\n- **Character styles** chỉ áp dụng cho một nhóm ký tự hoặc từ nhấn mạnh nằm bên trong đoạn.\n- Vị trí menu hoặc bảng để tạo mới, cập nhật và xóa ghi đè style cần đối chiếu trực tiếp trên bản dựng Affinity bạn đang sử dụng.",
       "visual": {
         "type": "comparison",
-        "content": "Paragraph Style: Formats entire block structure VS Character Style: Formats inline words/accents"
+        "content": "Paragraph Style: Định dạng cấu trúc cả đoạn  |  Character Style: Nhấn mạnh cụm từ ngắn trong dòng"
       }
     },
     {
       "id": "D06-03-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Step-by-Step: Creating a Master Style",
-      "subtitle": "Building Design System Typography Tokens",
-      "contentMarkdown": "Create a reusable paragraph style using the current text-style controls in the target build:\n\n1. Format a headline with the intended typeface, weight and tracking.\n2. Create a paragraph style using the current style-creation control.\n3. Apply it to another text frame and compare the result.\n\nThe feature supports reusable paragraph and character styles; exact panel/menu labels are not asserted here.",
+      "title": "Thực hành: Tạo bộ kiểu chữ chuẩn dùng lại",
+      "subtitle": "Thiết lập quy chuẩn chữ cho hệ thống thiết kế",
+      "contentMarkdown": "Tạo một paragraph style dùng lại bằng bộ điều khiển Text Styles trên bản dựng hiện hành:\n\n1. Định dạng sẵn một dòng tiêu đề với họ phông, độ đậm và tracking mong muốn.\n2. Lưu định dạng đó thành một paragraph style mới bằng nút tạo style trên bản dựng của bạn.\n3. Áp dụng style vừa tạo cho một khung chữ thứ hai và kiểm tra tính đồng nhất.\n\nAffinity hỗ trợ đầy đủ paragraph và character styles; bài học giữ mô tả ở mức khái quát thay vì áp đặt tên nút cố định.",
       "actionBox": {
-        "label": "Design Token Power",
-        "text": "Text Styles save days of manual updating when brands change their corporate typeface."
+        "label": "Giá trị thực tế",
+        "text": "Text Styles giúp tiết kiệm hàng giờ chỉnh sửa thủ công khi thương hiệu thay đổi phông chữ chủ đạo."
       }
     },
     {
       "id": "D06-03-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "OpenType & Style Pitfalls",
-      "subtitle": "Avoid Common Typography Bugs",
-      "contentMarkdown": "### 1. Font lacks a requested OpenType feature\n- **Check:** The selected font may not include a particular ligature, swash or alternate glyph.\n- **Approach:** Choose a font that includes the required feature and inspect the text Context Toolbar again.\n\n### 2. Glyph not available\n- **Check:** Glyph availability depends on the selected font family, style and subset.\n- **Approach:** Choose the correct font/style/subset in Glyph Browser before inserting.\n\n### 3. Style-management control differs\n- **Check:** The exact current style-creation and override controls are not verified in this review.\n- **Approach:** Confirm the target-build UI before following a documented menu path.",
+      "title": "Các vướng mắc hay gặp với OpenType và Styles",
+      "subtitle": "Kiểm tra nhanh nguyên nhân và hướng xử lý",
+      "contentMarkdown": "### 1. Phông không có tính năng OpenType mong muốn\n- **Kiểm tra:** Phông đang dùng có thể không tích hợp ligature, swash hay ký tự thay thế.\n- **Hướng xử lý:** Đổi sang phông OpenType đầy đủ hơn rồi kiểm tra lại thanh Context Toolbar.\n\n### 2. Không tìm thấy ký tự trong Glyph Browser\n- **Kiểm tra:** Bộ ký tự hiển thị phụ thuộc vào họ phông, kiểu chữ và mục subset đang lọc.\n- **Hướng xử lý:** Chọn đúng họ phông, style và chuyển subset về All hoặc nhóm phù hợp trước khi tìm.\n\n### 3. Nút quản lý style khác vị trí giữa các bản dựng\n- **Kiểm tra:** Tên nút tạo style hoặc xóa ghi đè có thể khác nhau tùy giao diện phiên bản.\n- **Hướng xử lý:** Kiểm tra trực tiếp trên giao diện phần mềm đang cài trước khi thao tác hàng loạt.",
       "visual": {
         "type": "badge-grid",
-        "content": "Clear Overrides to Re-Sync | Discretionary for Titles Only | Standard Ligatures for Body"
+        "content": "Xóa ghi đè để đồng bộ lại | Discretionary cho tiêu đề | Standard Ligatures cho nội dung"
       }
     },
     {
       "id": "D06-03-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Historical Book Title Page",
-      "subtitle": "Put OpenType & Text Styles to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct a literary title page:\n1. Use a serif font with Discretionary Ligatures where supported.\n2. Open Window > Text > Glyph Browser and insert an available alternate or swash glyph.\n3. Use OpenType Small Caps if the chosen font supports it.\n4. Create reusable paragraph and character styles for the title, author and metadata.\n\n### Acceptance Criteria:\n- Supported OpenType features appear correctly.\n- Glyph Browser used to insert an available alternate character.\n- Paragraph and character styles maintain consistent formatting.",
+      "title": "Thử thách độc lập: Trang tựa sách cổ điển",
+      "subtitle": "Kết hợp OpenType, Glyph Browser và Text Styles",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết kế trang tựa cho một cuốn sách cổ điển:\n1. Chọn phông Serif phù hợp và bật **Discretionary Ligatures** (nếu phông có hỗ trợ).\n2. Mở `Window > Text > Glyph Browser` để chèn một biến thể ký tự hoặc nét uốn **Swash** cho chữ cái đầu tiêu đề.\n3. Dùng OpenType **Small Caps** cho dòng phụ đề nếu phông hỗ trợ.\n4. Tạo hệ thống **paragraph** và **character styles** dùng lại cho tên sách, tác giả và năm xuất bản.\n\n### Tiêu chí đạt:\n- Các tính năng OpenType được phông hỗ trợ hiển thị chuẩn xác.\n- Sử dụng Glyph Browser chèn đúng ký tự thay thế.\n- Toàn bộ khối chữ dùng paragraph và character styles thống nhất.",
       "practiceData": {
-        "prompt": "Construct a historical book title page utilizing OpenType features and Text Styles.",
+        "prompt": "Thiết kế trang tựa sách cổ điển ứng dụng OpenType và Text Styles.",
         "starterAsset": {
           "filename": "D06_typography_glyphs_guide.md",
           "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -296,12 +296,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for OpenType and Glyph Studio."
+          "statusNote": "Tài liệu hướng dẫn thiết lập thực hành OpenType và Glyph Browser."
         },
         "checkpoints": [
-          "Typography Studio features inspected and toggled",
-          "Glyph Browser panel used to insert an available alternate glyph.",
-          "Text Style hierarchy created and applied"
+          "Kiểm tra và bật tính năng OpenType trên thanh Context Toolbar",
+          "Dùng Glyph Browser chèn ít nhất một ký tự thay thế có sẵn trong phông",
+          "Tạo và áp dụng hệ thống Text Styles đồng bộ"
         ]
       }
     }

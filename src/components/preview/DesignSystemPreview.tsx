@@ -294,7 +294,7 @@ export const DesignSystemPreview: React.FC = () => {
             />
             <ErrorState
               title="MCP Connection Timeout"
-              message="Failed to connect to http://localhost:6767/sse after 2000ms. Affinity 3.0 listener is offline."
+              message="Failed to connect to http://localhost:6767/sse after 2000ms. Affinity Desktop listener is offline."
               onRetry={() => setToastMessage('Retrying MCP connection...')}
             />
           </div>
@@ -306,7 +306,7 @@ export const DesignSystemPreview: React.FC = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="Affinity Pen Tool Bezier Mechanics"
-        description="Core keyboard modifier interactions verified in Affinity 3.3.3"
+        description="Core keyboard modifier interactions verified in Affinity Studio Desktop"
         footer={
           <>
             <Button variant="ghost" onClick={() => setIsModalOpen(false)}>

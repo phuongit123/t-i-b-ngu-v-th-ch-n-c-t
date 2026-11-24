@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="620" viewBox="0 0 840 620">
+<title>Poster Trà Mát — artwork Affinity Academy</title>
+<rect width="840" height="620" fill="#cedb90"/>
+<rect x="58" y="46" width="724" height="528" fill="#eeefd8" stroke="#18352a" stroke-width="2"/>
+<path d="M58 154H782M58 502H782M548 46V502" fill="none" stroke="#18352a" stroke-width="2"/>
+<rect x="548" y="155" width="233" height="346" fill="#eb7e52"/>
+<text x="86" y="118" font-family="Georgia, serif" font-style="italic" font-size="58" fill="#18352a">Trà Mát</text>
+<text x="577" y="97" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#18352a">VƯỜN TRÀ</text>
+<text x="577" y="122" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#18352a">ĐÀ LẠT</text>
+<g fill="#1f664a">
+ <path d="M303 448 C312 321 347 237 456 204 C463 299 405 381 303 448 Z"/>
+ <path d="M291 449 C165 431 128 346 132 259 C237 272 286 354 291 449 Z"/>
+ <path d="M302 391 C250 327 244 235 293 185 C344 227 348 313 302 391 Z"/>
+</g>
+<path d="M301 450 C314 376 374 305 449 222 M290 446 C246 377 206 336 150 284 M302 382 C303 330 299 277 294 202" stroke="#eeefd8" stroke-width="2.6" fill="none"/>
+<circle cx="670" cy="286" r="66" fill="#1c503b"/>
+<path d="M635 288C652 310 687 310 704 284 M649 269h1m36 0h1" fill="none" stroke="#eeefd8" stroke-width="4" stroke-linecap="round"/>
+<text x="580" y="429" font-family="Georgia, serif" font-size="25" fill="#18352a">Một tách,</text>
+<text x="580" y="459" font-family="Georgia, serif" font-size="25" fill="#18352a">một khoảng nghỉ.</text>
+<text x="85" y="548" font-family="Arial, sans-serif" font-size="15" letter-spacing="4" font-weight="700" fill="#18352a">TRÀ XANH · HÁI TẠI ĐỒI</text>
+<text x="689" y="548" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" font-weight="700" fill="#18352a">50 G</text>
+</svg>

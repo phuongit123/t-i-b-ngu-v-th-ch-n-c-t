@@ -1,0 +1,3891 @@
+{
+  "D01-01": [
+    {
+      "step": 1,
+      "tool": "File → Open",
+      "before": {
+        "scene": "poster:source",
+        "label": "Tệp tra-mat.svg"
+      },
+      "after": {
+        "scene": "workspace:vector",
+        "label": "Poster đang mở"
+      },
+      "lookFor": "Nhận ra bản vẽ ở giữa và khu vực Layers bên phải."
+    },
+    {
+      "step": 2,
+      "tool": "Move Tool và Layers",
+      "before": {
+        "scene": "poster:full",
+        "label": "Poster hoàn chỉnh"
+      },
+      "after": {
+        "scene": "poster:leaf",
+        "label": "Đường cong lá đang chọn"
+      },
+      "lookFor": "Viền xanh và điểm neo thuộc chiếc lá. Chữ và nền vẫn là các lớp riêng."
+    },
+    {
+      "step": 3,
+      "tool": "Tab Studio",
+      "before": {
+        "scene": "workspace:vector",
+        "label": "Bộ công cụ Vector"
+      },
+      "after": {
+        "scene": "workspace:pixel",
+        "label": "Bộ công cụ Pixel"
+      },
+      "lookFor": "Đổi Studio để tìm công cụ cần dùng. Tài liệu đang mở vẫn giữ nguyên."
+    },
+    {
+      "step": 4,
+      "tool": "Hiện và ẩn lớp",
+      "before": {
+        "scene": "poster:full",
+        "label": "Lớp 50 G đang hiện"
+      },
+      "after": {
+        "scene": "poster:hide",
+        "label": "Chỉ ẩn lớp 50 G"
+      },
+      "lookFor": "Chữ 50 G biến mất, chiếc lá và màu nền giữ nguyên."
+    }
+  ],
+  "D01-02": [
+    {
+      "step": 1,
+      "tool": "New Document và Artboard",
+      "before": {
+        "scene": "boards:canvas",
+        "label": "Một vùng vẽ liền"
+      },
+      "after": {
+        "scene": "boards:desktop",
+        "label": "Artboard Desktop"
+      },
+      "lookFor": "Khung Desktop có tên và giới hạn riêng trên vùng làm việc."
+    },
+    {
+      "step": 2,
+      "tool": "Artboard Tool",
+      "before": {
+        "scene": "boards:desktop",
+        "label": "Khung Desktop"
+      },
+      "after": {
+        "scene": "boards:tablet",
+        "label": "Thêm khung Tablet"
+      },
+      "lookFor": "Hai kích thước cùng nằm trong một tài liệu. Tablet có tên và biên riêng."
+    },
+    {
+      "step": 3,
+      "tool": "Nhân bản Artboard",
+      "before": {
+        "scene": "boards:tablet",
+        "label": "Khung đang chọn"
+      },
+      "after": {
+        "scene": "boards:copies",
+        "label": "Bản sao có đủ lớp con"
+      },
+      "lookFor": "So sánh tiêu đề và khối nội dung ở hai khung. Sửa bản sao để kiểm tra chúng tách riêng."
+    },
+    {
+      "step": 4,
+      "tool": "Transform và Layers",
+      "before": {
+        "scene": "boards:desktop",
+        "label": "Bố cục ban đầu"
+      },
+      "after": {
+        "scene": "boards:resize",
+        "label": "Đổi kích thước khung"
+      },
+      "lookFor": "So chiều rộng khung và vị trí các lớp con sau khi đổi kích thước."
+    }
+  ],
+  "D01-03": [
+    {
+      "step": 1,
+      "tool": "Pixel Preview",
+      "before": {
+        "scene": "boards:vector",
+        "label": "Biên vector khi phóng lớn"
+      },
+      "after": {
+        "scene": "boards:pixel",
+        "label": "Biên theo ô pixel"
+      },
+      "lookFor": "Tìm những ô xám ở mép cong khi xem ảnh ở kích thước xuất."
+    },
+    {
+      "step": 2,
+      "tool": "Force Pixel Alignment",
+      "before": {
+        "scene": "boards:half",
+        "label": "Mép cắt qua giữa ô"
+      },
+      "after": {
+        "scene": "boards:aligned",
+        "label": "Mép khớp đường lưới"
+      },
+      "lookFor": "Đặt mép hình lên ranh giới pixel rồi kiểm lại nét ở kích thước nhỏ."
+    },
+    {
+      "step": 3,
+      "tool": "Wireframe",
+      "before": {
+        "scene": "poster:full",
+        "label": "Bản có màu tô"
+      },
+      "after": {
+        "scene": "poster:wire",
+        "label": "Chỉ hiện đường bao"
+      },
+      "lookFor": "Đường bị che bởi lớp phía trên trở nên nhìn thấy trong Wireframe."
+    },
+    {
+      "step": 4,
+      "tool": "Grid and Axis Manager",
+      "before": {
+        "scene": "grid:square",
+        "label": "Lưới vuông"
+      },
+      "after": {
+        "scene": "grid:iso",
+        "label": "Lưới trục đo"
+      },
+      "lookFor": "Ba cạnh của hình khối bám đúng các hướng của lưới."
+    }
+  ],
+  "D02-01": [
+    {
+      "step": 1,
+      "tool": "Pen Tool",
+      "before": {
+        "scene": "workspace:pen",
+        "label": "Pen trong Vector Studio"
+      },
+      "after": {
+        "scene": "path:anchors",
+        "label": "Đặt hai điểm neo"
+      },
+      "lookFor": "Bấm tạo điểm đầu và cuối. Đường nối hai điểm lúc này là đoạn thẳng."
+    },
+    {
+      "step": 2,
+      "tool": "Pen Tool và tay nắm",
+      "before": {
+        "scene": "path:anchors",
+        "label": "Chỉ bấm tạo điểm"
+      },
+      "after": {
+        "scene": "path:handles",
+        "label": "Kéo tay nắm tiếp tuyến"
+      },
+      "lookFor": "Tay nắm điều khiển hướng đường đi qua điểm neo và độ căng của cung."
+    },
+    {
+      "step": 3,
+      "tool": "Node Tool",
+      "before": {
+        "scene": "path:handles",
+        "label": "Đường cong ban đầu"
+      },
+      "after": {
+        "scene": "path:handleMove",
+        "label": "Kéo một đầu tay nắm"
+      },
+      "lookFor": "Điểm neo ở nguyên chỗ. So hướng tay nắm và dáng đường cong trước và sau khi kéo."
+    },
+    {
+      "step": 4,
+      "tool": "Smart Mode",
+      "before": {
+        "scene": "path:sharp",
+        "label": "Cung có góc gãy"
+      },
+      "after": {
+        "scene": "path:smart",
+        "label": "Cung qua các điểm đã đặt"
+      },
+      "lookFor": "Quan sát chỗ chuyển hướng giữa hai đoạn khi thử chế độ tự tính độ cong."
+    }
+  ],
+  "D02-02": [
+    {
+      "step": 1,
+      "tool": "Node Tool",
+      "before": {
+        "scene": "path:plain",
+        "label": "Chọn cả đối tượng"
+      },
+      "after": {
+        "scene": "path:handles",
+        "label": "Thấy điểm neo, tay nắm"
+      },
+      "lookFor": "Kéo một tay nắm để sửa độ cong cục bộ."
+    },
+    {
+      "step": 2,
+      "tool": "Sharp và Smooth",
+      "before": {
+        "scene": "path:sharp",
+        "label": "Điểm giữa tạo góc"
+      },
+      "after": {
+        "scene": "path:smooth",
+        "label": "Tay nắm cùng đường thẳng"
+      },
+      "lookFor": "Đường cong đi qua điểm giữa liền mạch hơn sau khi chuyển sang Smooth."
+    },
+    {
+      "step": 3,
+      "tool": "Quét chọn node",
+      "before": {
+        "scene": "path:handles",
+        "label": "Đường có nhiều điểm"
+      },
+      "after": {
+        "scene": "path:multi",
+        "label": "Khoanh đúng các điểm cần sửa"
+      },
+      "lookFor": "Các điểm trong vùng quét sáng lên. Những điểm ngoài vùng giữ vị trí."
+    },
+    {
+      "step": 4,
+      "tool": "Alignment",
+      "before": {
+        "scene": "path:multi",
+        "label": "Các điểm lệch cao độ"
+      },
+      "after": {
+        "scene": "path:aligned",
+        "label": "Các điểm nằm ngang hàng"
+      },
+      "lookFor": "Kiểm bằng đường gióng qua tâm các điểm neo cần căn."
+    }
+  ],
+  "D02-03": [
+    {
+      "step": 1,
+      "tool": "Pen Tool",
+      "before": {
+        "scene": "path:anchors",
+        "label": "Đoạn thứ nhất"
+      },
+      "after": {
+        "scene": "path:separate",
+        "label": "Hai đường có đầu rời"
+      },
+      "lookFor": "Tìm hai đầu mút đối diện cần nối."
+    },
+    {
+      "step": 2,
+      "tool": "Join Curves",
+      "before": {
+        "scene": "path:separate",
+        "label": "Hai đầu mút tách nhau"
+      },
+      "after": {
+        "scene": "path:joined",
+        "label": "Đường liên tục"
+      },
+      "lookFor": "Chọn Node Tool để xem đường nối giữa hai đầu mút."
+    },
+    {
+      "step": 3,
+      "tool": "Break Curve",
+      "before": {
+        "scene": "path:joined",
+        "label": "Nút trên đường liên tục"
+      },
+      "after": {
+        "scene": "path:broken",
+        "label": "Hai đầu mút có thể tách"
+      },
+      "lookFor": "Kéo thử một đầu ra để kiểm tra đã ngắt ở đúng chỗ, rồi hoàn tác."
+    },
+    {
+      "step": 4,
+      "tool": "Stroke và Miter Limit",
+      "before": {
+        "scene": "path:cap",
+        "label": "Đầu phẳng và đầu tròn"
+      },
+      "after": {
+        "scene": "path:miter",
+        "label": "Đỉnh nhọn và đỉnh vát"
+      },
+      "lookFor": "Kiểm riêng hai đầu nét và phần nhô ra ở góc hẹp."
+    }
+  ],
+  "D03-01": [
+    {
+      "step": 1,
+      "tool": "Cog Tool",
+      "before": {
+        "scene": "shape:cog8",
+        "label": "Bánh răng tham số"
+      },
+      "after": {
+        "scene": "shape:cogSelect",
+        "label": "Khung điều khiển hình"
+      },
+      "lookFor": "Các điểm nắm cam điều khiển tham số hình, như chiều sâu răng và lỗ trục."
+    },
+    {
+      "step": 2,
+      "tool": "Điểm nắm Cog",
+      "before": {
+        "scene": "shape:cog8",
+        "label": "Răng và lỗ nhỏ"
+      },
+      "after": {
+        "scene": "shape:cogDeep",
+        "label": "Rãnh sâu, lỗ rộng"
+      },
+      "lookFor": "So mặt ngoài và đường kính lỗ sau khi kéo từng điểm nắm."
+    },
+    {
+      "step": 3,
+      "tool": "Convert to Curves",
+      "before": {
+        "scene": "shape:cogSelect",
+        "label": "Chỉnh bằng tham số"
+      },
+      "after": {
+        "scene": "shape:cogNodes",
+        "label": "Chỉnh bằng từng điểm neo"
+      },
+      "lookFor": "Sau khi chuyển đổi, dùng Node Tool để sửa riêng một đỉnh răng."
+    },
+    {
+      "step": 4,
+      "tool": "Corner Tool",
+      "before": {
+        "scene": "shape:cogNodes",
+        "label": "Đỉnh răng sắc"
+      },
+      "after": {
+        "scene": "shape:cogRound",
+        "label": "Đỉnh răng được bo"
+      },
+      "lookFor": "So khoảng cong ở góc với răng kế bên chưa được bo."
+    }
+  ],
+  "D03-02": [
+    {
+      "step": 1,
+      "tool": "Rectangle Tool và Ellipse Tool",
+      "before": {
+        "scene": "shape:two",
+        "label": "Hai hình riêng"
+      },
+      "after": {
+        "scene": "shape:overlap",
+        "label": "Tạo vùng chồng lấn"
+      },
+      "lookFor": "Chỉ ra vùng chung trước khi thử các phép toán."
+    },
+    {
+      "step": 2,
+      "tool": "Subtract",
+      "before": {
+        "scene": "shape:overlap",
+        "label": "Tròn chồng trên vuông"
+      },
+      "after": {
+        "scene": "shape:subtract",
+        "label": "Vuông bị khoét"
+      },
+      "lookFor": "Đổi thứ tự lớp để thấy vì sao đối tượng ở trên quyết định phần cắt."
+    },
+    {
+      "step": 3,
+      "tool": "Divide",
+      "before": {
+        "scene": "shape:overlap",
+        "label": "Hai hình chồng nhau"
+      },
+      "after": {
+        "scene": "shape:divide",
+        "label": "Ba vùng có thể tách"
+      },
+      "lookFor": "Di chuyển thử phần giao để thấy nó đã thành một mảnh riêng."
+    },
+    {
+      "step": 4,
+      "tool": "Add, Intersect và Xor",
+      "before": {
+        "scene": "shape:overlap",
+        "label": "Giữ nguyên hai hình đầu"
+      },
+      "after": {
+        "scene": "shape:results",
+        "label": "So ba kết quả Boolean"
+      },
+      "lookFor": "Add giữ hợp, Intersect giữ phần chung, Xor bỏ phần chung."
+    }
+  ],
+  "D03-03": [
+    {
+      "step": 1,
+      "tool": "Move Tool",
+      "before": {
+        "scene": "shape:two",
+        "label": "Hai thành phần rời"
+      },
+      "after": {
+        "scene": "shape:overlap",
+        "label": "Chọn cả hai khi chồng"
+      },
+      "lookFor": "Nhìn vùng giao để quyết định dùng phép toán nào."
+    },
+    {
+      "step": 2,
+      "tool": "Compound",
+      "before": {
+        "scene": "shape:overlap",
+        "label": "Hình gốc chồng lấn"
+      },
+      "after": {
+        "scene": "shape:subtract",
+        "label": "Kết quả khoét còn chỉnh được"
+      },
+      "lookFor": "Hình trên tạo vùng âm. Các hình nguồn cần còn trong Compound."
+    },
+    {
+      "step": 3,
+      "tool": "Layers",
+      "before": {
+        "scene": "shape:subtract",
+        "label": "Kết quả trên bản vẽ"
+      },
+      "after": {
+        "scene": "layers:compound",
+        "label": "Mở các hình con"
+      },
+      "lookFor": "Mở nhánh Compound và chọn riêng hình cắt."
+    },
+    {
+      "step": 4,
+      "tool": "Move Tool trong Compound",
+      "before": {
+        "scene": "shape:subtract",
+        "label": "Lỗ khoét ở giữa"
+      },
+      "after": {
+        "scene": "shape:compoundMove",
+        "label": "Lỗ khoét dịch theo hình con"
+      },
+      "lookFor": "So vị trí lỗ với hình tròn sau khi di chuyển."
+    },
+    {
+      "step": 5,
+      "tool": "Phép toán của hình con",
+      "before": {
+        "scene": "layers:compound",
+        "label": "Lớp con ở chế độ trừ"
+      },
+      "after": {
+        "scene": "shape:add",
+        "label": "Đổi sang vùng hợp"
+      },
+      "lookFor": "Vùng âm trở thành phần được giữ khi đổi phép toán."
+    }
+  ],
+  "D04-01": [
+    {
+      "step": 1,
+      "tool": "Fill Tool",
+      "before": {
+        "scene": "fill:flat",
+        "label": "Hình có một màu tô"
+      },
+      "after": {
+        "scene": "fill:linear",
+        "label": "Tay nắm chuyển màu"
+      },
+      "lookFor": "Kéo hướng chuyển, rồi kiểm xem vùng sáng tối nằm đúng nơi cần nhấn."
+    },
+    {
+      "step": 2,
+      "tool": "Linear Gradient",
+      "before": {
+        "scene": "fill:horizontal",
+        "label": "Dải màu theo ngang"
+      },
+      "after": {
+        "scene": "fill:linear",
+        "label": "Dải màu theo đường chéo"
+      },
+      "lookFor": "Hướng kéo giữa hai đầu xác định trục chuyển màu."
+    },
+    {
+      "step": 3,
+      "tool": "Điểm dừng màu",
+      "before": {
+        "scene": "fill:linear",
+        "label": "Hai màu ở hai đầu"
+      },
+      "after": {
+        "scene": "fill:stops",
+        "label": "Ba điểm dừng màu"
+      },
+      "lookFor": "Điểm giữa ảnh hưởng đoạn chuyển ở cả hai phía."
+    },
+    {
+      "step": 4,
+      "tool": "Midpoint Bias",
+      "before": {
+        "scene": "fill:stops",
+        "label": "Chuyển cân bằng"
+      },
+      "after": {
+        "scene": "fill:midpoint",
+        "label": "Dời điểm chuyển tiếp"
+      },
+      "lookFor": "Màu đậm chiếm nhiều hay ít tùy nơi đặt vạch giữa hai màu."
+    },
+    {
+      "step": 5,
+      "tool": "Conical Gradient",
+      "before": {
+        "scene": "fill:linear",
+        "label": "Màu đổi theo trục"
+      },
+      "after": {
+        "scene": "fill:conical",
+        "label": "Màu chạy quanh tâm"
+      },
+      "lookFor": "Tìm đường nối giữa đầu và cuối dải màu trên vòng xoay."
+    }
+  ],
+  "D04-02": [
+    {
+      "step": 1,
+      "tool": "Pen Tool",
+      "before": {
+        "scene": "path:anchors",
+        "label": "Hai mút làm điểm đầu"
+      },
+      "after": {
+        "scene": "stroke:thin",
+        "label": "Đường chữ S"
+      },
+      "lookFor": "Đường tâm tạo dáng chung cho nét thanh đậm ở các bước sau."
+    },
+    {
+      "step": 2,
+      "tool": "Stroke Width",
+      "before": {
+        "scene": "stroke:thin",
+        "label": "Nét mảnh"
+      },
+      "after": {
+        "scene": "stroke:wide",
+        "label": "Nét dày cùng đường tâm"
+      },
+      "lookFor": "Tâm đường cong giữ nguyên khi độ rộng tăng về hai phía."
+    },
+    {
+      "step": 3,
+      "tool": "Pressure",
+      "before": {
+        "scene": "stroke:wide",
+        "label": "Độ rộng đồng đều"
+      },
+      "after": {
+        "scene": "stroke:graph",
+        "label": "Biểu đồ độ rộng theo nét"
+      },
+      "lookFor": "Điểm càng cao trên đồ thị thì đoạn tương ứng càng dày."
+    },
+    {
+      "step": 4,
+      "tool": "Pressure và nét thanh đậm",
+      "before": {
+        "scene": "stroke:wide",
+        "label": "Cùng một độ dày"
+      },
+      "after": {
+        "scene": "stroke:pressure",
+        "label": "Đầu mảnh, thân dày"
+      },
+      "lookFor": "Quan sát chỗ nét thu nhỏ rồi dày lên dọc cùng một đường cong."
+    },
+    {
+      "step": 5,
+      "tool": "Dash và Gap",
+      "before": {
+        "scene": "stroke:wide",
+        "label": "Nét liền"
+      },
+      "after": {
+        "scene": "stroke:dashes",
+        "label": "Nhịp dài, ngắn và khoảng hở"
+      },
+      "lookFor": "Tìm đơn vị nhịp lặp và xem nó có đều trên đoạn cong."
+    }
+  ],
+  "D04-03": [
+    {
+      "step": 1,
+      "tool": "Contour Tool",
+      "before": {
+        "scene": "shape:base",
+        "label": "Hình gốc"
+      },
+      "after": {
+        "scene": "stroke:contourHandle",
+        "label": "Điểm điều khiển độ lệch"
+      },
+      "lookFor": "So đường biên gốc với biên xem trước khi kéo điểm điều khiển."
+    },
+    {
+      "step": 2,
+      "tool": "Contour ngoài",
+      "before": {
+        "scene": "shape:base",
+        "label": "Biên gốc"
+      },
+      "after": {
+        "scene": "stroke:contourOut",
+        "label": "Đường lệch ra ngoài"
+      },
+      "lookFor": "Khoảng cách từ biên gốc đến biên mới phải đều trên các cạnh thẳng."
+    },
+    {
+      "step": 3,
+      "tool": "Contour trong và kiểu góc",
+      "before": {
+        "scene": "stroke:contourOut",
+        "label": "Biên ngoài góc bo"
+      },
+      "after": {
+        "scene": "stroke:contourIn",
+        "label": "Biên trong góc sắc"
+      },
+      "lookFor": "So góc và độ dày phần còn lại khi đổi chiều kéo."
+    },
+    {
+      "step": 4,
+      "tool": "Bake Appearance",
+      "before": {
+        "scene": "stroke:contourOut",
+        "label": "Đường lệch còn tham số"
+      },
+      "after": {
+        "scene": "stroke:baked",
+        "label": "Biên mới có điểm neo"
+      },
+      "lookFor": "Dùng Node Tool nhìn các điểm của biên mới sau khi chốt."
+    },
+    {
+      "step": 5,
+      "tool": "Expand Stroke",
+      "before": {
+        "scene": "stroke:wide",
+        "label": "Một đường tâm có nét"
+      },
+      "after": {
+        "scene": "stroke:expanded",
+        "label": "Hai mép của hình tô"
+      },
+      "lookFor": "Sau khi mở rộng, đường bao khép kín tạo thành một hình có thể sửa từng mép."
+    }
+  ],
+  "D05-01": [
+    {
+      "step": 1,
+      "tool": "Layers",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Thứ tự nền, hình và chữ"
+      },
+      "after": {
+        "scene": "layers:reorder",
+        "label": "Hình đổi chỗ trong ngăn xếp"
+      },
+      "lookFor": "Lớp cao hơn che phần lớp thấp hơn tại chỗ chồng nhau."
+    },
+    {
+      "step": 2,
+      "tool": "Group",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Các lớp đứng riêng"
+      },
+      "after": {
+        "scene": "layers:group",
+        "label": "Chữ và lá chung nhóm"
+      },
+      "lookFor": "Chọn nhóm để di chuyển cả cụm. Mở nhóm để sửa riêng từng thành phần."
+    },
+    {
+      "step": 3,
+      "tool": "Đặt tên lớp",
+      "before": {
+        "scene": "layers:untitled",
+        "label": "Tên tự động khó tìm"
+      },
+      "after": {
+        "scene": "layers:stack",
+        "label": "Tên mô tả nội dung"
+      },
+      "lookFor": "Tìm được nền và tiêu đề mà chưa cần bật tắt từng lớp."
+    },
+    {
+      "step": 4,
+      "tool": "Color Tag",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Các lớp chưa phân loại"
+      },
+      "after": {
+        "scene": "layers:tags",
+        "label": "Màu theo nhóm nội dung"
+      },
+      "lookFor": "Màu thẻ giúp phân loại trong bảng. Màu hình trên bản vẽ giữ nguyên."
+    },
+    {
+      "step": 5,
+      "tool": "Khóa lớp nền",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Nền có thể bị chọn"
+      },
+      "after": {
+        "scene": "layers:locked",
+        "label": "Nền có biểu tượng khóa"
+      },
+      "lookFor": "Kéo thử hình phía trên. Nền vẫn đứng yên."
+    }
+  ],
+  "D05-02": [
+    {
+      "step": 1,
+      "tool": "Ellipse Tool",
+      "before": {
+        "scene": "shape:base",
+        "label": "Vùng nhìn ban đầu"
+      },
+      "after": {
+        "scene": "shape:ellipse",
+        "label": "Hình cha hình tròn"
+      },
+      "lookFor": "Biên tròn sẽ giới hạn phần họa tiết được nhìn thấy."
+    },
+    {
+      "step": 2,
+      "tool": "Tạo họa tiết",
+      "before": {
+        "scene": "shape:ellipse",
+        "label": "Hình cha rỗng"
+      },
+      "after": {
+        "scene": "shape:overflow",
+        "label": "Họa tiết đi qua biên"
+      },
+      "lookFor": "Để các dải thực sự vượt mép giúp nhìn rõ tác dụng clipping."
+    },
+    {
+      "step": 3,
+      "tool": "Vector Clipping",
+      "before": {
+        "scene": "shape:overflow",
+        "label": "Dải còn tràn mép"
+      },
+      "after": {
+        "scene": "shape:clipped",
+        "label": "Dải lồng trong hình cha"
+      },
+      "lookFor": "Mở lớp cha trong Layers, chọn và kéo thử họa tiết bên trong."
+    },
+    {
+      "step": 4,
+      "tool": "Vector Mask",
+      "before": {
+        "scene": "layers:clip",
+        "label": "Lớp con nằm trong thân"
+      },
+      "after": {
+        "scene": "layers:mask",
+        "label": "Mặt nạ gắn với thumbnail"
+      },
+      "lookFor": "So vị trí thụt cấp của mặt nạ và lớp con để phân biệt hai cấu trúc."
+    },
+    {
+      "step": 5,
+      "tool": "Insert Inside Selection",
+      "before": {
+        "scene": "layers:single",
+        "label": "Đã chọn hình cha"
+      },
+      "after": {
+        "scene": "shape:clipped2",
+        "label": "Hình vừa vẽ được giới hạn"
+      },
+      "lookFor": "Vẽ nét qua biên rồi kiểm Layers xem nét mới đã nằm trong đối tượng cha."
+    }
+  ],
+  "D05-03": [
+    {
+      "step": 1,
+      "tool": "Multiply",
+      "before": {
+        "scene": "shape:shadowNormal",
+        "label": "Lớp bóng che màu bên dưới"
+      },
+      "after": {
+        "scene": "shape:multiply",
+        "label": "Bóng giữ được màu nền"
+      },
+      "lookFor": "Chỗ chồng tối đi và vẫn nhìn được màu của vật thể."
+    },
+    {
+      "step": 2,
+      "tool": "Screen và Color Dodge",
+      "before": {
+        "scene": "shape:lightNormal",
+        "label": "Nền đen còn chiếm chỗ"
+      },
+      "after": {
+        "scene": "shape:screen",
+        "label": "Chỉ còn quầng sáng"
+      },
+      "lookFor": "So mép vệt sáng với nền. Giảm độ đậm nếu chuyển sắc bị gắt."
+    },
+    {
+      "step": 3,
+      "tool": "Blend Options",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Lớp đang chọn"
+      },
+      "after": {
+        "scene": "chart:blend",
+        "label": "Đồ thị dải sắc độ"
+      },
+      "lookFor": "Trục ngang đi từ tối đến sáng, trục dọc biểu thị mức hiện của lớp."
+    },
+    {
+      "step": 4,
+      "tool": "Underlying Composition Ranges",
+      "before": {
+        "scene": "chart:blend",
+        "label": "Lớp hiện trên toàn dải"
+      },
+      "after": {
+        "scene": "chart:blendSplit",
+        "label": "Chuyển dần ở vùng sáng"
+      },
+      "lookFor": "Tìm mép chuyển mềm quanh vùng sáng thay cho một ranh giới gắt."
+    },
+    {
+      "step": 5,
+      "tool": "Isolation Mode",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Thấy toàn bộ bố cục"
+      },
+      "after": {
+        "scene": "layers:isolate",
+        "label": "Tập trung vào đúng lớp đang sửa"
+      },
+      "lookFor": "Thoát cô lập để so lại hình trong bố cục chung."
+    }
+  ],
+  "D06-01": [
+    {
+      "step": 1,
+      "tool": "Artistic Text Tool",
+      "before": {
+        "scene": "type:empty",
+        "label": "Khoảng trống làm tiêu đề"
+      },
+      "after": {
+        "scene": "type:headline",
+        "label": "Tạo chữ tiêu đề độc lập"
+      },
+      "lookFor": "Phóng tiêu đề mà không làm thay đổi bề rộng khung nội dung."
+    },
+    {
+      "step": 2,
+      "tool": "Frame Text Tool",
+      "before": {
+        "scene": "type:headline",
+        "label": "Tiêu đề tách riêng"
+      },
+      "after": {
+        "scene": "type:frame",
+        "label": "Chữ dài tự xuống dòng"
+      },
+      "lookFor": "Thử thu hẹp khung. Đoạn văn xuống dòng theo bề rộng mới."
+    },
+    {
+      "step": 3,
+      "tool": "Kerning",
+      "before": {
+        "scene": "type:avWide",
+        "label": "Cặp A–V cách xa"
+      },
+      "after": {
+        "scene": "type:avKern",
+        "label": "Kéo riêng khoảng giữa A–V"
+      },
+      "lookFor": "So khoảng trống nhìn thấy giữa hai nét chéo."
+    },
+    {
+      "step": 4,
+      "tool": "Tracking",
+      "before": {
+        "scene": "type:trackingTight",
+        "label": "Dòng phụ sít nhau"
+      },
+      "after": {
+        "scene": "type:trackingWide",
+        "label": "Cả dòng phụ giãn đều"
+      },
+      "lookFor": "So các khoảng liên tiếp. Phân cấp chữ vẫn rõ khi thu nhỏ."
+    }
+  ],
+  "D06-02": [
+    {
+      "step": 1,
+      "tool": "Ellipse Tool",
+      "before": {
+        "scene": "type:badgeEmpty",
+        "label": "Vùng thiết kế huy hiệu"
+      },
+      "after": {
+        "scene": "type:circle",
+        "label": "Đường dẫn tròn"
+      },
+      "lookFor": "Giữ đúng tâm để hai cung chữ có thể cân đối."
+    },
+    {
+      "step": 2,
+      "tool": "Artistic Text trên đường dẫn",
+      "before": {
+        "scene": "type:circle",
+        "label": "Đường dẫn chưa có chữ"
+      },
+      "after": {
+        "scene": "type:arc",
+        "label": "Chữ chạy theo cung trên"
+      },
+      "lookFor": "Chữ bám theo đường tròn thay vì nằm trên một dòng phẳng."
+    },
+    {
+      "step": 3,
+      "tool": "Mốc đầu và cuối văn bản",
+      "before": {
+        "scene": "type:arcOff",
+        "label": "Cung chữ lệch tâm"
+      },
+      "after": {
+        "scene": "type:arcMarks",
+        "label": "Vị trí mốc cân quanh cung"
+      },
+      "lookFor": "Kiểm khoảng trống hai đầu cung và xem chữ có bị ép ra ngoài."
+    },
+    {
+      "step": 4,
+      "tool": "Cung chữ dưới",
+      "before": {
+        "scene": "type:arcMarks",
+        "label": "Cung trên đã căn"
+      },
+      "after": {
+        "scene": "type:badge",
+        "label": "Hai cung đọc thuận chiều"
+      },
+      "lookFor": "Cung dưới đọc được từ trái sang phải ở vị trí đặt cuối cùng."
+    },
+    {
+      "step": 5,
+      "tool": "Baseline Offset",
+      "before": {
+        "scene": "type:badge",
+        "label": "Chữ sát đường dẫn"
+      },
+      "after": {
+        "scene": "type:badgeOffset",
+        "label": "Chữ cách đường dẫn đều"
+      },
+      "lookFor": "Kiểm khoảng hở giữa cung chữ với hình giữa và đường bao."
+    }
+  ],
+  "D06-03": [
+    {
+      "step": 1,
+      "tool": "OpenType",
+      "before": {
+        "scene": "type:headline",
+        "label": "Văn bản đang dùng"
+      },
+      "after": {
+        "scene": "type:features",
+        "label": "Các lựa chọn của phông"
+      },
+      "lookFor": "Chỉ áp dụng tính năng mà phông đang dùng có hỗ trợ."
+    },
+    {
+      "step": 2,
+      "tool": "Ligatures",
+      "before": {
+        "scene": "type:fi",
+        "label": "Hai ký tự đứng riêng"
+      },
+      "after": {
+        "scene": "type:ligature",
+        "label": "Dạng chữ ghép"
+      },
+      "lookFor": "Quan sát chỗ giao giữa nét f và dấu chấm i."
+    },
+    {
+      "step": 3,
+      "tool": "Glyph Browser",
+      "before": {
+        "scene": "type:glyphs",
+        "label": "Chọn ký tự trong bảng"
+      },
+      "after": {
+        "scene": "type:glyphUsed",
+        "label": "Ký tự được chèn vào văn bản"
+      },
+      "lookFor": "Kiểm đúng dạng ký tự và phông đang dùng ở vị trí chèn."
+    },
+    {
+      "step": 4,
+      "tool": "Text Styles",
+      "before": {
+        "scene": "type:stylesBefore",
+        "label": "Ba tiêu đề chưa đồng nhất"
+      },
+      "after": {
+        "scene": "type:stylesAfter",
+        "label": "Cùng một kiểu đoạn"
+      },
+      "lookFor": "Sửa kiểu đoạn để đổi các đoạn cùng kiểu. Kiểu ký tự chỉ tác động đoạn chữ được gán."
+    }
+  ],
+  "D07-01": [
+    {
+      "step": 1,
+      "tool": "Grid and Axis Manager",
+      "before": {
+        "scene": "grid:blank",
+        "label": "Khung chưa có đường căn"
+      },
+      "after": {
+        "scene": "grid:square",
+        "label": "Hiện lưới căn gióng"
+      },
+      "lookFor": "Lưới là đường hướng dẫn dựng hình. Lưới không thuộc hình vẽ."
+    },
+    {
+      "step": 2,
+      "tool": "Advanced",
+      "before": {
+        "scene": "grid:square",
+        "label": "Lưới vuông hai trục"
+      },
+      "after": {
+        "scene": "grid:axes",
+        "label": "Kiểm hướng các trục"
+      },
+      "lookFor": "Chế độ có nhiều tùy chọn cho phép chỉnh hướng và khoảng cách lưới."
+    },
+    {
+      "step": 3,
+      "tool": "Isometric",
+      "before": {
+        "scene": "grid:axes",
+        "label": "Ba hướng cần dùng"
+      },
+      "after": {
+        "scene": "grid:iso",
+        "label": "Đường lưới trục đo"
+      },
+      "lookFor": "So hướng của các cạnh khối với ba nhóm đường song song."
+    },
+    {
+      "step": 4,
+      "tool": "Spacing và Divisions",
+      "before": {
+        "scene": "grid:iso",
+        "label": "Bước lưới lớn"
+      },
+      "after": {
+        "scene": "grid:coarseFine",
+        "label": "Đường chia phụ mật độ cao"
+      },
+      "lookFor": "Tìm đường chính và ô nhỏ hơn khi cần đặt chi tiết."
+    },
+    {
+      "step": 5,
+      "tool": "Snapping với lưới",
+      "before": {
+        "scene": "grid:offSnap",
+        "label": "Điểm cuối lệch khỏi nút"
+      },
+      "after": {
+        "scene": "grid:onSnap",
+        "label": "Các điểm trùng nút lưới"
+      },
+      "lookFor": "Bật xem gần, kiểm đầu mút nằm đúng giao điểm."
+    }
+  ],
+  "D07-02": [
+    {
+      "step": 1,
+      "tool": "Isometric panel",
+      "before": {
+        "scene": "grid:iso",
+        "label": "Khối có ba mặt"
+      },
+      "after": {
+        "scene": "grid:planes",
+        "label": "Nhận diện Top, Front, Side"
+      },
+      "lookFor": "Chọn mặt tương ứng hướng của thiết kế trước khi chiếu."
+    },
+    {
+      "step": 2,
+      "tool": "Dựng thẻ 2D",
+      "before": {
+        "scene": "component:flat",
+        "label": "Thẻ phẳng nhìn trực diện"
+      },
+      "after": {
+        "scene": "component:flatGroup",
+        "label": "Nhóm các chi tiết của thẻ"
+      },
+      "lookFor": "Gom hình, dòng chữ và biểu tượng để chiếu cùng nhau."
+    },
+    {
+      "step": 3,
+      "tool": "Fit to Plane",
+      "before": {
+        "scene": "component:flatGroup",
+        "label": "Nhóm 2D"
+      },
+      "after": {
+        "scene": "component:plane",
+        "label": "Nhóm nghiêng theo mặt đã chọn"
+      },
+      "lookFor": "Các cạnh của thẻ cùng hướng lưới trên mặt đích."
+    },
+    {
+      "step": 4,
+      "tool": "Edit in Plane",
+      "before": {
+        "scene": "component:plane",
+        "label": "Thẻ vừa được chiếu"
+      },
+      "after": {
+        "scene": "component:planeShift",
+        "label": "Dời thẻ theo mặt nghiêng"
+      },
+      "lookFor": "Cạnh thẻ giữ góc cũ khi đổi vị trí."
+    },
+    {
+      "step": 5,
+      "tool": "Edit in Plane trên Top",
+      "before": {
+        "scene": "grid:planes",
+        "label": "Chọn mặt trên"
+      },
+      "after": {
+        "scene": "grid:topDraw",
+        "label": "Hình mới bám mặt Top"
+      },
+      "lookFor": "Bốn cạnh của hình mới theo đúng hai hướng của mặt trên."
+    }
+  ],
+  "D07-03": [
+    {
+      "step": 1,
+      "tool": "Snapping Manager",
+      "before": {
+        "scene": "grid:offSnap",
+        "label": "Đầu cạnh bị hụt"
+      },
+      "after": {
+        "scene": "grid:onSnap",
+        "label": "Nút đích được bắt dính"
+      },
+      "lookFor": "Bật các đích thật sự cần thiết để tránh dính nhầm."
+    },
+    {
+      "step": 2,
+      "tool": "Snapping Candidate",
+      "before": {
+        "scene": "grid:planes",
+        "label": "Có nhiều mặt tranh điểm"
+      },
+      "after": {
+        "scene": "grid:candidate",
+        "label": "Tô vị trí ứng viên"
+      },
+      "lookFor": "Chọn khối bệ làm tham chiếu trước khi kéo tầng trên."
+    },
+    {
+      "step": 3,
+      "tool": "Bắt dính đỉnh",
+      "before": {
+        "scene": "grid:offBlocks",
+        "label": "Tầng trên lệch bệ"
+      },
+      "after": {
+        "scene": "grid:stack",
+        "label": "Góc tầng trên khớp bệ"
+      },
+      "lookFor": "Phóng lớn góc tiếp xúc để kiểm không có khe hở."
+    },
+    {
+      "step": 4,
+      "tool": "Pen Tool và điểm bắt",
+      "before": {
+        "scene": "grid:stack",
+        "label": "Các góc đã khớp"
+      },
+      "after": {
+        "scene": "grid:wire",
+        "label": "Đường đi qua đúng các đỉnh"
+      },
+      "lookFor": "Từng đoạn của đường nối dừng đúng tại góc thiết kế."
+    },
+    {
+      "step": 5,
+      "tool": "Outline View",
+      "before": {
+        "scene": "grid:stack",
+        "label": "Bản có màu tô"
+      },
+      "after": {
+        "scene": "grid:outline",
+        "label": "Thấy cả đường trùng và đường lệch"
+      },
+      "lookFor": "Tìm đường đôi hoặc đoạn vượt mép ở các vị trí lắp."
+    }
+  ],
+  "D08-01": [
+    {
+      "step": 1,
+      "tool": "Symbols",
+      "before": {
+        "scene": "component:flat",
+        "label": "Nút được chọn"
+      },
+      "after": {
+        "scene": "component:library",
+        "label": "Có bảng để tạo và đặt Symbol"
+      },
+      "lookFor": "Nhận diện bản gốc trong bảng trước khi đặt những bản dùng lại."
+    },
+    {
+      "step": 2,
+      "tool": "Create Symbol",
+      "before": {
+        "scene": "component:flatGroup",
+        "label": "Nút đã gom nhóm"
+      },
+      "after": {
+        "scene": "component:master",
+        "label": "Nút trở thành Symbol"
+      },
+      "lookFor": "Đặt thử một bản từ bảng để kiểm mối liên kết."
+    },
+    {
+      "step": 3,
+      "tool": "Đặt phiên bản Symbol",
+      "before": {
+        "scene": "component:master",
+        "label": "Có một mẫu nút"
+      },
+      "after": {
+        "scene": "component:instances",
+        "label": "Ba bản dùng chung mẫu"
+      },
+      "lookFor": "Đặt các bản ở vị trí sử dụng khác nhau trên bản vẽ."
+    },
+    {
+      "step": 4,
+      "tool": "Sync OFF",
+      "before": {
+        "scene": "component:instances",
+        "label": "Chữ giống nhau ở cả ba bản"
+      },
+      "after": {
+        "scene": "component:local",
+        "label": "Một dòng chữ thay riêng"
+      },
+      "lookFor": "Sau khi sửa, hai bản còn lại giữ nguyên nội dung."
+    },
+    {
+      "step": 5,
+      "tool": "Sync ON",
+      "before": {
+        "scene": "component:local",
+        "label": "Có một ghi đè cục bộ"
+      },
+      "after": {
+        "scene": "component:global",
+        "label": "Màu chung cập nhật"
+      },
+      "lookFor": "Kiểm thuộc tính màu ở các bản còn liên kết và nội dung đã ghi đè."
+    }
+  ],
+  "D08-02": [
+    {
+      "step": 1,
+      "tool": "Assets panel",
+      "before": {
+        "scene": "component:flatGroup",
+        "label": "Thành phần đang ở bản vẽ"
+      },
+      "after": {
+        "scene": "component:library",
+        "label": "Xem mục tài nguyên"
+      },
+      "lookFor": "Assets giúp đặt lại phần thiết kế thường dùng."
+    },
+    {
+      "step": 2,
+      "tool": "Category",
+      "before": {
+        "scene": "component:library",
+        "label": "Thư viện chung"
+      },
+      "after": {
+        "scene": "component:category",
+        "label": "Tạo mục riêng cho dự án"
+      },
+      "lookFor": "Đặt tên theo dự án để tìm lại đúng bộ."
+    },
+    {
+      "step": 3,
+      "tool": "Subcategory",
+      "before": {
+        "scene": "component:category",
+        "label": "Một mục lớn"
+      },
+      "after": {
+        "scene": "component:subcategories",
+        "label": "Tách biểu tượng và nút"
+      },
+      "lookFor": "Tìm lại từng loại theo nhóm nhỏ."
+    },
+    {
+      "step": 4,
+      "tool": "Add from Selection",
+      "before": {
+        "scene": "component:flatGroup",
+        "label": "Đối tượng được chọn"
+      },
+      "after": {
+        "scene": "component:assetAdded",
+        "label": "Có thêm một ô tài nguyên"
+      },
+      "lookFor": "Kéo tài nguyên trở lại bản vẽ để kiểm thành phần và kích thước."
+    },
+    {
+      "step": 5,
+      "tool": "Export Assets",
+      "before": {
+        "scene": "component:subcategories",
+        "label": "Bộ đồ họa đã gom"
+      },
+      "after": {
+        "scene": "export:afassets",
+        "label": "Tệp thư viện .afassets"
+      },
+      "lookFor": "Giữ tệp xuất để nhập thư viện vào nơi làm việc khác."
+    }
+  ],
+  "D08-03": [
+    {
+      "step": 1,
+      "tool": "Sub-Symbol",
+      "before": {
+        "scene": "component:icon",
+        "label": "Biểu tượng tách riêng"
+      },
+      "after": {
+        "scene": "component:iconMaster",
+        "label": "Tạo mẫu dùng lại"
+      },
+      "lookFor": "Đổi bản mẫu để kiểm các biểu tượng liên kết."
+    },
+    {
+      "step": 2,
+      "tool": "Lồng Symbol",
+      "before": {
+        "scene": "component:iconMaster",
+        "label": "Mẫu biểu tượng riêng"
+      },
+      "after": {
+        "scene": "component:nested",
+        "label": "Mẫu nằm trong mẫu nút"
+      },
+      "lookFor": "Bảng Layers vẫn cho phép chọn đúng thành phần lồng."
+    },
+    {
+      "step": 3,
+      "tool": "Constraints",
+      "before": {
+        "scene": "component:nested",
+        "label": "Nút kích thước gốc"
+      },
+      "after": {
+        "scene": "component:anchors",
+        "label": "Ghim vị trí khi kéo rộng"
+      },
+      "lookFor": "Biểu tượng giữ khoảng cách tới mép được chọn khi khung đổi chiều rộng."
+    },
+    {
+      "step": 4,
+      "tool": "Global Swatch",
+      "before": {
+        "scene": "component:instances",
+        "label": "Nhiều bản có màu hiện tại"
+      },
+      "after": {
+        "scene": "component:swatch",
+        "label": "Chỉ định một màu toàn cục"
+      },
+      "lookFor": "Theo dõi các đối tượng dùng cùng mẫu màu trong bảng Swatches."
+    },
+    {
+      "step": 5,
+      "tool": "Kiểm cập nhật",
+      "before": {
+        "scene": "component:swatch",
+        "label": "Màu cũ gắn với mẫu"
+      },
+      "after": {
+        "scene": "component:global",
+        "label": "Những đối tượng liên kết đổi màu"
+      },
+      "lookFor": "Kiểm nút ở các kích thước và đối tượng chưa được gán màu toàn cục."
+    }
+  ],
+  "D09-01": [
+    {
+      "step": 1,
+      "tool": "Pixel Studio",
+      "before": {
+        "scene": "workspace:vector",
+        "label": "Bộ công cụ vẽ hình"
+      },
+      "after": {
+        "scene": "workspace:pixel",
+        "label": "Bộ công cụ ảnh và cọ"
+      },
+      "lookFor": "Chọn cọ trên một lớp pixel để thử, giữ hình vector ở lớp bên dưới."
+    },
+    {
+      "step": 2,
+      "tool": "Brushes và Dry Media",
+      "before": {
+        "scene": "brush:solid",
+        "label": "Nét có bề mặt phẳng"
+      },
+      "after": {
+        "scene": "brush:dry",
+        "label": "Cọ cho rìa và hạt khô"
+      },
+      "lookFor": "Quệt một nét thử dài để quan sát rìa nét và mức hở của hạt."
+    },
+    {
+      "step": 3,
+      "tool": "Flow và Opacity",
+      "before": {
+        "scene": "brush:dry",
+        "label": "Một lượt cọ"
+      },
+      "after": {
+        "scene": "brush:flow",
+        "label": "Các lượt cọ chồng"
+      },
+      "lookFor": "Vùng quét lại dày dần. So với một nét có độ mờ thấp."
+    },
+    {
+      "step": 4,
+      "tool": "Pressure",
+      "before": {
+        "scene": "brush:flow",
+        "label": "Kích cỡ ít đổi"
+      },
+      "after": {
+        "scene": "brush:pressure",
+        "label": "Nét chuyển từ nhẹ sang mạnh"
+      },
+      "lookFor": "Nếu có bút cảm ứng, giữ vận tốc gần nhau khi đổi lực tay."
+    },
+    {
+      "step": 5,
+      "tool": "Quét nhiều lượt",
+      "before": {
+        "scene": "brush:dry",
+        "label": "Nét hạt rời"
+      },
+      "after": {
+        "scene": "brush:gradient",
+        "label": "Dải hạt đậm dần"
+      },
+      "lookFor": "Chồng lượt ở vùng tối và để vùng sáng thưa hơn."
+    }
+  ],
+  "D09-02": [
+    {
+      "step": 1,
+      "tool": "Shape Tool",
+      "before": {
+        "scene": "shape:base",
+        "label": "Hình nguồn"
+      },
+      "after": {
+        "scene": "shape:ellipse",
+        "label": "Biên vector cha"
+      },
+      "lookFor": "Dùng hình cha làm giới hạn của lớp pixel."
+    },
+    {
+      "step": 2,
+      "tool": "Insert Inside Selection",
+      "before": {
+        "scene": "layers:single",
+        "label": "Hình cha đang chọn"
+      },
+      "after": {
+        "scene": "layers:clip",
+        "label": "Nơi đặt đối tượng con"
+      },
+      "lookFor": "Kiểm vị trí thụt cấp trước khi bắt đầu vẽ."
+    },
+    {
+      "step": 3,
+      "tool": "Pixel Layer",
+      "before": {
+        "scene": "brush:gradient",
+        "label": "Nét cọ kéo qua biên"
+      },
+      "after": {
+        "scene": "brush:inCircle",
+        "label": "Nét chỉ hiện trong hình cha"
+      },
+      "lookFor": "Dịch lớp pixel để kiểm hình cha vẫn giữ đường bao."
+    },
+    {
+      "step": 4,
+      "tool": "Multiply",
+      "before": {
+        "scene": "shape:shadowNormal",
+        "label": "Lớp bóng xám"
+      },
+      "after": {
+        "scene": "shape:multiply",
+        "label": "Màu nền thẫm theo bóng"
+      },
+      "lookFor": "Giữ vùng sáng và chỉ tăng bóng nơi cần tạo khối."
+    },
+    {
+      "step": 5,
+      "tool": "Protect Alpha",
+      "before": {
+        "scene": "brush:inCircle",
+        "label": "Vùng pixel đã có hạt"
+      },
+      "after": {
+        "scene": "brush:alpha",
+        "label": "Đổi màu trong vùng có pixel"
+      },
+      "lookFor": "Kiểm vùng trong suốt của lớp pixel vẫn trong suốt."
+    }
+  ],
+  "D09-03": [
+    {
+      "step": 1,
+      "tool": "Document Setup và DPI",
+      "before": {
+        "scene": "export:pixels",
+        "label": "Cùng kích thước theo pixel"
+      },
+      "after": {
+        "scene": "export:dpi",
+        "label": "Kích thước in thay đổi theo DPI"
+      },
+      "lookFor": "Đọc riêng kích thước pixel và kích thước vật lý."
+    },
+    {
+      "step": 2,
+      "tool": "Color và Noise",
+      "before": {
+        "scene": "fill:flat",
+        "label": "Màu tô phẳng"
+      },
+      "after": {
+        "scene": "fill:noiseLow",
+        "label": "Màu tô có hạt nhẹ"
+      },
+      "lookFor": "Xem ở 100% để kiểm hạt thay vì đánh giá khi phóng cực lớn."
+    },
+    {
+      "step": 3,
+      "tool": "Lượng Noise",
+      "before": {
+        "scene": "fill:noiseLow",
+        "label": "Hạt thưa"
+      },
+      "after": {
+        "scene": "fill:noiseHigh",
+        "label": "Hạt hiện rõ hơn"
+      },
+      "lookFor": "Chọn mức hạt còn giữ được hình và chữ khi thu nhỏ."
+    },
+    {
+      "step": 4,
+      "tool": "Noise ở Gradient Stop",
+      "before": {
+        "scene": "fill:stops",
+        "label": "Dải có ba màu"
+      },
+      "after": {
+        "scene": "fill:noiseStops",
+        "label": "Hạt tập trung quanh một vùng màu"
+      },
+      "lookFor": "So từng đoạn chuyển từ điểm có hạt tới điểm ít hạt."
+    },
+    {
+      "step": 5,
+      "tool": "Vector Noise và cọ Pixel",
+      "before": {
+        "scene": "fill:noiseHigh",
+        "label": "Hạt đi với vùng tô"
+      },
+      "after": {
+        "scene": "brush:inCircle",
+        "label": "Hạt trên lớp pixel riêng"
+      },
+      "lookFor": "Dùng Layers để kiểm hình tô và nét pixel vẫn sửa được riêng."
+    }
+  ],
+  "D10-01": [
+    {
+      "step": 1,
+      "tool": "Slice Studio",
+      "before": {
+        "scene": "workspace:vector",
+        "label": "Không gian dựng đối tượng"
+      },
+      "after": {
+        "scene": "export:area",
+        "label": "Vùng cắt xuất ảnh"
+      },
+      "lookFor": "Khung slice đánh dấu phạm vi xuất và giữ nguyên đối tượng trên bản vẽ."
+    },
+    {
+      "step": 2,
+      "tool": "Document Slice và Artboard Slice",
+      "before": {
+        "scene": "boards:tablet",
+        "label": "Tài liệu có hai artboard"
+      },
+      "after": {
+        "scene": "export:boardSlices",
+        "label": "Các ranh giới xuất"
+      },
+      "lookFor": "Kiểm slice nào bao toàn trang, slice nào bao đúng một artboard."
+    },
+    {
+      "step": 3,
+      "tool": "Create Slice từ Layer",
+      "before": {
+        "scene": "component:icon",
+        "label": "Đối tượng cần xuất"
+      },
+      "after": {
+        "scene": "export:layerSlice",
+        "label": "Slice ôm khung đối tượng"
+      },
+      "lookFor": "Biên slice bám giới hạn hình vừa chọn."
+    },
+    {
+      "step": 4,
+      "tool": "Cập nhật biên theo lớp",
+      "before": {
+        "scene": "export:layerSlice",
+        "label": "Đối tượng kích thước gốc"
+      },
+      "after": {
+        "scene": "export:resizedSlice",
+        "label": "Khung đổi theo đối tượng"
+      },
+      "lookFor": "Kéo rộng lớp rồi kiểm ranh giới slice cập nhật theo."
+    },
+    {
+      "step": 5,
+      "tool": "Slice Tool",
+      "before": {
+        "scene": "export:boardSlices",
+        "label": "Đã có vùng cắt mặc định"
+      },
+      "after": {
+        "scene": "export:manual",
+        "label": "Thêm khung cắt tự kẻ"
+      },
+      "lookFor": "So mép khung với phần đồ họa cần xuất. Khung này có thể cắt qua hình."
+    }
+  ],
+  "D10-02": [
+    {
+      "step": 1,
+      "tool": "Tùy chọn xuất Slice",
+      "before": {
+        "scene": "export:layerSlice",
+        "label": "Vùng cắt của biểu tượng"
+      },
+      "after": {
+        "scene": "export:presets",
+        "label": "Các cấu hình đầu ra"
+      },
+      "lookFor": "Một vùng cắt có thể xuất thành nhiều tệp."
+    },
+    {
+      "step": 2,
+      "tool": "Hệ số 1× và 2×",
+      "before": {
+        "scene": "export:scale1",
+        "label": "1× có cạnh 32 px"
+      },
+      "after": {
+        "scene": "export:scale2",
+        "label": "2× có cạnh 64 px"
+      },
+      "lookFor": "Cùng vùng cắt, chiều rộng và chiều cao tính theo pixel tăng gấp đôi."
+    },
+    {
+      "step": 3,
+      "tool": "WebP 3× và SVG",
+      "before": {
+        "scene": "export:scale2",
+        "label": "Ảnh raster 2×"
+      },
+      "after": {
+        "scene": "export:formats",
+        "label": "Thêm ảnh và định dạng vector"
+      },
+      "lookFor": "Kiểm phần mở rộng tệp và phân biệt kích thước raster với hình vector."
+    },
+    {
+      "step": 4,
+      "tool": "Continuous Export",
+      "before": {
+        "scene": "export:presets",
+        "label": "Đã cấu hình đầu ra"
+      },
+      "after": {
+        "scene": "export:destination",
+        "label": "Chọn nơi ghi kết quả"
+      },
+      "lookFor": "Dùng một thư mục thử riêng để theo dõi tệp được tạo hoặc cập nhật."
+    },
+    {
+      "step": 5,
+      "tool": "Kiểm tệp xuất khi sửa",
+      "before": {
+        "scene": "export:destination",
+        "label": "Tệp bản đầu"
+      },
+      "after": {
+        "scene": "export:updated",
+        "label": "Tệp sau khi sửa hình"
+      },
+      "lookFor": "Mở tệp đã xuất và so với bản mới nhất trên bản vẽ."
+    }
+  ],
+  "D10-03": [
+    {
+      "step": 1,
+      "tool": "Document Setup và Bleed",
+      "before": {
+        "scene": "layout:trim",
+        "label": "Đường cắt thành phẩm"
+      },
+      "after": {
+        "scene": "layout:bleed",
+        "label": "Màu nền vươn qua đường cắt"
+      },
+      "lookFor": "Nền chạm biên cần phủ tới Bleed. Chữ nằm trong khoảng an toàn."
+    },
+    {
+      "step": 2,
+      "tool": "File → Export",
+      "before": {
+        "scene": "layout:bleed",
+        "label": "Tài liệu đã chuẩn bị"
+      },
+      "after": {
+        "scene": "export:delivery",
+        "label": "Chọn đầu ra theo nơi sử dụng"
+      },
+      "lookFor": "Dùng SVG cho hình web phù hợp và PDF theo quy cách bên in."
+    },
+    {
+      "step": 3,
+      "tool": "Thiết lập SVG",
+      "before": {
+        "scene": "component:icon",
+        "label": "Hình vector còn chỉnh được"
+      },
+      "after": {
+        "scene": "export:svg",
+        "label": "Tệp SVG với khung đúng"
+      },
+      "lookFor": "Kiểm SVG khi hiển thị ở kích thước nhỏ và khi mở lại."
+    },
+    {
+      "step": 4,
+      "tool": "Kiểm mã nguồn SVG",
+      "before": {
+        "scene": "export:svg",
+        "label": "Kết quả mở trong trình xem"
+      },
+      "after": {
+        "scene": "system:svgCode",
+        "label": "Đọc viewBox và path"
+      },
+      "lookFor": "Đối chiếu khung hiển thị và cấu trúc trước khi giao tệp."
+    },
+    {
+      "step": 5,
+      "tool": "PDF/X-4",
+      "before": {
+        "scene": "layout:bleed",
+        "label": "Có Bleed trong tài liệu"
+      },
+      "after": {
+        "scene": "layout:press",
+        "label": "PDF có dấu theo yêu cầu"
+      },
+      "lookFor": "Mở PDF xem lại Bleed, lề trong và dấu cắt nếu nhà in cần."
+    }
+  ],
+  "P01-01": [
+    {
+      "step": 1,
+      "tool": "File → Open và Pixel Studio",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Ảnh mẫu trước khi mở"
+      },
+      "after": {
+        "scene": "workspace:pixel",
+        "label": "Tài liệu trong Pixel Studio"
+      },
+      "lookFor": "Tìm vùng làm việc, thanh cọ và bảng Layers trên ảnh chụp."
+    },
+    {
+      "step": 2,
+      "tool": "Layers",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Lớp ảnh ban đầu"
+      },
+      "after": {
+        "scene": "layers:adj",
+        "label": "Ảnh gốc dưới lớp chỉnh"
+      },
+      "lookFor": "Tắt lớp chỉnh để nhìn lại ảnh gốc."
+    },
+    {
+      "step": 3,
+      "tool": "Zoom và Pan",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Toàn cảnh để xem bố cục"
+      },
+      "after": {
+        "scene": "photo:product+zoom",
+        "label": "Phóng xem chi tiết nhãn"
+      },
+      "lookFor": "Khi kéo vùng nhìn, vị trí chi tiết trong tệp không đổi."
+    },
+    {
+      "step": 4,
+      "tool": "Tools và panel",
+      "before": {
+        "scene": "workspace:pixel",
+        "label": "Công cụ dọc, bảng bên"
+      },
+      "after": {
+        "scene": "layers:workspace",
+        "label": "Hai vùng phục vụ hai việc"
+      },
+      "lookFor": "Dùng Tools để thao tác trên ảnh, dùng Layers để chọn đúng thành phần."
+    }
+  ],
+  "P01-02": [
+    {
+      "step": 1,
+      "tool": "Develop Studio",
+      "before": {
+        "scene": "export:raw",
+        "label": "Tệp nguồn RAW"
+      },
+      "after": {
+        "scene": "photo:harbor+plain",
+        "label": "Ảnh cảng từ bản xem trước của NEF"
+      },
+      "lookFor": "Giữ RAW để còn quay lại quyết định phơi sáng và màu."
+    },
+    {
+      "step": 2,
+      "tool": "Exposure và White Balance",
+      "before": {
+        "scene": "photo:harbor+castDark",
+        "label": "Bản hơi tối và ám màu"
+      },
+      "after": {
+        "scene": "photo:harbor+corrected",
+        "label": "Cân sáng và điểm trắng"
+      },
+      "lookFor": "So bầu trời sáng với thân tàu tối. Kiểm các đường dây mảnh và họa tiết còn đọc được sau khi tăng sáng."
+    },
+    {
+      "step": 3,
+      "tool": "Điều chỉnh ống kính",
+      "before": {
+        "scene": "photo:harbor+distort",
+        "label": "Minh họa méo hình"
+      },
+      "after": {
+        "scene": "photo:harbor+straight",
+        "label": "Đối chiếu với đường gióng"
+      },
+      "lookFor": "Dùng đường gióng gần cột buồm để so mép ảnh trước và sau khi bật hiệu chỉnh. Kiểm lại tỉ lệ thân tàu."
+    },
+    {
+      "step": 4,
+      "tool": "Output",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Ảnh nguồn"
+      },
+      "after": {
+        "scene": "layers:rawEmbedded",
+        "label": "Giữ RAW trong tài liệu"
+      },
+      "lookFor": "Chọn đầu ra RAW phù hợp khi cần quay lại Develop để chỉnh."
+    },
+    {
+      "step": 5,
+      "tool": "Develop và tab Pixel",
+      "before": {
+        "scene": "layers:rawEmbedded",
+        "label": "Nguồn RAW còn chỉnh"
+      },
+      "after": {
+        "scene": "layers:developed",
+        "label": "Tệp có thêm lớp chỉnh"
+      },
+      "lookFor": "Chuyển sang Pixel để xử lý cục bộ và kiểm không ghi đè tệp RAW."
+    }
+  ],
+  "P01-03": [
+    {
+      "step": 1,
+      "tool": "Crop Tool",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Khung ảnh hiện có"
+      },
+      "after": {
+        "scene": "photo:hill+cropSquare",
+        "label": "Giới hạn khung vuông"
+      },
+      "lookFor": "Dựng khung theo tỷ lệ đích. Xem phần sẽ bị loại ở mép ảnh."
+    },
+    {
+      "step": 2,
+      "tool": "Lưới bằng phần ba",
+      "before": {
+        "scene": "photo:hill+cropSquare",
+        "label": "Khung cắt"
+      },
+      "after": {
+        "scene": "photo:hill+thirds",
+        "label": "Lưới hỗ trợ sắp xếp"
+      },
+      "lookFor": "Thử dời đường chân trời khỏi giữa khung, rồi so trọng tâm."
+    },
+    {
+      "step": 3,
+      "tool": "Straighten",
+      "before": {
+        "scene": "photo:city+tilt",
+        "label": "Cạnh ngang bị nghiêng"
+      },
+      "after": {
+        "scene": "photo:city+straighten",
+        "label": "Đường tham chiếu nằm ngang"
+      },
+      "lookFor": "Kéo dọc đường thật sự cần ngang. Kiểm góc ảnh sau khi xoay."
+    },
+    {
+      "step": 4,
+      "tool": "Khôi phục vùng Crop",
+      "before": {
+        "scene": "photo:hill+cropped",
+        "label": "Khung đã chốt"
+      },
+      "after": {
+        "scene": "photo:hill+recover",
+        "label": "Mở lại khung cắt"
+      },
+      "lookFor": "Kiểm xem mở rộng biên có lấy được lại vùng ảnh đã che."
+    }
+  ],
+  "P02-01": [
+    {
+      "step": 1,
+      "tool": "Selection Brush Tool",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Ảnh chai cần chọn"
+      },
+      "after": {
+        "scene": "photo:product+brush",
+        "label": "Vệt quét nằm trên chai"
+      },
+      "lookFor": "Bắt đầu phía trong mép chính của chủ thể rồi nới dần vùng chọn."
+    },
+    {
+      "step": 2,
+      "tool": "Snap to Edges",
+      "before": {
+        "scene": "photo:product+rough",
+        "label": "Vùng chọn thô"
+      },
+      "after": {
+        "scene": "photo:product+edge",
+        "label": "Đường chọn bám mép chai"
+      },
+      "lookFor": "Kiểm chỗ nền và chai gần cùng tông dễ bám nhầm."
+    },
+    {
+      "step": 3,
+      "tool": "Add và Subtract",
+      "before": {
+        "scene": "photo:product+leak",
+        "label": "Vùng chọn lấn vào nền"
+      },
+      "after": {
+        "scene": "photo:product+edge",
+        "label": "Đã trừ phần chọn thừa"
+      },
+      "lookFor": "Thu nhỏ cọ ở góc hẹp và kiểm mép sau từng lượt sửa."
+    },
+    {
+      "step": 4,
+      "tool": "Deselect hoặc lưu vùng chọn",
+      "before": {
+        "scene": "photo:product+edge",
+        "label": "Đường chọn đang hiện"
+      },
+      "after": {
+        "scene": "layers:saved",
+        "label": "Giữ vùng chọn để gọi lại"
+      },
+      "lookFor": "Ghi rõ vùng đã lưu để có thể nạp lại khi cần."
+    }
+  ],
+  "P02-02": [
+    {
+      "step": 1,
+      "tool": "Refine Selection",
+      "before": {
+        "scene": "photo:portrait+rough",
+        "label": "Vùng chọn thô quanh tóc"
+      },
+      "after": {
+        "scene": "photo:portrait+overlay",
+        "label": "Thấy phần nền cần loại"
+      },
+      "lookFor": "So mép tóc trên nền tương phản để thấy vùng chọn thiếu."
+    },
+    {
+      "step": 2,
+      "tool": "Preview Overlay và Black & White",
+      "before": {
+        "scene": "photo:portrait+overlay",
+        "label": "Lớp phủ xem trước"
+      },
+      "after": {
+        "scene": "photo:portrait+matte",
+        "label": "Thấy mặt nạ trắng đen"
+      },
+      "lookFor": "Màu xám ở biên gợi ý vùng bán trong suốt, quan trọng với tóc mảnh."
+    },
+    {
+      "step": 3,
+      "tool": "Adjustment Brush",
+      "before": {
+        "scene": "photo:portrait+matte",
+        "label": "Mép tóc còn cứng"
+      },
+      "after": {
+        "scene": "photo:portrait+hairBrush",
+        "label": "Vệt tinh chỉnh đi qua biên"
+      },
+      "lookFor": "Quét cục bộ ngang qua biên tóc rồi kiểm cả nền sáng lẫn nền tối."
+    },
+    {
+      "step": 4,
+      "tool": "Output Mask",
+      "before": {
+        "scene": "photo:portrait+hairBrush",
+        "label": "Đang xem biên tinh chỉnh"
+      },
+      "after": {
+        "scene": "photo:portrait+masked",
+        "label": "Mặt nạ đã tách chủ thể"
+      },
+      "lookFor": "Đặt nền khác để kiểm không còn viền màu ở phần tóc."
+    }
+  ],
+  "P02-03": [
+    {
+      "step": 1,
+      "tool": "Mask Layer",
+      "before": {
+        "scene": "photo:portrait+plain",
+        "label": "Lớp ảnh ban đầu"
+      },
+      "after": {
+        "scene": "layers:mask",
+        "label": "Ảnh và thumbnail mặt nạ"
+      },
+      "lookFor": "Chọn đúng ô mặt nạ trước khi dùng cọ."
+    },
+    {
+      "step": 2,
+      "tool": "Paint Brush Tool",
+      "before": {
+        "scene": "brush:blackWhite",
+        "label": "Màu tô đen và trắng"
+      },
+      "after": {
+        "scene": "photo:portrait+maskBrush",
+        "label": "Vệt cọ nằm trên mặt nạ"
+      },
+      "lookFor": "Xem thumbnail đổi giá trị khi tô. Màu ảnh nguồn giữ nguyên."
+    },
+    {
+      "step": 3,
+      "tool": "Tô đen để che",
+      "before": {
+        "scene": "photo:portrait+overlay",
+        "label": "Phần nền cần che"
+      },
+      "after": {
+        "scene": "photo:portrait+masked",
+        "label": "Nền bị che, chủ thể giữ lại"
+      },
+      "lookFor": "Kiểm mặt nạ màu đen ở vùng nền và màu trắng ở vùng giữ."
+    },
+    {
+      "step": 4,
+      "tool": "Tô trắng và đảo Mask",
+      "before": {
+        "scene": "photo:portrait+masked",
+        "label": "Đang giữ chủ thể"
+      },
+      "after": {
+        "scene": "photo:portrait+invert",
+        "label": "Đảo vùng hiện và ẩn"
+      },
+      "lookFor": "Đảo để kiểm mặt nạ. Tô trắng riêng ở nơi vô tình che mất chi tiết."
+    }
+  ],
+  "P03-01": [
+    {
+      "step": 1,
+      "tool": "Layers",
+      "before": {
+        "scene": "layers:stack",
+        "label": "Nền, hình và chữ"
+      },
+      "after": {
+        "scene": "layers:types",
+        "label": "Thêm các loại lớp khác nhau"
+      },
+      "lookFor": "Phân biệt lớp ảnh, lớp hiệu chỉnh và lớp chữ qua vai trò của mỗi hàng."
+    },
+    {
+      "step": 2,
+      "tool": "Pixel Layer và Color Tag",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Một lớp ảnh"
+      },
+      "after": {
+        "scene": "layers:pixelTag",
+        "label": "Thêm lớp tô có thẻ màu"
+      },
+      "lookFor": "Tô thử trên lớp mới. Kết quả có thể bật tắt riêng."
+    },
+    {
+      "step": 3,
+      "tool": "Group",
+      "before": {
+        "scene": "layers:types",
+        "label": "Lớp đứng riêng"
+      },
+      "after": {
+        "scene": "layers:photoGroup",
+        "label": "Các lớp cùng chủ thể vào nhóm"
+      },
+      "lookFor": "Ẩn nhóm để kiểm ảnh nền vẫn hiện."
+    },
+    {
+      "step": 4,
+      "tool": "Isolate Layer",
+      "before": {
+        "scene": "layers:photoGroup",
+        "label": "Bố cục có nhiều lớp"
+      },
+      "after": {
+        "scene": "layers:isolatePhoto",
+        "label": "Chỉ quan sát lớp đang sửa"
+      },
+      "lookFor": "Quay lại bố cục chung sau khi chỉnh để kiểm mép và màu."
+    }
+  ],
+  "P03-02": [
+    {
+      "step": 1,
+      "tool": "Adjustments và Curves",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Ảnh gốc"
+      },
+      "after": {
+        "scene": "layers:adj",
+        "label": "Thêm lớp Curves riêng"
+      },
+      "lookFor": "Tắt lớp Curves để kiểm sửa đổi tách khỏi dữ liệu gốc."
+    },
+    {
+      "step": 2,
+      "tool": "Curves",
+      "before": {
+        "scene": "chart:identity",
+        "label": "Đường chéo không điều chỉnh"
+      },
+      "after": {
+        "scene": "chart:s",
+        "label": "Bóng tối xuống, vùng sáng lên"
+      },
+      "lookFor": "Nhìn dải sáng tối đổi trên biểu đồ và ảnh. Giữ chi tiết ở hai đầu."
+    },
+    {
+      "step": 3,
+      "tool": "Live Gaussian Blur",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Ảnh nét nguyên bản"
+      },
+      "after": {
+        "scene": "photo:product+blur",
+        "label": "Hiệu ứng mờ còn chỉnh được"
+      },
+      "lookFor": "Đổi mức mờ rồi so với ảnh gốc bằng cách tắt bộ lọc."
+    },
+    {
+      "step": 4,
+      "tool": "Mặt nạ của Live Filter",
+      "before": {
+        "scene": "photo:product+blur",
+        "label": "Cả ảnh bị mờ"
+      },
+      "after": {
+        "scene": "photo:product+localBlur",
+        "label": "Nhãn rõ, nền mờ"
+      },
+      "lookFor": "Tô che hiệu ứng ở chủ thể để giữ nét tại vùng cần đọc."
+    }
+  ],
+  "P03-03": [
+    {
+      "step": 1,
+      "tool": "Multiply",
+      "before": {
+        "scene": "photo:product+paper",
+        "label": "Thêm lớp kết cấu giấy"
+      },
+      "after": {
+        "scene": "photo:product+multiply",
+        "label": "Kết cấu tối hòa vào ảnh"
+      },
+      "lookFor": "So màu nền để bảo đảm kết cấu không đè kín ảnh."
+    },
+    {
+      "step": 2,
+      "tool": "Screen",
+      "before": {
+        "scene": "photo:city+sparkPlate",
+        "label": "Vệt sáng nằm trên nền đen"
+      },
+      "after": {
+        "scene": "photo:city+screen",
+        "label": "Vệt sáng hòa vào cảnh"
+      },
+      "lookFor": "Kiểm vùng tối của lớp vệt sáng biến đi sau khi đổi hòa trộn."
+    },
+    {
+      "step": 3,
+      "tool": "Clipping",
+      "before": {
+        "scene": "shape:overflow",
+        "label": "Lớp họa tiết vượt vùng đích"
+      },
+      "after": {
+        "scene": "shape:clipped",
+        "label": "Kết quả bị giới hạn theo biên"
+      },
+      "lookFor": "Chọn riêng lớp con rồi dời họa tiết trong biên cha."
+    },
+    {
+      "step": 4,
+      "tool": "Group Pass Through",
+      "before": {
+        "scene": "layers:adjGroup",
+        "label": "Hiệu chỉnh được đưa vào nhóm"
+      },
+      "after": {
+        "scene": "layers:pass",
+        "label": "So hiệu ứng lên lớp bên ngoài"
+      },
+      "lookFor": "Tắt bật nhóm và kiểm lớp dưới có thay đổi sắc độ không."
+    }
+  ],
+  "P04-01": [
+    {
+      "step": 1,
+      "tool": "Pixel Layer trống",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Tệp ảnh gốc"
+      },
+      "after": {
+        "scene": "layers:retouch",
+        "label": "Tạo lớp dọn ảnh riêng"
+      },
+      "lookFor": "Khi tắt lớp dọn, lỗi gốc cần xuất hiện lại."
+    },
+    {
+      "step": 2,
+      "tool": "Inpainting Brush Tool",
+      "before": {
+        "scene": "photo:product+spot",
+        "label": "Có đốm trên nền"
+      },
+      "after": {
+        "scene": "photo:product+dustBrush",
+        "label": "Cọ phủ kín đốm"
+      },
+      "lookFor": "Quét đủ vùng lỗi và một ít mép xung quanh để phép lấp có ngữ cảnh."
+    },
+    {
+      "step": 3,
+      "tool": "Inpainting",
+      "before": {
+        "scene": "photo:product+dustBrush",
+        "label": "Vùng lỗi được đánh dấu"
+      },
+      "after": {
+        "scene": "photo:product+clean",
+        "label": "Bề mặt đã sạch"
+      },
+      "lookFor": "Phóng 100% kiểm đường viền và vùng hoa văn dễ bị méo."
+    },
+    {
+      "step": 4,
+      "tool": "Fill với Inpainting",
+      "before": {
+        "scene": "photo:product+objectMark",
+        "label": "Khoanh vật thể lớn"
+      },
+      "after": {
+        "scene": "photo:product+objectClean",
+        "label": "Vùng lấp hòa với nền"
+      },
+      "lookFor": "Kiểm dưới nhiều mức zoom để phát hiện vệt lặp hoặc biên nhòe."
+    }
+  ],
+  "P04-02": [
+    {
+      "step": 1,
+      "tool": "Lớp retouch",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Ảnh chỉ có lớp gốc"
+      },
+      "after": {
+        "scene": "layers:retouch",
+        "label": "Có lớp riêng để dặm"
+      },
+      "lookFor": "Chọn lớp dặm để xem kết quả có thể tắt riêng."
+    },
+    {
+      "step": 2,
+      "tool": "Clone Brush Tool",
+      "before": {
+        "scene": "photo:product+spot",
+        "label": "Vùng cần sửa và nguồn gần đó"
+      },
+      "after": {
+        "scene": "photo:product+clone",
+        "label": "Nối dấu nguồn với dấu đích"
+      },
+      "lookFor": "Lấy mẫu ở vùng có cùng hướng vân và độ sáng."
+    },
+    {
+      "step": 3,
+      "tool": "Dập mẫu điểm ảnh",
+      "before": {
+        "scene": "photo:product+clone",
+        "label": "Hai điểm nguồn và đích"
+      },
+      "after": {
+        "scene": "photo:product+clean",
+        "label": "Bề mặt sau khi dặm"
+      },
+      "lookFor": "So vân lặp quanh vùng sửa trước khi dặm tiếp."
+    },
+    {
+      "step": 4,
+      "tool": "Healing Brush",
+      "before": {
+        "scene": "photo:portrait+blemish",
+        "label": "Đốm trên má"
+      },
+      "after": {
+        "scene": "photo:portrait+healed",
+        "label": "Sắc da liền mạch hơn"
+      },
+      "lookFor": "So phần rìa. Healing nên hòa được sắc độ chung và giữ kết cấu."
+    }
+  ],
+  "P04-03": [
+    {
+      "step": 1,
+      "tool": "Frequency Separation",
+      "before": {
+        "scene": "photo:portrait+plain",
+        "label": "Ảnh nguyên vẹn"
+      },
+      "after": {
+        "scene": "photo:portrait+frequencies",
+        "label": "Tách sắc độ và kết cấu"
+      },
+      "lookFor": "Lớp thấp mang màu và chuyển sáng. Lớp cao giữ chi tiết nhỏ."
+    },
+    {
+      "step": 2,
+      "tool": "Radius",
+      "before": {
+        "scene": "photo:portrait+lowSoft",
+        "label": "Thành phần sắc độ"
+      },
+      "after": {
+        "scene": "photo:portrait+detail",
+        "label": "Thành phần chi tiết"
+      },
+      "lookFor": "Chọn bán kính để hạt da tách ra mà đường nét lớn vẫn thuộc phần sắc độ."
+    },
+    {
+      "step": 3,
+      "tool": "Low Frequency",
+      "before": {
+        "scene": "photo:portrait+lowSoft",
+        "label": "Mảng sắc độ chưa đều"
+      },
+      "after": {
+        "scene": "photo:portrait+softPaint",
+        "label": "Chỉnh vùng chuyển màu"
+      },
+      "lookFor": "Giữ chuyển sáng tự nhiên, tránh làm phẳng toàn bộ khuôn mặt."
+    },
+    {
+      "step": 4,
+      "tool": "High Frequency",
+      "before": {
+        "scene": "photo:portrait+detail",
+        "label": "Hạt da và lỗi nhỏ"
+      },
+      "after": {
+        "scene": "photo:portrait+detailClean",
+        "label": "Dặm lỗi ở lớp kết cấu"
+      },
+      "lookFor": "Xem kết quả đồng thời với lớp thấp để tránh viền giả."
+    }
+  ],
+  "P05-01": [
+    {
+      "step": 1,
+      "tool": "Histogram",
+      "before": {
+        "scene": "photo:hill+castDark",
+        "label": "Ảnh tối"
+      },
+      "after": {
+        "scene": "chart:histDark",
+        "label": "Phân bố dồn về trái"
+      },
+      "lookFor": "Kiểm dữ liệu có dồn sát rìa và so với chi tiết nhìn thấy trên ảnh."
+    },
+    {
+      "step": 2,
+      "tool": "White Balance Adjustment",
+      "before": {
+        "scene": "photo:product+warm",
+        "label": "Bề mặt trung tính bị ám vàng"
+      },
+      "after": {
+        "scene": "photo:product+neutral",
+        "label": "Giảm ám trên bề mặt"
+      },
+      "lookFor": "So màu vùng biết là trung tính trước khi đánh giá cả ảnh."
+    },
+    {
+      "step": 3,
+      "tool": "Eyedropper",
+      "before": {
+        "scene": "photo:product+warm",
+        "label": "Tìm vùng xám mờ"
+      },
+      "after": {
+        "scene": "photo:product+sample",
+        "label": "Đặt mẫu trên vùng trung tính"
+      },
+      "lookFor": "Tránh vùng phản sáng cháy và chọn vùng xám còn chi tiết."
+    },
+    {
+      "step": 4,
+      "tool": "Exposure Adjustment",
+      "before": {
+        "scene": "photo:hill+castDark",
+        "label": "Mây và cây thiếu sáng"
+      },
+      "after": {
+        "scene": "photo:hill+exposure",
+        "label": "Ảnh sáng hơn"
+      },
+      "lookFor": "Sau khi tăng sáng, xem mây còn phân lớp và vùng tối có bị bệt không."
+    }
+  ],
+  "P05-02": [
+    {
+      "step": 1,
+      "tool": "Curves Adjustment",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Ảnh để kiểm sắc độ"
+      },
+      "after": {
+        "scene": "chart:identity",
+        "label": "Trục đầu vào và đầu ra"
+      },
+      "lookFor": "Đường chéo giữ nguyên giá trị. Dời một điểm để thử thay đổi dải tương ứng."
+    },
+    {
+      "step": 2,
+      "tool": "S-Curve",
+      "before": {
+        "scene": "chart:identity",
+        "label": "Giá trị giữ nguyên"
+      },
+      "after": {
+        "scene": "chart:s",
+        "label": "Hạ vùng tối, nâng vùng sáng"
+      },
+      "lookFor": "Quan sát mức tương phản ở giữa dải và kiểm hai đầu."
+    },
+    {
+      "step": 3,
+      "tool": "Curves theo kênh RGB",
+      "before": {
+        "scene": "chart:s",
+        "label": "Đường cong độ sáng"
+      },
+      "after": {
+        "scene": "chart:rgb",
+        "label": "Chỉnh riêng các kênh màu"
+      },
+      "lookFor": "So màu ở vùng bóng với vùng sáng và kiểm vật trung tính."
+    },
+    {
+      "step": 4,
+      "tool": "Levels",
+      "before": {
+        "scene": "chart:histFlat",
+        "label": "Điểm ảnh tập trung ở giữa"
+      },
+      "after": {
+        "scene": "chart:levels",
+        "label": "Điểm đen và điểm trắng"
+      },
+      "lookFor": "Kéo mốc vào gần nội dung của histogram và tránh mất chi tiết vùng biên."
+    }
+  ],
+  "P05-03": [
+    {
+      "step": 1,
+      "tool": "HSL Adjustment",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Nhiều dải màu trong ảnh"
+      },
+      "after": {
+        "scene": "chart:hsl",
+        "label": "Vòng màu và dải tác động"
+      },
+      "lookFor": "Chọn khoảng màu mục tiêu trước khi đổi Hue hoặc Saturation."
+    },
+    {
+      "step": 2,
+      "tool": "HSL theo dải màu",
+      "before": {
+        "scene": "photo:hill+foliage",
+        "label": "Chọn nhóm màu lá"
+      },
+      "after": {
+        "scene": "photo:hill+recolor",
+        "label": "Màu lá đã đổi"
+      },
+      "lookFor": "So phần trời và vùng trung tính để kiểm chúng không đổi màu theo."
+    },
+    {
+      "step": 3,
+      "tool": "Gradient Map",
+      "before": {
+        "scene": "chart:histFlat",
+        "label": "Các mức sáng tối"
+      },
+      "after": {
+        "scene": "chart:map",
+        "label": "Sắc tối xanh, sắc sáng ấm"
+      },
+      "lookFor": "Màu được gán theo sáng tối. Xem vùng trung gian chuyển có mượt không."
+    },
+    {
+      "step": 4,
+      "tool": "LUT Adjustment",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Ảnh trước khi áp LUT"
+      },
+      "after": {
+        "scene": "photo:hill+grade",
+        "label": "Sắc độ sau khi ánh xạ"
+      },
+      "lookFor": "Giảm độ đậm nếu LUT làm mất tách bạch giữa chủ thể và nền."
+    }
+  ],
+  "P06-01": [
+    {
+      "step": 1,
+      "tool": "Move Tool và Layers",
+      "before": {
+        "scene": "photo:city+signFlat",
+        "label": "Biển cần dán vẫn phẳng"
+      },
+      "after": {
+        "scene": "layers:sign",
+        "label": "Chọn lớp biển hiệu riêng"
+      },
+      "lookFor": "Chỉ lớp biển được sửa. Nền thành phố giữ nguyên."
+    },
+    {
+      "step": 2,
+      "tool": "Live Perspective Filter",
+      "before": {
+        "scene": "photo:city+signFlat",
+        "label": "Biển phẳng"
+      },
+      "after": {
+        "scene": "photo:city+perspective",
+        "label": "Khung điều khiển bốn góc"
+      },
+      "lookFor": "Dõi từng góc của biển hiệu tới mặt phẳng đích."
+    },
+    {
+      "step": 3,
+      "tool": "Điểm neo phối cảnh",
+      "before": {
+        "scene": "photo:city+perspective",
+        "label": "Khung còn lệch"
+      },
+      "after": {
+        "scene": "photo:city+signFit",
+        "label": "Cạnh biển bám hướng tường"
+      },
+      "lookFor": "So hai họ cạnh với đường gióng của bề mặt."
+    },
+    {
+      "step": 4,
+      "tool": "Blend Mode",
+      "before": {
+        "scene": "photo:city+signFit",
+        "label": "Biển đúng góc nhưng tách nền"
+      },
+      "after": {
+        "scene": "photo:city+signBlend",
+        "label": "Màu biển hòa với tường"
+      },
+      "lookFor": "Kiểm chữ vẫn dễ đọc sau khi hòa trộn."
+    }
+  ],
+  "P06-02": [
+    {
+      "step": 1,
+      "tool": "Live Denoise",
+      "before": {
+        "scene": "photo:hill+noise",
+        "label": "Hạt dày xuất hiện trong vùng tối"
+      },
+      "after": {
+        "scene": "photo:hill+denoise",
+        "label": "Hạt giảm"
+      },
+      "lookFor": "Phóng 100% để so chi tiết nhỏ trước và sau khi lọc."
+    },
+    {
+      "step": 2,
+      "tool": "Luminance và Chrominance",
+      "before": {
+        "scene": "photo:hill+noiseLuma",
+        "label": "Hạt sáng tối"
+      },
+      "after": {
+        "scene": "photo:hill+noiseColor",
+        "label": "Đốm có sai lệch màu"
+      },
+      "lookFor": "Giảm nhiễu màu trước khi tăng lọc sáng tối nếu cần giữ vân."
+    },
+    {
+      "step": 3,
+      "tool": "Live High Pass Filter",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Ảnh nguồn"
+      },
+      "after": {
+        "scene": "photo:product+highPass",
+        "label": "Tách các cạnh cần làm nét"
+      },
+      "lookFor": "So cạnh nhãn với nền, giảm mức sắc nếu thấy viền sáng tối giả."
+    },
+    {
+      "step": 4,
+      "tool": "Depth of Field",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Chủ thể và hậu cảnh đều nét"
+      },
+      "after": {
+        "scene": "photo:product+focus",
+        "label": "Chủ thể rõ, ngoài vùng nét mờ"
+      },
+      "lookFor": "Giữ phần nhãn cần đọc trong vùng nét."
+    }
+  ],
+  "P06-03": [
+    {
+      "step": 1,
+      "tool": "Live Lighting Filter",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Chưa có nguồn sáng bổ sung"
+      },
+      "after": {
+        "scene": "photo:product+spotlight",
+        "label": "Vùng được chiếu sáng"
+      },
+      "lookFor": "Xem ánh sáng dẫn mắt vào vùng nào trước khi tăng độ mạnh."
+    },
+    {
+      "step": 2,
+      "tool": "Loại đèn và hướng sáng",
+      "before": {
+        "scene": "photo:product+lightLeft",
+        "label": "Nguồn sáng từ trái"
+      },
+      "after": {
+        "scene": "photo:product+lightRight",
+        "label": "Đổi vị trí nguồn"
+      },
+      "lookFor": "Bóng và vùng sáng cần ăn khớp hướng nguồn."
+    },
+    {
+      "step": 3,
+      "tool": "Bump Map",
+      "before": {
+        "scene": "photo:product+embossNeutral",
+        "label": "Bề mặt ít dấu khối"
+      },
+      "after": {
+        "scene": "photo:product+emboss",
+        "label": "Gờ có vùng sáng và bóng"
+      },
+      "lookFor": "Giữ độ nổi vừa đủ để không phá chi tiết cần đọc."
+    },
+    {
+      "step": 4,
+      "tool": "Vignette",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Rìa ảnh sáng tương đương tâm"
+      },
+      "after": {
+        "scene": "photo:product+vignette",
+        "label": "Mép tối dần"
+      },
+      "lookFor": "Kiểm vùng tối không che thông tin ở góc cần giữ."
+    }
+  ],
+  "P07-01": [
+    {
+      "step": 1,
+      "tool": "Phân tích Background Plate",
+      "before": {
+        "scene": "photo:city+plain",
+        "label": "Ảnh môi trường"
+      },
+      "after": {
+        "scene": "photo:city+vanish",
+        "label": "Đường tụ và vùng đặt chủ thể"
+      },
+      "lookFor": "Tìm đường chân trời và dấu vết về chiều sâu trước khi đặt vật thể."
+    },
+    {
+      "step": 2,
+      "tool": "Hướng sáng và bóng",
+      "before": {
+        "scene": "photo:city+sun",
+        "label": "Nguồn sáng đã xác định"
+      },
+      "after": {
+        "scene": "photo:city+shadow",
+        "label": "Bóng đi theo hướng đối ứng"
+      },
+      "lookFor": "So bóng mới với bóng của các vật có sẵn trong cảnh."
+    },
+    {
+      "step": 3,
+      "tool": "Đưa chủ thể vào tài liệu",
+      "before": {
+        "scene": "photo:city+plain",
+        "label": "Nền chưa có đối tượng"
+      },
+      "after": {
+        "scene": "photo:city+subject",
+        "label": "Đặt chủ thể vào mặt đất"
+      },
+      "lookFor": "Chân của vật thể phải chạm cùng mặt phẳng với cảnh."
+    },
+    {
+      "step": 4,
+      "tool": "Tỉ lệ phối cảnh",
+      "before": {
+        "scene": "photo:city+subjectLarge",
+        "label": "Chủ thể quá lớn so với cảnh"
+      },
+      "after": {
+        "scene": "photo:city+subject",
+        "label": "Tỉ lệ khớp hơn"
+      },
+      "lookFor": "So kích cỡ với các mốc ở cùng độ sâu thay vì chỉ nhìn giữa khung."
+    }
+  ],
+  "P07-02": [
+    {
+      "step": 1,
+      "tool": "Crop Straighten",
+      "before": {
+        "scene": "photo:city+tilt",
+        "label": "Đường chân trời bị nghiêng"
+      },
+      "after": {
+        "scene": "photo:city+straighten",
+        "label": "Đã cân theo đường mẫu"
+      },
+      "lookFor": "Chọn cạnh đúng là ngang để cân ảnh."
+    },
+    {
+      "step": 2,
+      "tool": "Live Perspective",
+      "before": {
+        "scene": "photo:city+signFlat",
+        "label": "Miếng đồ họa nhìn thẳng"
+      },
+      "after": {
+        "scene": "photo:city+perspective",
+        "label": "Chốt ở bốn góc"
+      },
+      "lookFor": "Gán bộ lọc vào lớp cần nắn thay vì đổi toàn cảnh."
+    },
+    {
+      "step": 3,
+      "tool": "Lưới phối cảnh",
+      "before": {
+        "scene": "photo:city+perspective",
+        "label": "Khung đang điều chỉnh"
+      },
+      "after": {
+        "scene": "photo:city+signFit",
+        "label": "Bốn góc theo mặt đích"
+      },
+      "lookFor": "Các cặp cạnh đi về cùng nhóm đường tụ của bức ảnh."
+    },
+    {
+      "step": 4,
+      "tool": "Warp Group",
+      "before": {
+        "scene": "photo:product+signFlat",
+        "label": "Nhãn vẫn thẳng"
+      },
+      "after": {
+        "scene": "photo:product+warp",
+        "label": "Nhãn uốn theo mặt chai"
+      },
+      "lookFor": "So độ cong của mép nhãn với đường bao chai để phát hiện lệch."
+    }
+  ],
+  "P07-03": [
+    {
+      "step": 1,
+      "tool": "Contact Shadow",
+      "before": {
+        "scene": "photo:city+subject",
+        "label": "Vật có vẻ nổi khỏi mặt đất"
+      },
+      "after": {
+        "scene": "photo:city+contact",
+        "label": "Bóng hẹp dưới chân"
+      },
+      "lookFor": "Vùng tối nhất nằm sát điểm tiếp xúc."
+    },
+    {
+      "step": 2,
+      "tool": "Cast Shadow",
+      "before": {
+        "scene": "photo:city+contact",
+        "label": "Chỉ có bóng sát chân"
+      },
+      "after": {
+        "scene": "photo:city+shadow",
+        "label": "Thêm bóng kéo dài theo hướng"
+      },
+      "lookFor": "Vệt dài dần mềm hơn khi rời điểm tiếp xúc."
+    },
+    {
+      "step": 3,
+      "tool": "Light Wrap",
+      "before": {
+        "scene": "photo:city+subject",
+        "label": "Biên chủ thể tách khỏi nền"
+      },
+      "after": {
+        "scene": "photo:city+wrap",
+        "label": "Ánh sáng chạy quanh một phía"
+      },
+      "lookFor": "Chỉ thêm ở cạnh hướng về nguồn sáng. Giữ cạnh đối diện rõ."
+    },
+    {
+      "step": 4,
+      "tool": "Film Grain",
+      "before": {
+        "scene": "photo:city+subject",
+        "label": "Độ hạt giữa lớp chưa đồng đều"
+      },
+      "after": {
+        "scene": "photo:city+grainComposite",
+        "label": "Thêm một lớp hạt chung"
+      },
+      "lookFor": "So biên ghép ở 100%. Hạt cần gắn kết các lớp mà không lấn chủ thể."
+    }
+  ],
+  "P08-01": [
+    {
+      "step": 1,
+      "tool": "Artistic Text Tool",
+      "before": {
+        "scene": "photo:portrait+plain",
+        "label": "Ảnh chưa có tiêu đề"
+      },
+      "after": {
+        "scene": "photo:portrait+title",
+        "label": "Thêm dòng tiêu đề độc lập"
+      },
+      "lookFor": "Tìm chỗ đặt chữ có nền đủ yên và tương phản."
+    },
+    {
+      "step": 2,
+      "tool": "Character và Kerning",
+      "before": {
+        "scene": "type:avWide",
+        "label": "Hai ký tự tách xa"
+      },
+      "after": {
+        "scene": "type:avKern",
+        "label": "Cặp chữ khoảng cách cân hơn"
+      },
+      "lookFor": "Nhìn khoảng trắng thật giữa cạnh chữ thay vì chỉ nhìn số."
+    },
+    {
+      "step": 3,
+      "tool": "Frame Text Tool",
+      "before": {
+        "scene": "type:headline",
+        "label": "Dòng tiêu đề"
+      },
+      "after": {
+        "scene": "type:frame",
+        "label": "Khối nội dung tự xuống dòng"
+      },
+      "lookFor": "Thu hẹp khung để kiểm cách ngắt dòng."
+    },
+    {
+      "step": 4,
+      "tool": "OpenType",
+      "before": {
+        "scene": "type:fi",
+        "label": "Các chữ dạng mặc định"
+      },
+      "after": {
+        "scene": "type:ligature",
+        "label": "Ví dụ dạng ghép nếu phông hỗ trợ"
+      },
+      "lookFor": "Chọn tính năng phù hợp ngữ cảnh và kiểm lại khả năng đọc."
+    }
+  ],
+  "P08-02": [
+    {
+      "step": 1,
+      "tool": "Shape Tool",
+      "before": {
+        "scene": "type:badgeEmpty",
+        "label": "Chỗ trống cho nhãn"
+      },
+      "after": {
+        "scene": "shape:badge",
+        "label": "Hình nền huy hiệu"
+      },
+      "lookFor": "Chọn hình đủ diện tích cho chữ và phần đệm."
+    },
+    {
+      "step": 2,
+      "tool": "Quick FX",
+      "before": {
+        "scene": "shape:badge",
+        "label": "Hình chưa hiệu ứng"
+      },
+      "after": {
+        "scene": "layers:fx",
+        "label": "Thêm hiệu ứng trên chính lớp"
+      },
+      "lookFor": "Giữ được hình gốc để chỉnh tiếp."
+    },
+    {
+      "step": 3,
+      "tool": "Outer Shadow",
+      "before": {
+        "scene": "shape:badge",
+        "label": "Biên phẳng"
+      },
+      "after": {
+        "scene": "shape:badgeShadow",
+        "label": "Bóng dịch khỏi biên"
+      },
+      "lookFor": "Chỉnh hướng và độ mềm phù hợp ánh sáng của bố cục."
+    },
+    {
+      "step": 4,
+      "tool": "Bevel & Emboss và Scale with Object",
+      "before": {
+        "scene": "shape:badgeShadow",
+        "label": "Có bóng ngoài"
+      },
+      "after": {
+        "scene": "shape:badgeBevel",
+        "label": "Thêm vùng sáng tối ở mép"
+      },
+      "lookFor": "Thu nhỏ hình để kiểm mức nổi và độ dễ đọc của chữ."
+    }
+  ],
+  "P08-03": [
+    {
+      "step": 1,
+      "tool": "Subject Isolation",
+      "before": {
+        "scene": "photo:portrait+plain",
+        "label": "Ảnh có nền"
+      },
+      "after": {
+        "scene": "photo:portrait+masked",
+        "label": "Chủ thể ở lớp có mặt nạ"
+      },
+      "lookFor": "So nền mới để kiểm tóc và mép áo."
+    },
+    {
+      "step": 2,
+      "tool": "Text Behind Subject",
+      "before": {
+        "scene": "photo:portrait+title",
+        "label": "Chữ nằm trước chủ thể"
+      },
+      "after": {
+        "scene": "photo:portrait+behind",
+        "label": "Một phần chữ được che"
+      },
+      "lookFor": "Đặt lớp chủ thể phía trên chữ. Giữ đủ chữ để còn đọc."
+    },
+    {
+      "step": 3,
+      "tool": "Bóng tương tác",
+      "before": {
+        "scene": "photo:portrait+behind",
+        "label": "Lớp chữ và ảnh chưa hòa"
+      },
+      "after": {
+        "scene": "photo:portrait+textShadow",
+        "label": "Bóng sát chỗ hai lớp giao"
+      },
+      "lookFor": "Giữ bóng gần tiếp xúc và cùng hướng với ánh sáng ảnh."
+    },
+    {
+      "step": 4,
+      "tool": "Nhận diện thương mại",
+      "before": {
+        "scene": "photo:portrait+behind",
+        "label": "Ảnh và tiêu đề đã xong"
+      },
+      "after": {
+        "scene": "photo:portrait+campaign",
+        "label": "Thêm nhãn hiệu và lời kêu gọi"
+      },
+      "lookFor": "Ở kích thước nhỏ, tiêu đề nên đọc trước rồi mới tới lời kêu gọi."
+    }
+  ],
+  "P09-01": [
+    {
+      "step": 1,
+      "tool": "Develop Studio",
+      "before": {
+        "scene": "export:raw",
+        "label": "Tệp RAW nguồn"
+      },
+      "after": {
+        "scene": "photo:harbor+plain",
+        "label": "Ảnh trong bước phát triển"
+      },
+      "lookFor": "Giữ tệp RAW để điều chỉnh lại cân bằng trắng và phơi sáng."
+    },
+    {
+      "step": 2,
+      "tool": "RAW Layer",
+      "before": {
+        "scene": "layers:raw",
+        "label": "Ảnh nguồn chưa đưa vào tài liệu"
+      },
+      "after": {
+        "scene": "layers:rawEmbedded",
+        "label": "Lớp RAW còn phát triển lại được"
+      },
+      "lookFor": "Chọn đầu ra phù hợp nhu cầu chỉnh lại hoặc giữ nguồn."
+    },
+    {
+      "step": 3,
+      "tool": "White Balance",
+      "before": {
+        "scene": "photo:harbor+warm",
+        "label": "Vùng trung tính ngả ấm"
+      },
+      "after": {
+        "scene": "photo:harbor+neutral",
+        "label": "Màu cân lại"
+      },
+      "lookFor": "Dùng vùng thật sự trung tính để làm mốc trước khi chỉnh sáng tối."
+    },
+    {
+      "step": 4,
+      "tool": "Exposure và Tone Mapping",
+      "before": {
+        "scene": "photo:harbor+castDark",
+        "label": "Cây tối và trời sáng"
+      },
+      "after": {
+        "scene": "photo:harbor+tone",
+        "label": "Giữ chi tiết cả hai vùng"
+      },
+      "lookFor": "Quan sát vùng trời và bóng. Giảm mức nén nếu ảnh mất tương phản tự nhiên."
+    },
+    {
+      "step": 5,
+      "tool": "Develop và tab Pixel",
+      "before": {
+        "scene": "layers:rawEmbedded",
+        "label": "Nguồn RAW còn giữ"
+      },
+      "after": {
+        "scene": "layers:developed",
+        "label": "Bắt đầu hậu kỳ cục bộ"
+      },
+      "lookFor": "Tắt lớp chỉnh và xem dữ liệu nguồn vẫn còn."
+    }
+  ],
+  "P09-02": [
+    {
+      "step": 1,
+      "tool": "Lens",
+      "before": {
+        "scene": "photo:city+plain",
+        "label": "Ảnh có cạnh kiến trúc"
+      },
+      "after": {
+        "scene": "photo:city+distort",
+        "label": "Đo độ cong cạnh bằng đường thẳng"
+      },
+      "lookFor": "Tìm một cạnh đáng tin gần mép khung trước khi sửa."
+    },
+    {
+      "step": 2,
+      "tool": "Distortion Correction",
+      "before": {
+        "scene": "photo:city+distort",
+        "label": "Cạnh bị cong"
+      },
+      "after": {
+        "scene": "photo:city+straight",
+        "label": "Cạnh trở lại gần đường gióng"
+      },
+      "lookFor": "Kiểm nhiều cạnh theo chiều dọc lẫn chiều ngang."
+    },
+    {
+      "step": 3,
+      "tool": "Defringe",
+      "before": {
+        "scene": "photo:city+fringe",
+        "label": "Viền tím tại mép tương phản"
+      },
+      "after": {
+        "scene": "photo:city+defringe",
+        "label": "Viền tím giảm"
+      },
+      "lookFor": "Phóng vào mép sáng tối rồi kiểm màu thật của chủ thể còn nguyên."
+    },
+    {
+      "step": 4,
+      "tool": "Keystone Correction",
+      "before": {
+        "scene": "photo:city+keystone",
+        "label": "Hai sống đứng chụm lên"
+      },
+      "after": {
+        "scene": "photo:city+straight",
+        "label": "Đường đứng đều hơn"
+      },
+      "lookFor": "Kiểm góc cắt và tỉ lệ công trình sau khi nắn."
+    }
+  ],
+  "P09-03": [
+    {
+      "step": 1,
+      "tool": "Macro panel",
+      "before": {
+        "scene": "system:recordReady",
+        "label": "Chuẩn bị thao tác lặp"
+      },
+      "after": {
+        "scene": "system:recording",
+        "label": "Bắt đầu ghi"
+      },
+      "lookFor": "Mỗi thao tác hỗ trợ ghi sẽ thêm một dòng vào chuỗi."
+    },
+    {
+      "step": 2,
+      "tool": "Chuỗi thao tác",
+      "before": {
+        "scene": "photo:hill+plain",
+        "label": "Ảnh đầu vào"
+      },
+      "after": {
+        "scene": "system:macroSteps",
+        "label": "Danh sách thao tác theo thứ tự"
+      },
+      "lookFor": "Thử chạy trên một ảnh khác trước khi đem dùng hàng loạt."
+    },
+    {
+      "step": 3,
+      "tool": "Library",
+      "before": {
+        "scene": "system:macroSteps",
+        "label": "Chuỗi vừa ghi"
+      },
+      "after": {
+        "scene": "system:macroLibrary",
+        "label": "Lưu macro có tên"
+      },
+      "lookFor": "Chạy lại bản đã lưu để kiểm đúng kết quả."
+    },
+    {
+      "step": 4,
+      "tool": "New Batch Job",
+      "before": {
+        "scene": "system:macroLibrary",
+        "label": "Macro đã có trong thư viện"
+      },
+      "after": {
+        "scene": "export:batch",
+        "label": "Nhiều nguồn và thư mục đích"
+      },
+      "lookFor": "Thử một nhóm nhỏ và giữ nguyên bản gốc."
+    }
+  ],
+  "P10-01": [
+    {
+      "step": 1,
+      "tool": "Slice Studio",
+      "before": {
+        "scene": "workspace:pixel",
+        "label": "Không gian chỉnh ảnh"
+      },
+      "after": {
+        "scene": "export:area",
+        "label": "Chọn phạm vi đầu ra"
+      },
+      "lookFor": "Nhìn khung cắt để xác nhận phần ảnh sẽ xuất."
+    },
+    {
+      "step": 2,
+      "tool": "Slice từ Layer",
+      "before": {
+        "scene": "photo:product+plain",
+        "label": "Ảnh có vùng quan tâm"
+      },
+      "after": {
+        "scene": "export:photoSlice",
+        "label": "Lát ôm phần cần xuất"
+      },
+      "lookFor": "Kiểm ảnh xuất có đủ chi tiết của lớp và đúng khoảng đệm."
+    },
+    {
+      "step": 3,
+      "tool": "Kích thước 1×, 2×, 3×",
+      "before": {
+        "scene": "export:scale1",
+        "label": "Kích thước đầu ra gốc"
+      },
+      "after": {
+        "scene": "export:scaleAll",
+        "label": "Cùng lát, ba kích thước"
+      },
+      "lookFor": "Mở thông tin tệp để đối chiếu số pixel từng chiều."
+    },
+    {
+      "step": 4,
+      "tool": "Continuous Export",
+      "before": {
+        "scene": "export:scaleAll",
+        "label": "Đã đặt ba bản xuất"
+      },
+      "after": {
+        "scene": "export:destination",
+        "label": "Ghi vào thư mục đã chọn"
+      },
+      "lookFor": "Đổi một chi tiết rồi kiểm các tệp cần thiết được cập nhật."
+    }
+  ],
+  "P10-02": [
+    {
+      "step": 1,
+      "tool": "Profile màu",
+      "before": {
+        "scene": "chart:gamut",
+        "label": "Các gam màu có vùng phủ khác nhau"
+      },
+      "after": {
+        "scene": "export:profile",
+        "label": "Tìm profile hiện tại"
+      },
+      "lookFor": "Đọc profile cùng định dạng, vì thiết bị xem ảnh có khả năng tái tạo khác nhau."
+    },
+    {
+      "step": 2,
+      "tool": "Convert sang sRGB",
+      "before": {
+        "scene": "photo:hill+grade",
+        "label": "Ảnh trước khi chuyển"
+      },
+      "after": {
+        "scene": "chart:gamutProof",
+        "label": "Xem vùng khác biệt màu"
+      },
+      "lookFor": "So màu có độ bão hòa cao và kiểm profile trong tệp giao."
+    },
+    {
+      "step": 3,
+      "tool": "Soft Proof",
+      "before": {
+        "scene": "chart:gamutProof",
+        "label": "Có màu nằm ngoài đích"
+      },
+      "after": {
+        "scene": "photo:hill+proof",
+        "label": "Thấy bản mô phỏng giới hạn đích"
+      },
+      "lookFor": "Dùng thử để điều chỉnh rồi kiểm đầu ra theo profile thực tế."
+    },
+    {
+      "step": 4,
+      "tool": "WebP và JPEG XL",
+      "before": {
+        "scene": "export:profile",
+        "label": "Nguồn còn đủ dữ liệu"
+      },
+      "after": {
+        "scene": "export:compressed",
+        "label": "Các kiểu tệp giao"
+      },
+      "lookFor": "So độ dễ đọc, chi tiết và dung lượng rồi chọn định dạng bên nhận hỗ trợ."
+    }
+  ],
+  "P10-03": [
+    {
+      "step": 1,
+      "tool": "Develop Studio",
+      "before": {
+        "scene": "photo:hill+castDark",
+        "label": "Ảnh gốc cần cân sáng"
+      },
+      "after": {
+        "scene": "photo:hill+corrected",
+        "label": "Ảnh sẵn sàng hậu kỳ"
+      },
+      "lookFor": "Kiểm vùng tối và sáng còn chi tiết trước khi đi tiếp."
+    },
+    {
+      "step": 2,
+      "tool": "Frequency Separation",
+      "before": {
+        "scene": "photo:portrait+blemish",
+        "label": "Có chi tiết cần sửa"
+      },
+      "after": {
+        "scene": "photo:portrait+frequencies",
+        "label": "Tách kết cấu khỏi sắc độ"
+      },
+      "lookFor": "Chọn lớp theo lớp lỗi cần sửa rồi xem lại kết quả hợp nhất."
+    },
+    {
+      "step": 3,
+      "tool": "Refine Selection và ghép nền",
+      "before": {
+        "scene": "photo:portrait+overlay",
+        "label": "Kiểm vùng tóc trên nền phủ"
+      },
+      "after": {
+        "scene": "photo:portrait+placed",
+        "label": "Chủ thể đặt lên nền khác"
+      },
+      "lookFor": "So hướng sáng và vị trí tương đối để thấy có ghép khớp không."
+    },
+    {
+      "step": 4,
+      "tool": "Typography và Layers",
+      "before": {
+        "scene": "photo:portrait+title",
+        "label": "Chữ che chủ thể"
+      },
+      "after": {
+        "scene": "photo:portrait+behind",
+        "label": "Chữ nằm sau phần chủ thể đã tách"
+      },
+      "lookFor": "Kiểm vẫn đọc được cả cụm chữ sau khi xếp lớp."
+    },
+    {
+      "step": 5,
+      "tool": "Grade màu và Slice Studio",
+      "before": {
+        "scene": "photo:portrait+campaign",
+        "label": "Bản quảng bá đã hoàn chỉnh"
+      },
+      "after": {
+        "scene": "export:campaign",
+        "label": "Các tỉ lệ bàn giao"
+      },
+      "lookFor": "Mở mỗi tệp để kiểm bố cục chữ và khung cắt ở đúng kích thước."
+    }
+  ],
+  "B01-01": [
+    {
+      "step": 1,
+      "tool": "New Document",
+      "before": {
+        "scene": "layout:new",
+        "label": "Chọn kích cỡ ấn phẩm"
+      },
+      "after": {
+        "scene": "layout:single",
+        "label": "Khung trang ban đầu"
+      },
+      "lookFor": "Tách kích thước thành phẩm khỏi lề và Bleed."
+    },
+    {
+      "step": 2,
+      "tool": "Facing Pages",
+      "before": {
+        "scene": "layout:single",
+        "label": "Một trang đứng riêng"
+      },
+      "after": {
+        "scene": "layout:spread",
+        "label": "Hai trang đối diện"
+      },
+      "lookFor": "Nhìn đường gáy ở giữa để phân biệt mép trong và ngoài."
+    },
+    {
+      "step": 3,
+      "tool": "Margins",
+      "before": {
+        "scene": "layout:spread",
+        "label": "Hai trang chưa có lề an toàn"
+      },
+      "after": {
+        "scene": "layout:margins",
+        "label": "Lề trong rộng hơn lề ngoài"
+      },
+      "lookFor": "Giữ chữ cách gáy. So cặp trang để kiểm lề trong được đảo đúng bên."
+    },
+    {
+      "step": 4,
+      "tool": "Bleed",
+      "before": {
+        "scene": "layout:margins",
+        "label": "Có lề nội dung"
+      },
+      "after": {
+        "scene": "layout:bleedSpread",
+        "label": "Thêm vùng vượt đường cắt"
+      },
+      "lookFor": "Kéo ảnh nền tới Bleed. Kích cỡ thành phẩm vẫn theo đường Trim."
+    },
+    {
+      "step": 5,
+      "tool": "Kiểm đường cắt",
+      "before": {
+        "scene": "layout:goodBad",
+        "label": "Nền dừng ở Trim và nền đủ Bleed"
+      },
+      "after": {
+        "scene": "layout:bleedSpread",
+        "label": "Nền phủ tới đường Bleed"
+      },
+      "lookFor": "Tìm phần chưa phủ hết vùng Bleed trước khi bàn giao."
+    }
+  ],
+  "B01-02": [
+    {
+      "step": 1,
+      "tool": "Pages và Master Pages",
+      "before": {
+        "scene": "layout:spread",
+        "label": "Cặp trang nội dung"
+      },
+      "after": {
+        "scene": "layout:masters",
+        "label": "Vùng chứa trang mẫu"
+      },
+      "lookFor": "Sửa thành phần chung trên trang mẫu để có thể dùng lại."
+    },
+    {
+      "step": 2,
+      "tool": "Số trang động",
+      "before": {
+        "scene": "layout:masterA",
+        "label": "Chỗ đặt số ở hai mép ngoài"
+      },
+      "after": {
+        "scene": "layout:numbered",
+        "label": "Các trang hiện số khác nhau"
+      },
+      "lookFor": "Kiểm số hiện theo từng trang nội dung và đúng phía ngoài."
+    },
+    {
+      "step": 3,
+      "tool": "Trang mẫu kế thừa",
+      "before": {
+        "scene": "layout:masterA",
+        "label": "Khung chung ở mẫu A"
+      },
+      "after": {
+        "scene": "layout:masterB",
+        "label": "Mẫu B bổ sung một dải"
+      },
+      "lookFor": "Chỉnh phần chung ở mẫu nguồn. Chỉ thay phần cần khác ở mẫu kế thừa."
+    },
+    {
+      "step": 4,
+      "tool": "Áp dụng trang mẫu",
+      "before": {
+        "scene": "layout:masters",
+        "label": "Có hai mẫu trang"
+      },
+      "after": {
+        "scene": "layout:applied",
+        "label": "Chọn mẫu cho các trang đích"
+      },
+      "lookFor": "Mở một trang giữa tài liệu để kiểm bố cục và thứ tự trang."
+    },
+    {
+      "step": 5,
+      "tool": "Edit Detached",
+      "before": {
+        "scene": "layout:applied",
+        "label": "Trang đang hưởng thành phần chung"
+      },
+      "after": {
+        "scene": "layout:detached",
+        "label": "Một tiêu đề sửa riêng"
+      },
+      "lookFor": "So một trang cùng mẫu để chắc phần ghi đè chỉ đổi ở trang cần sửa."
+    }
+  ],
+  "B01-03": [
+    {
+      "step": 1,
+      "tool": "Document Baseline Grid",
+      "before": {
+        "scene": "layout:spread",
+        "label": "Hai trang chưa có đường dòng chữ"
+      },
+      "after": {
+        "scene": "layout:baseline",
+        "label": "Lưới ngang lặp theo bước"
+      },
+      "lookFor": "Chọn bước lưới theo độ cao dòng chữ cần dùng."
+    },
+    {
+      "step": 2,
+      "tool": "Frame Text và Columns",
+      "before": {
+        "scene": "layout:frame",
+        "label": "Khung có một cột"
+      },
+      "after": {
+        "scene": "layout:columns",
+        "label": "Khung chia ba cột"
+      },
+      "lookFor": "Chừa khoảng giữa cột để đường đọc không thấm sang cột kế."
+    },
+    {
+      "step": 3,
+      "tool": "Căn vào Baseline Grid",
+      "before": {
+        "scene": "layout:uneven",
+        "label": "Hai đoạn lệch đường chân chữ"
+      },
+      "after": {
+        "scene": "layout:baselineFit",
+        "label": "Chân chữ cùng nhịp"
+      },
+      "lookFor": "Dòng ở cột trái và phải nằm trên cùng đường ngang."
+    },
+    {
+      "step": 4,
+      "tool": "Text Threading",
+      "before": {
+        "scene": "layout:overset",
+        "label": "Còn chữ tràn khung thứ nhất"
+      },
+      "after": {
+        "scene": "layout:thread",
+        "label": "Đoạn tiếp tục ở trang kế"
+      },
+      "lookFor": "Sửa vài dòng phần đầu rồi kiểm phần sau tự chảy theo."
+    }
+  ],
+  "S01-01": [
+    {
+      "step": 1,
+      "tool": "Application module",
+      "before": {
+        "scene": "system:script",
+        "label": "Kịch bản cần đối tượng ứng dụng"
+      },
+      "after": {
+        "scene": "system:appImport",
+        "label": "Điểm vào API ứng dụng"
+      },
+      "lookFor": "Nạp đúng module trước khi đọc thông tin về chương trình."
+    },
+    {
+      "step": 2,
+      "tool": "Console",
+      "before": {
+        "scene": "system:appImport",
+        "label": "Có đối tượng ứng dụng"
+      },
+      "after": {
+        "scene": "system:version",
+        "label": "Dòng phiên bản hiện trong nhật ký"
+      },
+      "lookFor": "Đối chiếu với bản đang mở. Tách kết quả chữ khỏi thao tác trên bản vẽ."
+    },
+    {
+      "step": 3,
+      "tool": "Sandbox và đường dẫn",
+      "before": {
+        "scene": "system:script",
+        "label": "Kịch bản yêu cầu đọc một đường dẫn"
+      },
+      "after": {
+        "scene": "system:sandbox",
+        "label": "Ranh giới quyền truy cập"
+      },
+      "lookFor": "Chỉ đọc vị trí được cho phép và xử lý khi vị trí không có sẵn."
+    },
+    {
+      "step": 4,
+      "tool": "Chạy kịch bản và đọc kết quả",
+      "before": {
+        "scene": "system:appImport",
+        "label": "Có mã đã chuẩn bị"
+      },
+      "after": {
+        "scene": "system:run",
+        "label": "Nhật ký cho biết bước đã chạy"
+      },
+      "lookFor": "Đọc thông báo trả về trước khi chuyển qua kịch bản có thao tác trên tài liệu."
+    }
+  ],
+  "S01-02": [
+    {
+      "step": 1,
+      "tool": "Affinity và listener",
+      "before": {
+        "scene": "system:disconnected",
+        "label": "Ứng dụng chưa phản hồi"
+      },
+      "after": {
+        "scene": "system:running",
+        "label": "Tiến trình sẵn sàng trả trạng thái"
+      },
+      "lookFor": "Kiểm ứng dụng và cấu hình máy trước khi chẩn đoán kết nối."
+    },
+    {
+      "step": 2,
+      "tool": "Kiểm tra kết nối cục bộ",
+      "before": {
+        "scene": "system:running",
+        "label": "Ứng dụng đã mở"
+      },
+      "after": {
+        "scene": "system:request",
+        "label": "Yêu cầu kiểm trạng thái"
+      },
+      "lookFor": "Mục tiêu của bước này là biết hai đầu có liên lạc được."
+    },
+    {
+      "step": 3,
+      "tool": "HTTP và SSE",
+      "before": {
+        "scene": "system:request",
+        "label": "Đã gửi yêu cầu"
+      },
+      "after": {
+        "scene": "system:stream",
+        "label": "Đọc mã và loại nội dung trả về"
+      },
+      "lookFor": "Đọc phản hồi để xác nhận có luồng sự kiện theo cấu hình của bài."
+    },
+    {
+      "step": 4,
+      "tool": "affinity_status",
+      "before": {
+        "scene": "system:stream",
+        "label": "Đường truyền đã có phản hồi"
+      },
+      "after": {
+        "scene": "system:status",
+        "label": "Thông tin trạng thái ứng dụng"
+      },
+      "lookFor": "Phân biệt kết nối đã mở với việc công cụ thật sự phản hồi."
+    }
+  ],
+  "S01-03": [
+    {
+      "step": 1,
+      "tool": "Document module",
+      "before": {
+        "scene": "system:script",
+        "label": "Kịch bản bắt đầu"
+      },
+      "after": {
+        "scene": "system:docImport",
+        "label": "Điểm vào API tài liệu"
+      },
+      "lookFor": "Chọn đối tượng Document cho tác vụ đọc thuộc tính tài liệu."
+    },
+    {
+      "step": 2,
+      "tool": "Kiểm tài liệu đang mở",
+      "before": {
+        "scene": "system:guard",
+        "label": "Chưa có tài liệu để đọc"
+      },
+      "after": {
+        "scene": "system:document",
+        "label": "Có tài liệu hợp lệ"
+      },
+      "lookFor": "Kiểm tình huống chưa mở tệp trước khi lấy thuộc tính."
+    },
+    {
+      "step": 3,
+      "tool": "Session UUID và kích thước",
+      "before": {
+        "scene": "system:document",
+        "label": "Đã xác định tài liệu đích"
+      },
+      "after": {
+        "scene": "system:attributes",
+        "label": "Thông tin phiên và khung vẽ"
+      },
+      "lookFor": "UUID nhận diện phiên. Các số chiều rộng và cao mô tả kích cỡ bản vẽ."
+    },
+    {
+      "step": 4,
+      "tool": "render_spread",
+      "before": {
+        "scene": "system:document",
+        "label": "Trang đang mở trong Affinity"
+      },
+      "after": {
+        "scene": "system:render",
+        "label": "Có bản xem trước của trang"
+      },
+      "lookFor": "So kích thước và nội dung ảnh trả về với trang đang được chọn."
+    }
+  ]
+}

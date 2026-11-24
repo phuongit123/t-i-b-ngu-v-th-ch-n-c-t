@@ -127,7 +127,7 @@ export const PRACTICE_CHALLENGES: PracticeChallenge[] = [
     ],
     successCriteria: [
       'Đường cong có đúng 3 điểm neo Smooth',
-      'Tay đòn đối xứng liên tục (Continuity $C^1$)',
+      'Tay đòn đối xứng liên tục (Liên tục tiếp tuyến C1)',
       'Độ sai lệch so với bản mẫu <= 22px',
       'Đạt điểm đánh giá accuracy >= 80%',
     ],

@@ -3,8 +3,8 @@
   "moduleId": "P03",
   "trackId": "photo",
   "order": 2,
-  "title": "Adjustment Layers & Live Filter Architecture",
-  "subtitle": "Real-Time GPU Shaders, Built-In Masking & Infinite Parameter Tuning",
+  "title": "Adjustment Layers và kiến trúc Live Filter",
+  "subtitle": "Shader GPU thời gian thực, mặt nạ tích hợp và tinh chỉnh tham số vô hạn",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -14,7 +14,7 @@
       "Làm chủ 22 lớp điều chỉnh màu: Curves, Levels, HSL, Black & White, White Balance, Selective Color.",
       "Tận dụng kênh mặt nạ tích hợp sẵn (Built-in Mask) có mặt trong mọi Adjustment và Live Filter."
     ],
-    "foundationalKnowledge": "Điểm ưu việt kỹ thuật của Serif Affinity Photo so với các phần mềm thế hệ trước nằm ở việc loại bỏ hoàn toàn cơ chế lọc phá hủy (Destructive Filtering). Thay vì nướng chết một hiệu ứng làm mờ (Blur) hay làm nét (Sharpen) trực tiếp vào mảng pixel của hình ảnh—khiến bạn vĩnh viễn không thể thay đổi lại bán kính lọc sau khi đã lưu tệp—Affinity Photo xử lý mọi bộ lọc dưới dạng Live Filter Layer. Một Live Filter là một chương trình đổ bóng GPU thời gian thực (GPU Shader Program). Nó nhận đầu vào là các pixel bên dưới, tính toán hiệu ứng trên card đồ họa khi hiển thị lên màn hình, và lưu giữ nguyên vẹn các tham số toán học (bán kính pixel, góc chiếu sáng, ngưỡng lọc) để bạn nhấp đúp chuột thay đổi bất kỳ lúc nào.",
+    "foundationalKnowledge": "Điểm ưu việt kỹ thuật của Pixel Studio / Affinity Photo so với các phần mềm thế hệ trước nằm ở việc loại bỏ hoàn toàn cơ chế lọc phá hủy (Destructive Filtering). Thay vì nướng chết một hiệu ứng làm mờ (Blur) hay làm nét (Sharpen) trực tiếp vào mảng pixel của hình ảnh—khiến bạn vĩnh viễn không thể thay đổi lại bán kính lọc sau khi đã lưu tệp—Affinity xử lý mọi bộ lọc dưới dạng Live Filter Layer. Một Live Filter là một chương trình đổ bóng GPU thời gian thực (GPU Shader Program). Nó nhận đầu vào là các pixel bên dưới, tính toán hiệu ứng trên card đồ họa khi hiển thị lên màn hình, và lưu giữ nguyên vẹn các tham số toán học (bán kính pixel, góc chiếu sáng, ngưỡng lọc) để bạn nhấp đúp chuột thay đổi bất kỳ lúc nào.",
     "technicalEvidence": {
       "classification": "VERIFIED",
       "source": "Affinity Photo 3.3.3 Live Filter Architecture & Adjustment Pipeline Specification",
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Live Filters & Adjustments Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Ctrl+M (Curves Adjustment) / Ctrl+L (Levels) / Biểu tượng đồng hồ cát (Live Filters)",
         "mac": "Cmd+M (Curves Adjustment) / Cmd+L (Levels) / Biểu tượng đồng hồ cát (Live Filters)"
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P03-03 Clipping, Grouping & Blend Mode Mathematics",
+          "title": "Bài tiếp theo: P03-03 Clipping, Grouping và nguyên lý Blend Mode",
           "target": "P03-03",
           "type": "next-lesson"
         },
@@ -216,7 +216,7 @@
       "contentMarkdown": "1. **Chọn Layer ảnh chính:** Trong Layers Studio (F7).\n2. **Bấm biểu tượng đồng hồ cát:** Chọn `Gaussian Blur`.\n3. **Đặt bán kính:** Kéo thanh trượt Radius lên mức `10 px`. Toàn bộ ảnh sẽ mờ đi.\n4. **Vẽ cọ đen lên chủ thể:** Dùng cọ Paint Brush (B) màu Đen tô lên người mẫu. Hiệu ứng làm mờ biến mất trên người mẫu, để lại vùng hậu cảnh xóa phông lung linh!",
       "visual": {
         "type": "badge-grid",
-        "content": "Select Layer | Hourglass Icon | Radius Slider | Brush (B) Black | Perfect Bokeh"
+        "content": "Chọn Layer | Biểu tượng Đồng hồ cát | Kéo Radius | Cọ Brush (B) Đen | Hiệu ứng Bokeh"
       }
     },
     {

@@ -3,8 +3,8 @@
   "moduleId": "P06",
   "trackId": "photo",
   "order": 2,
-  "title": "Blur, Sharpening & Sensor Noise Reduction",
-  "subtitle": "High Pass vs Clarity vs Unsharp Mask, Tilt-Shift Bokeh & Dual-Engine Denoise",
+  "title": "Làm mờ, làm nét và khử nhiễu cảm biến",
+  "subtitle": "High Pass, Clarity và Unsharp Mask, hiệu ứng xóa phông Tilt-Shift và khử nhiễu hai kênh",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Sharpening & Noise Reduction Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field",
         "mac": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field"
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P06-03 Live Lighting, Bump Maps & Atmospheric Effects",
+          "title": "Bài tiếp theo: P06-03 Live Lighting, Bump Map và hiệu ứng khí quyển",
           "target": "P06-03",
           "type": "next-lesson"
         },
@@ -216,7 +216,7 @@
       "contentMarkdown": "1. **Phóng to 100%:** Nhấn `Ctrl+1` (Win) / `Cmd+1` (Mac) để soi rõ từng pixel.\n2. **Khử sạn màu (Live Denoise):** Kéo Chrominance 60%, Luminance 20% cho đến khi vùng tối phẳng mịn sạch sẽ.\n3. **Thêm Live High Pass:** Bán kính 1.5px, đổi Blend Mode sang `Soft Light`.\n4. **Xóa phông hậu cảnh (Live Depth of Field):** Thêm Depth of Field, chọn Tilt-Shift, giữ nét phần người mẫu và làm nhòe dần hậu cảnh phía sau!",
       "visual": {
         "type": "badge-grid",
-        "content": "Zoom 100% | Denoise Chrominance | High Pass 1.5px | Soft Light | Depth of Field"
+        "content": "Zoom 100% | Khử nhiễu Chrominance | High Pass 1.5px | Soft Light | Depth of Field"
       }
     },
     {

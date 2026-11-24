@@ -3,46 +3,46 @@
   "moduleId": "P05",
   "trackId": "photo",
   "order": 1,
-  "title": "Exposure, Dynamic Range & White Balance Calibration",
-  "subtitle": "Histogram Diagnostics & Neutral Gray White Balance",
+  "title": "Exposure, dải tương phản và cân bằng trắng",
+  "subtitle": "Chẩn đoán biểu đồ Histogram & cân bằng trắng theo điểm xám trung tính",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
       "Đọc hiểu biểu đồ Histogram: Phân tích phân bố điểm ảnh vùng tối (Shadows), trung tính (Midtones) và vùng sáng (Highlights).",
-      "Đọc phân bố kênh Red và RGB trong Histogram để nhận biết dữ liệu vùng tối và vùng sáng, thay vì coi cảnh báo overlay clipping là một chức năng đã xác minh của Histogram panel.",
+      "Chuyển giữa Red và All Channels để đọc dữ liệu từng kênh và kiểm lại bằng vùng ảnh tương ứng.",
       "Sử dụng White Balance Adjustment kết hợp công cụ ống hút Eyedropper để cân bằng trắng chuẩn xác.",
       "Hiểu sự khác biệt giữa Exposure Adjustment (thay đổi độ phơi sáng tuyến tính) và Brightness/Contrast."
     ],
     "foundationalKnowledge": "Hiệu chỉnh màu kỹ thuật (Technical Color Correction) là bước đi tiên quyết bắt buộc trước khi bạn nghĩ đến việc phối màu nghệ thuật (Color Grading). Một bức ảnh bị ám vàng (warm cast) hay ám xanh (cool cast) do nguồn sáng hỗn hợp của đèn huỳnh quang hoặc bóng râm sẽ làm sai lệch hoàn toàn sắc tố da người mẫu. Affinity Photo cung cấp biểu đồ Histogram thời gian thực và công cụ White Balance chuyên nghiệp. Bằng cách định vị một điểm xám trung tính (18% Neutral Gray) hoặc màu trắng không bị cháy sáng trong khung hình, bạn có thể thiết lập lại trục tọa độ màu sắc tự nhiên cho toàn bộ tác phẩm.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Photo 3.3.3 Color Management & Histogram Diagnostic Specification",
+      "classification": "DOCUMENTED",
+      "source": "24/11/2026 · Histogram, Window > Pixel > Histogram trên Affinity 3.3.3.5004 Windows. Đối chiếu Affinity Help cho đường dẫn macOS và phạm vi ảnh, lớp, vùng chọn.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Histogram panel & White Balance Adjustment",
-      "persona": "Photo Persona",
+      "toolName": "Bảng Histogram & Điều chỉnh White Balance",
+      "persona": "Pixel Studio",
       "shortcut": {
-        "win": "Histogram panel menu path not verified; White Balance Adjustment is a separate control",
-        "mac": "Histogram panel menu path not verified; White Balance Adjustment is a separate control"
+        "win": "Window > Pixel > Histogram",
+        "mac": "Window > Pixel > Histogram"
       },
-      "description": "The Histogram panel displays image tonal distribution by channel. White Balance Adjustment is a separate control that provides Temperature, Tint and a neutral-point picker; it is not part of the Histogram panel.",
+      "description": "Bảng Histogram hiển thị phân bố sắc độ của hình ảnh theo từng kênh màu. White Balance Adjustment là lớp điều chỉnh riêng cung cấp thanh trượt Temperature (Nhiệt độ màu), Tint (Sắc thái) và ống hút chọn điểm trung tính; công cụ này không nằm trong bảng Histogram.",
       "contextBarOptions": [
-        "Histogram channel distribution: the guided practice inspects the Red channel.",
-        "The independent challenge compares the R, G and B channel distributions.",
-        "White Balance Adjustment is a separate adjustment with Temperature and Tint controls.",
-        "Clipping-warning overlays are not asserted as a Histogram panel function in this inventory."
+        "Danh sách kênh ở đầu Histogram cho phép chọn Red hoặc All Channels.",
+        "Thử thách độc lập so sánh phân bố giữa ba kênh R, G và B.",
+        "White Balance Adjustment là lớp điều chỉnh riêng với các thanh trượt Temperature và Tint.",
+        "Layer và Marquee giới hạn phạm vi đọc. Kiểm phạm vi trước khi so số liệu."
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open the Histogram panel and inspect channel distribution",
-        "instruction": "Open the Histogram panel from the application's panel list. The exact menu path and refresh behavior have not been verified from the official Help Center article body in this review. Inspect the distribution from the left (shadows) to the right (highlights), then compare individual color channels.",
+        "title": "Mở bảng Histogram và kiểm tra phân bố các kênh màu",
+        "instruction": "Chọn tab Pixel rồi mở Window > Pixel > Histogram. Bắt đầu ở All Channels, sau đó chọn Red trong danh sách kênh. Phía trái biểu thị sắc độ tối, phía phải là sắc độ sáng. Dùng cùng phạm vi ảnh khi so trước và sau. Chỉ chọn Layer hoặc Marquee khi cần đọc riêng lớp hay vùng chọn.",
         "shortcutTip": {
-          "win": "Histogram panel menu path not verified",
-          "mac": "Histogram panel menu path not verified"
+          "win": "Window > Pixel > Histogram",
+          "mac": "Window > Pixel > Histogram"
         }
       },
       {
@@ -170,7 +170,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P05-02 Curves, Levels & Precision Tonal Control",
+          "title": "Bài tiếp theo: P05-02 Curves, Levels và kiểm soát sắc độ chính xác",
           "target": "P05-02",
           "type": "next-lesson"
         },
@@ -178,6 +178,11 @@
           "title": "Tài liệu kỹ thuật: P05_color_correction_grading_guide.md",
           "target": "curriculum/assets/photo/P05_color_correction_grading_guide.md",
           "type": "guide"
+        },
+        {
+          "title": "Vị trí và phạm vi đo của bảng Histogram",
+          "target": "https://www.affinity.studio/help/panels-histogram-panel/",
+          "type": "doc"
         }
       ]
     }
@@ -228,7 +233,7 @@
       "contentMarkdown": "1. **Kiểm tra Histogram:** Mở Histogram panel để xem phân bố của 3 kênh Red, Green, Blue.\n2. **Thêm White Balance:** Nhấn biểu tượng Adjustments ➔ chọn White Balance.\n3. **Chấm chọn điểm xám:** Dùng ống hút nhấp vào mảng áo xám hoặc tường gạch.\n4. **Nâng độ phơi sáng:** Thêm lớp `Exposure Adjustment`, tăng nhẹ `+0.7 EV` nếu cảm thấy bức ảnh hơi tối. Kiểm tra lại Histogram thấy dải sắc nở rộng hài hòa!",
       "visual": {
         "type": "badge-grid",
-        "content": "Open Histogram | Add White Balance | Eyedropper Sample | Tune Exposure | Crystal Clear"
+        "content": "Mở Histogram | Thêm White Balance | Chấm mẫu Eyedropper | Chỉnh Exposure | Trong trẻo sắc nét"
       }
     },
     {

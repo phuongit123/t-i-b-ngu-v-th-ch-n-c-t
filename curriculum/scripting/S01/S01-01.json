@@ -3,93 +3,93 @@
   "moduleId": "S01",
   "trackId": "scripting",
   "order": 1,
-  "title": "Affinity JS Runtime Architecture, V8 Engine & Sandbox Limits",
-  "subtitle": "Embedded V8 Execution, Module Resolution & Sandboxed Security",
+  "title": "Kiến trúc Runtime JavaScript Affinity, V8 Engine và giới hạn Sandbox",
+  "subtitle": "Thực thi Google V8 nhúng trực tiếp, cơ chế nạp module và ranh giới bảo mật Sandbox",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Understand how Serif Affinity 3.0 embeds the Google V8 JavaScript engine directly inside its C++ process.",
-      "Import native modules using CommonJS syntax: `require('/application.js')` and `require('/document.js')`.",
-      "Query application metadata: `Application.version`, `Application.productFullName`, `Application.buildVersion`.",
-      "Understand sandbox boundaries: why direct arbitrary disk I/O throws PERMISSION_DENIED and how `Application.userDesktopPath` governs write access."
+      "Hiểu cách Affinity 3.0 nhúng trực tiếp bộ máy thực thi Google V8 JavaScript bên trong tiến trình C++ gốc.",
+      "Nạp các module nội bộ chuẩn xác bằng cú pháp CommonJS có dấu gạch chéo đầu: `require('/application.js')` và `require('/document.js')`.",
+      "Truy vấn thông tin ứng dụng qua các thuộc tính: `Application.version`, `Application.productFullName`, `Application.buildVersion`.",
+      "Nắm rõ ranh giới bảo mật Sandbox: lý do ghi tệp tùy ý ra ổ đĩa ngoài gây lỗi `PERMISSION_DENIED` và vai trò của `Application.userDesktopPath`."
     ],
-    "foundationalKnowledge": "Starting in Affinity 3.0, Serif introduced a modern programmatic automation architecture powered by an embedded Google V8 ECMAScript engine. Rather than relying on legacy OS-level AppleScript or COM interfaces, Affinity executes JavaScript directly within its high-performance C++ document memory model. Scripts execute synchronously on the main application thread or asynchronously via promises. For security, the runtime runs inside a strict MSIX application sandbox: scripts cannot execute arbitrary shell binaries or write to arbitrary system folders without explicit user permission. All core automation interfaces are exposed via native virtual root modules such as `/application.js`, `/document.js`, `/shapes.js`, and `/layereffects.js`.",
+    "foundationalKnowledge": "Từ phiên bản Affinity 3.0, Serif đưa vào kiến trúc tự động hóa lập trình hiện đại dựa trên bộ máy Google V8 ECMAScript nhúng trực tiếp trong nhân phần mềm. Thay vì phụ thuộc vào các cầu nối cấp hệ điều hành kiểu cũ như AppleScript hay COM, Affinity chạy mã JavaScript ngay trên mô hình bộ nhớ C++ tốc độ cao của tài liệu. Mã lệnh có thể thực thi đồng bộ trên luồng chính hoặc bất đồng bộ qua Promise. Để đảm bảo an toàn cho máy người dùng, môi trường chạy nằm gọn trong hộp cát (Sandbox) chuẩn ứng dụng MSIX: script không được tự ý chạy lệnh hệ thống bên ngoài hoặc ghi đè vào các thư mục hệ điều hành nếu chưa được cấp quyền. Toàn bộ giao diện lập trình lõi được cung cấp thông qua các module ảo ở thư mục gốc như `/application.js`, `/document.js`, `/shapes.js` và `/layereffects.js`.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity 3.3.3 Embedded Google V8 Runtime & Application Module API Reference",
+      "source": "Tài liệu API Google V8 Runtime nhúng & Module Application trên Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Application Module (`/application.js`)",
-      "persona": "JavaScript DOM API (MCP execute_script)",
+      "toolName": "Module Application (`/application.js`)",
+      "persona": "JavaScript DOM API (công cụ MCP execute_script hoặc bảng lệnh Scripting)",
       "shortcut": {
-        "win": "execute_script MCP Tool or Window > Scripting Console",
-        "mac": "execute_script MCP Tool or Window > Scripting Console"
+        "win": "Công cụ MCP execute_script hoặc cửa sổ Scripting trong ứng dụng",
+        "mac": "Công cụ MCP execute_script hoặc cửa sổ Scripting trong ứng dụng"
       },
-      "description": "The root application singleton providing access to the Affinity version, open documents collection, desktop path, and user dialogs (alert, confirm, prompt).",
+      "description": "Đối tượng singleton gốc đại diện cho toàn bộ phần mềm Affinity, cung cấp quyền truy cập thông tin phiên bản, danh sách tài liệu đang mở, đường dẫn Desktop hợp lệ và các hộp thoại tương tác (`alert`, `confirm`, `prompt`).",
       "contextBarOptions": [
-        "Application.version: Returns the full build string (e.g. 'Affinity 3.3.3.5004 Win32 (Oct 30 2026)')",
-        "Application.productFullName: Returns 'Affinity'",
-        "Application.buildVersion: Returns integer major version (e.g. 3)",
-        "Application.documents.current: Returns active Document instance or null if no document is open",
-        "Application.userDesktopPath: Sandboxed writable desktop directory"
+        "Application.version: Trả về chuỗi phiên bản build đầy đủ (ví dụ 'Affinity 3.3.3.5004 Win32 (Oct 30 2026)')",
+        "Application.productFullName: Trả về tên đầy đủ của sản phẩm ('Affinity')",
+        "Application.buildVersion: Trả về số nguyên phiên bản chính (ví dụ 3)",
+        "Application.documents.current: Trả về đối tượng Document đang kích hoạt hoặc null nếu chưa mở tệp nào",
+        "Application.userDesktopPath: Đường dẫn thư mục Desktop nằm trong vùng Sandbox được phép ghi tệp"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Import the Native Application Module",
-        "instruction": "Open the Affinity Academy MCP Playground or scripting runner. At the top of your script, import the Application class using the mandatory slash-prefixed path: `const { Application } = require('/application.js');`.",
+        "title": "Nạp module gốc Application",
+        "instruction": "Mở trình chạy kịch bản hoặc môi trường kiểm thử MCP của Affinity Academy. Ở dòng đầu tiên, nạp lớp `Application` với dấu gạch chéo ở đầu đường dẫn: `const { Application } = require('/application.js');`.",
         "shortcutTip": { "win": "require('/application.js')", "mac": "require('/application.js')" }
       },
       {
         "stepNumber": 2,
-        "title": "Log Runtime Information to the Console",
-        "instruction": "Output the application version and product details using `console.log()`: `console.log('Product:', Application.productFullName); console.log('Version:', Application.version);`.",
+        "title": "Ghi thông tin phiên bản ra bảng điều khiển Console",
+        "instruction": "Xuất tên sản phẩm và mã build bằng lệnh `console.log()`: `console.log('Sản phẩm:', Application.productFullName); console.log('Phiên bản:', Application.version);`.",
         "shortcutTip": { "win": "console.log()", "mac": "console.log()" }
       },
       {
         "stepNumber": 3,
-        "title": "Inspect the Sandboxed Desktop Path",
-        "instruction": "Query the user's desktop boundary path: `console.log('Desktop Boundary:', Application.userDesktopPath);`. Notice this path points to the authorized user workspace.",
+        "title": "Kiểm tra đường dẫn Desktop hợp lệ trong Sandbox",
+        "instruction": "Truy vấn ranh giới thư mục Desktop của người dùng bằng lệnh: `console.log('Đường dẫn Desktop:', Application.userDesktopPath);`. Đây là vùng thư mục an toàn được cấp phép ghi dữ liệu.",
         "shortcutTip": { "win": "Application.userDesktopPath", "mac": "Application.userDesktopPath" }
       },
       {
         "stepNumber": 4,
-        "title": "Execute Script and Capture Output",
-        "instruction": "Click 'Run Script' (or execute via the `execute_script` tool). Observe the execution time (~85-100ms) and the exact string returned in the execution console.",
-        "shortcutTip": { "win": "Run (Ctrl+Enter)", "mac": "Run (Cmd+Enter)" }
+        "title": "Thực thi kịch bản và quan sát kết quả phản hồi",
+        "instruction": "Bấm nút chạy kịch bản (hoặc gọi công cụ `execute_script`). Quan sát thời gian thực thi (khoảng 85–100 ms) cùng chuỗi thông tin trả về ngay lập tức trên Console.",
+        "shortcutTip": { "win": "Chạy (Ctrl+Enter)", "mac": "Chạy (Cmd+Enter)" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Affinity Automation Architecture",
-        "description": "How JavaScript scripts interface with Affinity's C++ core.",
+        "title": "Sơ đồ kiến trúc tự động hóa Affinity",
+        "description": "Cách mã lệnh JavaScript giao tiếp trực tiếp với nhân C++ của phần mềm.",
         "visualType": "diagram",
-        "visualContent": "[Agent / Student / Web LMS UI]\n        ↓ SSE / JSON-RPC (Port 6767)\n[Affinity MCP Server]\n        ↓ C++ Internal Dispatcher\n[Embedded Google V8 Engine]\n   ├── /application.js  (App metadata, dialogs, documents collection)\n   ├── /document.js     (Active doc, session UUID, spreads, nodes)\n   ├── /shapes.js       (ShapeRectangle, ShapeEllipse, bezier curves)\n   └── /layereffects.js (Gaussian blur, shadows, FX parameters)\n        ↓ Direct Pointer Manipulation\n[Affinity 3.0 Core Engine & GPU Scene Graph]"
+        "visualContent": "[Agent / Học viên / Giao diện Web LMS]\n        ↓ SSE / JSON-RPC (Cổng 6767)\n[Cầu nối máy chủ Affinity MCP]\n        ↓ Bộ điều phối C++ nội bộ\n[Bộ máy Google V8 nhúng trực tiếp]\n   ├── /application.js  (Thông tin app, hộp thoại, danh sách tài liệu)\n   ├── /document.js     (Tài liệu đang mở, session UUID, trang đôi, các node)\n   ├── /shapes.js       (ShapeRectangle, ShapeEllipse, đường cong Bézier)\n   └── /layereffects.js (Làm mờ Gaussian, đổ bóng, tham số FX)\n        ↓ Thao tác bộ nhớ trực tiếp\n[Nhân Affinity 3.0 & Scene Graph GPU]"
       },
       {
-        "title": "Sandbox Security Constraints",
-        "description": "What scripts can and cannot access.",
+        "title": "Bảng giới hạn bảo mật Sandbox",
+        "description": "Những thao tác được phép và bị chặn trong môi trường script của Affinity.",
         "visualType": "table",
-        "visualContent": "| Capability | Allowed / Restricted | Behavioral Notes |\n|---|---|---|\n| Query App & Doc DOM | ALLOWED | Instant synchronous access to document scene graph |\n| Create Shapes & FX | ALLOWED | Parametric vector generation via Shape classes |\n| Render Spreads | ALLOWED | Generates JPEG/PNG snapshots via MCP render engine |\n| Arbitrary Disk Write | RESTRICTED | Sandboxed; writing outside user folders throws PERMISSION_DENIED |\n| Launch OS Binaries | FORBIDDEN | Cannot spawn external CLI processes (prevents exploits) |"
+        "visualContent": "| Khả năng / Tác vụ | Trạng thái | Ghi chú hành vi |\n|---|---|---|\n| Đọc DOM ứng dụng & tài liệu | ĐƯỢC PHÉP | Truy xuất đồng bộ tức thì vào cây đối tượng tài liệu |\n| Tạo hình khối Vector & FX | ĐƯỢC PHÉP | Dựng hình tham số qua các lớp Shape |\n| Kết xuất ảnh trang đôi (Render) | ĐƯỢC PHÉP | Xuất ảnh chụp JPEG/PNG qua bộ kết xuất MCP |\n| Ghi tệp tùy ý ra ổ đĩa ngoài | BỊ HẠN CHẾ | Bị khóa trong Sandbox; ghi ngoài thư mục người dùng sẽ báo PERMISSION_DENIED |\n| Chạy tiến trình hệ điều hành | BỊ CẤM | Không thể gọi file thực thi CLI bên ngoài để ngăn mã độc |"
       }
     ],
     "guidedPractice": {
-      "title": "Hello World Script Execution",
-      "taskDescription": "Author and execute a verified diagnostic script that outputs the Affinity engine metadata and logs execution timestamps.",
+      "title": "Thực thi kịch bản Hello World đầu tiên",
+      "taskDescription": "Viết và chạy một script kiểm tra thông số hoạt động của engine Affinity kèm dấu thời gian thực thi.",
       "checkpoints": [
-        "Import Application from '/application.js'.",
-        "Extract Application.version and Application.productFullName.",
-        "Query Application.userDesktopPath.",
-        "Execute via execute_script and verify HTTP 200 / zero syntax exceptions."
+        "Nạp đối tượng `Application` từ `'/application.js'`.",
+        "Trích xuất `Application.version` và `Application.productFullName`.",
+        "Truy vấn đường dẫn `Application.userDesktopPath`.",
+        "Thực thi qua `execute_script` và xác nhận mã phản hồi thành công không có lỗi cú pháp."
       ],
-      "expectedOutcome": "Formatted diagnostic banner displaying exact live Affinity version without errors."
+      "expectedOutcome": "Khối thông tin chẩn đoán hiển thị rõ ràng tên sản phẩm và đúng phiên bản Affinity đang chạy mà không phát sinh ngoại lệ."
     },
     "independentChallenge": {
-      "title": "Diagnostic Telemetry Reporter",
-      "prompt": "Write an automation script in 'curriculum/assets/scripting/S01_hello_affinity.js' that: (1) Verifies Application.buildVersion equals 3; (2) Checks if Application.documents.current is open; (3) Logs a structured JSON report object containing buildKind, compileDate, and platformName; (4) Throws a clean descriptive Error if no document is open.",
+      "title": "Kịch bản báo cáo thông số chẩn đoán (Telemetry Reporter)",
+      "prompt": "Viết một kịch bản tự động hóa dựa trên 'curriculum/assets/scripting/S01_hello_affinity.js' thực hiện các yêu cầu sau: (1) Kiểm tra `Application.buildVersion` có bằng `3` hay không; (2) Kiểm tra xem `Application.documents.current` có đang mở tài liệu nào không; (3) Xuất ra một chuỗi JSON có cấu trúc gồm `buildKind`, `compileDate` và `platformName`; (4) Chủ động ném ra một `Error` mô tả rõ ràng nếu chưa có tài liệu nào đang mở.",
       "starterAsset": {
         "filename": "S01_hello_affinity.js",
         "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
@@ -97,36 +97,36 @@
         "filetype": ".js",
         "assetStatus": "JAVASCRIPT_SCRIPT",
         "isVerified": true,
-        "statusNote": "Verified runnable practice script (JAVASCRIPT_SCRIPT)."
+        "statusNote": "Kịch bản thực hành Hello World đã kiểm chứng cú pháp và chạy thử trên Affinity 3.3.3 (JAVASCRIPT_SCRIPT)."
       },
       "challengeCriteria": [
-        "Uses strict CommonJS require with leading slash.",
-        "Outputs valid parseable JSON string to console.",
-        "Executes in under 150ms via MCP."
+        "Sử dụng đúng cú pháp CommonJS `require` có dấu gạch chéo `/` ở đầu.",
+        "Xuất ra chuỗi JSON hợp lệ có thể phân tích ngược bằng `JSON.parse()`.",
+        "Thời gian thực thi qua MCP đạt dưới 150 ms."
       ],
-      "bonusGoal": "Log the total count of open documents using Application.documents.all."
+      "bonusGoal": "Đếm và ghi thêm tổng số tài liệu hiện đang mở thông qua `Application.documents.all`."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Omitting the leading slash in require statements",
-        "cause": "Writing `const { Application } = require('application.js')` instead of `require('/application.js')`.",
-        "solution": "Affinity's virtual module resolver requires a leading forward slash (e.g. `require('/application.js')`). Omitting it throws 'Module not found'."
+        "pitfall": "Quên dấu gạch chéo ở đầu đường dẫn trong lệnh require",
+        "cause": "Viết `const { Application } = require('application.js')` thay vì `require('/application.js')`.",
+        "solution": "Bộ phân giải module ảo của Affinity bắt buộc phải có dấu gạch chéo `/` phía trước (ví dụ `require('/application.js')`). Thiếu dấu này sẽ văng lỗi 'Module not found'."
       },
       {
-        "pitfall": "Attempting to use ES module import syntax inside execute_script",
-        "cause": "Writing `import { Application } from '/application.js'`.",
-        "solution": "The Affinity 3.0 embedded V8 scripting sandbox evaluates standard CommonJS `require()`. Use `const { ... } = require('/module.js')`."
+        "pitfall": "Dùng cú pháp ES Module import bên trong execute_script",
+        "cause": "Viết `import { Application } from '/application.js'` trong mã thực thi trực tiếp trên V8 của Affinity.",
+        "solution": "Hộp cát V8 tích hợp trong Affinity 3.0 đánh giá mã theo chuẩn CommonJS `require()`. Hãy luôn dùng `const { ... } = require('/module.js')`."
       },
       {
-        "pitfall": "Writing files to arbitrary C:\\ folders and getting PERMISSION_DENIED",
-        "cause": "Affinity runs as a sandboxed WindowsApp (MSIX); saving to root folders like `C:\\` or `C:\\Windows` is strictly blocked.",
-        "solution": "Save files only within `Application.userDesktopPath` or user-granted document directories."
+        "pitfall": "Ghi tệp ra thư mục hệ thống C:\\ và gặp lỗi PERMISSION_DENIED",
+        "cause": "Affinity trên Windows chạy dưới dạng gói ứng dụng đóng hộp cát (MSIX), nên việc ghi thẳng vào `C:\\` hay `C:\\Windows` bị hệ điều hành chặn đứng.",
+        "solution": "Chỉ lưu tệp xuất ra bên trong `Application.userDesktopPath` hoặc thư mục tài liệu được người dùng cấp quyền."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "S01-01-Q1",
-        "question": "What is the correct syntax for importing the Application class in an Affinity JavaScript DOM script?",
+        "question": "Cú pháp nào là chính xác để nạp lớp Application trong kịch bản JavaScript DOM của Affinity?",
         "options": [
           "import Application from 'affinity';",
           "const { Application } = require('/application.js');",
@@ -134,48 +134,48 @@
           "require('node:affinity');"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity's embedded V8 runtime uses CommonJS syntax with root-level virtual module paths starting with a forward slash: require('/application.js')."
+        "explanation": "Runtime V8 nhúng trong Affinity dùng cú pháp CommonJS với đường dẫn module ảo bắt đầu bằng dấu gạch chéo gốc: `require('/application.js')`."
       },
       {
         "id": "S01-01-Q2",
-        "question": "Why does attempting to write a file to 'C:\\Windows\\temp' throw a PERMISSION_DENIED error in an Affinity script?",
+        "question": "Tại sao khi thử ghi tệp vào `'C:\\Windows\\temp'` từ một kịch bản Affinity lại phát sinh lỗi `PERMISSION_DENIED`?",
         "options": [
-          "Because JavaScript does not have file write capabilities.",
-          "Because Affinity runs inside a hardened application sandbox that restricts filesystem access to authorized user folders such as Application.userDesktopPath.",
-          "Because your Affinity license has expired.",
-          "Because the hard drive is full."
+          "Vì ngôn ngữ JavaScript không có tính năng ghi tệp.",
+          "Vì Affinity chạy bên trong vùng bảo mật Sandbox chặt chẽ, chỉ cho phép ghi vào các thư mục người dùng hợp lệ như `Application.userDesktopPath`.",
+          "Vì bản quyền phần mềm Affinity đã hết hạn.",
+          "Vì ổ cứng trên máy đã đầy dung lượng."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity 3.0 implements strict sandbox boundaries to prevent untrusted scripts from modifying system files or executing unauthorized code on the host machine."
+        "explanation": "Affinity 3.0 áp dụng ranh giới Sandbox để ngăn kịch bản tự động sửa đổi tệp hệ thống hoặc chạy mã nguy hiểm lên máy chủ."
       },
       {
         "id": "S01-01-Q3",
-        "question": "What does `Application.documents.current` return when no document is open in Affinity?",
+        "question": "Thuộc tính `Application.documents.current` sẽ trả về giá trị gì khi chưa có tài liệu nào đang mở trong Affinity?",
         "options": [
-          "A blank default document.",
+          "Một tài liệu trắng mặc định.",
           "null",
-          "An empty string.",
-          "An unhandled kernel panic."
+          "Một chuỗi văn bản rỗng.",
+          "Làm treo ngay lập tức toàn bộ hệ điều hành."
         ],
         "correctIndex": 1,
-        "explanation": "When zero documents are loaded in the application workspace, Application.documents.current evaluates to null. Scripts should always verify `if (doc) { ... }` before accessing properties."
+        "explanation": "Khi chưa có tệp nào được mở, `Application.documents.current` trả về `null`. Script luôn phải kiểm tra `if (doc) { ... }` trước khi đọc thuộc tính."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Affinity 3.0 embeds Google V8 for native, high-performance DOM automation.",
-        "Native modules are loaded via CommonJS syntax with leading slashes (`/application.js`, `/document.js`).",
-        "Application sandbox security prevents destructive host OS modifications while exposing full graphic control.",
-        "The DOM API executes with sub-100ms latency directly inside the running process."
+        "Affinity 3.0 nhúng trực tiếp bộ máy Google V8 để tự động hóa DOM hiệu năng cao.",
+        "Các module nội bộ được nạp theo chuẩn CommonJS kèm dấu gạch chéo đầu (`/application.js`, `/document.js`).",
+        "Cơ chế Sandbox ngăn mọi tác động phá hoại hệ điều hành trong khi vẫn mở quyền điều khiển đồ họa đầy đủ.",
+        "Các lệnh DOM API chạy trực tiếp trong tiến trình ứng dụng với độ trễ dưới 100 ms."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: S01-02 Connecting to Local Affinity MCP Server",
+          "title": "Bài tiếp theo: S01-02 Kết nối máy chủ Affinity MCP cục bộ và cầu nối SSE",
           "target": "S01-02",
           "type": "next-lesson"
         },
         {
-          "title": "AFFINITY DOM API REFERENCE Guide",
+          "title": "Tài liệu tham chiếu Affinity DOM API",
           "target": "AFFINITY_DOM_API_REFERENCE.md",
           "type": "mcp-api"
         }
@@ -187,72 +187,72 @@
       "id": "S01-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Affinity JS Runtime & Architecture",
-      "subtitle": "Programmatic Design Automation with Embedded Google V8",
-      "contentMarkdown": "Welcome to **Affinity Scripting & MCP Automation**.\n\nDesign is no longer limited to manual mouse dragging. In modern creative workflows, **programmatic automation** handles generative art, automated data merges, batch resizing, and visual quality assurance.\n\nIn this lesson, you will master the **internal Google V8 runtime, native module resolution, and security boundaries** of Affinity 3.0.",
+      "title": "Kiến Trúc Runtime JavaScript Affinity",
+      "subtitle": "Tự động hóa thiết kế bằng mã lệnh với Google V8 nhúng trực tiếp",
+      "contentMarkdown": "Chào mừng bạn đến với hành trình **Lập trình Scripting & Tự động hóa MCP trong Affinity**.\n\nCông việc thiết kế ngày nay không còn bó hẹp ở việc kéo thả chuột thủ công. Trong quy trình sản xuất hiện đại, **tự động hóa bằng mã lệnh** đảm nhiệm việc sinh đồ họa theo dữ liệu, trộn mẫu hàng loạt, đổi kích thước đồng loạt và kiểm tra chất lượng tự động.\n\nTrong bài học này, bạn sẽ nắm vững **bộ máy Google V8 nội bộ, cách phân giải module gốc và các giới hạn bảo mật Sandbox** của Affinity 3.0.",
       "actionBox": {
-        "label": "Architectural Truth",
-        "text": "Affinity executes JavaScript directly inside its C++ memory model—not through slow browser bridges."
+        "label": "Bản Chất Kiến Trúc",
+        "text": "Affinity chạy JavaScript ngay bên trong mô hình bộ nhớ C++ gốc, chứ không thông qua cầu nối trình duyệt chậm chạp."
       }
     },
     {
       "id": "S01-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Embedded V8 Engine",
-      "subtitle": "Sub-Millisecond Synchronous Execution",
-      "contentMarkdown": "How does Affinity 3.0 execute your code?\n\n- **Embedded Google V8:** The same ultra-fast engine powering Node.js and Google Chrome.\n- **Direct C++ Binding:** When you call `doc.addNode()`, V8 directly manipulates the internal C++ scene graph with zero IPC latency.\n- **Sandbox Isolation:** Scripts run inside a secure container. Arbitrary OS command execution is prohibited, preventing security exploits.",
+      "title": "Bộ Máy Google V8 Nhúng Trực Tiếp",
+      "subtitle": "Thực thi đồng bộ với tốc độ dưới một phần nghìn giây",
+      "contentMarkdown": "Affinity 3.0 chạy mã JavaScript của bạn bằng cách nào?\n\n- **Google V8 nhúng:** Chính là bộ máy thực thi siêu nhanh đứng sau Node.js và trình duyệt Google Chrome.\n- **Liên kết C++ trực tiếp:** Khi bạn gọi `doc.addNode()`, V8 thao tác thẳng vào cây đồ họa C++ nội bộ mà không tốn chi phí giao tiếp liên tiến trình (IPC).\n- **Cách ly Sandbox:** Kịch bản chạy trong hộp cát an toàn, nghiêm cấm gọi lệnh hệ điều hành tùy tiện để phòng ngừa rủi ro bảo mật.",
       "visual": {
         "type": "diagram",
-        "content": "JavaScript Code ---> [Embedded Google V8] ---> [C++ Scene Graph] ---> [Instant Canvas Render]"
+        "content": "Mã JavaScript ---> [Google V8 nhúng] ---> [Cây đối tượng C++] ---> [Hiển thị Canvas tức thì]"
       }
     },
     {
       "id": "S01-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The Root Module Ecosystem",
-      "subtitle": "CommonJS Virtual Paths",
-      "contentMarkdown": "Affinity exposes its DOM through clean virtual modules:\n\n- **`/application.js`:** `Application.version`, `Application.documents`, `alert()`, `confirm()`.\n- **`/document.js`:** `Document.current`, `sessionUuid`, `spreads`, `addNode()`, `saveAs()`.\n- **`/shapes.js`:** `ShapeRectangle`, `ShapeEllipse`, `ShapePolygon`, `ShapeStar`.\n- **`/layereffects.js`:** `GaussianBlurLayerEffect`, `OuterShadowLayerEffect`.\n\n**Syntax Rule:** Always include the leading forward slash in `require('/module.js')`!",
+      "title": "Hệ Sinh Thái Các Module Gốc",
+      "subtitle": "Đường dẫn ảo chuẩn CommonJS",
+      "contentMarkdown": "Affinity cung cấp hệ thống DOM thông qua các module ảo gọn gàng:\n\n- **`/application.js`:** `Application.version`, `Application.documents`, `alert()`, `confirm()`.\n- **`/document.js`:** `Document.current`, `sessionUuid`, `spreads`, `addNode()`, `saveAs()`.\n- **`/shapes.js`:** `ShapeRectangle`, `ShapeEllipse`, `ShapePolygon`, `ShapeStar`.\n- **`/layereffects.js`:** `GaussianBlurLayerEffect`, `OuterShadowLayerEffect`.\n\n**Quy tắc cú pháp:** Luôn đặt dấu gạch chéo `/` ở đầu đường dẫn trong `require('/module.js')`!",
       "actionBox": {
-        "label": "Syntax Alert",
-        "text": "require('/application.js') is VALID. require('application.js') will FAIL."
+        "label": "Lưu Ý Cú Pháp",
+        "text": "require('/application.js') là HỢP LỆ. Viết thiếu dấu gạch chéo require('application.js') sẽ báo LỖI."
       }
     },
     {
       "id": "S01-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Writing Your First Automation Script",
-      "subtitle": "Querying Application Telemetry",
-      "contentMarkdown": "1. **Import Module:**\n```javascript\nconst { Application } = require('/application.js');\n```\n2. **Query Version & Identity:**\n```javascript\nconsole.log('App:', Application.productFullName);\nconsole.log('Build:', Application.version);\n```\n3. **Inspect Active Documents Collection:**\n```javascript\nconst doc = Application.documents.current;\nconsole.log('Active Doc:', doc ? doc.title : 'No doc open');\n```\n4. **Execute:** Run the code. Notice the instant return in ~100ms with full version telemetry!",
+      "title": "Từng Bước Viết Script Tự Động Hóa Đầu Tiên",
+      "subtitle": "Truy vấn thông số phiên bản ứng dụng",
+      "contentMarkdown": "1. **Nạp module:**\n```javascript\nconst { Application } = require('/application.js');\n```\n2. **Đọc phiên bản và tên ứng dụng:**\n```javascript\nconsole.log('Ứng dụng:', Application.productFullName);\nconsole.log('Bản build:', Application.version);\n```\n3. **Kiểm tra tài liệu đang mở:**\n```javascript\nconst doc = Application.documents.current;\nconsole.log('Tài liệu hiện tại:', doc ? doc.title : 'Chưa có tệp mở');\n```\n4. **Chạy kịch bản:** Thực thi mã và quan sát phản hồi tức thì trong khoảng ~100 ms với đầy đủ thông số.",
       "visual": {
         "type": "code",
-        "content": "const { Application } = require('/application.js');\nconsole.log('Affinity Version:', Application.version);"
+        "content": "const { Application } = require('/application.js');\nconsole.log('Phiên bản Affinity:', Application.version);"
       }
     },
     {
       "id": "S01-01-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Runtime Pitfalls & Security Sandbox Limits",
-      "subtitle": "Avoid Syntax and Permission Errors",
-      "contentMarkdown": "### 1. Missing Leading Slash in Require\n- **Error:** `Module not found: application.js`\n- **Fix:** Always write `require('/application.js')` with a leading slash.\n\n### 2. ES Module 'import' Syntax\n- **The Issue:** Writing `import { Application } from ...` throws a syntax error.\n- **Fix:** Affinity V8 uses CommonJS `const { ... } = require(...)`.\n\n### 3. File System PERMISSION_DENIED\n- **The Issue:** Attempting to write to `C:\\test.afphoto` fails.\n- **The Fix:** The MSIX sandbox allows writing only to authorized user paths like `Application.userDesktopPath`.",
+      "title": "Lỗi Runtime & Ranh Giới Hộp Cát Sandbox",
+      "subtitle": "Phòng tránh lỗi cú pháp và từ chối quyền truy cập",
+      "contentMarkdown": "### 1. Thiếu dấu gạch chéo đầu trong require()\n- **Lỗi:** `Module not found: application.js`\n- **Cách sửa:** Luôn viết `require('/application.js')` có dấu `/` ở đầu.\n\n### 2. Dùng nhầm từ khóa import của ES Module\n- **Lỗi:** Viết `import { Application } from ...` trong engine script sẽ văng lỗi cú pháp.\n- **Cách sửa:** Engine V8 trong Affinity dùng chuẩn CommonJS `const { ... } = require(...)`.\n\n### 3. Lỗi ghi tệp PERMISSION_DENIED\n- **Lỗi:** Cố tình ghi tệp ra `C:\\test.afphoto` sẽ bị từ chối.\n- **Cách sửa:** Hộp cát MSIX chỉ cho phép ghi vào các thư mục hợp lệ của người dùng như `Application.userDesktopPath`.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "Always write scripts using CommonJS require() with leading slashes."
+        "label": "Nguyên Tắc Vàng",
+        "text": "Luôn dùng CommonJS require() kèm dấu gạch chéo đầu cho mọi module nội bộ Affinity."
       }
     },
     {
       "id": "S01-01-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: Runtime Fundamentals",
-      "subtitle": "Test Your Scripting Foundation",
-      "contentMarkdown": "Validate your understanding of Affinity's JavaScript environment.",
+      "title": "Kiểm Tra Nhanh: Kiến Thức Runtime",
+      "subtitle": "Xác nhận nền tảng lập trình DOM",
+      "contentMarkdown": "Chọn đáp án chính xác nhất.",
       "quizData": {
         "id": "S01-01-Q1",
-        "question": "What is the correct syntax for importing the Application class in an Affinity JavaScript DOM script?",
+        "question": "Cú pháp nào là chính xác để nạp lớp Application trong kịch bản JavaScript DOM của Affinity?",
         "options": [
           "import Application from 'affinity';",
           "const { Application } = require('/application.js');",
@@ -260,18 +260,18 @@
           "require('node:affinity');"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity's embedded V8 runtime uses CommonJS syntax with root-level virtual module paths starting with a forward slash: require('/application.js')."
+        "explanation": "Runtime V8 nhúng trong Affinity dùng cú pháp CommonJS với đường dẫn module ảo bắt đầu bằng dấu gạch chéo gốc: require('/application.js')."
       }
     },
     {
       "id": "S01-01-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Diagnostic Telemetry Reporter",
-      "subtitle": "Write and Execute S01_hello_affinity.js",
-      "contentMarkdown": "### Your Mission:\nWrite and execute `curriculum/assets/scripting/S01_hello_affinity.js`:\n\n1. Import `Application` from `/application.js`.\n2. Output a clean ASCII diagnostic banner with Product Name, Build Version, and Full Version string.\n3. Query and log `Application.userDesktopPath`.\n4. Check if a document is currently open and output its filename, or log `'No open document'`.\n\n### Acceptance Criteria:\n- Script executes with zero errors in under 150ms.\n- Logs formatted telemetry banner to console.",
+      "title": "Thử Thách Độc Lập: Bộ Báo Cáo Thông Số",
+      "subtitle": "Hoàn thiện và chạy thử S01_hello_affinity.js",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nChỉnh sửa và thực thi tệp `curriculum/assets/scripting/S01_hello_affinity.js`:\n\n1. Nạp `Application` từ `/application.js`.\n2. In ra bảng thông tin chẩn đoán gồm Tên sản phẩm, Phiên bản build và Phiên bản đầy đủ.\n3. Truy vấn và in đường dẫn `Application.userDesktopPath`.\n4. Kiểm tra xem hiện có tài liệu nào đang mở không: nếu có thì in tên tệp, nếu không thì in `'Chưa mở tài liệu'`.\n\n### Tiêu chí nghiệm thu:\n- Kịch bản chạy không lỗi trong thời gian dưới 150 ms.\n- Hiển thị đầy đủ bảng thông số có cấu trúc rõ ràng trên Console.",
       "practiceData": {
-        "prompt": "Author and run S01_hello_affinity.js against live Affinity 3.3.3.",
+        "prompt": "Viết và chạy thử S01_hello_affinity.js kết nối với phiên bản Affinity 3.3.3.",
         "starterAsset": {
           "filename": "S01_hello_affinity.js",
           "filepath": "curriculum/assets/scripting/S01_hello_affinity.js",
@@ -279,12 +279,12 @@
           "filetype": ".js",
           "assetStatus": "JAVASCRIPT_SCRIPT",
           "isVerified": true,
-          "statusNote": "Verified runnable practice script (JAVASCRIPT_SCRIPT)."
+          "statusNote": "Kịch bản thực hành Hello World đã kiểm chứng cú pháp và chạy thử trên Affinity 3.3.3 (JAVASCRIPT_SCRIPT)."
         },
         "checkpoints": [
-          "Application module required with leading slash",
-          "Product and version strings extracted",
-          "Clean exit with execution time < 150ms"
+          "Đã nạp module Application kèm dấu gạch chéo đầu",
+          "Đã trích xuất thành công tên sản phẩm và phiên bản",
+          "Kịch bản kết thúc sạch sẽ với thời gian thực thi dưới 150 ms"
         ]
       }
     }

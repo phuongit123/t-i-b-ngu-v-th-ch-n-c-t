@@ -3,45 +3,45 @@
   "moduleId": "P09",
   "trackId": "photo",
   "order": 1,
-  "title": "RAW Sensor Decoding, Develop Studio & Basic Panel Tone Mapping",
-  "subtitle": "Unleash maximum dynamic range with 32-bit linear RAW demosaicing and non-destructive RAW layers.",
+  "title": "Giải mã cảm biến RAW, quy trình 32-bit Float và Tone Mapping",
+  "subtitle": "Khai phóng dải tương phản động tối đa với giải mã RAW tuyến tính 32-bit và lớp RAW phi phá hủy",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Understand the RAW workflow and the role of Develop Studio in processing supported camera RAW files.",
-      "Choose the appropriate output type: Pixel layer, RAW layer (embedded) or RAW layer (linked).",
+      "Hiểu rõ quy trình xử lý ảnh RAW và vai trò của Develop Studio trong việc giải mã các tệp RAW được máy ảnh hỗ trợ.",
+      "Lựa chọn chính xác chế độ đầu ra (Output): Pixel layer, RAW layer (embedded) hoặc RAW layer (linked).",
       "Làm chủ bảng Basic: Cân bằng trắng nhiệt độ màu/sắc thái (Temp/Tint), cứu chi tiết vùng cháy sáng (Highlights) và vùng tối (Shadows).",
-      "Adjust tonal range and white balance in the Basic panel before developing into Pixel Studio."
+      "Điều chỉnh dải sắc độ và cân bằng trắng trong bảng Basic trước khi bấm Develop rồi chọn Pixel nếu cần."
     ],
-    "foundationalKnowledge": "A RAW file contains sensor data that must be processed before normal viewing and sharing. When a supported RAW file is opened, Affinity launches Develop Studio. The Basic panel contains exposure, tone-curve, enhance and white-balance controls; the Lens panel contains optical corrections; the Detail panel provides noise reduction and sharpening; Tones and Masks panels provide additional adjustments. Output can be a Pixel layer, RAW layer (embedded) or RAW layer (linked). The official RAW guide reviewed does not establish the clipping-warning overlays or exact shortcut claims formerly taught in this lesson.",
+    "foundationalKnowledge": "Một tệp RAW chứa dữ liệu cảm biến thô cần được xử lý trước khi hiển thị và chia sẻ thông thường. Khi bạn mở một tệp RAW được hỗ trợ, Affinity tự động khởi chạy Develop Studio. Bảng Basic chứa các công cụ phơi sáng, đường cong tone curve, enhance và cân bằng trắng; bảng Lens chứa các hiệu chỉnh quang học; bảng Detail cung cấp khử nhiễu và làm nét; các bảng Tones và Masks hỗ trợ tinh chỉnh bổ sung. Đầu ra có thể là Pixel layer, RAW layer (embedded) hoặc RAW layer (linked). Tài liệu hướng dẫn RAW chính thức được rà soát không xác nhận các lớp phủ cảnh báo cắt ngọn hay phím tắt cụ thể từng nêu trước đây.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Photo 3.3.3 Serif Labs RAW Engine & 32-bit Pipeline Specification",
+      "classification": "DOCUMENTED",
+      "source": "24/11/2026 · Affinity 3.3.3.5004 trên Windows mở trực tiếp NEF Nikon D70s. Đã kiểm Histogram trong Develop, xuất RAW Layer (Embedded) và chuyển sang Pixel bằng tab Studio. Tùy chọn 16/32-bit đối chiếu Affinity Help.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Develop Studio & Basic panel",
+      "toolName": "Develop Studio & Bảng Basic",
       "persona": "Develop Studio",
       "shortcut": {
-        "win": "Opening a supported RAW file launches Develop Studio automatically",
-        "mac": "Opening a supported RAW file launches Develop Studio automatically"
+        "win": "Mở tệp RAW được hỗ trợ sẽ tự động khởi chạy Develop Studio",
+        "mac": "Mở tệp RAW được hỗ trợ sẽ tự động khởi chạy Develop Studio"
       },
-      "description": "Develop Studio provides RAW processing. The Basic panel covers exposure and white balance; the Lens panel covers distortion, rotation, chromatic aberration, defringing and vignetting; the Detail panel covers noise reduction and sharpening; Tones and Masks panels provide further adjustments. Output can be Pixel layer, RAW layer (embedded) or RAW layer (linked). Clipping-warning overlays are not asserted here because they were not established by the official article reviewed.",
+      "description": "Develop Studio cung cấp môi trường xử lý ảnh RAW chuyên biệt. Bảng Basic phụ trách phơi sáng và cân bằng trắng; bảng Lens phụ trách sửa méo hình, xoay góc, quang sai màu, defringing và tối bốn góc; bảng Detail phụ trách khử nhiễu và làm nét; các bảng Tones và Masks cung cấp điều chỉnh mở rộng. Đầu ra có thể xuất dưới dạng Pixel layer, RAW layer (embedded) hoặc RAW layer (linked). Các lớp phủ cảnh báo cắt ngọn không được khẳng định tại đây vì chưa được xác minh trong tài liệu chính thức đã rà soát.",
       "contextBarOptions": [
-        "Basic panel: exposure, highlights, shadows, temperature, tint and tone curve",
-        "Lens panel: distortion, rotation, chromatic aberration, defringing and vignetting",
-        "Detail panel: noise reduction and sharpening",
-        "Tones panel: tonal curves, black-and-white conversion and split toning",
-        "Masks panel: selective brush or gradient masks",
-        "Output dropdown: Pixel layer, RAW layer (embedded) or RAW layer (linked)"
+        "Bảng Basic: phơi sáng (exposure), highlights, shadows, temperature, tint và tone curve",
+        "Bảng Lens: biến dạng (distortion), xoay, quang sai màu, defringing và tối góc (vignetting)",
+        "Bảng Detail: khử nhiễu (noise reduction) và làm nét (sharpening)",
+        "Bảng Tones: đường cong sắc độ, chuyển đổi đen trắng và split toning",
+        "Bảng Masks: mặt nạ chọn lọc bằng cọ hoặc dải chuyển gradient",
+        "Danh sách Output: Pixel layer, RAW layer (embedded) hoặc RAW layer (linked)"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Open the RAW file in Develop Studio",
-        "instruction": "Open a supported RAW file. Affinity automatically opens it in Develop Studio. Inspect the Basic panel and decide on the desired output mode.",
+        "title": "Mở tệp RAW trong Develop Studio",
+        "instruction": "Tải ảnh cảng tàu .nef trong bài và mở từ File > Open. Tệp tự mở trong Develop Studio. Quan sát Histogram và thẻ Basic trước khi thay đổi thông số.",
         "shortcutTip": {
           "win": "File > Open",
           "mac": "File > Open"
@@ -49,35 +49,35 @@
       },
       {
         "stepNumber": 2,
-        "title": "Choose a non-destructive RAW output",
-        "instruction": "In the Output dropdown, choose RAW layer (Embedded) to store the source in the document, or RAW layer (Linked) to keep the source at its original location. Choose Pixel layer for a flattened developed result.",
+        "title": "Chọn chế độ đầu ra RAW phi phá hủy",
+        "instruction": "Trong danh sách Output, chọn RAW layer (Embedded) để lưu trữ tệp RAW nguồn ngay trong tài liệu, hoặc chọn RAW layer (Linked) để giữ tệp nguồn tại vị trí gốc trên ổ đĩa. Chọn Pixel layer nếu bạn muốn một lớp ảnh đã giải mã phẳng.",
         "shortcutTip": {
-          "win": "Output dropdown",
-          "mac": "Output dropdown"
+          "win": "Danh sách thả xuống Output",
+          "mac": "Danh sách thả xuống Output"
         }
       },
       {
         "stepNumber": 3,
-        "title": "Correct white balance",
-        "instruction": "Use the Basic panel's White Balance controls. Adjust Temperature and Tint, or use the picker on a neutral grey or white area.",
+        "title": "Hiệu chỉnh cân bằng trắng (White Balance)",
+        "instruction": "Sử dụng mục White Balance trong bảng Basic. Điều chỉnh Temperature và Tint, hoặc dùng công cụ chấm mẫu (picker) chấm lên một vùng xám hoặc trắng trung tính.",
         "shortcutTip": {
-          "win": "Basic panel > White Balance",
-          "mac": "Basic panel > White Balance"
+          "win": "Bảng Basic > White Balance",
+          "mac": "Bảng Basic > White Balance"
         }
       },
       {
         "stepNumber": 4,
-        "title": "Adjust exposure and tonal range",
-        "instruction": "Use Exposure, Highlights and Shadows in the Basic panel to balance the image. Judge the result from the image and preserve visible detail; do not rely on an unverified clipping-warning overlay.",
+        "title": "Điều chỉnh phơi sáng và dải sắc độ",
+        "instruction": "Dùng Exposure, Highlights và Shadows trong bảng Basic để cân bằng sáng tối. Đánh giá trực tiếp trên hình ảnh để bảo toàn chi tiết thấy được; không phụ thuộc vào lớp phủ cảnh báo cắt ngọn chưa được kiểm chứng.",
         "shortcutTip": {
-          "win": "Basic panel",
-          "mac": "Basic panel"
+          "win": "Bảng Basic",
+          "mac": "Bảng Basic"
         }
       },
       {
         "stepNumber": 5,
-        "title": "Develop to Pixel Studio",
-        "instruction": "Click Develop on the context toolbar. The image opens in Pixel Studio. An embedded or linked RAW layer can be reopened for further RAW adjustments.",
+        "title": "Phát triển sang Pixel Studio",
+        "instruction": "Bấm Develop để tạo tài liệu đã xử lý. Chọn tab Pixel nếu Affinity đang ở Studio khác. Chọn lớp RAW vừa nhúng và bấm Develop trên thanh tùy chọn để thử mở lại thông số.",
         "shortcutTip": {
           "win": "Develop",
           "mac": "Develop"
@@ -93,20 +93,29 @@
       }
     ],
     "guidedPractice": {
-      "title": "RAW Highlight and Shadow Recovery",
-      "taskDescription": "Recover visible detail in a backlit sunset RAW photo using the Basic panel, then retain a non-destructive RAW output.",
+      "title": "Phục hồi vùng sáng và vùng tối trên ảnh RAW",
+      "taskDescription": "Dùng ảnh RAW cảng tàu để so vùng trời sáng với thân tàu tối, rồi chỉnh cân bằng trắng và độ phơi sáng. Dùng đầu ra nhúng và thử mở lại lớp RAW.",
       "checkpoints": [
-        "Open a supported RAW image and confirm it launches in Develop Studio.",
-        "Adjust Highlights in the Basic panel to recover visible sky detail.",
-        "Adjust Shadows to reveal foreground detail while preserving natural contrast.",
-        "Set Output to RAW layer (Embedded) or RAW layer (Linked).",
-        "Click Develop and confirm the developed image opens in Pixel Studio."
+        "Mở một ảnh RAW được hỗ trợ và xác nhận tệp khởi chạy trong Develop Studio.",
+        "Điều chỉnh Highlights trong bảng Basic để kéo lại chi tiết bầu trời.",
+        "Điều chỉnh Shadows để mở rõ chi tiết tiền cảnh mà vẫn giữ tương phản tự nhiên.",
+        "Đặt Output thành RAW layer (Embedded) hoặc RAW layer (Linked).",
+        "Bấm Develop. Chọn Pixel nếu cần, rồi kiểm nút Develop xuất hiện khi chọn lớp RAW."
       ],
-      "expectedOutcome": "A developed image with improved highlight and shadow detail, using the selected RAW output mode."
+      "expectedOutcome": "Bức ảnh sau phát triển có chi tiết vùng sáng và vùng tối cân đối hơn theo đúng chế độ đầu ra RAW đã chọn.",
+      "starterAsset": {
+        "filename": "P01_RAW_cang_tau.nef",
+        "filepath": "curriculum/assets/photo/P01_RAW_cang_tau.nef",
+        "filesize": "4,95 MiB",
+        "filetype": ".nef",
+        "assetStatus": "CAMERA_RAW",
+        "isVerified": true,
+        "statusNote": "Ảnh cảng tàu từ Nikon D70s, raw.pixls.us mẫu 1117, CC0 1.0. Đã mở bằng Affinity 3.3.3.5004 trên Windows."
+      }
     },
     "independentChallenge": {
       "title": "Hiệu chỉnh sắc độ 32-bit cho ảnh phong cảnh núi tuyết",
-      "prompt": "Develop a snowy mountain RAW image: correct white balance using a neutral area, adjust the tone curve and highlights to retain snow detail, choose a non-destructive RAW output, and develop into Pixel Studio.",
+      "prompt": "Dùng một ảnh RAW khác ảnh cảng mẫu, có vùng trắng sáng và vùng tối còn chi tiết. Cân bằng trắng dựa trên một vùng trung tính, chỉnh Tone Curve và Highlights. Lưu đầu ra RAW nhúng và giải thích cách kiểm chi tiết vùng sáng.",
       "starterAsset": {
         "filename": "P09_raw_develop_workflow_guide.md",
         "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
@@ -114,19 +123,19 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn RAW development và xử lý ảnh số trong Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW và quy trình phòng tối trong Pixel Studio."
       },
       "challengeCriteria": [
-        "Snow appears neutral without an unwanted blue or yellow cast.",
-        "Important highlight detail remains visible.",
-        "Tone Curve adjustments improve tonal separation without posterization."
+        "Mảng tuyết giữ được sắc trắng trung tính, không bị ám xanh hoặc ám vàng ngoài ý muốn.",
+        "Các chi tiết quan trọng ở vùng sáng gắt vẫn hiển thị rõ ràng.",
+        "Điều chỉnh Tone Curve giúp tách bạch sắc độ tốt mà không gây gãy dải màu (posterization)."
       ],
-      "bonusGoal": "Nhấp đúp vào RAW Layer trong Photo Persona sau khi Develop để kiểm tra tính năng mở lại."
+      "bonusGoal": "Chọn lớp RAW trong Pixel Studio rồi bấm Develop trên thanh tùy chọn để quay lại các thiết lập RAW."
     },
     "commonPitfalls": [
       {
         "pitfall": "Sau khi bấm Develop, không thể quay lại chỉnh sửa thông số RAW",
-        "cause": "Tùy chọn Output trước khi Develop được để mặc định là 'Pixel Layer'.",
+        "cause": "Tùy chọn Output trước khi Develop bị để mặc định là 'Pixel Layer'.",
         "solution": "Trước khi bấm Develop, luôn chọn Output là 'RAW Layer (Embedded)' hoặc 'RAW Layer (Linked)'."
       },
       {
@@ -138,7 +147,7 @@
     "knowledgeCheck": [
       {
         "id": "P09-01-Q1",
-        "question": "Which output mode preserves the RAW source inside the current document?",
+        "question": "Chế độ đầu ra (Output) nào lưu giữ tệp RAW nguồn ngay bên trong tài liệu hiện tại?",
         "options": [
           "RAW Layer (Embedded)",
           "Pixel Layer",
@@ -146,49 +155,54 @@
           "Vector Curves"
         ],
         "correctIndex": 0,
-        "explanation": "RAW Layer (Embedded) stores the RAW source in the document and preserves a non-destructive RAW editing path."
+        "explanation": "RAW Layer (Embedded) lưu trữ nguồn RAW bên trong tài liệu và giữ nguyên đường dẫn chỉnh sửa RAW phi phá hủy."
       },
       {
         "id": "P09-01-Q2",
-        "question": "Which panel is documented for adjusting distortion and chromatic aberration?",
+        "question": "Bảng nào được ghi nhận dành cho việc hiệu chỉnh biến dạng ống kính và quang sai màu?",
         "options": [
-          "Basic panel",
-          "Lens panel",
-          "Masks panel",
-          "Glyph Browser panel"
+          "Bảng Basic",
+          "Bảng Lens",
+          "Bảng Masks",
+          "Bảng Glyph Browser"
         ],
         "correctIndex": 1,
-        "explanation": "The Lens panel contains controls for distortion, rotation, chromatic aberration, defringing and vignetting."
+        "explanation": "Bảng Lens chứa các thanh điều khiển biến dạng, góc xoay, quang sai màu, defringing và tối bốn góc."
       },
       {
         "id": "P09-01-Q3",
-        "question": "What is a key advantage of RAW data compared with a JPEG image?",
+        "question": "Lợi thế quan trọng của dữ liệu RAW so với một tệp ảnh JPEG là gì?",
         "options": [
-          "More flexibility for adjusting white balance and tonal detail during RAW development",
-          "Smaller file size in every case",
-          "It requires no processing",
-          "It automatically removes unwanted objects"
+          "Biên độ linh hoạt cao hơn nhiều khi chỉnh cân bằng trắng và chi tiết sắc độ trong quá trình phát triển RAW",
+          "Dung lượng tệp luôn nhỏ hơn trong mọi trường hợp",
+          "Không cần bất kỳ bước xử lý nào",
+          "Tự động xóa bỏ các vật thể thừa"
         ],
         "correctIndex": 0,
-        "explanation": "RAW data retains sensor information that can be processed and adjusted before exporting or developing to a pixel-based result."
+        "explanation": "Dữ liệu RAW lưu giữ thông tin cảm biến thô để xử lý và điều chỉnh linh hoạt trước khi xuất hoặc chuyển thành kết quả điểm ảnh."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Develop Studio opens supported RAW files for processing.",
-        "RAW Layer (Embedded) and RAW Layer (Linked) retain a non-destructive RAW editing path.",
-        "Basic-panel exposure and white-balance controls support tonal and color correction.",
-        "Develop sends the processed image into Pixel Studio."
+        "Develop Studio mở các tệp RAW được hỗ trợ để giải mã và tinh chỉnh trước khi vào bước ghép lớp.",
+        "RAW Layer (Embedded) và RAW Layer (Linked) giữ nguyên đường dẫn quay lại chỉnh sửa RAW phi phá hủy.",
+        "Các thanh điều khiển phơi sáng và cân bằng trắng trong bảng Basic giúp chuẩn hóa ánh sáng và màu sắc.",
+        "Nút Develop chuyển hình ảnh đã xử lý sang Pixel Studio để tiếp tục hoàn thiện."
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P09-02 Optical Lens Corrections, Chromatic Aberration & Defringing",
+          "title": "Bài tiếp theo: P09-02 Hiệu chỉnh ống kính, quang sai màu và Defringe",
           "target": "P09-02",
           "type": "next-lesson"
         },
         {
           "title": "Tài liệu thực hành: P09_raw_develop_workflow_guide.md",
           "target": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
+          "type": "guide"
+        },
+        {
+          "title": "Nguồn và giấy phép ảnh RAW cảng tàu",
+          "target": "curriculum/assets/photo/P01_RAW_cang_tau_nguon.md",
           "type": "guide"
         }
       ]
@@ -201,7 +215,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for RAW development, lens corrections and batch processing in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW, hiệu chỉnh ống kính và xử lý hàng loạt trong Pixel Studio."
   },
   "slides": [
     {
@@ -210,9 +224,9 @@
       "title": "Bản chất file ảnh RAW trong nhiếp ảnh số",
       "subtitle": "Dữ liệu điện áp thô chưa nướng từ cảm biến",
       "type": "concept",
-      "content": "Một file RAW không phải là ảnh xem được ngay, mà là ma trận điện tích thô 12-bit hoặc 14-bit (Bayer Pattern) thu thập từ hàng triệu photodiodes. Nó chứa dải tương phản động (Dynamic Range) rộng hơn gấp 64 lần so với ảnh JPEG 8-bit đã bị nén cố định.",
+      "content": "Một file RAW không phải là ảnh xem được ngay, mà là ma trận điện tích thô 12-bit hoặc 14-bit (Bayer Pattern) thu thập từ hàng triệu photodiodes. Nó chứa dải tương phản động (Dynamic Range) rộng vượt trội so với ảnh JPEG 8-bit đã bị nén cố định.",
       "tips": "Chụp ảnh RAW cho phép bạn thay đổi Cân bằng trắng (White Balance) sau khi chụp hoàn toàn không làm suy giảm chất lượng điểm ảnh.",
-      "codeSnippet": "RAW vs JPEG Architecture:\n- JPEG: 8-bit per channel (256 levels), Baked WB, Lossy compression, Narrow DR\n- RAW: 14-bit linear data (16,384 levels), Non-destructive WB, 32-bit float internal pipe"
+      "codeSnippet": "Kiến trúc RAW so với JPEG:\n- JPEG: 8-bit mỗi kênh (256 mức), Cân bằng trắng đã khóa cứng, Nén suy hao, Dải động hẹp\n- RAW: Dữ liệu tuyến tính bit sâu cao, Cân bằng trắng phi phá hủy, Xử lý nội bộ 32-bit float"
     },
     {
       "id": "slide-p09-01-02",
@@ -220,9 +234,9 @@
       "title": "Kiến trúc RAW Layer phi hủy diệt",
       "subtitle": "Tùy chọn Output: Pixel vs Embedded vs Linked",
       "type": "workflow",
-      "content": "Develop Studio provides three output options: Pixel layer (a flattened developed result), RAW layer (embedded, which stores the RAW source in the document), and RAW layer (linked, which keeps the source at its original location).",
-      "tips": "Choose embedded or linked RAW output when you want to retain the ability to revisit RAW settings later.",
-      "visualDescription": "RAW output options: Pixel layer / RAW layer (embedded) / RAW layer (linked)."
+      "content": "Develop Studio cung cấp ba tùy chọn đầu ra (Output): Pixel layer (kết quả điểm ảnh đã giải mã phẳng), RAW layer (embedded — lưu kèm tệp RAW gốc bên trong tài liệu) và RAW layer (linked — giữ tệp nguồn RAW ở vị trí ban đầu trên ổ đĩa).",
+      "tips": "Hãy chọn đầu ra RAW dạng embedded hoặc linked khi bạn muốn giữ khả năng mở lại bảng thông số RAW để chỉnh tiếp về sau.",
+      "visualDescription": "Các tùy chọn đầu ra RAW: Pixel layer / RAW layer (embedded) / RAW layer (linked)."
     },
     {
       "id": "slide-p09-01-03",
@@ -230,9 +244,9 @@
       "title": "Các panel trong Develop Studio",
       "subtitle": "Basic, Lens, Detail, Tones và Masks",
       "type": "interaction",
-      "content": "Develop Studio organizes its RAW controls into panels: Basic for exposure, tone curve, enhance and white balance; Lens for distortion, rotation, chromatic aberration, defringing and vignetting; Detail for noise reduction and sharpening; Tones for tonal/color adjustments; and Masks for selective brush or gradient masks.",
-      "tips": "Use the Basic panel for exposure and white balance first, then inspect Lens and Detail controls where required.",
-      "codeSnippet": "RAW workflow panels:\nBasic -> exposure, tone curve, enhance, white balance\nLens -> distortion, rotation, chromatic aberration, defringing, vignetting\nDetail -> noise reduction, sharpening\nTones -> tonal/color adjustments\nMasks -> selective brush/gradient masks"
+      "content": "Develop Studio sắp xếp các bộ điều khiển RAW thành 5 bảng chuyên biệt: Basic (phơi sáng, tone curve, enhance và white balance); Lens (biến dạng, góc xoay, quang sai màu, defringing và vignetting); Detail (khử nhiễu và làm nét); Tones (đường cong sắc độ và màu sắc); và Masks (mặt nạ chọn lọc bằng cọ hoặc gradient).",
+      "tips": "Hãy xử lý phơi sáng và cân bằng trắng trong bảng Basic trước, sau đó kiểm tra bảng Lens và Detail ở những hạng mục cần thiết.",
+      "codeSnippet": "Các bảng quy trình RAW trong Develop Studio:\nBasic  -> phơi sáng, tone curve, enhance, white balance\nLens   -> biến dạng, xoay, quang sai màu, defringing, vignetting\nDetail -> khử nhiễu, làm nét\nTones  -> điều chỉnh sắc độ và màu sắc\nMasks  -> mặt nạ cọ vẽ / gradient chọn lọc"
     },
     {
       "id": "slide-p09-01-04",
@@ -240,8 +254,8 @@
       "title": "Hiệu chỉnh Cân bằng trắng & Nhiệt độ màu",
       "subtitle": "Khôi phục màu sắc trung thực dưới mọi nguồn sáng",
       "type": "detail",
-      "content": "Use the Basic panel's Temperature and Tint controls to adjust color balance. The White Balance picker can sample a neutral grey or white area.",
-      "tips": "Use a neutral grey or white area as a sample when using the White Balance picker.",
+      "content": "Sử dụng thanh trượt Temperature và Tint trong bảng Basic để điều chỉnh cân bằng màu. Công cụ chấm mẫu White Balance (picker) có thể lấy mẫu trực tiếp trên một vùng màu xám hoặc trắng trung tính.",
+      "tips": "Khi dùng công cụ chấm mẫu White Balance, hãy chọn vùng xám trung tính hoặc vùng trắng còn chi tiết (không bị cháy sáng).",
       "visualDescription": "Mô phỏng bảng Cân bằng trắng với hai thanh trượt Temperature và Tint cùng trỏ chuột công cụ hình ống hút màu."
     },
     {
@@ -250,9 +264,9 @@
       "title": "Phục hồi Dynamic Range: Highlights & Shadows",
       "subtitle": "Cứu sáng bầu trời và thắp sáng góc tối",
       "type": "layout",
-      "content": "Use Exposure, Highlights and Shadows controls in the Basic panel to balance the image while preserving important highlight and shadow detail.",
+      "content": "Sử dụng các thanh điều khiển Exposure, Highlights và Shadows trong bảng Basic để cân bằng độ sáng tổng thể mà vẫn bảo toàn các chi tiết quan trọng ở cả vùng sáng gắt lẫn vùng tối.",
       "tips": "Tránh kéo Shadows lên quá +60% trên các ảnh chụp ISO cao để tránh kéo theo hiện tượng nhiễu hạt cảm biến.",
-      "codeSnippet": "Basic panel review:\nExposure -> overall scene luminance\nHighlights -> recover visible bright detail\nShadows -> reveal useful dark detail\nTone Curve -> refine contrast and tonal separation"
+      "codeSnippet": "Rà soát bảng Basic:\nExposure   -> độ sáng tổng thể của khung cảnh\nHighlights -> phục hồi chi tiết nhìn thấy ở vùng sáng gắt\nShadows    -> mở chi tiết hữu ích ở vùng tối\nTone Curve -> tinh chỉnh độ tương phản và tách bậc sắc độ"
     },
     {
       "id": "slide-p09-01-06",
@@ -261,7 +275,7 @@
       "subtitle": "Định hình độ tương phản cơ sở trước khi vào Photo",
       "type": "diagram",
       "content": "Tab Tone Curve cho phép bạn bẻ cong phân bố sắc độ. Tạo một đường cong chữ S nhẹ nhàng (nhấp điểm neo ở vùng 75% nâng nhẹ lên, nhấp điểm neo ở vùng 25% hạ nhẹ xuống) để bức ảnh có chiều sâu và độ trong trẻo ngay từ đầu.",
-      "tips": "Tone Curve adjustments are made in the Develop Studio's Tones or Basic controls depending on the current UI layout; confirm the exact location in the target build.",
+      "tips": "Vị trí điều chỉnh Tone Curve có thể nằm trong nhóm Tones hoặc Basic tùy theo bố cục giao diện của phiên bản hiện hành; hãy kiểm tra trực tiếp trên bản cài đặt thực tế.",
       "visualDescription": "Biểu đồ đường cong Tone Curve với dạng chữ S thanh mảnh trên nền Histogram sắc độ."
     },
     {
@@ -270,9 +284,9 @@
       "title": "Chuyển giao chuyên nghiệp vào Pixel Studio",
       "subtitle": "Sẵn sàng cho các công đoạn chỉnh sửa chuyên sâu",
       "type": "summary",
-      "content": "After correcting white balance and tone, click Develop. The processed image opens in Pixel Studio. An embedded or linked RAW layer preserves a path back to RAW adjustments.",
+      "content": "Sau khi hoàn tất cân bằng trắng và tinh chỉnh sắc độ, nhấp nút Develop. Ảnh đã xử lý trở về tài liệu. Chọn Pixel khi cần chỉnh tiếp; nếu chọn RAW layer dạng embedded hoặc linked, bạn luôn giữ được đường dẫn quay lại chỉnh sửa thông số RAW ban đầu.",
       "tips": "Giữ file .afphoto chứa RAW Layer để lưu trữ vĩnh viễn cấu hình phát triển gốc của bức ảnh.",
-      "codeSnippet": "Develop hand-off:\n[✓] Output chosen (Pixel / RAW embedded / RAW linked)\n[✓] White balance and tone reviewed\n[✓] Lens/detail corrections reviewed where applicable\n[✓] Click Develop -> Pixel Studio"
+      "codeSnippet": "Danh sách kiểm tra trước khi Develop:\n[✓] Đã chọn Output (Pixel / RAW embedded / RAW linked)\n[✓] Đã kiểm tra cân bằng trắng và sắc độ\n[✓] Đã rà soát hiệu chỉnh ống kính / chi tiết nếu cần\n[✓] Nhấp Develop rồi chọn Pixel nếu cần"
     }
   ]
 }

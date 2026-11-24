@@ -3,8 +3,8 @@
   "moduleId": "P04",
   "trackId": "photo",
   "order": 1,
-  "title": "Inpainting, Patch Tool & Smart Object Removal",
-  "subtitle": "Content-Aware Synthesis, Current & Below Sampling, and Non-Destructive Cleanup",
+  "title": "Inpainting, Patch Tool và xóa đối tượng thông minh",
+  "subtitle": "Tổng hợp nội suy theo ngữ cảnh, lấy mẫu Current & Below và làm sạch phi phá hủy",
   "durationMinutes": 25,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Inpainting Brush Tool & Patch Tool",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)",
         "mac": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)"
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P04-02 Clone Stamp, Healing Brush & Restoration Concepts",
+          "title": "Bài tiếp theo: P04-02 Clone Stamp, Healing Brush và nguyên lý phục chế",
           "target": "P04-02",
           "type": "next-lesson"
         },
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Tạo Layer rỗng:** Nhấn `Ctrl+Shift+N` (Win) / `Cmd+Shift+N` (Mac), đặt tên là `[Cleanup]`.\n2. **Chọn Inpainting Brush:** Nhấn phím `J`, đổi Source thành `Current Layer & Below`.\n3. **Quét cọ bao trùm:** Chỉnh size cọ lớn hơn bóng người một chút bằng phím `]`, quét một đường trùm kín từ đầu đến chân.\n4. **Thả chuột:** Đợi thanh tiến trình tính toán xong, bạn sẽ thấy người đó biến mất, để lại bãi cỏ phẳng phiu hoàn hảo!",
       "visual": {
         "type": "badge-grid",
-        "content": "New Pixel Layer | Key J (Inpainting) | Source: Current & Below | Paint Over | Magic Disappear"
+        "content": "Pixel Layer mới | Phím J (Inpainting) | Source: Current & Below | Tô đè | Xóa sạch tự nhiên"
       }
     },
     {

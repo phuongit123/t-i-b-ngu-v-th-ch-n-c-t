@@ -3,46 +3,46 @@
   "moduleId": "D03",
   "trackId": "designer",
   "order": 3,
-  "title": "Non-Destructive Compound Shapes & Geometry Optimization",
-  "subtitle": "Live Compound Layers & Current Boolean Workflow",
+  "title": "Compound Shapes phi phá hủy và tối ưu hình học",
+  "subtitle": "Lớp Compound động và quy trình Boolean mặc định hiện hành",
   "durationMinutes": 30,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Use Boolean operations to create non-destructive Compound Shapes by default in the current Affinity release; use Join commands when a destructive Boolean result is intended.",
-      "Understand the internal architecture of a `(Compound)` layer in the Layers Studio.",
-      "Edit, move, resize, and re-order child vector shapes inside a live compound in real time without destroying the compound calculation.",
-      "Change individual Boolean modes per child item (Add, Subtract, Intersect, Xor) inside the same Compound container.",
-      "Bake or expand a Compound Shape into a final flattened Bezier curve when finalizing production artwork."
+      "Sử dụng các phép toán Boolean để tạo Compound Shapes phi phá hủy theo hành vi mặc định trên bản Affinity hiện hành; dùng các lệnh Join khi muốn kết quả Boolean phá hủy.",
+      "Hiểu cấu trúc phân tầng của một lớp `(Compound)` trong bảng Layers Studio (bảng quản lý lớp).",
+      "Di chuyển, co giãn, thay đổi thứ tự và chỉnh sửa trực tiếp các hình vector con bên trong lớp Compound theo thời gian thực mà không làm mất phép tính tổng hợp.",
+      "Đổi chế độ Boolean riêng cho từng hình con (Add, Subtract, Intersect, Xor) ngay trong cùng một lớp Compound.",
+      "Đóng cứng (Convert to Curves) một Compound Shape thành đường cong Bézier tĩnh khi chốt file xuất bản."
     ],
-    "foundationalKnowledge": "In the current Affinity release, Boolean operations create non-destructive Compound Shapes by default. The official glossary distinguishes these Compounds from destructive Boolean operations performed with Join commands. Use a Compound when the operation should remain non-destructive and use Join when the geometry should be committed destructively. The former Alt/Option modifier workflow should not be taught as the trigger for creating a Compound in this release.",
+    "foundationalKnowledge": "Trong bản phát hành Affinity hiện hành, các phép toán Boolean mặc định tạo ra Compound Shapes phi phá hủy. Bảng thuật ngữ chính thức phân biệt rõ giữa Compound (giữ nguyên tính phi phá hủy) và các thao tác Boolean phá hủy thực hiện bằng lệnh Join. Hãy dùng Compound khi bạn cần chỉnh sửa tiếp về sau, và dùng Join khi muốn chốt cứng hình học. Lưu ý không áp dụng hướng dẫn cũ về việc phải giữ phím Alt/Option mới tạo được Compound trên phiên bản này.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Compound Shapes & Non-Destructive Vector Architecture",
+      "source": "Tài liệu chính thức về Compound Shapes & Kiến trúc Vector phi phá hủy — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Compound Shapes Engine",
-      "persona": "Vector Studio (Geometry / Boolean operations)",
+      "toolName": "Cơ chế Compound Shapes",
+      "persona": "Vector Studio (Nhóm phép toán Geometry / Boolean)",
       "shortcut": {
-        "win": "No modifier required for default Compound creation; use Join commands for destructive Boolean operations",
-        "mac": "No modifier required for default Compound creation; use Join commands for destructive Boolean operations"
+        "win": "Không cần giữ phím bổ trợ để tạo Compound mặc định; dùng lệnh Join khi muốn phép toán Boolean phá hủy",
+        "mac": "Không cần giữ phím bổ trợ để tạo Compound mặc định; dùng lệnh Join khi muốn phép toán Boolean phá hủy"
       },
-      "description": "Boolean operations create non-destructive Compound Shapes by default in the current release. Use Join commands when a destructive Boolean result is intended. Child-operation editing remains a separate interaction detail to confirm in the target desktop build.",
+      "description": "Các phép toán Boolean tạo Compound Shape phi phá hủy theo mặc định trên bản phát hành hiện tại. Dùng các lệnh Join khi bạn chủ đích muốn gộp cứng phá hủy. Chi tiết nhãn nút chỉnh phép toán từng lớp con cần kiểm tra trực tiếp trên bản desktop đang dùng.",
       "contextBarOptions": [
-        "Add: Creates or updates a non-destructive Compound by default",
-        "Subtract: Creates or updates a non-destructive Compound by default",
-        "Intersect: Creates or updates a non-destructive Compound by default",
-        "Xor: Creates or updates a non-destructive Compound by default",
-        "Join commands: Use when a destructive Boolean result is intended",
-        "Layer > Geometry > Convert to Curves: Flattens the compound into static curves"
+        "Add: Tạo mới hoặc cập nhật Compound phi phá hủy theo mặc định",
+        "Subtract: Tạo mới hoặc cập nhật Compound phi phá hủy theo mặc định",
+        "Intersect: Tạo mới hoặc cập nhật Compound phi phá hủy theo mặc định",
+        "Xor: Tạo mới hoặc cập nhật Compound phi phá hủy theo mặc định",
+        "Các lệnh Join: Dùng khi cần kết quả Boolean gộp cứng phá hủy",
+        "Layer > Geometry > Convert to Curves: Đóng cứng Compound thành đường cong tĩnh"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Select Multiple Vector Shapes",
-        "instruction": "Draw a large rounded rectangle and three small circles positioned over it. Select all 4 objects with the Move Tool (V).",
+        "title": "Chọn nhiều hình vector cần phối hợp",
+        "instruction": "Vẽ một hình chữ nhật bo góc lớn và ba hình tròn nhỏ đặt đè lên trên. Dùng Move Tool (V) chọn cả 4 đối tượng.",
         "shortcutTip": {
           "win": "V",
           "mac": "V"
@@ -50,17 +50,17 @@
       },
       {
         "stepNumber": 2,
-        "title": "Generate a Non-Destructive Compound with a Boolean Operation",
-        "instruction": "Click the 'Subtract' Boolean operation on the top toolbar without holding a modifier. In the current release, the Boolean operation creates a non-destructive Compound by default.",
+        "title": "Tạo Compound phi phá hủy bằng phép toán Boolean",
+        "instruction": "Nhấn trực tiếp phép toán 'Subtract' trên thanh công cụ trên cùng mà không cần giữ thêm phím bổ trợ. Trên bản Affinity hiện hành, thao tác này mặc định tạo ra một Compound phi phá hủy.",
         "shortcutTip": {
-          "win": "No modifier required",
-          "mac": "No modifier required"
+          "win": "Không cần giữ phím bổ trợ",
+          "mac": "Không cần giữ phím bổ trợ"
         }
       },
       {
         "stepNumber": 3,
-        "title": "Inspect the (Compound) Layer Hierarchy",
-        "instruction": "Open the Layers Studio. Notice a new layer labeled '(Compound)' with an expansion arrow. Expand the layer: all 4 of your original shapes are listed inside, with small boolean operator icons beside each thumbnail!",
+        "title": "Kiểm tra cấu trúc lớp (Compound) trong Layers Studio",
+        "instruction": "Mở bảng Layers Studio, bạn sẽ thấy một lớp mới có nhãn '(Compound)' kèm mũi tên mở rộng. Bấm mở lớp này ra: cả 4 hình gốc vẫn còn nguyên trạng bên trong kèm biểu tượng phép toán bên cạnh từng hình thu nhỏ.",
         "shortcutTip": {
           "win": "Layers Studio",
           "mac": "Layers Studio"
@@ -68,53 +68,53 @@
       },
       {
         "stepNumber": 4,
-        "title": "Reposition Child Shapes in Real Time",
-        "instruction": "Select one of the child circles inside the Compound in the Layers panel. Use the Move Tool to drag it across the canvas. Notice the hole glides across the rounded rectangle smoothly in real time!",
+        "title": "Dịch chuyển các hình con theo thời gian thực",
+        "instruction": "Chọn một hình tròn con nằm trong lớp Compound ở bảng Layers Studio, rồi dùng Move Tool (V) kéo dịch chuyển trên bản vẽ. Phần lỗ khoét sẽ trượt theo mượt mà ngay tức thì trên hình chữ nhật cha.",
         "shortcutTip": {
-          "win": "Move Child Shape",
-          "mac": "Move Child Shape"
+          "win": "Kéo hình con bằng Move Tool",
+          "mac": "Kéo hình con bằng Move Tool"
         }
       },
       {
         "stepNumber": 5,
-        "title": "Change Boolean Mode Per Child Shape",
-        "instruction": "Click the small operator icon beside a child circle in the Layers panel. Change its mode from 'Subtract' to 'Intersect' or 'Add'. The compound instantly recalculates the visual output.",
+        "title": "Đổi phép toán riêng cho từng hình con",
+        "instruction": "Nhấn vào biểu tượng phép toán nhỏ bên cạnh hình tròn con trong Layers Studio (kiểm tra vị trí nhãn chính xác trên bản cài đặt của bạn) và đổi từ 'Subtract' sang 'Intersect' hoặc 'Add'. Hình tổng hợp lập tức tính toán lại theo chế độ mới.",
         "shortcutTip": {
-          "win": "Toggle Operator Icon",
-          "mac": "Toggle Operator Icon"
+          "win": "Đổi biểu tượng phép toán",
+          "mac": "Đổi biểu tượng phép toán"
         }
       }
     ],
     "visualExamples": [
       {
-        "title": "Destructive Boolean vs Non-Destructive Compound",
-        "description": "Structural comparison of the two workflows.",
+        "title": "So sánh Boolean Compound (mặc định) và Lệnh Join",
+        "description": "Khác biệt cốt lõi về mục đích sử dụng giữa hai cách xử lý hình học.",
         "visualType": "table",
-        "visualContent": "| Feature | Boolean Compound (default) | Join command |\n|---|---|---|\n| Result | Non-destructive Compound Shape | Destructive Boolean result |\n| Intended use | Keep the Boolean operation non-destructive for later refinement | Commit a destructive geometry result |"
+        "visualContent": "| Tiêu chí | Boolean Compound (mặc định) | Lệnh Join |\n|---|---|---|\n| Kết quả tạo ra | Lớp Compound Shape phi phá hủy | Kết quả Boolean gộp cứng phá hủy |\n| Mục đích sử dụng | Giữ nguyên các hình con để còn chỉnh sửa, dịch chuyển về sau | Chốt cứng một đường hình học duy nhất |"
       },
       {
-        "title": "Compound Scene Graph Hierarchy",
-        "description": "How child shapes nest inside a compound.",
+        "title": "Sơ đồ cây đối tượng của một lớp Compound",
+        "description": "Cách các hình thành phần lồng bên trong một lớp Compound.",
         "visualType": "diagram",
-        "visualContent": "(Compound Layer) [Base Material: Dark Slate #1e1e24]\n  ├── [Add] Base Rounded Rectangle (Card Foundation)\n  ├── [- Subtract] Circle A (Left Camera Hole)\n  ├── [- Subtract] Circle B (Right Camera Hole)\n  └── [+ Add] Pill Capsule (Speaker Grille)"
+        "visualContent": "(Lớp Compound) [Màu nền tổng: Xám đậm #1e1e24]\n  ├── [+ Add] Hình chữ nhật bo góc (Khung cụm camera)\n  ├── [- Subtract] Hình tròn A (Lỗ ống kính trái)\n  ├── [- Subtract] Hình tròn B (Lỗ ống kính phải)\n  └── [+ Add] Hình viên thuốc (Khe loa / mic)"
       }
     ],
     "guidedPractice": {
-      "title": "Parametric Smartphone Camera Bump",
-      "taskDescription": "Construct a modern smartphone camera island featuring a main enclosure, three lens cutouts, and a flash lens, all built inside a single non-destructive Compound Shape.",
+      "title": "Dựng cụm camera điện thoại động",
+      "taskDescription": "Thiết kế cụm khung camera gồm vỏ ngoài, 3 hốc ống kính và đèn flash nằm gọn trong một lớp Compound duy nhất có thể chỉnh khoảng cách thoải mái.",
       "checkpoints": [
-        "Create base rounded rectangle for the camera housing.",
-        "Add 3 circles for triple lens barrels.",
-        "Click 'Subtract' to generate the default non-destructive Compound container. Use Join commands only when a destructive result is intended.",
-        "Add a 4th small circle for the LED flash.",
-        "Set the 4th circle's boolean icon to 'Add' so it protrudes rather than cuts.",
-        "Drag the lens circles with the Move Tool and observe the live compound recalculation."
+        "Vẽ hình chữ nhật bo góc làm phần khung cụm camera.",
+        "Vẽ thêm 3 hình tròn đại diện cho 3 hốc ống kính.",
+        "Nhấn 'Subtract' để tạo lớp Compound phi phá hủy mặc định (chỉ dùng lệnh Join khi thật sự muốn gộp cứng).",
+        "Vẽ thêm một hình tròn thứ 4 nhỏ hơn cho đèn flash LED.",
+        "Đặt phép toán của hình tròn thứ 4 sang 'Add' để tạo phần nhô hoặc gộp cùng khung.",
+        "Dùng Move Tool kéo thử các hình tròn ống kính và quan sát Compound tự tính toán lại theo thời gian thực."
       ],
-      "expectedOutcome": "A fully adjustable, production-grade smartphone camera island where lens spacing can be tuned infinitely."
+      "expectedOutcome": "Cụm camera hoàn chỉnh có thể tinh chỉnh vị trí và kích thước từng ống kính bất cứ lúc nào."
     },
     "independentChallenge": {
-      "title": "Modular Game Character Face Rig",
-      "prompt": "Construct a cartoon character face using a single non-destructive Compound Shape: (1) Head base circle (Add); (2) Two eye sockets (Subtract); (3) Pupil circles nested inside sockets (Intersect); (4) Mouth slot (Subtract). Prove that selecting any eye circle allows shifting the character's gaze in real time without redrawing the face.",
+      "title": "Bộ khuôn mặt nhân vật hoạt hình dạng mô-đun",
+      "prompt": "Dựng khuôn mặt nhân vật nằm trọn trong một Compound Shape phi phá hủy: (1) Vòng đầu (Add); (2) Hai hốc mắt (Subtract); (3) Hai con ngươi lồng trong hốc mắt (Intersect hoặc Add); (4) Khe miệng (Subtract). Chứng minh bạn có thể kéo con ngươi để đổi hướng nhìn của nhân vật tức thì mà không phải vẽ lại.",
       "starterAsset": {
         "filename": "D03_boolean_geometry_guide.md",
         "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
@@ -122,86 +122,86 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Compound Shapes (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành Compound Shapes (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Entire character head contained within a single (Compound) layer.",
-        "All child shapes retain original geometric primitive identities.",
-        "Gaze shift demonstrated by moving eye child shapes."
+        "Toàn bộ gương mặt nằm gọn trong một lớp (Compound) duy nhất.",
+        "Các hình con bên trong vẫn giữ nguyên tính chất hình khối gốc.",
+        "Thể hiện được thao tác đổi hướng nhìn bằng cách kéo các hình con mắt."
       ],
-      "bonusGoal": "Duplicate the compound shape and create a 'Winking' expression by changing one eye socket to a horizontal bar."
+      "bonusGoal": "Nhân bản lớp Compound và đổi một bên hốc mắt thành thanh ngang để tạo biểu cảm nháy mắt."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Choosing a destructive Join when a Compound is required",
-        "cause": "Choosing a Join command when you intended to keep the Boolean operation non-destructive.",
-        "solution": "Undo (Ctrl+Z / Cmd+Z) and use the corresponding Boolean operation; Compounds are created by default in the current release."
+        "pitfall": "Chọn nhầm lệnh Join phá hủy khi thực chất muốn giữ Compound",
+        "cause": "Bấm nhầm nhóm lệnh Join trong khi vẫn muốn giữ phép toán Boolean ở trạng thái động dễ sửa.",
+        "solution": "Nhấn Hoàn tác (Ctrl+Z / Cmd+Z) và bấm trực tiếp phép toán Boolean tương ứng; trên bản hiện hành Compound được tạo mặc định."
       },
       {
-        "pitfall": "Compound disappears or renders completely empty",
-        "cause": "All child shapes are set to 'Subtract' with no base shape set to 'Add', leaving nothing to subtract from.",
-        "solution": "Ensure the bottommost foundational shape inside the compound is set to 'Add'."
+        "pitfall": "Cả lớp Compound biến mất hoặc hiển thị rỗng không thấy gì",
+        "cause": "Tất cả hình con bên trong đều đang đặt ở chế độ Subtract nên không có hình nền gốc (Add) nào để bị cắt.",
+        "solution": "Kiểm tra lại hình nền nằm dưới cùng bên trong Compound và đảm bảo nó đang đặt ở chế độ 'Add'."
       },
       {
-        "pitfall": "Third-party game engines or plotters failing to parse compounds",
-        "cause": "Some legacy SVG parsers do not support complex procedural clipping math.",
-        "solution": "Duplicate the compound, hide the original backup, and choose Layer > Geometry > Convert to Curves on the duplicate before final export."
+        "pitfall": "Một số máy cắt hoặc game engine cũ đọc lỗi cấu trúc Compound",
+        "cause": "Trình phân tích SVG đơn giản hoặc phần mềm máy cắt cũ không hiểu các tầng Boolean động.",
+        "solution": "Nhân bản lớp Compound để giữ một bản gốc dự phòng (tắt hiển thị), rồi dùng Layer > Geometry > Convert to Curves trên bản sao trước khi xuất."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D03-03-Q1",
-        "question": "How do you create a non-destructive Compound Shape from selected objects in Affinity Designer?",
+        "question": "Làm thế nào để tạo một Compound Shape phi phá hủy từ các hình đang chọn trong bản Affinity hiện hành?",
         "options": [
-          "Double-click the canvas with the Pen Tool.",
-          "Click a Boolean operation; in the current release, it creates a Compound by default.",
-          "Group the layers and change blend mode to Multiply.",
-          "Export the file to PDF."
+          "Nhấp đúp lên bản vẽ bằng Pen Tool.",
+          "Nhấn chọn một phép toán Boolean; ở bản phát hành hiện hành, phép toán này mặc định tạo ra lớp Compound.",
+          "Nhóm các lớp lại và đổi chế độ hòa trộn sang Multiply.",
+          "Xuất file sang định dạng PDF."
         ],
         "correctIndex": 1,
-        "explanation": "In the current Affinity release, Boolean operations create non-destructive Compound Shapes by default; destructive Boolean results use Join commands."
+        "explanation": "Trên bản phát hành hiện tại của Affinity, các phép toán Boolean tạo Compound phi phá hủy theo mặc định, còn các thao tác Boolean phá hủy sử dụng lệnh Join."
       },
       {
         "id": "D03-03-Q2",
-        "question": "What happens if you move a child shape that is set to 'Subtract' inside an active Compound Shape?",
+        "question": "Điều gì xảy ra nếu bạn di chuyển một hình con đang đặt chế độ 'Subtract' bên trong một Compound Shape?",
         "options": [
-          "The compound layer dissolves into a bitmap.",
-          "The cutout hole moves across the parent shape in real time, recalculating the subtraction dynamically.",
-          "An error dialog is displayed.",
-          "The shape is deleted from the document."
+          "Lớp Compound bị biến thành ảnh điểm ảnh.",
+          "Lỗ khoét chạy trượt theo hình con trên hình cha theo thời gian thực, tự động tính toán lại phần bị trừ.",
+          "Phần mềm hiện hộp thoại báo lỗi.",
+          "Hình con bị xóa khỏi tài liệu."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer's GPU-accelerated compound engine recalculates Boolean geometry dynamically in real time as child layers are moved, scaled, or rotated."
+        "explanation": "Cơ chế Compound tính toán hình học theo thời gian thực ngay khi bạn di chuyển, phóng to thu nhỏ hoặc xoay bất kỳ hình con nào bên trong."
       },
       {
         "id": "D03-03-Q3",
-        "question": "Can different child shapes within the same Compound Shape have different Boolean interaction modes?",
+        "question": "Các hình con nằm trong cùng một Compound Shape có thể mang chế độ phép toán Boolean khác nhau không?",
         "options": [
-          "No; all shapes in a compound must share the identical mode.",
-          "Yes; each child shape displays an operator icon in the Layers panel that can be set independently to Add, Subtract, Intersect, or Xor.",
-          "Only in Affinity Photo.",
-          "Only if the document has fewer than 2 layers."
+          "Không; mọi hình trong Compound phải dùng chung một chế độ.",
+          "Có; từng hình con có biểu tượng phép toán riêng trong Layers Studio để đổi độc lập sang Add, Subtract, Intersect hoặc Xor.",
+          "Chỉ làm được khi chuyển sang Pixel Studio.",
+          "Chỉ hoạt động khi tài liệu có ít hơn 2 layer."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer compounds support mixed-mode hierarchies: each child layer has its own Boolean operator icon in the Layers Studio that can be toggled independently."
+        "explanation": "Compound hỗ trợ trộn nhiều phép toán trong cùng một khối chứa: mỗi hình con có thể mang vai trò Add, Subtract, Intersect hoặc Xor độc lập."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Compound Shapes provide non-destructive vector editing by default; use Join commands when a destructive Boolean result is intended.",
-        "Child shapes remain fully editable, movable, and resizable inside the (Compound) layer.",
-        "Different child layers can mix Add, Subtract, Intersect, and Xor within the same compound.",
-        "Compounds can be converted to static curves when baking final production SVG assets."
+        "Các phép toán Boolean tạo Compound Shape phi phá hủy theo mặc định; dùng lệnh Join khi chủ đích muốn gộp cứng phá hủy.",
+        "Các hình con bên trong lớp (Compound) vẫn hoàn toàn chỉnh sửa, di chuyển và thay đổi kích thước được.",
+        "Nhiều hình con trong cùng một Compound có thể kết hợp đồng thời Add, Subtract, Intersect và Xor.",
+        "Có thể nhân bản dự phòng rồi dùng Convert to Curves khi cần chốt hình tĩnh cho sản xuất."
       ],
       "relatedResources": [
         {
-          "title": "Next Module: D04 Fill, Gradient, Stroke & Pressure Profiles",
+          "title": "Module tiếp theo D04: Tô Màu, Dải Chuyển Màu, Đường Viền & Biểu Đồ Lực Nhấn",
           "target": "D04-01",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Compound Shapes",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Tổng quan Compound Shapes & Join",
+          "target": "https://affinity.studio/help/appendix-glossary/",
           "type": "doc"
         }
       ]
@@ -212,83 +212,83 @@
       "id": "D03-03-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Non-Destructive Compound Shapes & Geometry Optimization",
-      "subtitle": "The Ultimate Non-Destructive Vector Workflow",
-      "contentMarkdown": "Welcome to **Lesson D03-03**.\n\nDestructive Booleans are fast, but what happens when a client asks to change the size of a hole, or reposition a cutout after hours of work?\n\nIn this lesson, you will master **Compound Shapes**—Affinity Designer's superpower for creating live, fully non-destructive Boolean hierarchies using the current default Boolean Compound workflow.",
+      "title": "Compound Shapes Phi Phá Hủy & Tối Ưu Hình Học",
+      "subtitle": "Quy trình cắt ghép vector chỉnh sửa lại bất kỳ lúc nào",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D03-03**.\n\nCắt ghép gộp cứng rất nhanh, nhưng sẽ ra sao nếu khách hàng yêu cầu nới rộng một lỗ khoét hoặc dịch lại vị trí khung cắt sau vài giờ làm việc?\n\nTrong bài học này, bạn sẽ nắm vững **Compound Shapes**—cơ chế tạo hình tổng hợp phi phá hủy mặc định khi dùng phép toán Boolean trên bản Affinity hiện hành.",
       "actionBox": {
-        "label": "Superpower Shortcut",
-        "text": "Boolean operations create non-destructive Compounds by default. Use Join commands when you intend to commit a destructive geometry result."
+        "label": "Điểm khác biệt quan trọng",
+        "text": "Phép toán Boolean mặc định tạo Compound phi phá hủy. Chỉ dùng lệnh Join khi bạn thật sự muốn gộp cứng phá hủy."
       }
     },
     {
       "id": "D03-03-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Anatomy of a (Compound) Layer",
-      "subtitle": "Inside the Live Boolean Container",
-      "contentMarkdown": "In the current release, clicking a Boolean operation creates a non-destructive **Compound** by default:\n\n- **Compound result:** the Boolean operation remains non-destructive.\n- **Destructive result:** use the relevant Join command.\n- **Editing details:** inspect the current Layers panel and confirm child-operation controls on the target desktop build before relying on exact panel labels or shortcuts.",
+      "title": "Cấu Trúc Của Một Lớp (Compound)",
+      "subtitle": "Bên trong vùng chứa Boolean động",
+      "contentMarkdown": "Ở bản Affinity hiện hành, khi nhấn phép toán Boolean, phần mềm tạo ra một **Compound** phi phá hủy theo mặc định:\n\n- **Kết quả Compound:** Phép toán giữ nguyên trạng thái chỉnh sửa lại được.\n- **Kết quả gộp cứng phá hủy:** Thực hiện qua lệnh **Join** tương ứng.\n- **Chi tiết thao tác lớp con:** Hãy quan sát trực tiếp bảng Layers Studio trên bản desktop của bạn để xác nhận tên nhãn nút và cách chuyển đổi phép toán trên từng hình con.",
       "visual": {
         "type": "diagram",
-        "content": "[Compound Layer] (Renders unified silhouette at 60fps)\n  ├── [+] Base Shape (Rectangle)\n  ├── [-] Cutout Hole 1 (Circle)\n  └── [-] Cutout Hole 2 (Star)"
+        "content": "[Lớp Compound] (Tính toán hiển thị theo thời gian thực)\n  ├── [+] Hình nền gốc (Hình chữ nhật)\n  ├── [-] Lỗ khoét 1 (Hình tròn)\n  └── [-] Lỗ khoét 2 (Ngôi sao)"
       }
     },
     {
       "id": "D03-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Creating and Manipulating Compounds",
-      "subtitle": "Modifiers, Menus & Layers Panel Controls",
-      "contentMarkdown": "The current Boolean workflow is straightforward:\n\n1. Select the vector shapes to combine.\n2. Click the required Boolean operation; the current release creates a Compound by default.\n3. Use a Join command only when a destructive Boolean result is intended.\n\nThe exact menu labels and child-operation controls should be verified in the target desktop build.",
+      "title": "Tạo & Điều Khiển Lớp Compound",
+      "subtitle": "Quy trình mặc định và bảng Layers Studio",
+      "contentMarkdown": "Quy trình tạo hình tổng hợp phi phá hủy hiện rất gọn:\n\n1. Chọn các hình vector muốn kết hợp.\n2. Nhấn chọn phép toán Boolean cần dùng; bản hiện hành tự tạo **Compound** theo mặc định.\n3. Chỉ sử dụng lệnh **Join** khi bạn muốn chốt cứng hình học phá hủy.\n\nTên menu chính xác và vị trí nút chỉnh từng lớp con nên được đối chiếu trực tiếp trên phiên bản Affinity bạn đang cài.",
       "actionBox": {
-        "label": "Live Interaction",
-        "text": "Select a child circle inside the compound and move it with the Move Tool (V). The cut updates smoothly in real time!"
+        "label": "Tương tác trực tiếp",
+        "text": "Chọn một hình tròn con trong Compound và kéo bằng Move Tool (V): phần khoét trên hình cha cập nhật tức thì!"
       }
     },
     {
       "id": "D03-03-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: The Triple-Lens Camera Island",
-      "subtitle": "Constructing an Editable Hardware Asset",
-      "contentMarkdown": "Follow these steps to build an editable smartphone camera island:\n\n1. **Step 1:** Draw a dark rounded rectangle for the island body.\n2. **Step 2:** Draw 3 circles for camera lenses overlapping the island.\n3. **Step 3:** Select all 4 objects and click **Subtract**. In the current release, this creates a non-destructive Compound by default.\n4. **Step 4:** Notice the `(Compound)` layer in the Layers Studio. Expand it.\n5. **Step 5:** Select any lens circle and use the arrow keys to nudge it. The cutout hole moves live!\n6. **Step 6:** Add a small pill shape for the microphone, and toggle its icon inside the compound to `Add`.",
+      "title": "Thực Hành: Dựng Cụm Camera Ba Ống Kính",
+      "subtitle": "Tạo linh kiện vector tùy biến dễ dàng",
+      "contentMarkdown": "Thực hiện lần lượt các bước:\n\n1. **Bước 1:** Vẽ hình chữ nhật bo góc tối màu làm thân cụm camera.\n2. **Bước 2:** Vẽ 3 hình tròn đại diện cho các ống kính đặt lên trên thân cụm.\n3. **Bước 3:** Chọn cả 4 hình rồi nhấn **Subtract**. Trên bản hiện hành, thao tác này mặc định tạo ra Compound phi phá hủy.\n4. **Bước 4:** Mở rộng lớp `(Compound)` trong **Layers Studio**.\n5. **Bước 5:** Chọn một hình tròn ống kính và bấm phím mũi tên dịch nhẹ: lỗ khoét trượt theo mượt mà.\n6. **Bước 6:** Thêm một hình viên thuốc nhỏ cho khe mic và đổi biểu tượng phép toán của nó sang `Add`.",
       "visual": {
         "type": "comparison",
-        "content": "Destructive Boolean: Fixed pixels, impossible to tweak VS Compound Shape: 100% parametric, infinitely adjustable"
+        "content": "Gộp cứng (Join): Chốt thành 1 đường tĩnh VS Compound Shape: Còn nguyên từng khối con chỉnh tự do"
       }
     },
     {
       "id": "D03-03-S5",
       "slideNumber": 5,
       "type": "step-by-step",
-      "title": "Baking Compounds for Final Production",
-      "subtitle": "When and How to Flatten Geometry",
-      "contentMarkdown": "While Compound Shapes are ideal during design, certain production pipelines (e.g. laser cutters, embroidery machines, or simple SVG web icons) require a single static path:\n\n1. Always keep an editable master backup of your Compound layer in an invisible '(Archive)' group.\n2. Select the compound and navigate to `Layer > Geometry > Convert to Curves`.\n3. Designer permanently bakes the compound calculations into a single clean Bezier `(Curve)` layer.",
+      "title": "Đóng Cứng Compound Khi Bàn Giao Sản Xuất",
+      "subtitle": "Khi nào cần Convert to Curves",
+      "contentMarkdown": "Compound rất tuyệt khi đang thiết kế, nhưng một số quy trình xuất xưởng (máy cắt laser, máy thêu hoặc tối giản SVG cho web) cần một đường bao tĩnh duy nhất:\n\n1. Luôn giữ lại một bản sao lưu của lớp Compound gốc trong thư mục dự phòng (tắt hiển thị).\n2. Chọn bản sao Compound và vào `Layer > Geometry > Convert to Curves`.\n3. Affinity tính toán chốt lại thành một lớp `(Curve)` phẳng gọn nhẹ.",
       "actionBox": {
-        "label": "Production Best Practice",
-        "text": "Never delete your live compound! Duplicate before baking so you can always revise client requests."
+        "label": "Thói quen chuyên nghiệp",
+        "text": "Không bao giờ xóa bản Compound gốc! Hãy nhân bản trước khi đóng cứng để dễ dàng chỉnh sửa khi cần."
       }
     },
     {
       "id": "D03-03-S6",
       "slideNumber": 6,
       "type": "pitfalls",
-      "title": "Compound Traps & Edge Cases",
-      "subtitle": "Diagnose Common Hierarchy Mistakes",
-      "contentMarkdown": "### 1. Inverted Hierarchy (Everything Vanishes)\n- **The Issue:** The entire compound disappears from the screen.\n- **The Cause:** The lowest foundational layer is set to `Subtract` or `Intersect`, so there is no base geometry to calculate against.\n- **The Fix:** Ensure the bottom child layer inside the compound is set to `Add`.\n\n### 2. Choosing a Destructive Join When a Compound Is Required\n- **The Cause:** Choosing a Join command when you intended to keep the Boolean operation non-destructive.\n- **The Fix:** Undo (`Ctrl+Z` / `Cmd+Z`) and use the corresponding Boolean operation; Compounds are created by default in the current release.",
+      "title": "Các Tình Huống Lỗi Hay Gặp Với Compound",
+      "subtitle": "Nhận diện nhanh lỗi thứ tự lớp và nhầm lệnh Join",
+      "contentMarkdown": "### 1. Cả khối Compound bỗng nhiên biến mất\n- **Hiện tượng:** Toàn bộ hình không còn hiển thị trên màn hình.\n- **Nguyên nhân:** Hình đáy dưới cùng bên trong Compound lại đang đặt ở chế độ `Subtract` hoặc `Intersect`, không có phôi gốc để cắt.\n- **Cách sửa:** Đảm bảo lớp con dưới cùng đặt ở chế độ `Add`.\n\n### 2. Lỡ chọn lệnh Join phá hủy thay vì Compound\n- **Nguyên nhân:** Dùng nhầm lệnh Join khi vẫn muốn giữ khả năng chỉnh sửa phi phá hủy.\n- **Cách sửa:** Nhấn Hoàn tác (`Ctrl+Z` / `Cmd+Z`) và bấm lại phép toán Boolean thông thường (mặc định tạo Compound trên bản hiện hành).",
       "visual": {
         "type": "badge-grid",
-        "content": "Base Layer = Add (+) | Modifier Layers = Subtract (-) | Always Duplicate Before Baking"
+        "content": "Lớp đáy = Add (+) | Lớp cắt = Subtract (-) | Luôn nhân bản trước khi Convert to Curves"
       }
     },
     {
       "id": "D03-03-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Dynamic Vector Mascot Face",
-      "subtitle": "Build an Expressive Character Rig",
-      "contentMarkdown": "### Your Mission:\nConstruct an expressive character face inside a single non-destructive **Compound Shape**:\n\n1. Base head: Circle primitive set to `Add`.\n2. Eye sockets: Two circles set to `Subtract`.\n3. Eye pupils: Two smaller circles nested inside sockets set to `Add`.\n4. Mouth slot: Capsule shape set to `Subtract`.\n5. Select the pupil circles and reposition them to give the character different emotional expressions (looking left, right, up, down) in real time.\n\n### Acceptance Criteria:\n- Entire face lives inside 1 `(Compound)` layer.\n- Expression changes dynamically simply by moving child shapes.\n- Zero destructive flattening.",
+      "title": "Thử Thách Độc Lập: Khuôn Mặt Linh Vật Động",
+      "subtitle": "Xây dựng nhân vật thay đổi biểu cảm tức thì",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng một khuôn mặt nhân vật nằm trong duy nhất một lớp **Compound Shape** phi phá hủy:\n\n1. Vòng đầu: Hình tròn đặt chế độ `Add`.\n2. Hốc mắt: Hai hình tròn đặt chế độ `Subtract`.\n3. Con ngươi: Hai hình tròn nhỏ hơn đặt trong hốc mắt ở chế độ `Add`.\n4. Khe miệng: Hình viên thuốc đặt chế độ `Subtract`.\n5. Kéo dịch chuyển hai con ngươi lên, xuống, trái, phải để đổi hướng nhìn ngay trên bản vẽ.\n\n### Tiêu chí hoàn thành:\n- Toàn bộ gương mặt nằm gọn trong 1 lớp `(Compound)`.\n- Đổi được biểu cảm ánh mắt chỉ bằng thao tác kéo hình con.\n- Không gộp cứng phá hủy cấu trúc gốc.",
       "practiceData": {
-        "prompt": "Construct a dynamic vector character face using non-destructive Compound Shapes.",
+        "prompt": "Dựng khuôn mặt nhân vật vector động bằng Compound Shape phi phá hủy.",
         "starterAsset": {
           "filename": "D03_boolean_geometry_guide.md",
           "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
@@ -296,12 +296,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Compound Shapes."
+          "statusNote": "Hướng dẫn thực hành Compound Shapes."
         },
         "checkpoints": [
-          "Compound Shape created by the default Boolean operation in the current release",
-          "Multiple child shapes with mixed Add and Subtract modes",
-          "Real-time expression shifting verified"
+          "Đã tạo Compound Shape bằng phép toán Boolean mặc định trên bản hiện hành",
+          "Phối hợp nhiều hình con với các chế độ Add và Subtract",
+          "Kiểm chứng đổi hướng nhìn theo thời gian thực"
         ]
       }
     }

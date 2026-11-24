@@ -2,20 +2,20 @@
   "id": "P01",
   "trackId": "photo",
   "moduleNumber": "P01",
-  "title": "Photo Interface, RAW Develop Persona & Color Profiles",
-  "tagline": "Master professional photo editing foundations, high-bitdepth RAW development, and color management.",
-  "description": "Understand the non-destructive architecture of Affinity Photo 3.0: workspace navigation, 32-bit floating point HDR color pipelines, RAW Develop Persona exposure recovery, white balance calibration, chromatic aberration removal, and non-destructive canvas geometry.",
+  "title": "Giao Diện Photo, Thanh Điều Khiển & Các Bảng Studio",
+  "tagline": "Làm chủ nền tảng chỉnh sửa ảnh phi phá hủy, phát triển ảnh RAW bit sâu cao và quản trị màu sắc.",
+  "description": "Khám phá không gian làm việc chuyên nghiệp trong Pixel Studio / Affinity Photo: điều hướng bảng Studio, quy trình màu HDR 32-bit dấu phẩy động, phục hồi phơi sáng và cân bằng trắng trong Develop Studio, khử quang sai và hình học vùng vẽ phi phá hủy.",
   "difficulty": "Beginner",
   "estimatedMinutes": 80,
   "prerequisites": [],
-  "primaryPersona": "Develop Persona & Photo Persona",
+  "primaryPersona": "Develop Studio & Pixel Studio",
   "starterAsset": {
     "filename": "P01_starter.afphoto",
     "filepath": "curriculum/assets/photo/P01_starter.afphoto",
     "filesize": "1.65 MB",
     "filetype": ".afphoto",
     "isVerified": true,
-    "statusNote": "Verified genuine Affinity Photo document (1.65 MB) tested in active Affinity 3.3.3 session."
+    "statusNote": "Tài liệu Affinity gốc đã xác minh (1.65 MB), dùng cho thực hành nền tảng trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P01-01", "P01-02", "P01-03"]
 }

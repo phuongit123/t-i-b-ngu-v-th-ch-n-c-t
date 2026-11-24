@@ -1,10 +1,10 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE P08
 ## CHỦ ĐỀ: TÍCH HỢP CHỮ NGHỆ THUẬT & ĐỒ HỌA VECTOR (TYPOGRAPHY & GRAPHIC INTEGRATION)
 
-**Tệp tài nguyên:** `P08_typography_graphic_integration_guide.md`  
-**Phân loại tài nguyên:** `GUIDE_DOCUMENT`  
-**Phiên bản mục tiêu:** Serif Affinity Photo 3.0+ (Tested in Affinity 3.3.3)  
-**Persona áp dụng:** Photo Persona  
+- **Tệp tài nguyên:** `P08_typography_graphic_integration_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity — Pixel Studio
+- **Persona áp dụng:** Photo Persona
 
 ---
 

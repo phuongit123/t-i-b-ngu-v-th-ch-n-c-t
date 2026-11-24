@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 export interface TabItem {
   id: string;
   label: string;
-  srText?: string;
+  testId?: string;
   badge?: string | number;
   icon?: React.ReactNode;
 }
@@ -37,9 +37,11 @@ export const Tabs: React.FC<TabsProps> = ({
         const isActive = tab.id === activeId;
         return (
           <button
+            type="button"
             key={tab.id}
             role="tab"
             aria-selected={isActive}
+            data-testid={tab.testId ?? `tab-${tab.id}`}
             onClick={() => onChange(tab.id)}
             className={cn(
               'relative flex items-center gap-2 text-xs font-medium px-3 py-2 transition-colors select-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400',
@@ -55,7 +57,6 @@ export const Tabs: React.FC<TabsProps> = ({
           >
             {tab.icon}
             <span>{tab.label}</span>
-            {tab.srText && <span className="sr-only">{tab.srText}</span>}
             {tab.badge !== undefined && (
               <span
                 className={cn(

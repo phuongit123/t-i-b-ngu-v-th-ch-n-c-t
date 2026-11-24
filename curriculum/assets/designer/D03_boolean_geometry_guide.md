@@ -1,48 +1,57 @@
-# AFFINITY DESIGNER PRACTICE GUIDE — MODULE D03
-## Advanced Shape Creation & Boolean Geometry Practice Guide
+# TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D03
+## CHỦ ĐỀ: TẠO HÌNH NÂNG CAO & THAO TÁC HÌNH HỌC BOOLEAN
 
-**Module ID:** `D03`  
-**Difficulty:** Beginner  
-**Track:** Affinity Designer  
-**Asset Status:** `GUIDE_DOCUMENT`  
-**Target File:** Manual canvas setup in Affinity Designer 3.3.3  
-
----
-
-### 1. Document Setup Instructions
-1. Open Affinity Designer 3.3.3.
-2. Create a new document: `Web > FHD (1920 x 1080 px)` or `Print > A4`.
-3. Check **Create Artboard** and click **Create**.
+- **Tệp tài nguyên:** `D03_boolean_geometry_guide.md`
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+- **Phiên bản mục tiêu:** Affinity (kiểm chứng trên Affinity 3.3.3)
+- **Persona áp dụng:** Vector Persona (không gian thiết kế vector)
 
 ---
 
-### 2. Practice Exercises
+### 1. MỤC TIÊU THỰC HÀNH
+1. Sử dụng bộ hình khối tham số thông minh (Parametric Shapes) và kéo chỉnh trực tiếp các điểm nắm màu cam trên bản vẽ.
+2. Áp dụng 4 kiểu góc của **Corner Tool (C)** (công cụ bo và vát góc): `Rounded`, `Concave`, `Straight` và `Cutout`.
+3. Nắm vững 5 phép toán **Boolean** (`Add`, `Subtract`, `Intersect`, `Xor`, `Divide`) cùng quy trình **Compound Shapes** (tạo hình tổng hợp phi phá hủy mặc định) và phân biệt với lệnh **Join** phá hủy.
 
-#### Exercise 1: Parametric Shapes & Corner Tool (Lesson D03-01)
-- In the left Tools Panel, expand the shape tool flyout (under `M`).
-- Select the **Cog Tool**. Notice the orange on-canvas adjustment handles:
-  - Adjust tooth count (e.g. 12 teeth), hole radius, notch size, and tooth curvature directly by dragging the orange dots.
-- Convert parametric shape to vector curves using `Ctrl+Enter` (Win) / `Cmd+Enter` (Mac) or the **Convert to Curves** button.
-- Select the **Corner Tool (`C`)**.
-- Click and drag an acute vertex. Test the 4 corner types on the Context Toolbar:
-  1. **Rounded:** Standard circular arc radius.
-  2. **Concave:** Inward scooped radius.
-  3. **Straight:** Flat chiseled chamfer.
-  4. **Cutout:** Inward squared notch.
+---
 
-#### Exercise 2: Boolean Operations (Lesson D03-02)
-- Draw an ellipse and a rectangle overlapping on the canvas.
-- Select both shapes using the Move Tool (`V`).
-- On the top main toolbar (Geometry section), test each Boolean button:
-  - **Add:** Combines shapes into a single outline.
-  - **Subtract:** Cuts top shape out of bottom shape.
-  - **Intersect:** Preserves only overlapping intersection.
-  - **Xor:** Preserves non-overlapping areas, punching out the intersection.
-  - **Divide:** Slices both shapes into individual puzzle-piece fragments at every intersection edge.
+### 2. THIẾT LẬP TÀI LIỆU & MÔI TRƯỜNG THỰC HÀNH
+1. Mở Affinity và nhấn `Ctrl+N` (Windows) / `Cmd+N` (macOS).
+2. Chọn khổ **Web > FHD (1920 × 1080 px)** hoặc **Print > A4**.
+3. Tích chọn **Create Artboard** rồi nhấn **Create**.
 
-#### Exercise 3: Non-Destructive Compound Shapes (Lesson D03-03)
-- Select two overlapping vector shapes.
-- Hold **`Alt` (Windows) or `Option` (macOS)** and click any Boolean button (e.g. `Alt+Click Subtract`).
-- Look at the **Layers Studio**: notice a specialized **`(Compound)`** layer is created!
-- Expand the Compound layer: both primitive shapes are still completely intact inside!
-- Move or resize either shape; notice the subtraction recalculates live in real-time.
+---
+
+### 3. QUY TRÌNH THỰC HÀNH TỪNG BƯỚC
+
+#### Bài 1: Hình khối tham số & Corner Tool (Bài D03-01)
+- Trên thanh công cụ bên trái, nhấn giữ biểu tượng nhóm hình khối để mở danh sách và chọn **Cog Tool** (bánh răng).
+- Kéo tạo bánh răng trên bản vẽ, sau đó kéo các **điểm điều khiển màu cam** để chỉnh số răng (ví dụ 12 răng), bán kính lỗ trục, độ khuyết và độ nghiêng răng.
+- Chuyển khối tham số sang đường cong Bézier bằng `Ctrl+Enter` (Win) / `Cmd+Enter` (Mac) hoặc nút **Convert to Curves**.
+- Chọn **Corner Tool (`C`)**, nhấp chọn một đỉnh góc nhọn và thử lần lượt 4 kiểu góc trên thanh Context Toolbar:
+  1. **Rounded:** Bo tròn cung tròn tiêu chuẩn.
+  2. **Concave:** Lõm tròn vào bên trong.
+  3. **Straight:** Vát phẳng 45 độ kiểu kỹ thuật.
+  4. **Cutout:** Khoét bậc vuông góc vào trong.
+
+#### Bài 2: Năm phép toán hình học Boolean (Bài D03-02)
+- Vẽ một hình tròn và một hình chữ nhật giao nhau trên bản vẽ, sau đó chọn cả hai bằng **Move Tool (`V`)** (công cụ chọn và di chuyển).
+- Trong nhóm **Geometry** (thanh công cụ trên cùng hoặc `Layer > Geometry`), thử từng phép toán:
+  - **Add:** Hợp nhất các hình thành một đường bao chung.
+  - **Subtract:** Dùng hình nằm trên cắt khoét phần giao khỏi hình nằm dưới.
+  - **Intersect:** Chỉ giữ lại phần giao nhau chung.
+  - **Xor:** Giữ các phần ngoài và khoét rỗng phần giao nhau.
+  - **Divide:** Chia toàn bộ các vùng chồng lấn thành từng mảnh rời độc lập.
+
+#### Bài 3: Compound Shapes phi phá hủy (Bài D03-03)
+- Chọn hai hình vector xếp chồng lên nhau.
+- Nhấn chọn một phép toán Boolean (ví dụ **Subtract**) mà không cần giữ phím bổ trợ; ở bản Affinity hiện hành, phép toán Boolean mặc định tạo ra lớp **`(Compound)`** phi phá hủy (còn lệnh **Join** dùng khi bạn muốn gộp cứng phá hủy).
+- Mở rộng lớp **`(Compound)`** trong **Layers Studio** (bảng quản lý lớp): cả hai hình gốc bên trong vẫn còn nguyên vẹn; hãy kiểm tra trực tiếp nhãn nút đổi phép toán từng lớp con trên bản cài đặt của bạn.
+- Dùng Move Tool (`V`) kéo dịch một hình con bên trong để quan sát kết quả cắt khoét cập nhật theo thời gian thực.
+
+---
+
+### 4. BÀI TẬP TỰ ĐÁNH GIÁ (CHALLENGE CHECKPOINTS)
+- [ ] Thành thạo việc chỉnh trực tiếp hình tham số trước khi nhấn `Convert to Curves`.
+- [ ] Thực hành tách mảng bằng **Divide** và sắp xếp thứ tự lớp để tạo hiệu ứng đan xen trên/dưới sạch sẽ.
+- [ ] Phân biệt rõ khi nào giữ lớp **Compound** động để dễ sửa và khi nào dùng **Join** hoặc **Convert to Curves** để chốt hình cuối xuất file.

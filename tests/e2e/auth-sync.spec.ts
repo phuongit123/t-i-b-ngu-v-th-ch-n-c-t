@@ -1,86 +1,111 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Phase 6 — Supabase Auth, Profiles & Sync Engine', () => {
-  test('TC-AUTH-01: Auth modal opens from navigation and closes cleanly', async ({ page }) => {
+test.describe('Xác thực tài khoản & Trạng thái đồng bộ Header', () => {
+  test('TC-AUTH-01: Hộp thoại xác thực mở sạch không chứa Offline Test và đóng bình thường', async ({ page }) => {
     await page.goto('/');
 
-    // Locate Auth / Profile button in header
-    const authBtn = page.locator('header button[aria-label="Tài khoản và hồ sơ học viên"]');
+    const authBtn = page.getByTestId('nav-auth-btn');
     await expect(authBtn).toBeVisible();
     await authBtn.click();
 
-    // Verify Auth Modal dialog appears
-    const modal = page.locator('div[role="dialog"]');
-    await expect(modal).toBeVisible();
-    await expect(page.locator('#auth-modal-title')).toBeVisible();
-
-    // Close modal via close button
-    const closeBtn = page.locator('button[aria-label="Đóng cửa sổ"]');
-    await closeBtn.click();
-    await expect(page.locator('#auth-modal-title')).not.toBeVisible();
-  });
-
-  test('TC-AUTH-02: Auth modal supports tab switching (Sign In, Sign Up, Forgot Password)', async ({ page }) => {
-    await page.goto('/');
-
-    const authBtn = page.locator('header button[aria-label="Tài khoản và hồ sơ học viên"]');
-    await authBtn.click();
-
-    const dialog = page.locator('div[role="dialog"]');
+    const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
+    await expect(page.locator('#auth-modal-title')).toBeVisible();
+    await expect(dialog.locator('text=Offline Test')).toHaveCount(0);
 
-    // Verify Sign In tab is active by default
-    await expect(dialog.locator('input[placeholder="tenhocvien@domain.com"]')).toBeVisible();
-
-    // Switch to Sign Up tab inside dialog
-    const signUpTab = dialog.locator('button:has-text("Đăng ký")');
-    await signUpTab.click();
-    await expect(dialog.locator('input[placeholder="Nguyễn Văn A"]')).toBeVisible();
-    await expect(dialog.locator('select')).toBeVisible(); // Career track selector
-
-    // Switch to Forgot Password tab inside dialog
-    const forgotTab = dialog.locator('button:has-text("Khôi phục")');
-    await forgotTab.click();
-    await expect(dialog.locator('text=Nhập địa chỉ email đăng ký để nhận liên kết xác thực')).toBeVisible();
-
-    // Close dialog
     await dialog.locator('button[aria-label="Đóng cửa sổ"]').click();
     await expect(page.locator('#auth-modal-title')).not.toBeVisible();
   });
 
-  test('TC-AUTH-03: Offline guest test switcher updates role and profile badge', async ({ page }) => {
+  test('TC-AUTH-02: Chuyển tab Đăng nhập / Đăng ký / Khôi phục hoạt động chuẩn xác', async ({ page }) => {
     await page.goto('/');
+    await page.getByTestId('nav-auth-btn').click();
 
-    const authBtn = page.locator('header button[aria-label="Tài khoản và hồ sơ học viên"]');
-    await authBtn.click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.locator('input[placeholder="tenhocvien@domain.com"]')).toBeVisible();
 
-    const dialog = page.locator('div[role="dialog"]');
-    await expect(dialog).toBeVisible();
+    await dialog.locator('button:has-text("Đăng ký")').click();
+    await expect(dialog.locator('input[placeholder="Nguyễn Văn A"]')).toBeVisible();
+    await expect(dialog.locator('select')).toBeVisible();
 
-    // Click offline guest experience button
-    const guestBtn = dialog.locator('button:has-text("trải nghiệm nhanh với tư cách Học viên khách")');
-    if (await guestBtn.isVisible()) {
-      await guestBtn.click();
-      await page.waitForTimeout(700); // Allow role switch animation
-    }
+    await dialog.locator('button:has-text("Khôi phục")').click();
+    await expect(
+      dialog.locator('text=Nhập địa chỉ email đăng ký để nhận liên kết xác thực')
+    ).toBeVisible();
 
-    // Reopen modal to inspect active profile
-    await authBtn.click();
-    await expect(page.locator('#auth-modal-title')).toContainText('Hồ Sơ Học Viên');
-
-    // Test switching role to Evaluator (Giám khảo)
-    const evaluatorBtn = page.locator('button:has-text("Giám khảo")');
-    if (await evaluatorBtn.isVisible()) {
-      await evaluatorBtn.click();
-      await page.waitForTimeout(700);
-    }
+    await dialog.locator('button[aria-label="Đóng cửa sổ"]').click();
+    await expect(page.locator('#auth-modal-title')).not.toBeVisible();
   });
 
-  test('TC-AUTH-04: Header displays progress cloud sync indicator', async ({ page }) => {
+  test('TC-AUTH-03: Đăng ký tài khoản học viên lưu hồ sơ không lộ bảng đổi vai trò demo', async ({ page }) => {
     await page.goto('/');
+    await page.getByTestId('nav-auth-btn').click();
 
-    // Header sync badge should be present (either ĐÃ ĐỒNG BỘ, NGOẠI TUYẾN, or CHỜ LƯU)
-    const syncBadge = page.locator('header span:has-text("ĐỒNG BỘ"), header span:has-text("NGOẠI TUYẾN"), header span:has-text("CHỜ LƯU")').first();
-    await expect(syncBadge).toBeVisible();
+    const dialog = page.getByRole('dialog');
+    await dialog.locator('button:has-text("Đăng ký")').click();
+    await dialog.locator('input[placeholder="Nguyễn Văn A"]').fill('Lê Hoàng Anh');
+    await dialog.locator('input[placeholder="tenhocvien@domain.com"]').fill('hoanganh@affinity.vn');
+    await dialog.locator('input[type="password"]').fill('matkhau123');
+    await dialog.locator('button:has-text("Tạo Tài Khoản Học Viên")').click();
+
+    await page.waitForTimeout(1050);
+
+    // Reopen profile modal and verify clean student profile without role escalation switcher
+    await page.getByTestId('nav-auth-btn').click();
+    await expect(page.locator('#auth-modal-title')).toContainText('Hồ Sơ Học Viên');
+    await expect(dialog).toContainText('Lê Hoàng Anh');
+    await expect(dialog).toContainText('Vai trò: Học viên');
+    await expect(dialog.locator('text=Offline Test')).toHaveCount(0);
+    await expect(dialog.locator('button:has-text("Giám khảo")')).toHaveCount(0);
+  });
+
+  test('TC-AUTH-04: Header hiển thị huy hiệu trạng thái đồng bộ', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByTestId('sync-status-badge')).toBeVisible();
+  });
+  test('TC-AUTH-05: Modal trả focus và báo trạng thái khôi phục offline', async ({ page }) => {
+    await page.goto('/');
+    const opener = page.getByTestId('nav-auth-btn');
+    await opener.click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.getByRole('button', { name: 'Đóng cửa sổ' })).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(opener).toBeFocused();
+    await opener.click();
+    await dialog.getByRole('button', { name: 'Khôi phục', exact: true }).click();
+    await dialog.locator('input[type=email]').fill('learner@example.invalid');
+    await dialog.getByRole('button', { name: 'Gửi Liên Kết Khôi Phục' }).click();
+    await expect(dialog.getByText('Khôi phục mật khẩu cần kết nối dịch vụ tài khoản.')).toBeVisible();
+  });
+
+  test('TC-AUTH-06: Hai hồ sơ offline lưu tiến độ riêng trên cùng trình duyệt', async ({ page }) => {
+    await page.goto('/');
+    const opener = page.getByTestId('nav-auth-btn');
+    const dialog = page.getByRole('dialog');
+    const openProfile = async (email: string) => {
+      await opener.click();
+      await dialog.locator('input[type=email]').fill(email);
+      await dialog.locator('input[type=password]').fill('audit-password');
+      await dialog.locator('button[type=submit]').click();
+      await expect(dialog).toBeHidden();
+    };
+    const signOut = async () => {
+      await opener.click();
+      await dialog.getByRole('button', { name: /Đăng xuất/ }).click();
+      await expect(dialog).toBeHidden();
+    };
+    await openProfile('learner-a@example.invalid');
+    await page.goto('/bai-hoc/d01-01');
+    await page.getByTestId('lesson-mode-sections').click();
+    await page.getByTestId('sections-complete-lesson-btn').click();
+    await page.goto('/ho-so-hoc-tap');
+    await expect(page.getByTestId('dashboard-completed-card')).toContainText('1 / 66 bài');
+    await signOut();
+    await openProfile('learner-b@example.invalid');
+    await expect(page.getByTestId('dashboard-completed-card')).toContainText('0 / 66 bài');
+    await signOut();
+    await openProfile('learner-a@example.invalid');
+    await expect(page.getByTestId('dashboard-completed-card')).toContainText('1 / 66 bài');
   });
 });

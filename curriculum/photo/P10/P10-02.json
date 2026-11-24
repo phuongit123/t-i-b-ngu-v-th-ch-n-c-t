@@ -3,8 +3,8 @@
   "moduleId": "P10",
   "trackId": "photo",
   "order": 2,
-  "title": "Color Spaces (sRGB vs P3 vs Adobe RGB) & File Compression (WebP, JPEG XL, TIFF, PSD)",
-  "subtitle": "Master color management profiles, rendering intents, and next-generation file compression formats.",
+  "title": "Không gian màu và nén tệp: sRGB, P3, Adobe RGB, WebP, JPEG XL, TIFF, PSD",
+  "subtitle": "Làm chủ hồ sơ quản lý màu sắc, cơ chế chuyển đổi Rendering Intents và các định dạng nén hiện đại.",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Color Management & Export Formats",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Document > Convert Format / ICC Profile / Ctrl + Alt + Shift + S",
         "mac": "Document > Convert Format / ICC Profile / Cmd + Option + Shift + S"
@@ -90,7 +90,7 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Slice Studio và đóng gói xuất bản trong Affinity Photo."
       },
       "challengeCriteria": [
         "File web sRGB hiển thị rực rỡ và nhúng profile ICC chính xác.",
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P10-03 Capstone Project — End-to-End Master Workflow",
+          "title": "Bài tiếp theo: P10-03 Đồ án cuối khóa — Quy trình thương mại hoàn chỉnh",
           "target": "P10-03",
           "type": "next-lesson"
         },
@@ -177,7 +177,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Technical practice guide for professional export, color management, and capstone workflow in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn xuất bản chuyên nghiệp, quản lý màu sắc và quy trình đồ án tốt nghiệp trong Pixel Studio / Affinity Photo."
   },
   "slides": [
     {
@@ -188,12 +188,12 @@
       "type": "concept",
       "content": "Mắt người nhìn thấy hàng tỷ màu sắc trong biểu đồ CIE 1931 Chromaticity. Tuy nhiên, mỗi thiết bị (màn hình, máy in) chỉ có thể tái tạo một vùng màu giới hạn gọi là không gian màu (Gamut). Có 3 chuẩn màu chính trong nhiếp ảnh số: sRGB, Display P3 và Adobe RGB.",
       "tips": "ProPhoto RGB có dải màu rộng nhất, bao phủ 90% quang phổ mắt người nhìn thấy.",
-      "codeSnippet": "Color Gamut Hierarchy:\nProPhoto RGB (Gigantic - Covers 90% visible spectrum, ideal for 16-bit RAW)\n  └── Adobe RGB 1998 (Wide - Rich cyans & greens, ideal for professional print)\n       └── Display P3 (Wide - Rich reds & greens on iPhone/Mac/Modern displays)\n            └── sRGB (Standard - Universal web standard, universally safe)"
+      "codeSnippet": "Hệ phân cấp không gian màu (Color Gamut):\nProPhoto RGB (Cực rộng - Bao phủ ~90% quang phổ nhìn thấy, tối ưu cho RAW 16-bit)\n  └── Adobe RGB 1998 (Rộng - Giàu sắc xanh lam & xanh lục, tối ưu cho in ấn cao cấp)\n       └── Display P3 (Rộng - Giàu đỏ & xanh lục trên iPhone / Mac / Màn hình hiện đại)\n            └── sRGB (Tiêu chuẩn - Chuẩn phổ thông an toàn nhất cho Web)"
     },
     {
       "id": "slide-p10-02-02",
       "order": 2,
-      "title": "Phân biệt Convert Profile vs Assign Profile",
+      "title": "Phân biệt Convert Profile và Assign Profile",
       "subtitle": "Quy tắc sống còn chống sai lệch màu sắc",
       "type": "workflow",
       "content": "1) Convert Format / Profile: Giữ nguyên màu sắc mắt người nhìn thấy bằng cách tự động tính toán lại các con số RGB tương ứng trong không gian màu mới (DÙNG LỆNH NÀY 99% THỜI GIAN); 2) Assign Profile: Giữ nguyên các con số RGB nhưng thay đổi nhãn profile, làm biến đổi toàn bộ màu sắc nhìn thấy.",
@@ -208,7 +208,7 @@
       "type": "interaction",
       "content": "Khi chuyển một bức ảnh từ không gian màu rộng sang không gian màu hẹp, các màu rực rỡ vượt ngưỡng sẽ được xử lý ra sao? 1) Relative Colorimetric (chuẩn phổ biến nhất, dịch chuyển các màu ngoài ngưỡng về mép giới hạn); 2) Perceptual (co cụm toàn bộ dải màu theo tỷ lệ để bảo tồn độ phân tách sắc thái); 3) Saturation; 4) Absolute.",
       "tips": "Với ảnh phong cảnh rực rỡ có mây hoàng hôn đỏ gắt, thử nghiệm giữa Relative Colorimetric và Perceptual để chọn phương án giữ chi tiết tốt nhất.",
-      "codeSnippet": "Rendering Intents Guide:\n- Relative Colorimetric: Matches in-gamut colors exactly, clips out-of-gamut to gamut boundary (Default for photography)\n- Perceptual: Compresses all colors proportionally to preserve visual gradient relationships\n- Black Point Compensation: Prevents shadow crunch when converting profiles"
+      "codeSnippet": "Hướng dẫn chọn Rendering Intents:\n- Relative Colorimetric: Khớp chính xác màu trong ngưỡng, ép màu vượt ngưỡng về biên (Mặc định cho nhiếp ảnh)\n- Perceptual: Nén toàn bộ dải màu theo tỷ lệ để bảo toàn độ chuyển sắc mượt mà\n- Black Point Compensation: Ngăn bết mất chi tiết vùng tối khi chuyển đổi profile"
     },
     {
       "id": "slide-p10-02-04",
@@ -224,16 +224,16 @@
       "id": "slide-p10-02-05",
       "order": 5,
       "title": "So sánh các định dạng nén hiện đại",
-      "subtitle": "WebP vs JPEG XL vs TIFF vs PSD",
+      "subtitle": "So sánh WebP, JPEG XL, TIFF và PSD",
       "type": "layout",
       "content": "WebP: Tiêu chuẩn hiện đại cho web, hỗ trợ độ trong suốt và nén nhỏ hơn 35% so với JPEG. JPEG XL: Tương lai của ảnh chất lượng cao với dải động HDR và không suy giảm chi tiết. TIFF: Định dạng chuẩn cho in ấn cao cấp, hỗ trợ 16-bit và không nén tổn hao (Lossless LZW/ZIP).",
       "tips": "Tránh dùng JPEG cho các logo có đường kẻ mảnh và chữ vì thuật toán DCT của JPEG gây hiện tượng nhòe viền chữ (ringing artifacts).",
-      "codeSnippet": "Format Decision Matrix:\n- Web & Mobile Apps -> WebP (Quality 85%) or PNG-24 for transparency\n- Fine Art Printing -> TIFF (16-bit, Adobe RGB 1998, LZW Compression)\n- Master Archival -> .afphoto (Native) or TIFF Multi-layer\n- Client Collaboration (Adobe users) -> PSD with compatibility enabled"
+      "codeSnippet": "Ma trận chọn định dạng xuất tệp:\n- Web & Ứng dụng di động -> WebP (Chất lượng 85%) hoặc PNG-24 khi cần nền trong suốt\n- In ấn mỹ thuật cao cấp -> TIFF (16-bit, Adobe RGB 1998, Nén LZW)\n- Lưu trữ bản gốc Master -> .afphoto (Định dạng gốc) hoặc TIFF đa lớp\n- Cộng tác với người dùng Adobe -> PSD bật tùy chọn tương thích"
     },
     {
       "id": "slide-p10-02-06",
       "order": 6,
-      "title": "Độ sâu màu (Bit Depth): 8-bit vs 16-bit vs 32-bit",
+      "title": "Độ sâu màu (Bit Depth): 8-bit, 16-bit và 32-bit",
       "subtitle": "Bí quyết chống hiện tượng vỡ dải màu (Banding)",
       "type": "diagram",
       "content": "8-bit cung cấp 256 cấp độ mỗi kênh (16.7 triệu màu), dễ bị hiện tượng vỡ hạt vệt (Banding) khi kéo Curves gắt trên bầu trời mượt mà. 16-bit cung cấp 65,536 cấp độ mỗi kênh, đảm bảo các chuyển sắc gradient hoàn toàn mịn màng. 32-bit float dùng cho HDR và dữ liệu thấu kính quang học.",
@@ -248,7 +248,7 @@
       "type": "summary",
       "content": "Một gói bàn giao thương mại chuẩn bao gồm: 1) Thư mục /Master_Archival/ (.afphoto và TIFF 16-bit Adobe RGB); 2) Thư mục /Print_HighRes/ (TIFF/JPEG 300DPI CMYK hoặc Adobe RGB); 3) Thư mục /Web_Social/ (WebP/JPEG 72-144DPI sRGB tối ưu nén kèm nhúng ICC profile).",
       "tips": "Luôn giữ lại bản quyền metadata tác giả và bản quyền trong thẻ EXIF/IPTC khi xuất.",
-      "codeSnippet": "Delivery Quality Checklist:\n[✓] Color profile converted to sRGB for web / Adobe RGB for print\n[✓] ICC Profile embedded in file header\n[✓] Bit depth optimized (8-bit for web, 16-bit for master print)\n[✓] Clean folder structure with naming conventions applied"
+      "codeSnippet": "Danh sách kiểm tra chất lượng bàn giao:\n[✓] Đã chuyển profile màu về sRGB cho Web / Adobe RGB cho In ấn\n[✓] Đã nhúng ICC Profile trong phần đầu tệp\n[✓] Đã tối ưu độ sâu bit màu (8-bit cho Web, 16-bit cho bản in Master)\n[✓] Đã sắp xếp thư mục gọn gàng theo đúng quy ước đặt tên"
     }
   ]
 }

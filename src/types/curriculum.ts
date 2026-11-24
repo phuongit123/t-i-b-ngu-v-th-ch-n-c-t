@@ -45,8 +45,10 @@ export interface VisualExample {
 }
 
 export interface PitfallItem {
-  pitfall: string;
-  cause: string;
+  pitfall?: string;
+  cause?: string;
+  mistake?: string;
+  consequence?: string;
   solution: string;
 }
 
@@ -60,6 +62,7 @@ export interface QuizQuestion {
 
 export type AssetStatus = 
   | 'REAL_AFFINITY_FILE'
+  | 'CAMERA_RAW'
   | 'GUIDE_DOCUMENT'
   | 'JAVASCRIPT_SCRIPT'
   | 'EXTERNAL_RESOURCE'
@@ -75,7 +78,7 @@ export interface PracticeAssetInfo {
   filename: string;
   filepath: string;
   filesize: string;
-  filetype: '.afdesign' | '.afphoto' | '.afpub' | '.js' | '.pdf' | '.md';
+  filetype: '.afdesign' | '.afphoto' | '.afpub' | '.js' | '.pdf' | '.md' | '.nef';
   assetStatus: AssetStatus;
   isVerified: boolean;
   statusNote: string;
@@ -101,6 +104,7 @@ export interface StandardLessonSections {
   guidedPractice: {
     title: string;
     taskDescription: string;
+    starterAsset?: PracticeAssetInfo;
     checkpoints: string[];
     expectedOutcome: string;
   };
@@ -108,18 +112,22 @@ export interface StandardLessonSections {
     title: string;
     prompt: string;
     starterAsset?: PracticeAssetInfo;
-    challengeCriteria: string[];
+    challengeCriteria?: string[];
+    successCriteria?: string[];
     bonusGoal?: string;
   };
   commonPitfalls: PitfallItem[];
   knowledgeCheck: QuizQuestion[];
   summaryAndResources: {
-    summaryPoints: string[];
-    relatedResources: {
+    summaryPoints?: string[];
+    relatedResources?: {
       title: string;
       target: string;
       type: 'doc' | 'asset' | 'next-lesson' | 'mcp-api' | 'next-track' | 'guide';
     }[];
+    keyTakeaways?: string[];
+    nextSteps?: string;
+    officialDocsUrl?: string;
   };
 }
 
@@ -165,6 +173,7 @@ export interface CurriculumLesson {
   subtitle: string;
   durationMinutes: number;
   difficulty: LessonDifficulty;
+  practiceAsset?: PracticeAssetInfo;
   standardSections: StandardLessonSections;
   slides: LessonSlide[];
 }

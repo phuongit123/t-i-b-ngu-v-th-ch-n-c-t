@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useSyncExternalStore } from 'react';
 import { PageHeader } from '@/components/layout/PageHeader';
 import {
   Award,
@@ -6,192 +6,164 @@ import {
   CheckCircle2,
   Clock,
   RotateCw,
-  AlertTriangle,
   Layers,
   ArrowRight,
   Flame,
   Settings as SettingsIcon,
+  UserCheck,
 } from 'lucide-react';
 import { ALL_PILOT_LESSONS } from '@/data/curriculum/index';
+import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
+import { PRACTICE_CHALLENGES } from '@/data/challenges/index';
+import { useLearningProgress } from '@/lib/learning-store';
+import { usePreferences } from '@/lib/preferences-context';
+import { useAuth } from '@/lib/supabase/auth-context';
+import { flushSyncQueue, subscribeSyncStatus, getSyncStatus, getLastSyncAt } from '@/lib/supabase/progress-sync';
+import { listCloudSubmissions } from '@/lib/cloud-capstone';
+import { loadCurrentSubmission } from '@/lib/capstone-service';
 
 export interface DashboardPageProps {
   onNavigate?: (route: string) => void;
 }
 
+const TRACK_FILTER_OPTIONS = [
+  { id: 'all', label: 'Tất cả' },
+  { id: 'designer', label: 'Vector Studio' },
+  { id: 'photo', label: 'Pixel Studio' },
+  { id: 'publisher', label: 'Layout Studio' },
+  { id: 'scripting', label: 'Tự động hóa' },
+] as const;
+
+const DIFFICULTY_VI: Record<string, string> = {
+  Beginner: 'Cơ bản',
+  Intermediate: 'Trung cấp',
+  Advanced: 'Nâng cao',
+};
+
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
-  const [completedLessonIds, setCompletedLessonIds] = useState<string[]>([]);
-  const [challengesCount, setChallengesCount] = useState<number>(0);
-  const [capstonePassed, setCapstonePassed] = useState<boolean>(false);
-  const [capstoneScore, setCapstoneScore] = useState<number>(0);
-  const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('synced');
-  const [syncErrorMessage, setSyncErrorMessage] = useState<string>('');
+  const { user, profile, isConfigured } = useAuth();
+  const userId = user?.id;
+  const { preferences } = usePreferences();
+  const {
+    completedLessonIds,
+    inProgressLessonIds,
+    completedCount,
+    totalLessonsCount,
+    activeStreakDays,
+    totalStudyMinutes,
+    challengeScores,
+    getTrackProgress,
+  } = useLearningProgress();
+
+  const syncStatus = useSyncExternalStore(subscribeSyncStatus, getSyncStatus);
+  const lastSyncAt = useSyncExternalStore(subscribeSyncStatus, getLastSyncAt);
+  const syncLabel = {
+    offline: 'Lưu tiến độ trên thiết bị', pending: 'Đang chờ đồng bộ', synced: 'Tiến độ đã đồng bộ',
+    syncing: 'Đang đồng bộ hóa dữ liệu…', error: 'Đồng bộ chưa thành công. Có thể thử lại.',
+  }[syncStatus];
   const [activeFilterTrack, setActiveFilterTrack] = useState<string>('all');
 
-  // Load actual progress from LocalStorage
+  const [capstone, setCapstone] = useState(() => loadCurrentSubmission(!isConfigured));
   useEffect(() => {
-    try {
-      // 1. Lessons progress
-      const savedLessons = localStorage.getItem('affinity_lesson_progress');
-      if (savedLessons) {
-        const parsed = JSON.parse(savedLessons);
-        setCompletedLessonIds(Array.isArray(parsed) ? parsed : parsed.completedLessons || []);
-      } else {
-        // Fallback default: Mark first 2 lessons for illustration if empty
-        setCompletedLessonIds(['D01-01', 'P01-01']);
-      }
-
-      // 2. Challenges progress
-      const savedChallenges = localStorage.getItem('affinity_challenges_progress');
-      if (savedChallenges) {
-        const parsed = JSON.parse(savedChallenges) as Record<string, { completed?: boolean }>;
-        const count = Object.values(parsed).filter((p) => Boolean(p?.completed)).length;
-        setChallengesCount(count);
-      }
-
-      // 3. Capstone official evaluation
-      const savedCapstone = localStorage.getItem('affinity_capstone_official_evaluation');
-      if (savedCapstone) {
-        const parsed = JSON.parse(savedCapstone);
-        setCapstonePassed(parsed.isPassed || false);
-        setCapstoneScore(parsed.totalWeightedScore || 0);
-      }
-    } catch {
-      // Fallback
-    }
-  }, []);
-
-  // Track breakdown
-  const tracks = [
-    {
-      id: 'designer',
-      name: 'Vector Studio',
-      totalLessons: 30,
-      completed: completedLessonIds.filter((id) => id.startsWith('D')).length,
-      color: 'sky',
-    },
-    {
-      id: 'photo',
-      name: 'Pixel Studio',
-      totalLessons: 30,
-      completed: completedLessonIds.filter((id) => id.startsWith('P')).length,
-      color: 'emerald',
-    },
-    {
-      id: 'publisher',
-      name: 'Layout Studio',
-      totalLessons: 3,
-      completed: completedLessonIds.filter((id) => id.startsWith('B')).length,
-      color: 'purple',
-    },
-    {
-      id: 'scripting',
-      name: 'Automation & MCP',
-      totalLessons: 3,
-      completed: completedLessonIds.filter((id) => id.startsWith('S')).length,
-      color: 'amber',
-    },
-  ];
-
-  const totalCompleted = completedLessonIds.length;
-  const totalAvailableLessons = 66;
-  const overallPercentage = Math.round((totalCompleted / totalAvailableLessons) * 100);
-
-  // Trigger simulated sync
-  const handleTriggerSync = (simulateFailure = false) => {
-    setSyncStatus('syncing');
-    setSyncErrorMessage('');
-
-    setTimeout(() => {
-      if (simulateFailure) {
-        setSyncStatus('error');
-        setSyncErrorMessage('Lỗi 503 Service Unavailable: Không thể kết nối với dịch vụ lưu trữ đám mây. Dữ liệu vẫn được bảo vệ an toàn trên trình duyệt cục bộ.');
-      } else {
-        setSyncStatus('synced');
-      }
-    }, 600);
+    if (!userId) return;
+    let active = true;
+    listCloudSubmissions(userId).then(rows => {
+      if (active && rows[0]) setCapstone(rows[0]);
+    }).catch(console.warn);
+    return () => { active = false; };
+  }, [userId]);
+  const capstoneStatus = {
+    isPassed: Boolean(capstone.officialEvaluation?.passed),
+    score: capstone.officialEvaluation?.weightedScore ?? 0,
+    isSubmitted: capstone.version > 0,
   };
 
-  const filteredLessons = ALL_PILOT_LESSONS.filter((les) => {
-    if (activeFilterTrack === 'all') return true;
-    if (activeFilterTrack === 'designer') return les.id.startsWith('D');
-    if (activeFilterTrack === 'photo') return les.id.startsWith('P');
-    if (activeFilterTrack === 'publisher') return les.id.startsWith('B');
-    if (activeFilterTrack === 'scripting') return les.id.startsWith('S');
-    return true;
-  });
+  const passedChallengesCount = useMemo(
+    () => Object.values(challengeScores).filter((item) => item.passed).length,
+    [challengeScores]
+  );
+
+  const overallPercentage =
+    totalLessonsCount > 0 ? Math.round((completedCount / totalLessonsCount) * 100) : 0;
+
+  const tracks = useMemo(() => {
+    const designerProg = getTrackProgress('designer');
+    const photoProg = getTrackProgress('photo');
+    const publisherProg = getTrackProgress('publisher');
+    const scriptingProg = getTrackProgress('scripting');
+
+    return [
+      { id: 'designer', name: 'Vector Studio', ...designerProg },
+      { id: 'photo', name: 'Pixel Studio', ...photoProg },
+      { id: 'publisher', name: 'Layout Studio', ...publisherProg },
+      { id: 'scripting', name: 'Tự động hóa & MCP', ...scriptingProg },
+    ];
+  }, [getTrackProgress]);
+
+  const handleTriggerSync = () => {
+    if (userId) void flushSyncQueue(userId, true);
+  };
+
+  const filteredLessons = useMemo(
+    () =>
+      ALL_PILOT_LESSONS.filter((les) => {
+        if (activeFilterTrack === 'all') return true;
+        return les.trackId === activeFilterTrack;
+      }),
+    [activeFilterTrack]
+  );
+
+  const learnerName = profile?.display_name || preferences.displayName;
 
   return (
     <div className="space-y-6">
       <PageHeader
-        title={
-          <div className="flex flex-wrap items-center gap-3">
-            <span>Bảng Điều Khiển Học Viên &amp; Hồ Sơ Năng Lực</span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/50">
-              NHÓM DASHBOARD
-            </span>
-          </div>
-        }
-        description="Theo dõi tiến độ hoàn thành 66 bài học hiện hữu theo từng Studio, lịch sử rèn luyện thử thách, trạng thái tốt nghiệp Đồ án A5 và quản lý đồng bộ dữ liệu."
-        badge={`Tiến độ tổng thể: ${overallPercentage}% (${totalCompleted} / 66 bài học)`}
+        title="Bảng Điều Khiển Học Viên & Hồ Sơ Năng Lực"
+        description={`Xin chào ${learnerName}. Theo dõi tiến độ hoàn thành ${totalLessonsCount} bài học thực tế theo từng Studio, kết quả rèn luyện thử thách và trạng thái Đồ án tốt nghiệp.`}
+        badge={`Hồ sơ học tập · ${overallPercentage}% (${completedCount} / ${totalLessonsCount} bài học)`}
       />
 
-      {/* Cloud Sync Status & Error Simulation Bar */}
+      {/* Local & Cloud Progress Synchronization Bar */}
       <div className="p-4 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div
             className={`w-2.5 h-2.5 rounded-full ${
-              syncStatus === 'synced'
-                ? 'bg-emerald-400'
-                : syncStatus === 'syncing'
-                ? 'bg-cyan-400 animate-ping'
-                : 'bg-red-400'
+              syncStatus === 'synced' ? 'bg-emerald-400' : 'bg-cyan-400 animate-ping'
             }`}
           />
           <div className="space-y-0.5">
-            <span className="text-xs font-mono text-zinc-300 font-bold block">
-              {syncStatus === 'synced' && 'Đã đồng bộ cục bộ an toàn'}
-              {syncStatus === 'syncing' && 'Đang đồng bộ hóa tiến độ...'}
-              {syncStatus === 'error' && 'Lỗi kết nối đồng bộ đám mây'}
+            <span className="text-xs font-mono text-zinc-200 font-bold block">
+              {syncLabel}
             </span>
-            <span className="text-[11px] text-zinc-500 font-mono">
-              Lần lưu gần nhất: {new Date().toLocaleTimeString('vi-VN')}
+            <span className="text-[11px] text-zinc-500 font-mono flex items-center gap-2">
+              <UserCheck className="w-3 h-3 text-emerald-400" />
+              <span>
+                Học viên: {learnerName}{lastSyncAt !== null && ` · Đồng bộ lúc ${new Date(lastSyncAt).toLocaleTimeString('vi-VN')}`}
+              </span>
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          {syncStatus === 'error' ? (
-            <button
-              onClick={() => handleTriggerSync(false)}
-              className="px-3 py-1.5 rounded-lg bg-red-900/60 hover:bg-red-800 text-red-200 border border-red-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
-            >
-              <RotateCw className="w-3.5 h-3.5" />
-              <span>Thử lại đồng bộ</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => handleTriggerSync(false)}
-              disabled={syncStatus === 'syncing'}
-              className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
-            >
-              <RotateCw className={`w-3.5 h-3.5 ${syncStatus === 'syncing' ? 'animate-spin text-cyan-400' : ''}`} />
-              <span>Đồng bộ ngay</span>
-            </button>
-          )}
-
-          {/* Error Simulation Trigger for Resilience Testing */}
           <button
-            onClick={() => handleTriggerSync(true)}
-            className="px-2.5 py-1.5 rounded-lg text-xs font-mono text-zinc-500 hover:text-amber-400 border border-zinc-800 hover:border-amber-500/40"
-            title="Kích hoạt giả lập lỗi đồng bộ để kiểm tra khả năng phục hồi lỗi"
+            type="button"
+            onClick={() => {
+              void handleTriggerSync();
+            }}
+            disabled={!userId || syncStatus === 'syncing'}
+            className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
           >
-            Giả lập lỗi mạng
+            <RotateCw
+              className={`w-3.5 h-3.5 ${syncStatus === 'syncing' ? 'animate-spin text-cyan-400' : ''}`}
+            />
+            <span>Đồng bộ dữ liệu</span>
           </button>
 
           {onNavigate && (
             <button
+              type="button"
               onClick={() => onNavigate('settings')}
-              className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
+              className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-mono text-xs flex items-center gap-1.5 transition-colors"
             >
               <SettingsIcon className="w-3.5 h-3.5" />
               <span>Cài đặt</span>
@@ -200,37 +172,25 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Sync Error Banner if Active */}
-      {syncStatus === 'error' && (
-        <div className="p-4 rounded-xl border border-red-500/40 bg-red-950/20 text-xs text-red-300 flex items-start justify-between gap-3 animate-in fade-in duration-200">
-          <div className="flex items-start gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-            <div className="space-y-1">
-              <strong>Xử lý lỗi đồng bộ:</strong>
-              <p className="text-zinc-400 leading-relaxed">{syncErrorMessage}</p>
-            </div>
-          </div>
-          <button
-            onClick={() => handleTriggerSync(false)}
-            className="shrink-0 px-3 py-1 rounded bg-red-900/60 hover:bg-red-800 text-red-200 border border-red-700 font-mono text-xs"
-          >
-            Đồng bộ lại
-          </button>
-        </div>
-      )}
-
       {/* 4 Overview Statistics Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-2">
+        <div
+          data-testid="dashboard-completed-card"
+          className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-2"
+        >
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
             <span>Bài học hoàn thành</span>
             <BookOpen className="w-4 h-4 text-sky-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-zinc-100">
-            {totalCompleted} <span className="text-xs text-zinc-500 font-normal">/ 66 bài</span>
+            {completedCount}{' '}
+            <span className="text-xs text-zinc-500 font-normal">/ {totalLessonsCount} bài</span>
           </div>
           <div className="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
-            <div className="bg-sky-500 h-full rounded-full transition-all" style={{ width: `${overallPercentage}%` }} />
+            <div
+              className="bg-sky-500 h-full rounded-full transition-all"
+              style={{ width: `${overallPercentage}%` }}
+            />
           </div>
         </div>
 
@@ -240,27 +200,36 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             <Layers className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-zinc-100">
-            {challengesCount} <span className="text-xs text-zinc-500 font-normal">/ 4 hoàn thành</span>
+            {passedChallengesCount}{' '}
+            <span className="text-xs text-zinc-500 font-normal">
+              / {PRACTICE_CHALLENGES.length} hoàn thành
+            </span>
           </div>
           <div className="text-[11px] text-emerald-400 font-mono">
-            {challengesCount > 0 ? 'Đã rèn luyện tương tác' : 'Chưa có thử thách nào'}
+            {passedChallengesCount > 0
+              ? 'Đã hoàn thành thử thách kỹ thuật'
+              : 'Chưa hoàn thành thử thách nào'}
           </div>
         </div>
 
         <div className="p-5 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-2">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>Tốt nghiệp Đồ án A5</span>
+            <span>Đồ án tốt nghiệp</span>
             <Award className="w-4 h-4 text-purple-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-zinc-100">
-            {capstonePassed ? (
+            {capstoneStatus.isPassed ? (
               <span className="text-emerald-400">ĐÃ ĐẠT</span>
+            ) : capstoneStatus.isSubmitted ? (
+              <span className="text-amber-300 text-lg">Chờ thẩm định</span>
             ) : (
               <span className="text-zinc-500">Chưa nộp</span>
             )}
           </div>
           <div className="text-[11px] text-purple-400 font-mono">
-            {capstonePassed ? `Điểm chuẩn: ${capstoneScore.toFixed(1)}/100` : 'Cần >= 75 điểm & 5 Critical'}
+            {capstoneStatus.isPassed
+              ? `Điểm chuẩn: ${capstoneStatus.score.toFixed(1)}/100`
+              : 'Yêu cầu >= 75 điểm và đạt 5 tiêu chí trọng yếu'}
           </div>
         </div>
 
@@ -270,61 +239,70 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             <Flame className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-zinc-100">
-            3 ngày <span className="text-xs text-emerald-400 font-normal">Active</span>
+            {activeStreakDays} ngày liên tiếp
           </div>
-          <div className="text-[11px] text-zinc-500 font-mono">Thời gian học: ~185 phút</div>
+          <div className="text-[11px] text-zinc-500 font-mono">
+            {totalStudyMinutes} phút học tích lũy
+          </div>
         </div>
       </div>
 
       {/* Studio Track Progress Breakdown */}
       <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-5">
         <h3 className="text-sm font-bold text-zinc-100 uppercase tracking-wider font-mono">
-          Tiến Độ Đào Tạo Theo Từng Studio (Track Breakdown)
+          Tiến Độ Đào Tạo Theo Từng Studio
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {tracks.map((track) => {
-            const pct = Math.round((track.completed / track.totalLessons) * 100);
-
-            return (
-              <div key={track.id} className="p-4 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-zinc-200">{track.name}</span>
-                  <span className="text-xs font-mono text-zinc-400">
-                    {track.completed} / {track.totalLessons} bài ({pct}%)
-                  </span>
-                </div>
-
-                <div className="w-full bg-zinc-800 rounded-full h-2 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all ${
-                      track.id === 'designer'
-                        ? 'bg-sky-500'
-                        : track.id === 'photo'
-                        ? 'bg-emerald-500'
-                        : track.id === 'publisher'
-                        ? 'bg-purple-500'
-                        : 'bg-amber-500'
-                    }`}
-                    style={{ width: `${pct}%` }}
-                  />
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] text-zinc-500 font-mono">
-                  <span>Trạng thái: {pct === 100 ? 'Hoàn thành' : pct > 0 ? 'Đang học' : 'Chưa bắt đầu'}</span>
-                  {onNavigate && (
-                    <button
-                      onClick={() => onNavigate('catalog')}
-                      className="text-cyan-400 hover:underline flex items-center gap-1"
-                    >
-                      <span>Vào lộ trình</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </button>
-                  )}
-                </div>
+          {tracks.map((track) => (
+            <div
+              key={track.id}
+              className="p-4 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-zinc-200">{track.name}</span>
+                <span className="text-xs font-mono text-zinc-400">
+                  {track.completed} / {track.total} bài ({track.percentage}%)
+                </span>
               </div>
-            );
-          })}
+
+              <div className="w-full bg-zinc-800 rounded-full h-2 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${
+                    track.id === 'designer'
+                      ? 'bg-sky-500'
+                      : track.id === 'photo'
+                      ? 'bg-emerald-500'
+                      : track.id === 'publisher'
+                      ? 'bg-purple-500'
+                      : 'bg-amber-500'
+                  }`}
+                  style={{ width: `${track.percentage}%` }}
+                />
+              </div>
+
+              <div className="flex items-center justify-between text-[11px] text-zinc-500 font-mono">
+                <span>
+                  Trạng thái:{' '}
+                  {track.percentage === 100
+                    ? 'Hoàn thành'
+                    : track.percentage > 0
+                    ? 'Đang học'
+                    : 'Chưa bắt đầu'}
+                </span>
+                {onNavigate && (
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('catalog')}
+                    className="text-cyan-400 hover:underline flex items-center gap-1"
+                  >
+                    <span>Vào lộ trình</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -332,21 +310,23 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
       <div className="p-6 rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-canvas)] space-y-5">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b border-zinc-800 pb-4">
           <h3 className="text-sm font-bold text-zinc-100 uppercase tracking-wider font-mono">
-            Danh Sách Bài Học Hiện Có (66 Bài)
+            Danh Sách Bài Học ({totalLessonsCount} Bài)
           </h3>
 
           <div className="flex items-center gap-1.5 overflow-x-auto">
-            {['all', 'designer', 'photo', 'publisher', 'scripting'].map((trk) => (
+            {TRACK_FILTER_OPTIONS.map((trk) => (
               <button
-                key={trk}
-                onClick={() => setActiveFilterTrack(trk)}
+                type="button"
+                key={trk.id}
+                data-testid={`dashboard-filter-${trk.id}`}
+                onClick={() => setActiveFilterTrack(trk.id)}
                 className={`px-2.5 py-1 rounded text-xs font-mono whitespace-nowrap transition-all ${
-                  activeFilterTrack === trk
+                  activeFilterTrack === trk.id
                     ? 'bg-zinc-800 text-zinc-100 font-bold border border-zinc-700'
                     : 'text-zinc-400 hover:text-zinc-200'
                 }`}
               >
-                {trk === 'all' ? 'Tất cả (66)' : trk}
+                {trk.id === 'all' ? `${trk.label} (${totalLessonsCount})` : trk.label}
               </button>
             ))}
           </div>
@@ -355,23 +335,43 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[460px] overflow-y-auto p-1">
           {filteredLessons.map((les) => {
             const isDone = completedLessonIds.includes(les.id);
+            const isInProgress = !isDone && inProgressLessonIds.includes(les.id);
+            const displayTitle = lessonTranslationsVi[les.id] || les.title;
 
             return (
               <div
                 key={les.id}
-                className="p-3.5 rounded-lg border border-[var(--color-border-hairline)] bg-[var(--color-surface)] flex items-start justify-between gap-2.5"
+                data-testid={`dashboard-lesson-${les.id}`}
+                data-status={isDone ? 'completed' : isInProgress ? 'in_progress' : 'pending'}
+                className={`p-3.5 rounded-lg border flex items-start justify-between gap-2.5 ${
+                  isDone
+                    ? 'border-emerald-500/40 bg-emerald-950/15'
+                    : 'border-[var(--color-border-hairline)] bg-[var(--color-surface)]'
+                }`}
               >
                 <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800 shrink-0">
                       {les.id}
                     </span>
-                    <span className="text-xs font-bold text-zinc-200 truncate">{les.title}</span>
+                    <span className="text-xs font-bold text-zinc-200 truncate">{displayTitle}</span>
                   </div>
                   <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-500">
                     <span>{les.durationMinutes} phút</span>
                     <span>&bull;</span>
-                    <span className="capitalize">{les.difficulty}</span>
+                    <span>{DIFFICULTY_VI[les.difficulty] || les.difficulty}</span>
+                    {isDone && (
+                      <>
+                        <span>&bull;</span>
+                        <span className="text-emerald-400 font-semibold">Đã xong</span>
+                      </>
+                    )}
+                    {isInProgress && (
+                      <>
+                        <span>&bull;</span>
+                        <span className="text-amber-400">Đang học</span>
+                      </>
+                    )}
                   </div>
                 </div>
 

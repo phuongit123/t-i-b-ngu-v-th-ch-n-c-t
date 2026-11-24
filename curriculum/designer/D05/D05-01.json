@@ -3,100 +3,114 @@
   "moduleId": "D05",
   "trackId": "designer",
   "order": 1,
-  "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
-  "subtitle": "Scene Graph Architecture, Layer Types, Locks & Naming Conventions",
+  "title": "Phân cấp Layers panel, nhóm và gắn màu đối tượng",
+  "subtitle": "Cấu trúc cây đối tượng, các loại lớp, khóa lớp và quy ước đặt tên",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Master the Layers Studio as the master control center for document scene graph architecture.",
-      "Distinguish between object layer types: Curves, Shapes, Groups, dedicated (Layer) containers, and Artboards.",
-      "Execute layer grouping (Ctrl+G / Cmd+G), ungrouping (Ctrl+Shift+G / Cmd+Shift+G), locking, and hiding.",
-      "Apply color tagging (7 color swatches) and disciplined naming conventions to manage complex enterprise vector documents."
+      "Làm chủ Layers panel (bảng quản lý phân cấp lớp) như trung tâm điều phối cấu trúc của toàn bộ tài liệu.",
+      "Phân biệt chính xác các loại lớp: (Curve)/(Shape), Group (thư mục nhóm), vùng chứa (Layer) và Artboard.",
+      "Thực hiện thuần thục thao tác gom nhóm (Ctrl+G / Cmd+G), rã nhóm (Ctrl+Shift+G / Cmd+Shift+G), khóa lớp và ẩn/hiện lớp.",
+      "Áp dụng 7 thẻ màu (Color Tag) và quy tắc đặt tên chuẩn hóa để quản lý các tệp thiết kế lớn dễ dàng."
     ],
-    "foundationalKnowledge": "In amateur vector drafting, documents quickly devolve into a chaotic flat list of hundreds of unnamed '(Curve)' layers, making edits slow, frustrating, and prone to breaking collateral artwork. In Affinity Designer, the Layers Studio acts as a full hierarchical scene graph. Objects can be grouped into lightweight folders (`Group`) or placed into formal Illustrator-style container layers (`(Layer)` via the Add Layer button). Color tags allow teams to color-code departments (e.g. Red for cut lines, Blue for typography, Yellow for annotations). Locking background layers prevents accidental misalignments when marquee selecting foreground elements.",
+    "foundationalKnowledge": "Trong các tệp thiết kế thiếu tổ chức, danh sách lớp thường biến thành hàng trăm dòng '(Curve)' giống hệt nhau, khiến việc tìm sửa chi tiết trở nên chậm chạp và dễ làm xô lệch bố cục. Trong Affinity, bảng Layers panel hoạt động như một cây đối tượng phân cấp hoàn chỉnh (scene graph). Bạn có thể gom các đối tượng liên quan vào thư mục nhẹ ('Group'), hoặc tạo các vùng chứa cấp cao ('(Layer)' qua nút Add Layer). Thẻ màu (Color Tag) giúp đánh dấu trực quan theo từng nhóm chức năng như đường bế cắt, chữ hay nhân vật, còn nút khóa ổ khóa giúp bảo vệ lớp nền khỏi thao tác chọn nhầm trên bản vẽ.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Layers Studio & Scene Graph Specification",
-      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+      "classification": "DOCUMENTED",
+      "source": "Vị trí Window > General > Layers đối chiếu Affinity Help Center và bảng Layers quan sát trong Affinity 3.3.3.5004 Windows."
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Layers Studio",
-      "persona": "Vector Persona (View > Studio > Layers / F7 on Windows)",
+      "toolName": "Layers panel",
+      "persona": "Vector Studio (Window > General > Layers)",
       "shortcut": {
         "win": "Ctrl+G (Group), Ctrl+Shift+G (Ungroup), Ctrl+L (Lock)",
         "mac": "Cmd+G (Group), Cmd+Shift+G (Ungroup), Cmd+L (Lock)"
       },
-      "description": "Displays the complete parent-child object hierarchy, opacity, blend modes, masks, and clipping structures.",
+      "description": "Hiển thị toàn bộ cấu trúc cha-con của đối tượng, độ mờ đục (Opacity), chế độ hòa trộn (Blend Mode), mặt nạ và các lớp lồng ghép.",
       "contextBarOptions": [
-        "Add Group Button (Ctrl+G / Cmd+G): Bundles selected layers into an expandable group folder",
-        "Add Layer Button: Creates a dedicated top-level container layer (Illustrator style)",
-        "Lock / Unlock Toggle (Padlock Icon): Protects layer from on-canvas selection and movement",
-        "Visibility Toggle (Checkmark / Eye): Toggles layer rendering on the canvas viewport",
-        "Color Tags Context Menu: Assigns 1 of 7 color badges (Red, Orange, Yellow, Green, Blue, Purple, Gray)"
+        "Add Group (Ctrl+G / Cmd+G): Gộp các lớp đang chọn vào một thư mục nhóm có thể đóng mở",
+        "Add Layer: Tạo một vùng chứa tầng cấp cao (Layer container)",
+        "Lock / Unlock (Biểu tượng ổ khóa): Chặn chọn nhầm và dịch chuyển trên vùng canvas",
+        "Visibility Toggle (Dấu tích / Con mắt): Bật hoặc tắt hiển thị lớp trên màn hình",
+        "Color Tags (Menu chuột phải): Gắn 1 trong 7 dải màu đánh dấu (Red, Orange, Yellow, Green, Blue, Purple, Gray)"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Inspect the Layer Stack",
-        "instruction": "Open a multi-element document. Open the Layers Studio on the right dock (press F7 if hidden). Examine how layers closer to the top of the list render visually on top of lower layers on the canvas.",
-        "shortcutTip": { "win": "F7", "mac": "F7" }
+        "title": "Quan sát thứ tự xếp chồng trong bảng Layers panel",
+        "instruction": "Mở một tài liệu có nhiều đối tượng và mở bảng Layers panel ở cạnh phải (mở Window > General > Layers nếu đang ẩn). Quan sát quy luật: lớp nằm càng gần phía trên danh sách thì càng đè lên trên các lớp bên dưới ngoài bản vẽ.",
+        "shortcutTip": {
+          "win": "Window > General > Layers",
+          "mac": "Window > General > Layers"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Group Related Objects",
-        "instruction": "Select multiple related objects on the canvas with the Move Tool. Press Ctrl+G (Windows) or Cmd+G (macOS). The individual objects consolidate into a single expandable folder labeled 'Group'.",
-        "shortcutTip": { "win": "Ctrl+G", "mac": "Cmd+G" }
+        "title": "Gom nhóm các đối tượng liên quan",
+        "instruction": "Dùng Move Tool (V) chọn nhiều hình thuộc cùng một cụm chi tiết, sau đó nhấn Ctrl+G (Windows) hoặc Cmd+G (macOS). Các lớp rời lập tức gom gọn vào một thư mục 'Group'.",
+        "shortcutTip": {
+          "win": "Ctrl+G",
+          "mac": "Cmd+G"
+        }
       },
       {
         "stepNumber": 3,
-        "title": "Rename Layers Professionally",
-        "instruction": "Double-click directly on the text label 'Group'. Type a semantic title like 'Icon_Navigation_Home' and press Enter. Clear names eliminate confusion across design teams.",
-        "shortcutTip": { "win": "Double-Click Label", "mac": "Double-Click Label" }
+        "title": "Đặt tên lớp rõ nghĩa theo quy ước",
+        "instruction": "Nhấp đúp trực tiếp vào nhãn chữ 'Group', gõ tên phản ánh đúng chức năng như 'Icon_Navigation_Home' và nhấn Enter. Tên gọi chuẩn giúp cả đội thiết kế tìm ra đối tượng ngay lập tức.",
+        "shortcutTip": {
+          "win": "Nhấp đúp tên lớp",
+          "mac": "Nhấp đúp tên lớp"
+        }
       },
       {
         "stepNumber": 4,
-        "title": "Assign Color Tags",
-        "instruction": "Right-click on your group in the Layers Studio. Look at the bottom of the context menu. Click the Blue circular color tag swatch. Notice a clear blue accent bar illuminate beside the group thumbnail.",
-        "shortcutTip": { "win": "Right-Click > Color Tag", "mac": "Right-Click > Color Tag" }
+        "title": "Gắn thẻ màu phân loại (Color Tag)",
+        "instruction": "Nhấp chuột phải lên tên nhóm vừa tạo trong Layers panel, nhìn xuống cuối menu ngữ cảnh và chọn ô màu Xanh dương (Blue). Một vạch màu xanh nổi bật sẽ hiện ngay bên cạnh hàng lớp đó.",
+        "shortcutTip": {
+          "win": "Chuột phải > Color Tag",
+          "mac": "Chuột phải > Color Tag"
+        }
       },
       {
         "stepNumber": 5,
-        "title": "Lock Background Elements",
-        "instruction": "Select your background artwork layer. Click the padlock icon in the upper-right corner of the Layers Studio (or press Ctrl+L / Cmd+L). Now you can freely drag large marquee selection boxes across the canvas without accidentally nudging the background!",
-        "shortcutTip": { "win": "Ctrl+L (Lock)", "mac": "Cmd+L (Lock)" }
+        "title": "Khóa lớp nền tránh chọn nhầm",
+        "instruction": "Chọn lớp nền phía sau rồi nhấn biểu tượng ổ khóa ở góc trên phải Layers panel (hoặc nhấn Ctrl+L / Cmd+L). Giờ bạn có thể kéo khung chọn thoải mái trên bản vẽ mà không lo làm xê dịch nền.",
+        "shortcutTip": {
+          "win": "Ctrl+L (Khóa lớp)",
+          "mac": "Cmd+L (Khóa lớp)"
+        }
       }
     ],
     "visualExamples": [
       {
-        "title": "Layer Types Matrix",
-        "description": "Distinguishing layer objects in Affinity Designer.",
+        "title": "Bảng phân biệt các loại lớp trong Layers panel",
+        "description": "Nhận diện vai trò của từng loại đối tượng xuất hiện trong cây phân cấp.",
         "visualType": "table",
-        "visualContent": "| Layer Type | Icon / Indicator | Primary Characteristics |\n|---|---|---|\n| (Curve) / (Shape) | Geometric thumbnail | Primitive vector shape or Bezier curve path |\n| Group | Folder icon | Lightweight organizational wrapper; moves items together |\n| (Layer) | Square stack icon | Dedicated structural container (analogous to Adobe Illustrator layers) |\n| Artboard | Page icon with title | Independent canvas container; clips objects outside its bounding box |"
+        "visualContent": "| Loại lớp | Biểu tượng nhận diện | Đặc điểm chính |\n|---|---|---|\n| (Curve) / (Shape) | Hình thu nhỏ của hình học | Hình khối tham số hoặc đường cong Bézier đơn lẻ |\n| Group | Biểu tượng thư mục | Vỏ bọc gọn nhẹ để di chuyển và co giãn nhiều hình cùng lúc |\n| (Layer) | Biểu tượng ô vuông xếp chồng | Vùng chứa tổ chức cấp cao giúp chia tầng tài liệu lớn |\n| Artboard | Biểu tượng trang kèm tên | Khung bản vẽ độc lập, tự động cắt gọn đối tượng tràn ra ngoài biên |"
       },
       {
-        "title": "Color-Coded Production Scene Graph",
-        "description": "Professional studio organization scheme.",
+        "title": "Mô hình cây đối tượng gắn thẻ màu chuẩn sản xuất",
+        "description": "Cách tổ chức lớp khoa học cho một dự án nhiều thành phần.",
         "visualType": "diagram",
-        "visualContent": "[Artboard: Hero_Banner]\n  ├── [Red Tag: Cut_Lines] (Dieline vector overlay - Locked)\n  ├── [Blue Tag: Typography] (Headline, subhead text frames)\n  ├── [Orange Tag: Foreground_Illustration]\n  │    ├── Group: Character_Hero\n  │    └── Group: Prop_Assets\n  └── [Gray Tag: Background_Atmosphere] (Locked backdrop)"
+        "visualContent": "[Artboard: Hero_Banner]\n  ├── [Thẻ Đỏ: Cut_Lines] (Đường bế cắt in ấn - Đã khóa)\n  ├── [Thẻ Xanh dương: Typography] (Tiêu đề, đoạn mô tả)\n  ├── [Thẻ Cam: Foreground_Illustration]\n  │    ├── Group: Character_Hero\n  │    └── Group: Prop_Assets\n  └── [Thẻ Xám: Background_Atmosphere] (Nền phía sau - Đã khóa)"
       }
     ],
     "guidedPractice": {
-      "title": "Reorganizing an Unstructured Vector Clutter",
-      "taskDescription": "Take an unorganized document with 15 flat unnamed vector paths and organize it into a 3-tier, color-tagged, professional scene graph.",
+      "title": "Sắp xếp lại một bản vẽ lộn xộn gồm 15 lớp rời",
+      "taskDescription": "Biến một tài liệu toàn các lớp '(Curve)' chưa đặt tên thành cấu trúc 3 tầng có nhóm, đặt tên rõ ràng và gắn thẻ màu.",
       "checkpoints": [
-        "Create 3 distinct Groups: 'Background', 'Main_Subject', and 'UI_Overlays'.",
-        "Rename all individual shape layers semantically.",
-        "Assign Green color tags to 'Background', Blue to 'Main_Subject', and Purple to 'UI_Overlays'.",
-        "Lock the 'Background' group to prevent unintended selection.",
-        "Verify canvas marquee selections cleanly target only 'Main_Subject' items."
+        "Tạo 3 nhóm tách biệt: 'Background', 'Main_Subject' và 'UI_Overlays'.",
+        "Đặt lại tên có nghĩa cho toàn bộ các hình đơn lẻ bên trong.",
+        "Gắn thẻ màu Xanh lá cho 'Background', Xanh dương cho 'Main_Subject' và Tím cho 'UI_Overlays'.",
+        "Khóa nhóm 'Background' bằng biểu tượng ổ khóa.",
+        "Thử quét khung chọn trên bản vẽ để kiểm chứng không chọn nhầm phần nền."
       ],
-      "expectedOutcome": "A clean, production-ready vector file that any team member can navigate effortlessly."
+      "expectedOutcome": "Một tệp vector sạch sẽ, có hệ thống để bất kỳ thành viên nào trong nhóm cũng mở lên sửa được ngay."
     },
     "independentChallenge": {
-      "title": "Enterprise UI Design System Hierarchy",
-      "prompt": "Construct a comprehensive mobile screen layout (393 x 852 px) with strict layer hierarchy: (1) Top-level '(Layer)' container named 'UI_Mobile_Screen'; (2) Color-tagged Groups for 'Status_Bar' (Gray), 'App_Header' (Blue), 'Card_Feed' (Orange), and 'Bottom_Navigation' (Purple); (3) Lock the background grid container; (4) Use selection shortcuts to re-order groups without disturbing inner child positions.",
+      "title": "Tổ chức cấu trúc giao diện màn hình di động chuẩn hệ thống",
+      "prompt": "Xây dựng bố cục một màn hình ứng dụng (393 × 852 px) với kỷ luật phân cấp chặt chẽ: (1) Vùng chứa '(Layer)' cấp cao nhất đặt tên 'UI_Mobile_Screen'; (2) Các nhóm gắn thẻ màu gồm 'Status_Bar' (Xám), 'App_Header' (Xanh dương), 'Card_Feed' (Cam) và 'Bottom_Navigation' (Tím); (3) Khóa lớp lưới nền; (4) Dùng phím tắt đảo thứ tự nhóm mà không làm rối các lớp con bên trong.",
       "starterAsset": {
         "filename": "D05_layers_masks_clipping_guide.md",
         "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
@@ -104,36 +118,36 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Layers Studio organization (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành tổ chức Layers panel (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "100% of layers organized inside named, color-tagged groups.",
-        "Zero default '(Curve)' or 'Group' generic names remain.",
-        "Background layer locked and unselectable on canvas."
+        "100% lớp được sắp xếp trong các nhóm có tên rõ nghĩa và gắn thẻ màu.",
+        "Không còn sót tên mặc định kiểu '(Curve)' hay 'Group'.",
+        "Lớp nền được khóa và không bị chọn nhầm khi kéo chuột trên canvas."
       ],
-      "bonusGoal": "Create a dedicated global annotation layer tagged with Red color swatch."
+      "bonusGoal": "Tạo thêm một lớp ghi chú kỹ thuật riêng biệt gắn thẻ màu Đỏ."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Over-nesting groups inside groups (Group Inception)",
-        "cause": "Pressing Ctrl+G repeatedly every time an object is moved.",
-        "solution": "Keep hierarchies lean (maximum 3 levels of nesting). Use Ctrl+Shift+G / Cmd+Shift+G to dissolve redundant single-item groups."
+        "pitfall": "Lồng quá nhiều tầng Group thừa thãi (Group trong Group)",
+        "cause": "Bấm Ctrl+G / Cmd+G lặp đi lặp lại mỗi lần gom thêm đối tượng.",
+        "solution": "Giữ độ sâu phân tầng tối đa khoảng 3 cấp. Dùng Ctrl+Shift+G / Cmd+Shift+G để rã bớt các thư mục nhóm chỉ chứa 1 đối tượng."
       },
       {
-        "pitfall": "Locked layer still being edited by mistake",
-        "cause": "Clicking the layer in the Layers panel allows direct editing even if locked on canvas.",
-        "solution": "Remember that locking primarily locks on-canvas selection; deselect in the panel or hide visibility if you want total immutability."
+        "pitfall": "Lớp đã khóa nhưng vẫn vô tình sửa nhầm",
+        "cause": "Khi bấm chọn trực tiếp vào hàng của lớp đó trong bảng Layers panel thì phần mềm vẫn cho phép chỉnh sửa kể cả khi ổ khóa đang bật.",
+        "solution": "Hiểu rằng nút khóa chủ yếu khóa thao tác chọn nhầm trực tiếp trên canvas; nếu muốn bất khả xâm phạm tuyệt đối trong lúc làm việc, hãy bỏ chọn trong bảng Layers hoặc tắt tạm hiển thị."
       },
       {
-        "pitfall": "Object hidden behind background after grouping",
-        "cause": "Grouping moves all selected objects to the stacking index of the highest selected item.",
-        "solution": "Select items with similar Z-depth when grouping, or reorder the group in the Layers panel."
+        "pitfall": "Đối tượng bỗng nhiên biến mất ra sau nền ngay sau khi gom nhóm",
+        "cause": "Lệnh Group gom các đối tượng đang chọn về vị trí tầng của đối tượng nằm cao nhất (hoặc nhảy vào bên trong một vùng cắt nếu một đối tượng đang nằm trong đó).",
+        "solution": "Kiểm tra tầng Z-index của các vật thể trước khi gom nhóm, hoặc kéo sắp xếp lại vị trí nhóm trong Layers panel."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D05-01-Q1",
-        "question": "Which keyboard shortcut groups selected vector objects together in Affinity Designer?",
+        "question": "Phím tắt nào dùng để gom các đối tượng vector đang chọn thành một nhóm (Group)?",
         "options": [
           "Ctrl+G (Windows) / Cmd+G (macOS)",
           "Ctrl+K / Cmd+K",
@@ -141,49 +155,49 @@
           "Alt+F4"
         ],
         "correctIndex": 0,
-        "explanation": "Ctrl+G (Windows) or Cmd+G (macOS) creates a Group container enclosing all selected layers."
+        "explanation": "Ctrl+G (Windows) hoặc Cmd+G (macOS) tạo ra một nhóm Group bao bọc các lớp đang chọn."
       },
       {
         "id": "D05-01-Q2",
-        "question": "What is the primary visual function of Color Tags in the Affinity Designer Layers Studio?",
+        "question": "Công dụng chính của thẻ màu (Color Tags) trong bảng Layers panel là gì?",
         "options": [
-          "They change the physical fill color of the vector shape on the canvas.",
-          "They display a distinctive colored accent bar beside the layer name in the Layers panel, helping teams visually segment large files.",
-          "They automatically convert the layer into a master page.",
-          "They encrypt the file with a password."
+          "Đổi màu nền thật của hình khối ngoài bản vẽ.",
+          "Hiển thị dải màu đánh dấu trực quan bên cạnh tên lớp trong bảng Layers panel giúp phân loại nhóm nhanh trong các file lớn.",
+          "Tự động biến lớp đó thành trang chủ Master Page.",
+          "Đặt mật khẩu khóa file."
         ],
         "correctIndex": 1,
-        "explanation": "Color tags are administrative metadata for the Layers Studio, illuminating layer rows with color bars without altering canvas artwork."
+        "explanation": "Color Tag là nhãn đánh dấu quản lý trong bảng Layers panel, hoàn toàn không làm thay đổi màu sắc hay dữ liệu hiển thị của bản vẽ."
       },
       {
         "id": "D05-01-Q3",
-        "question": "What happens when you lock a layer using the padlock icon in the Layers Studio?",
+        "question": "Khi bạn khóa một lớp bằng biểu tượng ổ khóa trong Layers panel, điều gì xảy ra?",
         "options": [
-          "The layer is deleted from the file.",
-          "The layer cannot be accidentally clicked, dragged, or marquee-selected on the canvas viewport.",
-          "The layer becomes 50% transparent.",
-          "The layer can only be viewed in Pixel Persona."
+          "Lớp đó bị xóa khỏi tài liệu.",
+          "Lớp đó không thể bị nhấp chọn, kéo lệch hay quét khung dính phải khi thao tác trên vùng canvas.",
+          "Lớp đó tự động mờ đi 50%.",
+          "Lớp đó chỉ mở được trong Pixel Studio."
         ],
         "correctIndex": 1,
-        "explanation": "Locking protects layers from canvas interactions, allowing artists to work freely on foreground details without disturbing backgrounds."
+        "explanation": "Khóa lớp bảo vệ lớp khỏi các cú bấm chọn và dịch chuyển ngoài ý muốn trên bản vẽ, giúp bạn tập trung xử lý các chi tiết phía trên."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "A disciplined Layers Studio hierarchy is the cornerstone of professional vector production.",
-        "Groups (Ctrl+G) bundle related objects; semantic naming ensures seamless collaboration.",
-        "Color tags categorize assets visually across large, multi-screen artboards.",
-        "Locking canvas elements prevents accidental nudges during complex marquee selections."
+        "Cấu trúc Layers panel gọn gàng là nền tảng cho quy trình làm việc nhóm và bàn giao sản xuất.",
+        "Group (Ctrl+G / Cmd+G) và đặt tên có nghĩa giúp quản lý hàng trăm chi tiết dễ dàng.",
+        "Thẻ màu (Color Tag) phân tách trực quan các lớp kỹ thuật, chữ, nền và minh họa.",
+        "Khóa lớp (Ctrl+L / Cmd+L) giúp thao tác quét chọn tự tin mà không làm xô lệch nền."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D05-02 Vector Clipping (Child Nesting) vs Vector Masking",
+          "title": "Bài tiếp theo: D05-02 Clipping Vector (lồng lớp con) và Vector Mask",
           "target": "D05-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Layers Studio",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Layers panel",
+          "target": "https://www.affinity.studio/help/panels-layers-panel/",
           "type": "doc"
         }
       ]
@@ -194,95 +208,95 @@
       "id": "D05-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Layers Studio Hierarchy, Grouping & Color Tagging",
-      "subtitle": "Engineering Scalable Vector Scene Graphs",
-      "contentMarkdown": "Welcome to **Module D05: Layer Organization, Masks & Clipping Paths**.\n\nGreat design is not just what appears on the canvas; it is how the file is constructed underneath. A disorganized file slows down teams and introduces expensive production errors.\n\nIn this lesson, you will master the **Layers Studio**, implement semantic grouping workflows, and leverage **Color Tagging** to architect enterprise-grade vector files.",
+      "title": "Phân Cấp Layers panel, Nhóm & Gắn Màu Đối Tượng",
+      "subtitle": "Tổ chức cấu trúc bản vẽ vector khoa học, dễ bảo trì",
+      "contentMarkdown": "Chào mừng bạn đến với **Module D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)**.\n\nMột sản phẩm thiết kế tốt không chỉ đẹp ở bề mặt mà còn phải gọn gàng trong cấu trúc file bên dưới. Một bản vẽ bừa bộn sẽ làm chậm tiến độ cả đội ngũ và dễ phát sinh lỗi khi xuất bản.\n\nTrong bài học này, bạn sẽ làm chủ **Layers panel**, chuẩn hóa cách đặt tên, gom nhóm và gắn **Color Tag** phân loại đối tượng.",
       "actionBox": {
-        "label": "Professional Standard",
-        "text": "Every layer in a professional file must be named, organized, and grouped logically."
+        "label": "Tiêu chuẩn nghề nghiệp",
+        "text": "Mọi lớp trong một file hoàn chỉnh đều cần được đặt tên rõ ràng và nhóm theo logic bố cục."
       }
     },
     {
       "id": "D05-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The 4 Core Layer Types",
-      "subtitle": "Curves, Groups, Dedicated Layers & Artboards",
-      "contentMarkdown": "Affinity Designer classifies scene graph items into four fundamental layer structures:\n\n1. **(Curve) / (Shape):** Discrete vector geometry (paths, rectangles, stars).\n2. **Group:** Lightweight folder created with `Ctrl+G` / `Cmd+G`.\n3. **(Layer):** Heavy-duty organizational container (created via the 'Add Layer' button at the bottom of the panel).\n4. **Artboard:** Top-level canvas container that defines independent screen bounds.",
+      "title": "Bốn Loại Lớp Cốt Lõi Trong Cây Đối Tượng",
+      "subtitle": "Curve/Shape, Group, Layer và Artboard",
+      "contentMarkdown": "Affinity sắp xếp mọi thành phần trên bản vẽ vào bốn dạng lớp cơ bản:\n\n1. **(Curve) / (Shape):** Hình học vector đơn lẻ (hình khối tham số hoặc đường Bézier).\n2. **Group:** Thư mục nhóm gọn nhẹ tạo bằng `Ctrl+G` / `Cmd+G`.\n3. **(Layer):** Vùng chứa phân tầng cấp cao (tạo qua nút 'Add Layer' ở đáy bảng Layers panel).\n4. **Artboard:** Khung bản vẽ cấp cao nhất định nghĩa kích thước từng màn hình hoặc trang độc lập.",
       "visual": {
         "type": "badge-grid",
-        "content": "(Curve) Geometry | Group Folder | (Layer) Container | Artboard Canvas"
+        "content": "(Curve) Hình đơn | Group Thư mục | (Layer) Vùng chứa | Artboard Bản vẽ"
       }
     },
     {
       "id": "D05-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Layers Studio Anatomy (Shortcut: F7)",
-      "subtitle": "Navigating Panel Controls & Context Menus",
-      "contentMarkdown": "Located on the right dock, the Layers Studio provides instant control:\n\n- **Padlock Icon:** Toggles Canvas Selection Lock (`Ctrl+L` / `Cmd+L`).\n- **Checkmark Icon:** Toggles layer visibility on/off.\n- **Double-Click Label:** Renames the layer in place.\n- **Color Tag Bar:** Right-click a layer row to assign 1 of 7 bright accent swatches (Red, Orange, Yellow, Green, Blue, Purple, Gray).\n- **Stacking Order:** Drag layers up to bring them forward, down to send them behind.",
+      "title": "Giải Phẫu Bảng Layers panel (Window > General > Layers)",
+      "subtitle": "Các nút khóa, ẩn/hiện, thẻ màu và thứ tự tầng",
+      "contentMarkdown": "Nằm ở cột dock bên phải, **Layers panel** cho phép bạn kiểm soát toàn bộ cấu trúc:\n\n- **Biểu tượng ổ khóa:** Bật/tắt khóa chọn trên canvas (`Ctrl+L` / `Cmd+L`).\n- **Dấu tích / Mắt hiển thị:** Ẩn hoặc hiện nhanh lớp trên bản vẽ.\n- **Nhấp đúp vào tên:** Đổi tên lớp ngay tại chỗ.\n- **Dải Color Tag:** Nhấp chuột phải lên hàng lớp để gắn 1 trong 7 màu đánh dấu (Red, Orange, Yellow, Green, Blue, Purple, Gray).\n- **Thứ tự xếp chồng:** Kéo lên trên để đưa lớp ra trước, kéo xuống dưới để đẩy ra sau.",
       "actionBox": {
-        "label": "Quick Shortcut",
-        "text": "Press Ctrl+[ (Win) / Cmd+[ (Mac) to move a layer backward; press Ctrl+] / Cmd+] to bring it forward."
+        "label": "Phím tắt xếp tầng",
+        "text": "Nhấn Ctrl+[ (Win) / Cmd+[ (Mac) để đẩy lớp xuống dưới một bậc; Ctrl+] / Cmd+] để đưa lên trên một bậc."
       }
     },
     {
       "id": "D05-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Grouping & Color Tagging",
-      "subtitle": "Executing the Cleanup Workflow",
-      "contentMarkdown": "Follow these steps to clean up an unstructured document:\n\n1. **Step 1:** Marquee select all character linework on your canvas.\n2. **Step 2:** Press `Ctrl+G` (Windows) or `Cmd+G` (macOS) to group them.\n3. **Step 3:** Double-click the label and name it **'Character_Hero'**.\n4. **Step 4:** Right-click the group in the Layers panel and pick the **Blue** color tag.\n5. **Step 5:** Select your background graphics, group them into **'Background_Set'**, assign a **Green** tag, and click the padlock icon to lock them!",
+      "title": "Thực Hành: Gom Nhóm & Gắn Thẻ Màu Cho File Rối",
+      "subtitle": "Quy trình dọn dẹp tệp thiết kế nhanh gọn",
+      "contentMarkdown": "Thực hiện lần lượt các bước sau:\n\n1. **Bước 1:** Quét khung chọn toàn bộ phần nét vẽ nhân vật trên bản vẽ.\n2. **Bước 2:** Nhấn `Ctrl+G` (Win) hoặc `Cmd+G` (Mac) để gom thành một nhóm.\n3. **Bước 3:** Nhấp đúp tên nhóm và đổi thành **'Character_Hero'**.\n4. **Bước 4:** Nhấp chuột phải lên nhóm trong Layers panel và gắn thẻ màu **Blue**.\n5. **Bước 5:** Chọn các lớp nền, gom thành nhóm **'Background_Set'**, gắn thẻ màu **Green** rồi bấm biểu tượng ổ khóa để khóa cứng lại!",
       "visual": {
         "type": "comparison",
-        "content": "Chaos: 40 unnamed (Curve) layers VS Order: 3 Color-tagged, named semantic groups"
+        "content": "Hỗn độn: 40 lớp (Curve) vô danh VS Quy chuẩn: 3 nhóm đặt tên rõ ràng và gắn thẻ màu"
       }
     },
     {
       "id": "D05-01-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Canvas Lock vs Panel Selection",
-      "subtitle": "Understanding How Padlocks Function",
-      "contentMarkdown": "A vital distinction in Affinity Designer:\n\n- **When a layer is LOCKED (Padlock Active):**\n  - Clicking or dragging across the canvas *will not* select or nudge the layer.\n  - You can safely draw over, marquee-select, and measure adjacent elements.\n  - *Note:* If you deliberately click the layer directly inside the Layers Studio panel, you can still edit it! This allows intentional edits without having to unlock and re-lock.",
+      "title": "Khóa Trên Canvas Khác Gì Chọn Trong Bảng Layers?",
+      "subtitle": "Cách ổ khóa thông minh hoạt động",
+      "contentMarkdown": "Một điểm thiết kế rất tinh tế của nút **Lock (Ổ khóa)** trong Affinity:\n\n- **Khi một lớp đã KHÓA:**\n  - Nhấp chuột hoặc kéo khung chọn trên bản vẽ *sẽ bỏ qua* lớp này, giúp bạn không làm xê dịch nền.\n  - Tuy nhiên, nếu bạn *chủ động nhấp trực tiếp* vào tên lớp đó ngay trong bảng **Layers panel**, bạn vẫn có thể chỉnh sửa nó mà không cần mở khóa rồi khóa lại!",
       "visual": {
         "type": "diagram",
-        "content": "Canvas Viewport Marquee Drag ───► Ignored by Locked Layer (Safe!)\nLayers Panel Direct Click   ───► Selects Locked Layer for Intentional Edit"
+        "content": "Kéo chọn ngoài Canvas  ───► Bỏ qua lớp đã khóa (An toàn!)\nNhấp chọn trong Layers ───► Vẫn chỉnh được khi bạn thật sự chủ đích"
       }
     },
     {
       "id": "D05-01-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Enterprise Color-Tag Conventions",
-      "subtitle": "Standardizing Departmental Asset Tags",
-      "contentMarkdown": "Adopt this battle-tested industry color-tagging standard:\n\n- **Red Tag:** Technical marks, cutlines, die-lines, bleed boundaries.\n- **Blue Tag:** Typography, labels, headline text frames.\n- **Orange Tag:** Core foreground vector illustrations, character art.\n- **Purple Tag:** Interactive UI components, buttons, navigation bars.\n- **Gray Tag:** Backgrounds, textures, atmospheric lighting (usually locked).",
+      "title": "Quy Ước Gắn Thẻ Màu Trong Sản Xuất",
+      "subtitle": "Đồng bộ ngôn ngữ thị giác giữa nhà thiết kế, nhà in và lập trình",
+      "contentMarkdown": "Gợi ý bộ quy ước gắn thẻ màu phổ biến trong studio chuyên nghiệp:\n\n- **Thẻ Đỏ (Red):** Dấu cắt, đường bế die-line, ranh giới Bleed kỹ thuật.\n- **Thẻ Xanh dương (Blue):** Chữ viết, tiêu đề, nhãn thông tin.\n- **Thẻ Cam (Orange):** Hình minh họa chính, nhân vật trung tâm.\n- **Thẻ Tím (Purple):** Thành phần UI tương tác, nút bấm, thanh điều hướng.\n- **Thẻ Xám (Gray):** Phông nền, lớp chất liệu và ánh sáng môi trường (thường khóa lại).",
       "actionBox": {
-        "label": "Team Synergy",
-        "text": "When files are color-tagged, printers and developers find cutlines and copy instantly."
+        "label": "Làm việc nhóm hiệu quả",
+        "text": "Nhờ gắn thẻ màu nhất quán, bộ phận in ấn hay lập trình giao diện nhìn phát thấy ngay lớp cần tìm."
       }
     },
     {
       "id": "D05-01-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Layer Pitfalls & Common Mistakes",
-      "subtitle": "Avoid Group Bloat and Z-Index Traps",
-      "contentMarkdown": "### 1. Group Inception (Redundant Nested Folders)\n- **The Issue:** A folder inside a folder inside a folder, holding only 1 single path.\n- **The Fix:** Select the outer group and press `Ctrl+Shift+G` / `Cmd+Shift+G` to dissolve unnecessary levels.\n\n### 2. Disappearing Layer on Grouping\n- **The Cause:** Grouping brings objects to the Z-index of the top-selected layer; if that layer was inside a mask, the other objects jump inside the mask too!\n- **The Fix:** Ungroup, drag items out to the root layer stack, and regroup.",
+      "title": "Lỗi Hay Gặp Khi Quản Lý Layer",
+      "subtitle": "Tránh nhóm lồng quá sâu và nhảy tầng bất ngờ",
+      "contentMarkdown": "### 1. Lồng nhóm chồng chéo vô ích\n- **Hiện tượng:** Thư mục này bọc thư mục kia qua 5–6 tầng chỉ để chứa một hình đơn.\n- **Cách sửa:** Chọn nhóm ngoài và nhấn `Ctrl+Shift+G` / `Cmd+Shift+G` để rã bớt tầng thừa.\n\n### 2. Đối tượng bỗng nhiên biến mất sau khi nhấn Group\n- **Nguyên nhân:** Nhóm mới lấy vị trí theo lớp cao nhất được chọn; nếu lớp đó đang nằm trong một vùng cắt khác, các lớp kia có thể bị kéo chui theo.\n- **Cách sửa:** Hoàn tác hoặc rã nhóm, kéo hết các lớp ra ngoài cùng bậc rồi mới nhóm lại.",
       "visual": {
         "type": "badge-grid",
-        "content": "Max 3 Nesting Levels | Ctrl+Shift+G to Dissolve | Mind Z-Index Shifts"
+        "content": "Tối đa 3 tầng nhóm | Ctrl+Shift+G để rã nhóm | Chú ý thứ tự Z-index khi gom"
       }
     },
     {
       "id": "D05-01-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Enterprise UI Screen Architecture",
-      "subtitle": "Put Scene Graph Discipline to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct an enterprise mobile app screen scene graph:\n\n1. Create a top-level `(Layer)` named **'Screen_Checkout'**.\n2. Structure 4 color-tagged groups inside:\n   - **Status_Bar:** Tagged Gray.\n   - **Header_Navigation:** Tagged Blue.\n   - **Product_Card:** Tagged Orange.\n   - **Primary_Button:** Tagged Purple.\n3. Place a background shape behind everything and lock it.\n4. Ensure 0 default generic '(Curve)' names remain.\n\n### Acceptance Criteria:\n- 100% of layers organized inside named, color-coded groups.\n- Background layer locked against canvas selection.\n- Clean, logical Z-index order.",
+      "title": "Thử Thách Độc Lập: Cấu Trúc Màn Hình Ứng Dụng Chuẩn",
+      "subtitle": "Áp dụng kỷ luật tổ chức Layer vào thực tế",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nXây dựng cấu trúc cây lớp hoàn chỉnh cho một màn hình ứng dụng thanh toán:\n\n1. Tạo lớp `(Layer)` cấp cao nhất đặt tên **'Screen_Checkout'**.\n2. Bên trong tạo 4 nhóm được gắn thẻ màu riêng:\n   - **Status_Bar:** Gắn thẻ Xám.\n   - **Header_Navigation:** Gắn thẻ Xanh dương.\n   - **Product_Card:** Gắn thẻ Cam.\n   - **Primary_Button:** Gắn thẻ Tím.\n3. Đặt một lớp nền ở dưới cùng và khóa lại bằng biểu tượng ổ khóa.\n4. Kiểm tra không còn lớp nào mang tên mặc định '(Curve)'.\n\n### Tiêu chí hoàn thành:\n- 100% đối tượng nằm trong nhóm có tên rõ nghĩa và có Color Tag.\n- Lớp nền được khóa khỏi thao tác chọn trên canvas.\n- Thứ tự xếp chồng từ trên xuống dưới mạch lạc.",
       "practiceData": {
-        "prompt": "Construct an enterprise mobile app screen scene graph with color tags and locks.",
+        "prompt": "Tổ chức cấu trúc cây lớp màn hình ứng dụng với đầy đủ tên gọi, thẻ màu và khóa nền.",
         "starterAsset": {
           "filename": "D05_layers_masks_clipping_guide.md",
           "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
@@ -290,12 +304,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Layers Studio organization."
+          "statusNote": "Hướng dẫn thực hành tổ chức Layers panel."
         },
         "checkpoints": [
-          "Group created with Ctrl+G",
-          "Color tags assigned via right-click menu",
-          "Background layer locked with padlock"
+          "Đã gom nhóm bằng Ctrl+G / Cmd+G",
+          "Đã gắn Color Tag qua menu chuột phải",
+          "Đã khóa lớp nền bằng biểu tượng ổ khóa"
         ]
       }
     }

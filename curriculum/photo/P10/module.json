@@ -3,20 +3,20 @@
   "trackId": "photo",
   "order": 10,
   "moduleNumber": "P10",
-  "title": "Export, Delivery & Professional Production Masterclass",
-  "tagline": "Master Export Persona slices, color space management, multi-format compression, and complete capstone production.",
-  "description": "Learn professional delivery in Affinity Photo 3.0: Export Persona slicing (1x, 2x, 3x, WebP, SVG, AVIF, TIFF, PDF), color spaces and rendering intents (sRGB vs Display P3 vs Adobe RGB 1998 vs ProPhoto RGB), file compression & metadata preservation, and the comprehensive Track 2 Capstone master workflow.",
+  "title": "Đồ Án Tốt Nghiệp Capstone — Quy Trình Xử Lý Ảnh Thương Mại",
+  "tagline": "Làm chủ lát cắt Slice Studio, quản trị không gian màu, nén đa định dạng và hoàn thiện đồ án tốt nghiệp.",
+  "description": "Thực hiện quy trình bàn giao chuyên nghiệp trong Pixel Studio / Slice Studio: cắt lát xuất đa kênh (1x, 2x, 3x, WebP, SVG, AVIF, TIFF, PDF), quản lý không gian màu và Rendering Intents (sRGB, Display P3, Adobe RGB 1998, ProPhoto RGB), tối ưu nén tệp và hoàn thành đồ án Capstone Track 2.",
   "difficulty": "Advanced",
   "estimatedMinutes": 95,
   "prerequisites": ["P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09"],
-  "primaryPersona": "Export Persona",
+  "primaryPersona": "Slice Studio",
   "starterAsset": {
     "filename": "P10_export_delivery_production_guide.md",
     "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
     "filesize": "4.9 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for professional export, color management, and capstone workflow in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn xuất bản chuyên nghiệp, quản lý màu sắc và đồ án tốt nghiệp trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P10-01", "P10-02", "P10-03"]
 }

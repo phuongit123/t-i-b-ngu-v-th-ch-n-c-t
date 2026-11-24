@@ -3,8 +3,8 @@
   "moduleId": "P02",
   "trackId": "photo",
   "order": 2,
-  "title": "Refining Selections & Complex Edge Detection",
-  "subtitle": "Matte Brush, Border Calculations, Feathering & Ramp Dynamics",
+  "title": "Tinh chỉnh vùng chọn và phát hiện biên phức tạp",
+  "subtitle": "Cọ Matte Brush, tính toán biên giới hạn, làm mềm Feather và thanh Ramp",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Refine Selection Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges...",
         "mac": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges..."
@@ -34,7 +34,7 @@
         "Border Width: Bề rộng vùng biên tính toán (px)",
         "Smooth & Feather: Độ mượt đường cong và độ nhòe chuyển tiếp",
         "Ramp: Co hẹp (-100%) hoặc nới rộng (+100%) đường ranh giới",
-        "Output: Selection, Mask, New Layer, New Layer with Mask"
+        "Output (Đầu ra): Selection (Vùng chọn), Mask (Mặt nạ), New Layer (Lớp mới), New Layer with Mask (Lớp mới kèm mặt nạ)"
       ]
     },
     "stepByStepInstructions": [
@@ -133,7 +133,7 @@
           "New Layer (Lớp mới đã cắt)",
           "Selection (Chỉ trả về đường kiến bò)",
           "Mask (Mặt nạ lớp) hoặc New Layer with Mask",
-          "Export to JPEG"
+          "Xuất ra tệp JPEG"
         ],
         "correctIndex": 2,
         "explanation": "Chọn Mask hoặc New Layer with Mask giữ nguyên vẹn 100% pixel ảnh gốc, chỉ ẩn các pixel nền bằng mặt nạ có thể vẽ lại bất cứ lúc nào."
@@ -145,7 +145,7 @@
           "Black & White (Trắng đen)",
           "Overlay (Phủ đỏ)",
           "Transparent (Bàn cờ caro)",
-          "Original Image"
+          "Ảnh gốc ban đầu (Original Image)"
         ],
         "correctIndex": 0,
         "explanation": "Chế độ Black & White biến vùng chọn thành màu trắng tinh và vùng ngoài thành màu đen tuyền, làm lộ rõ mọi vết đốm xám hoặc lỗ thủng chưa chọn."
@@ -160,7 +160,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P02-03 Pixel Masks & Non-Destructive Masking Architectures",
+          "title": "Bài tiếp theo: P02-03 Pixel Mask và kiến trúc Masking phi phá hủy",
           "target": "P02-03",
           "type": "next-lesson"
         },
@@ -218,7 +218,7 @@
       "contentMarkdown": "1. **Tạo vùng chọn thô:** Dùng Selection Brush (W) chọn phần người mẫu, chừa mép tóc bay ra.\n2. **Bấm nút Refine...:** Trên thanh Context Bar.\n3. **Đổi Preview sang Black & White:** Nhìn rõ các lỗ hổng chưa chọn bên trong.\n4. **Quét cọ Adjustment Brush:** Quét một đường lướt nhẹ qua toàn bộ rìa mái tóc.\n5. **Tinh chỉnh Ramp & Feather:** Kéo Ramp -10% để triệt tiêu halo, Feather 0.5px.\n6. **Chọn Output là Mask:** Nhấn Apply để nhận kết quả phi phá hủy.",
       "visual": {
         "type": "badge-grid",
-        "content": "Refine... | B/W Preview | Adjustment Brush | Ramp -10% | Output: Mask"
+        "content": "Refine... | Xem trước Trắng/Đen | Adjustment Brush | Ramp -10% | Đầu ra: Mask"
       }
     },
     {
@@ -273,7 +273,7 @@
         },
         "checkpoints": [
           "Dùng Refine Selection tách tóc",
-          "Output ra Mask",
+          "Xuất đầu ra thành Mask",
           "Kiểm tra trên nền màu tương phản mới"
         ]
       }

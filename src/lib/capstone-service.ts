@@ -1,3 +1,4 @@
+import { learningStorageKey } from '@/lib/learning-storage';
 /**
  * AFFINITY ACADEMY — CAPSTONE EVALUATION SERVICE & RUBRIC ENGINE
  * Implements business logic, validation, scoring, and persistence for TASK-081
@@ -11,7 +12,6 @@ import type {
   CapstoneSubmissionRecord,
   SubmissionArtifacts,
   StudentSelfAssessment,
-  OfficialEvaluationResult,
   SubmissionHistoryEntry,
 } from '@/types/capstone';
 
@@ -292,7 +292,7 @@ export const CAPSTONE_RUBRIC_DIMENSIONS: RubricDimension[] = [
 ];
 
 export const DEFAULT_LUMINA_PROJECT: CapstoneProjectSpec = {
-  id: 'CAPSTONE-001',
+  id: 'capstone-a5-lumina',
   title: 'Lumina Artisanal Roastery Launch Campaign',
   titleVi: 'Chiến Dịch Tái Định Vị & Ra Mắt Thương Hiệu Cà Phê Lumina',
   clientName: 'Lumina Artisanal Roastery',
@@ -439,11 +439,11 @@ export function evaluatePassFail(
 /**
  * Loads current capstone submission from storage, or creates initial state
  */
-export function loadCurrentSubmission(): CapstoneSubmissionRecord {
+export function loadCurrentSubmission(readLocal = true): CapstoneSubmissionRecord {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY_SUBMISSION);
+    const stored = readLocal ? localStorage.getItem(learningStorageKey(STORAGE_KEY_SUBMISSION)) : null;
     if (stored) {
-      return JSON.parse(stored);
+      return { ...JSON.parse(stored), officialEvaluation: undefined };
     }
   } catch (err) {
     console.error('Failed to load submission from localStorage', err);
@@ -454,38 +454,38 @@ export function loadCurrentSubmission(): CapstoneSubmissionRecord {
     projectId: DEFAULT_LUMINA_PROJECT.id,
     studentId: 'STU-CURRENT-USER',
     studentName: 'Học Viên Affinity Academy',
-    version: 1,
+    version: 0,
     status: 'draft',
     artifacts: {
-      briefDeconstructionUrl: 'project-control/artifacts/brief-deconstruction.md',
-      iterationLogUrl: 'project-control/artifacts/iteration-critique-log.md',
-      designRationaleUrl: 'project-control/artifacts/design-rationale.md',
-      vectorSourcePath: 'assets/lumina-brand-system.afdesign',
-      pixelSourcePath: 'assets/lumina-coldbrew-kv.afphoto',
-      printPdfPath: 'exports/label-packaging-print.pdf',
-      digitalWebpPath: 'exports/lumina-ad-banner-2x.webp',
-      additionalNotes: 'Bản nộp đợt 1 kiểm tra phân rã brief và mô phỏng ánh sáng 3D.',
+      briefDeconstructionUrl: '',
+      iterationLogUrl: '',
+      designRationaleUrl: '',
+      vectorSourcePath: '',
+      pixelSourcePath: '',
+      printPdfPath: '',
+      digitalWebpPath: '',
+      additionalNotes: '',
     },
     selfAssessment: {
       scores: {
         brief_interpretation: 3,
         visual_communication: 3,
-        tool_selection: 4,
+        tool_selection: 3,
         non_destructive: 3,
         iteration_critique: 3,
         production_readiness: 3,
         independent_transfer: 3,
       },
       justifications: {
-        brief_interpretation: 'Đã hoàn thành bảng phân tích 6 yếu tố trong brief-deconstruction.md.',
-        visual_communication: 'Áp dụng phân cấp thị giác mạch lạc, kiểu chữ Cinzel cho thương hiệu.',
-        tool_selection: 'Sử dụng Corner Tool và Live Lighting Filter đúng chuẩn studio.',
-        non_destructive: '100% layer masks và live filters không phá hủy điểm ảnh gốc.',
-        iteration_critique: 'Ghi nhận 3 lỗi viền lem và điều chỉnh góc chiếu sáng ở Draft 2.',
-        production_readiness: 'File xuất PDF/X-4 CMYK 300 DPI có 3mm bleed đầy đủ.',
-        independent_transfer: 'Tự thực hiện toàn bộ ý tưởng không sao chép từ bài mẫu.',
+        brief_interpretation: '',
+        visual_communication: '',
+        tool_selection: '',
+        non_destructive: '',
+        iteration_critique: '',
+        production_readiness: '',
+        independent_transfer: '',
       },
-      submittedAt: new Date().toISOString(),
+      submittedAt: '',
     },
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
@@ -498,84 +498,35 @@ export function loadCurrentSubmission(): CapstoneSubmissionRecord {
  */
 export function saveStudentSubmission(
   artifacts: SubmissionArtifacts,
-  selfAssessment?: StudentSelfAssessment
+  selfAssessment?: StudentSelfAssessment,
+  studentName?: string
 ): CapstoneSubmissionRecord {
   const current = loadCurrentSubmission();
 
-  // Create history entry before bumping
-  const historyEntry: SubmissionHistoryEntry = {
-    version: current.version,
-    timestamp: new Date().toISOString(),
-    artifacts: { ...current.artifacts },
-    selfAssessment: current.selfAssessment ? { ...current.selfAssessment } : undefined,
-    officialEvaluation: current.officialEvaluation ? { ...current.officialEvaluation } : undefined,
-    changelogSummary: `Cập nhật bài nộp phiên bản v${current.version}`,
-  };
-
-  appendSubmissionHistory(historyEntry);
+  if (current.version > 0) {
+    const historyEntry: SubmissionHistoryEntry = {
+      version: current.version,
+      timestamp: new Date().toISOString(),
+      artifacts: { ...current.artifacts },
+      selfAssessment: current.selfAssessment ? { ...current.selfAssessment } : undefined,
+      officialEvaluation: current.officialEvaluation ? { ...current.officialEvaluation } : undefined,
+      changelogSummary: `Bản nộp phiên bản v${current.version}`,
+    };
+    appendSubmissionHistory(historyEntry);
+  }
 
   const updatedRecord: CapstoneSubmissionRecord = {
     ...current,
+    studentName: studentName?.trim() || current.studentName,
     version: current.version + 1,
     status: 'submitted',
     artifacts: { ...artifacts },
     selfAssessment: selfAssessment ? { ...selfAssessment } : current.selfAssessment,
     updatedAt: new Date().toISOString(),
-    // Preserve existing official evaluation (immutable by student)
-    officialEvaluation: current.officialEvaluation,
+    officialEvaluation: undefined,
   };
 
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save submission to localStorage', err);
-  }
-
-  return updatedRecord;
-}
-
-/**
- * Submits an official evaluation by an independent evaluator
- * Produces immutable official result and issues verification certificate if passed
- */
-export function submitOfficialEvaluation(
-  evaluatorId: string,
-  evaluatorName: string,
-  scores: Record<RubricDimensionId, RubricLevelId>,
-  dimensionFeedback: Record<RubricDimensionId, string>,
-  overallFeedback: string
-): CapstoneSubmissionRecord {
-  const current = loadCurrentSubmission();
-  const evaluation = evaluatePassFail(scores);
-
-  const officialResult: OfficialEvaluationResult = {
-    evaluatorId,
-    evaluatorName,
-    scores,
-    dimensionFeedback,
-    overallFeedback,
-    weightedScore: evaluation.score,
-    passed: evaluation.passed,
-    criticalViolations: evaluation.criticalViolations,
-    evaluatedAt: new Date().toISOString(),
-    certificateId: evaluation.passed
-      ? `CERT-A5-${Date.now().toString(36).toUpperCase()}-AFFINITY`
-      : undefined,
-    isOfficial: true,
-  };
-
-  const updatedRecord: CapstoneSubmissionRecord = {
-    ...current,
-    status: evaluation.passed ? 'approved' : 'needs_revision',
-    officialEvaluation: officialResult,
-    updatedAt: new Date().toISOString(),
-  };
-
-  try {
-    localStorage.setItem(STORAGE_KEY_SUBMISSION, JSON.stringify(updatedRecord));
-  } catch (err) {
-    console.error('Failed to save official evaluation', err);
-  }
+  localStorage.setItem(learningStorageKey(STORAGE_KEY_SUBMISSION), JSON.stringify(updatedRecord));
 
   return updatedRecord;
 }
@@ -585,7 +536,7 @@ export function submitOfficialEvaluation(
  */
 export function getSubmissionHistory(): SubmissionHistoryEntry[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_HISTORY);
+    const raw = localStorage.getItem(learningStorageKey(STORAGE_KEY_HISTORY));
     if (raw) {
       return JSON.parse(raw);
     }
@@ -599,7 +550,7 @@ function appendSubmissionHistory(entry: SubmissionHistoryEntry): void {
   const history = getSubmissionHistory();
   history.push(entry);
   try {
-    localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+    localStorage.setItem(learningStorageKey(STORAGE_KEY_HISTORY), JSON.stringify(history));
   } catch (err) {
     console.error('Failed to append history', err);
   }

@@ -3,100 +3,100 @@
   "moduleId": "D09",
   "trackId": "designer",
   "order": 1,
-  "title": "Pixel Persona & Raster Brush Dynamics in Designer",
-  "subtitle": "Persona Switching, Brush Categories, Flow vs Opacity & Jitter Engine",
+  "title": "Pixel Studio và động lực cọ Raster trong Designer",
+  "subtitle": "Chuyển đổi Persona, nhóm cọ vẽ, Flow với Opacity và bộ điều chỉnh Jitter",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Understand the hybrid architectural engine of Affinity Designer and switch between Vector and Pixel Personas seamlessly.",
-      "Distinguish between vector stroke brushes (Designer Persona) and true raster pixel brushes (Pixel Persona).",
-      "Master brush context dynamics: Width, Hardness, Spacing, and the crucial distinction between Opacity and Flow.",
-      "Configure the Brush Engine 'More' dialog: Size Jitter, Accumulation, Wet Edges, and Pressure controller response."
+      "Hiểu kiến trúc động cơ lõi kép của Affinity và chuyển đổi mượt mà giữa không gian Vector và Pixel Studio.",
+      "Phân biệt rõ cọ nét vector (Vector Brush) và cọ điểm ảnh raster thực thụ trong Pixel Studio.",
+      "Làm chủ các thông số ngữ cảnh của cọ: Width, Hardness, Spacing cùng khác biệt then chốt giữa Opacity và Flow.",
+      "Cấu hình bảng thiết lập sâu 'More' của cọ vẽ: Size Jitter, Accumulation, độ mượt nét và bộ điều khiển theo lực nhấn bút."
     ],
-    "foundationalKnowledge": "In traditional illustration, artists were forced to choose between rigid mathematical vector software (clean lines, but flat mechanical shading) and raster painting applications (rich organic texture, but pixelation and un-scalable edges). Affinity Designer fundamentally solves this dichotomy by embedding a full raster painting engine directly inside the vector application via the Pixel Persona. Switching personas does not convert or rasterize your document; it simply exposes dedicated raster tools (Paint Brush Tool 'B', Eraser 'E', Selection Brushes) operating on pixel layers that coexist directly alongside vector bezier curves.",
+    "foundationalKnowledge": "Trong minh họa truyền thống, người vẽ thường bị kẹt giữa phần mềm vector sắc nét nhưng khô cứng và phần mềm vẽ điểm ảnh giàu chất liệu nhưng lại vỡ hạt khi phóng to. Affinity giải quyết mâu thuẫn này bằng cách tích hợp trọn vẹn bộ máy vẽ điểm ảnh ngay bên trong ứng dụng vector qua Pixel Studio (không gian xử lý pixel raster). Chuyển sang Pixel Studio không hề làm phẳng hay biến đổi tài liệu vector; thao tác này chỉ đổi bộ công cụ sang Paint Brush Tool (B), Eraser (E) và các cọ chọn vùng để vẽ lên các Pixel Layer nằm song song cùng đường cong Bézier.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Persona Architecture & Pixel Brush Engine Specification",
+      "source": "Đặc tả kiến trúc Persona và bộ máy cọ vẽ Pixel Brush trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Pixel Persona & Paint Brush Tool",
-      "persona": "Pixel Persona (Top-Left Toolbar)",
+      "toolName": "Pixel Studio & Paint Brush Tool (Không gian điểm ảnh & Cọ vẽ raster)",
+      "persona": "Pixel Studio (thanh công cụ góc trên bên trái)",
       "shortcut": {
-        "win": "Click Pixel Persona icon (Top-Left) / Custom shortcut in Edit > Preferences > Shortcuts. Tool: B (Paint Brush), E (Eraser), [ / ] (Size)",
-        "mac": "Click Pixel Persona icon (Top-Left) / Custom shortcut in Affinity Designer > Settings > Shortcuts. Tool: B (Paint Brush), E (Eraser), [ / ] (Size)"
+        "win": "Nhấp biểu tượng Pixel Studio (góc trên bên trái) / Phím tắt tự gán trong Edit > Preferences > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)",
+        "mac": "Nhấp biểu tượng Pixel Studio (góc trên bên trái) / Phím tắt tự gán trong Affinity Designer > Settings > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)"
       },
-      "description": "Raster painting environment within Designer providing pressure-sensitive brush engines, textured grain, and raster selections. Note: Affinity Designer does not assign default keyboard shortcuts for persona switching out of the box.",
+      "description": "Môi trường vẽ raster tích hợp sẵn trong Designer với động lực cọ cảm ứng lực nhấn, chất liệu hạt tự nhiên và vùng chọn điểm ảnh. Lưu ý: phần mềm không gán sẵn phím tắt mặc định để chuyển Persona.",
       "contextBarOptions": [
-        "Width input & scrub slider (Adjustable via [ and ] square brackets)",
-        "Opacity slider: Sets the maximum ceiling opacity for a complete stroke",
-        "Flow slider: Sets the rate at which pigment accumulates with overlapping passes (best at 10%–25% for grain)",
-        "Hardness slider: Controls radial edge softness (Shift+[ and Shift+])",
-        "More Button: Opens deep brush dynamics (Size Jitter, Flow Jitter, Spacing, Texture nozzles, Shape dynamics)"
+        "Ô Width & thanh trượt cỡ cọ (tăng giảm nhanh bằng cặp phím ngoặc vuông [ và ])",
+        "Thanh trượt Opacity: Giới hạn độ đậm tối đa cho một nét vẽ liền mạch",
+        "Thanh trượt Flow: Tốc độ tích tụ hạt màu khi quét đè nhiều lượt (tối ưu ở mức 10%–25% khi đánh bóng hạt)",
+        "Thanh trượt Hardness: Điều chỉnh độ mềm hoặc sắc của biên cọ (Shift+[ và Shift+])",
+        "Nút More: Mở hộp thoại động lực sâu (Size Jitter, Flow Jitter, Spacing, đầu cọ texture)"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Switch to the Pixel Persona",
-        "instruction": "Open or create a document set to 300 DPI. Click the second icon on the top-left Persona toolbar (Pixel Persona), or press your custom shortcut if configured in Preferences > Keyboard Shortcuts. Observe the left toolbar reconfiguring to raster tools.",
-        "shortcutTip": { "win": "Pixel Persona Icon", "mac": "Pixel Persona Icon" }
+        "title": "Chuyển sang Pixel Studio",
+        "instruction": "Mở hoặc tạo tài liệu mới ở độ phân giải 300 DPI. Nhấp biểu tượng thứ hai trên thanh Persona ở góc trên bên trái (Pixel Studio), hoặc dùng phím tắt do bạn tự thiết lập trong Preferences > Keyboard Shortcuts. Quan sát thanh công cụ bên trái tự động chuyển sang bộ công cụ raster.",
+        "shortcutTip": { "win": "Biểu tượng Pixel Studio", "mac": "Biểu tượng Pixel Studio" }
       },
       {
         "stepNumber": 2,
-        "title": "Open Brushes Studio & Select Dry Media",
-        "instruction": "In the right studio dock, open the Brushes Studio. Notice the brush categories have changed to raster packs. Select the 'Dry Media' or 'Texture' category, and choose a textured stipple brush such as 'Chalk Rough'.",
+        "title": "Mở Brushes Studio và chọn nhóm Dry Media",
+        "instruction": "Ở thanh dock bên phải, mở bảng Brushes Studio. Danh mục cọ lúc này hiển thị toàn bộ các bộ cọ raster. Chọn nhóm 'Dry Media' hoặc 'Texture', rồi chọn một đầu cọ phấn hoặc hạt xốp như 'Chalk Rough'.",
         "shortcutTip": { "win": "Brushes Studio", "mac": "Brushes Studio" }
       },
       {
         "stepNumber": 3,
-        "title": "Calibrate Flow vs Opacity for Velvety Grain",
-        "instruction": "Select the Paint Brush Tool (B). In the Context Bar, set Opacity to 100%, but reduce Flow to 20%. Set Hardness to 0%. This ensures pigment builds up gradually like analog dry chalk without harsh brush stamp edges.",
+        "title": "Cài đặt Flow và Opacity để đánh hạt mịn",
+        "instruction": "Chọn Paint Brush Tool (B). Trên thanh Context Bar, giữ nguyên Opacity 100%, nhưng giảm Flow xuống 20% và Hardness về 0%. Thiết lập này giúp hạt màu đắp dày dần mượt mà như phấn vẽ tay mà không lộ vết dập đầu cọ cứng.",
         "shortcutTip": { "win": "B (Paint Brush)", "mac": "B (Paint Brush)" }
       },
       {
         "stepNumber": 4,
-        "title": "Configure Pressure Dynamics via More Dialog",
-        "instruction": "Click the 'More' button in the Context Bar. In the Brush Dynamics dialog, set Size Jitter to 25% and set Controller to 'Pressure'. Set Flow Jitter to 15% with Controller set to 'Pressure'. Click Close.",
+        "title": "Chỉnh phản hồi lực nhấn trong hộp thoại More",
+        "instruction": "Nhấp nút 'More' trên thanh Context Bar. Trong bảng Brush Dynamics, đặt Size Jitter ở mức 25% với Controller là 'Pressure', và Flow Jitter ở mức 15% với Controller là 'Pressure', sau đó nhấn Close.",
         "shortcutTip": { "win": "Context Bar > More", "mac": "Context Bar > More" }
       },
       {
         "stepNumber": 5,
-        "title": "Paint a Multi-Pass Stippled Gradient",
-        "instruction": "On a new pixel layer, make light, repeated passes with your stylus or mouse. Notice how repeated overlapping strokes build from a light speckle into a dense, velvety dark core shadow.",
-        "shortcutTip": { "win": "Stylus Pass", "mac": "Stylus Pass" }
+        "title": "Vẽ dải chuyển sắc hạt nhiều lượt",
+        "instruction": "Trên một Pixel Layer mới, quét nhẹ nhiều lượt chồng lên nhau bằng bảng vẽ hoặc chuột. Các lượt quét đè lên nhau sẽ chuyển tự nhiên từ lớp hạt thưa thoáng sang mảng bóng tối dày dặn mượt mà.",
+        "shortcutTip": { "win": "Quét nhiều lượt nhẹ", "mac": "Quét nhiều lượt nhẹ" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Opacity vs Flow Accumulation Matrix",
-        "description": "Comparison of pigment delivery mechanics in Affinity's brush engine.",
+        "title": "Ma trận phân biệt Opacity và Flow khi tô hạt",
+        "description": "Khác biệt hành vi đắp sắc độ giữa hai thanh trượt quan trọng nhất của cọ vẽ.",
         "visualType": "table",
-        "visualContent": "| Setting | Value | Behavior on Single Continuous Stroke | Behavior on Overlapping Multi-Pass |\n|---|---|---|---|\n| Opacity Low / Flow 100% | Opacity 20%, Flow 100% | Never exceeds 20% opacity even if you scribble back and forth repeatedly | Only builds darker if you lift the stylus and start a brand-new stroke |\n| Opacity 100% / Flow Low | Opacity 100%, Flow 20% | Builds continuously darker with every back-and-forth scrub (Analog behavior) | Seamless, velvety gradient transitions with beautiful textured grain |"
+        "visualContent": "| Thiết lập | Giá trị | Hành vi trong một nét vẽ liên tục | Hành vi khi quét chồng nhiều lượt |\n|---|---|---|---|\n| Opacity thấp / Flow 100% | Opacity 20%, Flow 100% | Không bao giờ vượt quá ngưỡng đậm 20% dù quét đi quét lại | Chỉ đậm thêm khi bạn nhấc hẳn bút ra và đặt nét mới |\n| Opacity 100% / Flow thấp | Opacity 100%, Flow 20% | Đậm dần lên liên tục theo từng lượt quét qua lại (giống phấn chì thật) | Tạo dải chuyển bóng mịn màng với chất liệu hạt tự nhiên |"
       },
       {
-        "title": "Persona Tool Switch Diagram",
-        "description": "How the toolbar adapts when toggling between personas.",
+        "title": "Sơ đồ chuyển đổi bộ công cụ giữa hai Persona",
+        "description": "Cách thanh công cụ bên trái thay đổi khi chuyển từ Vector sang Pixel Studio.",
         "visualType": "diagram",
-        "visualContent": "[Designer Persona (Toolbar Icon 1)] ──> Vector Tools: Pen (P), Node (A), Shapes (M), Corner (C)\n                                       │\n                                       ▼ (Switch Persona via Toolbar)\n[Pixel Persona    (Toolbar Icon 2)] ──> Raster Tools: Paint Brush (B), Pixel (P), Eraser (E), Smudge"
+        "visualContent": "[Vector Studio (Biểu tượng 1)] ──> Công cụ Vector: Pen (P), Node (A), Shapes (M), Corner (C)\n                                        │\n                                        ▼ (Chuyển Persona trên thanh công cụ trên)\n[Pixel Studio    (Biểu tượng 2)] ──> Công cụ Raster: Paint Brush (B), Pixel (P), Eraser (E), Smudge"
       }
     ],
     "guidedPractice": {
-      "title": "Calibrating a Custom Grain Shading Brush",
-      "taskDescription": "Duplicate a standard dry media brush, configure custom grain dynamics, and paint a 5-step tonal value sphere.",
+      "title": "Hiệu chỉnh đầu cọ đánh bóng hạt tùy biến",
+      "taskDescription": "Nhân bản một đầu cọ phấn khô mặc định, tùy biến động lực Jitter và tô khối cầu 5 sắc độ chuyển mịn.",
       "checkpoints": [
-        "Switch to Pixel Persona by clicking the Pixel Persona icon on the top-left Toolbar.",
-        "Duplicate 'Chalk Rough' in the Brushes Studio and rename it 'Custom_Velvet_Grain'.",
-        "Open brush settings: set Spacing to 18%, Size Jitter to 20% (Pressure), Flow to 15%.",
-        "Draw a circular raster ball and paint a smooth shadow transition from white highlight to deep core shadow.",
-        "Verify that no individual brush nozzle stamp edges are visible at 100% zoom."
+        "Chuyển sang Pixel Studio bằng biểu tượng ở góc trên bên trái thanh công cụ.",
+        "Nhân bản đầu cọ 'Chalk Rough' trong Brushes Studio và đặt tên 'Custom_Velvet_Grain'.",
+        "Mở thiết lập cọ: đặt Spacing 18%, Size Jitter 20% (Pressure) và Flow 15%.",
+        "Vẽ một khối cầu raster và tô chuyển sắc từ vùng sáng trắng xuống vùng bóng tối sâu.",
+        "Phóng ở mức 100% để xác nhận không bị lộ vết chấm tròn lặp lại của đầu cọ."
       ],
-      "expectedOutcome": "A customized, responsive grain brush that delivers buttery, tactile shading transitions across broad surface areas."
+      "expectedOutcome": "Đầu cọ hạt tùy biến cho nét chuyển khối mềm mịn, bám lực tay và giàu chất liệu giấy vẽ."
     },
     "independentChallenge": {
-      "title": "Textured Vector Moon Illustration",
-      "prompt": "Construct a stylized celestial poster: (1) In Designer Persona, draw a perfect vector circle (600x600 px) filled with midnight navy (#0F172A); (2) Switch to Pixel Persona; (3) Add a pixel layer and select a stipple noise brush; (4) Configure Flow to 20% and paint a dramatic crescent shadow curving around the sphere; (5) Add a secondary warm gold rim highlight along the opposite edge; (6) Switch back to Designer Persona and overlay sharp vector crater rings (1.5pt white strokes).",
+      "title": "Minh họa mặt trăng Vector kết hợp bóng hạt Raster",
+      "prompt": "Thiết kế tấm áp phích thiên văn cách điệu: (1) Ở Vector Studio, vẽ hình tròn vector chuẩn (600x600 px) tô màu xanh đêm (#0F172A); (2) Chuyển sang Pixel Studio; (3) Tạo Pixel Layer mới và chọn cọ hạt stipple/noise; (4) Đặt Flow 20% để đánh vùng bóng lưỡi liềm cong ôm theo khối cầu; (5) Phủ thêm viền sáng vàng ấm dọc theo cạnh đối diện; (6) Quay lại Vector Studio để vẽ chồng các vòng tròn miệng núi lửa vector nét mảnh 1.5 pt màu trắng.",
       "starterAsset": {
         "filename": "D09_pixel_persona_shading_guide.md",
         "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
@@ -104,186 +104,186 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Production blueprint for Pixel Persona setup and grain shading (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn thiết lập Pixel Studio và đổ bóng hạt (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Document established at 300 DPI for high-density grain fidelity.",
-        "Persona switching executed via shortcuts without document disruption.",
-        "Flow dynamics properly calibrated between 15% and 25%.",
-        "Seamless fusion of organic raster noise and sharp vector overlays."
+        "Tài liệu được thiết lập ngay từ đầu ở mức 300 DPI để giữ nét cho hạt cọ.",
+        "Chuyển đổi trơn tru giữa các Persona mà không làm phẳng cấu trúc lớp.",
+        "Điều chỉnh Flow hợp lý trong khoảng 15%–25%.",
+        "Kết hợp hài hòa giữa hạt raster hữu cơ và đường nét vector sắc gọn."
       ]
     },
     "commonPitfalls": [
       {
-        "mistake": "Leaving Flow at 100% and trying to shade by dropping Opacity.",
-        "consequence": "Produces harsh overlapping banding streaks wherever the brush overlaps itself on a single stroke.",
-        "solution": "Keep Opacity at 100% and lower Flow to 15%–25%. This allows pigment to accumulate naturally with smooth gradients."
+        "mistake": "Giữ Flow 100% và giảm Opacity xuống thấp để đánh bóng.",
+        "consequence": "Tạo ra các vệt chồng màu loang lổ và ngấn bậc mỗi khi nét cọ đi đè lại trên cùng một vùng.",
+        "solution": "Giữ Opacity ở 100% và hạ Flow xuống 15%–25% để hạt màu tích tụ êm qua nhiều lượt quét."
       },
       {
-        "mistake": "Working in a 72 DPI document and wondering why raster grain looks blurry and pixelated.",
-        "consequence": "At 72 DPI, raster brush stamps have very few pixels, turning subtle noise textures into chunky pixel squares.",
-        "solution": "Always ensure your document is set to 300 DPI (or minimum 144 DPI for Retina web) in Document Setup."
+        "mistake": "Để tài liệu ở 72 DPI rồi thắc mắc vì sao hạt cọ bị nhòe và vỡ vuông.",
+        "consequence": "Ở 72 DPI, mỗi hạt chấm của cọ có quá ít điểm ảnh nên chất liệu hạt biến thành các ô vuông thô.",
+        "solution": "Luôn cài đặt tài liệu ở 300 DPI (hoặc tối thiểu 144 DPI cho màn hình Retina) trong Document Setup trước khi vẽ."
       },
       {
-        "mistake": "Attempting to edit vector curves while still in the Pixel Persona.",
-        "consequence": "The Pen and Node tools are unavailable; users get confused thinking their vector paths have locked.",
-        "solution": "Click the Designer Persona icon on the top-left Toolbar to return to vector editing and manipulate nodes and shapes."
+        "mistake": "Cố tìm Pen Tool hoặc Node Tool để sửa đường vector khi vẫn đang ở trong Pixel Studio.",
+        "consequence": "Thanh công cụ bên trái chỉ hiển thị công cụ điểm ảnh khiến người mới tưởng phần mềm bị mất công cụ vector.",
+        "solution": "Nhấp lại biểu tượng Designer / Vector Studio ở góc trên bên trái để quay về bộ công cụ vector."
       }
     ],
     "knowledgeCheck": [
       {
-        "question": "What is the primary difference in behavior between lowering Opacity versus lowering Flow when painting with a raster brush?",
+        "question": "Sự khác biệt thực tế giữa giảm Opacity và giảm Flow khi tô bằng cọ raster là gì?",
         "options": [
-          "Opacity changes the brush color, while Flow changes the brush size.",
-          "Low Opacity caps the maximum density on a single stroke regardless of scribbling; low Flow allows pigment to accumulate continuously with overlapping passes.",
-          "Flow only works with a tablet stylus, while Opacity only works with a mouse.",
-          "There is no functional difference."
+          "Opacity đổi màu sắc cọ, còn Flow đổi kích thước cọ.",
+          "Opacity thấp khóa trần độ đậm tối đa của một nét vẽ dù tô đè nhiều lần; Flow thấp cho phép hạt màu đậm dần liên tục qua từng lượt quét đè.",
+          "Flow chỉ chạy trên bảng vẽ bút cảm ứng, còn Opacity chỉ chạy với chuột.",
+          "Hai thông số này cho kết quả giống hệt nhau."
         ],
         "correctIndex": 1,
-        "explanation": "Opacity sets a hard ceiling on transparency for an entire stroke, whereas Flow regulates the deposition rate per stamp, allowing you to build rich, multi-pass gradients by scrubbing over an area."
+        "explanation": "Opacity đặt mức trần trong suốt cho cả nét bút, còn Flow điều tiết lượng hạt xả ra trên mỗi lần quét qua, giúp tạo độ chuyển sắc mịn như phấn thật."
       },
       {
-        "question": "How do you switch into the Pixel Persona in Affinity Designer by default?",
+        "question": "Cách chuyển sang Pixel Studio mặc định trong Affinity Designer là gì?",
         "options": [
-          "Press F9",
-          "Click the Pixel Persona icon on the top-left Toolbar (Affinity has no default shortcut out of the box, but custom shortcuts can be set in Preferences > Keyboard Shortcuts)",
-          "Press Ctrl+Shift+P",
-          "Go to File > New"
+          "Nhấn phím F9",
+          "Nhấp biểu tượng Pixel Studio ở góc trên bên trái thanh công cụ (phần mềm không gán phím tắt mặc định sẵn, nhưng có thể tự gán trong Preferences > Keyboard Shortcuts)",
+          "Nhấn Ctrl+Shift+P",
+          "Vào File > New"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer does not assign default keyboard shortcuts for switching between Personas out of the box. Users switch by clicking the persona icons on the top-left toolbar, or by assigning custom shortcuts in Preferences > Keyboard Shortcuts."
+        "explanation": "Affinity không gán sẵn phím tắt chuyển Persona mặc định; bạn nhấp biểu tượng trên góc trái thanh công cụ hoặc tự gán phím tắt trong Preferences > Keyboard Shortcuts."
       },
       {
-        "question": "Why is document DPI critical when working with the Pixel Persona inside Affinity Designer?",
+        "question": "Vì sao thông số DPI của tài liệu lại cực kỳ quan trọng khi làm việc với Pixel Studio?",
         "options": [
-          "Vector paths cannot be drawn in documents below 300 DPI.",
-          "Raster brush strokes created in the Pixel Persona are resolution-dependent bitmaps rendered at the document's DPI setting.",
-          "The Pixel Persona will automatically delete all layers if DPI is changed.",
-          "DPI only affects font sizes."
+          "Vì đường vector không vẽ được ở mức dưới 300 DPI.",
+          "Vì nét vẽ cọ raster trong Pixel Studio là dữ liệu điểm ảnh phụ thuộc trực tiếp vào độ phân giải DPI của tài liệu.",
+          "Vì Pixel Studio tự xóa mọi layer nếu đổi DPI.",
+          "Vì DPI chỉ ảnh hưởng đến cỡ chữ."
         ],
         "correctIndex": 1,
-        "explanation": "While vector bezier paths scale infinitely without pixelation, pixel brush strokes are raster bitmaps tied directly to the document's resolution; low DPI results in blurry or chunky grain."
+        "explanation": "Đường cong vector phóng to vô hạn nhưng nét cọ raster được kết xuất cố định theo DPI tài liệu; DPI quá thấp sẽ làm lớp hạt bị vỡ và mờ khi in."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "The Pixel Persona embeds a full raster painting engine directly inside the vector workflow.",
-        "Personas have no default shortcuts out of the box; switch via top-left icons or assign custom shortcuts in Preferences.",
-        "Low Flow (15%–25%) is the secret to velvety, non-banding analog grain shading.",
-        "Always design at 300 DPI for high-resolution print and crisp Retina raster reproduction."
+        "Pixel Studio tích hợp trọn vẹn bộ máy vẽ raster ngay bên trong tài liệu vector.",
+        "Chuyển Persona qua nhóm biểu tượng góc trên bên trái hoặc tự gán phím tắt trong Preferences.",
+        "Giữ Opacity 100% và hạ Flow 15%–25% là chìa khóa để đánh bóng hạt mịn, không vệt ngấn.",
+        "Luôn đặt tài liệu ở chuẩn 300 DPI khi minh họa có sử dụng chất liệu raster cho in ấn hoặc màn hình độ nét cao."
       ],
-      "nextSteps": "Proceed to D09-02 to learn how to clip raster pixel shading non-destructively inside vector curve shapes.",
+      "nextSteps": "Chuyển sang bài D09-02 để lồng gọn các lớp đổ bóng hạt raster vào bên trong khung vector cha một cách phi phá hủy.",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Painting/pixel_persona.html"
     }
   },
   "slides": [
     {
       "slideNumber": 1,
-      "title": "The Hybrid Engine: Pixel Persona in Designer",
-      "subtitle": "Unifying Vector Precision with Analog Texture",
+      "title": "Kiến trúc lõi kép: Pixel Studio trong Designer",
+      "subtitle": "Kết hợp độ sắc nét của Vector với chất liệu hạt tự nhiên",
       "bullets": [
-        "Pure vectors can feel sterile, cold, and mathematically rigid.",
-        "Pure raster software loses sharp scalability when resized for print or large formats.",
-        "Affinity Designer embeds an uncompromised raster painting studio via the Pixel Persona.",
-        "Switch personas in 1 keystroke without converting, exporting, or flattening layers."
+        "Đồ họa vector thuần túy đôi khi tạo cảm giác phẳng và quá máy móc.",
+        "Phần mềm vẽ raster thuần túy lại dễ bị vỡ nét khi phóng to cho in ấn khổ lớn.",
+        "Affinity tích hợp thẳng một studio vẽ điểm ảnh đầy đủ ngay trong Pixel Studio.",
+        "Chuyển đổi qua lại tức thì ngay trên cùng một tài liệu mà không cần xuất hay gộp phẳng lớp."
       ],
-      "proTip": "The document remains a live .afdesign file with simultaneous vector and pixel layers."
+      "proTip": "Tệp gốc .afdesign vẫn lưu đồng thời cả đường cong vector lẫn lớp pixel hạt trong cùng một cây layer."
     },
     {
       "slideNumber": 2,
-      "title": "Persona Navigation & Toolbar Adaptations",
-      "subtitle": "Seamless Workflow Switching",
+      "title": "Chuyển đổi Persona và thích nghi thanh công cụ",
+      "subtitle": "Thao tác liền mạch giữa ba không gian làm việc",
       "bullets": [
-        "Designer Persona (Top-Left Blue Pen): Pen, Node, Shapes, Boolean tools.",
-        "Pixel Persona (Top-Left Brush): Paint Brush, Pixel Tool, Eraser, Smudge, Selections.",
-        "Export Persona (Top-Left Slices): Slices, batch multi-density exports.",
-        "No default persona shortcuts exist out of the box; assign your own in Edit > Preferences > Shortcuts."
+        "Designer / Vector Studio (Biểu tượng 1): Pen, Node, Shapes, phép toán Boolean.",
+        "Pixel Studio (Biểu tượng 2): Paint Brush, Pixel Tool, Eraser, Smudge, Selection.",
+        "Slice Studio (Biểu tượng 3): Cắt lát Slices và xuất hàng loạt đa mật độ.",
+        "Mặc định không có phím tắt chuyển Persona sẵn; có thể tự gán trong Edit > Preferences > Shortcuts."
       ],
-      "proTip": "Configure custom shortcuts like Alt+1 / Alt+2 (or Opt+1 / Opt+2 on Mac) for rapid persona toggling."
+      "proTip": "Bạn có thể tự gán cặp phím tắt như Alt+1 / Alt+2 (hoặc Opt+1 / Opt+2 trên Mac) để chuyển nhanh giữa vẽ nét và tô hạt."
     },
     {
       "slideNumber": 3,
-      "title": "Raster Brushes Studio Architecture",
-      "subtitle": "Exploring Texture, Dry Media & Inks",
+      "title": "Kho cọ raster trong Brushes Studio",
+      "subtitle": "Khám phá nhóm Texture, Dry Media và Inks",
       "bullets": [
-        "In Pixel Persona, the Brushes Studio displays high-resolution raster brush categories.",
-        "Dry Media: Chalks, charcoals, and pastels with rich tooth and organic grain.",
-        "Inks & Gouache: Smooth pigment with natural brush edge textures.",
-        "Spray and Spatters: Realistic airbrush mist and stipple noise dispersion."
+        "Khi sang Pixel Studio, bảng Brushes Studio tự chuyển sang thư viện cọ điểm ảnh độ phân giải cao.",
+        "Dry Media: nhóm cọ phấn, chì than giàu độ sần bề mặt giấy.",
+        "Inks & Gouache: đầu cọ màu nước và mực vẽ có viền sắc nét tự nhiên.",
+        "Spray and Spatters: đầu cọ phun sương và rải hạt stipple ngẫu nhiên."
       ],
-      "callout": "Vector brushes in Designer Persona stretch along curves; Pixel brushes deposit real pixels!"
+      "callout": "Vector Brush kéo giãn hình mẫu dọc theo đường cong; Pixel Brush vẽ trực tiếp từng hạt điểm ảnh lên lớp Pixel!"
     },
     {
       "slideNumber": 4,
-      "title": "The Golden Rule of Shading: Flow vs Opacity",
-      "subtitle": "Building Smooth, Velvety Texture Gradients",
+      "title": "Quy tắc vàng khi đánh bóng hạt: Flow và Opacity",
+      "subtitle": "Cách tô chuyển sắc mượt không lộ ngấn vệt",
       "bullets": [
-        "Setting Opacity to 20% creates a flat ceiling: you cannot build depth without lifting the pen.",
-        "Setting Flow to 15%–25% mimics real chalk: scrubbing back and forth deposits more pigment.",
-        "Overlapping low-flow strokes creates continuous, rich transitions with zero harsh lines.",
-        "Keep Opacity at 100% and regulate density exclusively via the Flow slider."
+        "Đặt Opacity 20% tạo một mức trần cứng: quét đi quét lại vẫn không đậm thêm nếu không nhấc bút.",
+        "Đặt Flow 15%–25% mô phỏng đầu phấn thật: quét chồng qua lại càng nhiều thì màu càng đậm dần.",
+        "Các lượt quét đè ở mức Flow thấp hòa vào nhau mượt mà, không tạo đường ranh giới gắt.",
+        "Giữ Opacity ở 100% và điều tiết độ đậm nhạt chủ yếu bằng thanh trượt Flow."
       ],
-      "proTip": "Press number keys (e.g. '2' for 20%, '5' for 50%) to change Flow instantly while painting."
+      "proTip": "Có thể nhấn nhanh các phím số khi đang cầm cọ (hoặc chỉnh trực tiếp trên Context Bar) để đổi tỷ lệ nhanh."
     },
     {
       "slideNumber": 5,
-      "title": "Deep Brush Dynamics: The More Dialog",
-      "subtitle": "Pressure Sensitivity & Organic Jitter",
+      "title": "Động lực cọ nâng cao trong hộp thoại More",
+      "subtitle": "Cảm ứng lực nhấn và độ biến thiên hữu cơ",
       "bullets": [
-        "Click 'More' on the Context Bar to open granular brush configuration.",
-        "Size Jitter: Randomizes brush diameter slightly, breaking mechanical regularity.",
-        "Flow Jitter: Varies pigment release based on graphics tablet stylus pressure.",
-        "Spacing: Set to 15%–20% for continuous smooth strokes without discrete dot stamps."
+        "Nhấp nút 'More' trên thanh Context Bar để mở bảng tùy biến sâu.",
+        "Size Jitter: tạo biến thiên nhẹ cho cỡ hạt nhằm phá bỏ cảm giác lặp đều công nghiệp.",
+        "Flow Jitter: điều tiết lượng hạt ra theo lực tì tay của bút vẽ bảng vẽ.",
+        "Spacing: đặt khoảng 15%–20% để nét kéo liền mạch không bị rời rạc thành từng chấm."
       ],
-      "proTip": "Set Controller to 'Pressure' on Size and Flow for natural calligraphic hand response."
+      "proTip": "Đặt Controller là 'Pressure' cho cả Size và Flow nếu bạn dùng bảng vẽ điện tử có cảm ứng lực."
     },
     {
       "slideNumber": 6,
-      "title": "Resolution Governance: The 300 DPI Standard",
-      "subtitle": "Why Vector Documents Need DPI Awareness",
+      "title": "Quản lý độ phân giải: Tiêu chuẩn 300 DPI",
+      "subtitle": "Vì sao tài liệu Vector vẫn cần quan tâm đến DPI",
       "bullets": [
-        "Vector shapes are infinite math; raster brush strokes are pixel arrays.",
-        "At 72 DPI, grain brushes look chunky, blurry, and pixelated when printed.",
-        "Always initialize illustration projects at 300 DPI in File > New or Document Setup.",
-        "At 300 DPI, grain textures reproduce with microscopic, velvety analog fidelity."
+        "Đường cong vector là công thức toán học; nét cọ pixel là lưới điểm ảnh cố định.",
+        "Ở 72 DPI, lớp hạt đổ bóng nhìn rất thô, nhòe và vỡ vuông khi đem in.",
+        "Luôn khởi tạo tài liệu minh họa có tô raster ở mức 300 DPI trong File > New hoặc Document Setup.",
+        "Tại 300 DPI, hạt phấn và hạt giấy hiện lên sắc mịn tự nhiên khi xuất ấn phẩm."
       ],
-      "callout": "You can change document DPI anytime in File > Document Setup... without distorting vectors."
+      "callout": "Nâng DPI sau khi đã vẽ xong không thể khôi phục độ nét đã mất — hãy đặt 300 DPI ngay từ đầu!"
     },
     {
       "slideNumber": 7,
-      "title": "Hands-on Exercise: The Textured Shading Ball",
-      "subtitle": "Step-by-Step Production Practice",
+      "title": "Thực hành nhanh: Tô khối cầu chất liệu hạt",
+      "subtitle": "Làm quen cọ phấn và quy trình đánh bóng nhiều lượt",
       "bullets": [
-        "Follow instructions in 'D09_pixel_persona_shading_guide.md'.",
-        "Create a 300 DPI canvas and switch to Pixel Persona via the top-left Toolbar icon.",
-        "Select 'Chalk Rough' or 'Noise Grain' brush from Dry Media.",
-        "Set Opacity: 100%, Flow: 20%, Hardness: 0%.",
-        "Paint a multi-pass value sphere demonstrating core shadow, midtone, and reflected light."
+        "Làm theo hướng dẫn trong tệp 'D09_pixel_persona_shading_guide.md'.",
+        "Tạo bản vẽ 300 DPI và chuyển sang Pixel Studio ở góc trên bên trái.",
+        "Chọn đầu cọ 'Chalk Rough' hoặc 'Noise Grain' trong nhóm Dry Media.",
+        "Đặt Opacity: 100%, Flow: 20%, Hardness: 0%.",
+        "Quét nhiều lượt tạo khối sáng, vùng chuyển trung gian và phần bóng tối sâu cho hình cầu."
       ],
-      "proTip": "Use quick, circular feathering motions with your stylus to blend stipple transitions."
+      "proTip": "Đưa tay theo vòng xoáy nhẹ và đều giúp hạt phấn tan mềm vào nền hơn là kéo thẳng một đường."
     },
     {
       "slideNumber": 8,
-      "title": "Knowledge Check & Comprehension",
-      "subtitle": "Verifying Core Pixel Persona Concepts",
+      "title": "Kiểm tra nhanh kiến thức Pixel Studio",
+      "subtitle": "Rà soát thông số trước khi sang kỹ thuật lồng lớp clipping",
       "bullets": [
-        "Explain the functional difference between Flow and Opacity.",
-        "Recall how to switch personas via the top-left Toolbar and how to configure custom shortcuts in Preferences.",
-        "Identify why 300 DPI is required for high-end textured illustration.",
-        "Verify your custom brush settings before proceeding to child layer clipping."
+        "Phân biệt rõ cơ chế tích tụ màu của Flow và Opacity.",
+        "Nêu cách chuyển đổi giữa các Persona và cách tự gán phím tắt trong Preferences.",
+        "Giải thích lý do bắt buộc dùng 300 DPI cho minh họa kết hợp hạt raster.",
+        "Kiểm tra độ mịn chuyển sắc ở mức zoom 100% trước khi chuyển sang bài tiếp theo."
       ]
     },
     {
       "slideNumber": 9,
-      "title": "Lesson Summary & Moving to Vector Clipping",
-      "subtitle": "From Freehand Painting to Precision Containment",
+      "title": "Tổng kết & Chuyển sang kỹ thuật Clipping Pixel",
+      "subtitle": "Từ tô tự do sang kiểm soát biên sắc bén bằng hình Vector",
       "bullets": [
-        "Mastered the hybrid dual-engine architecture of Affinity Designer.",
-        "Calibrated raster brush dynamics with low Flow for velvety analog grain.",
-        "Configured tablet pressure response for organic illustration hand feel.",
-        "In Lesson D09-02, we lock these raster textures inside razor-sharp vector containers."
+        "Đã nắm vững kiến trúc lõi kép và cách chuyển đổi Persona trong Affinity.",
+        "Đã hiệu chỉnh thông số cọ với mức Flow thấp cho bề mặt hạt mịn.",
+        "Đã thiết lập phản hồi lực nhấn cho cảm giác vẽ tự nhiên.",
+        "Ở bài D09-02, ta sẽ khóa gọn toàn bộ lớp hạt này vào bên trong đường bao vector sắc nét."
       ],
-      "proTip": "Freehand painting is fun; contained non-destructive vector clipping is professional!"
+      "proTip": "Tô tự do rất dễ chịu, nhưng lồng lớp clipping phi phá hủy mới là bí quyết làm việc nhanh và sạch!"
     }
   ]
 }

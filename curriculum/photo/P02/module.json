@@ -2,20 +2,20 @@
   "id": "P02",
   "trackId": "photo",
   "moduleNumber": "P02",
-  "title": "Selections, Edge Refinement & Layer Masking",
-  "tagline": "Master precision pixel selections, intelligent edge calculation, and non-destructive layer masks.",
-  "description": "Learn the art of isolating subjects with pinpoint accuracy in Affinity Photo 3.0: Selection Brush with edge snapping, Freehand Lasso polygonal modes, Refine Selection matte calculation for complex hair, and non-destructive pixel masking architectures.",
+  "title": "Công Cụ Vùng Chọn & Nguyên Lý Tách Nền Chuẩn Xác",
+  "tagline": "Làm chủ vùng chọn điểm ảnh chính xác, tính toán biên thông minh và mặt nạ lớp phi phá hủy.",
+  "description": "Làm chủ các công cụ chọn điểm ảnh trong Pixel Studio / Affinity Photo: Selection Brush với bắt dính biên, các chế độ Freehand Lasso và đa giác, tính toán biên tóc phức tạp qua Refine Selection và kiến trúc mặt nạ pixel phi phá hủy.",
   "difficulty": "Beginner",
   "estimatedMinutes": 85,
   "prerequisites": ["P01"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P02_selections_masking_guide.md",
     "filepath": "curriculum/assets/photo/P02_selections_masking_guide.md",
     "filesize": "4.5 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for selections, edge refinement and pixel masking in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn vùng chọn, tinh chỉnh biên và mặt nạ pixel trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P02-01", "P02-02", "P02-03"]
 }

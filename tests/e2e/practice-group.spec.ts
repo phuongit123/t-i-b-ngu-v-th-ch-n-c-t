@@ -1,61 +1,55 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Phase 5 — Nhóm Practice: Sandbox & Challenges', () => {
-  test('TC-PRAC-01: Navigation to Challenges page and verify challenge list', async ({ page }) => {
+test.describe('Thử thách thực hành & Đồng bộ điểm với Học tập', () => {
+  test('TC-PRAC-01: Trang Thử thách sạch nhãn nội bộ và hiển thị đầy đủ danh sách', async ({ page }) => {
     await page.goto('/');
-
-    // Click on Challenges nav item
-    const chalNav = page.locator('button:has-text("Thử thách")').first();
-    await expect(chalNav).toBeVisible();
-    await chalNav.click();
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
+    await page.getByTestId('nav-challenges').click();
 
     await expect(page.locator('h1')).toContainText('Thử Thách Kỹ Thuật & Bài Luyện Thực Hành');
-    await expect(page.locator('text=NHÓM PRACTICE')).toBeVisible();
+    await expect(page.locator('text=NHÓM PRACTICE')).toHaveCount(0);
+    await expect(page.locator('text=(Step-by-Step Guide)')).toHaveCount(0);
 
-    // Verify list of challenges
     await expect(page.locator('h4:has-text("Dựng Đa Giác Kim Cương Sắc Cạnh")')).toBeVisible();
     await expect(page.locator('h4:has-text("Uốn Lượn Sóng Tiếp Tuyến Mượt")')).toBeVisible();
     await expect(page.locator('h4:has-text("Biểu Tượng Trái Tim Kết Hợp Cusp & Smooth")')).toBeVisible();
   });
 
-  test('TC-PRAC-02: Step-by-step guidance, instructions, and checklist interaction', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Thử thách")').first().click();
+  test('TC-PRAC-02: Kiểm tra 0 bước phải đạt 0%, checklist đủ bước không tính là điểm Canvas', async ({ page }) => {
+    await page.goto('/challenges');
 
-    // Verify steps section
-    await expect(page.locator('text=Hướng dẫn từng bước (Step-by-Step Guide)')).toBeVisible();
+    await expect(page.locator('text=Hướng dẫn thực hiện từng bước')).toBeVisible();
     await expect(page.locator('text=Bước 1: Khởi tạo Pen Tool')).toBeVisible();
-    await expect(page.locator('text=Bước 2: Đặt 4 đỉnh hình thoi')).toBeVisible();
 
-    // Check step 1
-    const stepCheckbox = page.locator('button:has(svg)').first();
-    await expect(stepCheckbox).toBeVisible();
-  });
+    // Evaluating with 0 steps checked must return 0% FAIL (never free 75%)
+    const evalBtn = page.getByTestId('evaluate-challenge-btn');
+    await evalBtn.click();
+    const resultBox = page.getByTestId('challenge-evaluation-result');
+    await expect(resultBox).toContainText('KẾT QUẢ: CẦN CẢI THIỆN');
+    await expect(resultBox).toContainText('Độ chính xác: 0%');
 
-  test('TC-PRAC-03: Accuracy evaluation and progress persistence in localStorage', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Thử thách")').first().click();
-
-    // Click on evaluate button
-    const evalBtn = page.locator('button:has-text("Kiểm Tra Kết Quả (Chấm Điểm Thử Thách)")');
-    await expect(evalBtn).toBeVisible();
+    // Complete all 4 steps and re-evaluate -> 100% PASSED
+    await page.getByTestId('challenge-step-1').click();
+    await page.getByTestId('challenge-step-2').click();
+    await page.getByTestId('challenge-step-3').click();
+    await page.getByTestId('challenge-step-4').click();
     await evalBtn.click();
 
-    // Verify evaluation verdict
-    await expect(page.locator('text=KẾT QUẢ:').first()).toBeVisible();
-    await expect(page.locator('text=Độ chính xác:').first()).toBeVisible();
+    await expect(resultBox).toContainText('CHECKLIST TỰ ĐÁNH GIÁ');
+    await expect(resultBox).toContainText('Số bước đã đánh dấu: 100%');
+
+    // Verify synced to Dashboard
+    await page.getByTestId('nav-dashboard').click();
+    await expect(page.getByText('Đã hoàn thành thử thách kỹ thuật')).toHaveCount(0);
   });
 
-  test('TC-PRAC-04: Transition between Challenges and Sandbox Simulator', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Thử thách")').first().click();
+  test('TC-PRAC-03: Chuyển tiếp từ Thử thách sang Phòng mô phỏng tương tác', async ({ page }) => {
+    await page.goto('/challenges');
 
-    // Click transition button to Sandbox
-    const toSandboxBtn = page.locator('button:has-text("Mở Sandbox Tự do")');
+    const toSandboxBtn = page.locator('button:has-text("Mở Phòng mô phỏng")');
     await expect(toSandboxBtn).toBeVisible();
     await toSandboxBtn.click();
 
-    // Verify navigation landed on SimulatorPage
     await expect(page.locator('h1')).toContainText('Bộ Mô Phỏng Bézier Pen & Node Tool');
   });
 });

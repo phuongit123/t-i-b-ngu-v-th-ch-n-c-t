@@ -3,20 +3,20 @@
   "trackId": "photo",
   "order": 7,
   "moduleNumber": "P07",
-  "title": "Compositing, Perspective Matching & Photo Manipulation",
-  "tagline": "Master multi-image blending, perspective alignment, light wrapping, and realism integration.",
-  "description": "Advanced compositing in Affinity Photo 3.0: perspective matching, Live Perspective and Warp Groups, horizon alignment, edge light wrapping, contact shadows, and unified atmospheric color grading.",
+  "title": "Ghép Ảnh Nghệ Thuật (Compositing) & Hòa Trộn Ánh Sáng",
+  "tagline": "Làm chủ kỹ thuật ghép đa lớp, căn chỉnh phối cảnh, ánh sáng tràn viền và hòa trộn chân thực.",
+  "description": "Kỹ thuật ghép ảnh nâng cao trong Pixel Studio / Affinity Photo: khớp phối cảnh, Live Perspective và Warp Groups, căn chỉnh đường chân trời, hiệu ứng Light Wrap, bóng đổ hai tầng và đồng bộ ánh sáng không gian.",
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P03", "P05", "P06"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P07_compositing_manipulation_guide.md",
     "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",
     "filesize": "4.5 KB",
     "filetype": ".md",
     "isVerified": true,
-    "statusNote": "Technical practice guide for advanced photo compositing and manipulation in Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn ghép ảnh nâng cao và xử lý không gian trong Pixel Studio / Affinity Photo."
   },
   "lessonIds": ["P07-01", "P07-02", "P07-03"]
 }

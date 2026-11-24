@@ -2,51 +2,51 @@
   "id": "D02",
   "trackId": "designer",
   "order": 2,
-  "title": "Vector Nodes, Paths & Pen Tool Geometry",
-  "subtitle": "Sharp, Smooth, Smart Nodes, Control Handles, Bezier Curves & Keyboard Modifiers",
-  "description": "Master the mathematical core of vector illustration: the Pen Tool (P) and Node Tool (A). Learn the mechanics of cubic Bezier handles, the three fundamental node classifications (Sharp, Smooth, Smart), and professional workflows for joining, breaking, closing, and reversing complex paths with stroke caps and joins.",
+  "title": "Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen",
+  "subtitle": "Các loại điểm neo Sharp, Smooth, Smart, tay cầm Bézier và phím tắt giữ góc",
+  "description": "Làm chủ các cơ chế tạo và hiệu chỉnh đường cong Bézier, phân loại node (Sharp, Smooth, Smart) và thao tác tiếp tuyến chuẩn xác.",
   "difficulty": "Beginner",
   "estimatedMinutes": 80,
-  "prerequisites": ["D01: Designer Workspace Anatomy & Canvas Setup"],
+  "prerequisites": ["D01: Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)"],
   "learningOutcomes": [
-    "Navigate all 4 Pen Tool modes: Standard Pen, Smart Mode, Polygon Mode, and Line Mode.",
-    "Manipulate cubic Bezier control handles using Alt/Option handle-breaking modifiers.",
-    "Differentiate and convert between Sharp (Cusp), Smooth, and Smart nodes.",
-    "Execute path operations: Join Curves, Break Curve, Close Curve, and Reverse Curve.",
-    "Apply stroke styling: Butt/Round/Square caps, Miter/Round/Bevel joins, and Align Stroke settings."
+    "Sử dụng linh hoạt cả 4 chế độ của Pen Tool: Pen Mode tiêu chuẩn, Smart Mode, Polygon Mode và Line Mode.",
+    "Điều khiển tay cầm Bézier bậc ba và bẻ góc tiếp tuyến bằng phím bổ trợ Alt/Option.",
+    "Phân biệt và chuyển đổi giữa ba loại điểm neo: Sharp (góc nhọn), Smooth (trơn tiếp tuyến) và Smart (tự cân bằng độ cong).",
+    "Thực hiện thành thạo các thao tác đường dẫn: Join Curves, Break Curve, Close Curve và Reverse Curve.",
+    "Thiết lập kiểu đầu nét (Butt/Round/Square Cap), kiểu nối góc (Miter/Round/Bevel Join) và căn lề viền trong Stroke Studio."
   ],
   "capstoneProject": {
-    "title": "Precision Organic Vector Monogram",
-    "description": "Draw an intricate geometric monogram with interwoven fluid curves, crisp corner cusps, and customized stroke caps, demonstrating zero stray or redundant nodes.",
+    "title": "Chữ Lồng Monogram Vector Chuẩn Xác",
+    "description": "Vẽ một biểu tượng chữ lồng hình học kết hợp các đường cong uyển chuyển, đỉnh góc sắc nét và kiểu đầu nét tùy biến, đảm bảo không có điểm neo thừa hay chồng chéo.",
     "deliverableAsset": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
     "evaluationCriteria": [
-      "Path contains only necessary anchor nodes placed at curve extrema.",
-      "No broken or overlapping Bezier handles.",
-      "Path is closed cleanly with appropriate Miter and Cap settings."
+      "Đường nét chỉ đặt số lượng điểm neo tối thiểu tại các điểm cực trị (extrema) của đường cong.",
+      "Không có tay cầm Bézier bị xoắn chéo hoặc gãy khúc ngoài ý muốn.",
+      "Đường viền khép kín sạch sẽ, cấu hình Miter Limit và đầu nét Cap hợp lý."
     ]
   },
   "lessons": [
     {
       "id": "D02-01",
       "order": 1,
-      "title": "Pen Tool Modes & Bezier Handle Mechanics",
-      "subtitle": "Standard Pen, Smart Mode, Polygon, Line & Cusp Handle Breaking",
+      "title": "Các chế độ Pen Tool và cơ chế tay cầm Bézier",
+      "subtitle": "Chế độ Pen, Smart, Polygon, Line và kỹ thuật bẻ góc tay cầm",
       "durationMinutes": 25,
       "difficulty": "Beginner"
     },
     {
       "id": "D02-02",
       "order": 2,
-      "title": "Node Classifications & Node Tool Manipulation",
-      "subtitle": "Sharp, Smooth, Smart Nodes, Extrema Placement & Alignment",
+      "title": "Phân loại node và thao tác bằng Node Tool",
+      "subtitle": "Điểm neo Sharp, Smooth, Smart, đặt điểm cực trị và căn gióng nhiều điểm",
       "durationMinutes": 25,
       "difficulty": "Beginner"
     },
     {
       "id": "D02-03",
       "order": 3,
-      "title": "Path Operations, Joining, Breaking & Stroke Joins",
-      "subtitle": "Join Curves, Break, Close, Reverse, Miter Limits & Cap Profiles",
+      "title": "Thao tác đường cong: nối, ngắt và kiểu nối nét",
+      "subtitle": "Join Curves, Break, Close, Reverse, giới hạn Miter và kiểu đầu nét Cap",
       "durationMinutes": 30,
       "difficulty": "Beginner"
     }

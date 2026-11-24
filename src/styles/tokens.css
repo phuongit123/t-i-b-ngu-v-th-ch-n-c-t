@@ -5,11 +5,11 @@
  */
 
 :root {
-  /* Color Palette - Dark Mode Primary (Default) */
-  --bg-canvas: #09090b;
-  --bg-surface: #111115;
-  --bg-elevated: #18181f;
-  --bg-overlay: rgba(9, 9, 11, 0.85);
+  /* Color Palette - Dark Mode Primary (Night Sky Cosmic Depth) */
+  --bg-canvas: #060913;
+  --bg-surface: #0d1326;
+  --bg-elevated: #141c38;
+  --bg-overlay: rgba(6, 9, 19, 0.88);
 
   --text-primary: #f4f4f5;
   --text-secondary: #a1a1aa;

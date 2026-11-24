@@ -3,91 +3,91 @@
   "moduleId": "S01",
   "trackId": "scripting",
   "order": 2,
-  "title": "Connecting to Local Affinity MCP Server (Port 6767) & SSE Bridge",
-  "subtitle": "Server-Sent Events, Upstream Tools Protocol & Health Checks",
+  "title": "Kết nối máy chủ Affinity MCP cục bộ và cầu nối SSE",
+  "subtitle": "Giao thức Server-Sent Events (SSE), danh mục công cụ điều khiển và kiểm tra kết nối",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Understand the Model Context Protocol (MCP) and how Affinity exposes its automation tools via HTTP/SSE.",
-      "Verify the local server listener at `http://localhost:6767/sse` using status health checks.",
-      "Identify the 11 upstream MCP tools (`affinity_status`, `execute_script`, `render_spread`, `list_sdk_documentation`, etc.).",
-      "Diagnose port conflicts, firewall permissions, and application lifecycle states."
+      "Hiểu giao thức Model Context Protocol (MCP) và cách cầu nối Affinity MCP cục bộ cung cấp công cụ tự động hóa qua HTTP/SSE.",
+      "Kiểm tra trạng thái máy chủ cục bộ tại địa chỉ `http://localhost:6767/sse` bằng các lệnh thăm dò sức khỏe kết nối.",
+      "Nhận diện 11 công cụ Upstream trên cầu nối MCP (`affinity_status`, `execute_script`, `render_spread`, `list_sdk_documentation`, v.v.) và phân biệt với Scripting Studio tích hợp sẵn trong ứng dụng.",
+      "Chẩn đoán và khắc phục các lỗi xung đột cổng mạng, tường lửa hoặc khi ứng dụng Affinity chưa được khởi chạy."
     ],
-    "foundationalKnowledge": "The Model Context Protocol (MCP) is an open architectural standard created by Anthropic that allows AI agents, IDE extensions, and external applications to safely interface with local desktop tools and real-time environments. Serif Affinity implements a native MCP server listening locally on port 6767 using Server-Sent Events (SSE). When an external client connects to `http://localhost:6767/sse`, Affinity establishes a full-duplex JSON-RPC communications channel, exposing capabilities like executing DOM scripts, taking real-time pixel renders of document spreads, and querying SDK documentation.",
+    "foundationalKnowledge": "Model Context Protocol (MCP) là chuẩn kiến trúc mở do Anthropic khởi xướng, giúp tác nhân AI, trình soạn thảo mã nguồn (IDE) và giao diện web kết nối an toàn với phần mềm đang chạy trên máy trạm. Trong dự án Affinity Academy, cầu nối Affinity MCP cục bộ hoạt động tại cổng 6767 thông qua giao thức Server-Sent Events (SSE — dòng sự kiện đẩy từ máy chủ). Khi client mở kết nối tới `http://localhost:6767/sse`, cầu nối thiết lập kênh giao tiếp JSON-RPC hai chiều theo thời gian thực để gửi mã DOM script vào phiên Affinity đang mở, chụp ảnh kết xuất trực tiếp từng trang đôi hoặc tra cứu tài liệu SDK. Cần lưu ý rằng cầu nối MCP cổng 6767 là lớp tích hợp cục bộ của hệ sinh thái dự án (khác với bảng Scripting Studio nằm sẵn bên trong giao diện desktop Affinity).",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity MCP Server HTTP/SSE Protocol (Port 6767) & Upstream Tool Inventory",
+      "source": "Giao thức HTTP/SSE (cổng 6767) của cầu nối Affinity MCP & Danh mục 11 công cụ Upstream",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Affinity MCP Health Bridge (`affinity_status`)",
-      "persona": "MCP Architecture",
+      "toolName": "Cầu nối kiểm tra sức khỏe Affinity MCP (`affinity_status`)",
+      "persona": "Kiến trúc cầu nối MCP cục bộ",
       "shortcut": {
         "win": "GET http://localhost:6767/sse",
         "mac": "GET http://localhost:6767/sse"
       },
-      "description": "The entry ping endpoint for verifying that Affinity is active and ready to accept remote automation payloads.",
+      "description": "Điểm đầu vào dùng để thăm dò và xác nhận máy chủ Affinity MCP đang lắng nghe, sẵn sàng tiếp nhận yêu cầu tự động hóa từ bên ngoài.",
       "contextBarOptions": [
-        "Endpoint: http://localhost:6767/sse",
-        "Protocol: Server-Sent Events (text/event-stream)",
-        "Default Upstream Tools: 11 active tools",
-        "Typical Response Latency: 80ms - 100ms"
+        "Địa chỉ Endpoint: http://localhost:6767/sse",
+        "Giao thức truyền tải: Server-Sent Events (SSE — Content-Type: text/event-stream)",
+        "Số công cụ Upstream mặc định: 11 công cụ đang hoạt động",
+        "Độ trễ phản hồi tiêu biểu: 80 ms - 100 ms"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Verify Local Affinity Process is Running",
-        "instruction": "Before attempting an MCP connection, ensure Serif Affinity 3.0+ is actively running on the host machine. You can verify this via Windows Task Manager or `Get-Process Affinity` in PowerShell.",
+        "title": "Đảm bảo tiến trình Affinity đang chạy trên máy",
+        "instruction": "Trước khi kết nối MCP, hãy chắc chắn ứng dụng Serif Affinity 3.0+ đang được mở sẵn trên máy trạm. Bạn có thể kiểm tra nhanh bằng Task Manager hoặc lệnh `Get-Process Affinity` trong PowerShell.",
         "shortcutTip": { "win": "Get-Process Affinity", "mac": "pgrep Affinity" }
       },
       {
         "stepNumber": 2,
-        "title": "Execute the MCP Health Check Utility",
-        "instruction": "Run our verified diagnostic utility `node curriculum/assets/scripting/S01_ping_mcp.js`. The script issues a streaming HTTP GET request to `http://localhost:6767/sse` with `Accept: text/event-stream`.",
+        "title": "Chạy tiện ích kiểm tra kết nối MCP",
+        "instruction": "Chạy tệp kiểm tra `node curriculum/assets/scripting/S01_ping_mcp.js` trong Terminal. Script này gửi một yêu cầu HTTP GET tới `http://localhost:6767/sse` kèm header `Accept: text/event-stream`.",
         "shortcutTip": { "win": "node S01_ping_mcp.js", "mac": "node S01_ping_mcp.js" }
       },
       {
         "stepNumber": 3,
-        "title": "Inspect HTTP Response Headers and Status Code",
-        "instruction": "Verify that the server returns HTTP Status `200` with `Content-Type: text/event-stream`. This confirms that the MCP transport pipeline is established and awaiting tool invocations.",
+        "title": "Đọc mã trạng thái HTTP và Header phản hồi",
+        "instruction": "Xác nhận máy chủ trả về mã HTTP `200` cùng `Content-Type: text/event-stream`. Điều này chứng tỏ đường ống truyền tải SSE đã thông suốt và sẵn sàng nhận lệnh gọi công cụ.",
         "shortcutTip": { "win": "HTTP 200 OK", "mac": "HTTP 200 OK" }
       },
       {
         "stepNumber": 4,
-        "title": "Call the affinity_status Tool",
-        "instruction": "Invoke `affinity_status`. The tool returns: `'Connected to Affinity MCP at http://localhost:6767/sse. Found 11 upstream tools.'` within ~85ms.",
+        "title": "Gọi thử công cụ affinity_status",
+        "instruction": "Kích hoạt công cụ `affinity_status`. Hệ thống sẽ trả về thông báo xác nhận kết nối tại `http://localhost:6767/sse` và tìm thấy đủ 11 công cụ Upstream chỉ trong khoảng ~85 ms.",
         "shortcutTip": { "win": "affinity_status", "mac": "affinity_status" }
       }
     ],
     "visualExamples": [
       {
-        "title": "MCP Toolset Inventory",
-        "description": "Verified capabilities exposed over the port 6767 bridge.",
+        "title": "Danh mục công cụ qua cầu nối MCP cổng 6767",
+        "description": "Các năng lực điều khiển và quan sát trực tiếp được phơi bày qua giao diện MCP.",
         "visualType": "table",
-        "visualContent": "| Tool Name | Purpose | Execution Latency |\n|---|---|---|\n| `affinity_status` | Pings connection and verifies upstream tool count | ~85 ms |\n| `execute_script` | Evaluates JavaScript DOM code in Affinity process | ~100 ms |\n| `render_spread` | Captures spread snapshot as JPEG image | ~180 ms |\n| `render_selection` | Captures selected node bounding box as JPEG | ~140 ms |\n| `list_sdk_documentation` | Lists all 401 available SDK topic files | ~120 ms |\n| `read_sdk_documentation_topic` | Reads specific SDK API reference topic | ~110 ms |\n| `save_script_to_library` | Persists reusable snippet to internal library | ~115 ms |\n| `search_sdk_hints` | Semantic vector query across developer hints | ~5.8 s |"
+        "visualContent": "| Tên công cụ | Chức năng chính | Độ trễ đo thực tế |\n|---|---|---|\n| `affinity_status` | Kiểm tra kết nối và đếm số công cụ Upstream | ~85 ms |\n| `execute_script` | Chạy mã JavaScript DOM trực tiếp trong Affinity | ~100 ms |\n| `render_spread` | Chụp ảnh trang đôi hiện tại ra định dạng JPEG | ~180 ms |\n| `render_selection` | Chụp vùng chọn của đối tượng đang chọn ra JPEG | ~140 ms |\n| `list_sdk_documentation` | Liệt kê toàn bộ 401 tệp tài liệu SDK có sẵn | ~120 ms |\n| `read_sdk_documentation_topic` | Đọc chi tiết tài liệu một lớp API cụ thể | ~110 ms |\n| `save_script_to_library` | Lưu đoạn mã tái sử dụng vào thư viện script | ~115 ms |\n| `search_sdk_hints` | Tìm kiếm ngữ nghĩa trong kho gợi ý lập trình SDK | ~5.8 s |"
       },
       {
-        "title": "SSE Protocol Communications Flow",
-        "description": "How events and tool calls flow across the local network interface.",
+        "title": "Luồng giao tiếp qua giao thức SSE",
+        "description": "Cách sự kiện và lời gọi công cụ luân chuyển qua cổng mạng cục bộ localhost.",
         "visualType": "diagram",
-        "visualContent": "[Web Platform / Node Client]\n   │  1. HTTP GET http://localhost:6767/sse\n   ├────────────────────────────────────────────────► [Affinity MCP Server]\n   │  2. HTTP 200 (Content-Type: text/event-stream)\n   │     event: endpoint?session_id=...\n   │◄────────────────────────────────────────────────┤\n   │  3. HTTP POST /message?session_id=... (execute_script payload)\n   ├────────────────────────────────────────────────► [Evaluates in V8]\n   │  4. Returns JSON-RPC Tool Result\n   │◄────────────────────────────────────────────────┤"
+        "visualContent": "[Web Platform / Node Client]\n   │  1. HTTP GET http://localhost:6767/sse\n   ├────────────────────────────────────────────────► [Máy chủ Affinity MCP]\n   │  2. HTTP 200 (Content-Type: text/event-stream)\n   │     event: endpoint?session_id=...\n   │◄────────────────────────────────────────────────┤\n   │  3. HTTP POST /message?session_id=... (gửi mã execute_script)\n   ├────────────────────────────────────────────────► [Thực thi trên Google V8]\n   │  4. Trả kết quả JSON-RPC về Client\n   │◄────────────────────────────────────────────────┤"
       }
     ],
     "guidedPractice": {
-      "title": "Live MCP Handshake Verification",
-      "taskDescription": "Run the diagnostic test script against localhost:6767, confirm port availability, and inspect the returned SSE endpoint payload.",
+      "title": "Thực hành bắt tay kiểm tra cầu nối MCP",
+      "taskDescription": "Chạy kịch bản thăm dò cổng localhost:6767, kiểm tra tình trạng mở cổng và xác nhận phản hồi từ điểm cuối SSE.",
       "checkpoints": [
-        "Run `npm run check:env` in the terminal.",
-        "Verify `[PASS] Affinity MCP Server is ACTIVE (HTTP Status: 200)`.",
-        "Execute `affinity_status` and verify that exactly 11 upstream tools are discovered."
+        "Chạy lệnh `npm run check:env` trong cửa sổ dòng lệnh Terminal.",
+        "Xác nhận thông báo máy chủ Affinity MCP đang hoạt động với mã HTTP Status 200.",
+        "Gọi `affinity_status` và kiểm tra phát hiện đủ 11 công cụ Upstream."
       ],
-      "expectedOutcome": "Confirmed sub-100ms connection between learning platform and local Affinity engine."
+      "expectedOutcome": "Thiết lập thành công đường truyền có độ trễ dưới 100 ms giữa nền tảng học tập và phiên Affinity trên máy."
     },
     "independentChallenge": {
-      "title": "Automated MCP Bridge Health Monitor",
-      "prompt": "Author a Node.js monitoring script that checks the health of `http://localhost:6767/sse` every 5 seconds. If the connection fails or times out (e.g. if the user closes Affinity), the script must output a red alert `'[ALERT] Affinity 3.0 has stopped or port 6767 is unreachable'`. When re-opened, it must display green `'[RECONNECTED]'`.",
+      "title": "Xây dựng bộ giám sát sức khỏe cầu nối MCP tự động",
+      "prompt": "Viết một kịch bản Node.js kiểm tra định kỳ trạng thái của `http://localhost:6767/sse` mỗi 5 giây. Nếu kết nối thất bại hoặc quá hạn chờ (ví dụ khi người dùng đóng phần mềm Affinity), chương trình phải in cảnh báo đỏ `'[CẢNH BÁO] Affinity 3.0 đã tắt hoặc cổng 6767 không phản hồi'`. Khi mở lại ứng dụng, chương trình phải báo xanh `'[ĐÃ KẾT NỐI LẠI]'`.",
       "starterAsset": {
         "filename": "S01_ping_mcp.js",
         "filepath": "curriculum/assets/scripting/S01_ping_mcp.js",
@@ -95,36 +95,36 @@
         "filetype": ".js",
         "assetStatus": "JAVASCRIPT_SCRIPT",
         "isVerified": true,
-        "statusNote": "Verified Node.js HTTP/SSE ping utility (JAVASCRIPT_SCRIPT)."
+        "statusNote": "Tiện ích Node.js kiểm tra kết nối HTTP/SSE tới cầu nối MCP đã kiểm chứng (JAVASCRIPT_SCRIPT)."
       },
       "challengeCriteria": [
-        "Uses native node:http module with 3000ms timeout.",
-        "Properly closes and destroys request sockets on each cycle.",
-        "Handles error events gracefully without crashing."
+        "Sử dụng module gốc `node:http` với thời gian chờ tối đa (timeout) 3000 ms.",
+        "Đóng và giải phóng socket kết nối đúng cách sau mỗi chu kỳ kiểm tra.",
+        "Bắt sự kiện lỗi (`error`) an toàn để chương trình giám sát không bị sập giữa chừng."
       ],
-      "bonusGoal": "Track and output average response latency in milliseconds."
+      "bonusGoal": "Đo và in kèm độ trễ phản hồi trung bình tính bằng mili-giây (ms)."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Connection Refused (ECONNREFUSED) on port 6767",
-        "cause": "Affinity is closed or the MCP listener is disabled in Preferences.",
-        "solution": "Ensure Affinity 3.3.3 is launched and running. In Affinity, ensure MCP integration is allowed under Preferences > General / Automation."
+        "pitfall": "Lỗi từ chối kết nối (ECONNREFUSED) trên cổng 6767",
+        "cause": "Phần mềm Affinity chưa được mở, hoặc dịch vụ lắng nghe MCP cục bộ chưa chạy.",
+        "solution": "Khởi chạy Affinity 3.3.3 trước khi chạy script kiểm tra và đảm bảo cầu nối MCP cổng 6767 đang bật."
       },
       {
-        "pitfall": "Hanging socket connections on SSE streams",
-        "cause": "Server-Sent Events keep the HTTP response socket open permanently to stream notifications.",
-        "solution": "In one-shot ping scripts, always call `res.destroy()` or `req.destroy()` after reading the initial HTTP 200 headers to avoid memory leaks."
+        "pitfall": "Script Node.js bị treo mãi không tự thoát sau khi ping SSE",
+        "cause": "Giao thức Server-Sent Events (SSE) cố tình giữ kết nối HTTP mở liên tục để đợi dữ liệu đẩy về.",
+        "solution": "Trong các script chỉ kiểm tra kết nối một lần, luôn gọi `res.destroy()` hoặc `req.destroy()` ngay sau khi đọc xong mã HTTP 200 ở header."
       },
       {
-        "pitfall": "Schema parameter mismatch in read_sdk_documentation_topic",
-        "cause": "The tool schema declares `topic`, but the implementation requires `filename`.",
-        "solution": "Always pass `{\"filename\": \"...\"}` as documented in our Phase 1 MCP Capability Report."
+        "pitfall": "Lệch tên tham số trong công cụ read_sdk_documentation_topic",
+        "cause": "Lược đồ JSON cũ khai báo tham số là `topic`, nhưng bản cài đặt máy chủ thực tế lại đọc khóa `filename`.",
+        "solution": "Luôn kiểm tra kỹ schema đang chạy và truyền `{\"filename\": \"...\"}` như đã ghi nhận trong báo cáo năng lực MCP."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "S01-02-Q1",
-        "question": "On which local port and endpoint does the Affinity 3.0 MCP Server listen for connections by default?",
+        "question": "Mặc định cầu nối Affinity MCP cục bộ lắng nghe kết nối ở cổng và đường dẫn nào?",
         "options": [
           "http://localhost:3000/api",
           "http://localhost:6767/sse",
@@ -132,11 +132,11 @@
           "ws://localhost:9999"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity's native MCP server listens on port 6767 and uses Server-Sent Events (SSE) at the path /sse."
+        "explanation": "Cầu nối Affinity MCP lắng nghe cục bộ tại cổng 6767 và sử dụng giao thức Server-Sent Events (SSE) ở đường dẫn `/sse`."
       },
       {
         "id": "S01-02-Q2",
-        "question": "What HTTP Content-Type header does the Affinity MCP server return when a client connects to /sse?",
+        "question": "Khi client kết nối thành công vào điểm cuối `/sse`, máy chủ MCP trả về giá trị HTTP header `Content-Type` nào?",
         "options": [
           "application/json",
           "text/html",
@@ -144,36 +144,36 @@
           "application/octet-stream"
         ],
         "correctIndex": 2,
-        "explanation": "Server-Sent Events require the MIME type 'text/event-stream' to maintain a persistent push channel between server and client."
+        "explanation": "Giao thức Server-Sent Events bắt buộc dùng kiểu MIME `text/event-stream` để duy trì luồng sự kiện một chiều liên tục từ máy chủ về client."
       },
       {
         "id": "S01-02-Q3",
-        "question": "What is the primary benefit of the MCP architecture for Affinity design automation compared to running standalone Node scripts?",
+        "question": "Lợi ích lớn nhất của kiến trúc MCP trong tự động hóa thiết kế Affinity so với việc viết script Node rời rạc là gì?",
         "options": [
-          "It makes the computer run cooler.",
-          "It provides a standardized, secure tool-calling protocol allowing AI agents and web interfaces to inspect docs, run DOM scripts, and capture live renders with zero complex configuration.",
-          "It converts Windows into macOS.",
-          "It replaces the graphics card."
+          "Giúp máy tính chạy mát hơn.",
+          "Cung cấp giao thức gọi công cụ chuẩn hóa và an toàn, cho phép tác nhân AI và giao diện web kiểm tra tài liệu, chạy DOM script và lấy ảnh kết xuất trực tiếp mà không phải cấu hình phức tạp.",
+          "Tự động chuyển đổi Windows thành macOS.",
+          "Thay thế hoàn toàn card đồ họa."
         ],
         "correctIndex": 1,
-        "explanation": "MCP standardizes tool schemas, execution lifecycles, and visual telemetry, enabling seamless communication between intelligent agents and creative software."
+        "explanation": "MCP chuẩn hóa lược đồ công cụ, vòng đời thực thi và luồng dữ liệu phản hồi hình ảnh, giúp kết nối liền mạch giữa tác nhân thông minh và phần mềm đồ họa."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Affinity 3.0 provides a native MCP server at `http://localhost:6767/sse`.",
-        "The SSE transport protocol delivers sub-100ms tool execution and real-time visual streaming.",
-        "11 upstream tools expose full control over DOM execution, rendering, and SDK documentation.",
-        "Diagnostic scripts verify environment health before executing automated workflows."
+        "Cầu nối Affinity MCP cục bộ hoạt động tại điểm cuối `http://localhost:6767/sse`.",
+        "Giao thức truyền tải SSE cho phép gọi công cụ dưới 100 ms và truyền trực tiếp hình ảnh kết xuất theo thời gian thực.",
+        "11 công cụ Upstream cung cấp quyền chạy DOM script, chụp ảnh trang đôi và tra cứu tài liệu SDK.",
+        "Các kịch bản thăm dò sức khỏe giúp kiểm chứng môi trường sẵn sàng trước khi vận hành chuỗi tự động hóa."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: S01-03 First Automation Script: Inspecting Document Metadata",
+          "title": "Bài tiếp theo: S01-03 Script tự động hóa đầu tiên: trích xuất thuộc tính tài liệu và Session UUID",
           "target": "S01-03",
           "type": "next-lesson"
         },
         {
-          "title": "AFFINITY MCP CAPABILITY REPORT",
+          "title": "Báo cáo năng lực kết nối Affinity MCP",
           "target": "AFFINITY_MCP_CAPABILITY_REPORT.md",
           "type": "doc"
         }
@@ -185,72 +185,72 @@
       "id": "S01-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Connecting to Local Affinity MCP Server",
-      "subtitle": "The Model Context Protocol Bridge at Port 6767",
-      "contentMarkdown": "How do AI agents, automated pipelines, and web interfaces communicate with a running desktop creative suite?\n\nThe answer is the **Model Context Protocol (MCP)**.\n\nIn this lesson, you will master the **Affinity MCP Server architecture**—learning how to connect to `http://localhost:6767/sse`, execute health pings, and harness the 11 native automation tools.",
+      "title": "Kết Nối Máy Chủ Affinity MCP Cục Bộ",
+      "subtitle": "Cầu nối giao thức Model Context Protocol tại cổng 6767",
+      "contentMarkdown": "Làm thế nào để các tác nhân AI, quy trình tự động hóa và giao diện web giao tiếp trực tiếp với một phần mềm đồ họa đang mở trên máy tính?\n\nCâu trả lời là **Model Context Protocol (MCP)**.\n\nTrong bài học này, bạn sẽ nắm vững **kiến trúc cầu nối Affinity MCP cục bộ**: cách bắt tay với `http://localhost:6767/sse`, gửi lệnh kiểm tra kết nối và khai thác 11 công cụ tự động hóa tích hợp.",
       "actionBox": {
-        "label": "The Connection",
-        "text": "Port 6767 is the high-speed gateway linking modern software to Affinity 3.0."
+        "label": "Cửa Ngõ Kết Nối",
+        "text": "Cổng 6767 đóng vai trò đường ống tốc độ cao nối phần mềm bên ngoài vào phiên Affinity 3.0 đang chạy."
       }
     },
     {
       "id": "S01-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "How the MCP SSE Bridge Works",
-      "subtitle": "Server-Sent Events & JSON-RPC Telemetry",
-      "contentMarkdown": "When you open Affinity 3.0, it initializes an internal HTTP server on **localhost:6767**:\n\n1. **SSE Handshake:** The client connects to `http://localhost:6767/sse` with `Accept: text/event-stream`.\n2. **Session Endpoint:** Affinity responds with an active session ID.\n3. **JSON-RPC Tool Calls:** The client posts tool execution requests (e.g. `execute_script`, `render_spread`).\n4. **Real-Time Delivery:** Results, logs, and base64 rendered graphics return instantly over the bridge.",
+      "title": "Cách Hoạt Động Của Cầu Nối MCP SSE",
+      "subtitle": "Luồng sự kiện Server-Sent Events & JSON-RPC thời gian thực",
+      "contentMarkdown": "Khi cầu nối Affinity MCP hoạt động trên **localhost:6767**:\n\n1. **Bắt tay SSE:** Client gửi yêu cầu tới `http://localhost:6767/sse` với header `Accept: text/event-stream`.\n2. **Cấp phiên làm việc:** Máy chủ trả về đường dẫn endpoint kèm mã phiên hoạt động.\n3. **Gọi công cụ JSON-RPC:** Client gửi lệnh thực thi (ví dụ `execute_script`, `render_spread`).\n4. **Phản hồi tức thì:** Kết quả log và ảnh kết xuất được trả về ngay lập tức qua cầu nối.",
       "visual": {
         "type": "diagram",
-        "content": "[Client / Agent] --- HTTP GET /sse ---> [Affinity Port 6767] ---> [11 Upstream Tools Ready]"
+        "content": "[Client / Agent] --- HTTP GET /sse ---> [Cổng 6767] ---> [11 công cụ Upstream sẵn sàng]"
       }
     },
     {
       "id": "S01-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "The 11 Verified MCP Upstream Tools",
-      "subtitle": "Your Programmatic Palette",
-      "contentMarkdown": "The Affinity MCP bridge gives you access to 11 verified tools:\n\n- **`affinity_status`:** Instant connection health ping (~85ms).\n- **`execute_script`:** Executes JavaScript DOM code in the running app (~100ms).\n- **`render_spread`:** Captures an active spread as a JPEG image (~180ms).\n- **`render_selection`:** Captures selected node bounds as an image (~140ms).\n- **`list_sdk_documentation`:** Scans all 401 SDK documentation files.\n- **`read_sdk_documentation_topic`:** Reads complete API class specs.",
+      "title": "11 Công Cụ Upstream Của Cầu Nối MCP",
+      "subtitle": "Bảng công cụ lập trình tự động hóa",
+      "contentMarkdown": "Cầu nối Affinity MCP cung cấp bộ công cụ trực tiếp:\n\n- **`affinity_status`:** Kiểm tra kết nối tức thời (~85 ms).\n- **`execute_script`:** Chạy mã JavaScript DOM trong tiến trình Affinity đang mở (~100 ms).\n- **`render_spread`:** Chụp ảnh trang đôi hiện hành thành tệp JPEG (~180 ms).\n- **`render_selection`:** Chụp ảnh đối tượng đang được chọn (~140 ms).\n- **`list_sdk_documentation`:** Liệt kê toàn bộ 401 chủ đề tài liệu SDK.\n- **`read_sdk_documentation_topic`:** Đọc đặc tả chi tiết từng lớp API.",
       "actionBox": {
-        "label": "Speed Benchmark",
-        "text": "Every tool executes in under 200ms—instantaneous for real-time web previews."
+        "label": "Hiệu Năng Thực Tế",
+        "text": "Các tác vụ lõi đều phản hồi dưới 200 ms, đủ nhanh để xem trước trực quan ngay trên nền tảng web."
       }
     },
     {
       "id": "S01-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Testing the Bridge with Node.js",
-      "subtitle": "Running S01_ping_mcp.js",
-      "contentMarkdown": "1. **Check Process:** Ensure Affinity is running on your machine.\n2. **Inspect S01_ping_mcp.js:**\n```javascript\nimport http from 'node:http';\nconst req = http.request({\n  hostname: 'localhost',\n  port: 6767,\n  path: '/sse',\n  headers: { 'Accept': 'text/event-stream' }\n}, (res) => {\n  console.log('HTTP Status:', res.statusCode);\n  res.destroy();\n});\nreq.end();\n```\n3. **Execute:** Run `node curriculum/assets/scripting/S01_ping_mcp.js`.\n4. **Observe:** Notice `HTTP Status : 200` confirming active server health!",
+      "title": "Từng Bước Kiểm Tra Cầu Nối Với Node.js",
+      "subtitle": "Chạy thử tệp S01_ping_mcp.js",
+      "contentMarkdown": "1. **Kiểm tra ứng dụng:** Đảm bảo Affinity đang mở sẵn trên máy.\n2. **Xem cấu trúc S01_ping_mcp.js:**\n```javascript\nimport http from 'node:http';\nconst req = http.request({\n  hostname: 'localhost',\n  port: 6767,\n  path: '/sse',\n  headers: { 'Accept': 'text/event-stream' }\n}, (res) => {\n  console.log('Mã trạng thái HTTP:', res.statusCode);\n  res.destroy();\n});\nreq.end();\n```\n3. **Thực thi:** Chạy `node curriculum/assets/scripting/S01_ping_mcp.js`.\n4. **Quan sát:** Kết quả hiện `Mã trạng thái HTTP : 200` là cầu nối đã sẵn sàng.",
       "visual": {
         "type": "code",
-        "content": "node curriculum/assets/scripting/S01_ping_mcp.js\n// Output: HTTP Status : 200 (PASS)"
+        "content": "node curriculum/assets/scripting/S01_ping_mcp.js\n// Đầu ra: Mã trạng thái HTTP : 200 (ĐẠT)"
       }
     },
     {
       "id": "S01-02-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "MCP Bridge Troubleshooting",
-      "subtitle": "Resolve Port and Connection Issues Instantly",
-      "contentMarkdown": "### 1. ECONNREFUSED on Port 6767\n- **The Issue:** Connection refused when sending requests.\n- **The Fix:** Affinity is not running. Launch Affinity 3.0 and verify that automation listener is enabled.\n\n### 2. Hanging SSE Connection Sockets\n- **The Issue:** Node scripts never exit because SSE streams stay open indefinitely.\n- **The Fix:** In health-check pings, always destroy the response socket (`res.destroy()`) immediately after reading the HTTP 200 header.\n\n### 3. Topic vs Filename Parameter Schema Bug\n- **Important:** `read_sdk_documentation_topic` requires parameter `filename` (not `topic`).",
+      "title": "Khắc Phục Sự Cố Kết Nối MCP",
+      "subtitle": "Xử lý nhanh lỗi cổng mạng và treo socket",
+      "contentMarkdown": "### 1. Lỗi ECONNREFUSED tại cổng 6767\n- **Hiện tượng:** Yêu cầu kết nối bị từ chối ngay lập tức.\n- **Cách xử lý:** Affinity chưa mở hoặc dịch vụ lắng nghe MCP chưa khởi động. Hãy mở Affinity 3.0 và bật cầu nối lắng nghe.\n\n### 2. Socket SSE mở treo không thoát chương trình\n- **Hiện tượng:** Lệnh Node chạy xong nhưng đứng im không trả về dấu nhắc dòng lệnh.\n- **Cách xử lý:** Với các script chỉ kiểm tra ping, luôn gọi `res.destroy()` ngay sau khi nhận được phản hồi HTTP 200.\n\n### 3. Sai tên tham số trong read_sdk_documentation_topic\n- **Lưu ý:** Cần kiểm tra schema thực tế vì công cụ có thể yêu cầu khóa `filename` thay vì `topic`.",
       "actionBox": {
-        "label": "Pro-Tip",
-        "text": "Run npm run check:env at any time to verify local port 6767 readiness."
+        "label": "Mẹo Kiểm Tra Nhanh",
+        "text": "Chạy lệnh npm run check:env bất cứ lúc nào để kiểm tra tình trạng sẵn sàng của cổng 6767."
       }
     },
     {
       "id": "S01-02-S6",
       "slideNumber": 6,
       "type": "quiz",
-      "title": "Knowledge Check: MCP Network Architecture",
-      "subtitle": "Validate Your Connection Mastery",
-      "contentMarkdown": "Test your grasp of the MCP bridge.",
+      "title": "Kiểm Tra Nhanh: Kiến Trúc Mạng MCP",
+      "subtitle": "Xác nhận thông số kết nối cục bộ",
+      "contentMarkdown": "Chọn phương án đúng nhất.",
       "quizData": {
         "id": "S01-02-Q1",
-        "question": "On which local port and endpoint does the Affinity 3.0 MCP Server listen for connections by default?",
+        "question": "Mặc định cầu nối Affinity MCP cục bộ lắng nghe kết nối ở cổng và đường dẫn nào?",
         "options": [
           "http://localhost:3000/api",
           "http://localhost:6767/sse",
@@ -258,18 +258,18 @@
           "ws://localhost:9999"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity's native MCP server listens on port 6767 and uses Server-Sent Events (SSE) at the path /sse."
+        "explanation": "Cầu nối Affinity MCP lắng nghe cục bộ tại cổng 6767 và sử dụng giao thức Server-Sent Events (SSE) ở đường dẫn /sse."
       }
     },
     {
       "id": "S01-02-S7",
       "slideNumber": 7,
       "type": "challenge",
-      "title": "Independent Challenge: Health Poller Utility",
-      "subtitle": "Build a Resilient MCP Connection Watcher",
-      "contentMarkdown": "### Your Mission:\nBuild and verify a persistent MCP connection monitor in Node.js:\n\n1. Modify `curriculum/assets/scripting/S01_ping_mcp.js` to accept a timeout parameter.\n2. Log the connection latency in milliseconds (e.g. `Latency: 84ms`).\n3. Execute the script via terminal and verify clean exit code 0.\n\n### Acceptance Criteria:\n- Returns HTTP 200 from `http://localhost:6767/sse`.\n- Displays execution latency.\n- Closes socket cleanly without hanging.",
+      "title": "Thử Thách Độc Lập: Tiện Ích Giám Sát Kết Nối",
+      "subtitle": "Xây dựng bộ kiểm tra cầu nối MCP ổn định",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nCải tiến và chạy kiểm chứng tiện ích theo dõi kết nối MCP bằng Node.js:\n\n1. Chỉnh sửa `curriculum/assets/scripting/S01_ping_mcp.js` để nhận thêm tham số thời gian chờ (`timeout`).\n2. Đo và in thời gian phản hồi bằng mili-giây (ví dụ: `Độ trễ: 84 ms`).\n3. Chạy qua Terminal và đảm bảo tiến trình thoát sạch sẽ với mã thoát `0`.\n\n### Tiêu chí nghiệm thu:\n- Nhận được mã `HTTP 200` từ `http://localhost:6767/sse`.\n- Hiển thị chính xác độ trễ kết nối.\n- Đóng socket gọn gàng, không bị treo hoặc rò rỉ tài nguyên.",
       "practiceData": {
-        "prompt": "Execute S01_ping_mcp.js and verify HTTP 200 status.",
+        "prompt": "Chạy S01_ping_mcp.js và xác nhận phản hồi HTTP 200 từ cầu nối MCP.",
         "starterAsset": {
           "filename": "S01_ping_mcp.js",
           "filepath": "curriculum/assets/scripting/S01_ping_mcp.js",
@@ -277,12 +277,12 @@
           "filetype": ".js",
           "assetStatus": "JAVASCRIPT_SCRIPT",
           "isVerified": true,
-          "statusNote": "Verified Node.js HTTP/SSE ping utility (JAVASCRIPT_SCRIPT)."
+          "statusNote": "Tiện ích Node.js kiểm tra kết nối HTTP/SSE tới cầu nối MCP đã kiểm chứng (JAVASCRIPT_SCRIPT)."
         },
         "checkpoints": [
-          "HTTP 200 returned from port 6767",
-          "SSE Content-Type verified",
-          "Zero socket leaks"
+          "Nhận được HTTP 200 từ cổng 6767",
+          "Xác nhận đúng kiểu nội dung text/event-stream của SSE",
+          "Đóng socket sạch sẽ, không treo tiến trình"
         ]
       }
     }

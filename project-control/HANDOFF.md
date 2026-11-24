@@ -9,6 +9,43 @@
 
 ---
 
+## Bàn giao thực hành RAW và kiểm công cụ ngày 2026-11-24
+
+- Bản preview dùng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort`. [Develop cơ bản](http://127.0.0.1:4175/bai-hoc/p01-02) · [Develop nâng cao](http://127.0.0.1:4175/bai-hoc/p09-01) · [Artboard](http://127.0.0.1:4175/bai-hoc/d01-02) · [Histogram](http://127.0.0.1:4175/bai-hoc/p05-01).
+- Học liệu `curriculum/assets/photo/P01_RAW_cang_tau.nef` dùng cho phần có hướng dẫn của hai bài Develop. Thông tin nguồn ở `P01_RAW_cang_tau_nguon.md`. Thử thách độc lập yêu cầu ảnh khác. Sơ đồ minh họa dùng ảnh xem trước nhúng trong NEF, có thể tạo lại với `py -B -X utf8 scripts/generate-lesson-illustrations.py --lesson P01-02 --lesson P09-01`.
+- Trên Windows, bản cài 3.3.3.5004 mở NEF trong Develop. Exposure làm thay đổi đồ thị đã quan sát. Develop với RAW Layer (Embedded) có thể đưa về Studio trước đó. Sau khi chuyển sang Pixel, thanh tùy chọn của lớp RAW có nút Develop và bảng Histogram có đường dẫn Window > Pixel > Histogram. Trong Vector, đã tạo artboard, bấm nút cộng với Spacing mặc định và thử Ctrl+J. Đã đối chiếu nội dung hai bài Help Center trước đây chưa trích xuất được.
+- Bước xác minh tiếp theo trong `TASK-080` là thử Lock Children với một artboard có nội dung, thử phạm vi Layer/Marquee riêng trong Histogram và kiểm độ đầy đủ của ma trận theo bản cài. Chưa nâng mức độ phủ vì lượt kiểm chỉ xác nhận các thao tác đã thực hiện. `BLK-007` vẫn khóa phần mở rộng.
+- Build, ESLint, TypeScript, kiểm giao diện và giáo trình tiếng Việt đều đạt. Playwright Edge đạt 73/73 với `AFFINITY_E2E_PORT=4175` trong `test-results/continuation-verified`. Backend offline và PostgreSQL nhúng đã kiểm qua `npm run test:backend`. Cần môi trường cloud đã cấu hình để kiểm email, lưu tệp và đồng bộ giữa thiết bị.
+
+## Bàn giao minh họa theo bước ngày 2026-11-23
+
+- Triển khai trên working tree của `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`. [Pen Tool](http://127.0.0.1:4175/bai-hoc/d02-01) · [Tinh chỉnh mép tóc](http://127.0.0.1:4175/bai-hoc/p02-02) · [Dàn trang và Bleed](http://127.0.0.1:4175/bai-hoc/b01-01) · [Bài poster đầu tiên](http://127.0.0.1:4175/lo-trinh/bat-dau#bai-dau-tien).
+- Nội dung ảnh của 66 bài nằm tại `curriculum/lesson-illustrations.json`. Bài poster dùng `curriculum/first-project.json`. Từ thư mục gốc, tạo lại ảnh WebP bằng `py -B -X utf8 scripts/generate-lesson-illustrations.py` với Pillow. Cờ `--lesson D02-01` chỉ tạo ảnh của bài được chọn. Những ảnh ngang và xếp dọc được đưa sẵn vào `public/assets/lessons/steps` để ứng dụng dùng trực tiếp. `npm run validate:curriculum` kiểm đủ hình ở từng bước và phát hiện tệp trùng trong một bài.
+- Hình là sơ đồ và ảnh mẫu được xử lý để thấy sự khác biệt ở từng bước. Các phần chụp trực tiếp từ Affinity 3.3.3.5004 trên Windows ghi nhãn ngay trong hình. Các nguồn đối chiếu gồm [Vẽ vector](https://www.affinity.studio/features/vector-drawing), [Xử lý RAW](https://www.affinity.studio/blog/editing-raw-images-and-working-with-raw-files), [Smart Master Pages](https://www.affinity.studio/features/smart-master-pages) và [Affinity SDK](https://sdk.affinity.studio/). Việc đối chiếu từng thao tác trên bản cài còn thuộc `TASK-080`. `BLK-007` đang khóa.
+- Kết quả đối chiếu từng bài và ảnh preview nằm trong thư mục `Duyet-UI-Affinity-Academy/Minh-hoa-bai-hoc` của phiên, tệp `kiem-tra-anh.json`. Edge kiểm đủ hai định dạng hiển thị và không phát sinh ngoại lệ. Bộ kiểm hồi quy trình chiếu, hình theo bước và phóng to nằm tại `tests/e2e/lesson-illustrations.spec.ts` và `tests/e2e/lesson-viewer-phase3.spec.ts`. Chạy toàn bộ Playwright trên Edge với `AFFINITY_E2E_PORT=4175` và `--workers=3` đạt 72/72.
+
+## Bàn giao lộ trình từ số 0 ngày 2026-11-23
+
+- Kiểm trên working tree của `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`. [Lộ trình local](http://127.0.0.1:4175/lo-trinh/bat-dau) · [Bài đầu trong trình đọc](http://127.0.0.1:4175/bai-hoc/d01-01) · [Figma lộ trình](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=22-20) · [Figma khung đọc](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=22-49).
+- Sửa bài khởi động, danh sách bài và tiêu chí tự kiểm tại `src/data/learning-path.ts`. `src/pages/LearningPathPage.tsx` hiển thị bốn chặng. `?tu=lo-trinh` duy trì thứ tự trong chặng trên trình đọc, canonical vẫn trỏ tới URL bài học. Bài cuối mỗi chặng liên kết về đúng đề tự làm.
+- Bản mở trên cổng 4175 giữ được giao diện nền giấy của bản duyệt. Chạy lại bằng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort`. `TASK-080` còn việc đối chiếu công cụ. `BLK-007` vẫn đang khóa. Phạm vi kiểm ở máy local.
+- Chạy `npm run test:e2e -- --workers=3 --output=test-results/learning-path-verified` với `AFFINITY_E2E_PORT=4175` đạt 70/70 Edge. Các ca hồi quy mới ở `tests/e2e/learning-path.spec.ts`. Sitemap có 85 URL và danh sách lộ trình dẫn tới 23 bài có canonical hợp lệ. Ảnh desktop, mobile, từng chặng và ba tab bài học nằm trong thư mục `Duyet-UI-Affinity-Academy/hoc-affinity` của phiên.
+
+## Bàn giao frontend đã duyệt ngày 2026-11-23
+
+- Branch `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`, đã kiểm trên working tree của phiên này. Phạm vi `TASK-020 / REQ-FE-001` và `TASK-071–073 / REQ-PAGE-001–003`.
+- [Ứng dụng React local :4175](http://127.0.0.1:4175/) · [Bài Artboard](http://127.0.0.1:4175/bai-hoc/d01-02) · [Figma](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=16-2). Khởi động lại bằng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort` trong repo.
+- Điểm vào là `src/pages/HomePage.tsx`, `src/pages/CatalogPage.tsx`, `src/pages/LessonPage.tsx`, `src/components/layout/MainNavigation.tsx` và `src/styles/academy.css`. Giao diện tái sử dụng bộ lưu tiến độ, xác thực, tệp học liệu và nộp đồ án hiện có.
+- Đã lấy ngữ cảnh thiết kế từ Figma cho trang chủ, khóa học, bài học desktop và mobile. Figma trả về hạn chế gói khi yêu cầu xuất Code Connect. Hai component được đối chiếu trong code là `Button` (16:11) và `TrackCard` (16:13). Phiên hiện tại không có thông tin xác thực CLI Figma để xuất kết nối.
+- [Đối chiếu giáo trình](./AFFINITY_CURRICULUM_ALIGNMENT_2026-11-22.md). Kiểm thử nền tảng chỉ xác nhận website và dữ liệu cấu trúc. `TASK-080` vẫn đang thực hiện. `BLK-007` đang khóa.
+- Kiểm tra local với Edge đạt 68/68 ca Playwright. Sau khi giới hạn gợi ý phím mũi tên ở chế độ trình chiếu, chạy lại 6 ca trình học và giao diện, đạt 6/6. Kiểm thêm 39 lượt mở trang trên máy tính, tablet và điện thoại, có mở mục lục và chuyển tới Đồ án trên điện thoại. Build, ESLint, kiểm ngôn ngữ giao diện và validator 66 bài đều đạt.
+
+## Bàn giao bản duyệt UI ngày 2026-11-22
+
+- Baseline `feat/full-platform-overhaul` tại `9bef09f`. Mở [preview local :4174](http://127.0.0.1:4174/), [Figma Night Sky](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=7-14) và [kế hoạch kèm diễn giải backend](http://127.0.0.1:4174/ke-hoach.html). Thư mục preview ở `C:/Users/tuanl/Documents/Codex/2026-11-20/import-to-n-b-d-li/outputs/Duyet-UI-Affinity-Academy`. Khi cần chạy lại, chạy `py -m http.server 4174 --bind 127.0.0.1` trong thư mục đó.
+- Duyệt lần lượt khung trang và lộ trình, luồng học và thực hành, rồi hồ sơ và đồ án. Sau khi chủ dự án duyệt cả ba, đưa thiết kế vào React và đối chiếu lại với Figma theo `TASK-020` và các tác vụ liên quan. Tích hợp thật cần xác minh Supabase, email, phân quyền tệp và các trạng thái đồng bộ trên hai tài khoản. Cập nhật tài liệu hướng dẫn từ kết quả kiểm thực tế.
+- Prototype dùng dữ liệu mẫu. Các kiểm tra này chưa xác minh backend trên dịch vụ ngoài. Phạm vi vẫn là 66 bài hiện hữu và `BLK-007` đang khóa.
+
 ## 1. Executive Summary of Current State
 
 1. **Phase 5 Track 2 (Affinity Photo) Authoring & Integration (`TASK-011`):**
@@ -542,6 +579,7 @@ The local checks below are reported in [PR #7](https://github.com/phuongit123/t-
 5. **Programme Learning & Capstone:** Canonical name `A5 Capstone: Lumina Artisanal Roastery Launch Campaign`; `TASK-080` remains `IN_PROGRESS` (68 tracked tools: 50 P4, 17 V1, 1 U0); `TASK-081` is implemented, but formal graduation certificate issuance remains gated until `TASK-080` concludes.
 6. **Branch Consistency:** All documentation and roadmap workflows consistently reference `docs/post-merge-development-roadmap`.
 
+---
 
 ## 28. PR #7 Review Follow-up (2026-11-22)
 
@@ -550,3 +588,70 @@ The local checks below are reported in [PR #7](https://github.com/phuongit123/t-
 - **QA boundary:** Documentation diff whitespace and changed-line conflict-marker checks passed locally. Review the exact candidate's CI before merge; older CI cannot certify a later SHA. No live Supabase, Netlify, or installed Affinity validation occurred in this follow-up.
 - **Seed reproduction:** Original migrations at `42aa164` applied locally to PostgreSQL 18.7/PGlite 0.5.17 with mock Supabase auth/storage. No lessons were seeded; `D01-01` progress failed the lesson foreign key until a temporary lesson row was inserted. See [PROGRESS §22](./PROGRESS.md#22-pr-7-review-follow-up-2026-11-22).
 - **Remaining work:** Preserve the owner-only merge/deploy boundary. After PR #7 merge, start `TASK-072`; prepare the Windows audit when the target host is available. Track the production seed/verification follow-up separately. `BLK-007` and the graduation gate remain in force.
+
+## 27. Round 16 — Full 6-Phase Platform Overhaul Handoff & Local Quality Gate Certification (2026-11-18)
+
+### Active Branch & Phased Commit Trail
+- **Branch:** `feat/full-platform-overhaul` (branched from `main` at `22aa4cf`; no merge into `main`, no force-push, and no live deployment performed without explicit Project Owner authorization).
+- **Verified Sequential Overhaul Commits:**
+  1. `5401e08` — **Phase 1:** Eliminated backend/debug UI leaks (`503` test trigger, `Offline Test` role switcher, student self-grading leak, internal IDs), extracted `CatalogPage`, connected `LearningStore` (`0/66` live progression).
+  2. `5d94168` — **Phase 2:** Redesigned unified single-row navigation header & Creative Academy homepage in Figma (`cSRe5Wv0orAS63LYPxQc8w`), created & exported 4 Canva studio slides (`DAHbNQlWSCk`), purged 18 unrelated furniture images (`/assets/interia/`), generated 10 photography/studio/color-grade PNGs + 6 Vietnamese SVG workflow diagrams, and integrated `BeforeAfterSlider.tsx`.
+  3. `acd5174` — **Phase 3:** Delivered `LessonPage.tsx`, `OutlineSidebar.tsx`, `SafeMarkdown.tsx`, `LessonSectionsReader.tsx` (10-section deep reader + lightbox + `BeforeAfterSlider` + starter bundle download), and localized 100% of all 22 `module.json`, 66 lesson `.json`, 20 `.md` guides, and 3 `.js` scripts into natural Vietnamese (`npm run test:curriculum-vi`: 0 violations).
+  4. `cfac16f` — **Phase 4:** Synced Phase 4 Studio/Playground UI on Figma (`node 4:2`); rebuilt `PenNodeSimulator.tsx` (multi-layer paths, parametric shapes, Fill/Stroke, Corner Tool, 4 true Boolean ops in `src/lib/boolean-geometry.ts`); rebuilt `PhotoLayerSimulator.tsx` (real portrait + backdrop studio compositing, edge-flood matte, real `ImageData` Curves LUT + HSL engine in `src/lib/pixel-processing.ts`, `<svg>` Tone Curve + Histogram in `PhotoAdjustmentsPanel.tsx`, layer management); embedded live Vector/Pixel grading in `ChallengesPage.tsx`; built `PlaygroundPage.tsx` + `src/lib/scripting-sandbox.ts` (4 presets + 14 DOM classes + Live Document Canvas) bridged with `EncyclopediaPage.tsx`.
+  5. `8258b6c` — **Phase 5:** Implemented clean Vietnamese SEO URLs & dual routing compatibility in `src/lib/seo-router.ts`, dynamic meta/canonical & JSON-LD schemas (`EducationalOrganization`, `Course`, `LearningResource`, `BreadcrumbList`, `FAQPage`) in `src/lib/seo-metadata.ts`, bidirectional Silo links in `KnowledgePage.tsx` & `LessonPage.tsx`, cleaned raw `$...$` LaTeX tokens, and generated `public/sitemap.xml` (84 URLs: 18 core + 66 lessons), `public/robots.txt`, and `public/_redirects`.
+  6. **Phase 6 (Current Commit on Branch):** Localized remaining UI/component polish (`VectorLayersSidebar.tsx`, `PhotoLayerSimulator.tsx`, `HeroSection.tsx`, `MainNavigation.tsx` 375px header spacing) and Section 10 completion trigger in `LessonSectionsReader.tsx`, added `scripts/audit-vi-localization.js` (`npm run test:ui-vi`), added `tests/e2e/final-overhaul-audit-phase6.spec.ts` (learner journey `0->1/66`, anti-cheat `0%` & RBAC check, responsive overflow checks across `1440×900`, `768×1024`, `375×812`), and synchronized governance registries.
+
+### Honest Scope & Governance Boundaries
+- **Registry Totals (`TASK_REGISTRY.md` v6.0.0):** `28 COMPLETED / 3 IN_PROGRESS / 22 PENDING = 52.8%` across 53 rows (`25 / 2 / 22 = 51.0%` original 49 rows). Newly completed: `TASK-021`, `TASK-022`, `TASK-053`, `TASK-072`, `TASK-073`.
+- **Unchanged Open Boundaries:** `TASK-076` remains `PENDING` (offline in-browser JS DOM sandbox Playground delivered in `PlaygroundPage.tsx`, while live `localhost:6767` Affinity bridge tasks `TASK-023`/`TASK-024` remain `PENDING`). `TASK-012`, `TASK-013`, and `TASK-080` remain `IN_PROGRESS`. `BLK-007` remains strictly **ACTIVE — LOCKED** (60 core + 6 pilot = 66 existing lessons; zero B02–B10 or S02–S10 lessons authored).
+- **Evidence Boundary:** Technical E2E pass (`66/66`) confirms web-platform stability, UI localization, interactive tool physics, and SEO routing; it does not close `TASK-080` semantic audit or substitute for human-graded learner `A5` capstone competency.
+
+### Local Environment & Optional Cloud Setup Reminder
+- All frontend interactive tracks, local progress persistence, challenges, simulators, and JS DOM Playground run 100% locally offline without secrets.
+- When the Project Owner later authorizes cloud deployment (Netlify + Supabase), configure `.env` from `.env.example` with `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`, and apply SQL migrations under `supabase/migrations/` before triggering `npm run build` / Netlify deploy.
+
+## 2026-11-20 — Local project snapshot and image inventory
+
+- Owner-requested inspection of the local working tree and the imported Antigravity project archive. Snapshot source: `feat/full-platform-overhaul` at `d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae`, including existing uncommitted changes.
+- Verified the local capture bundle against its index and ZIP CRC. It contains 7,519 indexed entries, 2,893 file-content images, and 85 local browser screenshots covering 66 lesson routes and 19 other routes. Antigravity raw logs are indexed, and SQLite coverage is limited to schemas and row counts.
+- Output: Codex session outputs under `Anh-chup-Affinity-Academy`. Source documents in the bundle reflect the pre-closeout snapshot. This inspection added no curriculum or feature work and changed no TASK/REQ status or phase authorization.
+
+## 2026-11-21 — Local frontend and backend audit
+
+- Owner-requested diagnostic review mapped to TASK-050 / REQ-QA-001 and TASK-053 / REQ-QA-004, with findings for TASK-030–033 and the existing frontend and capstone flows. Tested the working tree at d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae with its pre-existing uncommitted app changes in an isolated copy.
+- Clean npm install, lint, typecheck, build, curriculum 66/66, and backend source checks 44/44 passed. Original Edge E2E: 60 passed, 6 failed. A separate 6/6 diagnostic rerun continued past the overlapping dashboard button using direct navigation and selected the local Resources tab before asserting its content.
+- Embedded PostgreSQL applied all five migrations. The seed had 7 modules and 0 lessons, and a normal progress write failed its lesson foreign key. A mocked-response test reproduced lost sync work under overlapping flushes. The report documents 26 findings, proposed fixes, and outstanding Supabase, Drive, MCP, and browser verification.
+- Evidence: Codex session outputs under Audit-Affinity-Academy-2026-11-21. No application code, migrations, task statuses, or phase authorization changed. BLK-007 remains locked.
+
+## 2026-11-21 — Frontend regression fixes and local preview
+
+- Adjusted the header layout (TASK-020), restored local assets as the default Resource Library tab (TASK-077 / REQ-PAGE-007), and applied theme text tokens in the homepage hero (TASK-071 / REQ-PAGE-001).
+- The six previously failing Edge tests passed without test edits. Production build passed and Vite preview is available at http://127.0.0.1:4173/. Production smoke checks opened the dashboard at 1280, 1366, 1440, 1536 and 1920 pixels and verified the light-theme hero text token.
+- Base HEAD d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae with local edits. No task status or phase authorization changed. BLK-007 remains locked.
+
+## 2026-11-22 — Audit remediation and production preview
+
+- Owner requested remediation of all 26 recorded findings. The local snapshot at d8452f28dd1c5a04d4b9af33ae26f17f8e55fbae includes working-tree repairs for TASK-020, TASK-022, TASK-030–033, TASK-050, TASK-053, TASK-062, TASK-071, TASK-073, and TASK-076–081, mapped to the existing requirements and REQ-LEARN-003.
+- Corrected catalogue seed, lossless retry queue and account isolation, Auth recovery, storage and immutable capstone versions, report and certificate permissions, preset-only Playground, navigation and theme contrast, resource routing, backup allowlist, and SEO routing. No new lessons or live Affinity bridge were added.
+- Build, lint, TypeScript, all 66 curriculum lessons, localization checks, backend SQL and retry tests, and npm audit passed locally. Production preview on port 4173 passed Edge E2E 68/68 and selected browser regressions 32/32 across Edge, Chromium, Firefox and WebKit. The preview returned 200 for all 84 sitemap URLs and 404 for missing routes.
+- Evidence: Audit-Fixes-2026-11-22 under Codex session outputs. SQL applied to embedded PostgreSQL fixtures only. Live Supabase Auth/PostgREST/Storage, email delivery, Drive, and Affinity MCP remain unverified. No migration was run against cloud. No merge, deployment, task status change, or BLK-007 unlock occurred.
+
+## 2026-11-22 — Google Drive Cloud Hub, Night Sky Tactile Restoration & Codex Handoff
+
+- **Session Objective:** Implement Google Drive Cloud Storage hub, restore rich Night Sky visual theme with 3D tactile buttons, audit residual defects across frontend and backend, and synthesize repository skills, architecture, and roadmap into 3 executable Prompts for Codex.
+- **Key Deliverables:**
+  - `project-control/CODEX_HANDOFF_PROMPTS.md`: Full synthesis and 3 standalone, copy-paste ready Prompts for Codex (Prompt 1: Curriculum & Affinity Reality; Prompt 2: Frontend Night Sky & Tactile 3D Buttons; Prompt 3: Backend, GDrive Storage & 13-Gate Quality Suite).
+  - `src/lib/gdrive-storage.ts`: LocalStorage cloud backup/export/import engine (`StudentBackupData`) resolving the 5MB browser quota issue.
+  - `src/components/storage/GoogleDriveStorageHub.tsx`: Live embedded Drive folder iframe (ID `1cS5McFPt8MpdFQOXSgOAmH_9Gt3CLGDR`), usage meter, CDN links for heavy assets (`P01_starter.afphoto`, `portrait-subject-studio.png`, `before-color-raw.png`).
+  - `src/pages/HomePage.tsx`: Restored full Night Sky cosmic palette (`#060913`, `#0d1326`, `#141c38`) with 3D tactile buttons (`btn-tactile-cyan`, `btn-tactile-amber`, `btn-tactile-dark`), Magic UI tool marquee, Before/After slider, 4 core studio cards, Canva 4-slide deck, 6 Vietnamese technical SVG diagrams, and 8-stage design thinking cards.
+  - `src/pages/ResourcesPage.tsx`: Integrated Google Drive Cloud Hub tab alongside local SVG technical guides.
+- **Verification Gates Passed:**
+  - `npm run typecheck`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run validate:curriculum`: 66/66 lessons PASS.
+  - `node scripts/audit-vi-localization.js`: 0 violations across 87 source files and 66 lessons.
+  - `npm run build`: built in 19.57s.
+- **Strict Invariants Preserved:**
+  - `BLK-007` remains ACTIVE — LOCKED (no authoring of `B02–B10` or `S02–S10` into `curriculum/` without explicit Project Owner directive).
+  - PR #1 is for review; do not merge into `main` without explicit directive.
+  - Push target: `origin feat/full-platform-overhaul`.

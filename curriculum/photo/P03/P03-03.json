@@ -3,8 +3,8 @@
   "moduleId": "P03",
   "trackId": "photo",
   "order": 3,
-  "title": "Clipping, Grouping & Blend Mode Mathematics",
-  "subtitle": "Multiply, Screen, Overlay, Color Dodge & Child Layer Hierarchy",
+  "title": "Clipping, Grouping và nguyên lý Blend Mode",
+  "subtitle": "Multiply, Screen, Overlay, Color Dodge và phân cấp lớp con",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Blend Mode Dropdown & Clipping Engine",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip",
         "mac": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip"
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Module tiếp theo: P04 Retouching & Image Restoration",
+          "title": "Học phần tiếp theo: P04 Inpainting, Patch Tool và xóa đối tượng thông minh",
           "target": "P04-01",
           "type": "next-lesson"
         },
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Kéo ảnh tia sáng vào:** Đặt lớp ảnh tia sáng (chụp trên nền đen) lên trên bức ảnh phong cảnh của bạn.\n2. **Đổi Blend Mode sang Screen:** Mở menu hòa trộn, chọn `Screen`. Nền đen lập tức tàng hình hoàn toàn.\n3. **Cân bằng độ tương phản:** Thêm một lớp `Levels Adjustment`, Clip lồng nó vào layer tia sáng, kéo thanh trượt Black Point vào trong để triệt tiêu hoàn toàn các hạt sương xám còn sót.\n4. **Nhuộm màu ánh sáng:** Lồng thêm một lớp `HSL Adjustment` để đổi tia sáng trắng thành vàng nắng ấm áp.",
       "visual": {
         "type": "badge-grid",
-        "content": "Import Asset | Screen Mode | Clip Levels | Clip HSL | Cinematic Glow"
+        "content": "Nhập tư liệu | Chế độ Screen | Lồng Levels | Lồng HSL | Ánh sáng điện ảnh"
       }
     },
     {

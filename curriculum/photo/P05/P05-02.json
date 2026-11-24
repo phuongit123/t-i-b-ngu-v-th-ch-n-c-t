@@ -3,8 +3,8 @@
   "moduleId": "P05",
   "trackId": "photo",
   "order": 2,
-  "title": "Curves, Levels & Precision Tonal Control",
-  "subtitle": "Master Curves S-Shape, Per-Channel RGB Color Shifts & Levels Black/White Clipping",
+  "title": "Curves, Levels và kiểm soát sắc độ chính xác",
+  "subtitle": "Đường cong Curves chữ S, dịch chuyển màu theo từng kênh RGB và giới hạn điểm đen/trắng trong Levels",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
@@ -22,10 +22,10 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Curves & Levels Adjustment Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
-        "win": "Ctrl+M (Curves) / Ctrl+L (Levels) trong Photo Persona",
-        "mac": "Cmd+M (Curves) / Cmd+L (Levels) trong Photo Persona"
+        "win": "Ctrl+M (Curves) / Ctrl+L (Levels) trong Pixel Studio",
+        "mac": "Cmd+M (Curves) / Cmd+L (Levels) trong Pixel Studio"
       },
       "description": "Hai công cụ cốt lõi điều khiển toàn diện độ tương phản, dải sắc độ và cân bằng màu sắc vi mô của bức ảnh.",
       "contextBarOptions": [
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P05-03 Creative Color Grading, HSL, Gradient Maps & 3D LUTs",
+          "title": "Bài tiếp theo: P05-03 Color Grading sáng tạo, HSL, Gradient Map và 3D LUT",
           "target": "P05-03",
           "type": "next-lesson"
         },
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Mở Curves:** Nhấn `Ctrl+M` (Win) / `Cmd+M` (Mac).\n2. **Tạo điểm Highlights:** Nhấp chuột vào giao điểm 3/4 đồ thị bên phải, nhích lên trên một khoảng nhỏ.\n3. **Tạo điểm Shadows:** Nhấp chuột vào giao điểm 1/4 đồ thị bên trái, nhích xuống dưới một khoảng tương đương.\n4. **Kiểm tra Histogram:** Quan sát dải màu nở rộng sang hai phía. Bức ảnh trở nên sắc sảo, có chiều sâu không gian vượt trội!",
       "visual": {
         "type": "badge-grid",
-        "content": "Ctrl+M (Curves) | Highlights Up | Shadows Down | Perfect S-Shape | Rich Contrast"
+        "content": "Ctrl+M (Curves) | Nâng Highlights | Hạ Shadows | Đường cong chữ S | Tương phản có chiều sâu"
       }
     },
     {

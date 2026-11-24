@@ -6,8 +6,8 @@
 
 export const moduleTranslationsVi: Record<string, { title: string; description: string }> = {
   D01: {
-    title: 'Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)',
-    description: 'Nắm vững kiến trúc engine kép độc đáo của Affinity Designer: chuyển đổi linh hoạt giữa Vector Persona, Pixel Persona và Export Persona. Thực hành tổ chức artboard chuyên nghiệp cho giao diện đa thiết bị và ấn phẩm in ấn, kết hợp chế độ xem trước điểm ảnh và lưới căn gióng thông minh.',
+    title: 'Giao diện Affinity và thiết lập Artboard',
+    description: 'Mở tài liệu trong Affinity, nhận diện các lớp và chuyển giữa Vector, Pixel và Layout. Sau đó tạo artboard và làm quen với lưới, chế độ xem điểm ảnh.',
   },
   D02: {
     title: 'Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen',
@@ -38,12 +38,12 @@ export const moduleTranslationsVi: Record<string, { title: string; description: 
     description: 'Xây dựng hệ thống component tái sử dụng, đồng bộ hóa thay đổi trên toàn thiết kế và quản lý danh mục tài nguyên thông minh.',
   },
   D09: {
-    title: 'Tích Hợp Pixel Persona, Đổ Bóng & Kết Cấu Hạt (Texture)',
+    title: 'Tích Hợp Pixel Studio, Đổ Bóng & Kết Cấu Hạt (Texture)',
     description: 'Kết hợp sức mạnh điểm ảnh vào thiết kế vector: sử dụng cọ vẽ raster, tạo hạt noise, tạo khối và bóng đổ tự nhiên.',
   },
   D10: {
     title: 'Xuất Bản Dự Án Thực Chiến, Cắt Lát (Slices) & Đóng Gói Sản Phẩm',
-    description: 'Sử dụng Export Persona để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.',
+    description: 'Sử dụng Slice Studio để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.',
   },
   P01: {
     title: 'Giao Diện Photo, Thanh Điều Khiển & Các Bảng Studio',
@@ -79,7 +79,7 @@ export const moduleTranslationsVi: Record<string, { title: string; description: 
   },
   P09: {
     title: 'Quy Trình Phát Triển Ảnh RAW & Không Gian Màu 32-Bit',
-    description: 'Làm việc trong Develop Persona: hiệu chỉnh cân bằng trắng, cứu chi tiết vùng cháy sáng/vùng tối và xuất file chất lượng tối đa.',
+    description: 'Làm việc trong Develop Studio: hiệu chỉnh cân bằng trắng, cứu chi tiết vùng cháy sáng/vùng tối và xuất file chất lượng tối đa.',
   },
   P10: {
     title: 'Đồ Án Tốt Nghiệp Capstone — Quy Trình Xử Lý Ảnh Thương Mại',
@@ -96,10 +96,10 @@ export const moduleTranslationsVi: Record<string, { title: string; description: 
 };
 
 export const lessonTranslationsVi: Record<string, string> = {
-  'D01-01': 'Cấu trúc giao diện Designer và chuyển đổi Persona',
+  'D01-01': 'Làm quen giao diện Affinity và ba Studio',
   'D01-02': 'Cấu trúc Artboard và thiết lập bản vẽ đơn',
   'D01-03': 'Chế độ xem Vector, Pixel Preview, lưới và căn gióng',
-  'D02-01': 'Các chế độ Pen Tool và cơ chế tay cầm Bézier',
+  'D02-01': 'Vẽ đường cong bằng Pen Tool',
   'D02-02': 'Phân loại node và thao tác bằng Node Tool',
   'D02-03': 'Thao tác đường cong: nối, ngắt và kiểu nối nét',
   'D03-01': 'Hình khối tham số và cơ chế Corner Tool',
@@ -108,7 +108,7 @@ export const lessonTranslationsVi: Record<string, string> = {
   'D04-01': 'Fill Tool và dải chuyển màu Gradient nhiều điểm',
   'D04-02': 'Stroke Studio, nét đứt tùy chỉnh và biểu đồ lực nhấn',
   'D04-03': 'Contour Tool và mở rộng đường viền',
-  'D05-01': 'Phân cấp Layers Studio, nhóm và gắn màu đối tượng',
+  'D05-01': 'Phân cấp Layers panel, nhóm và gắn màu đối tượng',
   'D05-02': 'Clipping Vector (lồng lớp con) và Vector Mask',
   'D05-03': 'Chế độ hòa trộn Layer, Blend Ranges và Isolation Mode',
   'D06-01': 'Artistic Text, Frame Text và phân cấp kiểu chữ',
@@ -120,14 +120,14 @@ export const lessonTranslationsVi: Record<string, string> = {
   'D08-01': 'Tạo Symbol và đồng bộ nhiều phiên bản',
   'D08-02': 'Assets Studio và thư viện tài nguyên .afassets',
   'D08-03': 'Hệ thống component Vector co giãn và các biến thể',
-  'D09-01': 'Pixel Persona và động lực cọ Raster trong Designer',
+  'D09-01': 'Pixel Studio và động lực cọ Raster trong Designer',
   'D09-02': 'Clipping Pixel lồng lớp phi phá hủy và Masking',
   'D09-03': 'Quy trình Vector–Raster kết hợp và quản lý DPI',
-  'D10-01': 'Export Persona và cấu trúc Slices',
+  'D10-01': 'Slice Studio và cấu trúc Slices',
   'D10-02': 'Định dạng đa mật độ và Continuous Export',
   'D10-03': 'Tối ưu mã SVG và PDF/X sẵn sàng in ấn',
-  'P01-01': 'Giao diện Photo, thanh công cụ và các bảng Studio',
-  'P01-02': 'RAW Develop Persona và quy trình màu HDR 32-bit',
+  'P01-01': 'Làm quen Pixel Studio và bảng chỉnh ảnh',
+  'P01-02': 'RAW Develop Studio và quy trình màu HDR 32-bit',
   'P01-03': 'Hình học vùng vẽ phi phá hủy, Crop Tool, DPI và lấy mẫu lại',
   'P02-01': 'Các công cụ vùng chọn và nguyên lý tạo vùng chọn',
   'P02-02': 'Tinh chỉnh vùng chọn và phát hiện biên phức tạp',
@@ -136,7 +136,7 @@ export const lessonTranslationsVi: Record<string, string> = {
   'P03-02': 'Adjustment Layers và kiến trúc Live Filter',
   'P03-03': 'Clipping, Grouping và nguyên lý Blend Mode',
   'P04-01': 'Inpainting, Patch Tool và xóa đối tượng thông minh',
-  'P04-02': 'Clone Stamp, Healing Brush và nguyên lý phục chế',
+  'P04-02': 'Clone Brush, Healing Brush và nguyên lý phục chế',
   'P04-03': 'Frequency Separation và quy trình Retouch chân dung chuyên sâu',
   'P05-01': 'Exposure, dải tương phản và cân bằng trắng',
   'P05-02': 'Curves, Levels và kiểm soát sắc độ chính xác',
@@ -153,7 +153,7 @@ export const lessonTranslationsVi: Record<string, string> = {
   'P09-01': 'Giải mã cảm biến RAW, quy trình 32-bit Float và Tone Mapping',
   'P09-02': 'Hiệu chỉnh ống kính, quang sai màu và Defringe',
   'P09-03': 'Xử lý hàng loạt, ghi Macro và thiết lập sẵn cho nhiếp ảnh',
-  'P10-01': 'Export Persona Slices, đa định dạng 1x/2x/3x và Continuous Export',
+  'P10-01': 'Slice Studio Slices, đa định dạng 1x/2x/3x và Continuous Export',
   'P10-02': 'Không gian màu và nén tệp: sRGB, P3, Adobe RGB, WebP, JPEG XL, TIFF, PSD',
   'P10-03': 'Đồ án cuối khóa: quy trình thương mại hoàn chỉnh với chân dung và phong cảnh',
   'B01-01': 'Kiến trúc ấn phẩm, trang đôi, Slug và tiêu chuẩn Bleed',

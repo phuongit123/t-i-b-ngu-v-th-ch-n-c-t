@@ -1,84 +1,84 @@
-# D07 Practice Guide: Isometric Grids, 3D Projections & Precision Snapping
+# TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D07
+## CHỦ ĐỀ: HỆ LƯỚI ISOMETRIC, PHỐI CẢNH TRỤC ĐO & BẮT DÍNH CHUẨN XÁC
 
-**Track:** Affinity Designer Mastery  
-**Module:** D07 — Isometric Grids, 3D Projections & Snapping  
-**Asset Status:** `GUIDE_DOCUMENT` (Official Step-by-Step Production Guide)  
-**Target Application:** Serif Affinity Designer 3.3.3 (Desktop — Windows & macOS)
-
----
-
-## 1. Project Overview & Blueprint Objective
-
-In this hands-on project, you will construct a high-precision **Isometric Modular Server Kiosk & UI Terminal** using Affinity Designer's native **Grid and Axis Manager**, the dedicated **Isometric Studio**, and advanced **Intersection Snapping Candidates**.
-
-You will master the mathematics and workflow of parallel projection—eliminating perspective vanishing points while maintaining exact 30° true axonometric fidelity.
+- **Mã học phần:** `D07`
+- **Cấp độ:** Trung cấp (`Intermediate`)
+- **Lộ trình:** Affinity Designer (Vector Studio)
+- **Phân loại tài nguyên:** `GUIDE_DOCUMENT`
+**Ứng dụng mục tiêu:** Affinity (Desktop — Windows & macOS, kiểm chứng trên bản 3.3.3)
 
 ---
 
-## 2. Document Setup & Isometric Grid Configuration
+### 1. TỔNG QUAN DỰ ÁN & MỤC TIÊU BẢN VẼ
 
-1. **Create New Document**:
-   - Preset: **Web / FHD** (1920 × 1080 px).
-   - Color Format: **RGB/8**, Color Profile: **sRGB IEC61966-2.1**.
-   - Transparent Background: Checked.
-2. **Open Grid and Axis Manager**:
-   - Menu: `View > Grid and Axis Manager...` (Win/Mac shortcut: `Ctrl+Alt+G` / `Cmd+Option+G`).
-   - Uncheck `Use automatic grid`.
-   - Grid Mode: Select **Advanced**.
-   - Grid Type: Select **Isometric** (or **Axonometric** with Custom Angles if creating Dimetric/Trimetric art).
-   - Angle: Standard isometric uses **30°** elevation (`X = 30°`, `Y = 150°`, `Z = 90°`).
-   - Spacing: Set uniform division to `64 px` with `4 subdivisions` (16 px fine increments).
-   - Check `Show grid` (`Ctrl+'` / `Cmd+'`) and check `Snap to grid` (`Ctrl+Alt+'` / `Cmd+Option+'`).
+Trong bài thực hành này, bạn sẽ dựng một **Quầy Máy Chủ & Màn Hình Điều Khiển Isometric** bằng bộ công cụ gốc gồm **Grid and Axis Manager** (trình quản lý lưới và trục tọa độ), bảng **Isometric Studio** (bảng điều khiển mặt phẳng trục đo) và hệ thống **Snapping Candidates** (ứng viên bắt dính giao điểm).
+
+Mục tiêu cốt lõi là nắm vững nguyên lý chiếu song song trong không gian trục đo: loại bỏ hoàn toàn điểm tụ phối cảnh xa gần nhưng vẫn giữ tỷ lệ góc chuẩn xác `30°` trên cả hai trục mặt đất và `90°` theo phương thẳng đứng.
 
 ---
 
-## 3. The Isometric Studio & Fit-to-Plane Workflow
+### 2. THIẾT LẬP TÀI LIỆU & HỆ LƯỚI ISOMETRIC
 
-1. **Activate Isometric Studio**:
-   - Menu: `View > Studio > Isometric` (or click the Isometric Studio icon in the right dock).
-2. **Understanding the Projection Planes**:
-   - **Front Plane** (Left-facing vertical plane, aligned along the 150° axis).
-   - **Side Plane** (Right-facing vertical plane, aligned along the 30° axis).
-   - **Top Plane** (Horizontal ground/roof plane, aligned between 30° and 150° axes).
-3. **The Two Core Modes**:
-   - **Fit to Plane**: Select any 2D flat artwork (rectangle, icon, text) -> Click `Fit to Plane` with `Top`, `Side`, or `Front` selected. Designer applies an affine skew and rotation transform non-destructively to project the flat art into the chosen isometric plane.
-   - **Edit in Plane**: When enabled, any new shape or node drawn with the Pen Tool (`P`) or Rectangle Tool (`M`) is constrained and projected dynamically into the active plane in real-time.
-
----
-
-## 4. Step-by-Step Terminal Kiosk Assembly
-
-### Step 4.1: Constructing the Isometric Base Pedestal
-1. Set Active Plane to **Top** in the Isometric Studio. Enable `Edit in Plane`.
-2. Draw a square base (`256 × 256 px`). Fill with Dark Gunmetal (`#1A1D24`), Stroke: None.
-3. Switch Active Plane to **Front**. Draw the front left face (`256 × 400 px`). Fill with `#252A34`.
-4. Switch Active Plane to **Side**. Draw the right face (`256 × 400 px`). Fill with `#2E3440`.
-5. Observe how light naturally hits the Top (`#3B4252` highlight), Side (`#2E3440` midtone), and Front (`#252A34` core shadow).
-
-### Step 4.2: Projecting Flat UI Screen & Decals
-1. On a blank area of the canvas, switch `Edit in Plane` **OFF**.
-2. Create a 2D flat terminal screen layout:
-   - A rectangle (`180 × 240 px`) with `#0F172A` background and `#00D2FF` neon border (1.5 pt).
-   - Add sample telemetry text ("SYSTEM ONLINE", "CORE TEMP: 34°C") using Artistic Text (`T`).
-   - Group the flat UI elements (`Ctrl+G` / `Cmd+G`).
-3. Select the UI Group. In the Isometric Studio:
-   - Select **Side** Plane.
-   - Click **Fit to Plane**.
-4. The flat group snaps instantly into true isometric projection. Move the projected group onto the right face of the pedestal.
-
-### Step 4.3: Precision Snapping Candidates Configuration
-1. Open Snapping Manager: Click the magnet icon on the main toolbar or `View > Snapping Manager...`.
-2. Ensure `Show snapping candidates` is checked.
-3. Set Candidates mode to `Candidate list (maximum 6)`. Hover your cursor over key vertices of the pedestal to activate them as magenta snapping candidates.
-4. Enable `Snap to grid` and `Snap to object geometry`.
-5. Using the Pen Tool (`P`), draw cable conduits between the server nodes. The cursor will display crosshairs indicating exact vertex-to-vertex geometric lock.
+1. **Tạo tài liệu mới (`File > New...`)**:
+   - Khổ mẫu: **Web / FHD** (`1920 × 1080 px`).
+   - Hệ màu: **RGB/8**, hồ sơ màu: **sRGB IEC61966-2.1**.
+   - Tích chọn **Transparent Background** (nền trong suốt) nếu cần tách nền.
+2. **Mở trình quản lý lưới Grid and Axis Manager**:
+   - Menu: `View > Grid and Axis Manager...` (phím tắt: `Ctrl+Alt+G` trên Windows / `Cmd+Option+G` trên macOS).
+   - Bỏ tích **Use automatic grid** để khóa kích thước mô-đun cố định (tránh lưới tự co giãn khi phóng to/thu nhỏ).
+   - **Grid Mode:** chọn **Advanced**.
+   - **Grid Type:** chọn **Isometric** (hoặc **Axonometric** nếu cần nhập góc tùy biến cho dimetric/trimetric).
+   - **Góc chuẩn:** Isometric chuẩn dùng góc nâng **30°** (`X = 30°`, `Y = 150°`, `Z = 90°`).
+   - **Spacing (Bước lưới):** đặt bước chính `64 px` và `4 subdivisions` (chia nhỏ thành từng nấc `16 px`).
+   - Tích chọn **Show grid** (`Ctrl+'` / `Cmd+'`) và **Snap to grid** (`Ctrl+Alt+'` / `Cmd+Option+'`).
 
 ---
 
-## 5. Verification Checklist & Acceptance Criteria
+### 3. BẢNG ISOMETRIC STUDIO & QUY TRÌNH FIT TO PLANE
 
-- [ ] Grid and Axis Manager configured with Isometric mode (30° elevation).
-- [ ] Base pedestal constructed with coherent 3-value shading (Top highlight, Side midtone, Front shadow).
-- [ ] 2D flat vector artwork successfully projected into an isometric plane using `Fit to Plane`.
-- [ ] No manual freehand shearing or guesswork used; all angles match exact 30° / 150° / 90° axes.
-- [ ] Snapping candidates utilized for perfect vertex-to-vertex alignment without gaps or subpixel bleed.
+1. **Mở Isometric Studio**:
+   - Vào `View > Studio > Isometric` (hoặc nhấp biểu tượng Isometric Studio ở thanh dock bên phải).
+2. **Ba mặt phẳng chiếu tiêu chuẩn**:
+   - **Front Plane (Mặt trước):** mặt phẳng đứng quay sang trái, bám theo trục `150°`.
+   - **Side Plane (Mặt bên):** mặt phẳng đứng quay sang phải, bám theo trục `30°`.
+   - **Top Plane (Mặt trên):** mặt phẳng nằm ngang (sàn hoặc mái), giới hạn bởi hai trục `30°` và `150°`.
+3. **Hai cơ chế thao tác chính**:
+   - **Fit to Plane:** Chọn bất kỳ nhóm đồ họa 2D phẳng nào (hình chữ nhật, biểu tượng, chữ) rồi chọn mặt phẳng `Top`, `Side` hoặc `Front` và nhấn **Fit to Plane**. Phần mềm tự tính ma trận biến đổi affine (nghiêng và xoay) phi phá hủy để ép hình phẳng lên đúng mặt phẳng đã chọn.
+   - **Edit in Plane:** Khi bật tùy chọn này, mọi hình khối hay điểm neo vẽ bằng **Pen Tool (`P`)** hoặc **Rectangle Tool (`M`)** đều được chiếu trực tiếp lên mặt phẳng đang kích hoạt theo thời gian thực.
+
+---
+
+### 4. QUY TRÌNH LẮP RÁP QUẦY MÁY CHỦ TỪNG BƯỚC
+
+#### Bước 4.1: Dựng khối bệ đế Isometric
+1. Trong **Isometric Studio**, đặt mặt phẳng hoạt động là **Top** và bật **Edit in Plane**.
+2. Vẽ mặt đáy hình vuông (`256 × 256 px`), tô màu xám thép tối (`#1A1D24`), không viền.
+3. Chuyển mặt phẳng sang **Front**, vẽ mặt đứng bên trái (`256 × 400 px`), tô màu `#252A34`.
+4. Chuyển mặt phẳng sang **Side**, vẽ mặt đứng bên phải (`256 × 400 px`), tô màu `#2E3440`.
+5. Kiểm tra tương phản 3 bậc sáng tự nhiên: mặt trên **Top** sáng nhất (`#3B4252`), mặt bên **Side** sáng trung bình (`#2E3440`), mặt trước **Front** tối nhất (`#252A34`).
+
+#### Bước 4.2: Chiếu màn hình giao diện 2D lên mặt phẳng 3D
+1. Di chuyển sang một khoảng trống trên bản vẽ và **tắt** `Edit in Plane`.
+2. Dựng một thẻ giao diện 2D phẳng:
+   - Hình chữ nhật (`180 × 240 px`), nền `#0F172A`, viền xanh neon `#00D2FF` dày `1.5 pt` (nhớ bật **Scale with object** trong bảng **Stroke Studio**).
+   - Dùng **Artistic Text Tool (`T`)** nhập dòng trạng thái (`"SYSTEM ONLINE"`, `"CORE TEMP: 34°C"`).
+   - Nhóm toàn bộ thành phần giao diện lại thành một Group (`Ctrl+G` / `Cmd+G`).
+3. Chọn nhóm giao diện 2D vừa tạo, mở **Isometric Studio**:
+   - Chọn mặt phẳng **Side**.
+   - Nhấn **Fit to Plane**.
+4. Nhóm giao diện tự động nằm phẳng theo đúng góc `30°`. Bật lại `Edit in Plane` rồi kéo đặt gọn vào mặt bên của quầy máy chủ.
+
+#### Bước 4.3: Thiết lập Snapping Candidates để ghép đỉnh chuẩn xác
+1. Mở **Snapping Manager** bằng cách nhấp mũi tên nhỏ cạnh biểu tượng nam châm trên thanh công cụ chính hoặc vào `View > Snapping Manager...`.
+2. Tích chọn **Show snapping candidates** (hiển thị viền hồng tím quanh đối tượng tham chiếu).
+3. Đặt mục **Candidates** thành `Candidate list (maximum 6)`. Di chuột lướt qua các khối chính của quầy máy chủ để kích hoạt viền hồng tím.
+4. Bật **Snap to grid** và **Snap to object geometry**.
+5. Dùng **Pen Tool (`P`)** nối các đường dây dẫn giữa các cổng thiết bị: con trỏ sẽ hiện dấu chữ thập màu vàng khi khóa trúng đỉnh điểm neo, bảo đảm không có khe hở điểm ảnh.
+
+---
+
+### 5. BẢNG KIỂM TRA & NGHIỆM THU BẢN VẼ
+- [ ] `Grid and Axis Manager` đã tắt lưới tự động và bật chế độ **Isometric** (`30°`).
+- [ ] Khối bệ đế phân tách rõ 3 sắc độ sáng tối theo từng mặt phẳng (`Top` sáng, `Side` trung tính, `Front` tối).
+- [ ] Thành phần giao diện 2D được chiếu chuẩn bằng `Fit to Plane`, không tự kéo nghiêng thủ công gây sai góc.
+- [ ] Toàn bộ đỉnh giao nhau giữa các khối khớp khít khi kiểm tra bằng chế độ khung dây **Outline View** (`Ctrl+Y` / `Cmd+Y`).

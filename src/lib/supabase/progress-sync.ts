@@ -1,13 +1,10 @@
-/**
- * AFFINITY ACADEMY — PROGRESS SYNCHRONIZATION ENGINE
- * Offline-first, resilient synchronization with conflict resolution (LWW)
- * and exponential backoff retry queue.
- */
-
-import { getSupabaseClient, isSupabaseConfigured } from './client.ts';
-import type { Database, LessonProgressStatus } from '../../types/database.types.ts';
+import { getSupabaseClient } from './client.ts';
+import { learningStorageKey } from '../learning-storage';
+import type { LessonProgressStatus } from '../../types/database.types.ts';
 
 export type SyncStatus = 'synced' | 'syncing' | 'offline' | 'pending' | 'error';
+export const LEARNING_UPDATED_EVENT = 'affinity-learning-updated';
+export const LOCAL_PROGRESS_STORAGE_KEY = 'affinity_academy_progress_v2';
 
 export interface LocalLessonProgress {
   lessonId: string;
@@ -15,267 +12,231 @@ export interface LocalLessonProgress {
   lastSlideIndex: number;
   quizScore?: number | null;
   completedAt?: string | null;
-  clientUpdatedAt: string; // ISO 8601 string
+  clientUpdatedAt: string;
 }
 
-interface SyncQueueItem {
-  id: string;
-  userId: string;
-  payload: LocalLessonProgress;
+interface QueueItem {
+  token: string;
+  progress: LocalLessonProgress;
   attempts: number;
-  lastAttemptAt: number;
+  retryAt: number;
 }
 
-const LOCAL_PROGRESS_STORAGE_KEY = 'affinity_academy_progress_v2';
-const SYNC_QUEUE_STORAGE_KEY = 'affinity_academy_sync_queue';
-const MAX_RETRY_ATTEMPTS = 5;
+type ProgressMap = Record<string, LocalLessonProgress>;
+type Queue = Record<string, QueueItem>;
+const SYNC_QUEUE_STORAGE_KEY = 'affinity_academy_sync_queue_v2';
+const LEGACY_QUEUE_KEY = 'affinity_academy_sync_queue';
+const listeners = new Set<(value: SyncStatus) => void>();
+const inFlight = new Map<string, Promise<boolean>>();
+let syncStatus: SyncStatus = 'offline';
+let lastSyncAt: number | null = null;
+let activeUserId: string | undefined;
+let retryTimer: ReturnType<typeof setTimeout> | undefined;
 
-// Global listeners for sync status changes
-const statusListeners = new Set<(status: SyncStatus) => void>();
-let currentSyncStatus: SyncStatus = 'synced';
+function setStatus(value: SyncStatus) {
+  syncStatus = value;
+  listeners.forEach(listener => listener(value));
+}
 
-const setSyncStatus = (status: SyncStatus) => {
-  currentSyncStatus = status;
-  statusListeners.forEach(listener => listener(status));
-};
+export function subscribeSyncStatus(listener: (value: SyncStatus) => void): () => void {
+  listeners.add(listener);
+  listener(syncStatus);
+  return () => { listeners.delete(listener); };
+}
 
-export const subscribeSyncStatus = (listener: (status: SyncStatus) => void): () => void => {
-  statusListeners.add(listener);
-  listener(currentSyncStatus);
-  return () => {
-    statusListeners.delete(listener);
-  };
-};
+export const getSyncStatus = () => syncStatus;
+export const getLastSyncAt = () => lastSyncAt;
 
-export const getSyncStatus = (): SyncStatus => currentSyncStatus;
-
-/**
- * Reads all local progress from localStorage
- */
-export const getAllLocalProgress = (): Record<string, LocalLessonProgress> => {
+function readObject<T>(key: string): Record<string, T> {
   try {
-    const raw = localStorage.getItem(LOCAL_PROGRESS_STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch (err) {
-    console.warn('Lỗi đọc local progress:', err);
+    const data: unknown = JSON.parse(localStorage.getItem(key) ?? '{}');
+    return data && typeof data === 'object' && !Array.isArray(data) ? data as Record<string, T> : {};
+  } catch {
     return {};
   }
-};
+}
 
-/**
- * Reads local progress for a specific lesson
- */
-export const getLocalProgress = (lessonId: string): LocalLessonProgress | null => {
-  const all = getAllLocalProgress();
-  return all[lessonId] || null;
-};
+export function getAllLocalProgress(owner?: string): ProgressMap {
+  return readObject(learningStorageKey(LOCAL_PROGRESS_STORAGE_KEY, owner));
+}
 
-/**
- * Saves all local progress into localStorage
- */
-const saveAllLocalProgress = (data: Record<string, LocalLessonProgress>) => {
+export const getLocalProgress = (lessonId: string) => getAllLocalProgress()[lessonId] ?? null;
+
+const queueKey = (owner: string) => learningStorageKey(SYNC_QUEUE_STORAGE_KEY, owner);
+
+async function withQueueLock<T>(owner: string, action: () => T): Promise<T> {
+  if (navigator.locks) return navigator.locks.request(queueKey(owner), action);
+  return action();
+}
+
+export function clearProgressQueue(owner: string | undefined) {
+  if (owner) {
+    localStorage.removeItem(queueKey(owner));
+    localStorage.setItem(learningStorageKey(LEGACY_QUEUE_KEY, owner), 'migrated');
+  }
+}
+
+export async function saveLessonProgress(
+  userId: string | null, progress: Omit<LocalLessonProgress, 'clientUpdatedAt'>,
+): Promise<void> {
   try {
-    localStorage.setItem(LOCAL_PROGRESS_STORAGE_KEY, JSON.stringify(data));
-  } catch (err) {
-    console.warn('Lỗi ghi local progress:', err);
+    const key = learningStorageKey(LOCAL_PROGRESS_STORAGE_KEY, userId ?? undefined);
+    const write = () => {
+      const current = readObject<LocalLessonProgress>(key);
+      const prior = current[progress.lessonId];
+      const next: LocalLessonProgress = {
+        ...progress,
+        clientUpdatedAt: new Date(Math.max(Date.now(), (Date.parse(prior?.clientUpdatedAt ?? '') || 0) + 1)).toISOString(),
+      };
+      localStorage.setItem(key, JSON.stringify({ ...current, [next.lessonId]: next }));
+      if (userId) {
+        const queue = readObject<QueueItem>(queueKey(userId));
+        queue[next.lessonId] = { token: crypto.randomUUID(), progress: next, attempts: 0, retryAt: 0 };
+        localStorage.setItem(queueKey(userId), JSON.stringify(queue));
+      }
+    };
+    if (userId && getSupabaseClient()) {
+      await withQueueLock(userId, write);
+      if (userId === activeUserId) {
+        setStatus(navigator.onLine ? 'pending' : 'offline');
+        schedule(userId);
+      }
+    } else {
+      write();
+      setStatus('offline');
+    }
+  } catch (error) {
+    setStatus('error');
+    throw error;
   }
-};
+}
 
-/**
- * Reads pending sync queue
- */
-const getSyncQueue = (): SyncQueueItem[] => {
+function schedule(owner: string) {
+  if (owner !== activeUserId) return;
+  clearTimeout(retryTimer);
+  if (!navigator.onLine) return;
+  const queue = Object.values(readObject<QueueItem>(queueKey(owner)));
+  if (queue.length) {
+    retryTimer = setTimeout(() => { void flushSyncQueue(owner); },
+      Math.max(500, Math.min(...queue.map(item => item.retryAt)) - Date.now()));
+  }
+}
+
+function migrateLegacyQueue(owner: string): void {
+  const queue = readObject<QueueItem>(queueKey(owner));
+  if (localStorage.getItem(learningStorageKey(LEGACY_QUEUE_KEY, owner))) return;
+  const legacy = localStorage.getItem(LEGACY_QUEUE_KEY);
+  if (!legacy) return;
+  let entries: { userId: string; payload: LocalLessonProgress }[];
   try {
-    const raw = localStorage.getItem(SYNC_QUEUE_STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
+    const parsed: unknown = JSON.parse(legacy);
+    if (!Array.isArray(parsed)) return;
+    entries = parsed;
+  } catch { return; }
+  const owned = entries.filter(item => item?.userId === owner && item.payload?.lessonId);
+  for (const { payload } of owned) {
+    const current = queue[payload.lessonId];
+    if (current && current.progress.clientUpdatedAt >= payload.clientUpdatedAt) continue;
+    queue[payload.lessonId] = { token: crypto.randomUUID(), progress: payload, attempts: 0, retryAt: 0 };
   }
-};
-
-const saveSyncQueue = (queue: SyncQueueItem[]) => {
-  try {
-    localStorage.setItem(SYNC_QUEUE_STORAGE_KEY, JSON.stringify(queue));
-  } catch (err) {
-    console.warn('Lỗi lưu sync queue:', err);
+  if (owned.length) {
+    localStorage.setItem(queueKey(owner), JSON.stringify(queue));
+    localStorage.setItem(learningStorageKey(LEGACY_QUEUE_KEY, owner), 'migrated');
   }
-};
+}
 
-/**
- * Enqueue progress item for background sync
- */
-const enqueueSyncItem = (userId: string, progress: LocalLessonProgress) => {
-  const queue = getSyncQueue();
-  const existingIdx = queue.findIndex(q => q.userId === userId && q.payload.lessonId === progress.lessonId);
-  const item: SyncQueueItem = {
-    id: `${userId}_${progress.lessonId}`,
-    userId,
-    payload: progress,
-    attempts: 0,
-    lastAttemptAt: 0,
-  };
-
-  if (existingIdx >= 0) {
-    queue[existingIdx] = item;
-  } else {
-    queue.push(item);
-  }
-  saveSyncQueue(queue);
-  setSyncStatus('pending');
-};
-
-/**
- * Core function to save lesson progress (Local-First)
- */
-export const saveLessonProgress = async (
-  userId: string | null,
-  progress: Omit<LocalLessonProgress, 'clientUpdatedAt'>
-): Promise<void> => {
-  const nowIso = new Date().toISOString();
-  const localRecord: LocalLessonProgress = {
-    ...progress,
-    clientUpdatedAt: nowIso,
-  };
-
-  // 1. Write immediately to localStorage (optimistic & synchronous)
-  const all = getAllLocalProgress();
-  all[progress.lessonId] = localRecord;
-  saveAllLocalProgress(all);
-
-  // 2. If no user or Supabase is not configured, we're in offline/guest mode
-  if (!userId || !isSupabaseConfigured()) {
-    setSyncStatus('offline');
-    return;
-  }
-
-  // 3. Queue for synchronization
-  enqueueSyncItem(userId, localRecord);
-
-  // 4. Trigger flush immediately
-  flushSyncQueue(userId).catch(err => {
-    console.warn('Lỗi đồng bộ ngầm:', err);
-  });
-};
-
-/**
- * Flushes pending sync queue to Supabase with conflict resolution
- */
-export const flushSyncQueue = async (userId: string): Promise<boolean> => {
+async function flush(owner: string, force: boolean): Promise<boolean> {
   const supabase = getSupabaseClient();
-  if (!supabase || !isSupabaseConfigured() || !navigator.onLine) {
-    setSyncStatus('offline');
+  if (!supabase || activeUserId !== owner || !navigator.onLine) {
+    if (activeUserId === owner) setStatus('offline');
     return false;
   }
-
-  const queue = getSyncQueue();
-  const userItems = queue.filter(item => item.userId === userId);
-  if (userItems.length === 0) {
-    setSyncStatus('synced');
-    return true;
-  }
-
-  setSyncStatus('syncing');
-  let hasErrors = false;
-  const remainingQueue: SyncQueueItem[] = queue.filter(item => item.userId !== userId);
-
-  for (const item of userItems) {
-    try {
-      // Upsert into Supabase lesson_progress
-      const { error } = await supabase
-        .from('lesson_progress')
-        .upsert(
-          {
-            user_id: item.userId,
-            lesson_id: item.payload.lessonId,
-            status: item.payload.status,
-            last_slide_index: item.payload.lastSlideIndex,
-            quiz_score: item.payload.quizScore,
-            completed_at: item.payload.completedAt,
-            client_updated_at: item.payload.clientUpdatedAt,
-          },
-          { onConflict: 'user_id,lesson_id' }
-        );
-
-      if (error) {
-        throw new Error(error.message);
-      }
-    } catch (err) {
-      console.warn(`Lỗi khi sync bài ${item.payload.lessonId}:`, err);
-      hasErrors = true;
-      if (item.attempts < MAX_RETRY_ATTEMPTS) {
-        remainingQueue.push({
-          ...item,
-          attempts: item.attempts + 1,
-          lastAttemptAt: Date.now(),
-        });
-      }
-    }
-  }
-
-  saveSyncQueue(remainingQueue);
-
-  if (hasErrors) {
-    setSyncStatus('error');
-    return false;
-  } else {
-    setSyncStatus('synced');
-    return true;
-  }
-};
-
-/**
- * Pulls remote progress from Supabase and merges with local (Last-Write-Wins)
- */
-export const pullRemoteProgress = async (userId: string): Promise<Record<string, LocalLessonProgress>> => {
-  const supabase = getSupabaseClient();
-  if (!supabase || !isSupabaseConfigured() || !navigator.onLine) {
-    return getAllLocalProgress();
-  }
-
+  setStatus('syncing');
   try {
-    setSyncStatus('syncing');
-    const { data, error } = await supabase
-      .from('lesson_progress')
-      .select('*')
-      .eq('user_id', userId);
-
-    if (error || !data) {
-      console.warn('Không tải được remote progress:', error?.message);
-      setSyncStatus('error');
-      return getAllLocalProgress();
+    const key = queueKey(owner);
+    await withQueueLock(owner, () => migrateLegacyQueue(owner));
+    const pending: Queue = readObject(key);
+    for (const [lessonId, item] of Object.entries(pending)) {
+      if (activeUserId !== owner) return false;
+      if (!force && item.retryAt > Date.now()) continue;
+      const progress = item.progress;
+      const { error } = await supabase.from('lesson_progress').upsert({
+        user_id: owner, lesson_id: lessonId, status: progress.status,
+        last_slide_index: progress.lastSlideIndex, quiz_score: progress.quizScore,
+        completed_at: progress.completedAt, client_updated_at: progress.clientUpdatedAt,
+      }, { onConflict: 'user_id,lesson_id' });
+      await withQueueLock(owner, () => {
+        const latest = readObject<QueueItem>(key);
+        if (latest[lessonId]?.token !== item.token) return;
+        if (error) {
+          const backoff = Math.min(60_000 * 5, 1_000 * 2 ** Math.min(item.attempts, 9));
+          latest[lessonId] = { ...item, attempts: item.attempts + 1, retryAt: Date.now() + backoff };
+        } else {
+          delete latest[lessonId];
+        }
+        localStorage.setItem(key, JSON.stringify(latest));
+      });
     }
 
-    const localAll = getAllLocalProgress();
-    let hasLocalChanges = false;
-
-    data.forEach((remote: Database['public']['Tables']['lesson_progress']['Row']) => {
-      const local = localAll[remote.lesson_id];
-      const remoteUpdatedAt = new Date(remote.client_updated_at).getTime();
-      const localUpdatedAt = local ? new Date(local.clientUpdatedAt).getTime() : 0;
-
-      // Remote is newer -> update local
-      if (remoteUpdatedAt >= localUpdatedAt) {
-        localAll[remote.lesson_id] = {
-          lessonId: remote.lesson_id,
-          status: remote.status,
-          lastSlideIndex: remote.last_slide_index,
-          quizScore: remote.quiz_score,
-          completedAt: remote.completed_at,
-          clientUpdatedAt: remote.client_updated_at,
+    const { data, error } = await supabase.from('lesson_progress').select('*').eq('user_id', owner);
+    if (error) throw error;
+    if (activeUserId !== owner) return false;
+    await withQueueLock(owner, () => {
+      const local = getAllLocalProgress(owner);
+      for (const remote of data) {
+        const prior = local[remote.lesson_id];
+        if (prior && Date.parse(prior.clientUpdatedAt) > Date.parse(remote.client_updated_at)) continue;
+        local[remote.lesson_id] = {
+          lessonId: remote.lesson_id, status: remote.status, lastSlideIndex: remote.last_slide_index,
+          quizScore: remote.quiz_score, completedAt: remote.completed_at, clientUpdatedAt: remote.client_updated_at,
         };
-        hasLocalChanges = true;
       }
+      localStorage.setItem(learningStorageKey(LOCAL_PROGRESS_STORAGE_KEY, owner), JSON.stringify(local));
     });
-
-    if (hasLocalChanges) {
-      saveAllLocalProgress(localAll);
+    const remaining = Object.values(readObject<QueueItem>(key));
+    if (activeUserId !== owner) return false;
+    lastSyncAt = remaining.length ? lastSyncAt : Date.now();
+    setStatus(remaining.some(item => item.attempts) ? 'error' : remaining.length ? 'pending' : 'synced');
+    window.dispatchEvent(new Event(LEARNING_UPDATED_EVENT));
+    return remaining.length === 0;
+  } catch (error) {
+    if (activeUserId === owner) {
+      console.warn('Đồng bộ tiến độ thất bại:', error);
+      setStatus('error');
     }
-
-    setSyncStatus('synced');
-    return localAll;
-  } catch (err) {
-    console.warn('Lỗi pull remote progress:', err);
-    setSyncStatus('error');
-    return getAllLocalProgress();
+    return false;
   }
-};
+}
+
+export function flushSyncQueue(owner: string, force = false): Promise<boolean> {
+  const current = inFlight.get(owner);
+  if (current) return current;
+  const next = flush(owner, force).finally(() => {
+    inFlight.delete(owner);
+    schedule(owner);
+  });
+  inFlight.set(owner, next);
+  return next;
+}
+
+export function startProgressSync(owner?: string): () => void {
+  activeUserId = owner;
+  lastSyncAt = null;
+  const online = () => { if (owner) void flushSyncQueue(owner); };
+  const offline = () => setStatus('offline');
+  const storage = (event: StorageEvent) => {
+    if (owner && event.key === queueKey(owner)) schedule(owner);
+  };
+  setStatus(owner && navigator.onLine ? 'pending' : 'offline');
+  window.addEventListener('online', online);
+  window.addEventListener('offline', offline);
+  window.addEventListener('storage', storage);
+  online();
+  return () => {
+    window.removeEventListener('online', online);
+    window.removeEventListener('offline', offline);
+    window.removeEventListener('storage', storage);
+    clearTimeout(retryTimer);
+    if (activeUserId === owner) activeUserId = undefined;
+  };
+}

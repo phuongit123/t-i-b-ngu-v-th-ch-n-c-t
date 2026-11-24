@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 35
     env:
       CI: true
+      AFFINITY_CROSS_BROWSER: '1'
 
     steps:
       - name: Check out repository
@@ -53,11 +54,23 @@ jobs:
       - name: Vietnamese lesson translation coverage
         run: npm run test:translations
 
+      - name: Vietnamese UI and curriculum checks
+        run: |
+          npm run test:ui-vi
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run test:curriculum-vi
+
+      - name: Backend migrations and integrity
+        run: npm run test:backend
+
+      - name: Capstone scoring
+        run: npm run test:capstone
+
       - name: Production build
         run: npm run build
 
-      - name: Install Microsoft Edge for Playwright
-        run: npx playwright install msedge
+      - name: Install browsers for Playwright
+        run: npx playwright install chromium firefox webkit msedge
 
       - name: Playwright end-to-end suite
         run: npm run test:e2e

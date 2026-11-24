@@ -27,9 +27,11 @@ export const AppShell: React.FC<AppShellProps> = ({
   className,
 }) => {
   const isHome = activeRoute === 'home';
+  const isLesson = activeRoute === 'lesson';
 
   return (
-    <div className={cn('min-h-screen bg-canvas text-primary flex flex-col', className)} data-theme={theme}>
+    <div className={cn('academy-shell min-h-screen bg-canvas text-primary flex flex-col', className)} data-theme={theme}>
+      <a href="#main-content" className="academy-skip">Đến nội dung</a>
       <MainNavigation
         activeRoute={activeRoute}
         onNavigate={onNavigate}
@@ -39,21 +41,25 @@ export const AppShell: React.FC<AppShellProps> = ({
         onOpenSearch={onOpenSearch}
       />
 
-      <div className={cn('flex-1 flex w-full mx-auto', isHome ? 'max-w-none p-0' : 'max-w-7xl')}>
+      <div
+        className={cn(
+          'flex-1 flex w-full mx-auto',
+          isHome ? 'max-w-none p-0' : 'academy-width'
+        )}
+      >
         {sidebar}
-        <main className={cn('flex-1 overflow-x-hidden min-w-0', isHome ? 'p-0' : 'p-6 md:p-8')}>
+        <main id="main-content" tabIndex={-1} className={cn('flex-1 min-w-0', isHome ? 'p-0' : isLesson ? 'academy-lesson-main' : 'academy-page')}>
           {children}
         </main>
       </div>
 
-      {!isHome && (
-        <footer className="border-t border-hairline py-6 text-center text-xs text-zinc-500 font-mono">
-          <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span>AFFINITY ACADEMY &copy; 2026 &mdash; TOOL MASTERY &amp; DESIGN THINKING</span>
-            <span>LAYOUT &bull; VECTOR &bull; PIXEL &bull; AUTOMATION</span>
-          </div>
-        </footer>
-      )}
+      <footer className="academy-site-footer">
+        <div className="academy-width">
+          <button type="button" onClick={() => onNavigate('home')}>Affinity Academy</button>
+          <p>Học thiết kế với Vector, Pixel và Layout.</p>
+          <button type="button" onClick={() => onNavigate('resources')}>Thư viện tài liệu</button>
+        </div>
+      </footer>
     </div>
   );
 };

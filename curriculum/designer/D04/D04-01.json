@@ -3,100 +3,100 @@
   "moduleId": "D04",
   "trackId": "designer",
   "order": 1,
-  "title": "Fill Tool & Multi-Stop Gradients (5 Types)",
-  "subtitle": "Linear, Radial, Elliptical, Conical, Midpoints & Opacity Stops",
+  "title": "Fill Tool và dải chuyển màu Gradient nhiều điểm",
+  "subtitle": "Linear, Radial, Elliptical, Conical, điểm trung chuyển và opacity stop",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Master the Fill Tool (G) to paint interactive color gradients directly across vector paths and text.",
-      "Understand the geometric differences and optical behavior of Linear, Elliptical, Radial, and Conical gradients.",
-      "Insert, position, delete, and sample multi-stop color ramps with independent opacity values.",
-      "Adjust gradient midpoint bias sliders to control tonal transitions and prevent muddy gray blending zones."
+      "Làm chủ Fill Tool (công cụ tô màu và dải chuyển sắc trực tiếp trên canvas, phím G) cho hình khối và chữ vector.",
+      "Phân biệt cấu trúc hình học và hiệu ứng thị giác của các dạng gradient: Linear, Radial, Elliptical và Conical.",
+      "Chèn, sắp xếp, xóa và gán độ mờ đục (opacity) độc lập cho từng điểm dừng màu trên dải chuyển sắc.",
+      "Kéo điểm trung chuyển (midpoint bias) để kiểm soát tốc độ chuyển màu và tránh dải xám đục ở vùng giao giữa hai màu tương phản."
     ],
-    "foundationalKnowledge": "Gradients transform flat two-dimensional vector paths into dimensional, illuminated surfaces by interpolating colors smoothly across space. While many applications only offer basic linear or circular ramps, Affinity Designer delivers five high-performance gradient types: Linear, Elliptical (with two independent focal axes), Radial, Conical (a 360-degree sweep around a central pole, indispensable for metals and radar screens), and Bitmap. Crucially, the Fill Tool (G) operates directly on-canvas: you drag gradient lines interactively, reposition focal points, and adjust color stops and midpoint bias sliders without burying yourself in modal dialogs.",
+    "foundationalKnowledge": "Dải chuyển màu (Gradient) giúp hình khối vector phẳng có ngay chiều sâu ánh sáng, độ khối và chất liệu bề mặt. Ngoài các kiểu quen thuộc như Linear (tuyến tính) và Radial (tỏa tròn), Affinity cung cấp thêm Elliptical (elip hai trục bán kính độc lập) và Conical (quét xoay 360 độ quanh tâm—cực kỳ đắc lực khi dựng bề mặt kim loại phay xước hay mặt số đồng hồ), cùng kiểu Bitmap tô họa tiết ảnh. Điểm mạnh của Fill Tool (G) là thao tác trực tiếp ngay trên bản vẽ: bạn kéo thanh hướng, chèn điểm màu và chỉnh tốc độ chuyển sắc trực quan mà không phải mở hộp thoại che khuất tác phẩm.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Fill Tool & Gradient Interpolation Specification",
+      "source": "Tài liệu chính thức về Fill Tool & Nội suy dải chuyển màu — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Fill Tool",
-      "persona": "Vector Persona (Left Tools Panel)",
+      "persona": "Vector Studio (Thanh công cụ bên trái)",
       "shortcut": {
         "win": "G",
         "mac": "G"
       },
-      "description": "The dedicated interactive on-canvas tool for defining fills, gradients, and bitmap patterns across selected vector shapes.",
+      "description": "Công cụ thao tác trực tiếp trên bản vẽ để tô màu đặc, các dạng chuyển sắc gradient hoặc tô họa tiết ảnh (Bitmap) cho mảng tô (Fill) và nét viền (Stroke).",
       "contextBarOptions": [
-        "Type Dropdown: Solid, Linear, Elliptical, Radial, Conical, Bitmap",
-        "Context Switcher: Toggle between editing the Fill or editing the Stroke",
-        "Reverse Gradient Button: Instantly inverts the start and end color stops",
-        "Maintain Fill Aspect Ratio toggle for elliptical gradients",
-        "Color Popover: Hex, RGB, HSL, CMYK, LAB color picker for active stop"
+        "Type: Solid (màu đơn), Linear (tuyến tính), Elliptical (hình bầu dục), Radial (tỏa tròn), Conical (quét 360°), Bitmap (họa tiết ảnh)",
+        "Context Switcher: Chọn áp dụng dải màu lên phần Fill (mảng tô) hay phần Stroke (nét viền)",
+        "Reverse Gradient: Đảo ngược thứ tự các điểm dừng màu từ đầu này sang đầu kia",
+        "Maintain fill aspect ratio: Giữ tỷ lệ khung cho kiểu Elliptical và Bitmap",
+        "Bảng Color Popover: Chọn mã Hex, RGB, HSL, CMYK, LAB cho điểm dừng màu đang chọn"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Activate the Fill Tool",
-        "instruction": "Select a vector shape with the Move Tool (V). Press G to activate the Fill Tool.",
+        "title": "Kích hoạt Fill Tool",
+        "instruction": "Chọn một hình vector bằng Move Tool (V), sau đó nhấn phím G để chuyển sang Fill Tool.",
         "shortcutTip": { "win": "G", "mac": "G" }
       },
       {
         "stepNumber": 2,
-        "title": "Drag a Linear Gradient",
-        "instruction": "Click on the left edge of your shape and drag horizontally across to the right edge. Notice an on-canvas gradient line appear with two terminal stop nodes.",
-        "shortcutTip": { "win": "Click & Drag", "mac": "Click & Drag" }
+        "title": "Kéo dải chuyển màu Linear trực tiếp trên hình",
+        "instruction": "Nhấp từ mép trái hình và kéo ngang sang mép phải. Một đường thẳng điều khiển kèm hai chấm tròn đầu mút (color stops) hiện ra ngay trên bề mặt hình.",
+        "shortcutTip": { "win": "Nhấp và kéo ngang", "mac": "Nhấp và kéo ngang" }
       },
       {
         "stepNumber": 3,
-        "title": "Add Intermediate Color Stops",
-        "instruction": "Hover over the gradient line between the two endpoints until your cursor gains a plus (+) badge. Click to insert a third color stop. Click the Color swatch on the Context Toolbar and assign an electric neon cyan `#00d2ff`.",
-        "shortcutTip": { "win": "Click on Line", "mac": "Click on Line" }
+        "title": "Chèn thêm điểm dừng màu trung gian",
+        "instruction": "Đưa con trỏ chuột lại gần đường thẳng gradient giữa hai đầu mút cho tới khi hiện dấu cộng (+), nhấp vào để thêm điểm dừng màu thứ ba. Nhấn ô màu trên Context Toolbar và chọn màu xanh ngọc sáng #00d2ff.",
+        "shortcutTip": { "win": "Nhấp lên đường gradient", "mac": "Nhấp lên đường gradient" }
       },
       {
         "stepNumber": 4,
-        "title": "Adjust Midpoint Bias",
-        "instruction": "Notice the small circular tick mark sitting halfway between two color stops. Drag this midpoint tick left or right. Observe how the transition rate skews dynamically, allowing sharp highlights or gradual fades.",
-        "shortcutTip": { "win": "Drag Midpoint Tick", "mac": "Drag Midpoint Tick" }
+        "title": "Điều chỉnh vạch trung chuyển (Midpoint Bias)",
+        "instruction": "Quan sát vạch nhỏ nằm giữa hai điểm dừng màu. Kéo vạch này lệch sang trái hoặc phải để đẩy vùng chuyển sắc nhanh hơn về một phía, giúp vùng sáng hoặc vùng chuyển tối sắc nét theo ý muốn.",
+        "shortcutTip": { "win": "Kéo vạch Midpoint", "mac": "Kéo vạch Midpoint" }
       },
       {
         "stepNumber": 5,
-        "title": "Test Conical Metallic Sweeps",
-        "instruction": "Draw a circular disc. With the Fill Tool active, change Type on the Context Toolbar to 'Conical'. Notice the gradient sweeps 360 degrees around the center pole like an aluminum dial! Add alternating light and dark stops to simulate realistic brushed stainless steel.",
+        "title": "Thử nghiệm kiểu Conical mô phỏng kim loại xoay tròn",
+        "instruction": "Vẽ một hình đĩa tròn. Với Fill Tool (G) đang bật, đổi mục Type trên Context Toolbar sang 'Conical'. Dải màu lập tức quét vòng 360 độ quanh tâm; hãy chèn xen kẽ các điểm màu sáng và tối để tạo hiệu ứng thép phay xước.",
         "shortcutTip": { "win": "Type: Conical", "mac": "Type: Conical" }
       }
     ],
     "visualExamples": [
       {
-        "title": "The 4 Primary Gradient Types",
-        "description": "Optical characteristics and best use cases.",
+        "title": "So sánh 4 kiểu chuyển màu hình học chính",
+        "description": "Đặc tính hình học và tình huống thiết kế phù hợp cho từng kiểu gradient.",
         "visualType": "table",
-        "visualContent": "| Gradient Type | Geometric Structure | Common Design Applications |\n|---|---|---|\n| Linear | 1D vector line from point A to point B | Sky horizons, button highlights, shadows |\n| Radial | Concentric circular rings from center point | Glowing lightbulbs, sun flares, spheres |\n| Elliptical | Dual-axis oval with independent X and Y radii | Perspective surfaces, dramatic spotlighting |\n| Conical | 360-degree sweep around central origin pole | Brushed metal volume knobs, CD grooves, radars |"
+        "visualContent": "| Kiểu Gradient | Cấu trúc hình học | Ứng dụng thiết kế phổ biến |\n|---|---|---|\n| Linear | Chuyển màu dọc theo một đường thẳng từ A đến B | Bầu trời, nút bấm giao diện, bóng đổ phẳng |\n| Radial | Tỏa vòng tròn đồng tâm từ một điểm | Nguồn sáng đèn, quầng sáng, khối cầu đơn giản |\n| Elliptical | Tỏa hình bầu dục với hai trục bán kính X, Y tách biệt | Bề mặt nghiêng phối cảnh, điểm nhấn ánh sáng lệch trục |\n| Conical | Quét góc xoay 360° quanh một cực tâm | Núm xoay kim loại, đĩa CD, mặt đồng hồ, radar |"
       },
       {
-        "title": "On-Canvas Gradient Line Anatomy",
-        "description": "Interactive controls on the Fill Tool line.",
+        "title": "Cấu tạo thanh điều khiển Gradient trực tiếp trên Canvas",
+        "description": "Các thành phần tương tác khi sử dụng Fill Tool (G).",
         "visualType": "diagram",
-        "visualContent": "[Start Stop: Deep Navy] ──── [Midpoint Bias Tick] ──── [Color Stop: Cyan] ──── [End Stop: White]\n      ●                           |                         ●                    ●\n (Color & Opacity)       (Drag to skew ramp)         (Click line to add)   (Color & Opacity)"
+        "visualContent": "[Điểm đầu: Xanh đậm] ──── [Vạch Midpoint] ──── [Điểm giữa: Xanh ngọc] ──── [Điểm cuối: Trắng]\n         ●                       |                        ●                         ●\n  (Màu & Opacity)      (Kéo chỉnh độ dốc)      (Nhấp đường để chèn)         (Màu & Opacity)"
       }
     ],
     "guidedPractice": {
-      "title": "Crafting a Brushed Titanium Volume Knob",
-      "taskDescription": "Construct a realistic brushed metal audio knob with 360-degree anisotropic highlights using a Conical gradient.",
+      "title": "Tạo núm vặn âm thanh bằng titan phay xước",
+      "taskDescription": "Dựng một mặt đĩa kim loại có hiệu ứng phản xạ ánh sáng hướng tâm 360 độ nhờ Conical gradient.",
       "checkpoints": [
-        "Draw a circle (200x200 px).",
-        "Activate Fill Tool (G) and select 'Conical'.",
-        "Place 4 bright highlight stops (`#e2e8f0`) at 45°, 135°, 225°, and 315°.",
-        "Place 4 deep shadow stops (`#334155`) at 0°, 90°, 180°, and 270°.",
-        "Notice the convincing optical simulation of cross-polarized brushed metal."
+        "Vẽ một hình tròn kích thước 200×200 px.",
+        "Bật Fill Tool (G) và chọn kiểu 'Conical'.",
+        "Đặt 4 điểm dừng màu sáng bạc (#e2e8f0) tại các góc 45°, 135°, 225° và 315°.",
+        "Đặt xen kẽ 4 điểm dừng màu xám thép tối (#334155) tại các góc 0°, 90°, 180° và 270° (đảm bảo điểm 0° và 360° trùng màu nhau).",
+        "Quan sát hiệu ứng ánh kim xoay chéo tự nhiên xuất hiện trên bề mặt đĩa."
       ],
-      "expectedOutcome": "A photorealistic metallic dial with seamless 360-degree anisotropic surface reflection."
+      "expectedOutcome": "Một mặt núm kim loại chân thực với ánh phản xạ xoay tròn liền mạch 360 độ."
     },
     "independentChallenge": {
-      "title": "Volumetric Neon Sphere with Elliptical Spotlight",
-      "prompt": "Construct a 3D volumetric glass sphere: (1) Use an Elliptical gradient offset toward the upper-left to simulate an off-axis key light; (2) Incorporate an opacity stop at 85% opacity to give a translucent glass feel; (3) Add an independent bottom rim reflection using a secondary Linear gradient on an inner crescent shape.",
+      "title": "Quả cầu thủy tinh phát sáng với điểm nhấn Elliptical",
+      "prompt": "Dựng một quả cầu thủy tinh có chiều sâu 3D: (1) Dùng kiểu Elliptical dời tâm sáng lên góc trên bên trái để mô phỏng nguồn sáng chéo; (2) Gán độ mờ đục khoảng 85% cho một điểm dừng màu để tạo cảm giác thủy tinh xuyên sáng; (3) Thêm một mảng hình lưỡi liềm ở đáy cầu tô Linear gradient để tạo ánh sáng phản chiếu viền dưới.",
       "starterAsset": {
         "filename": "D04_gradients_stroke_contour_guide.md",
         "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -104,36 +104,36 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for multi-stop gradients (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành dải chuyển màu đa điểm (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Sphere exhibits realistic spherical shading via Elliptical gradient.",
-        "Focal highlight positioned off-center.",
-        "At least one color stop utilizes partial alpha opacity."
+        "Quả cầu thể hiện rõ khối 3D nhờ hướng sáng của Elliptical gradient.",
+        "Điểm nhấn sáng đặt lệch tâm hợp lý theo hướng chiếu sáng.",
+        "Có ít nhất một điểm dừng màu dùng giá trị Opacity bán trong suốt."
       ],
-      "bonusGoal": "Apply a Conical gradient to a surrounding planetary ring orbit."
+      "bonusGoal": "Dùng thêm Conical gradient tô cho một vòng quỹ đạo elip bao quanh quả cầu."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Muddy grayish blending in the middle of a gradient",
-        "cause": "Transitioning directly between complementary saturated colors (e.g. vibrant blue directly to vibrant orange) through standard RGB space.",
-        "solution": "Insert an intermediate bridge color stop (e.g. a warm yellow or white) in the middle, or adjust the midpoint bias tick away from the muddy zone."
+        "pitfall": "Khoảng giữa dải chuyển màu bị xỉn xám đục",
+        "cause": "Chuyển trực tiếp giữa hai màu bổ túc đối lập nhau trên vòng tròn màu (như xanh dương đậm sang cam tươi) trong không gian RGB, khiến đoạn giữa đi ngang qua tông xám bùn.",
+        "solution": "Chèn thêm một điểm màu cầu nối tươi tắn ở chính giữa (như vàng ấm hoặc xanh ngọc) hoặc kéo vạch Midpoint lệch về một phía để rút ngắn vùng pha trộn."
       },
       {
-        "pitfall": "Accidentally editing the stroke instead of the fill",
-        "cause": "The Context selector on the Fill Tool Context Toolbar was left on 'Stroke'.",
-        "solution": "Check the 'Context' dropdown in the top-left toolbar; toggle between 'Fill' and 'Stroke' as needed."
+        "pitfall": "Kéo gradient nhưng lại đổi màu viền thay vì màu nền",
+        "cause": "Mục 'Context' trên thanh Context Toolbar của Fill Tool đang đặt ở chế độ 'Stroke'.",
+        "solution": "Kiểm tra lại hộp chọn 'Context' ở thanh tùy chọn phía trên để chuyển đúng giữa 'Fill' (mảng tô) và 'Stroke' (viền)."
       },
       {
-        "pitfall": "Hard seam line visible on Conical gradients",
-        "cause": "The start color stop (at 0°) does not match the end color stop (at 360°).",
-        "solution": "Ensure the very first stop and very last stop of a Conical gradient have the exact same color and opacity values."
+        "pitfall": "Xuất hiện đường cắt cứng lộ rõ trên dải màu Conical",
+        "cause": "Điểm màu đầu tiên (góc 0°) và điểm màu cuối cùng (góc 360°) mang hai màu hoặc độ mờ khác nhau.",
+        "solution": "Đảm bảo điểm đầu và điểm cuối của Conical gradient luôn có cùng mã màu và mức Opacity giống hệt nhau."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D04-01-Q1",
-        "question": "Which gradient type sweeps colors 360 degrees around a central pole and is ideal for simulating brushed metal surfaces?",
+        "question": "Kiểu gradient nào quét dải màu xoay tròn 360 độ quanh một cực tâm và đặc biệt hiệu quả để mô phỏng bề mặt kim loại phay xước?",
         "options": [
           "Linear",
           "Radial",
@@ -141,49 +141,49 @@
           "Elliptical"
         ],
         "correctIndex": 2,
-        "explanation": "Conical gradients sweep around a central anchor point across a full circle, creating radial light patterns typical of machined or brushed metals."
+        "explanation": "Conical gradient quét màu xoay đủ một vòng 360 độ quanh tâm, tái tạo chính xác ánh phản xạ hướng tâm trên kim loại tiện hoặc phay xước."
       },
       {
         "id": "D04-01-Q2",
-        "question": "How do you add a new color stop to an existing gradient line when using the Fill Tool (G)?",
+        "question": "Khi đang cầm Fill Tool (G), bạn chèn thêm một điểm dừng màu mới vào dải gradient đang có bằng cách nào?",
         "options": [
-          "You must open the Gradient Editor dialog in preferences.",
-          "Hover directly over the on-canvas gradient line until the cursor gains a plus (+) badge, then click.",
-          "Hold Ctrl+Alt+Shift and drag the canvas.",
-          "Press the Tab key twice."
+          "Bắt buộc phải mở hộp thoại Gradient Editor trong Settings.",
+          "Đưa chuột trực tiếp lên đường thẳng gradient trên canvas tới khi hiện dấu (+), rồi nhấp chuột.",
+          "Giữ Ctrl+Alt+Shift và kéo khắp màn hình.",
+          "Nhấn phím Tab hai lần."
         ],
         "correctIndex": 1,
-        "explanation": "Affinity Designer supports direct on-canvas editing: clicking anywhere along the active gradient line immediately inserts a new color stop."
+        "explanation": "Fill Tool cho phép chỉnh sửa trực tiếp trên bản vẽ: chỉ cần nhấp lên bất kỳ vị trí nào dọc theo đường gradient để thêm điểm dừng màu mới."
       },
       {
         "id": "D04-01-Q3",
-        "question": "What is the purpose of the small midpoint slider tick located between two gradient color stops?",
+        "question": "Vạch nhỏ nằm giữa hai điểm dừng màu trên thanh gradient (Midpoint Bias) dùng để làm gì?",
         "options": [
-          "It deletes the neighboring stops.",
-          "It skews the rate of color transition, allowing you to favor one color over the other without moving the physical stop locations.",
-          "It rotates the entire artboard.",
-          "It converts the layer to grayscale."
+          "Xóa hai điểm màu bên cạnh.",
+          "Điều chỉnh tốc độ chuyển sắc, giúp nghiêng ưu tiên về một phía màu mà không cần dịch vị trí hai điểm dừng.",
+          "Xoay cả artboard.",
+          "Chuyển đối tượng sang ảnh đen trắng."
         ],
         "correctIndex": 1,
-        "explanation": "The midpoint bias tick controls the acceleration curve of the color ramp between two stops, giving fine control over color falloff."
+        "explanation": "Vạch Midpoint kiểm soát độ dốc chuyển màu giữa hai điểm dừng, cho phép thu hẹp hoặc nới rộng khoảng pha trộn theo ý đồ ánh sáng."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The Fill Tool (G) provides direct, on-canvas manipulation of gradients and fills.",
-        "Designer supports 5 gradient types: Linear, Radial, Elliptical, Conical, and Bitmap.",
-        "Color stops and midpoint bias sliders can be edited directly on the canvas vector line.",
-        "Matching 0° and 360° stops on Conical gradients guarantees seamless metallic reflections."
+        "Fill Tool (G) cho phép kéo chỉnh màu và gradient trực tiếp trên bản vẽ theo thời gian thực.",
+        "Affinity hỗ trợ 5 kiểu gradient: Linear, Radial, Elliptical, Conical và Bitmap (cùng Solid).",
+        "Có thể chèn thêm điểm màu và chỉnh vạch Midpoint trực tiếp trên thanh điều khiển canvas.",
+        "Giữ màu điểm đầu 0° và điểm cuối 360° trùng khớp nhau giúp Conical gradient liền mạch hoàn hảo."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D04-02 Stroke Studio, Custom Dashes & Vector Pressure Curves",
+          "title": "Bài tiếp theo: D04-02 Stroke Studio, nét đứt tùy chỉnh và biểu đồ lực nhấn",
           "target": "D04-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Fill Tool & Gradients",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Fill Tool & Gradients",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/Tools/tools_gradient.html",
           "type": "doc"
         }
       ]
@@ -194,95 +194,95 @@
       "id": "D04-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Fill Tool & Multi-Stop Gradients (5 Types)",
-      "subtitle": "Painting Dimensional Light and Materiality into Vector Paths",
-      "contentMarkdown": "Welcome to **Module D04: Fill, Gradient, Stroke & Pressure Profiles**.\n\nFlat vector graphics are crisp, but adding realistic lighting, metallic sheens, and atmospheric depth requires mastering the **Fill Tool (G)**.\n\nIn this lesson, you will conquer **5 gradient geometries**—including the powerful **Conical** sweep—and learn on-canvas midpoint modulation for silky-smooth color blending.",
+      "title": "Fill Tool & Dải Chuyển Màu Gradient Nhiều Điểm",
+      "subtitle": "Thổi chiều sâu ánh sáng và chất liệu vào đồ họa vector",
+      "contentMarkdown": "Chào mừng bạn đến với **Module D04: Tô Màu, Dải Chuyển Màu, Đường Viền & Biểu Đồ Lực Nhấn**.\n\nMàu phẳng mang lại sự tối giản, nhưng muốn tả ánh sáng nổi khối, bề mặt kim loại hay thủy tinh trong suốt, bạn cần làm chủ **Fill Tool (G)**.\n\nTrong bài học này, bạn sẽ thực hành **5 kiểu dải chuyển màu**—đặc biệt là kiểu quét xoay **Conical**—và kỹ thuật chỉnh điểm trung chuyển giúp màu chuyển mượt mà không bị xỉn đục.",
       "actionBox": {
-        "label": "Direct Canvas Control",
-        "text": "Never fiddle with buried modal menus! The Fill Tool (G) plots interactive gradient lines directly on your art."
+        "label": "Thao tác trực tiếp",
+        "text": "Không phải mò mẫm trong bảng hộp thoại che khuất màn hình—Fill Tool (G) đặt thanh điều khiển ngay trên tác phẩm."
       }
     },
     {
       "id": "D04-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Geometry of Color Gradients",
-      "subtitle": "Linear, Radial, Elliptical & Conical",
-      "contentMarkdown": "Affinity Designer calculates gradient color ramps using 4 geometric formulas:\n\n1. **Linear:** Color interpolates in a single straight vector line.\n2. **Radial:** Concentric spheres emanating from a single center point.\n3. **Elliptical:** Dual-radius ellipse with independent X and Y focal axes.\n4. **Conical:** 360° angular sweep around a central pole—essential for brushed metals, watch dials, and radar screens.",
+      "title": "Hình Học Của Các Dạng Dải Chuyển Màu",
+      "subtitle": "Linear, Radial, Elliptical và Conical",
+      "contentMarkdown": "Affinity tính toán dải chuyển màu theo 4 cấu trúc hình học phổ biến (cùng kiểu Bitmap phủ ảnh):\n\n1. **Linear:** Chuyển màu theo một hướng thẳng duy nhất.\n2. **Radial:** Tỏa vòng tròn đồng tâm từ tâm ra biên.\n3. **Elliptical:** Tỏa bầu dục với hai trục bán kính X và Y kéo giãn độc lập.\n4. **Conical:** Quét góc xoay 360° quanh một cực tâm—không thể thiếu khi vẽ kim loại phay, mặt đồng hồ hay màn hình radar.",
       "visual": {
         "type": "badge-grid",
-        "content": "Linear (Directional) | Radial (Concentric) | Elliptical (Dual-Axis) | Conical (360° Sweep)"
+        "content": "Linear (Theo đường thẳng) | Radial (Đồng tâm) | Elliptical (Hai trục elip) | Conical (Quét 360°)"
       }
     },
     {
       "id": "D04-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Fill Tool On-Canvas Anatomy (Shortcut: G)",
-      "subtitle": "Handles, Stops, Midpoints & Opacity",
-      "contentMarkdown": "When the Fill Tool (`G`) is active:\n\n- **Terminal Stops:** The start and end circular nodes control the overall angle and span of the gradient.\n- **Intermediate Stops:** Click anywhere on the line to add a new color node. Select a stop and press `Delete` to remove it.\n- **Midpoint Bias Tick:** The small tick mark between stops controls the transition rate (falloff curve).\n- **Context Switcher:** On the top toolbar, toggle between editing the **Fill** or editing the **Stroke**.",
+      "title": "Cấu Tạo Thanh Điều Khiển Fill Tool (Phím: G)",
+      "subtitle": "Điểm dừng màu, vạch trung chuyển và độ mờ Opacity",
+      "contentMarkdown": "Khi bật **Fill Tool (`G`)**, trên hình đang chọn sẽ hiển thị:\n\n- **Hai điểm đầu mút (Terminal Stops):** Quy định hướng, góc nghiêng và phạm vi trải màu.\n- **Điểm dừng trung gian:** Nhấp vào bất cứ đâu trên đoạn thẳng để thêm điểm màu; chọn một điểm rồi nhấn `Delete` để xóa.\n- **Vạch Midpoint Bias:** Vạch nhỏ nằm giữa hai điểm màu để đẩy độ dốc chuyển màu về một phía.\n- **Context Switcher:** Hộp chọn trên thanh Context Toolbar cho phép đổi giữa tô **Fill** (nền) hoặc **Stroke** (viền).",
       "actionBox": {
-        "label": "Reverse Gradient",
-        "text": "Click the 'Reverse Gradient' button on the Context Toolbar to instantly flip color stops end-to-end."
+        "label": "Đảo chiều nhanh",
+        "text": "Nhấn nút Reverse Gradient trên thanh Context Toolbar để lật ngược toàn bộ thứ tự màu chỉ với một lần bấm."
       }
     },
     {
       "id": "D04-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Crafting Brushed Metallic Dial",
-      "subtitle": "Executing a Conical Anisotropic Gradient",
-      "contentMarkdown": "Follow these steps to build a luxury watch dial:\n\n1. **Step 1:** Draw a circle using the Ellipse Tool (`M`).\n2. **Step 2:** Press `G` for the Fill Tool. On the Context Toolbar, change Type to **'Conical'**.\n3. **Step 3:** Notice the circular gradient line. Drag the center node to the center of your disc.\n4. **Step 4:** Add 8 alternating stops around the perimeter: 4 bright silver highlights (`#f1f5f9`) and 4 deep steel shadows (`#475569`).\n5. **Inspect:** Your flat circle transforms into an authentic 3D machined aluminum dial!",
+      "title": "Thực Hành: Tạo Mặt Kim Loại Phay Xước",
+      "subtitle": "Ứng dụng Conical Gradient 360 độ",
+      "contentMarkdown": "Thực hiện theo các bước sau:\n\n1. **Bước 1:** Vẽ một hình đĩa tròn bằng Ellipse Tool.\n2. **Bước 2:** Nhấn `G` bật Fill Tool, chọn `Type > Conical` trên thanh Context Toolbar.\n3. **Bước 3:** Kéo điểm cực tâm vào chính giữa đĩa tròn.\n4. **Bước 4:** Chèn xen kẽ 8 điểm dừng màu quanh vòng tròn: 4 điểm sáng bạc (`#f1f5f9`) xen giữa 4 điểm thép tối (`#475569`), giữ màu ở 0° và 360° giống nhau.\n5. **Kết quả:** Mặt tròn phẳng lập tức mang hiệu ứng ánh kim tiện CNC sống động!",
       "visual": {
         "type": "comparison",
-        "content": "Flat Gray Circle ===[ Conical Gradient ]===> Anisotropic Brushed Steel Audio Dial"
+        "content": "Hình tròn xám phẳng ===[ Conical Gradient ]===> Mặt đĩa thép phay xước 3D"
       }
     },
     {
       "id": "D04-01-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Taming Color Transitions: The Muddy Zone",
-      "subtitle": "Why RGB Blends Fail and How to Fix Them",
-      "contentMarkdown": "When blending between opposite colors on the color wheel (e.g. Blue and Orange):\n\n- **The Issue:** The mathematical midpoint in RGB space passes through desaturated gray/brown mud.\n- **The Fix 1:** Insert a vibrant intermediate color stop (e.g. golden yellow or vibrant cyan) to guide the interpolation.\n- **The Fix 2:** Shift the **Midpoint Bias Tick** toward one of the colors so the transition happens quickly rather than lingering in the middle.",
+      "title": "Khắc Phục Vùng Màu Xám Đục Khi Chuyển Sắc",
+      "subtitle": "Vì sao pha hai màu đối lập hay bị xỉn và cách xử lý",
+      "contentMarkdown": "Khi kéo chuyển màu trực tiếp giữa hai màu đối lập nhau (ví dụ Xanh dương sang Cam):\n\n- **Hiện tượng:** Đoạn giữa trong hệ RGB đi ngang qua tông xám bùn xỉn màu.\n- **Cách sửa 1:** Chèn thêm một điểm màu trung gian tươi sáng (như Xanh ngọc hoặc Vàng ấm) để dẫn đường cho dải màu.\n- **Cách sửa 2:** Kéo vạch **Midpoint Bias** sát về một bên để rút ngắn vùng giao nhau.",
       "visual": {
         "type": "diagram",
-        "content": "Bad Blend: Blue ────────── [MUDDY BROWN GRAY ZONE] ────────── Orange\nGood Blend: Blue ──── [Vibrant Cyan Stop] ──── [Gold Stop] ──── Orange"
+        "content": "Chuyển màu xỉn: Xanh dương ──────── [VÙNG XÁM ĐỤC] ──────── Cam\nChuyển màu sạch: Xanh dương ─── [Xanh ngọc] ─── [Vàng ấm] ─── Cam"
       }
     },
     {
       "id": "D04-01-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Independent Opacity Stops",
-      "subtitle": "Creating Glass, Smoke & Atmospheric Fades",
-      "contentMarkdown": "Every color stop in Affinity Designer contains both **Color** and **Opacity**:\n\n1. Select any color stop along your on-canvas gradient line.\n2. In the Color Studio or Context Toolbar popover, lower the **Opacity slider** from `100%` to `0%`.\n3. You have created an atmospheric fade to transparency without needing a separate layer mask!\n4. This is ideal for glass reflections, light rays, and soft drop shadows.",
+      "title": "Chỉnh Độ Mờ Opacity Riêng Cho Từng Điểm Màu",
+      "subtitle": "Tạo hiệu ứng kính, khói và tia sáng tan dần",
+      "contentMarkdown": "Mỗi điểm dừng màu đều lưu riêng cả **Màu sắc** lẫn **Opacity**:\n\n1. Nhấp chọn một điểm dừng màu trên thanh gradient.\n2. Trong bảng Color Studio hoặc ô màu trên Context Toolbar, kéo thanh **Opacity** từ `100%` xuống `0%`.\n3. Màu sắc sẽ tan mượt vào nền trong suốt mà không cần tạo thêm mặt nạ Mask riêng.\n4. Kỹ thuật này cực kỳ tiện khi vẽ phản chiếu kính, luồng sáng và bóng đổ mềm.",
       "actionBox": {
-        "label": "Pro Technique",
-        "text": "Combine color stops with 0% opacity to create glowing atmospheric sunbeams."
+        "label": "Mẹo ánh sáng",
+        "text": "Kết hợp các điểm màu có Opacity 0% để tạo tia nắng xuyên màn sương trong trẻo và nhẹ file."
       }
     },
     {
       "id": "D04-01-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Gradient Pitfalls & Troubleshooting",
-      "subtitle": "Avoid These Common Mistakes",
-      "contentMarkdown": "### 1. Conical Seam Line Glitch\n- **The Issue:** A harsh visible line cuts down your conical metallic dial.\n- **The Fix:** The 0° stop and 360° stop must have the identical Hex color and opacity. Sample one and paste into the other.\n\n### 2. Gradient Disappears When Scaling\n- **The Issue:** Resizing a shape leaves the gradient anchored to the old canvas coordinates.\n- **The Fix:** On the Context Toolbar, verify 'Maintain Fill Aspect Ratio' is enabled, or toggle 'Scale with object' in the Stroke/Fill panels.\n\n### 3. Gradient Applies to Outline Instead of Body\n- **The Fix:** Check the 'Context' dropdown on the Fill Tool Context Bar; ensure it is set to **Fill**, not **Stroke**.",
+      "title": "Lỗi Hay Gặp Với Gradient & Cách Sửa",
+      "subtitle": "Tránh đường cắt lỗi và lệch hướng tô",
+      "contentMarkdown": "### 1. Xuất hiện vệt cắt cứng trên dải Conical\n- **Hiện tượng:** Một đường ranh giới lộ rõ cắt ngang mặt kim loại.\n- **Cách sửa:** Điểm dừng đầu tiên (0°) và cuối cùng (360°) phải có cùng mã màu và mức Opacity.\n\n### 2. Thu phóng hình nhưng dải màu không co giãn theo\n- **Hiện tượng:** Đổi tỷ lệ hình làm dải chuyển màu lệch khỏi vị trí sáng tối.\n- **Cách sửa:** Kiểm tra tùy chọn giữ tỷ lệ tô hoặc kéo chỉnh lại thanh gradient sau khi thay đổi kích thước lớn.\n\n### 3. Tô nhầm ra viền ngoài thay vì mảng trong\n- **Cách sửa:** Kiểm tra hộp `Context` trên Context Toolbar để chắc chắn đang chọn **Fill** thay vì **Stroke**.",
       "visual": {
         "type": "badge-grid",
-        "content": "Check Context (Fill vs Stroke) | Match 0° & 360° Stops | Scale With Object Toggle"
+        "content": "Kiểm tra Context (Fill/Stroke) | Khớp màu 0° & 360° | Chèn màu cầu nối tránh xám đục"
       }
     },
     {
       "id": "D04-01-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: The Volumetric Hologram Orb",
-      "subtitle": "Put Multi-Stop Gradients into Practice",
-      "contentMarkdown": "### Your Mission:\nConstruct a glowing volumetric hologram orb using advanced gradients:\n\n1. Base sphere: **Elliptical gradient** offset to the upper-left (Dark Indigo `#0f172a` to Cyan `#00d2ff`).\n2. Primary highlight stop: 100% opacity electric white `#ffffff`.\n3. Shadow stop: Set to 80% opacity for a translucent crystalline feel.\n4. Orbit ring: Draw a surrounding tilted ellipse and apply a **Conical gradient** to simulate sweeping laser energy.\n\n### Acceptance Criteria:\n- Sphere has realistic 3D volume via off-axis Elliptical gradient.\n- Gradient line features at least 3 color stops and 1 opacity modulation.\n- Zero harsh raster banding.",
+      "title": "Thử Thách Độc Lập: Quả Cầu Hologram Phát Sáng",
+      "subtitle": "Vận dụng Elliptical và Conical Gradient nhiều điểm",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết kế một quả cầu hologram nổi khối:\n\n1. Thân cầu: Dùng **Elliptical gradient** lệch tâm lên góc trên trái (từ Xanh đậm `#0f172a` sang Xanh ngọc `#00d2ff`).\n2. Điểm sáng chính: Trắng sáng `#ffffff` ở 100% Opacity.\n3. Vùng bóng xuyên sáng: Đặt một điểm dừng có Opacity khoảng `80%` tạo cảm giác tinh thể.\n4. Vòng quỹ đạo: Vẽ hình elip nghiêng bao quanh cầu và áp dụng **Conical gradient** mô phỏng vệt sáng quét vòng.\n\n### Tiêu chí hoàn thành:\n- Quả cầu có độ khối 3D rõ ràng nhờ tâm sáng lệch trục.\n- Thanh gradient có ít nhất 3 điểm màu và 1 điểm điều chỉnh Opacity.\n- Dải màu chuyển mượt không bị gãy vệt hay xỉn xám.",
       "practiceData": {
-        "prompt": "Construct a volumetric hologram sphere using Elliptical and Conical gradients.",
+        "prompt": "Tạo quả cầu hologram nổi khối kết hợp Elliptical và Conical gradient.",
         "starterAsset": {
           "filename": "D04_gradients_stroke_contour_guide.md",
           "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -290,12 +290,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for multi-stop gradients."
+          "statusNote": "Hướng dẫn thực hành dải chuyển màu đa điểm."
         },
         "checkpoints": [
-          "Fill Tool active (G)",
-          "Elliptical gradient applied with off-center focus",
-          "Conical gradient applied to surrounding orbit ring"
+          "Thao tác trực tiếp bằng Fill Tool (G)",
+          "Áp dụng Elliptical gradient đặt tâm sáng lệch trục",
+          "Áp dụng Conical gradient liền mạch cho vòng quỹ đạo"
         ]
       }
     }

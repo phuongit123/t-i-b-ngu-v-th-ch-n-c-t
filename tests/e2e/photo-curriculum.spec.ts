@@ -1,109 +1,101 @@
-import { test, expect } from '@playwright/test';
-import * as fs from 'fs';
-import * as path from 'path';
+import { test, expect, type Page } from '@playwright/test';
+import { createHash } from 'node:crypto';
+async function saveScreenshot(page: Page, filename: string): Promise<void> {
+  await page.screenshot({ path: test.info().outputPath(filename) });
+}
 
-test.describe('Phase 5 — Track 2: Affinity Photo Learning Subsystem', () => {
-  test.beforeAll(() => {
-    const screenshotsDir = path.resolve('tests/screenshots');
-    if (!fs.existsSync(screenshotsDir)) {
-      fs.mkdirSync(screenshotsDir, { recursive: true });
-    }
-  });
+test('Hai bài Develop có đúng ảnh RAW để làm theo hướng dẫn', async ({ page }) => {
+  for (const id of ['p01-02', 'p09-01']) {
+    await page.goto(`/bai-hoc/${id}`);
+    await page.getByRole('tab', { name: 'Theo từng bước' }).click();
+    const starter = page.locator('#lesson-section-4').getByRole('link', { name: /Tải tệp thực hành/ });
+    await expect(starter).toHaveAttribute('download', 'P01_RAW_cang_tau.nef');
+    const url = await starter.getAttribute('href');
+    if (!url) throw new Error('Thiếu đường dẫn tệp RAW.');
+    const response = await page.request.get(url);
+    expect(response.ok()).toBe(true);
+    expect(createHash('sha256').update(await response.body()).digest('hex')).toBe(
+      '6c46f9854033e7623ebbb5de8c951df6762ca44f05d45035ccc5cb7e9f4e5692',
+    );
+    await page.getByRole('tab', { name: 'Bài tập', exact: true }).click();
+    await expect(page.locator('#lesson-section-6 a[download$=".nef"]')).toBeVisible();
+    await expect(page.locator('#lesson-section-7 a[download$=".nef"]')).toHaveCount(0);
+  }
+});
 
-  test('TC-PHOTO-01: Course Catalog filters Photo track to 10 modules and 30 lessons', async ({ page }) => {
+test.describe('Giáo trình Pixel Studio (Photo) & Trình mô phỏng Layer', () => {
+  test('TC-PHOTO-01: Danh mục lọc lộ trình Pixel Studio hiển thị 10 học phần và 30 bài học', async ({ page }) => {
     await page.goto('/');
-    await page.locator('button:has-text("Tracks")').click();
+    await page.getByTestId('nav-catalog').click();
 
-    // Click Photo Track Card
-    await page.locator('h3:has-text("Pixel Studio")').click();
+    await page.getByTestId('track-card-photo').click();
 
-    // Verify track title and lessons ready badge
-    await expect(page.locator('h2')).toContainText('photo Track Curriculum');
-    await expect(page.locator('text=30 Lessons Ready to Play')).toBeVisible();
+    await expect(page.getByTestId('catalog-track-heading')).toContainText('Pixel Studio');
+    await expect(page.getByTestId('catalog-lesson-count-badge')).toContainText('30 bài học sẵn sàng');
 
-    // Verify presence of all 10 modules (P01 through P10)
     for (let i = 1; i <= 10; i++) {
       const modNumber = i < 10 ? `P0${i}` : `P${i}`;
-      await expect(page.locator(`span:has-text("${modNumber}")`).first()).toBeVisible();
+      await expect(page.getByTestId(`module-card-${modNumber}`)).toBeVisible();
     }
 
-    // Capture visual screenshot of Photo Track catalog
-    await page.screenshot({ path: 'tests/screenshots/photo-catalog-10-modules.png' });
+    await saveScreenshot(page, 'photo-catalog-10-modules.png');
   });
 
-  test('TC-PHOTO-02: SlidePlayer launches and navigates a full Photo lesson', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Pixel Studio")').click();
+  test('TC-PHOTO-02: SlidePlayer khởi chạy và điều hướng bài học P02-01 bằng nhãn tiếng Việt', async ({ page }) => {
+    await page.goto('/catalog');
+    await page.getByTestId('track-card-photo').click();
 
-    // Click on P02-01 Selection Tools lesson
-    const p02Lesson = page.locator('h5:has-text("Selection Tools & Core Selection Principles")').first();
-    await p02Lesson.click();
+    await page.getByTestId('lesson-card-P02-01').click();
 
-    // Verify SlidePlayer view loaded
-    await expect(page.locator('h1')).toContainText('Khám Phá Công Cụ & Nguyên Lý Vùng Chọn Pixel');
+    await page.getByTestId('lesson-mode-slides').click();
+    await expect(page.getByRole('heading', { name: 'Khám Phá Công Cụ & Nguyên Lý Vùng Chọn Pixel' })).toBeVisible();
+    await expect(page.getByTestId('slide-counter')).toContainText('Trang 1 / 7');
 
-    // Verify slide count indicator
-    await expect(page.locator('text=Slide 1')).toBeVisible();
-    await expect(page.locator('text=/ 7')).toBeVisible();
+    await page.getByTestId('next-slide-btn').click();
+    await expect(page.getByTestId('slide-counter')).toContainText('Trang 2 / 7');
 
-    // Advance slide
-    await page.locator('button:has-text("Next Slide")').click();
-    await expect(page.locator('text=Slide 2')).toBeVisible();
-
-    // Capture screenshot of interactive slide player
-    await page.screenshot({ path: 'tests/screenshots/photo-slide-player-active.png' });
+    await saveScreenshot(page, 'photo-slide-player-active.png');
   });
 
-  test('TC-PHOTO-04: Legacy P10 slides render their content and tips', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('button:has-text("Tracks")').click();
-    await page.locator('h3:has-text("Pixel Studio")').click();
+  test('TC-PHOTO-04: Bài học P10-03 hiển thị nội dung và Mẹo thực hành tiếng Việt sạch', async ({ page }) => {
+    await page.goto('/catalog');
+    await page.getByTestId('track-card-photo').click();
 
-    // Open the existing P10 capstone module and its third lesson.
-    await page.locator(
-      'h5:has-text("Capstone Project — End-to-End Commercial Portrait/Landscape Master Workflow")'
-    ).click();
+    await page.getByTestId('lesson-card-P10-03').click();
 
-    // The legacy record uses "content" and "tips", not contentMarkdown/actionBox.
-    await expect(page.locator('h1')).toContainText('Khởi động dự án Capstone Masterclass');
-    await expect(page.getByText(
-      'Chào mừng bạn đến với đồ án tốt nghiệp Track 2 Affinity Photo!',
-      { exact: false }
-    )).toBeVisible();
-    await expect(page.getByText('Practice Tip')).toBeVisible();
+    await page.getByTestId('lesson-mode-slides').click();
+    await expect(page.getByRole('heading', { name: 'Khởi động dự án Capstone Masterclass' })).toBeVisible();
+    await expect(
+      page.getByText('Chào mừng bạn đến với đồ án tốt nghiệp Track 2 Affinity Photo!', {
+        exact: false,
+      })
+    ).toBeVisible();
+    await expect(page.getByText('Mẹo thực hành')).toBeVisible();
 
-    await page.locator('button:has-text("Next Slide")').click();
+    await page.getByTestId('next-slide-btn').click();
     await expect(page.getByText('Mở file RAW.', { exact: false })).toBeVisible();
   });
 
-  test('TC-PHOTO-03: Photo Layer Simulator renders with disclaimer and interactive controls', async ({ page }) => {
+  test('TC-PHOTO-03: Trình mô phỏng Pixel Studio hiển thị bảng Layer và tương tác Mask', async ({ page }) => {
     await page.goto('/');
-    await page.locator('button:has-text("Simulator")').click();
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
+    await page.getByTestId('nav-simulator').click();
 
-    // Switch to Photo Simulator Tab
-    await page.locator('button:has-text("Layer Stack & Masking Simulator (Photo)")').click();
+    await page.getByTestId('sim-tab-photo').click();
 
-    // Verify mandatory educational disclaimer banner
     const disclaimer = page.locator('strong:has-text("MÔ HÌNH MÔ PHỎNG GIÁO DỤC:")');
     await expect(disclaimer).toBeVisible();
 
-    // Verify Layers Studio is loaded with default layers
     await expect(page.locator('h3:has-text("Layers Studio")')).toBeVisible();
-    await expect(page.locator('text=Main Subject (Fashion Model)')).toBeVisible();
-    await expect(page.locator('text=Background Plate (Sunset Sky)')).toBeVisible();
+    await expect(page.getByTestId('layer-item-layer-subject')).toBeVisible();
+    await expect(page.getByTestId('layer-item-layer-bg')).toBeVisible();
 
-    // Click Blend Modes preset scenario
     await page.locator('button:has-text("2. Blend Modes")').click();
-
-    // Invert Mask button test
     await page.locator('button:has-text("Invert Mask")').click();
 
-    // Verify canvas is present
     const canvas = page.locator('canvas');
     await expect(canvas).toBeVisible();
 
-    // Capture screenshot of Photo Layer Simulator
-    await page.screenshot({ path: 'tests/screenshots/photo-layer-simulator-active.png' });
+    await saveScreenshot(page, 'photo-layer-simulator-active.png');
   });
 });

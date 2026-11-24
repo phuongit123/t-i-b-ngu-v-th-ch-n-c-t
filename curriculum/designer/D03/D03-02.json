@@ -3,95 +3,95 @@
   "moduleId": "D03",
   "trackId": "designer",
   "order": 2,
-  "title": "Boolean Geometry Operations (5 Operations)",
-  "subtitle": "Add, Subtract, Intersect, Xor, Divide & Layer Hierarchy",
+  "title": "Năm phép toán hình học Boolean",
+  "subtitle": "Add, Subtract, Intersect, Xor, Divide và thứ tự xếp lớp",
   "durationMinutes": 30,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Master the five core destructive Boolean geometry operations: Add, Subtract, Intersect, Xor, and Divide.",
-      "Understand how layer stacking order dictates Boolean results (especially in Subtract operations).",
-      "Harness the Divide operation to slice complex overlapping vectors into independent jigsaw puzzle pieces.",
-      "Diagnose and prevent microscopic gap slivers and redundant inner points caused by imperfect boolean unions."
+      "Nắm vững bản chất hình học của 5 phép toán Boolean: Add (Hợp), Subtract (Trừ), Intersect (Giao), Xor (Loại phần giao) và Divide (Chia mảnh).",
+      "Hiểu cách thứ tự xếp lớp trong Layers Studio quyết định kết quả phép cắt (đặc biệt ở phép Subtract).",
+      "Dùng phép Divide để tách các hình chồng lấn thành từng mảnh rời giúp tạo hiệu ứng đan xen màu sắc.",
+      "Phòng tránh các khe hở mảnh (sliver) và điểm neo thừa khi ghép nối các hình khối tiếp giáp nhau."
     ],
-    "foundationalKnowledge": "Boolean operations are the primary method for constructing complex vector logos, icons, and illustrations from simple primitive shapes. Named after mathematician George Boole, these set-theory operations calculate the mathematical union, difference, intersection, and exclusion of two or more vector paths. In Affinity Designer, Boolean operations reside permanently on the main toolbar. Crucially, in a Subtract operation, the upper selected layers act as 'cookie cutters', punching through and cutting into the lowest selected layer in the layer hierarchy.",
+    "foundationalKnowledge": "Phép toán hình học Boolean (đặt theo tên nhà toán học George Boole) là cách nhanh nhất để dựng logo, icon và minh họa phức tạp bằng cách cộng, trừ hoặc lấy giao từ những hình khối đơn giản. Trong Affinity, 5 phép toán Boolean nằm ngay trên thanh công cụ chính phía trên và trong menu Layer > Geometry. Một quy tắc cực kỳ quan trọng ở phép Subtract là thứ tự xếp tầng trong bảng Layers Studio: lớp nằm ở phía trên đóng vai trò như khuôn cắt (cookie cutter), khoét xuyên xuống lớp nằm phía dưới.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Geometry Operations & Boolean Engine Documentation",
+      "source": "Tài liệu chính thức về Phép toán hình học Geometry & Boolean — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Geometry Toolbar & Menu",
-      "persona": "Vector Persona (Top Main Toolbar / Layer > Geometry)",
+      "toolName": "Thanh Geometry & Các phép toán Boolean",
+      "persona": "Vector Studio (Thanh công cụ trên cùng / Layer > Geometry)",
       "shortcut": {
         "win": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)",
         "mac": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)"
       },
-      "description": "Located on the top main toolbar to the right of the alignment controls, or under Layer > Geometry.",
+      "description": "Bộ 5 nút phép toán hình học đặt bên phải nhóm công cụ căn gióng trên thanh công cụ trên cùng, hoặc truy cập trong menu Layer > Geometry.",
       "contextBarOptions": [
-        "Add: Unites all selected shapes into a single outline containing all areas",
-        "Subtract: Cuts the upper shapes out of the bottommost shape",
-        "Intersect: Retains strictly the common overlapping area between all shapes",
-        "Xor (Exclusive Or): Retains non-overlapping areas and punches out the shared intersection",
-        "Divide: Slices all overlapping shapes into discrete independent fragments"
+        "Add: Gộp tất cả các hình đang chọn thành một đường bao chung duy nhất",
+        "Subtract: Lấy các hình ở tầng trên cắt khoét bỏ vào hình nằm dưới cùng",
+        "Intersect: Chỉ giữ lại phần diện tích giao nhau chung của các hình",
+        "Xor (Exclusive Or): Giữ phần không giao nhau và khoét rỗng vùng giao chung",
+        "Divide: Cắt rời mọi vùng giao nhau thành từng mảng vector khép kín riêng biệt"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Prepare Overlapping Primitives",
-        "instruction": "Draw a large circle using the Ellipse Tool (M). Draw a smaller circle overlapping its top-right quadrant. Select both shapes using the Move Tool (V).",
+        "title": "Chuẩn bị các hình khối chồng lấn",
+        "instruction": "Dùng công cụ Ellipse vẽ một hình tròn lớn, rồi vẽ một hình tròn nhỏ hơn đè lên góc trên bên phải của hình lớn. Dùng Move Tool (V) chọn cả hai hình.",
         "shortcutTip": { "win": "V (Move Tool)", "mac": "V (Move Tool)" }
       },
       {
         "stepNumber": 2,
-        "title": "Execute a Subtract Operation",
-        "instruction": "Verify in the Layers Studio that the smaller circle is positioned directly above the larger circle. On the top main toolbar, click the 'Subtract' button (two overlapping squares with one cut out). The upper circle cuts an instant crescent moon bite out of the lower circle!",
-        "shortcutTip": { "win": "Click Subtract", "mac": "Click Subtract" }
+        "title": "Thực hiện phép trừ Subtract",
+        "instruction": "Kiểm tra bảng Layers Studio đảm bảo hình tròn nhỏ đang nằm phía trên hình tròn lớn. Nhấn nút 'Subtract' trên thanh công cụ trên cùng: hình tròn nhỏ lập tức khoét một vết khuyết tạo thành hình trăng lưỡi liềm.",
+        "shortcutTip": { "win": "Nhấn Subtract", "mac": "Nhấn Subtract" }
       },
       {
         "stepNumber": 3,
-        "title": "Test the Divide Operation",
-        "instruction": "Draw two intersecting rectangles. Select both and click the 'Divide' button. Notice in the Layers panel that the two objects are instantly sliced into three separate pieces: Left Wing, Overlapping Center, and Right Wing. Each can now be assigned independent colors!",
-        "shortcutTip": { "win": "Click Divide", "mac": "Click Divide" }
+        "title": "Thử nghiệm phép chia mảnh Divide",
+        "instruction": "Vẽ hai hình chữ nhật cắt chéo nhau, chọn cả hai và nhấn nút 'Divide'. Quan sát trong Layers Studio: hai hình lập tức được xẻ thành ba mảnh riêng biệt (cánh trái, phần giao giữa và cánh phải), mỗi mảnh có thể tô màu độc lập.",
+        "shortcutTip": { "win": "Nhấn Divide", "mac": "Nhấn Divide" }
       },
       {
         "stepNumber": 4,
-        "title": "Weld Multiple Elements with Add",
-        "instruction": "Select 3 adjacent shapes that touch or overlap. Click 'Add'. The interior partition lines disappear, leaving a single consolidated vector outline.",
-        "shortcutTip": { "win": "Click Add", "mac": "Click Add" }
+        "title": "Hợp nhất nhiều khối bằng Add",
+        "instruction": "Chọn 3 hình khối chạm hoặc đè nhẹ lên nhau rồi nhấn 'Add'. Các đường phân chia bên trong biến mất, chỉ còn lại một đường viền tổng thể thống nhất.",
+        "shortcutTip": { "win": "Nhấn Add", "mac": "Nhấn Add" }
       }
     ],
     "visualExamples": [
       {
-        "title": "The 5 Boolean Operations Comparison",
-        "description": "Visual logic of the 5 geometry operations.",
+        "title": "Bảng tổng hợp 5 phép toán Boolean",
+        "description": "Quy luật tập hợp và kết quả tạo hình trên hai hình A và B.",
         "visualType": "table",
-        "visualContent": "| Boolean Operation | Mathematical Formula | Result on Overlapping Shapes A & B |\n|---|---|---|\n| Add | A ∪ B | Single unified silhouette; all interior seams dissolved |\n| Subtract | A - B | B cuts into A; B is discarded leaving hole in A |\n| Intersect | A ∩ B | Only the shared overlap is kept; all exterior parts discarded |\n| Xor | (A ∪ B) - (A ∩ B) | Shared overlap becomes a transparent hole; exteriors kept |\n| Divide | Slice All | Every intersection becomes a new independent vector layer |"
+        "visualContent": "| Phép toán | Ký hiệu tập hợp | Kết quả trên hai hình A và B xếp chồng |\n|---|---|---|\n| Add | A ∪ B | Hợp thành một khối duy nhất, xóa mọi nét chia bên trong |\n| Subtract | A - B | Hình trên (B) cắt khoét bỏ khỏi hình dưới (A) |\n| Intersect | A ∩ B | Chỉ giữ lại đúng phần giao nhau giữa A và B |\n| Xor | (A ∪ B) - (A ∩ B) | Giữ phần rìa ngoài, khoét thành lỗ trống ở phần giao |\n| Divide | Cắt tất cả giao tuyến | Tách mọi phần giao và không giao thành từng layer độc lập |"
       },
       {
-        "title": "Layer Stacking Rule in Subtractions",
-        "description": "Top layer cuts bottom layer.",
+        "title": "Quy tắc thứ tự lớp trong phép Subtract",
+        "description": "Lớp nằm phía trên cắt xuyên xuống lớp nằm phía dưới.",
         "visualType": "diagram",
-        "visualContent": "[Layer 2: Circle (Cookie Cutter - High in Stack)]\n       ↓ Cuts downward into\n[Layer 1: Rectangle (Target Base - Low in Stack)]\n       =\n[Result: Rectangle with Circular Bite Removed]"
+        "visualContent": "[Lớp 2: Hình tròn (Dao cắt - Nằm tầng trên)]\n       ↓ Cắt khoét xuống\n[Lớp 1: Hình chữ nhật (Phôi gốc - Nằm tầng dưới)]\n       =\n[Kết quả: Hình chữ nhật bị khoét khuyết một cung tròn]"
       }
     ],
     "guidedPractice": {
-      "title": "Constructing a Clean Cloud Icon via Boolean Add & Subtract",
-      "taskDescription": "Construct a clean flat-bottomed cloud icon using 3 overlapping circles, 1 base rectangle, and Boolean operations.",
+      "title": "Dựng biểu tượng đám mây đáy phẳng bằng Add & Subtract",
+      "taskDescription": "Ghép 3 hình tròn chồng nhau cùng một hình chữ nhật thành biểu tượng đám mây gọn gàng, sạch điểm neo thừa.",
       "checkpoints": [
-        "Draw a center circle (diameter: 120px).",
-        "Draw a left circle (diameter: 80px) and a right circle (diameter: 90px) overlapping the center.",
-        "Draw a rectangle spanning across the lower half of all three circles.",
-        "Select all 4 shapes and click 'Add' to fuse them into a solid cloud silhouette.",
-        "Draw a horizontal rectangle positioned across the bottom edge where you want the flat base.",
-        "Select the cloud and the cutting rectangle, and click 'Subtract' to produce a razor-straight flat base."
+        "Vẽ hình tròn giữa (đường kính 120 px).",
+        "Vẽ hình tròn bên trái (80 px) và bên phải (90 px) chồng nhẹ vào hình tròn giữa.",
+        "Vẽ một hình chữ nhật nối ngang nửa dưới của cả ba hình tròn.",
+        "Chọn cả 4 hình và nhấn 'Add' để gộp thành khối đám mây.",
+        "Vẽ thêm một hình chữ nhật nằm ngang đè qua mép đáy muốn cắt phẳng.",
+        "Chọn khối đám mây cùng hình chữ nhật cắt rồi nhấn 'Subtract' để cắt phẳng đáy mây."
       ],
-      "expectedOutcome": "A flawless, single-path vector cloud with zero stray inner vertices and a clean horizontal base."
+      "expectedOutcome": "Một biểu tượng đám mây vector có đường đáy thẳng tắp, không bị lồi lõm hay thừa điểm neo bên trong."
     },
     "independentChallenge": {
-      "title": "Interlocking Olympic Ring Geometry",
-      "prompt": "Construct two interlocking circular rings using Boolean Divide: (1) Draw two overlapping Donut shapes with contrasting colors; (2) Click 'Divide' to split the intersection segments; (3) Re-order the resulting sliced layers in the Layers Studio so that Ring A weaves over-and-under Ring B seamlessly; (4) Use 'Add' to re-weld the non-overlapping segments of each ring.",
+      "title": "Vòng tròn lồng ghép đan xen kiểu Olympic",
+      "prompt": "Dùng phép Divide để tạo hai vòng tròn lồng vào nhau theo hiệu ứng trên-dưới 3D: (1) Vẽ hai hình vành khuyên (Donut) màu tương phản đè chéo lên nhau; (2) Chọn cả hai và nhấn 'Divide' để cắt tách các đoạn giao; (3) Sắp xếp lại hoặc hợp nhất lại các mảnh sao cho vòng A nằm đè lên trên vòng B ở điểm giao trên và chui xuống dưới vòng B ở điểm giao dưới.",
       "starterAsset": {
         "filename": "D03_boolean_geometry_guide.md",
         "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
@@ -99,60 +99,60 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Boolean operations (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành 5 phép toán Boolean (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Rings create an optically perfect 3D over-and-under weave.",
-        "Divide used to isolate the crossover intersection pieces.",
-        "Zero visible seams or raster artifacts at the splice lines."
+        "Hai vòng tạo hiệu ứng đan xen trên-dưới mượt mà và logic.",
+        "Sử dụng Divide để tách chính xác các vùng giao cắt.",
+        "Không có đường hở mảnh hay vết răng cưa ở chỗ tiếp giáp."
       ],
-      "bonusGoal": "Add a subtle drop shadow to the over-weaving segment using the Quick FX panel."
+      "bonusGoal": "Thêm hiệu ứng bóng đổ nhẹ (Outer Shadow) trong Quick FX cho mảnh đang vắt phía trên để tăng chiều sâu."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Subtracting cuts away the wrong shape",
-        "cause": "The shape you wanted to keep was positioned higher in the Layers stack than the cutter shape.",
-        "solution": "Check the Layers Studio. In a Subtract operation, the topmost layer cuts into the bottommost layer. Press Ctrl+[ / Cmd+[ to lower the target shape."
+        "pitfall": "Phép Subtract cắt mất hình bạn muốn giữ lại",
+        "cause": "Hình nền muốn giữ lại nằm ở tầng cao hơn hình đóng vai trò dao cắt trong Layers Studio.",
+        "solution": "Kiểm tra thứ tự tầng trong Layers Studio: lớp nằm trên luôn cắt vào lớp nằm dưới. Nhấn Ctrl+[ / Cmd+[ để đẩy hình muốn giữ xuống dưới."
       },
       {
-        "pitfall": "Microscopic gap lines (anti-aliasing seams) between touching shapes",
-        "cause": "Attempting to create seamless adjacent shapes by aligning edges without overlapping before adding.",
-        "solution": "Always ensure shapes overlap by at least 0.5px before executing 'Add' to ensure a watertight mathematical union."
+        "pitfall": "Xuất hiện đường khe hở siêu mảnh giữa các khối ghép",
+        "cause": "Đặt hai hình chạm khít mép nhau (chồng 0 px) rồi mới cộng hoặc tách, dễ để lại kẽ hở khử răng cưa khi xuất SVG.",
+        "solution": "Trước khi nhấn Add, hãy cho hai hình chồng lấn vào nhau tối thiểu 0.5 px để phép cộng tạo đường bao liền khối tuyệt đối."
       },
       {
-        "pitfall": "Losing original editable shapes after a Boolean operation",
-        "cause": "Standard toolbar clicks are destructive, collapsing original primitives into a single static curve.",
-        "solution": "Hold Alt (Windows) or Option (macOS) while clicking any Boolean operation to create a non-destructive Compound Shape."
+        "pitfall": "Nhầm lẫn giữa kết quả động (Compound) và gộp cứng phá hủy (Join)",
+        "cause": "Chưa phân biệt cách tạo hình tổng hợp còn chỉnh sửa được hay gộp thành đường tĩnh.",
+        "solution": "Ở bản Affinity hiện hành, các phép toán Boolean tạo Compound phi phá hủy theo mặc định, còn lệnh Join tạo kết quả gộp cứng phá hủy (bài D03-03 sẽ đi sâu vào cơ chế này)."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D03-02-Q1",
-        "question": "In an Affinity Designer 'Subtract' operation with two selected objects, which object acts as the cutter?",
+        "question": "Trong phép toán 'Subtract' với hai đối tượng đang chọn, đối tượng nào đóng vai trò là dao cắt?",
         "options": [
-          "The object that was created first.",
-          "The topmost object in the Layers panel cuts into the bottommost object.",
-          "The object with the darker color fill.",
-          "The largest object by surface area."
+          "Đối tượng được vẽ trước.",
+          "Đối tượng nằm ở tầng cao hơn trong bảng Layers Studio sẽ cắt vào đối tượng nằm dưới.",
+          "Đối tượng có màu tô đậm hơn.",
+          "Đối tượng có diện tích lớn hơn."
         ],
         "correctIndex": 1,
-        "explanation": "Subtract uses the top layer in the visual stacking order as the cookie cutter, carving through and cutting away from the lower layer."
+        "explanation": "Subtract luôn lấy lớp nằm trên trong thứ tự xếp chồng làm khuôn cắt khoét xuyên xuống lớp nằm dưới."
       },
       {
         "id": "D03-02-Q2",
-        "question": "What is the function of the 'Divide' Boolean operation?",
+        "question": "Chức năng của phép toán Boolean 'Divide' là gì?",
         "options": [
-          "It divides the stroke thickness in half.",
-          "It slices all overlapping vector shapes at every intersection edge into individual, independent vector puzzle pieces.",
-          "It deletes all layers in the document.",
-          "It splits a vector shape into pixels."
+          "Chia đôi độ dày của nét viền.",
+          "Cắt tách toàn bộ các hình chồng lấn dọc theo mọi đường giao nhau thành từng mảnh vector độc lập.",
+          "Xóa toàn bộ các layer trong tài liệu.",
+          "Tách hình vector thành lưới điểm ảnh."
         ],
         "correctIndex": 1,
-        "explanation": "Divide computes all intersection points across selected shapes and fragments them into separate, discrete closed vector paths."
+        "explanation": "Divide tính tất cả các điểm giao cắt giữa những hình được chọn và tách từng vùng khép kín thành layer riêng biệt."
       },
       {
         "id": "D03-02-Q3",
-        "question": "What Boolean operation would you use to retain ONLY the shared overlapping area between two vector circles?",
+        "question": "Nếu muốn chỉ giữ lại DUY NHẤT phần diện tích giao nhau chung của hai hình tròn, bạn chọn phép toán nào?",
         "options": [
           "Add",
           "Subtract",
@@ -160,25 +160,25 @@
           "Divide"
         ],
         "correctIndex": 2,
-        "explanation": "'Intersect' discards all outer areas and preserves strictly the shared overlapping intersection region."
+        "explanation": "Intersect loại bỏ toàn bộ phần rìa ngoài và chỉ giữ lại vùng giao nhau chung của các đối tượng được chọn."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The 5 Boolean operations (Add, Subtract, Intersect, Xor, Divide) construct complex vectors from primitives.",
-        "Layer stacking order determines Subtract behavior (top cuts bottom).",
-        "Divide is the premier tool for interlocking rings and complex color weaving.",
-        "Overlapping shapes slightly before 'Add' prevents microscopic hairline gaps."
+        "5 phép toán Boolean (Add, Subtract, Intersect, Xor, Divide) biến hình đơn giản thành biểu tượng phức tạp nhanh chóng.",
+        "Thứ tự tầng trong Layers Studio quyết định hình nào cắt hình nào khi dùng Subtract.",
+        "Divide là công cụ chủ lực để tách mảng màu và tạo hiệu ứng vòng đan xen.",
+        "Cho các hình chồng nhẹ ít nhất 0.5 px trước khi Add giúp tránh vết hở khe khi xuất file."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D03-03 Non-Destructive Compound Shapes",
+          "title": "Bài tiếp theo: D03-03 Compound Shapes phi phá hủy và tối ưu hình học",
           "target": "D03-03",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Boolean Operations",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Các phép toán Boolean",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/ObjectControl/join.html",
           "type": "doc"
         }
       ]
@@ -189,71 +189,71 @@
       "id": "D03-02-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Boolean Geometry Operations (The 5 Operations)",
-      "subtitle": "Sculpting Complex Vectors from Pure Primitives",
-      "contentMarkdown": "Welcome to **Lesson D03-02**.\n\nFrom the Apple logo to iconic app symbols, professional vector illustration relies on combining simple primitives using **Boolean Geometry Operations**.\n\nIn this lesson, you will master the 5 core Boolean operations—**Add, Subtract, Intersect, Xor, and Divide**—and understand how layer hierarchy dictates geometric cuts.",
+      "title": "Năm Phép Toán Hình Học Boolean",
+      "subtitle": "Xây dựng logo và biểu tượng phức tạp từ những hình cơ bản",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D03-02**.\n\nTừ logo thương hiệu đến bộ icon ứng dụng, phần lớn hình khối vector sắc sảo đều được ghép trừ từ hình tròn, hình chữ nhật qua **phép toán hình học Boolean**.\n\nTrong bài học này, bạn sẽ nắm vững cả 5 phép toán—**Add, Subtract, Intersect, Xor và Divide**—cùng quy luật xếp lớp quyết định kết quả cắt.",
       "actionBox": {
-        "label": "Core Maxim",
-        "text": "Every intricate icon is simply basic circles and rectangles added together or subtracted apart."
+        "label": "Tư duy dựng hình",
+        "text": "Hầu hết các icon phức tạp đều có thể phân rã thành những hình cơ bản cộng lại hoặc trừ đi."
       }
     },
     {
       "id": "D03-02-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The 5 Boolean Geometry Modes",
-      "subtitle": "Set Theory Applied to Vector Art",
-      "contentMarkdown": "Located on the main toolbar, Affinity Designer provides 5 operations:\n\n1. **Add (Union):** Combines multiple overlapping shapes into one unified silhouette.\n2. **Subtract (Difference):** The top layer cuts away from the bottom layer.\n3. **Intersect:** Retains strictly the common shared overlap.\n4. **Xor (Exclusive Or):** Retains exterior areas and hollows out the shared overlap.\n5. **Divide:** Slices every intersection line into separate puzzle-piece layers.",
+      "title": "Năm Chế Độ Hình Học Boolean",
+      "subtitle": "Ứng dụng lý thuyết tập hợp vào tạo hình vector",
+      "contentMarkdown": "Trên thanh công cụ chính, Affinity cung cấp 5 phép toán cốt lõi:\n\n1. **Add (Hợp):** Gộp các hình chồng lên nhau thành một đường bao chung.\n2. **Subtract (Trừ):** Hình trên cắt khoét bỏ khỏi hình dưới.\n3. **Intersect (Giao):** Chỉ giữ lại phần diện tích giao nhau chung.\n4. **Xor (Loại phần giao):** Giữ vùng bên ngoài và khoét thủng vùng giao chung.\n5. **Divide (Chia mảnh):** Cắt mọi đường giao nhau thành từng mảnh layer rời.",
       "visual": {
         "type": "badge-grid",
-        "content": "Add (Union) | Subtract (Difference) | Intersect (Shared) | Xor (Inversion) | Divide (Fragment)"
+        "content": "Add (Hợp) | Subtract (Trừ) | Intersect (Giao) | Xor (Khoét giữa) | Divide (Tách mảnh)"
       }
     },
     {
       "id": "D03-02-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Geometry Controls on the Main Toolbar",
-      "subtitle": "Selection, Stacking Order & Operations",
-      "contentMarkdown": "To execute a Boolean operation:\n\n- Select two or more vector objects using the Move Tool (`V`).\n- Observe the **Geometry section** on the top main toolbar (five geometric icons).\n- **The Golden Stacking Rule:** In **Subtract**, the *top layer* in the Layers panel acts as the cookie cutter, cutting downward into the *bottom layer*.",
+      "title": "Nhóm Công Cụ Geometry Trên Thanh Toolbar",
+      "subtitle": "Chọn đối tượng, thứ tự xếp tầng và thực thi phép toán",
+      "contentMarkdown": "Cách thực hiện một phép toán Boolean:\n\n- Dùng **Move Tool (`V`)** chọn từ 2 hình vector trở lên.\n- Nhìn sang nhóm **Geometry** trên thanh công cụ trên cùng (hoặc menu `Layer > Geometry`).\n- **Quy tắc xếp tầng quan trọng:** Với phép **Subtract**, *lớp nằm ở phía trên* trong bảng Layers Studio đóng vai trò dao cắt khoét xuống *lớp nằm dưới*.",
       "actionBox": {
-        "label": "Stacking Pro Tip",
-        "text": "If Subtract bites into the wrong shape, press Ctrl+[ (Win) or Cmd+[ (Mac) to move the cutter layer above the target layer."
+        "label": "Mẹo đổi tầng nhanh",
+        "text": "Nếu Subtract cắt nhầm hình, nhấn Ctrl+[ (Win) hoặc Cmd+[ (Mac) để đưa hình muốn cắt xuống tầng dưới."
       }
     },
     {
       "id": "D03-02-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Crafting a Crescent Moon",
-      "subtitle": "Executing the Classic Subtract Technique",
-      "contentMarkdown": "Follow these steps to construct an iconic crescent moon:\n\n1. **Step 1:** Press `M` for the Ellipse Tool. Hold `Shift` and drag to create a circle.\n2. **Step 2:** Hold `Alt` / `Option` and drag the circle rightward to duplicate it.\n3. **Step 3:** Overlap the second circle over the right rim of the first circle.\n4. **Step 4:** Select both circles with the Move Tool (`V`).\n5. **Step 5:** Click the **Subtract** button on the top toolbar.\n6. **Inspect:** The duplicate circle carves away a clean crescent moon!",
+      "title": "Thực Hành: Tạo Hình Trăng Lưỡi Liềm Chuẩn Xác",
+      "subtitle": "Áp dụng kỹ thuật Subtract kinh điển",
+      "contentMarkdown": "Thực hiện lần lượt các bước:\n\n1. **Bước 1:** Chọn công cụ Ellipse, giữ `Shift` kéo tạo một hình tròn chuẩn.\n2. **Bước 2:** Nhân bản hình tròn (`Ctrl+J` / `Cmd+J` hoặc thao tác nhân bản trên máy bạn) và kéo lệch sang mép phải hình đầu.\n3. **Bước 3:** Đảm bảo hình tròn thứ hai nằm ở tầng trên trong Layers Studio.\n4. **Bước 4:** Chọn cả hai hình tròn bằng Move Tool (`V`).\n5. **Bước 5:** Nhấn nút **Subtract** trên thanh công cụ trên cùng.\n6. **Kết quả:** Hình tròn trên khoét gọn tạo thành vầng trăng lưỡi liềm cân đối!",
       "visual": {
         "type": "comparison",
-        "content": "2 Overlapping Circles ===[ Subtract ]===> 1 Perfect Crescent Moon Vector"
+        "content": "2 hình tròn chồng lên nhau ===[ Subtract ]===> 1 hình trăng lưỡi liềm sắc nét"
       }
     },
     {
       "id": "D03-02-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Boolean Pitfalls & Troubleshooting",
-      "subtitle": "Avoid These Common Headaches",
-      "contentMarkdown": "### 1. Hairline Seam Artifacts\n- **The Issue:** Adding two shapes touching edge-to-edge leaves an unsightly faint 1px gap line in SVG exports.\n- **The Fix:** Ensure shapes overlap by at least `0.5 px` before clicking 'Add'.\n\n### 2. Accidental Permanent Shape Collapse\n- **The Issue:** After executing 'Add' or 'Subtract', you can no longer adjust the original circle radius.\n- **The Fix:** Hold `Alt` (Win) / `Option` (Mac) while clicking the Boolean button to create a non-destructive **Compound Shape** instead!",
+      "title": "Lỗi Hay Gặp Với Boolean & Cách Phòng Tránh",
+      "subtitle": "Tránh khe hở mảnh và chọn đúng chế độ Compound/Join",
+      "contentMarkdown": "### 1. Đường kẻ hở siêu mảnh khi ghép mép\n- **Vấn đề:** Đặt hai hình sát mép 0 px rồi cộng lại dễ để lại khe hở khử răng cưa mảnh khi xuất file.\n- **Cách sửa:** Cho hai hình đè nhẹ lên nhau ít nhất `0.5 px` trước khi dùng `Add`.\n\n### 2. Chốt cứng hình quá sớm hoặc nhầm lệnh Join\n- **Vấn đề:** Nếu chọn lệnh gộp cứng phá hủy (Join) khi vẫn đang thử nghiệm kích thước, bạn sẽ không chỉnh lại bán kính từng hình gốc được nữa.\n- **Cách sửa:** Trong bản Affinity hiện hành, phép toán Boolean mặc định tạo **Compound** phi phá hủy; dùng lệnh **Join** khi bạn thật sự muốn gộp cứng thành một đường tĩnh.",
       "actionBox": {
-        "label": "Pro Technique",
-        "text": "Use the Divide operation when you need to color the overlapping lens between two circles with a different swatch."
+        "label": "Kỹ thuật hay",
+        "text": "Dùng Divide bất cứ khi nào bạn muốn tách riêng phần giao nhau giữa hai hình để tô một màu khác biệt."
       }
     },
     {
       "id": "D03-02-S6",
       "slideNumber": 6,
       "type": "challenge",
-      "title": "Independent Challenge: Interlocking Rings",
-      "subtitle": "Master the Divide & Re-Weave Technique",
-      "contentMarkdown": "### Your Mission:\nConstruct two interlocking circular rings using the Boolean Divide method:\n\n1. Draw two overlapping **Donut primitives** (one Gold, one Teal).\n2. Select both rings and click **Divide** on the top toolbar.\n3. In the Layers panel, locate the segmented crossover piece.\n4. Reorder the crossover piece so that Ring A appears to weave **over** Ring B on the top, and **under** Ring B on the bottom.\n\n### Acceptance Criteria:\n- 3D interlocking illusion is optically flawless.\n- Zero gap artifacts at the split lines.\n- Layers cleanly organized.",
+      "title": "Thử Thách Độc Lập: Hai Vòng Đan Xen",
+      "subtitle": "Làm chủ kỹ thuật Divide và sắp xếp tầng",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng hai vòng tròn đan chéo trên-dưới nhau bằng **Boolean Divide**:\n\n1. Vẽ hai hình vành khuyên (**Donut**) đan chéo nhau với hai màu tương phản (ví dụ Vàng và Xanh ngọc).\n2. Chọn cả hai vòng và nhấn **Divide** trên thanh công cụ.\n3. Kiểm tra các mảnh vừa tách trong Layers Studio.\n4. Sắp xếp hoặc hợp nhất lại các mảnh để vòng A vắt **trên** vòng B ở giao điểm trên, và luồn **dưới** vòng B ở giao điểm dưới.\n\n### Tiêu chí hoàn thành:\n- Hiệu ứng đan xen 3D thuyết phục về mặt thị giác.\n- Không có khe hở tại vị trí nối mảnh.\n- Các lớp được đặt tên và sắp xếp gọn gàng.",
       "practiceData": {
-        "prompt": "Construct interlocking vector rings using Boolean Divide.",
+        "prompt": "Dựng hai vòng đan xen vector bằng phép chia mảnh Divide.",
         "starterAsset": {
           "filename": "D03_boolean_geometry_guide.md",
           "filepath": "curriculum/assets/designer/D03_boolean_geometry_guide.md",
@@ -261,12 +261,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Boolean operations."
+          "statusNote": "Hướng dẫn thực hành phép toán Boolean."
         },
         "checkpoints": [
-          "Donut shapes created and overlapped",
-          "Boolean Divide executed",
-          "Layers re-ordered to create over-and-under weave"
+          "Đã vẽ hai hình Donut xếp chồng lên nhau",
+          "Đã chạy phép toán Divide",
+          "Đã sắp xếp tầng tạo hiệu ứng đan trên-dưới"
         ]
       }
     }

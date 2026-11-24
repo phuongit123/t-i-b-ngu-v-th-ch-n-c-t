@@ -3,101 +3,101 @@
   "moduleId": "D04",
   "trackId": "designer",
   "order": 3,
-  "title": "Contour Tool (Offset Curves) & Expand Stroke",
-  "subtitle": "Contour Tool (O), Inset/Offset Geometry & Expand Stroke Baking",
+  "title": "Contour Tool và mở rộng đường viền",
+  "subtitle": "Contour Tool (O), đường lệch đồng đều và chuyển nét thành mảng Expand Stroke",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Master the Contour Tool (O) to generate live concentric outward offsets and inward insets on any vector shape or open path.",
-      "Configure contour corner joins: Round, Miter, and Bevel.",
-      "Understand the 'Bake Appearance' command to convert live contour parameters into explicit Bezier curves.",
-      "Execute 'Expand Stroke' (Layer > Expand Stroke) to transform paths with thickness into filled boundary outlines for icon design and CNC/cutter production.",
-      "Diagnose and eliminate self-intersecting loops and inverted corner kinks during extreme negative inset contours."
+      "Sử dụng Contour Tool (công cụ tạo đường lệch đồng đều, phím O) để giãn nở ra ngoài hoặc thu hẹp vào trong đồng nhất cho mọi hình khối hay đường hở.",
+      "Tùy chỉnh kiểu góc tại đường lệch: Round (bo tròn), Miter (nhọn) và Bevel (vát phẳng).",
+      "Hiểu tác dụng của lệnh 'Bake Appearance' khi biến tham số đường lệch động thành các điểm neo Bézier cố định.",
+      "Thực hiện 'Expand Stroke' (Layer > Expand Stroke) để chuyển nét có độ dày thành hình mảng khép kín phục vụ thiết kế icon, cắt decal hay CNC.",
+      "Nhận diện và khắc phục hiện tượng xoắn nút tự giao khi kéo đường lệch vào trong quá sâu."
     ],
-    "foundationalKnowledge": "In technical drafting, logo design, and lettering, creating uniform offsets—such as a 3mm protective border around an emblem, concentric sticker cutlines, or an engraved inset line—is a notoriously difficult task if done manually with the Pen Tool. Affinity Designer introduces the dedicated 'Contour Tool' (O). Unlike basic scaling (which distorts non-proportional shapes), the Contour Tool calculates true mathematical orthogonal offsets: expanding or contracting every curve segment perpendicular to its tangent. When preparing artwork for plotters, vinyl cutters, or icon font export, the 'Expand Stroke' engine bakes dynamic line weights into permanent closed vector paths.",
+    "foundationalKnowledge": "Trong thiết kế logo, tem nhãn hay vẽ chữ, việc tạo một đường bao cách đều mép hình gốc một khoảng chuẩn xác (như viền trắng 3mm cắt decal sticker hoặc rãnh khắc chìm bên trong chữ) gần như không thể làm đúng bằng cách nhân bản rồi phóng to thông thường—vì phóng to đồng tỷ lệ làm các cạnh dài hẹp bị lệch khoảng cách. Affinity giải quyết bài toán này bằng Contour Tool (O): công cụ tính pháp tuyến vuông góc tại từng điểm dọc theo đường cong để đẩy toàn bộ chu vi ra ngoài hoặc vào trong một khoảng cách đồng đều tuyệt đối. Khi bàn giao cho máy cắt decal, CNC hoặc xuất bộ icon SVG chuẩn, lệnh Expand Stroke sẽ biến các nét vẽ có độ dày thành mảng đường bao khép kín.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Contour Tool Engine & Expand Stroke Specification",
+      "source": "Tài liệu chính thức về Contour Tool & Expand Stroke — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Contour Tool & Expand Stroke",
-      "persona": "Vector Persona (Left Tools Panel / Layer Menu)",
+      "persona": "Vector Studio (Thanh công cụ bên trái / Menu Layer)",
       "shortcut": {
         "win": "O (Contour Tool), Layer > Expand Stroke",
         "mac": "O (Contour Tool), Layer > Expand Stroke"
       },
-      "description": "Activated by pressing O. Click and drag on any shape perimeter to offset it outward or inset it inward. 'Expand Stroke' converts stroked paths into filled outlines.",
+      "description": "Nhấn O để kích hoạt Contour Tool; nhấp lên biên hình và kéo ra ngoài để mở rộng hoặc kéo vào trong để thu hẹp đều. Lệnh 'Expand Stroke' biến đường nét viền thành mảng vector đóng kín.",
       "contextBarOptions": [
-        "Radius Slider: Numerical offset distance (positive for outward expansion, negative for inward contraction)",
-        "Cap Options: Auto, Round, Square (for open paths)",
-        "Point / Join Types: Round (smooth arcs), Miter (sharp pointed corners), Bevel (flat chamfered corners)",
-        "Bake Appearance: Permanently converts the live contour offset into standard Bezier nodes",
-        "Layer > Expand Stroke: Converts any stroked path into a closed vector curve"
+        "Radius: Khoảng cách lệch (số dương đẩy ra ngoài, số âm thu vào trong)",
+        "Contour Type / Cap: Auto, Round, Square (áp dụng cho đầu mút đường hở)",
+        "Contour Join: Round (góc bo tròn), Miter (góc nhọn), Bevel (góc vát phẳng)",
+        "Bake Appearance: Chốt cứng tham số Contour động thành điểm neo Bézier cố định",
+        "Layer > Expand Stroke: Chuyển đường nét có Stroke thành mảng vector đóng kín"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Activate the Contour Tool",
-        "instruction": "Draw a star or complex polygon. Press O to activate the Contour Tool. Notice the on-canvas cursor transforms into an offset radius indicator.",
+        "title": "Kích hoạt Contour Tool",
+        "instruction": "Vẽ một ngôi sao hoặc hình đa giác bất kỳ, sau đó nhấn phím O để bật Contour Tool. Con trỏ chuột đổi sang trạng thái sẵn sàng kéo đường lệch.",
         "shortcutTip": { "win": "O", "mac": "O" }
       },
       {
         "stepNumber": 2,
-        "title": "Drag an Outward Offset Contour",
-        "instruction": "Click and drag outward from the edge of your star. Notice an offset outline swell symmetrically around every vertex and arm! On the Context Toolbar, type an exact Radius of `12 px`.",
-        "shortcutTip": { "win": "Drag Outward", "mac": "Drag Outward" }
+        "title": "Kéo tạo đường lệch mở rộng ra ngoài",
+        "instruction": "Nhấp vào viền ngôi sao và kéo hướng ra ngoài. Toàn bộ khung ngôi sao sẽ nở đều ra mọi cạnh và đỉnh góc. Trên thanh Context Toolbar, nhập thông số Radius chính xác là 12 px.",
+        "shortcutTip": { "win": "Kéo hướng ra ngoài", "mac": "Kéo hướng ra ngoài" }
       },
       {
         "stepNumber": 3,
-        "title": "Test Inset Contours and Corner Types",
-        "instruction": "Drag inward toward the center to create an inward inset. In the Context Toolbar, toggle Point type between 'Miter' and 'Round'. Observe how sharp interior angles either maintain sharp points or resolve to smooth fillets.",
-        "shortcutTip": { "win": "Point: Round / Miter", "mac": "Point: Round / Miter" }
+        "title": "Thử kéo vào trong và đổi kiểu góc",
+        "instruction": "Thử kéo ngược vào tâm hình để tạo đường thu gọn vào trong (Radius âm). Trên thanh Context Toolbar, chuyển đổi giữa kiểu 'Miter' và 'Round' để xem các đỉnh nhọn giữ nguyên góc sắc hay bo tròn mượt.",
+        "shortcutTip": { "win": "Chọn Round / Miter", "mac": "Chọn Round / Miter" }
       },
       {
         "stepNumber": 4,
-        "title": "Bake the Contour Appearance",
-        "instruction": "When satisfied with the offset distance, click 'Bake Appearance' on the Context Toolbar. The contour parameter is converted into permanent, editable Bezier anchor nodes.",
+        "title": "Chốt đường lệch bằng Bake Appearance",
+        "instruction": "Khi đã hài lòng với khoảng cách viền, nhấn nút 'Bake Appearance' trên thanh Context Toolbar để biến hiệu ứng Contour thành các điểm neo Bézier thực thụ.",
         "shortcutTip": { "win": "Bake Appearance", "mac": "Bake Appearance" }
       },
       {
         "stepNumber": 5,
-        "title": "Execute Expand Stroke for Production",
-        "instruction": "Draw a curved line with an 18pt stroke. Go to Layer > Expand Stroke. The single centerline path transforms into a closed ribbon with independent outer and inner outline curves filled with solid color!",
+        "title": "Mở rộng nét vẽ bằng Layer > Expand Stroke",
+        "instruction": "Vẽ một đường cong với độ dày nét 18 pt, rồi vào menu Layer > Expand Stroke. Đường tâm mang viền 18 pt lập tức chuyển thành một dải hình mảng khép kín với hai biên trong và ngoài độc lập nhau.",
         "shortcutTip": { "win": "Layer > Expand Stroke", "mac": "Layer > Expand Stroke" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Contour Tool vs Simple Scaling",
-        "description": "Why scaling fails and Contour succeeds on complex shapes.",
+        "title": "So sánh Contour Tool và Phóng to/Thu nhỏ thông thường",
+        "description": "Vì sao phóng to (Scale) bị sai khoảng cách còn Contour giữ đều mọi phía.",
         "visualType": "table",
-        "visualContent": "| Transformation | Corner Behavior | Thickness Uniformity | Result on a Star / Cross |\n|---|---|---|---|\n| Standard Scale | Disproportionate stretch | Uneven; thin tips, fat middles | Distorted; arms become too fat/skinny |\n| Contour Tool (O) | True normal perpendicular offset | 100% mathematically uniform | Perfect concentric shell; identical margin on all sides |"
+        "visualContent": "| Phương pháp | Xử lý tại góc | Độ đồng đều khoảng cách | Kết quả trên hình ngôi sao / chữ thập |\n|---|---|---|---|\n| Phóng to (Scale) | Giãn tỷ lệ từ một tâm chung | Không đều: đầu nhọn nở ít, eo hẹp phình lệch | Bị méo tỷ lệ, khoảng hở chỗ dày chỗ mỏng |\n| Contour Tool (O) | Tính pháp tuyến vuông góc từng cạnh | Đồng đều 100% theo đúng bán kính đặt | Tạo vỏ bao đồng tâm có lề bằng nhau ở mọi cạnh |"
       },
       {
-        "title": "Expand Stroke Transformation Diagram",
-        "description": "How single-line strokes convert into filled boundary shapes.",
+        "title": "Sơ đồ chuyển đổi của lệnh Expand Stroke",
+        "description": "Cách một đường nét tâm duy nhất biến thành mảng vector có đường bao khép kín.",
         "visualType": "diagram",
-        "visualContent": "Before Expand Stroke: [Start Node ●] ═══════ Centerline (18pt Stroke) ═══════ [End Node ●]\n                                                ↓ Layer > Expand Stroke\nAfter Expand Stroke:  [Top Left Node ●] ──────────────────────────────────────── [Top Right Node ●]\n                      [               Solid Fill Color Inside                  ]\n                      [Bottom Left ●] ──────────────────────────────────────── [Bottom Right ●]"
+        "visualContent": "Trước Expand Stroke: [Đầu ●] ═══════ Đường tâm (Stroke 18pt) ═══════ [Cuối ●]\n                                     ↓ Layer > Expand Stroke\nSau Expand Stroke:   [Đỉnh trên trái ●] ────────────────────────────── [Đỉnh trên phải ●]\n                     [              Mảng đặc tô màu bên trong               ]\n                     [Đỉnh dưới trái ●] ────────────────────────────── [Đỉnh dưới phải ●]"
       }
     ],
     "guidedPractice": {
-      "title": "Crafting a Die-Cut Sticker Border & Bleed Line",
-      "taskDescription": "Take an organic mascot illustration and generate an automated 4mm white die-cut border with a 2mm outer bleed offset.",
+      "title": "Tạo viền bế sticker trắng 4mm và bù xén 2mm",
+      "taskDescription": "Từ hình bóng tổng thể của một nhân vật, tạo khung viền trắng cắt bế sticker đều tăm tắp mọi phía.",
       "checkpoints": [
-        "Select the mascot silhouette vector shape.",
-        "Duplicate the shape and press O for the Contour Tool.",
-        "Set Radius to +4.0 mm with Round corners.",
-        "Fill the expanded shape with pure white `#ffffff` and move it behind the mascot.",
-        "Duplicate the white border, set Contour to +2.0 mm, fill with the background color to serve as print bleed."
+        "Chọn khối bóng tổng thể của nhân vật minh họa.",
+        "Nhân bản khối đó rồi nhấn O để kích hoạt Contour Tool.",
+        "Kéo hoặc nhập Radius +4.0 mm với kiểu góc Round.",
+        "Tô màu trắng tinh (#ffffff) cho lớp Contour và đưa xuống lớp dưới cùng phía sau nhân vật.",
+        "Nhân bản thêm lớp viền trắng đó, tăng Contour thêm +2.0 mm và tô màu nền làm vùng bù xén in ấn (bleed)."
       ],
-      "expectedOutcome": "A professional die-cut sticker graphic ready for vinyl cutting with uniform white margins."
+      "expectedOutcome": "Mẫu tem nhãn bế hình (die-cut sticker) có lề trắng đều hoàn hảo ở mọi góc lượn, sẵn sàng xuất đi in cắt."
     },
     "independentChallenge": {
-      "title": "Neon Monoline Maze with Offset Tracks",
-      "prompt": "Construct a labyrinthine neon vector maze: (1) Plot an interlocking grid of single-stroke lines (16pt stroke); (2) Use Layer > Expand Stroke to convert all paths into solid ribbons; (3) Select the resulting shapes and press O for the Contour Tool; (4) Apply an inward -2px inset contour with 'Round' points; (5) Click 'Bake Appearance' and assign a vibrant dual-tone neon gradient.",
+      "title": "Mê cung nét đơn Neon với rãnh khắc chìm",
+      "prompt": "Dựng một bảng mê cung phong cách neon: (1) Vẽ lưới đường nét đơn giao nhau (độ dày 16 pt); (2) Chọn tất cả và vào Layer > Expand Stroke để chuyển thành mảng đặc; (3) Chọn các mảng vừa tạo, nhấn O bật Contour Tool và kéo thu vào trong -2 px với kiểu góc Round; (4) Nhấn 'Bake Appearance' và áp dải chuyển sắc neon hai tông màu.",
       "starterAsset": {
         "filename": "D04_gradients_stroke_contour_guide.md",
         "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -105,36 +105,36 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Contour Tool and Expand Stroke (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành Contour Tool và Expand Stroke (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Initial paths expanded cleanly via Expand Stroke with zero stray inner vertices.",
-        "Contour Tool applied uniformly to create parallel track grooves.",
-        "All offsets baked into clean, production-ready Bezier curves."
+        "Các đường nét ban đầu được chuyển sạch sẽ bằng Expand Stroke mà không sinh điểm neo rác.",
+        "Áp dụng Contour Tool đồng đều để tạo rãnh chạy song song.",
+        "Đã nhấn Bake Appearance để chốt hình học sạch sẵn sàng xuất file."
       ],
-      "bonusGoal": "Add an Outer Shadow and Outer Glow in the Quick FX studio to simulate radiant neon tubes."
+      "bonusGoal": "Thêm Outer Glow nhẹ trong bảng Quick FX để tạo hiệu ứng ống đèn neon phát sáng."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Inverted loop knots during deep negative insets",
-        "cause": "Contouring too far inward on acute sharp angles forces the offset curves to cross over themselves.",
-        "solution": "Switch Point type to 'Round' in the Context Toolbar, or decrease the negative radius value to prevent self-intersection."
+        "pitfall": "Đường viền bị xoắn vòng lặp ngược khi kéo Contour âm quá sâu",
+        "cause": "Thu hẹp vào trong quá mức tại các góc nhọn hẹp làm hai cạnh đối diện giao cắt và lộn ngược qua nhau.",
+        "solution": "Chuyển kiểu góc trên Context Toolbar sang 'Round' hoặc giảm độ lớn giá trị Radius âm xuống."
       },
       {
-        "pitfall": "Unintentional node explosion after Expand Stroke",
-        "cause": "Expanding a stroke that used a complex textured raster brush nozzle.",
-        "solution": "Ensure the stroke is a 'Solid Line' with vector pressure, not a bitmap textured brush, before invoking Expand Stroke."
+        "pitfall": "Sinh ra hàng nghìn điểm neo rối sau khi Expand Stroke",
+        "cause": "Thực hiện Expand Stroke trên một đường đang dùng đầu cọ vector có họa tiết bitmap (textured brush).",
+        "solution": "Đảm bảo đường dẫn dùng kiểu 'Solid Line' (có thể kèm đồ thị Pressure) chứ không gắn cọ ảnh bitmap trước khi chạy Expand Stroke."
       },
       {
-        "pitfall": "Cannot select individual anchor points on a contoured shape",
-        "cause": "The contour is still live as an interactive attribute.",
-        "solution": "Click 'Bake Appearance' on the Context Toolbar or use the Node Tool to finalize the geometry into raw anchor nodes."
+        "pitfall": "Không chọn sửa từng điểm neo được trên hình vừa dùng Contour",
+        "cause": "Thuộc tính Contour vẫn đang ở dạng hiệu ứng động chưa được Bake.",
+        "solution": "Nhấn 'Bake Appearance' trên thanh Context Toolbar để chuyển đường lệch thành điểm neo Bézier thực sự."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D04-03-Q1",
-        "question": "Which keyboard shortcut activates the Contour Tool in Affinity Designer?",
+        "question": "Phím tắt mặc định để kích hoạt Contour Tool trong Affinity là phím nào?",
         "options": [
           "O",
           "C",
@@ -142,49 +142,49 @@
           "G"
         ],
         "correctIndex": 0,
-        "explanation": "Pressing 'O' activates the Contour Tool. (Note: 'C' activates the Corner Tool, and 'G' activates the Fill Tool)."
+        "explanation": "Phím O kích hoạt Contour Tool (tạo viền lệch đồng đều). Lưu ý: C là Corner Tool, còn G là Fill Tool."
       },
       {
         "id": "D04-03-Q2",
-        "question": "What is the primary difference between using the Contour Tool versus simply scaling a shape up proportionally?",
+        "question": "Điểm khác biệt cốt lõi giữa việc dùng Contour Tool và việc nhân bản rồi phóng to đều (Scale) một hình phức tạp là gì?",
         "options": [
-          "Scaling only works on text.",
-          "The Contour Tool calculates true perpendicular normal offsets, maintaining uniform distance on all sides, whereas scaling distorts non-proportional arms and corners.",
-          "The Contour Tool changes the document DPI.",
-          "Scaling always rasterizes the layer."
+          "Scale chỉ dùng được cho chữ.",
+          "Contour Tool tính pháp tuyến vuông góc tại từng điểm để giữ khoảng cách lề đều nhau tuyệt đối mọi phía, còn Scale làm các nhánh hẹp và dài bị giãn sai lệch.",
+          "Contour Tool làm thay đổi DPI của tài liệu.",
+          "Scale tự động biến hình thành ảnh pixel."
         ],
         "correctIndex": 1,
-        "explanation": "Scaling applies a uniform coordinate multiplier, which pinches narrow sections and balloons wide sections; the Contour Tool maintains an exact, uniform offset distance everywhere."
+        "explanation": "Phóng to thông thường nhân tỷ lệ từ một tâm nên các nhánh hẹp phình ít hơn thân rộng; Contour Tool dịch chuyển vuông góc đúng bằng bán kính cài đặt tại mọi điểm."
       },
       {
         "id": "D04-03-Q3",
-        "question": "Why is 'Layer > Expand Stroke' a mandatory step before sending vector artwork to vinyl plotters, laser cutters, or CNC machines?",
+        "question": "Vì sao lệnh 'Layer > Expand Stroke' thường là bước bắt buộc trước khi gửi file vector sang máy cắt decal, laser hoặc máy phay CNC?",
         "options": [
-          "Plotters cannot cut centerlines with thickness; they require explicit closed boundary vector outlines to guide the physical cutting blade.",
-          "It converts the file to JPEG.",
-          "It disables the undo history.",
-          "It locks the computer screen."
+          "Máy cắt không hiểu độ dày mô phỏng của nét viền mà chỉ chạy dao theo đường bao khép kín thực thụ, nên cần Expand Stroke để biến độ dày nét thành đường biên cắt vật lý.",
+          "Lệnh này chuyển toàn bộ file sang ảnh JPEG.",
+          "Lệnh này tắt lịch sử hoàn tác.",
+          "Lệnh này khóa màn hình máy tính."
         ],
         "correctIndex": 0,
-        "explanation": "CNC routers and vinyl plotters follow explicit cutting paths; Expand Stroke converts open paths with simulated thickness into real, physical perimeter cut boundaries."
+        "explanation": "Máy cắt chỉ đọc đường viền vector (path); nếu không Expand Stroke, dao cắt sẽ rạch thẳng vào đường tâm ở giữa thay vì cắt theo mép ngoài của độ dày nét."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The Contour Tool (O) generates mathematically uniform outward offsets and inward insets.",
-        "Contour Point types (Round, Miter, Bevel) dictate how corner intersections resolve.",
-        "Bake Appearance permanently converts dynamic contour shells into standard Bezier nodes.",
-        "Layer > Expand Stroke converts stroked lines into closed, filled boundary vectors for production."
+        "Contour Tool (O) tạo đường viền lệch ra ngoài hoặc thu vào trong với khoảng cách đồng đều tuyệt đối.",
+        "Ba kiểu góc Contour (Round, Miter, Bevel) kiểm soát hình dáng các đỉnh khi giãn viền.",
+        "Bake Appearance chốt tham số Contour động thành đường cong Bézier tĩnh.",
+        "Layer > Expand Stroke chuyển nét có độ dày thành mảng hình học khép kín chuẩn sản xuất."
       ],
       "relatedResources": [
         {
-          "title": "Next Module: D05 Layer Organization, Masks & Clipping Paths",
+          "title": "Module tiếp theo D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)",
           "target": "D05-01",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Contour Tool & Expand Stroke",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Contour Tool & Expand Stroke",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/Tools/tools_contour.html",
           "type": "doc"
         }
       ]
@@ -195,95 +195,95 @@
       "id": "D04-03-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Contour Tool (Offset Curves) & Expand Stroke",
-      "subtitle": "Generating Precision Offsets & Production Cut Outlines",
-      "contentMarkdown": "Welcome to **Lesson D04-03**.\n\nWhether generating sticker die-lines, concentric badges, or preparing icons for SVG web fonts, creating **exact offset curves** is essential.\n\nIn this lesson, you will master the **Contour Tool (O)** for live mathematical offsetting, and learn when and how to **Expand Stroke** to bake lines into airtight production vector geometry.",
+      "title": "Contour Tool (Đường Lệch) & Expand Stroke",
+      "subtitle": "Tạo viền cách đều chuẩn xác và chuyển nét thành mảng sản xuất",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D04-03**.\n\nDù là làm đường bế cắt sticker, viền huy hiệu đồng tâm hay chuẩn bị bộ icon SVG xuất web, khả năng tạo **đường lệch cách đều tuyệt đối** là kỹ năng cực kỳ thiết thực.\n\nTrong bài học này, bạn sẽ làm chủ **Contour Tool (O)** để giãn nở hoặc thu hẹp hình đồng nhất, đồng thời biết khi nào cần dùng **Expand Stroke** để biến nét thành mảng khép kín.",
       "actionBox": {
-        "label": "Offset Superpower",
-        "text": "Never try to scale-duplicate a complex logo to create a border! The Contour Tool (O) offsets every curve perpendicularly."
+        "label": "Công cụ chuyên dụng",
+        "text": "Đừng bao giờ cố nhân bản rồi phóng to một logo phức tạp để làm viền ngoài—hãy dùng Contour Tool (O) để giữ lề đều tăm tắp."
       }
     },
     {
       "id": "D04-03-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "Contour Offsets vs Standard Scaling",
-      "subtitle": "Why Standard Scaling Distorts Geometry",
-      "contentMarkdown": "Consider an asymmetrical star or letter 'S':\n\n- **If you Duplicate & Scale Up:** Narrow arms swell into fat blobs while vertical sections drift out of alignment. The gap between shapes is wildly uneven.\n- **If you use the Contour Tool (`O`):** Affinity calculates the true mathematical normal (perpendicular) vector at every point along the path. The offset boundary maintains an exact, uniform distance (e.g. `3.0 mm`) across the entire perimeter!",
+      "title": "Contour Offset Khác Gì Phóng To Thông Thường?",
+      "subtitle": "Vì sao Scale làm méo khoảng cách trên hình bất đối xứng",
+      "contentMarkdown": "Hãy hình dung một ngôi sao nhiều cánh hoặc chữ 'S':\n\n- **Nếu nhân bản rồi phóng to (Scale):** Phần cánh hẹp giãn ra rất ít trong khi thân rộng giãn nhiều, làm khoảng hở giữa lớp trong và ngoài chỗ to chỗ nhỏ.\n- **Nếu dùng Contour Tool (`O`):** Affinity tính vector vuông góc (pháp tuyến) tại mọi điểm dọc đường bao và đẩy ra đúng khoảng cách đặt (ví dụ `3.0 mm`) đều nhau ở tất cả các cạnh.",
       "visual": {
         "type": "comparison",
-        "content": "Scaled Duplicate: Uneven gaps, distorted arms VS Contour Offset: 100% uniform gap on every edge"
+        "content": "Phóng to Scale: Lề chỗ dày chỗ mỏng, méo tỷ lệ VS Contour Tool: Khoảng cách lề bằng nhau 100% ở mọi góc"
       }
     },
     {
       "id": "D04-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Contour Tool Controls (Shortcut: O)",
-      "subtitle": "Radius, Point Types & Appearance Baking",
-      "contentMarkdown": "Press **`O`** to activate the **Contour Tool**:\n\n- **Drag Outward:** Creates an expanding outer shell (positive radius).\n- **Drag Inward:** Creates an inward contracting inset (negative radius).\n- **Point Types:**\n  - *Round:* Curvature fillet at every corner.\n  - *Miter:* Sharp angular vertices.\n  - *Bevel:* Flat chamfered corners.\n- **Bake Appearance:** Converts the live contour into standard editable Bezier nodes.",
+      "title": "Các Tùy Chọn Của Contour Tool (Phím: O)",
+      "subtitle": "Bán kính lệch, kiểu góc và Bake Appearance",
+      "contentMarkdown": "Nhấn **`O`** để kích hoạt **Contour Tool**:\n\n- **Kéo ra ngoài:** Tạo đường bao giãn rộng (Radius dương).\n- **Kéo vào trong:** Tạo đường thu gọn vào lòng hình (Radius âm).\n- **Kiểu góc (Contour Join):**\n  - *Round:* Bo tròn mềm tại các góc nhọn.\n  - *Miter:* Giữ đỉnh góc sắc nhọn.\n  - *Bevel:* Vát phẳng các đầu góc.\n- **Bake Appearance:** Chốt đường lệch động thành các điểm neo Bézier chỉnh sửa tự do.",
       "actionBox": {
-        "label": "Live Interactive Drag",
-        "text": "Click directly on the canvas edge of any vector shape and drag outward. The contour updates at 60fps."
+        "label": "Thao tác trực quan",
+        "text": "Nhấp trực tiếp vào mép hình trên bản vẽ và kéo ra ngoài—bạn sẽ thấy đường bao giãn đều mượt mà ngay tức thì."
       }
     },
     {
       "id": "D04-03-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Sticker Die-Cut Border",
-      "subtitle": "Creating a Professional Vinyl Cutline",
-      "contentMarkdown": "Follow these steps to generate a sticker die-cut shell:\n\n1. **Step 1:** Select your complete vector mascot graphic.\n2. **Step 2:** Duplicate it (`Ctrl+J` / `Cmd+J`) and click 'Add' on the toolbar to merge it into a single silhouette.\n3. **Step 3:** Press `O` for the Contour Tool. Click and drag outward `5 mm`.\n4. **Step 4:** Set Point type to **'Round'** on the Context Toolbar for smooth, friendly curves.\n5. **Step 5:** Click **'Bake Appearance'**. Fill the new outer shell with pure white and send it to the back!",
+      "title": "Thực Hành: Tạo Viền Bế Sticker Decal",
+      "subtitle": "Các bước dựng đường viền trắng chuẩn in ấn",
+      "contentMarkdown": "Thực hiện lần lượt các bước sau:\n\n1. **Bước 1:** Chọn toàn bộ hình minh họa linh vật của bạn.\n2. **Bước 2:** Nhân bản (`Ctrl+J` / `Cmd+J`) rồi nhấn **Add** (và `Convert to Curves` nếu là Compound) để có một mảng bóng liền khối.\n3. **Bước 3:** Nhấn `O` chọn **Contour Tool**, kéo giãn ra ngoài `5 mm`.\n4. **Bước 4:** Đặt kiểu góc **Round** trên thanh Context Toolbar để viền ngoài bo tròn êm ái.\n5. **Bước 5:** Nhấn **Bake Appearance**, tô màu trắng tinh và đẩy xuống tầng dưới cùng làm nền bế sticker!",
       "visual": {
         "type": "diagram",
-        "content": "[Mascot Artwork]\n        ↓ Duplicate & Add\n[Solid Silhouette]\n        ↓ Contour Tool (+5mm, Round Points)\n[Pure White Die-Cut Sticker Shell (Ready for Print & Cut)]"
+        "content": "[Hình minh họa gốc]\n        ↓ Nhân bản & Gộp khối\n[Mảng bóng đặc]\n        ↓ Contour Tool (+5mm, góc Round)\n[Lớp nền trắng bế sticker hoàn chỉnh]"
       }
     },
     {
       "id": "D04-03-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "The Purpose of 'Expand Stroke'",
-      "subtitle": "Why Production Hardware Requires Filled Outlines",
-      "contentMarkdown": "In Affinity Designer, a line with a 12pt stroke is mathematically a **1-dimensional centerline** with a visual shader thickness applied:\n\n- **The Production Problem:** Vinyl plotters, CNC routing mills, and SVG icon sets cannot interpret dynamic stroke widths; they cut along the centerline, ruining the design!\n- **The Solution:** Navigate to **`Layer > Expand Stroke`**.\n- Designer calculates the outer and inner perimeter edges and transforms the path into a **closed 2D vector shape** with a solid fill and zero stroke.",
+      "title": "Vai Trò Của Lệnh 'Expand Stroke'",
+      "subtitle": "Vì sao máy cắt và xuất icon SVG cần mảng đóng kín",
+      "contentMarkdown": "Trong file thiết kế, một đường có nét dày 12 pt về mặt toán học vẫn chỉ là **một đường tâm 1 chiều** được phần mềm vẽ dày lên khi hiển thị:\n\n- **Vấn đề khi sản xuất:** Máy cắt decal, máy CNC hay các bộ icon font chỉ nhận diện ranh giới đường bao; nếu để nguyên Stroke, máy sẽ cắt dọc vào đúng đường tâm làm hỏng nét chữ/hình.\n- **Giải pháp:** Vào **`Layer > Expand Stroke`**.\n- Affinity tự tính đường bao ngoài và trong, biến nét đó thành một **hình mảng 2D khép kín** có Fill đặc và không còn Stroke.",
       "actionBox": {
-        "label": "Icon Designer Best Practice",
-        "text": "Always Expand Stroke on final icon exports to guarantee consistent line rendering across all screen sizes and SVG parsers."
+        "label": "Chuẩn xuất Icon",
+        "text": "Luôn dùng Expand Stroke ở bước cuối cùng trước khi xuất bộ icon SVG để độ dày nét hiển thị giống hệt nhau trên mọi trình duyệt."
       }
     },
     {
       "id": "D04-03-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Combining Contour with Expand Stroke",
-      "subtitle": "Building Complex Inset Grooves",
-      "contentMarkdown": "Create high-tech racing stripes and mechanical grooves:\n\n1. **Step 1:** Draw a bold vector ribbon path with a `24 pt` stroke.\n2. **Step 2:** Go to **`Layer > Expand Stroke`** to convert it into a solid ribbon shape.\n3. **Step 3:** Press `O` for the **Contour Tool**.\n4. **Step 4:** Drag inward `-2 px` to generate an interior inset track.\n5. **Step 5:** Duplicate the ribbon, apply a dark fill, and place it behind the inset to simulate an engraved mechanical channel!",
+      "title": "Phối Hợp Expand Stroke Với Contour Tool",
+      "subtitle": "Dựng dải băng có rãnh khắc chìm sắc nét",
+      "contentMarkdown": "Tạo các chi tiết dải băng kỹ thuật hoặc rãnh chạy song song:\n\n1. **Bước 1:** Vẽ một đường dải băng đậm với độ dày nét `24 pt`.\n2. **Bước 2:** Chạy **`Layer > Expand Stroke`** để chuyển thành mảng dải băng đặc.\n3. **Bước 3:** Nhấn `O` bật **Contour Tool**.\n4. **Bước 4:** Kéo vào trong `-2 px` để thu gọn tạo lớp lõi bên trong.\n5. **Bước 5:** Đặt một bản sao tối màu nằm phía dưới lớp vừa thu gọn để tạo rãnh viền cơ khí nổi khối!",
       "visual": {
         "type": "badge-grid",
-        "content": "Draw Path (Centerline) | Expand Stroke (Solid Ribbon) | Contour Inset (Engraved Track)"
+        "content": "Vẽ đường nét (Centerline) | Expand Stroke (Thành mảng đặc) | Contour âm (Tạo rãnh lồng)"
       }
     },
     {
       "id": "D04-03-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Contour & Expand Pitfalls",
-      "subtitle": "Avoid Common Production Mistakes",
-      "contentMarkdown": "### 1. Inward Contour Self-Intersection Kinks\n- **The Issue:** Dragging too far inward on an acute corner causes opposite edges to collide and flip inside out.\n- **The Fix:** Switch Point type from Miter to **Round**, or reduce the negative radius value.\n\n### 2. Node Explosion on Expand Stroke\n- **The Issue:** Expanding a path creates thousands of anchor nodes.\n- **The Cause:** The path had a textured raster brush nozzle attached.\n- **The Fix:** Only expand paths using **Solid Line** styles.\n\n### 3. Forgetting to Duplicate Before Expanding\n- **The Fix:** Once a stroke is expanded, you can no longer adjust its width as a simple number. Always duplicate and hide an editable backup layer!",
+      "title": "Lỗi Hay Gặp Khi Dùng Contour & Expand Stroke",
+      "subtitle": "Phòng tránh rối điểm neo và méo góc",
+      "contentMarkdown": "### 1. Đường lệch bị xoắn thắt nút khi thu vào quá sâu\n- **Hiện tượng:** Kéo Contour âm quá lớn trên góc nhọn làm hai mép cắt qua nhau và lộn ngược.\n- **Cách sửa:** Đổi kiểu góc sang **Round** hoặc giảm nhẹ thông số thu âm.\n\n### 2. Quá nhiều điểm neo rác sau khi Expand Stroke\n- **Hiện tượng:** Hình tách ra có hàng nghìn điểm neo li ti.\n- **Nguyên nhân:** Đường ban đầu gắn đầu cọ họa tiết raster.\n- **Cách sửa:** Chỉ chạy Expand Stroke cho đường **Solid Line** thuần vector.\n\n### 3. Quên giữ bản dự phòng trước khi Expand\n- **Cách sửa:** Sau khi Expand Stroke không chỉnh lại độ dày nét bằng một con số pt được nữa, nên hãy luôn nhân bản và ẩn một lớp gốc dự phòng.",
       "visual": {
         "type": "badge-grid",
-        "content": "Avoid Extreme Insets | Solid Lines Only | Keep Backup Layer"
+        "content": "Tránh kéo âm quá sâu | Chỉ Expand nét Solid | Luôn giữ 1 bản sao dự phòng"
       }
     },
     {
       "id": "D04-03-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Precision Motor Sport Decal",
-      "subtitle": "Put Contour & Expand Stroke to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct a multi-layered high-performance automotive decal:\n\n1. Use the Pen Tool to draw a dynamic speed numeral (e.g. '07') using bold strokes.\n2. Apply **Layer > Expand Stroke** to convert the numerals into solid vector outlines.\n3. Use the **Contour Tool (`O`)** to generate an external `3 mm` offset outline shell (Miter points).\n4. Fill the outer shell with high-contrast electric lime `#00ff66`.\n5. Click **Bake Appearance** to finalize the geometry into clean, plotter-ready vector paths.\n\n### Acceptance Criteria:\n- Numerals expanded into 100% closed filled curves.\n- Offset shell generated via Contour Tool with uniform 3mm clearance.\n- Zero self-intersection loops or overlapping stray vertices.",
+      "title": "Thử Thách Độc Lập: Tem Số Xe Đua Thể Thao",
+      "subtitle": "Phối hợp Expand Stroke và Contour Tool chuẩn xuất bản",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết kế một mẫu tem số xe đua thể thao nhiều lớp viền:\n\n1. Dùng Pen Tool vẽ số cách điệu (ví dụ '07') bằng nét dày đậm.\n2. Chạy **Layer > Expand Stroke** để chuyển nét số thành mảng đường bao khép kín.\n3. Dùng **Contour Tool (`O`)** tạo lớp vỏ viền ngoài lệch ra `3 mm` (kiểu góc Miter).\n4. Tô lớp vỏ ngoài bằng màu xanh lá nổi `#00ff66` và đặt xuống phía dưới.\n5. Nhấn **Bake Appearance** để chốt sạch các đường cong sẵn sàng cắt decal.\n\n### Tiêu chí hoàn thành:\n- Chữ số được Expand thành mảng đóng kín 100%.\n- Viền ngoài lệch đều 3 mm mọi phía nhờ Contour Tool.\n- Không có vòng xoắn lỗi hay điểm neo thừa chồng chéo.",
       "practiceData": {
-        "prompt": "Construct a motor sport decal using Expand Stroke and the Contour Tool.",
+        "prompt": "Thiết kế tem số xe đua sử dụng Expand Stroke và Contour Tool.",
         "starterAsset": {
           "filename": "D04_gradients_stroke_contour_guide.md",
           "filepath": "curriculum/assets/designer/D04_gradients_stroke_contour_guide.md",
@@ -291,12 +291,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Contour Tool and Expand Stroke."
+          "statusNote": "Hướng dẫn thực hành Contour Tool và Expand Stroke."
         },
         "checkpoints": [
-          "Initial strokes expanded using Layer > Expand Stroke",
-          "Uniform offset shell created via Contour Tool (O)",
-          "Bake Appearance executed with clean Bezier nodes"
+          "Đã mở rộng nét thành mảng bằng Layer > Expand Stroke",
+          "Đã tạo vỏ viền lệch đều bằng Contour Tool (O)",
+          "Đã chốt Bake Appearance cho hình học sạch sẽ"
         ]
       }
     }

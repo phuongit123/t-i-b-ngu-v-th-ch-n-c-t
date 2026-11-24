@@ -3,8 +3,8 @@
   "moduleId": "P03",
   "trackId": "photo",
   "order": 1,
-  "title": "Layer Types, Organization & Scene Hierarchy",
-  "subtitle": "Pixel Layers, Image Objects, Layer Locking & Opacity vs Flow",
+  "title": "Các loại Layer, tổ chức và phân cấp tài liệu",
+  "subtitle": "Pixel Layers, đối tượng Image, khóa lớp và Opacity so với Flow",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Layers Studio & Layer Management",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "F7 (Toggle Layers Studio) / Ctrl+G (Group) / Ctrl+Shift+N (New Pixel Layer)",
         "mac": "F7 (Toggle Layers Studio) / Cmd+G (Group) / Cmd+Shift+N (New Pixel Layer)"
@@ -158,7 +158,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P03-02 Adjustment Layers & Live Filter Architecture",
+          "title": "Bài tiếp theo: P03-02 Adjustment Layers và kiến trúc Live Filter",
           "target": "P03-02",
           "type": "next-lesson"
         },
@@ -187,7 +187,7 @@
       "id": "P03-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "Image Layer vs Pixel Layer",
+      "title": "Image Layer và Pixel Layer",
       "subtitle": "Bảo toàn độ phân giải gốc so với quyền năng vẽ pixel",
       "contentMarkdown": "Hãy nhìn vào hậu tố nằm sau tên layer trong Layers Studio:\n\n- 🖼️ **(Image) Layer:** Đối tượng hình ảnh nhúng nguyên bản. Giữ trọn độ phân giải gốc bất kể bạn co kéo thu phóng bao nhiêu lần. Tuy nhiên, nó ngăn chặn việc dùng cọ vẽ trực tiếp để bảo vệ bạn khỏi việc vô tình làm hỏng dữ liệu gốc.\n- 🎨 **(Pixel) Layer:** Lớp điểm ảnh raster thuần túy. Cho phép bạn thỏa sức dùng Paint Brush, Eraser, Clone Stamp, Inpainting để thao tác lên từng điểm ảnh.\n- 🔄 **Rasterise:** Khi cần chuyển Image thành Pixel, nhấp chuột phải chọn **Rasterise...**.",
       "visual": {
@@ -217,7 +217,7 @@
       "contentMarkdown": "1. **Khóa ảnh gốc:** Khóa lớp Background ở đáy cùng để làm điểm tựa an toàn.\n2. **Tạo lớp Touchup:** Nhấn `Ctrl+Shift+N` tạo pixel layer `[Cleanup]` để xóa mụn, bụi bẩn.\n3. **Gom nhóm Group:** Chọn các layer cùng chức năng, nhấn `Ctrl+G`, đổi tên thành `[Retouching]`.\n4. **Gán nhãn màu Color Tag:** Nhấp chuột phải vào Group, gán màu Cam hoặc Xanh để mắt dễ dàng định vị khi dự án có hàng chục lớp.",
       "visual": {
         "type": "badge-grid",
-        "content": "Lock Base | New Pixel Layer | Group (Ctrl+G) | Rename Group | Color Tag"
+        "content": "Khóa lớp nền | Pixel Layer mới | Nhóm Group (Ctrl+G) | Đổi tên Group | Gắn nhãn màu"
       }
     },
     {

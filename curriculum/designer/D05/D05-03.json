@@ -3,101 +3,101 @@
   "moduleId": "D05",
   "trackId": "designer",
   "order": 3,
-  "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
-  "subtitle": "Multiply, Screen, Blend Options Gear, Luminance Graphs & Alt+Click Solo",
+  "title": "Chế độ hòa trộn Layer, Blend Ranges và Isolation Mode",
+  "subtitle": "Multiply, Screen, nút bánh răng Blend Options, đường cong sắc độ và Alt+Click xem đơn lớp",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Master the essential vector Blend Modes: Multiply, Screen, Overlay, Color Dodge, and Luminosity.",
-      "Unlock the 'Blend Options' dialog (gear icon) to configure custom tonal Blend Ranges for source and underlying artwork.",
-      "Use luminance opacity curves to seamlessly dissolve vector textures into shadow or highlight tones of underlying layers.",
-      "Engage Isolation Mode (Alt+Click / Option+Click on a layer thumbnail) to isolate and solo any complex object for distraction-free editing.",
-      "Diagnose and correct color clipping and unexpected color shifts when grouping layers with mixed blend modes."
+      "Sử dụng thành thạo các chế độ hòa trộn (Blend Mode) cốt lõi cho vector: Multiply, Screen, Overlay, Color Dodge và Luminosity.",
+      "Mở hộp thoại 'Blend Options' (biểu tượng bánh răng) để tùy chỉnh đường cong hòa trộn sắc độ cho lớp hiện tại và các lớp nền bên dưới.",
+      "Ứng dụng đường cong độ sáng (Luminance Curve) để làm lớp bóng hoặc chất liệu tan biến tự nhiên khỏi vùng sáng chói hoặc bóng tối sâu.",
+      "Kích hoạt và thoát Isolation Mode (Alt+Click / Option+Click lên thumbnail lớp) để chỉnh sửa độc lập một đối tượng phức tạp không bị phân tâm.",
+      "Chẩn đoán và xử lý lỗi chế độ hòa trộn mất tác dụng khi đặt bên trong Group (Pass Through vs Normal)."
     ],
-    "foundationalKnowledge": "In basic vector design, layers interact simply by occluding layers beneath them based on flat opacity percentages. In professional art direction, layers interact through optical mathematical blend equations: Multiply darkens by multiplying pixel luminance values (ideal for shadows); Screen brightens by inverting, multiplying, and re-inverting (ideal for glows and lens flares); Overlay enhances contrast. Beyond standard Photoshop-style blend modes, Affinity Designer provides an exclusive, high-end feature: 'Blend Ranges' (accessible via the small cog icon at the top of the Layers Studio). Blend Ranges allows you to plot custom input and output curve graphs, dictating exactly which tonal ranges of an object blend into the underlying artwork.",
+    "foundationalKnowledge": "Ở mức cơ bản, các lớp chỉ đè lên nhau theo độ mờ đục Opacity phẳng. Để tạo hiệu ứng ánh sáng điện ảnh—từ bóng đổ xuyên thấu màu nền đến quầng sáng neon rực rỡ—các lớp tương tác với nhau bằng công thức toán học gọi là Blend Mode: Multiply nhân giá trị sắc độ giúp làm tối tự nhiên và bỏ qua màu trắng; Screen làm sáng rực và bỏ qua màu đen; Overlay tăng độ tương phản. Đặc biệt, Affinity trang bị tính năng cao cấp 'Blend Options' (biểu tượng bánh răng ngay góc trên bảng Layers Studio), cho phép vẽ đường cong giới hạn chính xác vùng sáng tối nào được phép hòa trộn.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Blend Modes, Blend Ranges & Isolation Mode Specification",
+      "source": "Tài liệu chính thức về Blend Modes, Blend Ranges & Isolation Mode — Affinity 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Blend Modes & Blend Options Gear",
-      "persona": "Vector Persona (Layers Studio Header)",
+      "toolName": "Blend Modes & Blend Options (biểu tượng bánh răng)",
+      "persona": "Vector Studio (Thanh tiêu đề bảng Layers Studio)",
       "shortcut": {
-        "win": "Alt + Click Layer Thumbnail (Isolation Mode), Click Cog Icon (Blend Options)",
-        "mac": "Option + Click Layer Thumbnail (Isolation Mode), Click Cog Icon (Blend Options)"
+        "win": "Alt + Nhấp lên Thumbnail lớp (Isolation Mode), Nhấp biểu tượng bánh răng (Blend Options)",
+        "mac": "Option + Nhấp lên Thumbnail lớp (Isolation Mode), Nhấp biểu tượng bánh răng (Blend Options)"
       },
-      "description": "Blend mode dropdown sits at the top of the Layers panel. The gear/cog icon beside it opens the advanced Blend Options dialog.",
+      "description": "Danh sách thả xuống Blend Mode và thanh trượt Opacity nằm ở phần đầu bảng Layers Studio. Biểu tượng bánh răng (Cog icon) bên cạnh mở hộp thoại Blend Options với đồ thị Blend Ranges.",
       "contextBarOptions": [
-        "Blend Mode Dropdown: Normal, Darken, Multiply, Lighten, Screen, Overlay, Soft Light, Hard Light, Color Dodge, etc.",
-        "Opacity Slider: 0% to 100% layer transparency",
-        "Blend Options Cog Icon: Opens dual tonal curve graphs for Source Layer and Underlying Composition",
-        "Isolation Mode: Solo viewing of a single layer or group on the canvas",
-        "Pass Through Blend Mode: Default for groups, allowing inner blend modes to interact with layers outside the group"
+        "Danh sách Blend Mode: Normal, Darken, Multiply, Lighten, Screen, Overlay, Soft Light, Hard Light, Color Dodge, Luminosity...",
+        "Opacity: Thanh chỉnh độ mờ đục từ 0% đến 100%",
+        "Blend Options (Bánh răng): Mở hai đồ thị sắc độ Source Layer Ranges và Underlying Composition Ranges",
+        "Isolation Mode: Tạm thời chỉ hiển thị duy nhất lớp hoặc nhóm đang chọn trên màn hình",
+        "Pass Through: Chế độ hòa trộn mặc định của Group cho phép các Blend Mode bên trong tương tác xuyên ra lớp ngoài nhóm"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Apply a Multiply Shadow",
-        "instruction": "Draw a vector character face. Draw a dark blue crescent shape overlapping the right cheek to represent a cast shadow. In the Layers Studio, change the crescent's Blend Mode from 'Normal' to 'Multiply'. Lower Opacity to 70%. Notice how the shadow darkens the skin tone naturally without muddying the colors.",
+        "title": "Đổ bóng tự nhiên bằng chế độ Multiply",
+        "instruction": "Trên một hình nhân vật đã tô màu, vẽ một mảng lưỡi liềm màu xanh lam sẫm chồng lên má phải để tạo bóng đổ. Trong Layers Studio, đổi Blend Mode của mảng bóng từ 'Normal' sang 'Multiply' và giảm Opacity xuống 70%. Vùng bóng sẽ hòa quyện giữ nguyên sắc độ da bên dưới mà không bị bết xỉn.",
         "shortcutTip": { "win": "Mode: Multiply", "mac": "Mode: Multiply" }
       },
       {
         "stepNumber": 2,
-        "title": "Apply a Screen Glow",
-        "instruction": "Draw a glowing particle circle. Change its Blend Mode to 'Screen' or 'Color Dodge'. Notice how it illuminates and bleeds light directly into the underlying character artwork.",
+        "title": "Tạo quầng phát sáng bằng Screen hoặc Color Dodge",
+        "instruction": "Vẽ một vệt sáng hoặc hạt sáng rồi đổi Blend Mode sang 'Screen' hoặc 'Color Dodge'. Các điểm tối biến mất và vùng sáng cộng hưởng rực rỡ vào lớp minh họa bên dưới.",
         "shortcutTip": { "win": "Mode: Screen", "mac": "Mode: Screen" }
       },
       {
         "stepNumber": 3,
-        "title": "Open Blend Options (The Gear Icon)",
-        "instruction": "Select your shadow layer. In the top-right header of the Layers Studio, click the small gear/cog icon. The 'Blend Options' dialog appears, displaying two interactive curve graphs: 'Source Layer Ranges' (left) and 'Underlying Composition Ranges' (right).",
-        "shortcutTip": { "win": "Click Cog Icon", "mac": "Click Cog Icon" }
+        "title": "Mở hộp thoại Blend Options (biểu tượng bánh răng)",
+        "instruction": "Chọn lớp bóng đổ, sau đó nhấn biểu tượng bánh răng nhỏ ở góc trên bên phải bảng Layers Studio. Hộp thoại 'Blend Options' hiện ra với hai đồ thị: 'Source Layer Ranges' (bên trái) và 'Underlying Composition Ranges' (bên phải).",
+        "shortcutTip": { "win": "Nhấn biểu tượng bánh răng", "mac": "Nhấn biểu tượng bánh răng" }
       },
       {
         "stepNumber": 4,
-        "title": "Tweak Underlying Luminance Curves",
-        "instruction": "In the 'Underlying Composition Ranges' graph, drag the rightmost highlight node downward to 0%. Notice your shadow layer now dissolves cleanly away from any bright highlight areas on underlying layers, creating realistic light wrap!",
-        "shortcutTip": { "win": "Drag Graph Node", "mac": "Drag Graph Node" }
+        "title": "Tinh chỉnh đường cong Underlying Composition Ranges",
+        "instruction": "Ở đồ thị 'Underlying Composition Ranges', kéo điểm đầu ngoài cùng bên phải (đại diện vùng sáng cao của lớp nền dưới) tụt xuống 0%. Lớp bóng của bạn sẽ tự động mờ biến mất mỗi khi chạm tới các vùng sáng gắt bên dưới, tạo cảm giác ánh sáng ôm viền rất chân thực.",
+        "shortcutTip": { "win": "Kéo điểm trên đồ thị", "mac": "Kéo điểm trên đồ thị" }
       },
       {
         "stepNumber": 5,
-        "title": "Engage Isolation Mode for Focused Editing",
-        "instruction": "In a complex drawing with dozens of layers, hold Alt (Windows) or Option (macOS) and click directly on the thumbnail of the shadow layer in the Layers panel. Instantly, all other layers on the canvas disappear, leaving ONLY your shadow layer isolated on the canvas! Edit its Bezier nodes freely. Alt/Option-click the thumbnail again to exit Isolation Mode.",
-        "shortcutTip": { "win": "Alt+Click Thumbnail", "mac": "Option+Click Thumbnail" }
+        "title": "Bật Isolation Mode để sửa riêng một lớp không vướng mắt",
+        "instruction": "Trong bản vẽ có hàng chục lớp đan xen, giữ phím Alt (Windows) hoặc Option (macOS) và nhấp thẳng vào ô ảnh thu nhỏ (Thumbnail) của lớp bạn muốn sửa. Toàn bộ phần còn lại của bản vẽ tạm ẩn đi, chỉ để lại lớp đó trên màn hình; Alt/Option+Click lại lên thumbnail để thoát về toàn cảnh.",
+        "shortcutTip": { "win": "Alt + Nhấp Thumbnail", "mac": "Option + Nhấp Thumbnail" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Primary Blend Mode Categories",
-        "description": "Mathematical families of layer blending.",
+        "title": "Bốn nhóm Blend Mode cốt lõi trong minh họa vector",
+        "description": "Quy tắc toán học và ứng dụng thực tế của từng nhóm hòa trộn.",
         "visualType": "table",
-        "visualContent": "| Blend Family | Signature Modes | Mathematical Behavior | Primary Use Case |\n|---|---|---|---|\n| Darken | Multiply, Darken, Color Burn | White becomes 100% transparent; darks multiply | Shadows, ink washes, ambient occlusion |\n| Lighten | Screen, Lighten, Color Dodge | Black becomes 100% transparent; brights add | Neon glows, lens flares, rim light highlights |\n| Contrast | Overlay, Soft Light, Hard Light | 50% gray is transparent; darks darken, lights lighten | Textures, cinematic grading, metallic sheen |\n| Color | Hue, Saturation, Color, Luminosity | Transfers color while keeping underlying luminance | Colorizing monochrome sketches, tinting |"
+        "visualContent": "| Nhóm hòa trộn | Chế độ tiêu biểu | Nguyên lý hiển thị | Ứng dụng phổ biến |\n|---|---|---|---|\n| Làm tối (Darken) | Multiply, Darken, Color Burn | Màu trắng trong suốt 100%; vùng tối nhân sâu xuống | Bóng đổ, nét mực, tạo bóng tiếp xúc khe kẽ |\n| Làm sáng (Lighten) | Screen, Lighten, Color Dodge | Màu đen trong suốt 100%; vùng sáng cộng sáng rực | Đèn neon, tia sáng, viền sáng Rim Light |\n| Tương phản (Contrast) | Overlay, Soft Light, Hard Light | Xám 50% trong suốt; tối đậm thêm và sáng bật thêm | Hạt texture, tạo độ nổi khối, phủ ánh kim |\n| Thành phần màu (Color) | Hue, Saturation, Color, Luminosity | Giữ nguyên sắc độ sáng tối gốc hoặc đổi riêng tông màu | Lên màu tranh phác thảo đen trắng, đồng bộ tông màu |"
       },
       {
-        "title": "Blend Ranges Graph Mechanics",
-        "description": "How the dual tonal curves control blending.",
+        "title": "Cơ chế lọc sắc độ của đồ thị Blend Ranges",
+        "description": "Điều khiển độ mờ theo vùng tối và vùng sáng của lớp nền bên dưới.",
         "visualType": "diagram",
-        "visualContent": "Underlying Composition Graph: [In Darks: 100% Visible] ──────.\n                                                            \\\n                                   [In Highlights: 0% Opacity] '────● (Fades out in bright highlights!)\n*Result: Shadow layer automatically evaporates when touching underlying sunny highlights.*"
+        "visualContent": "Đồ thị Underlying Composition: [Vùng tối: Hiển thị 100%] ──────.\n                                                               \\\n                                      [Vùng sáng: 0% Opacity] '────● (Tự mờ dần trên nền sáng!)\n*Kết quả: Lớp bóng đổ tự động biến mất khi đi ngang qua vùng highlight sáng rực.*"
       }
     ],
     "guidedPractice": {
-      "title": "Crafting a Neon Cyberpunk Helmet with Dynamic Glows",
-      "taskDescription": "Construct a futuristic visor with Multiply contact shadows, Color Dodge neon edge glows, and customized Blend Ranges.",
+      "title": "Chiếu sáng mũ bảo hộ Cyberpunk bằng Multiply và Color Dodge",
+      "taskDescription": "Phối hợp nhiều chế độ hòa trộn cùng Blend Options để tạo lớp kính mũ bảo hộ có ánh đèn HUD phát sáng nổi khối.",
       "checkpoints": [
-        "Draw base helmet geometry.",
-        "Create shadow layer with 'Multiply' at 75% opacity.",
-        "Create neon visor visor line with 'Color Dodge' at 100% opacity.",
-        "Open Blend Options (cog icon) on the shadow layer and tune underlying ranges to fade out over the neon visor.",
-        "Use Isolation Mode (Alt/Option + click thumbnail) to refine the visor curve in complete isolation."
+        "Dựng hình khối cơ bản của mũ bảo hộ và kính chắn gió.",
+        "Tạo lớp bóng đổ với Blend Mode 'Multiply' ở mức Opacity 75%.",
+        "Vẽ các đường đồ họa HUD sáng rực bằng Blend Mode 'Color Dodge' ở Opacity 100%.",
+        "Mở Blend Options (biểu tượng bánh răng) trên lớp bóng để giảm hòa trộn đè lên phần ánh sáng HUD rực nhất.",
+        "Dùng Isolation Mode (Alt/Option + Click thumbnail) để chỉnh nắn lại đường nét kính mũ cho gọn gàng."
       ],
-      "expectedOutcome": "A dazzling, cinematic vector illustration with dynamic light blending that adapts as underlying layers are moved."
+      "expectedOutcome": "Tác phẩm minh họa có chiều sâu ánh sáng chân thực và dễ dàng điều chỉnh tương tác khi dịch chuyển các lớp bên dưới."
     },
     "independentChallenge": {
-      "title": "Atmospheric Sunlit Forest Canopy",
-      "prompt": "Construct a dramatic sunlit forest scene: (1) Background trees in silhouette; (2) Volumetric sun rays using semi-transparent polygons set to 'Screen'; (3) Atmospheric haze set to 'Soft Light'; (4) Use Blend Ranges on the sun rays to ensure they fade completely out of the darkest trunk shadows (protecting deep contrast); (5) Use Isolation Mode to clean up stray nodes on the foliage layers.",
+      "title": "Rừng cây đón tia nắng xuyên tán lá",
+      "prompt": "Dựng một cảnh rừng có ánh sáng khí quyển: (1) Các lớp thân cây tạo bóng silhouette theo tầng xa gần; (2) Các mảng tia nắng xiên góc đặt chế độ 'Screen'; (3) Lớp sương mù dịu đặt chế độ 'Soft Light'; (4) Mở Blend Options trên tia nắng để làm tia sáng dịu đi ở những vùng bóng cây đậm nhất; (5) Dùng Isolation Mode để dọn sạch điểm neo thừa trên tán lá.",
       "starterAsset": {
         "filename": "D05_layers_masks_clipping_guide.md",
         "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
@@ -105,48 +105,48 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for Blend Modes and Blend Ranges (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành Blend Modes và Blend Ranges (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "At least 3 distinct blend modes utilized appropriately (Multiply, Screen, Soft Light).",
-        "Blend Options gear dialog customized with custom tonal falloff curve.",
-        "Isolation Mode utilized and verified during node editing."
+        "Vận dụng hợp lý ít nhất 3 Blend Mode khác nhau (Multiply, Screen, Soft Light).",
+        "Có tùy chỉnh đường cong trong hộp thoại Blend Options (biểu tượng bánh răng).",
+        "Thực hành kiểm tra và chỉnh sửa trong Isolation Mode."
       ],
-      "bonusGoal": "Nest a subtle grunge texture clipped inside the foreground tree silhouettes."
+      "bonusGoal": "Lồng thêm một lớp vân gỗ hoặc hạt grain nhẹ vào bên trong nhóm cây tiền cảnh."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Blend mode stops working when placed inside a group",
-        "cause": "The parent group's blend mode is set to 'Normal' instead of 'Pass Through', causing the group to isolate its inner blend calculations.",
-        "solution": "Set the group's blend mode to 'Pass Through' in the Layers Studio dropdown so inner blend modes interact with layers outside the group."
+        "pitfall": "Chế độ Multiply hoặc Screen bỗng nhiên ngừng tác dụng khi cho vào Group",
+        "cause": "Nhóm Group cha bị chuyển sang chế độ 'Normal' thay vì 'Pass Through', làm các phép hòa trộn bên trong bị cô lập chỉ trong nội bộ nhóm.",
+        "solution": "Chọn nhóm Group đó và đặt lại Blend Mode ở đầu bảng Layers Studio về 'Pass Through' để các lớp con hòa trộn xuyên ra nền ngoài."
       },
       {
-        "pitfall": "Artwork turns completely white or blown out with Color Dodge",
-        "cause": "Color Dodge calculates division by inverted values; white or very bright backgrounds result in pure blown specular clipping.",
-        "solution": "Switch to 'Screen' or reduce layer Opacity to ~40-60% when working over light backgrounds."
+        "pitfall": "Vùng sáng bị cháy trắng gắt khi dùng Color Dodge",
+        "cause": "Color Dodge khuếch đại ánh sáng rất mạnh; khi đặt đè lên nền vốn đã sáng dễ làm cháy bệt thành trắng 100%.",
+        "solution": "Chuyển sang 'Screen' để dịu hơn, hoặc giảm Opacity của lớp Color Dodge xuống khoảng 40% – 60%."
       },
       {
-        "pitfall": "Forgetting that Isolation Mode is active",
-        "cause": "Wondering why the rest of the canvas vanished.",
-        "solution": "Alt+Click / Option+Click on the isolated layer's thumbnail in the Layers panel to instantly restore the full canvas view."
+        "pitfall": "Tưởng mất toàn bộ bản vẽ vì quên đang bật Isolation Mode",
+        "cause": "Đã Alt+Click / Option+Click lên thumbnail một lớp trước đó mà quên thoát ra.",
+        "solution": "Nhấn chọn bất kỳ lớp nào khác hoặc Alt+Click / Option+Click lại lên thumbnail lớp đang cô lập (hoặc nhấp ra vùng trống trên canvas tùy thao tác bản cài đặt) để hiển thị lại toàn bộ bản vẽ."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D05-03-Q1",
-        "question": "How do you enter 'Isolation Mode' to view and edit a single layer or group on the canvas in Affinity Designer?",
+        "question": "Làm thế nào để bật 'Isolation Mode' xem và sửa riêng một lớp hoặc nhóm duy nhất trên canvas?",
         "options": [
-          "Double-click the spacebar.",
-          "Hold Alt (Windows) or Option (macOS) and click directly on the layer's thumbnail icon in the Layers Studio.",
-          "Press Ctrl+Shift+Q.",
-          "Delete all other layers."
+          "Nhấp đúp phím Spacebar.",
+          "Giữ phím Alt (Windows) hoặc Option (macOS) rồi nhấp thẳng vào ô ảnh thu nhỏ (Thumbnail) của lớp đó trong Layers Studio.",
+          "Nhấn Ctrl+Shift+Q.",
+          "Xóa hết các lớp còn lại."
         ],
         "correctIndex": 1,
-        "explanation": "Alt-clicking (Win) or Option-clicking (Mac) on a layer thumbnail solos that layer, temporarily hiding all other document content for distraction-free editing."
+        "explanation": "Alt+Click (Win) hoặc Option+Click (Mac) vào thumbnail lớp giúp cô lập ngay đối tượng đó trên màn hình để chỉnh sửa tập trung không vướng lớp khác."
       },
       {
         "id": "D05-03-Q2",
-        "question": "Which blend mode mathematically multiplies pixel values together, making pure white 100% transparent and darkening all underlying colors (ideal for realistic shadows)?",
+        "question": "Chế độ hòa trộn nào biến màu trắng tinh thành trong suốt 100% và nhân tối xuống màu nền bên dưới (rất hợp để đổ bóng)?",
         "options": [
           "Screen",
           "Multiply",
@@ -154,37 +154,37 @@
           "Luminosity"
         ],
         "correctIndex": 1,
-        "explanation": "Multiply is the industry standard for realistic shading; white pixels disappear, and darks blend smoothly into underlying color tones."
+        "explanation": "Multiply làm màu trắng trở nên trong suốt hoàn toàn và giữ các tông tối hòa sâu tự nhiên với màu sắc bên dưới."
       },
       {
         "id": "D05-03-Q3",
-        "question": "What unique capability does the 'Blend Options' gear icon provide in Affinity Designer?",
+        "question": "Biểu tượng bánh răng 'Blend Options' ở góc trên bảng Layers Studio mang lại khả năng đặc biệt gì?",
         "options": [
-          "It opens the print spooler.",
-          "It provides dual tonal curve graphs (Source and Underlying Ranges), allowing you to control exactly which luminance highlights or shadows blend into the composition.",
-          "It converts the vector layer to HTML code.",
-          "It changes the language of the application."
+          "Mở trình cài đặt máy in.",
+          "Cung cấp hai đồ thị sắc độ (Source và Underlying Composition Ranges) giúp quy định chính xác lớp đang chọn hòa trộn hay tan biến ở vùng tối/sáng nào.",
+          "Chuyển lớp vector sang mã HTML.",
+          "Đổi ngôn ngữ giao diện phần mềm."
         ],
         "correctIndex": 1,
-        "explanation": "Blend Ranges provides fine-grained tonal curve control, letting artists fade layers out of specific shadow or highlight luminance zones on underlying artwork."
+        "explanation": "Blend Ranges trong Blend Options cho phép điều khiển độ mờ dựa trên độ sáng tối của chính lớp hiện tại hoặc các lớp nền nằm bên dưới."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Blend modes (Multiply, Screen, Overlay) enable sophisticated optical lighting and shading.",
-        "Blend Ranges (gear icon) provide surgical control over tonal luminance falloff.",
-        "Pass Through allows grouped layers to blend with external layers beneath.",
-        "Isolation Mode (Alt/Option + Click thumbnail) isolates complex components for focused editing."
+        "Các chế độ Blend Mode (Multiply, Screen, Overlay, Color Dodge) giúp xử lý bóng đổ và ánh sáng chân thực.",
+        "Blend Options (biểu tượng bánh răng) kiểm soát chính xác dải sáng tối tham gia hòa trộn.",
+        "Giữ Group ở chế độ Pass Through để các lớp con hòa trộn được với nền bên ngoài nhóm.",
+        "Isolation Mode (Alt/Option + Click thumbnail) giúp sửa chi tiết tập trung trong các file hàng trăm lớp."
       ],
       "relatedResources": [
         {
-          "title": "Next Module: D06 Typography, Text-on-Path & Glyph Styling",
+          "title": "Module tiếp theo D06: Nghệ Thuật Chữ (Typography), Chữ Uốn Cong & Phân Cấp Thị Giác",
           "target": "D06-01",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Blend Modes & Blend Ranges",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Tài liệu chính thức Affinity: Blend Modes & Blend Ranges",
+          "target": "https://affinity.help/designer/en-US.lproj/pages/Layers/layerBlendModes.html",
           "type": "doc"
         }
       ]
@@ -195,95 +195,95 @@
       "id": "D05-03-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Layer Blend Modes, Blend Ranges & Isolation Mode",
-      "subtitle": "Unlocking Atmospheric Lighting & Surgical Solo Editing",
-      "contentMarkdown": "Welcome to **Lesson D05-03**.\n\nFlat color opacity only scratches the surface of digital art. Dynamic lighting—from volumetric sunbeams to cinematic rim lights—relies on **Blend Modes**.\n\nIn this lesson, you will master the 4 core blend families, discover Affinity's exclusive **Blend Ranges (Gear Icon)** tonal curves, and harness **Isolation Mode** for focused editing.",
+      "title": "Chế Độ Hòa Trộn Layer, Blend Ranges & Isolation Mode",
+      "subtitle": "Kiểm soát ánh sáng chiều sâu và chỉnh sửa đơn lớp không phân tâm",
+      "contentMarkdown": "Chào mừng bạn đến với **Bài D05-03**.\n\nGiảm Opacity đơn thuần chỉ làm mờ lớp chứ chưa tạo được ánh sáng rực hay bóng đổ có hồn. Ánh sáng tự nhiên—như tia nắng xuyên sương hay đèn neon phản chiếu—đòi hỏi sự phối hợp của **Blend Modes**.\n\nTrong bài học này, bạn sẽ nắm vững 4 nhóm hòa trộn chính, khám phá công cụ độc đáo **Blend Options (biểu tượng bánh răng)** và sử dụng **Isolation Mode** để soi sửa từng chi tiết trong file phức tạp.",
       "actionBox": {
-        "label": "Cinematic Lighting",
-        "text": "Multiply for cast shadows. Screen & Color Dodge for luminous neon glows. Overlay for punchy contrast."
+        "label": "Công thức ánh sáng nhanh",
+        "text": "Multiply cho bóng đổ. Screen và Color Dodge cho quầng phát sáng. Overlay để tăng độ bật tương phản."
       }
     },
     {
       "id": "D05-03-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The 4 Core Blend Mode Families",
-      "subtitle": "Mathematics of Vector Compositing",
-      "contentMarkdown": "In the Layers Studio top dropdown, blend modes are grouped into 4 mathematical families:\n\n1. **Darken (Multiply, Color Burn):** White becomes transparent; darks multiply downward. Perfect for cast shadows and inking.\n2. **Lighten (Screen, Color Dodge):** Black becomes transparent; brights add together. Perfect for laser visors and flares.\n3. **Contrast (Overlay, Soft Light):** 50% gray is transparent; darks darken and lights brighten.\n4. **Component (Luminosity, Color):** Preserves or transfers color without changing underlying tonal values.",
+      "title": "Bốn Nhóm Blend Mode Cốt Lõi",
+      "subtitle": "Logic xử lý ánh sáng khi các lớp xếp chồng lên nhau",
+      "contentMarkdown": "Trong danh sách đầu bảng **Layers Studio**, các chế độ hòa trộn được nhóm theo 4 nguyên lý:\n\n1. **Làm tối (Multiply, Color Burn):** Bỏ qua màu trắng, làm sâu các tông tối xuống nền dưới—chuẩn mực cho bóng đổ.\n2. **Làm sáng (Screen, Color Dodge):** Bỏ qua màu đen, cộng dồn ánh sáng rực rỡ—hợp vẽ đèn và hiệu ứng phát quang.\n3. **Tương phản (Overlay, Soft Light):** Màu xám 50% biến mất; vùng tối sâu thêm và vùng sáng bật rõ hơn.\n4. **Thành phần màu (Luminosity, Color):** Tách riêng màu sắc hoặc sắc độ sáng tối để phủ màu lại cho hình.",
       "visual": {
         "type": "badge-grid",
-        "content": "Multiply (Shadows) | Screen (Glows) | Overlay (Contrast) | Luminosity (Texture)"
+        "content": "Multiply (Bóng đổ) | Screen (Phát sáng) | Overlay (Tương phản) | Luminosity (Độ sáng)"
       }
     },
     {
       "id": "D05-03-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Blend Options & The Gear Icon",
-      "subtitle": "Surgical Luminance Tone Curves",
-      "contentMarkdown": "Beside the Opacity slider in the Layers Studio sits a small **Gear/Cog Icon**:\n\n- Click it to open **Blend Options**.\n- It contains two curve graphs:\n  - **Source Layer Ranges:** Controls which tones of the active layer are visible.\n  - **Underlying Composition Ranges:** Controls how the active layer reacts to the brightness of layers underneath it!\n- Drag the highlight node down to make shadows magically vanish when they touch sunny highlights.",
+      "title": "Blend Options & Biểu Tượng Bánh Răng",
+      "subtitle": "Điều chỉnh hòa trộn theo từng vùng sáng tối cụ thể",
+      "contentMarkdown": "Ngay bên cạnh thanh Opacity ở đầu bảng **Layers Studio** có một **biểu tượng bánh răng nhỏ**:\n\n- Nhấp vào đó để mở hộp thoại **Blend Options**.\n- Hộp thoại gồm 2 đồ thị đường cong:\n  - **Source Layer Ranges:** Quy định vùng sáng/tối nào của chính lớp đang chọn được hiện ra.\n  - **Underlying Composition Ranges:** Quy định lớp đang chọn sẽ phản ứng thế nào với độ sáng/tối của các lớp nằm bên dưới!\n- Ví dụ: Kéo điểm sáng bên phải đồ thị nền tụt xuống để bóng đổ tự biến mất khi gặp chỗ nắng gắt.",
       "visual": {
         "type": "diagram",
-        "content": "[Blend Options Gear Icon]\n       ├── Source Layer Ranges (Active Shape Falloff)\n       └── Underlying Composition (Fades out when touching underlying brights)"
+        "content": "[Biểu tượng bánh răng Blend Options]\n       ├── Source Layer Ranges (Lọc sáng/tối của lớp hiện tại)\n       └── Underlying Composition (Tự tan mờ khi chạm vùng sáng/tối lớp dưới)"
       }
     },
     {
       "id": "D05-03-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: The Isolation Mode Solo Workflow",
-      "subtitle": "Distraction-Free Editing in Complex Documents",
-      "contentMarkdown": "When a document has 200 overlapping vector layers, editing a single inner curve can be frustrating:\n\n1. Locate the layer in the Layers Studio.\n2. Hold **`Alt` (Windows) or `Option` (macOS)**.\n3. Click directly on the layer's **Thumbnail Icon**.\n4. **Boom!** The entire rest of the canvas disappears. ONLY the isolated layer is rendered on screen!\n5. Tweak its Bezier nodes and handles with the Node Tool (`A`) in complete clarity.\n6. Hold `Alt` / `Option` and click the thumbnail again to restore the full scene.",
+      "title": "Thực Hành: Chế Độ Cô Lập Đơn Lớp (Isolation Mode)",
+      "subtitle": "Làm việc tập trung tuyệt đối giữa hàng trăm đối tượng",
+      "contentMarkdown": "Khi tệp có quá nhiều chi tiết chồng lên nhau gây rối mắt lúc chỉnh điểm neo:\n\n1. Tìm đúng lớp muốn sửa trong **Layers Studio**.\n2. Giữ phím **`Alt` (Windows) hoặc `Option` (macOS)**.\n3. Nhấp trực tiếp vào ô **ảnh thu nhỏ (Thumbnail)** của lớp đó.\n4. Toàn bộ các lớp khác tạm ẩn đi, chỉ hiển thị duy nhất lớp bạn vừa chọn trên màn hình!\n5. Thoải mái dùng Node Tool (`A`) sửa nét rõ ràng.\n6. Giữ `Alt` / `Option` và nhấp lại vào thumbnail (hoặc nhấp chọn lớp khác) để thoát về toàn cảnh.",
       "actionBox": {
-        "label": "Solo Superpower",
-        "text": "Alt+Clicking a thumbnail isolates that layer instantly without having to hide other layers manually!"
+        "label": "Tiết kiệm thao tác",
+        "text": "Alt+Click lên thumbnail giúp cô lập tức thì mà không phải bấm tắt hàng chục dấu mắt hiển thị thủ công!"
       }
     },
     {
       "id": "D05-03-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "Group Blending: Pass Through vs Normal",
-      "subtitle": "Why Blend Modes Fail Inside Groups",
-      "contentMarkdown": "When you group layers that use Multiply or Screen:\n\n- **If Group is set to 'Normal':** The group evaluates its inner blend modes internally, then stamps the composite flat onto the canvas. The inner blend modes *cannot* interact with layers beneath the group!\n- **If Group is set to 'Pass Through':** The group acts as a transparent wrapper. Inner Multiply and Screen modes pass directly through the group boundary to interact with the external canvas.",
+      "title": "Hòa Trộn Trong Nhóm: Pass Through vs Normal",
+      "subtitle": "Vì sao Blend Mode bỗng ngừng chạy khi gom vào Group",
+      "contentMarkdown": "Khi bạn gom các lớp đang dùng Multiply hay Screen vào một `Group`:\n\n- **Nếu Group để chế độ 'Normal':** Nhóm tự khóa phép tính hòa trộn bên trong nội bộ rồi mới dán đè phẳng lên nền, khiến các lớp con *không* tương tác được với lớp bên ngoài nhóm.\n- **Nếu Group để chế độ 'Pass Through' (mặc định):** Nhóm trở thành vỏ bọc trong suốt về mặt hòa trộn, cho phép Multiply và Screen bên trong tác động thẳng xuống các lớp bên dưới nhóm.",
       "visual": {
         "type": "comparison",
-        "content": "Group set to Normal: Blends clamped inside group VS Group set to Pass Through: Blends interact with whole canvas"
+        "content": "Group = Normal: Hòa trộn bị chặn trong nhóm VS Group = Pass Through: Hòa trộn xuyên ra toàn bản vẽ"
       }
     },
     {
       "id": "D05-03-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Simulating Realistic Ambient Occlusion",
-      "subtitle": "Executing the Multiply + Blend Range Technique",
-      "contentMarkdown": "Follow these steps to create realistic crevice shading:\n\n1. **Step 1:** Draw a dark purple curve along the seam between two overlapping character armor plates.\n2. **Step 2:** Set Blend Mode to **Multiply** and Opacity to `80%`.\n3. **Step 3:** Click the **Gear icon** (Blend Options).\n4. **Step 4:** In 'Source Layer Ranges', drag the highlight end down slightly to soften the edge.\n5. **Inspect:** The crease darkens the armor naturally without looking like a flat black sticker!",
+      "title": "Kỹ Thuật Tạo Bóng Khe Kẽ Chân Thực",
+      "subtitle": "Phối hợp Multiply với đường cong Blend Ranges",
+      "contentMarkdown": "Thực hiện theo các bước sau:\n\n1. **Bước 1:** Vẽ một mảng bóng màu tím sẫm dọc theo rãnh ghép giữa hai mảng giáp.\n2. **Bước 2:** Đổi Blend Mode sang **Multiply** và đặt Opacity `80%`.\n3. **Bước 3:** Nhấn **biểu tượng bánh răng (Blend Options)**.\n4. **Bước 4:** Trong phần `Underlying Composition Ranges`, kéo hạ nhẹ đầu bên phải để bóng tan mượt khi gặp cạnh sáng hắt.\n5. **Kết quả:** Khe ghép có độ sâu tự nhiên chứ không bị đen sì như dán giấy đen!",
       "actionBox": {
-        "label": "Colorist Insight",
-        "text": "Never shade with flat black #000000. Use deep indigo or warm sepia with Multiply for rich, vibrant shadows."
+        "label": "Kinh nghiệm phối màu bóng",
+        "text": "Hạn chế đổ bóng bằng màu đen thuần #000000; hãy dùng xanh chàm đậm hoặc nâu tím với Multiply để màu sắc giữ được độ tươi."
       }
     },
     {
       "id": "D05-03-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Blend Mode Pitfalls & Troubleshooting",
-      "subtitle": "Avoid Common Blending Artifacts",
-      "contentMarkdown": "### 1. Blown Specular Clipping on Light Backgrounds\n- **The Issue:** Color Dodge or Add causes pixels to explode into 100% clipped white.\n- **The Fix:** Switch to **Screen** or lower layer Opacity to `50%`.\n\n### 2. Can't Find Where My Artwork Went\n- **The Cause:** You accidentally left Isolation Mode active.\n- **The Fix:** Look for the highlighted thumbnail in the Layers panel; `Alt+Click` / `Option+Click` it to restore all layers.",
+      "title": "Lỗi Hay Gặp Khi Hòa Trộn & Cô Lập Lớp",
+      "subtitle": "Tránh cháy sáng và nhầm trạng thái ẩn lớp",
+      "contentMarkdown": "### 1. Cháy trắng mất chi tiết khi dùng Color Dodge trên nền sáng\n- **Hiện tượng:** Vùng phát sáng biến thành mảng trắng bệt chói mắt.\n- **Cách sửa:** Chuyển sang **Screen** hoặc giảm Opacity xuống quanh mức `50%`.\n\n### 2. Tưởng lỡ xóa mất phần còn lại của bản vẽ\n- **Nguyên nhân:** Bạn đang ở trong **Isolation Mode**.\n- **Cách sửa:** Nhìn vào bảng Layers Studio, giữ `Alt` / `Option` và nhấp lại lên thumbnail đang sáng để khôi phục toàn bộ canvas.",
       "visual": {
         "type": "badge-grid",
-        "content": "Use Screen for Soft Glows | Lower Opacity on Dodge | Alt+Click Restores Canvas"
+        "content": "Dùng Screen cho sáng dịu | Hạ Opacity với Color Dodge | Alt+Click khôi phục toàn bản vẽ"
       }
     },
     {
       "id": "D05-03-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Cyberpunk Visor Illumination",
-      "subtitle": "Put Blend Modes and Isolation to the Test",
-      "contentMarkdown": "### Your Mission:\nConstruct a futuristic cyberpunk pilot visor:\n\n1. Base helmet: Dark slate armor plates.\n2. Visor glass: Deep cyan rectangle with **Multiply** ambient shadow at top.\n3. Digital HUD display: Neon green graphics set to **Color Dodge** for radiant luminescence.\n4. Use **Blend Options (Gear icon)** on the shadow to ensure it fades gracefully away from the neon HUD.\n5. Engage **Isolation Mode (`Alt/Option + Click`)** to fine-tune the HUD glyph geometry in total focus.\n\n### Acceptance Criteria:\n- Both Multiply and Color Dodge modes utilized effectively.\n- Blend Options customized with non-linear falloff.\n- Isolation Mode demonstrated.",
+      "title": "Thử Thách Độc Lập: Kính Mũ Phi Công Cyberpunk",
+      "subtitle": "Phối hợp Multiply, Color Dodge, Blend Options và Isolation Mode",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng phần kính chắn gió của một chiếc mũ bảo hộ tương lai:\n\n1. Vỏ mũ: Các mảng giáp xám đậm.\n2. Mặt kính: Hình chữ nhật cong màu xanh lơ đậm kèm bóng khe đặt chế độ **Multiply**.\n3. Giao diện HUD trên kính: Các ký hiệu xanh lá neon đặt chế độ **Color Dodge** phát sáng rực.\n4. Mở **Blend Options (biểu tượng bánh răng)** trên lớp bóng để bóng tự mờ đi tại khu vực tia HUD rực sáng.\n5. Bật **Isolation Mode (`Alt/Option + Click`)** để tinh chỉnh nét chữ và hình học HUD thật sạch.\n\n### Tiêu chí hoàn thành:\n- Vận dụng hiệu quả cả hai chế độ Multiply và Color Dodge.\n- Tùy chỉnh thành công đồ thị trong Blend Options.\n- Sử dụng Isolation Mode kiểm tra nét chi tiết.",
       "practiceData": {
-        "prompt": "Construct a cyberpunk visor with Multiply shadows and Color Dodge neon glows.",
+        "prompt": "Thiết kế kính mũ bảo hộ cyberpunk kết hợp Multiply, Color Dodge và Blend Options.",
         "starterAsset": {
           "filename": "D05_layers_masks_clipping_guide.md",
           "filepath": "curriculum/assets/designer/D05_layers_masks_clipping_guide.md",
@@ -291,12 +291,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Blend Modes and Isolation Mode."
+          "statusNote": "Hướng dẫn thực hành Blend Modes và Isolation Mode."
         },
         "checkpoints": [
-          "Multiply applied to shadow layer",
-          "Color Dodge / Screen applied to neon HUD elements",
-          "Blend Options gear tuned with custom curves"
+          "Đã áp dụng Multiply cho các lớp bóng đổ",
+          "Đã áp dụng Color Dodge / Screen cho chi tiết HUD phát sáng",
+          "Đã tùy chỉnh đồ thị sắc độ trong Blend Options"
         ]
       }
     }

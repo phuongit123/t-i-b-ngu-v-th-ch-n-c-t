@@ -3,95 +3,109 @@
   "moduleId": "D02",
   "trackId": "designer",
   "order": 1,
-  "title": "Pen Tool Modes & Bezier Handle Mechanics",
-  "subtitle": "Standard Pen, Smart Mode, Polygon, Line & Cusp Handle Breaking",
+  "title": "Vẽ đường cong bằng Pen Tool",
+  "subtitle": "Nhìn thanh tùy chọn, đặt điểm neo và kiểm tra đường trơn hoặc gãy",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Master the Pen Tool (P) and its four operational modes: Standard Pen, Smart Mode, Polygon Mode, and Line Mode.",
-      "Understand cubic Bezier curve mathematics: how control handle distance governs curvature tension and tangent angles.",
-      "Employ the Alt (Win) / Option (Mac) modifier to break handle symmetry into sharp cusp corners dynamically while drawing.",
-      "Place anchor points at geometric curve extrema (top, bottom, left, right) for clean, minimal vector paths."
+      "Làm chủ Pen Tool (công cụ vẽ đường cong Bézier, phím P) cùng 4 chế độ vẽ: Pen Mode, Smart Mode, Polygon Mode và Line Mode.",
+      "Hiểu nguyên lý toán học của đường cong Bézier bậc ba: độ dài và góc nghiêng của tay cầm quyết định độ căng và hướng tiếp tuyến.",
+      "Dùng Node Tool để kiểm tra tay cầm và sửa một đoạn có điểm gãy ngoài ý muốn.",
+      "Đặt điểm neo đúng tại các điểm cực trị (trên, dưới, trái, phải) để đường nét mượt mà với số lượng node tối giản."
     ],
-    "foundationalKnowledge": "Vector graphics calculate curves using cubic Bezier equations: two endpoints (anchor nodes) and two off-curve control points (handles). The length of a handle determines the tension or velocity of the curve, while its angle defines the entry tangent. In traditional software, artists frequently drop too many nodes, creating bumpy, lumpy paths. In Affinity Designer, the golden rule of vector geometry is 'Less is More': placing nodes strictly at horizontal and vertical curve extrema yields the smoothest curves and smallest file size.",
+    "foundationalKnowledge": "Một đoạn cong có hai điểm đầu mút. Hướng của tay cầm xác định hướng đường đi vào hoặc đi ra khỏi điểm. Vẽ ít điểm trước, sau đó thêm điểm khi cần đổi hướng. Với hình đơn giản, đặt điểm ở đỉnh, đáy hoặc hai bên giúp kiểm soát dáng dễ hơn.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Pen Tool Engine & Bezier Curve Documentation",
+      "classification": "DOCUMENTED",
+      "source": "Ảnh Pen Tool chụp trực tiếp trong Affinity 3.3.3.5004 Windows. Cách vẽ/sửa đường cong đối chiếu Affinity Vector Drawing.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Pen Tool",
-      "persona": "Vector Persona (Left Tools Panel)",
+      "persona": "Vector Studio (Thanh công cụ bên trái)",
       "shortcut": {
-        "win": "P (Cycles Pen modes if configured)",
-        "mac": "P (Cycles Pen modes if configured)"
+        "win": "P (Chọn Pen Tool)",
+        "mac": "P (Chọn Pen Tool)"
       },
-      "description": "The primary instrument for plotting precision mathematical Bezier curves. The Context Toolbar gives access to four drawing modes and node conversion options.",
+      "description": "Công cụ nền tảng để dựng đường cong Bézier chuẩn xác. Thanh Context Toolbar phía trên cho phép chuyển đổi giữa 4 chế độ vẽ và các tùy chọn hỗ trợ nối nét.",
       "contextBarOptions": [
-        "Mode: Pen Mode (standard cubic Bezier with drag handles)",
-        "Mode: Smart Mode (auto-calculates smooth curvature through points)",
-        "Mode: Polygon Mode (draws straight polygonal line segments)",
-        "Mode: Line Mode (creates individual two-point line segments)",
-        "Preserve selection when creating new curves toggle"
+        "Pen Mode: Vẽ đường cong Bézier chuẩn bằng cách nhấp và kéo tay cầm",
+        "Smart Mode: Tự động tính toán độ cong mượt qua từng điểm bạn nhấp",
+        "Polygon Mode: Vẽ các đoạn thẳng nối liền nhau tạo hình đa giác",
+        "Line Mode: Tạo từng đoạn thẳng 2 điểm tách biệt không nối tiếp",
+        "Preserve selection when creating new curves: Giữ trạng thái chọn để thao tác liên tục"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Activate the Pen Tool",
-        "instruction": "Press P to select the Pen Tool. Verify on the Context Toolbar that 'Pen Mode' (first icon) is selected.",
-        "shortcutTip": { "win": "P", "mac": "P" }
+        "title": "Kích hoạt Pen Tool",
+        "instruction": "Nhấn phím P để chọn Pen Tool. Kiểm tra trên thanh Context Toolbar xem biểu tượng đầu tiên 'Pen Mode' đang được chọn.",
+        "shortcutTip": {
+          "win": "P",
+          "mac": "P"
+        }
       },
       {
         "stepNumber": 2,
-        "title": "Plot a Smooth Bezier Arc",
-        "instruction": "Click and release on the canvas to place a starting node. Move right, click and drag upward to draw a graceful arch. Notice two symmetrical control handles extend out from the point.",
-        "shortcutTip": { "win": "Click & Drag", "mac": "Click & Drag" }
+        "title": "Vẽ một cung cong Bézier mượt mà",
+        "instruction": "Nhấp rồi thả chuột trên bản vẽ để đặt điểm bắt đầu. Di chuyển sang phải, nhấp và giữ kéo thẳng lên trên để tạo vòm cong. Bạn sẽ thấy hai tay cầm đối xứng vươn ra từ điểm neo vừa tạo.",
+        "shortcutTip": {
+          "win": "Nhấp và kéo chuột",
+          "mac": "Nhấp và kéo chuột"
+        }
       },
       {
         "stepNumber": 3,
-        "title": "Break Handle Symmetry with Alt/Option",
-        "instruction": "While still holding the mouse button, press and hold Alt (Win) or Option (Mac). Move the cursor to angle the forward handle downward at 90 degrees. Release the mouse. You have created an instant sharp corner without switching tools!",
-        "shortcutTip": { "win": "Alt+Drag Handle", "mac": "Option+Drag Handle" }
+        "title": "Sửa hình bằng Node Tool",
+        "instruction": "Chọn Node Tool trong thanh công cụ bên trái. Bấm vào điểm trên đường cong để hiện tay cầm, kéo một đầu tay cầm rồi quan sát hình đổi theo hướng kéo. Dùng Undo để so sánh với nét trước đó."
       },
       {
         "stepNumber": 4,
-        "title": "Experiment with Smart Mode",
-        "instruction": "Click the second icon on the Context Toolbar to enter 'Smart Mode'. Click 4 or 5 points across the canvas without dragging. Notice how Designer smoothly loops organic curves through every node automatically.",
-        "shortcutTip": { "win": "Smart Mode", "mac": "Smart Mode" }
+        "title": "Trải nghiệm chế độ Smart Mode",
+        "instruction": "Nhấn biểu tượng thứ hai trên thanh Context Toolbar để chuyển sang 'Smart Mode'. Nhấp liên tiếp 4–5 điểm trên màn hình mà không cần kéo chuột; Affinity tự tính toán cung uốn mềm mại đi qua toàn bộ các điểm đó.",
+        "shortcutTip": {
+          "win": "Smart Mode",
+          "mac": "Smart Mode"
+        }
       }
     ],
     "visualExamples": [
       {
-        "title": "Pen Tool 4-Mode Overview",
-        "description": "Functional matrix distinguishing the 4 Pen modes in Affinity Designer.",
-        "visualType": "table",
-        "visualContent": "| Pen Mode | Mouse Action | Curve Result | Best Use Case |\n|---|---|---|---|\n| Pen Mode | Click-drag handles | Full cubic Bezier control | Custom illustration, typography |\n| Smart Mode | Single clicks only | Algorithmic natural curve | Quick organic silhouettes |\n| Polygon Mode | Single clicks only | Strict straight edges | Low-poly art, geometric shapes |\n| Line Mode | Click-drag pairs | Discrete independent lines | Technical diagrams, dimension lines |"
+        "title": "Công cụ Pen trong Vector Studio",
+        "description": "Thanh tùy chọn xuất hiện ngay dưới thanh công cụ chính khi đã chọn Pen Tool.",
+        "visualType": "diagram",
+        "visualContent": "/assets/lessons/affinity-333-pen.webp"
       },
       {
-        "title": "Extrema Node Placement Rule",
-        "description": "Placing nodes at 90-degree curve tangents.",
+        "title": "Tổng quan 4 chế độ của Pen Tool",
+        "description": "Phân biệt thao tác chuột và tình huống áp dụng của 4 chế độ vẽ trong Vector Studio.",
+        "visualType": "table",
+        "visualContent": "| Chế độ Pen | Thao tác chuột | Kết quả đường vẽ | Tình huống dùng tối ưu |\n|---|---|---|---|\n| Pen Mode | Nhấp rồi kéo tay cầm | Đường cong Bézier kiểm soát toàn phần | Vẽ minh họa, logo, chữ tùy biến |\n| Smart Mode | Chỉ nhấp từng điểm | Đường cong mềm tính toán tự động | Phác thảo nhanh dáng hữu cơ |\n| Polygon Mode | Chỉ nhấp từng điểm | Toàn bộ là đoạn thẳng sắc cạnh | Đồ họa đa giác (Low-poly), kiến trúc |\n| Line Mode | Nhấp kéo từng cặp điểm | Từng đoạn thẳng rời độc lập | Sơ đồ kỹ thuật, đường gióng kích thước |"
+      },
+      {
+        "title": "Quy tắc đặt điểm neo tại cực trị (Extrema)",
+        "description": "Đặt điểm neo tại nơi tiếp tuyến nằm ngang hoặc thẳng đứng (góc 90 độ).",
         "visualType": "diagram",
-        "visualContent": "        (Node at Apex: Y Extrema)\n                ●───────○ (Handle H-constrained)\n              /   \\\n (X Extrema) ●     ● (X Extrema)\n              \\   /\n                ● (Node at Base: Y Extrema)\n*Golden Rule: Place nodes strictly where curves change direction horizontally or vertically.*"
+        "visualContent": "        (Điểm cực trị trên: Tiếp tuyến ngang)\n                ●───────○ (Tay cầm giữ ngang bằng Shift)\n              /   \\\n (Cực trị trái) ●   ● (Cực trị phải)\n              \\   /\n                ● (Điểm cực trị dưới)\n*Nguyên tắc: Chỉ đặt điểm neo tại những chỗ đường cong đổi chiều ngang hoặc dọc.*"
       }
     ],
     "guidedPractice": {
-      "title": "Drawing a Symmetrical Teardrop / Water Drop",
-      "taskDescription": "Construct a clean, single-path water droplet using 3 nodes at extrema and 1 sharp apex cusp.",
+      "title": "Vẽ giọt nước đối xứng bằng đúng 4 điểm neo",
+      "taskDescription": "Dựng một hình giọt nước cân đối trên một đường khép kín duy nhất với 3 điểm cực trị cong và 1 đỉnh nhọn ở chóp trên.",
       "checkpoints": [
-        "Select Pen Tool (P) in Standard Pen Mode.",
-        "Click at the top apex to place a sharp corner node.",
-        "Move down and right, click and drag vertically downward to place the right extrema node.",
-        "Move to the bottom center, click and drag horizontally to place the bottom curvature node.",
-        "Move up and left, click and drag vertically upward to place the left extrema node.",
-        "Click back on the starting top node to close the path."
+        "Chọn Pen Tool (P) ở chế độ Pen Mode tiêu chuẩn.",
+        "Nhấp một lần ở đỉnh trên cùng để tạo góc nhọn khởi đầu.",
+        "Di chuyển xuống bên phải, nhấp và kéo thẳng xuống theo chiều dọc để đặt điểm cực trị phải.",
+        "Xuống đáy giữa, nhấp và giữ Shift kéo ngang sang trái để tạo đáy tròn cân đối.",
+        "Lên mé bên trái, nhấp và kéo thẳng lên trên để đặt điểm cực trị trái.",
+        "Nhấp khép lại vào điểm đỉnh ban đầu để hoàn tất hình kín."
       ],
-      "expectedOutcome": "A sleek, organic teardrop with zero redundant nodes and perfectly smooth tangents."
+      "expectedOutcome": "Một hình giọt nước trơn tru, không thừa điểm neo và tiếp tuyến hoàn toàn cân xứng."
     },
     "independentChallenge": {
-      "title": "Vector Swan Silhouette Challenge",
-      "prompt": "Using the provided guide document, construct a graceful swan neck and head vector silhouette using no more than 8 anchor nodes total. Utilize Alt/Option to create a sharp beak cusp and smooth nodes for the neck curvature.",
+      "title": "Vẽ biểu tượng lá cho nhãn trà nhỏ",
+      "prompt": "Tham khảo poster Trà Mát rồi vẽ một chiếc lá khác cho nhãn trà đường kính 30 mm. Tự chọn vị trí điểm neo và kiểm hình ở kích thước nhỏ. Lưu bản nguồn chỉnh được và ghi lại điểm bạn sửa sau khi kiểm.",
       "starterAsset": {
         "filename": "D02_pen_node_geometry_guide.md",
         "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
@@ -99,86 +113,90 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Includes Bezier curvature setup instructions (GUIDE_DOCUMENT)."
+        "statusNote": "Bao gồm hướng dẫn thực hành đường cong Bézier (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Path must be completely closed and filled with a solid color.",
-        "Node count must be 8 or fewer.",
-        "Beak must have clean sharp cusps; neck must have silky smooth transitions."
-      ],
-      "bonusGoal": "Convert the beak tip into a 0.5mm rounded corner using the Corner Tool (C)."
+        "Một đường cong kín, nhận được màu đặc.",
+        "Đầu lá và dáng lá còn rõ ở kích thước nhãn.",
+        "Có bản nguồn và ghi chú chỉ vị trí điểm đã chỉnh."
+      ]
     },
     "commonPitfalls": [
       {
-        "pitfall": "Over-plotting anchor nodes (Node Overcrowding)",
-        "cause": "Clicking every few millimeters along a curve out of fear of Bezier handle control.",
-        "solution": "Delete intermediate nodes with Backspace/Delete. Extend the handles of the remaining nodes to span the curve smoothly."
+        "pitfall": "Chấm quá nhiều điểm neo dày đặc dọc theo cung cong",
+        "cause": "Ngại kéo tay cầm Bézier nên nhấp chuột liên tục vài milimet một điểm.",
+        "solution": "Chọn các điểm thừa ở giữa bằng Node Tool (A) rồi nhấn Backspace/Delete, sau đó kéo dài tay cầm của hai điểm còn lại để ôm trọn cung cong."
       },
       {
-        "pitfall": "Accidentally creating a new layer instead of continuing a path",
-        "cause": "Deselecting the curve before clicking the next point.",
-        "solution": "Hover over the endpoint node until the Pen cursor displays a link/minus badge, then click to resume drawing the same curve."
+        "pitfall": "Vô tình tạo ra một layer đường mới thay vì vẽ nối tiếp đường cũ",
+        "cause": "Bỏ chọn đường đang vẽ trước khi chấm tiếp điểm kế theo.",
+        "solution": "Di chuột lại gần điểm cuối của đường cũ cho đến khi con trỏ Pen hiện dấu hiệu nối tiếp, rồi nhấp vào đó để vẽ tiếp trên cùng một layer."
       },
       {
-        "pitfall": "Uncontrolled handle explosion when clicking and dragging",
-        "cause": "Dragging too far across the screen, making the handle longer than the distance between nodes.",
-        "solution": "Keep handle lengths to approximately 1/3 of the length of the curve arc being drawn."
+        "pitfall": "Tay cầm kéo quá dài làm đường cong bị xoắn nút thắt",
+        "cause": "Kéo tay cầm vươn quá xa, vượt qua cả vị trí của điểm neo kế tiếp.",
+        "solution": "Giữ độ dài mỗi tay cầm xấp xỉ 1/3 khoảng cách giữa hai điểm neo để cung cong căng đều và dễ kiểm soát."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D02-01-Q1",
-        "question": "Which keyboard modifier breaks the collinear symmetry of a Bezier handle into a sharp cusp while drawing with the Pen Tool?",
+        "question": "Bạn cần chỉnh dáng của một đoạn cong đã vẽ. Thao tác nào trực tiếp nhất?",
         "options": [
-          "Shift (Win / Mac)",
-          "Alt (Windows) / Option (macOS)",
-          "Ctrl (Windows) / Cmd (macOS)",
-          "Spacebar"
+          "Đổi độ dày nét",
+          "Chọn điểm bằng Node Tool rồi chỉnh tay cầm",
+          "Xuất ảnh PNG",
+          "Đổi màu nền tài liệu"
         ],
         "correctIndex": 1,
-        "explanation": "Holding Alt (Windows) or Option (macOS) while dragging a Bezier control handle disconnects the opposing handle, creating a sharp corner angle."
+        "explanation": "Node Tool chọn điểm neo và tay cầm của đường cong đang có. Chỉnh tay cầm giúp đổi dáng mà giữ lại cấu trúc còn sửa được."
       },
       {
         "id": "D02-01-Q2",
-        "question": "What is the primary advantage of 'Smart Mode' on the Pen Tool?",
+        "question": "Ưu điểm chính của chế độ 'Smart Mode' trên thanh công cụ Pen Tool là gì?",
         "options": [
-          "It converts the artwork to CMYK automatically.",
-          "It computes optimal natural smooth curvature through placed nodes without requiring manual handle dragging.",
-          "It deletes the layer if there is an error.",
-          "It forces all lines to snap to 90-degree angles."
+          "Tự động chuyển toàn bộ bản vẽ sang hệ màu CMYK.",
+          "Tự động tính toán độ cong mềm mại đi qua các điểm bạn nhấp mà không bắt buộc phải kéo tay cầm thủ công.",
+          "Tự động xóa layer nếu phát hiện đường cong bị lỗi.",
+          "Ép mọi đoạn vẽ phải thẳng góc 90 độ."
         ],
         "correctIndex": 1,
-        "explanation": "Smart Mode uses an intelligent curvature interpolation algorithm that draws smooth, organic arcs through clicked points without manual handle manipulation."
+        "explanation": "Smart Mode dùng thuật toán nội suy độ cong để nối mượt qua chuỗi điểm bạn nhấp, rất nhanh khi đồ lại phác thảo hữu cơ."
       },
       {
         "id": "D02-01-Q3",
-        "question": "Where should anchor nodes ideally be placed along an organic curve for optimal smoothness and editability?",
+        "question": "Trên một đường cong tròn hoặc hữu cơ, nên đặt các điểm neo ở đâu để nét vừa mượt vừa dễ sửa?",
         "options": [
-          "Randomly every 10 pixels along the perimeter.",
-          "Strictly at curve extrema (points of horizontal and vertical tangent changes).",
-          "Only in the exact center of the document.",
-          "At every straight line midpoint."
+          "Đặt ngẫu nhiên cách nhau mỗi 10 pixel.",
+          "Đặt đúng tại các điểm cực trị (nơi tiếp tuyến đường cong nằm ngang hoặc thẳng đứng).",
+          "Chỉ đặt ở chính giữa tài liệu.",
+          "Đặt ở trung điểm của mọi đoạn thẳng."
         ],
         "correctIndex": 1,
-        "explanation": "Placing anchor nodes at curve extrema (highest, lowest, leftmost, and rightmost points) minimizes the total node count and produces the mathematically cleanest Bezier curves."
+        "explanation": "Đặt điểm neo tại các cực trị (cao nhất, thấp nhất, trái nhất, phải nhất) giúp giảm tối đa số điểm cần thiết và cho phép chỉnh góc tay cầm gọn bằng phím Shift."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "The Pen Tool (P) is the foundation of precision vector art in Affinity Designer.",
-        "Cubic Bezier handles govern curve direction and curvature tension.",
-        "Alt/Option breaks handle symmetry for instant sharp corners.",
-        "Placing nodes at extrema produces superior curves with minimal node overhead."
+        "Pen Tool (P) là công cụ cốt lõi để dựng đường nét vector chính xác trong Affinity.",
+        "Tay cầm Bézier quyết định góc tiếp tuyến và lực căng của đoạn cong.",
+        "Dùng Node Tool để kiểm tra và điều chỉnh từng tay cầm sau khi vẽ.",
+        "Đặt điểm neo tại cực trị tạo ra đường cong mịn nhất với ít điểm nhất."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D02-02 Node Classifications & Node Tool Manipulation",
+          "title": "Bài tiếp theo: D02-02 Phân loại node và thao tác bằng Node Tool",
           "target": "D02-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Pen Tool Modes",
-          "target": "https://affinity.serif.com/designer/",
+          "title": "Affinity: Vẽ và sửa đường cong",
+          "target": "https://www.affinity.studio/features/vector-drawing",
+          "type": "doc"
+        },
+        {
+          "title": "Poster Trà Mát (.svg)",
+          "target": "/assets/lessons/tra-mat.svg",
           "type": "doc"
         }
       ]
@@ -189,72 +207,75 @@
       "id": "D02-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Pen Tool Modes & Bezier Curve Mechanics",
-      "subtitle": "Unlocking the Mathematics of Infinite Vector Geometry",
-      "contentMarkdown": "Welcome to **Module D02: Vector Nodes, Paths & Pen Tool Geometry**.\n\nWhile shape primitives provide quick building blocks, true vector mastery begins when you command the **Pen Tool (P)**.\n\nIn this lesson, you will master cubic Bezier handle mechanics, conquer handle-breaking shortcuts, and learn the industry-standard **Extrema Rule** for plotting razor-sharp, buttery-smooth curves.",
+      "title": "Các Chế Độ Pen Tool & Cơ Chế Tay Cầm Bézier",
+      "subtitle": "Làm chủ hình học đường cong vector vô hạn độ phân giải",
+      "contentMarkdown": "Chào mừng bạn đến với **Module D02: Điểm Node Vector, Đường Vẽ & Hình Học Công Cụ Pen**.\n\nHình khối có sẵn giúp dựng phác nhanh, nhưng để vẽ logo, chữ tùy biến hay đường nét minh họa riêng biệt, bạn cần làm chủ **Pen Tool (P)**.\n\nTrong bài học này, bạn sẽ hiểu cơ chế tay cầm Bézier, thao tác bẻ góc tức thời và **quy tắc đặt điểm cực trị (Extrema)** cho đường cong trơn mượt.",
       "actionBox": {
-        "label": "Core Maxim",
-        "text": "Great vector artists do not place the most nodes; they place the fewest nodes in the mathematically ideal positions."
+        "label": "Tư duy vẽ vector",
+        "text": "Người vẽ giỏi không chấm thật nhiều điểm neo, mà đặt đúng số điểm ít nhất tại những vị trí chuyển hướng chuẩn xác."
       }
     },
     {
       "id": "D02-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Anatomy of a Cubic Bezier Curve",
-      "subtitle": "Nodes, Handles, Tension & Tangents",
-      "contentMarkdown": "Every curved segment in Affinity Designer is governed by a **Cubic Bezier Equation** composed of:\n\n1. **Anchor Nodes (Points):** The fixed coordinates on the canvas where the curve begins and terminates.\n2. **Control Handles:** Tangent levers extending from each node.\n   - **Handle Angle:** Dictates the entry and exit angle of the curve.\n   - **Handle Length:** Controls the tension (velocity) of the curve arc.\n3. **Handle Symmetry:** By default, pulling one handle mirror-rotates the opposing handle to keep curves perfectly smooth.",
+      "title": "Giải Phẫu Một Đường Cong Bézier Bậc Ba",
+      "subtitle": "Điểm neo, tay cầm, lực căng và tiếp tuyến",
+      "contentMarkdown": "Mỗi đoạn cong trong Affinity được xác định bởi **phương trình Bézier bậc ba** gồm:\n\n1. **Điểm neo (Anchor Nodes):** Tọa độ cố định đánh dấu điểm đầu và điểm cuối của đoạn nét.\n2. **Tay cầm điều khiển (Control Handles):** Đòn bẩy tiếp tuyến tỏa ra từ điểm neo.\n   - **Góc tay cầm:** Quy định hướng tiếp tuyến khi nét đi qua điểm neo.\n   - **Độ dài tay cầm:** Quy định lực kéo (độ phồng) của cung cong.\n3. **Tính đối xứng mặc định:** Khi kéo một tay cầm, tay cầm đối diện xoay gương 180 độ để giữ độ mượt liên tục.",
       "visual": {
         "type": "diagram",
-        "content": "Control Handle [○] <==== Tangent Angle ====> [○] Control Handle\n          \\\n           ● Anchor Node (Curvature Apex)\n          /\n   Curve Arc Flowing to Next Node..."
+        "content": "Tay cầm trái [○] <==== Trục tiếp tuyến ====> [○] Tay cầm phải\n            \\\n             ● Điểm neo (Đỉnh cung cong)\n            /\n     Đoạn cong chạy tiếp tới điểm kế..."
       }
     },
     {
       "id": "D02-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Pen Tool 4 Operational Modes",
-      "subtitle": "Choosing the Right Mode for the Job",
-      "contentMarkdown": "On the Context Toolbar, the Pen Tool features 4 distinct operational modes:\n\n- **Pen Mode (Default):** Standard cubic Bezier mode. Click for sharp nodes, click-drag for smooth handles.\n- **Smart Mode:** Click points consecutively; Designer computes fluid curvature automatically.\n- **Polygon Mode:** Enforces straight lines between points. Perfect for faceted origami or low-poly geometry.\n- **Line Mode:** Creates isolated two-point line segments without continuous path chaining.",
+      "title": "Bốn Chế Độ Hoạt Động Của Pen Tool",
+      "subtitle": "Chọn đúng chế độ cho từng kiểu hình học",
+      "contentMarkdown": "Trên thanh **Context Toolbar**, Pen Tool cung cấp 4 chế độ riêng biệt:\n\n- **Pen Mode (Mặc định):** Vẽ đường cong Bézier chuẩn. Nhấp tạo góc nhọn, nhấp kéo tạo tay cầm mượt.\n- **Smart Mode:** Chỉ cần nhấp điểm liên tiếp, Affinity tự uốn đường cong mềm đi qua từng điểm.\n- **Polygon Mode:** Chỉ vẽ đoạn thẳng nối các góc. Rất hợp để vẽ hình kỷ hà hoặc low-poly.\n- **Line Mode:** Tạo các đoạn thẳng 2 điểm tách rời nhau, không tự nối thành chuỗi dài.",
       "actionBox": {
-        "label": "Pro Shortcut",
-        "text": "Hold Alt (Windows) or Option (macOS) while dragging a handle to snap-break it into an independent cusp handle.",
-        "shortcut": { "win": "Alt+Drag", "mac": "Option+Drag" }
+        "label": "Phím tắt quan trọng",
+        "text": "Giữ Alt (Windows) hoặc Option (macOS) trong lúc kéo tay cầm để bẻ gãy đối xứng thành góc nhọn tức thì.",
+        "shortcut": {
+          "win": "Alt + Kéo tay cầm",
+          "mac": "Option + Kéo tay cầm"
+        }
       }
     },
     {
       "id": "D02-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: The Extrema Node Method",
-      "subtitle": "Constructing Smooth Shapes with Minimal Anchors",
-      "contentMarkdown": "Follow these steps to plot a flawless curved arch:\n\n1. **Step 1:** Select the Pen Tool (`P`) in Standard Pen Mode.\n2. **Step 2:** Click at the left base (Point A). Hold `Shift` and drag upward to establish a vertical tangent.\n3. **Step 3:** Move to the apex peak (Point B). Click and drag horizontally to the right while holding `Shift`.\n4. **Step 4:** Move to the right base (Point C). Click and drag downward.\n5. **Inspect:** Notice how constraining handles to 90° angles creates an optically pure parabolic curve with zero wobbles!",
+      "title": "Thực Hành: Phương Pháp Đặt Điểm Cực Trị",
+      "subtitle": "Dựng vòm cong chuẩn xác với số node tối thiểu",
+      "contentMarkdown": "Thực hiện các bước sau để tạo một vòm cung cân xứng:\n\n1. **Bước 1:** Chọn **Pen Tool (`P`)** ở chế độ Pen Mode.\n2. **Bước 2:** Nhấp tại chân trái (Điểm A), giữ `Shift` và kéo thẳng lên trên để dựng tiếp tuyến đứng.\n3. **Bước 3:** Đưa chuột lên đỉnh vòm (Điểm B), giữ `Shift` và kéo ngang sang phải.\n4. **Bước 4:** Xuống chân phải (Điểm C), giữ `Shift` và kéo thẳng xuống.\n5. **Kiểm tra:** Nhờ khóa tay cầm theo trục 90 độ tại đúng các cực trị, vòm cong trơn láng không hề bị méo!",
       "visual": {
         "type": "comparison",
-        "content": "Beginner Method: 14 random nodes (Bumpy & heavy) VS Extrema Method: 3 orthogonal nodes (Silky & ultra-clean)"
+        "content": "Cách mới học: 14 điểm chấm rải rác (Lồi lõm, khó sửa) VS Cách cực trị: 3 điểm vuông góc (Mịn và gọn)"
       }
     },
     {
       "id": "D02-01-S5",
       "slideNumber": 5,
       "type": "pitfalls",
-      "title": "Common Pen Traps & Troubleshooting",
-      "subtitle": "Avoid These Beginner Habits",
-      "contentMarkdown": "### 1. Node Overcrowding\n- **The Trap:** Clicking every few millimeters around a curve. Results in jagged edges.\n- **The Fix:** Delete unnecessary nodes with `Backspace`. Adjust remaining handles to bridge the distance.\n\n### 2. Handle Crossing Over\n- **The Trap:** Dragging a control handle past its partner node, creating an accidental loop knot.\n- **The Fix:** Ensure handle lengths never exceed ~35% of the total distance between adjacent nodes.\n\n### 3. Accidental Path Disconnection\n- **The Fix:** If you click away and lose your active path, switch to Node Tool (`A`), select the end node, switch back to Pen (`P`), and click the endpoint to resume drawing.",
+      "title": "Các Bẫy Hay Gặp Khi Dùng Pen Tool",
+      "subtitle": "Sửa nhanh các lỗi của người mới vẽ Bézier",
+      "contentMarkdown": "### 1. Chấm quá dày điểm neo\n- **Hậu quả:** Đường nét bị gãy gồ ghề, về sau muốn nắn lại dáng rất mất công.\n- **Cách khắc phục:** Xóa bớt điểm giữa bằng `Backspace`/`Delete` và kéo tay cầm hai đầu rộng ra.\n\n### 2. Tay cầm kéo dài quá tay gây xoắn thắt nút\n- **Hậu quả:** Đoạn cong tự vòng ngược tạo nút thắt chéo.\n- **Cách khắc phục:** Giữ tay cầm dài khoảng 1/3 khoảng cách tới điểm neo tiếp theo.\n\n### 3. Mất kết nối khi lỡ nhấp ra ngoài\n- **Cách khắc phục:** Chọn **Node Tool (`A`)**, nhấp vào điểm đầu mút cuối cùng, đổi lại sang **Pen Tool (`P`)** rồi nhấp đúng vào điểm đó để vẽ nối tiếp.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "A curve should always be controlled by its handles, not by adding more nodes."
+        "label": "Nguyên tắc cốt lõi",
+        "text": "Hãy điều chỉnh độ cong bằng tay cầm chứ đừng cố sửa dáng bằng cách chấm thêm điểm neo."
       }
     },
     {
       "id": "D02-01-S6",
       "slideNumber": 6,
       "type": "challenge",
-      "title": "Independent Challenge: The 8-Node Swan",
-      "subtitle": "Put Precision Geometry into Practice",
-      "contentMarkdown": "### Your Mission:\nConstruct a graceful swan neck and head vector silhouette using no more than **8 anchor nodes** total:\n\n1. Plot nodes strictly at horizontal and vertical curve extrema.\n2. Use `Alt` / `Option` to snap-break a sharp cusp at the tip of the beak.\n3. Close the path by clicking the starting node and apply a clean fill.\n\n### Acceptance Criteria:\n- Path is 100% closed vector curves.\n- Node count is 8 or fewer in the Node Tool.\n- Zero kinks on the neck curve.",
+      "title": "Vẽ biểu tượng lá cho nhãn trà nhỏ",
+      "subtitle": "Kiểm chứng kỹ năng kiểm soát đường cong",
+      "contentMarkdown": "Tham khảo poster Trà Mát rồi vẽ một chiếc lá khác cho nhãn trà đường kính 30 mm. Tự chọn vị trí điểm neo và kiểm hình ở kích thước nhỏ. Lưu bản nguồn chỉnh được và ghi lại điểm bạn sửa sau khi kiểm.\n\n- Một đường cong kín, nhận được màu đặc.\n- Đầu lá và dáng lá còn rõ ở kích thước nhãn.\n- Có bản nguồn và ghi chú chỉ vị trí điểm đã chỉnh.",
       "practiceData": {
-        "prompt": "Construct an 8-node organic vector swan silhouette using extrema placement.",
+        "prompt": "Dựng bóng thiên nga vector bằng không quá 8 điểm neo theo quy tắc cực trị.",
         "starterAsset": {
           "filename": "D02_pen_node_geometry_guide.md",
           "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
@@ -262,12 +283,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for Pen Tool geometry."
+          "statusNote": "Hướng dẫn thực hành vẽ hình học bằng Pen Tool."
         },
         "checkpoints": [
-          "Pen Tool active in Standard Pen Mode",
-          "Handles constrained with Shift & Alt modifiers",
-          "Total node count does not exceed 8 nodes"
+          "Dùng Pen Tool ở chế độ Pen Mode",
+          "Khóa trục bằng Shift và bẻ góc bằng Alt/Option",
+          "Tổng số điểm neo không vượt quá 8"
         ]
       }
     }

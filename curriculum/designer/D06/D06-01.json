@@ -3,93 +3,93 @@
   "moduleId": "D06",
   "trackId": "designer",
   "order": 1,
-  "title": "Artistic Text vs Frame Text & Text Hierarchy",
-  "subtitle": "Display Headlines vs Body Copy, Kerning, Tracking & Leading",
+  "title": "Artistic Text, Frame Text và phân cấp kiểu chữ",
+  "subtitle": "Tiêu đề hiển thị và văn bản đoạn, Kerning, Tracking và khoảng cách dòng (Leading)",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Distinguish between Artistic Text and Frame Text, and select the appropriate tool for display logos vs multi-line body paragraphs.",
-      "Understand text box scaling behavior: resizing text frames (reflow) versus scaling text font size (distortion avoidance).",
-      "Master micro-typography keyboard shortcuts: manual kerning (Alt+Left/Right), tracking, and baseline shift.",
-      "Establish an optical typographic hierarchy: selecting complementary font pairings, leading scales, and weight contrasts."
+      "Phân biệt rõ Artistic Text Tool (công cụ chữ nghệ thuật) và Frame Text Tool (công cụ khung chữ đoạn văn) để chọn đúng công cụ cho logo, tiêu đề hay văn bản nhiều dòng.",
+      "Hiểu cơ chế co giãn khung chữ: phân biệt kéo khung để ngắt dòng tự động (reflow) với kéo phóng to cỡ chữ để tránh làm méo hình ký tự.",
+      "Thành thạo phím tắt tinh chỉnh khoảng cách chữ (micro-typography): chỉnh kerning thủ công (Alt+Mũi tên Trái/Phải), tracking và dịch đường cơ sở (baseline shift).",
+      "Thiết lập phân cấp thị giác rõ ràng cho kiểu chữ: phối hợp cặp phông chữ tương hỗ, tỷ lệ khoảng cách dòng (leading) và độ tương phản độ đậm."
     ],
-    "foundationalKnowledge": "In digital design, typography is divided into two distinct functional requirements: (1) Display Typography: Large, high-impact headlines, logotypes, and labels where letterforms are treated as geometric art; (2) Body Typography: Continuous reading paragraphs where text must flow, wrap, and paginate reliably across layout boundaries. Affinity Designer addresses this with two dedicated text tools: the Artistic Text Tool (click-drag to scale font point size interactively) and the Frame Text Tool (defines a fixed rectangular or shaped container that wraps copy without scaling point size). Mastering the key differences prevents common beginner accidents where paragraphs get inadvertently stretched or distorted.",
+    "foundationalKnowledge": "Trong thiết kế đồ họa, kiểu chữ phục vụ hai nhu cầu hoàn toàn khác nhau: (1) Chữ hiển thị (Display Typography) như tiêu đề lớn, logotype, nhãn nổi bật, nơi từng chữ cái đóng vai trò như hình khối đồ họa; (2) Chữ nội dung (Body Typography) cho đoạn văn đọc liên tục, cần tự động xuống dòng và dàn đều theo lề khung. Affinity đáp ứng hai nhu cầu này bằng hai công cụ riêng: Artistic Text Tool (kéo thả để định cỡ chữ trực tiếp) và Frame Text Tool (tạo khung chứa cố định giúp chữ tự ngắt dòng mà không thay đổi cỡ chữ). Nắm chắc ranh giới này giúp bạn tránh lỗi phổ biến khi mới học là vô tình kéo dẹt hoặc làm phình cỡ chữ của cả đoạn văn.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Designer 3.3.3 Typography Engine & Text Tool Specification",
+      "source": "Đặc tả công cụ chữ và bộ xử lý Typography trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Artistic Text Tool & Frame Text Tool",
-      "persona": "Vector Persona (Left Tools Panel)",
+      "toolName": "Artistic Text Tool & Frame Text Tool (Chữ nghệ thuật & Khung chữ)",
+      "persona": "Vector Studio (thanh Tools bên trái)",
       "shortcut": {
-        "win": "T (Artistic Text / Frame Text toggle)",
-        "mac": "T (Artistic Text / Frame Text toggle)"
+        "win": "T (Chuyển đổi giữa Artistic Text Tool và Frame Text Tool)",
+        "mac": "T (Chuyển đổi giữa Artistic Text Tool và Frame Text Tool)"
       },
-      "description": "Artistic Text is optimized for display headlines and logos; Frame Text is engineered for multi-line copy with automatic wrapping.",
+      "description": "Artistic Text Tool tối ưu cho tiêu đề hiển thị và logo; Frame Text Tool được thiết kế cho văn bản nhiều dòng có khả năng tự động xuống dòng trong khung.",
       "contextBarOptions": [
-        "Font Family & Font Style dropdowns (Weights: Thin, Light, Regular, SemiBold, Bold, Black)",
-        "Font Size input with quick scrub slider and point increments",
-        "Kerning / Tracking inputs (Manual kerning between letter pairs; tracking across selections)",
-        "Leading override and paragraph alignment (Left, Center, Right, Justified)",
-        "Convert to Curves button: Converts editable typography into static Bezier outlines"
+        "Danh sách Font Family & Font Style (chọn họ phông và các mức độ đậm như Thin, Light, Regular, SemiBold, Bold, Black)",
+        "Ô nhập Font Size kèm thanh trượt nhanh và bước tăng giảm theo đơn vị point",
+        "Thông số Kerning / Tracking (chỉnh khoảng cách giữa một cặp chữ hoặc giãn đều cả đoạn chọn)",
+        "Thông số Leading và căn lề đoạn văn (Trái, Giữa, Phải, Căn đều hai bên)",
+        "Nút Convert to Curves: chuyển đổi chữ đang sửa được thành đường cong Bézier tĩnh"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Create an Artistic Text Headline",
-        "instruction": "Select the Artistic Text Tool (letter 'A' on the toolbar, shortcut T). Click and drag on the canvas to set the initial point size visually. Type 'SUMMIT COFFEE'. Notice the text acts like a vector object: dragging its corner handle with the Move Tool scales font size smoothly.",
+        "title": "Tạo tiêu đề bằng Artistic Text Tool",
+        "instruction": "Chọn Artistic Text Tool (biểu tượng chữ 'A' trên thanh công cụ, phím tắt T). Nhấp và kéo trên bản vẽ để định sẵn kích thước chữ trực quan, rồi gõ 'SUMMIT COFFEE'. Chữ hoạt động như một khối vector: khi kéo tay nắm góc bằng Move Tool (V), cỡ chữ tự động thay đổi theo tỷ lệ.",
         "shortcutTip": { "win": "T (Artistic Text)", "mac": "T (Artistic Text)" }
       },
       {
         "stepNumber": 2,
-        "title": "Create a Multi-Line Frame Text Box",
-        "instruction": "Select the Frame Text Tool (letter 'T' in a box). Click and drag a rectangle. Go to Text > Insert Filler Text. Drag the right edge of the frame. Notice the words reflow smoothly across lines, while the font size remains completely fixed at 12 pt!",
+        "title": "Tạo hộp văn bản nhiều dòng bằng Frame Text Tool",
+        "instruction": "Chọn Frame Text Tool (biểu tượng chữ 'T' nằm trong khung vuông). Nhấp và kéo tạo một khung chữ nhật, vào Text > Insert Filler Text để điền chữ mẫu. Kéo cạnh phải của khung vào trong hoặc ra ngoài: các từ tự động dồn dòng mượt mà trong khi cỡ chữ vẫn giữ nguyên ở 12 pt.",
         "shortcutTip": { "win": "Frame Text Tool", "mac": "Frame Text Tool" }
       },
       {
         "stepNumber": 3,
-        "title": "Perform Optical Micro-Kerning",
-        "instruction": "Click with the text tool between a capital 'T' and 'A'. Notice an awkward visual gap due to character geometry. Hold Alt (Windows) or Option (macOS) and press the Left Arrow key repeatedly. The letters tighten by 10‰ increments until optically balanced.",
-        "shortcutTip": { "win": "Alt+Left Arrow", "mac": "Option+Left Arrow" }
+        "title": "Tinh chỉnh kerning thủ công theo cảm quan thị giác",
+        "instruction": "Đặt con trỏ gõ chữ vào giữa chữ 'T' hoa và chữ 'A'. Quan sát khoảng trống thị giác hơi hở do dáng chữ nghiêng. Giữ phím Alt (Windows) hoặc Option (macOS) rồi nhấn phím Mũi tên Trái nhiều lần: hai chữ khép lại từng nấc 10‰ cho đến khi nhìn cân đối.",
+        "shortcutTip": { "win": "Alt+Mũi tên Trái", "mac": "Option+Mũi tên Trái" }
       },
       {
         "stepNumber": 4,
-        "title": "Adjust Tracking on Headlines",
-        "instruction": "Select an entire uppercase headline. In the Character Studio (View > Studio > Character), increase Tracking to +150‰. The expanded letter-spacing delivers an immediate luxury, high-end editorial aesthetic.",
+        "title": "Giãn chữ Tracking cho tiêu đề phụ",
+        "instruction": "Bôi đen toàn bộ một dòng tiêu đề viết hoa. Mở bảng Character Studio (View > Studio > Character), tăng Tracking lên +150‰. Khoảng cách chữ mở rộng đều giúp cụm tiêu đề thoáng và sang trọng hơn hẳn.",
         "shortcutTip": { "win": "Character Studio > Tracking", "mac": "Character Studio > Tracking" }
       }
     ],
     "visualExamples": [
       {
-        "title": "Artistic Text vs Frame Text Matrix",
-        "description": "Comparison of the two typography tools.",
+        "title": "Bảng so sánh Artistic Text Tool và Frame Text Tool",
+        "description": "Khác biệt cốt lõi giữa hai công cụ chữ trong Vector Studio.",
         "visualType": "table",
-        "visualContent": "| Feature | Artistic Text Tool | Frame Text Tool |\n|---|---|---|\n| Dragging Corner Handle | Scales the actual font point size larger/smaller | Reflows text inside the box; font size remains fixed |\n| Text Wrapping | Never auto-wraps; requires manual Enter key | Auto-wraps lines cleanly at container margins |\n| Primary Use Case | Brand logos, headlines, badges, callouts | Editorial body paragraphs, card descriptions, specs |\n| Path Conversion | Direct support for curved Text-on-Path | Text threads between multiple frames |"
+        "visualContent": "| Tiêu chí | Artistic Text Tool | Frame Text Tool |\n|---|---|---|\n| Khi kéo tay nắm góc khung | Phóng to hoặc thu nhỏ trực tiếp cỡ chữ (pt) | Sắp xếp lại số dòng trong khung; cỡ chữ giữ nguyên |\n| Tự động xuống dòng | Không tự ngắt dòng; phải nhấn Enter thủ công | Tự động ngắt dòng gọn theo mép khung chứa |\n| Ứng dụng phù hợp | Logo, tiêu đề lớn, huy hiệu, nhãn giá | Đoạn văn mô tả, nội dung bài viết, thông số |\n| Chức năng nâng cao | Gắn trực tiếp làm chữ chạy theo đường cong | Nối luồng văn bản chảy qua nhiều khung liên tiếp |"
       },
       {
-        "title": "Kerning vs Tracking Diagram",
-        "description": "Distinguishing letter pair adjustment from global spacing.",
+        "title": "Phân biệt Kerning và Tracking",
+        "description": "Khác biệt giữa chỉnh khoảng cách một cặp ký tự và giãn đều cả cụm chữ.",
         "visualType": "diagram",
-        "visualContent": "Kerning:   T │ A (Adjusts spacing between exactly TWO specific letters)\nTracking:  [A ── V ── A ── I ── L ── A ── B ── L ── E] (Uniform spacing across ALL letters)"
+        "visualContent": "Kerning:   T │ A (Chỉnh khoảng cách giữa đúng HAI ký tự đứng cạnh nhau)\nTracking:  [A ── V ── A ── I ── L ── A ── B ── L ── E] (Giãn đều đồng loạt TẤT CẢ ký tự được chọn)"
       }
     ],
     "guidedPractice": {
-      "title": "Designing a Luxury Branding Wordmark",
-      "taskDescription": "Construct a high-end luxury brand typography hierarchy for a fashion atelier using custom tracking and optical kerning.",
+      "title": "Thiết kế cụm chữ nhận diện cho thương hiệu thời trang",
+      "taskDescription": "Xây dựng phân cấp kiểu chữ tinh gọn cho một xưởng thời trang bằng cách kết hợp tracking mở rộng và kerning căn chỉnh bằng mắt.",
       "checkpoints": [
-        "Create brand title 'L'AVENIR' using Artistic Text (High-contrast Serif typeface, 48 pt).",
-        "Manually kern the 'L', apostrophe, and 'A' using Alt/Option + Arrow keys to achieve balanced whitespace.",
-        "Create subtitle 'HAUTE COUTURE PARIS' in clean geometric sans-serif (10 pt), set to All Caps, with +250‰ tracking.",
-        "Create a Frame Text block beneath containing a 3-line brand bio with 1.4x proportional line leading."
+        "Tạo tên thương hiệu 'L'AVENIR' bằng Artistic Text Tool (chọn phông Serif có độ tương phản nét cao, cỡ 48 pt).",
+        "Dùng Alt/Option + Mũi tên chỉnh kerning thủ công cho cụm 'L', dấu nháy và 'A' để khoảng trắng đều nhịp.",
+        "Tạo dòng phụ 'HAUTE COUTURE PARIS' bằng phông Sans-serif hình học (10 pt), viết hoa toàn bộ (All Caps), đặt tracking +250‰.",
+        "Tạo một hộp Frame Text bên dưới chứa đoạn giới thiệu 3 dòng với khoảng cách dòng (leading) bằng 1.4 lần cỡ chữ."
       ],
-      "expectedOutcome": "An elegant, polished luxury brand lockup with optically flawless kerning and sophisticated letter-spacing."
+      "expectedOutcome": "Cụm nhận diện chữ cân đối về thị giác, không còn khe hở gãy nhịp và phân tách rõ tầng thông tin chính–phụ."
     },
     "independentChallenge": {
-      "title": "Magazine Editorial Hero Header",
-      "prompt": "Construct a bold magazine cover headline composition: (1) Giant oversized display word using Artistic Text overlapping an architectural photo; (2) Tight negative tracking (-30‰) on the headline for an impactful modern poster feel; (3) A 2-column Frame Text editorial intro with 14pt leading and justified text; (4) Convert the display word to curves (Layer > Convert to Curves) and customize one letter's descender with the Node Tool (A).",
+      "title": "Tiêu đề bìa tạp chí kiến trúc",
+      "prompt": "Thiết kế bố cục tiêu đề cho trang bìa tạp chí: (1) Một từ khóa hiển thị cỡ lớn bằng Artistic Text đặt chồng lên ảnh kiến trúc; (2) Đặt tracking âm nhẹ (-30‰) cho tiêu đề lớn để tạo khối chắc khỏe; (3) Tạo đoạn giới thiệu 2 cột bằng Frame Text với leading 14 pt và căn đều hai bên; (4) Nhân bản lớp tiêu đề lớn, chuyển thành đường cong (Layer > Convert to Curves) rồi dùng Node Tool (A) kéo dài một nét chân chữ để tạo dấu ấn riêng.",
       "starterAsset": {
         "filename": "D06_typography_glyphs_guide.md",
         "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -97,60 +97,60 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Practice setup guide for typography and kerning (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn thiết lập thực hành typography và kerning (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Both Artistic Text and Frame Text utilized for appropriate roles.",
-        "Manual kerning applied to awkward character pairings (e.g. 'AV', 'To', 'WA').",
-        "Customized letterform converted cleanly to Bezier curves without orphan nodes."
+        "Sử dụng đúng Artistic Text Tool cho tiêu đề và Frame Text Tool cho đoạn nội dung.",
+        "Áp dụng kerning thủ công cho các cặp chữ dễ hở khoảng trống (như 'AV', 'To', 'WA').",
+        "Ký tự sau khi chuyển thành đường cong Bézier mượt mà, không phát sinh điểm neo thừa."
       ],
-      "bonusGoal": "Apply a vertical baseline shift to superscript characters in the subtitle."
+      "bonusGoal": "Áp dụng dịch chuyển đường cơ sở (baseline shift) theo phương dọc cho ký tự chỉ số trên ở dòng phụ."
     },
     "commonPitfalls": [
       {
-        "pitfall": "Distorting Frame Text by scaling the outer frame handle",
-        "cause": "Accidentally dragging the extra detached scaling handle (outer lower-right handle) on a text frame instead of the standard corner bounding box.",
-        "solution": "Drag the standard corner handles on the frame border to reflow text. Only use the detached floating handle if you deliberately want to scale both box and text size simultaneously."
+        "pitfall": "Làm biến dạng cỡ chữ trong Frame Text khi kéo nhầm tay nắm ngoài",
+        "cause": "Kéo nhầm tay nắm rời nằm tách ra phía ngoài góc dưới bên phải của khung chữ thay vì tay nắm góc nằm ngay trên viền khung.",
+        "solution": "Luôn kéo tay nắm nằm trên viền khung để chữ tự ngắt dòng. Chỉ dùng tay nắm tròn rời ở ngoài khi bạn chủ ý muốn phóng cả khung lẫn cỡ chữ cùng lúc."
       },
       {
-        "pitfall": "Using spacebar to space out letters",
-        "cause": "Typing multiple spaces between letters to increase letter-spacing.",
-        "solution": "Never use spacebars! Use the Tracking field in the Character Studio. Tracking applies mathematically uniform kerning units that export cleanly to SVG and web fonts."
+        "pitfall": "Dùng phím Spacebar để giãn khoảng cách chữ",
+        "cause": "Gõ nhiều dấu cách liên tiếp giữa từng chữ cái nhằm giả lập độ giãn chữ.",
+        "solution": "Tuyệt đối không dùng dấu cách để giãn chữ. Hãy dùng ô Tracking trong Character Studio để khoảng cách đều về mặt toán học và sạch mã khi xuất SVG."
       },
       {
-        "pitfall": "Losing live font editability after converting to curves",
-        "cause": "Converting to curves prematurely, making typo corrections impossible.",
-        "solution": "Keep an invisible backup copy of the live editable text layer before executing Convert to Curves."
+        "pitfall": "Mất khả năng sửa lỗi chính tả sau khi Convert to Curves",
+        "cause": "Chuyển chữ sang đường cong quá sớm khiến không thể gõ sửa lại nội dung văn bản.",
+        "solution": "Luôn nhân bản một bản sao lớp chữ gốc và ẩn đi (tắt dấu tích hiển thị) trước khi chạy lệnh Convert to Curves."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D06-01-Q1",
-        "question": "What is the primary operational difference when dragging a corner bounding handle on an Artistic Text object versus a Frame Text object?",
+        "question": "Sự khác biệt chính khi kéo tay nắm góc khung bao của Artistic Text so với Frame Text là gì?",
         "options": [
-          "Artistic Text reflows into a paragraph; Frame Text changes font.",
-          "Artistic Text scales the physical font point size larger or smaller; Frame Text reflows the text inside the box while keeping font size unchanged.",
-          "Artistic Text converts into a bitmap.",
-          "There is no difference."
+          "Artistic Text tự xuống dòng thành đoạn văn; Frame Text tự đổi phông chữ.",
+          "Artistic Text phóng to hoặc thu nhỏ trực tiếp cỡ chữ (point size); Frame Text giữ nguyên cỡ chữ và tự sắp xếp lại dòng văn bản trong khung.",
+          "Artistic Text tự biến thành ảnh điểm ảnh bitmap.",
+          "Hai công cụ hoạt động giống hệt nhau khi kéo góc."
         ],
         "correctIndex": 1,
-        "explanation": "Artistic Text treats the letterforms as an interactive vector graphic whose point size scales with the bounding box, whereas Frame Text reflows lines within fixed margins."
+        "explanation": "Artistic Text coi chữ như đối tượng đồ họa nên cỡ chữ thay đổi theo khung bao, còn Frame Text coi khung như vùng chứa cố định nên chữ tự ngắt dòng lại theo lề mới."
       },
       {
         "id": "D06-01-Q2",
-        "question": "Which keyboard shortcut allows you to manually adjust kerning between two letters by 10‰ increments in Affinity Designer?",
+        "question": "Tổ hợp phím tắt nào dùng để chỉnh kerning thủ công giữa hai ký tự liền kề theo từng bước 10‰ trong Affinity?",
         "options": [
-          "Alt (Windows) / Option (macOS) + Left/Right Arrow Keys",
+          "Alt (Windows) / Option (macOS) + Phím Mũi tên Trái/Phải",
           "Ctrl+K / Cmd+K",
           "Shift+Spacebar",
-          "Tab"
+          "Phím Tab"
         ],
         "correctIndex": 0,
-        "explanation": "Placing the cursor between two characters and holding Alt (Win) or Option (Mac) while tapping the Left or Right arrow key adjusts kerning in real-time micro-increments."
+        "explanation": "Khi đặt con trỏ giữa hai chữ cái, giữ Alt (Win) hoặc Option (Mac) kết hợp nhấn Mũi tên Trái/Phải sẽ co giãn khoảng cách cặp chữ theo từng bước nhỏ ngay lập tức."
       },
       {
         "id": "D06-01-Q3",
-        "question": "What typographic parameter adjusts the uniform horizontal spacing across an ENTIRE block or line of text?",
+        "question": "Thông số nào điều chỉnh khoảng cách ngang đồng đều trên TOÀN BỘ cụm từ hoặc đoạn chữ đang chọn?",
         "options": [
           "Kerning",
           "Tracking",
@@ -158,24 +158,24 @@
           "Baseline Shift"
         ],
         "correctIndex": 1,
-        "explanation": "Tracking adjusts the overall letter-spacing uniformly across a selection of text, whereas Kerning operates strictly between an individual pair of characters."
+        "explanation": "Tracking giãn hoặc thu khoảng cách đồng đều trên cả vùng chữ được chọn, trong khi Kerning chỉ tác động lên một cặp hai ký tự đứng cạnh nhau."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Artistic Text is ideal for display headlines, logos, and badges where point size scales interactively.",
-        "Frame Text is engineered for body copy, wrapping lines cleanly at container margins.",
-        "Manual kerning (Alt/Option + Arrow keys) eliminates optical gaps between difficult letter pairs.",
-        "Tracking expands or contracts overall spacing for high-end editorial styling."
+        "Artistic Text Tool phù hợp cho tiêu đề, logo và nhãn ngắn cần thay đổi cỡ chữ trực quan.",
+        "Frame Text Tool sinh ra để xử lý đoạn văn nhiều dòng với khả năng tự ngắt dòng theo khung.",
+        "Chỉnh kerning thủ công (Alt/Option + Mũi tên) giúp xóa các khoảng hở thị giác khó chịu giữa những cặp chữ nghiêng.",
+        "Chỉnh tracking hợp lý giúp tách bạch vai trò giữa tiêu đề lớn chắc khỏe và phụ đề thoáng nhịp."
       ],
       "relatedResources": [
         {
-          "title": "Next Lesson: D06-02 Text-on-Path & Circular Badges",
+          "title": "Bài tiếp theo: D06-02 Chữ chạy theo đường cong và huy hiệu tròn",
           "target": "D06-02",
           "type": "next-lesson"
         },
         {
-          "title": "Affinity Documentation: Typography Tools & Hierarchy",
+          "title": "Tài liệu Affinity: Công cụ chữ và phân cấp kiểu chữ",
           "target": "https://affinity.serif.com/designer/",
           "type": "doc"
         }
@@ -187,36 +187,36 @@
       "id": "D06-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Artistic Text vs Frame Text & Text Hierarchy",
-      "subtitle": "The Architecture of Professional Vector Typography",
-      "contentMarkdown": "Welcome to **Module D06: Typography, Text-on-Path & Glyph Styling**.\n\nTypography is the voice of graphic design. A brilliant illustration paired with clumsy, un-kerned typography looks amateur.\n\nIn this lesson, you will master the two fundamental text engines in Affinity Designer—**Artistic Text vs Frame Text**—and learn micro-typography shortcuts for **flawless optical kerning**.",
+      "title": "Artistic Text, Frame Text và phân cấp kiểu chữ",
+      "subtitle": "Nền tảng thiết kế chữ Vector chuyên nghiệp",
+      "contentMarkdown": "Chào mừng bạn đến với **Module D06: Nghệ Thuật Chữ (Typography), Chữ Uốn Cong & Phân Cấp Thị Giác**.\n\nChữ là tiếng nói trực tiếp của bản thiết kế. Một hình minh họa đẹp nếu đi kèm phần chữ lệch nhịp, hở khoảng trống thiếu kiểm soát sẽ lập tức giảm giá trị chuyên nghiệp.\n\nTrong bài học này, bạn sẽ làm chủ hai công cụ chữ cốt lõi của Affinity — **Artistic Text Tool** và **Frame Text Tool** — cùng các phím tắt chỉnh **kerning** nhanh và chuẩn xác.",
       "actionBox": {
-        "label": "Golden Rule",
-        "text": "Use Artistic Text for logos and headlines. Use Frame Text for body copy and paragraphs."
+        "label": "Nguyên tắc cốt lõi",
+        "text": "Dùng Artistic Text cho logo và tiêu đề lớn. Dùng Frame Text cho đoạn văn bản nhiều dòng."
       }
     },
     {
       "id": "D06-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "The Two Typography Paradigms",
-      "subtitle": "Interactive Scaling vs Automatic Reflow",
-      "contentMarkdown": "Affinity Designer divides text into two distinct tools on the toolbar (`T`):\n\n1. **Artistic Text Tool:**\n   - Click-drag on canvas to set initial font point size.\n   - Dragging the corner handle **scales the actual font size** (e.g. 24pt up to 72pt).\n   - Never auto-wraps; perfect for logos, titles, and price tags.\n2. **Frame Text Tool:**\n   - Click-drag a bounding rectangle on canvas.\n   - Dragging the corner handle **reflows words across lines**; font size stays fixed.\n   - Perfect for multi-line body paragraphs and product cards.",
+      "title": "Hai mô hình xử lý chữ khác nhau",
+      "subtitle": "Phóng cỡ trực tiếp hay Tự ngắt dòng theo khung",
+      "contentMarkdown": "Trên thanh công cụ (`T`), Affinity chia rõ hai chế độ tạo chữ:\n\n1. **Artistic Text Tool (Chữ nghệ thuật):**\n   - Nhấp kéo trực tiếp trên bản vẽ để định cỡ chữ ngay lúc tạo.\n   - Kéo tay nắm góc sẽ **phóng to hoặc thu nhỏ cỡ chữ** (ví dụ từ 24 pt lên 72 pt).\n   - Không tự xuống dòng; phù hợp cho logo, tiêu đề, tem nhãn.\n2. **Frame Text Tool (Khung chữ đoạn văn):**\n   - Nhấp kéo tạo hộp chữ nhật giới hạn vùng chứa.\n   - Kéo tay nắm góc làm **chữ tự dồn dòng lại**; cỡ chữ giữ nguyên.\n   - Phù hợp cho đoạn mô tả, nội dung thẻ thông tin, tài liệu dài.",
       "visual": {
         "type": "comparison",
-        "content": "Artistic Text: Scales font size with bounding box VS Frame Text: Wraps lines within fixed margins"
+        "content": "Artistic Text: Đổi cỡ chữ theo khung bao  |  Frame Text: Ngắt dòng lại theo lề khung cố định"
       }
     },
     {
       "id": "D06-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Micro-Typography: Kerning vs Tracking vs Leading",
-      "subtitle": "Understanding Spacing Metrics",
-      "contentMarkdown": "Mastering the three foundational spacing dimensions:\n\n- **Kerning:** Spacing between a *single specific pair* of adjacent characters (e.g. 'A' and 'V'). Adjusted optically to eliminate awkward gaps.\n- **Tracking:** Uniform spacing across an *entire word or paragraph*. Increasing tracking on all-caps titles creates an airy, luxury feel.\n- **Leading:** The vertical distance between consecutive baselines of text (line height).",
+      "title": "Khoảng cách vi mô: Kerning, Tracking và Leading",
+      "subtitle": "Ba thông số kiểm soát nhịp điệu chữ",
+      "contentMarkdown": "Nắm vững ba trục đo khoảng cách cơ bản của kiểu chữ:\n\n- **Kerning:** Khoảng cách giữa *đúng một cặp hai ký tự* liền kề (như 'A' và 'V'). Dùng để cân lại độ khít theo mắt nhìn.\n- **Tracking:** Khoảng cách ngang đồng đều trên *cả từ hoặc cả đoạn văn*. Tăng tracking trên chữ viết hoa tạo cảm giác thoáng, tinh tế.\n- **Leading:** Khoảng cách theo chiều dọc giữa đường cơ sở (baseline) của các dòng kế tiếp nhau.",
       "actionBox": {
-        "label": "Essential Kerning Shortcut",
-        "text": "Place cursor between two letters: hold Alt (Win) / Option (Mac) + tap Left/Right Arrow keys to kern by 10‰.",
+        "label": "Phím tắt Kerning cần nhớ",
+        "text": "Đặt con trỏ giữa hai ký tự: giữ Alt (Win) / Option (Mac) và nhấn Mũi tên Trái/Phải để chỉnh từng bước 10‰.",
         "shortcut": { "win": "Alt+Arrow", "mac": "Option+Arrow" }
       }
     },
@@ -224,59 +224,59 @@
       "id": "D06-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Step-by-Step: Optical Kerning Workflow",
-      "subtitle": "Eliminating Awkward Letterform Gaps",
-      "contentMarkdown": "Follow these steps to kern a luxury display logo:\n\n1. **Step 1:** Select the Artistic Text Tool (`T`) and type 'VAULT'.\n2. **Step 2:** Choose a bold serif or clean geometric sans-serif typeface.\n3. **Step 3:** Place your cursor between 'V' and 'A'. Notice the diagonal slant of 'V' creates an immense optical canyon before 'A'.\n4. **Step 4:** Hold `Alt` / `Option` and press **Left Arrow** 4 times until the visual negative space matches the gap between 'U' and 'L'.\n5. **Inspect:** The wordmark now flows with seamless optical rhythm!",
+      "title": "Thực hành từng bước: Cân Kerning bằng mắt",
+      "subtitle": "Xử lý khoảng hở thị giác giữa các cặp chữ khó",
+      "contentMarkdown": "Làm theo các bước sau để cân chỉnh một chữ thương hiệu:\n\n1. **Bước 1:** Chọn **Artistic Text Tool (`T`)** và gõ chữ `'VAULT'`.\n2. **Bước 2:** Chọn một phông Serif đậm hoặc Sans-serif hình học rõ nét.\n3. **Bước 3:** Đặt con trỏ vào giữa `'V'` và `'A'`. Độ nghiêng ngược chiều của hai nét chéo khiến khoảng trống ở giữa trông rộng hơn hẳn các chữ còn lại.\n4. **Bước 4:** Giữ `Alt` / `Option` và nhấn **Mũi tên Trái** 4 lần cho đến khi độ thoáng giữa `V–A` cân bằng với khoảng giữa `U–L`.\n5. **Kiểm tra:** Tổng thể dòng chữ liền mạch và cân đối ngay khi lướt mắt qua.",
       "visual": {
         "type": "table",
-        "content": "| Problematic Letter Pairs | Why They Need Manual Kerning |\n|---|---|\n| T + o / T + e | Crossbar overhang leaves giant whitespace underneath |\n| A + V / V + A | Diagonal strokes collide or separate awkwardly |\n| L + T / L + Y | Horizontal base of L creates a void beneath T or Y |"
+        "content": "| Cặp ký tự dễ lỗi | Lý do cần chỉnh Kerning thủ công |\n|---|---|\n| T + o / T + e | Thanh ngang trên của chữ T tạo khoảng hở lớn phía dưới |\n| A + V / V + A | Hai nét xiên ngược chiều dễ tạo khe trống quá rộng |\n| L + T / L + Y | Chân ngang chữ L để lại khoảng trống lớn bên dưới chữ T, Y |"
       }
     },
     {
       "id": "D06-01-S5",
       "slideNumber": 5,
       "type": "theory",
-      "title": "The Power of Luxury Tracking",
-      "subtitle": "Transforming Small Text into High-Fashion Accents",
-      "contentMarkdown": "A staple technique in high-end editorial and perfume branding:\n\n- Type secondary labels or subtitles in **ALL CAPS** (e.g. 'AUTUMN / WINTER COLLECTION').\n- Set font size small (`9 pt` to `11 pt`).\n- In the Character Studio, boost **Tracking to `+200‰` or `+300‰`**.\n- The generous letter-spacing creates an undeniable impression of elegance, restraint, and luxury.",
+      "title": "Sức mạnh của Tracking trong phân cấp chữ",
+      "subtitle": "Biến dòng chữ nhỏ thành điểm nhấn biên tập",
+      "contentMarkdown": "Một kỹ thuật quen thuộc trong thiết kế bao bì và tạp chí:\n\n- Gõ dòng phụ đề hoặc nhãn phân mục ở dạng **VIẾT HOA TOÀN BỘ** (ví dụ `'AUTUMN / WINTER COLLECTION'`).\n- Giữ cỡ chữ nhỏ gọn (`9 pt` đến `11 pt`).\n- Trong bảng **Character Studio**, tăng **Tracking lên `+200‰` hoặc `+300‰`**.\n- Khoảng thở rộng rãi tạo nét điềm tĩnh, tách bạch rõ với tiêu đề chính cỡ lớn phía trên.",
       "actionBox": {
-        "label": "Design Secret",
-        "text": "Tighten tracking (-10‰ to -30‰) on massive headlines; expand tracking (+150‰ to +300‰) on small all-caps subtitles."
+        "label": "Mẹo phân cấp nhanh",
+        "text": "Thu nhẹ tracking (-10‰ đến -30‰) cho tiêu đề rất lớn; mở rộng tracking (+150‰ đến +300‰) cho phụ đề viết hoa cỡ nhỏ."
       }
     },
     {
       "id": "D06-01-S6",
       "slideNumber": 6,
       "type": "step-by-step",
-      "title": "Converting Text to Vector Curves",
-      "subtitle": "When and How to Freeze Type into Geometry",
-      "contentMarkdown": "Before sending logo artwork to print or using boolean operations on letterforms:\n\n1. Select the live Artistic Text object with the Move Tool (`V`).\n2. Go to **`Layer > Convert to Curves`** (or press `Ctrl+Enter` / `Cmd+Enter`).\n3. The text layer converts into a Group of individual `(Curve)` shapes!\n4. You can now use the Node Tool (`A`) to sculpt custom ligatures, extend serifs, or slice letters with Boolean Divide.",
+      "title": "Chuyển chữ thành đường cong Vector",
+      "subtitle": "Khi nào nên đóng băng chữ thành hình học",
+      "contentMarkdown": "Trước khi gửi logo cho nhà in hoặc muốn cắt ghép Boolean trực tiếp lên nét chữ:\n\n1. Chọn lớp **Artistic Text** bằng **Move Tool (`V`)**.\n2. Vào **`Layer > Convert to Curves`** (hoặc nhấn `Ctrl+Enter` / `Cmd+Enter`).\n3. Lớp chữ lập tức biến thành một nhóm gồm từng khối `(Curve)` riêng biệt.\n4. Dùng **Node Tool (`A`)** để kéo dài chân chữ, bo góc hoặc cắt ghép tạo dáng chữ độc bản.",
       "actionBox": {
-        "label": "Production Best Practice",
-        "text": "Always keep a hidden backup of the live text layer! Once converted to curves, you cannot fix spelling errors."
+        "label": "Thói quen an toàn",
+        "text": "Luôn giữ lại một bản sao ẩn của lớp chữ sống trước khi Convert to Curves để còn sửa được khi sai chính tả."
       }
     },
     {
       "id": "D06-01-S7",
       "slideNumber": 7,
       "type": "pitfalls",
-      "title": "Typography Pitfalls & Common Mistakes",
-      "subtitle": "Avoid These Beginner Habits",
-      "contentMarkdown": "### 1. The Accidental Squished Text Trap\n- **The Issue:** A headline appears vertically squished or horizontally stretched.\n- **The Cause:** Dragging a middle edge handle on a text box instead of the corner proportional handle.\n- **The Fix:** In the Character panel, verify both Horizontal and Vertical Scale are set to exactly `100%`.\n\n### 2. Spacing Letters with the Spacebar\n- **The Issue:** Typing spaces between characters to simulate tracking.\n- **The Fix:** Never use spacebars! Use the **Tracking field** in the Character panel for mathematically consistent spacing that remains accessible.",
+      "title": "Lỗi thường gặp khi làm việc với chữ",
+      "subtitle": "Nhận diện và phòng tránh sớm",
+      "contentMarkdown": "### 1. Chữ bị kéo bẹt ngang hoặc kéo dài dọc\n- **Hiện tượng:** Dáng chữ biến dạng méo mó mất tỷ lệ gốc của nhà thiết kế phông.\n- **Nguyên nhân:** Kéo nhầm tay nắm ở giữa cạnh khung thay vì tay nắm ở góc.\n- **Khắc phục:** Kiểm tra bảng **Character**, đưa cả Horizontal Scale và Vertical Scale về đúng `100%`.\n\n### 2. Gõ phím Spacebar để giãn chữ\n- **Hiện tượng:** Thêm dấu cách giữa các ký tự cho chữ thưa ra.\n- **Khắc phục:** Luôn dùng thông số **Tracking** trong Character Studio để giữ độ giãn chuẩn xác và sạch cấu trúc tệp.",
       "visual": {
         "type": "badge-grid",
-        "content": "Keep Scale at 100% | Never Use Spacebar for Tracking | Duplicate Before Converting to Curves"
+        "content": "Giữ Scale 100% | Không dùng Spacebar để giãn chữ | Nhân bản lớp dự phòng trước khi Convert to Curves"
       }
     },
     {
       "id": "D06-01-S8",
       "slideNumber": 8,
       "type": "challenge",
-      "title": "Independent Challenge: Luxury Atelier Wordmark",
-      "subtitle": "Put Typography Mastery into Action",
-      "contentMarkdown": "### Your Mission:\nConstruct a high-fashion luxury atelier identity lockup:\n\n1. Headline wordmark: Artistic Text 'MONOLITH' using high-contrast serif typography (`44 pt`).\n2. Manually kern the 'M-O-N-O' sequence using `Alt/Option + Arrow` keys.\n3. Subtitle: 'ARCHITECTURAL DESIGN STUDIO' in geometric sans-serif (`10 pt`), All Caps, with **`+250‰` tracking**.\n4. Body block: A 2-column Frame Text description with 1.4x leading and justified text.\n5. Convert a duplicate of 'MONOLITH' to curves and customize the terminal curve of 'R'.\n\n### Acceptance Criteria:\n- Optically balanced kerning with zero awkward letter gaps.\n- Tracking on subtitle verified at +250‰.\n- Clean hierarchy between display headline and body copy.",
+      "title": "Thử thách độc lập: Cụm chữ xưởng thiết kế",
+      "subtitle": "Ứng dụng phân cấp kiểu chữ và Kerning thực tế",
+      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng bộ chữ nhận diện cho một studio kiến trúc:\n\n1. Tiêu đề chính: dùng **Artistic Text** gõ `'MONOLITH'` bằng phông Serif tương phản cao (`44 pt`).\n2. Chỉnh kerning thủ công giữa cụm `'M-O-N-O'` bằng phím `Alt/Option + Mũi tên`.\n3. Phụ đề: `'ARCHITECTURAL DESIGN STUDIO'` bằng phông Sans-serif hình học (`10 pt`), viết hoa toàn bộ, **tracking `+250‰`**.\n4. Nội dung mô tả: hộp **Frame Text** 2 cột với leading `1.4x` và căn đều hai bên.\n5. Nhân bản tiêu đề `'MONOLITH'`, chuyển sang đường cong và chỉnh nhẹ nét kết thúc của một ký tự bằng Node Tool.\n\n### Tiêu chí đạt:\n- Khoảng cách giữa các cặp chữ cân bằng khi nhìn tổng thể.\n- Phụ đề giữ đúng tracking +250‰.\n- Phân cấp rõ ràng giữa tiêu đề hiển thị và văn bản đoạn.",
       "practiceData": {
-        "prompt": "Construct a luxury fashion wordmark using Artistic Text and custom kerning.",
+        "prompt": "Dựng cụm chữ nhận diện sang trọng bằng Artistic Text, Frame Text và kerning thủ công.",
         "starterAsset": {
           "filename": "D06_typography_glyphs_guide.md",
           "filepath": "curriculum/assets/designer/D06_typography_glyphs_guide.md",
@@ -284,12 +284,12 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Practice setup guide for typography and kerning."
+          "statusNote": "Tài liệu hướng dẫn thiết lập thực hành typography và kerning."
         },
         "checkpoints": [
-          "Artistic Text used for display wordmark",
-          "Manual kerning applied via Alt/Option + Arrow",
-          "Frame Text used for multi-line description"
+          "Dùng Artistic Text cho tiêu đề hiển thị",
+          "Chỉnh kerning thủ công bằng Alt/Option + Mũi tên",
+          "Dùng Frame Text cho đoạn mô tả nhiều dòng"
         ]
       }
     }
