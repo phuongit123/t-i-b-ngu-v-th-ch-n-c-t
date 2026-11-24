@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Layer Mask System & Paint Brush Tool",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Ctrl+I (Invert Mask)",
         "mac": "B (Paint Brush) / D (Default Colors: B&W) / X (Swap Colors) / Cmd+I (Invert Mask)"

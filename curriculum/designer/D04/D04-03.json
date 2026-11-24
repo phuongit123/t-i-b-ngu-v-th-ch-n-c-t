@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Contour Tool & Expand Stroke",
-      "persona": "Vector Persona (Thanh công cụ bên trái / Menu Layer)",
+      "persona": "Vector Studio (Thanh công cụ bên trái / Menu Layer)",
       "shortcut": {
         "win": "O (Contour Tool), Layer > Expand Stroke",
         "mac": "O (Contour Tool), Layer > Expand Stroke"

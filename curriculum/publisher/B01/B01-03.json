@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Baseline Grid Manager & Frame Text Tool (Trình quản lý lưới đường cơ sở & Công cụ khung văn bản)",
-      "persona": "Layout Studio — Menu View & Thanh công cụ trái (Publisher Persona)",
+      "persona": "Layout Studio — Menu View & Thanh công cụ trái (Layout Studio)",
       "shortcut": {
         "win": "T (Frame Text Tool), View > Baseline Grid Manager",
         "mac": "T (Frame Text Tool), View > Baseline Grid Manager"

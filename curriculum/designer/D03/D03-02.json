@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Thanh Geometry & Các phép toán Boolean",
-      "persona": "Vector Persona (Thanh công cụ trên cùng / Layer > Geometry)",
+      "persona": "Vector Studio (Thanh công cụ trên cùng / Layer > Geometry)",
       "shortcut": {
         "win": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)",
         "mac": "Layer > Geometry (Add, Subtract, Intersect, Xor, Divide)"

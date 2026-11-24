@@ -3,26 +3,25 @@
   "moduleId": "D05",
   "trackId": "designer",
   "order": 1,
-  "title": "Phân cấp Layers Studio, nhóm và gắn màu đối tượng",
+  "title": "Phân cấp Layers panel, nhóm và gắn màu đối tượng",
   "subtitle": "Cấu trúc cây đối tượng, các loại lớp, khóa lớp và quy ước đặt tên",
   "durationMinutes": 30,
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Làm chủ Layers Studio (bảng quản lý phân cấp lớp) như trung tâm điều phối cấu trúc của toàn bộ tài liệu.",
+      "Làm chủ Layers panel (bảng quản lý phân cấp lớp) như trung tâm điều phối cấu trúc của toàn bộ tài liệu.",
       "Phân biệt chính xác các loại lớp: (Curve)/(Shape), Group (thư mục nhóm), vùng chứa (Layer) và Artboard.",
       "Thực hiện thuần thục thao tác gom nhóm (Ctrl+G / Cmd+G), rã nhóm (Ctrl+Shift+G / Cmd+Shift+G), khóa lớp và ẩn/hiện lớp.",
       "Áp dụng 7 thẻ màu (Color Tag) và quy tắc đặt tên chuẩn hóa để quản lý các tệp thiết kế lớn dễ dàng."
     ],
-    "foundationalKnowledge": "Trong các tệp thiết kế thiếu tổ chức, danh sách lớp thường biến thành hàng trăm dòng '(Curve)' giống hệt nhau, khiến việc tìm sửa chi tiết trở nên chậm chạp và dễ làm xô lệch bố cục. Trong Affinity, bảng Layers Studio hoạt động như một cây đối tượng phân cấp hoàn chỉnh (scene graph). Bạn có thể gom các đối tượng liên quan vào thư mục nhẹ ('Group'), hoặc tạo các vùng chứa cấp cao ('(Layer)' qua nút Add Layer). Thẻ màu (Color Tag) giúp đánh dấu trực quan theo từng nhóm chức năng như đường bế cắt, chữ hay nhân vật, còn nút khóa ổ khóa giúp bảo vệ lớp nền khỏi thao tác chọn nhầm trên bản vẽ.",
+    "foundationalKnowledge": "Trong các tệp thiết kế thiếu tổ chức, danh sách lớp thường biến thành hàng trăm dòng '(Curve)' giống hệt nhau, khiến việc tìm sửa chi tiết trở nên chậm chạp và dễ làm xô lệch bố cục. Trong Affinity, bảng Layers panel hoạt động như một cây đối tượng phân cấp hoàn chỉnh (scene graph). Bạn có thể gom các đối tượng liên quan vào thư mục nhẹ ('Group'), hoặc tạo các vùng chứa cấp cao ('(Layer)' qua nút Add Layer). Thẻ màu (Color Tag) giúp đánh dấu trực quan theo từng nhóm chức năng như đường bế cắt, chữ hay nhân vật, còn nút khóa ổ khóa giúp bảo vệ lớp nền khỏi thao tác chọn nhầm trên bản vẽ.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Tài liệu chính thức về Layers Studio & Cấu trúc phân cấp Scene Graph — Affinity 3.3.3",
-      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+      "classification": "DOCUMENTED",
+      "source": "Vị trí Window > General > Layers đối chiếu Affinity Help Center và bảng Layers quan sát trong Affinity 3.3.3.5004 Windows."
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Layers Studio",
-      "persona": "Vector Persona (View > Studio > Layers / F7 trên Windows)",
+      "toolName": "Layers panel",
+      "persona": "Vector Studio (Window > General > Layers)",
       "shortcut": {
         "win": "Ctrl+G (Group), Ctrl+Shift+G (Ungroup), Ctrl+L (Lock)",
         "mac": "Cmd+G (Group), Cmd+Shift+G (Ungroup), Cmd+L (Lock)"
@@ -39,38 +38,53 @@
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Quan sát thứ tự xếp chồng trong bảng Layers Studio",
-        "instruction": "Mở một tài liệu có nhiều đối tượng và mở bảng Layers Studio ở cạnh phải (nhấn F7 nếu đang ẩn). Quan sát quy luật: lớp nằm càng gần phía trên danh sách thì càng đè lên trên các lớp bên dưới ngoài bản vẽ.",
-        "shortcutTip": { "win": "F7", "mac": "F7" }
+        "title": "Quan sát thứ tự xếp chồng trong bảng Layers panel",
+        "instruction": "Mở một tài liệu có nhiều đối tượng và mở bảng Layers panel ở cạnh phải (mở Window > General > Layers nếu đang ẩn). Quan sát quy luật: lớp nằm càng gần phía trên danh sách thì càng đè lên trên các lớp bên dưới ngoài bản vẽ.",
+        "shortcutTip": {
+          "win": "Window > General > Layers",
+          "mac": "Window > General > Layers"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Gom nhóm các đối tượng liên quan",
         "instruction": "Dùng Move Tool (V) chọn nhiều hình thuộc cùng một cụm chi tiết, sau đó nhấn Ctrl+G (Windows) hoặc Cmd+G (macOS). Các lớp rời lập tức gom gọn vào một thư mục 'Group'.",
-        "shortcutTip": { "win": "Ctrl+G", "mac": "Cmd+G" }
+        "shortcutTip": {
+          "win": "Ctrl+G",
+          "mac": "Cmd+G"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Đặt tên lớp rõ nghĩa theo quy ước",
         "instruction": "Nhấp đúp trực tiếp vào nhãn chữ 'Group', gõ tên phản ánh đúng chức năng như 'Icon_Navigation_Home' và nhấn Enter. Tên gọi chuẩn giúp cả đội thiết kế tìm ra đối tượng ngay lập tức.",
-        "shortcutTip": { "win": "Nhấp đúp tên lớp", "mac": "Nhấp đúp tên lớp" }
+        "shortcutTip": {
+          "win": "Nhấp đúp tên lớp",
+          "mac": "Nhấp đúp tên lớp"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Gắn thẻ màu phân loại (Color Tag)",
-        "instruction": "Nhấp chuột phải lên tên nhóm vừa tạo trong Layers Studio, nhìn xuống cuối menu ngữ cảnh và chọn ô màu Xanh dương (Blue). Một vạch màu xanh nổi bật sẽ hiện ngay bên cạnh hàng lớp đó.",
-        "shortcutTip": { "win": "Chuột phải > Color Tag", "mac": "Chuột phải > Color Tag" }
+        "instruction": "Nhấp chuột phải lên tên nhóm vừa tạo trong Layers panel, nhìn xuống cuối menu ngữ cảnh và chọn ô màu Xanh dương (Blue). Một vạch màu xanh nổi bật sẽ hiện ngay bên cạnh hàng lớp đó.",
+        "shortcutTip": {
+          "win": "Chuột phải > Color Tag",
+          "mac": "Chuột phải > Color Tag"
+        }
       },
       {
         "stepNumber": 5,
         "title": "Khóa lớp nền tránh chọn nhầm",
-        "instruction": "Chọn lớp nền phía sau rồi nhấn biểu tượng ổ khóa ở góc trên phải Layers Studio (hoặc nhấn Ctrl+L / Cmd+L). Giờ bạn có thể kéo khung chọn thoải mái trên bản vẽ mà không lo làm xê dịch nền.",
-        "shortcutTip": { "win": "Ctrl+L (Khóa lớp)", "mac": "Cmd+L (Khóa lớp)" }
+        "instruction": "Chọn lớp nền phía sau rồi nhấn biểu tượng ổ khóa ở góc trên phải Layers panel (hoặc nhấn Ctrl+L / Cmd+L). Giờ bạn có thể kéo khung chọn thoải mái trên bản vẽ mà không lo làm xê dịch nền.",
+        "shortcutTip": {
+          "win": "Ctrl+L (Khóa lớp)",
+          "mac": "Cmd+L (Khóa lớp)"
+        }
       }
     ],
     "visualExamples": [
       {
-        "title": "Bảng phân biệt các loại lớp trong Layers Studio",
+        "title": "Bảng phân biệt các loại lớp trong Layers panel",
         "description": "Nhận diện vai trò của từng loại đối tượng xuất hiện trong cây phân cấp.",
         "visualType": "table",
         "visualContent": "| Loại lớp | Biểu tượng nhận diện | Đặc điểm chính |\n|---|---|---|\n| (Curve) / (Shape) | Hình thu nhỏ của hình học | Hình khối tham số hoặc đường cong Bézier đơn lẻ |\n| Group | Biểu tượng thư mục | Vỏ bọc gọn nhẹ để di chuyển và co giãn nhiều hình cùng lúc |\n| (Layer) | Biểu tượng ô vuông xếp chồng | Vùng chứa tổ chức cấp cao giúp chia tầng tài liệu lớn |\n| Artboard | Biểu tượng trang kèm tên | Khung bản vẽ độc lập, tự động cắt gọn đối tượng tràn ra ngoài biên |"
@@ -104,7 +118,7 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Hướng dẫn thực hành tổ chức Layers Studio (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành tổ chức Layers panel (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
         "100% lớp được sắp xếp trong các nhóm có tên rõ nghĩa và gắn thẻ màu.",
@@ -121,13 +135,13 @@
       },
       {
         "pitfall": "Lớp đã khóa nhưng vẫn vô tình sửa nhầm",
-        "cause": "Khi bấm chọn trực tiếp vào hàng của lớp đó trong bảng Layers Studio thì phần mềm vẫn cho phép chỉnh sửa kể cả khi ổ khóa đang bật.",
+        "cause": "Khi bấm chọn trực tiếp vào hàng của lớp đó trong bảng Layers panel thì phần mềm vẫn cho phép chỉnh sửa kể cả khi ổ khóa đang bật.",
         "solution": "Hiểu rằng nút khóa chủ yếu khóa thao tác chọn nhầm trực tiếp trên canvas; nếu muốn bất khả xâm phạm tuyệt đối trong lúc làm việc, hãy bỏ chọn trong bảng Layers hoặc tắt tạm hiển thị."
       },
       {
         "pitfall": "Đối tượng bỗng nhiên biến mất ra sau nền ngay sau khi gom nhóm",
         "cause": "Lệnh Group gom các đối tượng đang chọn về vị trí tầng của đối tượng nằm cao nhất (hoặc nhảy vào bên trong một vùng cắt nếu một đối tượng đang nằm trong đó).",
-        "solution": "Kiểm tra tầng Z-index của các vật thể trước khi gom nhóm, hoặc kéo sắp xếp lại vị trí nhóm trong Layers Studio."
+        "solution": "Kiểm tra tầng Z-index của các vật thể trước khi gom nhóm, hoặc kéo sắp xếp lại vị trí nhóm trong Layers panel."
       }
     ],
     "knowledgeCheck": [
@@ -145,24 +159,24 @@
       },
       {
         "id": "D05-01-Q2",
-        "question": "Công dụng chính của thẻ màu (Color Tags) trong bảng Layers Studio là gì?",
+        "question": "Công dụng chính của thẻ màu (Color Tags) trong bảng Layers panel là gì?",
         "options": [
           "Đổi màu nền thật của hình khối ngoài bản vẽ.",
-          "Hiển thị dải màu đánh dấu trực quan bên cạnh tên lớp trong bảng Layers Studio giúp phân loại nhóm nhanh trong các file lớn.",
+          "Hiển thị dải màu đánh dấu trực quan bên cạnh tên lớp trong bảng Layers panel giúp phân loại nhóm nhanh trong các file lớn.",
           "Tự động biến lớp đó thành trang chủ Master Page.",
           "Đặt mật khẩu khóa file."
         ],
         "correctIndex": 1,
-        "explanation": "Color Tag là nhãn đánh dấu quản lý trong bảng Layers Studio, hoàn toàn không làm thay đổi màu sắc hay dữ liệu hiển thị của bản vẽ."
+        "explanation": "Color Tag là nhãn đánh dấu quản lý trong bảng Layers panel, hoàn toàn không làm thay đổi màu sắc hay dữ liệu hiển thị của bản vẽ."
       },
       {
         "id": "D05-01-Q3",
-        "question": "Khi bạn khóa một lớp bằng biểu tượng ổ khóa trong Layers Studio, điều gì xảy ra?",
+        "question": "Khi bạn khóa một lớp bằng biểu tượng ổ khóa trong Layers panel, điều gì xảy ra?",
         "options": [
           "Lớp đó bị xóa khỏi tài liệu.",
           "Lớp đó không thể bị nhấp chọn, kéo lệch hay quét khung dính phải khi thao tác trên vùng canvas.",
           "Lớp đó tự động mờ đi 50%.",
-          "Lớp đó chỉ mở được trong Pixel Persona."
+          "Lớp đó chỉ mở được trong Pixel Studio."
         ],
         "correctIndex": 1,
         "explanation": "Khóa lớp bảo vệ lớp khỏi các cú bấm chọn và dịch chuyển ngoài ý muốn trên bản vẽ, giúp bạn tập trung xử lý các chi tiết phía trên."
@@ -170,7 +184,7 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Cấu trúc Layers Studio gọn gàng là nền tảng cho quy trình làm việc nhóm và bàn giao sản xuất.",
+        "Cấu trúc Layers panel gọn gàng là nền tảng cho quy trình làm việc nhóm và bàn giao sản xuất.",
         "Group (Ctrl+G / Cmd+G) và đặt tên có nghĩa giúp quản lý hàng trăm chi tiết dễ dàng.",
         "Thẻ màu (Color Tag) phân tách trực quan các lớp kỹ thuật, chữ, nền và minh họa.",
         "Khóa lớp (Ctrl+L / Cmd+L) giúp thao tác quét chọn tự tin mà không làm xô lệch nền."
@@ -182,8 +196,8 @@
           "type": "next-lesson"
         },
         {
-          "title": "Tài liệu chính thức Affinity: Layers Studio",
-          "target": "https://affinity.studio/help/panels-layers-panel/",
+          "title": "Tài liệu chính thức Affinity: Layers panel",
+          "target": "https://www.affinity.studio/help/panels-layers-panel/",
           "type": "doc"
         }
       ]
@@ -194,9 +208,9 @@
       "id": "D05-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Phân Cấp Layers Studio, Nhóm & Gắn Màu Đối Tượng",
+      "title": "Phân Cấp Layers panel, Nhóm & Gắn Màu Đối Tượng",
       "subtitle": "Tổ chức cấu trúc bản vẽ vector khoa học, dễ bảo trì",
-      "contentMarkdown": "Chào mừng bạn đến với **Module D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)**.\n\nMột sản phẩm thiết kế tốt không chỉ đẹp ở bề mặt mà còn phải gọn gàng trong cấu trúc file bên dưới. Một bản vẽ bừa bộn sẽ làm chậm tiến độ cả đội ngũ và dễ phát sinh lỗi khi xuất bản.\n\nTrong bài học này, bạn sẽ làm chủ **Layers Studio**, chuẩn hóa cách đặt tên, gom nhóm và gắn **Color Tag** phân loại đối tượng.",
+      "contentMarkdown": "Chào mừng bạn đến với **Module D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)**.\n\nMột sản phẩm thiết kế tốt không chỉ đẹp ở bề mặt mà còn phải gọn gàng trong cấu trúc file bên dưới. Một bản vẽ bừa bộn sẽ làm chậm tiến độ cả đội ngũ và dễ phát sinh lỗi khi xuất bản.\n\nTrong bài học này, bạn sẽ làm chủ **Layers panel**, chuẩn hóa cách đặt tên, gom nhóm và gắn **Color Tag** phân loại đối tượng.",
       "actionBox": {
         "label": "Tiêu chuẩn nghề nghiệp",
         "text": "Mọi lớp trong một file hoàn chỉnh đều cần được đặt tên rõ ràng và nhóm theo logic bố cục."
@@ -208,7 +222,7 @@
       "type": "theory",
       "title": "Bốn Loại Lớp Cốt Lõi Trong Cây Đối Tượng",
       "subtitle": "Curve/Shape, Group, Layer và Artboard",
-      "contentMarkdown": "Affinity sắp xếp mọi thành phần trên bản vẽ vào bốn dạng lớp cơ bản:\n\n1. **(Curve) / (Shape):** Hình học vector đơn lẻ (hình khối tham số hoặc đường Bézier).\n2. **Group:** Thư mục nhóm gọn nhẹ tạo bằng `Ctrl+G` / `Cmd+G`.\n3. **(Layer):** Vùng chứa phân tầng cấp cao (tạo qua nút 'Add Layer' ở đáy bảng Layers Studio).\n4. **Artboard:** Khung bản vẽ cấp cao nhất định nghĩa kích thước từng màn hình hoặc trang độc lập.",
+      "contentMarkdown": "Affinity sắp xếp mọi thành phần trên bản vẽ vào bốn dạng lớp cơ bản:\n\n1. **(Curve) / (Shape):** Hình học vector đơn lẻ (hình khối tham số hoặc đường Bézier).\n2. **Group:** Thư mục nhóm gọn nhẹ tạo bằng `Ctrl+G` / `Cmd+G`.\n3. **(Layer):** Vùng chứa phân tầng cấp cao (tạo qua nút 'Add Layer' ở đáy bảng Layers panel).\n4. **Artboard:** Khung bản vẽ cấp cao nhất định nghĩa kích thước từng màn hình hoặc trang độc lập.",
       "visual": {
         "type": "badge-grid",
         "content": "(Curve) Hình đơn | Group Thư mục | (Layer) Vùng chứa | Artboard Bản vẽ"
@@ -218,9 +232,9 @@
       "id": "D05-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Giải Phẫu Bảng Layers Studio (Phím: F7)",
+      "title": "Giải Phẫu Bảng Layers panel (Window > General > Layers)",
       "subtitle": "Các nút khóa, ẩn/hiện, thẻ màu và thứ tự tầng",
-      "contentMarkdown": "Nằm ở cột dock bên phải, **Layers Studio** cho phép bạn kiểm soát toàn bộ cấu trúc:\n\n- **Biểu tượng ổ khóa:** Bật/tắt khóa chọn trên canvas (`Ctrl+L` / `Cmd+L`).\n- **Dấu tích / Mắt hiển thị:** Ẩn hoặc hiện nhanh lớp trên bản vẽ.\n- **Nhấp đúp vào tên:** Đổi tên lớp ngay tại chỗ.\n- **Dải Color Tag:** Nhấp chuột phải lên hàng lớp để gắn 1 trong 7 màu đánh dấu (Red, Orange, Yellow, Green, Blue, Purple, Gray).\n- **Thứ tự xếp chồng:** Kéo lên trên để đưa lớp ra trước, kéo xuống dưới để đẩy ra sau.",
+      "contentMarkdown": "Nằm ở cột dock bên phải, **Layers panel** cho phép bạn kiểm soát toàn bộ cấu trúc:\n\n- **Biểu tượng ổ khóa:** Bật/tắt khóa chọn trên canvas (`Ctrl+L` / `Cmd+L`).\n- **Dấu tích / Mắt hiển thị:** Ẩn hoặc hiện nhanh lớp trên bản vẽ.\n- **Nhấp đúp vào tên:** Đổi tên lớp ngay tại chỗ.\n- **Dải Color Tag:** Nhấp chuột phải lên hàng lớp để gắn 1 trong 7 màu đánh dấu (Red, Orange, Yellow, Green, Blue, Purple, Gray).\n- **Thứ tự xếp chồng:** Kéo lên trên để đưa lớp ra trước, kéo xuống dưới để đẩy ra sau.",
       "actionBox": {
         "label": "Phím tắt xếp tầng",
         "text": "Nhấn Ctrl+[ (Win) / Cmd+[ (Mac) để đẩy lớp xuống dưới một bậc; Ctrl+] / Cmd+] để đưa lên trên một bậc."
@@ -232,7 +246,7 @@
       "type": "step-by-step",
       "title": "Thực Hành: Gom Nhóm & Gắn Thẻ Màu Cho File Rối",
       "subtitle": "Quy trình dọn dẹp tệp thiết kế nhanh gọn",
-      "contentMarkdown": "Thực hiện lần lượt các bước sau:\n\n1. **Bước 1:** Quét khung chọn toàn bộ phần nét vẽ nhân vật trên bản vẽ.\n2. **Bước 2:** Nhấn `Ctrl+G` (Win) hoặc `Cmd+G` (Mac) để gom thành một nhóm.\n3. **Bước 3:** Nhấp đúp tên nhóm và đổi thành **'Character_Hero'**.\n4. **Bước 4:** Nhấp chuột phải lên nhóm trong Layers Studio và gắn thẻ màu **Blue**.\n5. **Bước 5:** Chọn các lớp nền, gom thành nhóm **'Background_Set'**, gắn thẻ màu **Green** rồi bấm biểu tượng ổ khóa để khóa cứng lại!",
+      "contentMarkdown": "Thực hiện lần lượt các bước sau:\n\n1. **Bước 1:** Quét khung chọn toàn bộ phần nét vẽ nhân vật trên bản vẽ.\n2. **Bước 2:** Nhấn `Ctrl+G` (Win) hoặc `Cmd+G` (Mac) để gom thành một nhóm.\n3. **Bước 3:** Nhấp đúp tên nhóm và đổi thành **'Character_Hero'**.\n4. **Bước 4:** Nhấp chuột phải lên nhóm trong Layers panel và gắn thẻ màu **Blue**.\n5. **Bước 5:** Chọn các lớp nền, gom thành nhóm **'Background_Set'**, gắn thẻ màu **Green** rồi bấm biểu tượng ổ khóa để khóa cứng lại!",
       "visual": {
         "type": "comparison",
         "content": "Hỗn độn: 40 lớp (Curve) vô danh VS Quy chuẩn: 3 nhóm đặt tên rõ ràng và gắn thẻ màu"
@@ -244,7 +258,7 @@
       "type": "theory",
       "title": "Khóa Trên Canvas Khác Gì Chọn Trong Bảng Layers?",
       "subtitle": "Cách ổ khóa thông minh hoạt động",
-      "contentMarkdown": "Một điểm thiết kế rất tinh tế của nút **Lock (Ổ khóa)** trong Affinity:\n\n- **Khi một lớp đã KHÓA:**\n  - Nhấp chuột hoặc kéo khung chọn trên bản vẽ *sẽ bỏ qua* lớp này, giúp bạn không làm xê dịch nền.\n  - Tuy nhiên, nếu bạn *chủ động nhấp trực tiếp* vào tên lớp đó ngay trong bảng **Layers Studio**, bạn vẫn có thể chỉnh sửa nó mà không cần mở khóa rồi khóa lại!",
+      "contentMarkdown": "Một điểm thiết kế rất tinh tế của nút **Lock (Ổ khóa)** trong Affinity:\n\n- **Khi một lớp đã KHÓA:**\n  - Nhấp chuột hoặc kéo khung chọn trên bản vẽ *sẽ bỏ qua* lớp này, giúp bạn không làm xê dịch nền.\n  - Tuy nhiên, nếu bạn *chủ động nhấp trực tiếp* vào tên lớp đó ngay trong bảng **Layers panel**, bạn vẫn có thể chỉnh sửa nó mà không cần mở khóa rồi khóa lại!",
       "visual": {
         "type": "diagram",
         "content": "Kéo chọn ngoài Canvas  ───► Bỏ qua lớp đã khóa (An toàn!)\nNhấp chọn trong Layers ───► Vẫn chỉnh được khi bạn thật sự chủ đích"
@@ -290,7 +304,7 @@
           "filetype": ".md",
           "assetStatus": "GUIDE_DOCUMENT",
           "isVerified": true,
-          "statusNote": "Hướng dẫn thực hành tổ chức Layers Studio."
+          "statusNote": "Hướng dẫn thực hành tổ chức Layers panel."
         },
         "checkpoints": [
           "Đã gom nhóm bằng Ctrl+G / Cmd+G",

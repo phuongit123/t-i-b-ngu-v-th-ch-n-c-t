@@ -3,29 +3,29 @@
   "moduleId": "P10",
   "trackId": "photo",
   "order": 1,
-  "title": "Export Persona Slices, đa định dạng 1x/2x/3x và Continuous Export",
+  "title": "Slice Studio Slices, đa định dạng 1x/2x/3x và Continuous Export",
   "subtitle": "Làm chủ cắt lát chuyên nghiệp, xuất đa tỷ lệ độ phân giải và quy trình tự động xuất liên tục.",
   "durationMinutes": 25,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Khai thác không gian làm việc Export Persona chuyên dụng cho xuất tài nguyên đồ họa số và in ấn.",
+      "Khai thác không gian làm việc Slice Studio chuyên dụng cho xuất tài nguyên đồ họa số và in ấn.",
       "Sử dụng Slice Tool (S) và tạo Slice tự động từ cấu trúc Layer (Create Slice from Layer).",
       "Thiết lập cấu hình xuất đa độ phân giải (1x, 2x, 3x, Retina) và đa định dạng (PNG, WebP, JPEG, SVG) chỉ trong một thao tác.",
       "Kích hoạt tính năng Continuous Export để tự động cập nhật file xuất ra ổ đĩa ngay khi tài liệu gốc được lưu hoặc thay đổi."
     ],
-    "foundationalKnowledge": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Export Persona là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút. Đặc biệt, tính năng Continuous Export tự động đồng bộ tài sản ra đĩa mỗi khi bạn lưu tài liệu gốc, tạo cầu nối hoàn hảo tới quy trình phát triển website và thiết kế dàn trang.",
+    "foundationalKnowledge": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Slice Studio là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút. Đặc biệt, tính năng Continuous Export tự động đồng bộ tài sản ra đĩa mỗi khi bạn lưu tài liệu gốc, tạo cầu nối hoàn hảo tới quy trình phát triển website và thiết kế dàn trang.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Affinity Photo 3.3.3 Export Persona Slicing & Continuous Engine",
+      "source": "Affinity Photo 3.3.3 Slice Studio Slicing & Continuous Engine",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Export Persona & Slice Tool",
-      "persona": "Export Persona",
+      "toolName": "Slice Studio & Slice Tool",
+      "persona": "Slice Studio",
       "shortcut": {
-        "win": "S (Slice Tool trong Export Persona) / Ctrl + Alt + Shift + S (Export Dialog)",
-        "mac": "S (Slice Tool trong Export Persona) / Cmd + Option + Shift + S (Export Dialog)"
+        "win": "S (Slice Tool trong Slice Studio) / Ctrl + Alt + Shift + S (Export Dialog)",
+        "mac": "S (Slice Tool trong Slice Studio) / Cmd + Option + Shift + S (Export Dialog)"
       },
       "description": "Môi trường cắt lát đa nhiệm và quản lý cấu hình bàn giao sản phẩm đồ họa.",
       "contextBarOptions": [
@@ -38,14 +38,14 @@
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Chuyển sang Export Persona",
-        "instruction": "Nhấp vào biểu tượng Export Persona ở góc trên bên trái thanh công cụ. Toàn bộ giao diện chỉnh sửa ảnh sẽ chuyển sang môi trường quản lý cắt lát chuyên nghiệp.",
-        "shortcutTip": { "win": "Nhấp biểu tượng Export Persona", "mac": "Nhấp biểu tượng Export Persona" }
+        "title": "Chuyển sang Slice Studio",
+        "instruction": "Nhấp vào biểu tượng Slice Studio ở góc trên bên trái thanh công cụ. Toàn bộ giao diện chỉnh sửa ảnh sẽ chuyển sang môi trường quản lý cắt lát chuyên nghiệp.",
+        "shortcutTip": { "win": "Nhấp biểu tượng Slice Studio", "mac": "Nhấp biểu tượng Slice Studio" }
       },
       {
         "stepNumber": 2,
         "title": "Tạo Slice tự động từ Layer",
-        "instruction": "Mở tab 'Layers' bên trong Export Persona. Chọn layer logo hoặc poster cần xuất, nhấp nút 'Create Slice' ở chân panel. Một lát cắt bao khít ranh giới pixel của đối tượng sẽ được tạo tự động trong tab Slices.",
+        "instruction": "Mở tab 'Layers' bên trong Slice Studio. Chọn layer logo hoặc poster cần xuất, nhấp nút 'Create Slice' ở chân panel. Một lát cắt bao khít ranh giới pixel của đối tượng sẽ được tạo tự động trong tab Slices.",
         "shortcutTip": { "win": "Nút 'Create Slice'", "mac": "Nút 'Create Slice'" }
       },
       {
@@ -57,7 +57,7 @@
       {
         "stepNumber": 4,
         "title": "Bật Continuous Export và xuất thành phẩm",
-        "instruction": "Tích chọn ô 'Continuous' ở trên cùng panel Slices. Nhấp nút 'Export Slices', chọn thư mục đích. Kể từ lúc này, mỗi khi bạn quay lại Photo Persona vẽ thêm hoặc chỉnh màu và lưu file, Affinity Photo sẽ tự động tái render và ghi đè file xuất mà không cần bấm lệnh xuất lại.",
+        "instruction": "Tích chọn ô 'Continuous' ở trên cùng panel Slices. Nhấp nút 'Export Slices', chọn thư mục đích. Kể từ lúc này, mỗi khi bạn quay lại Pixel Studio vẽ thêm hoặc chỉnh màu và lưu file, Affinity Photo sẽ tự động tái render và ghi đè file xuất mà không cần bấm lệnh xuất lại.",
         "shortcutTip": { "win": "Tích 'Continuous'", "mac": "Tích 'Continuous'" }
       }
     ],
@@ -71,7 +71,7 @@
     ],
     "guidedPractice": {
       "title": "Đóng gói bộ icon ứng dụng và banner quảng cáo đa tỉ lệ",
-      "taskDescription": "Tạo các slice cho 3 icon vector và 1 banner quảng cáo trong Export Persona với các tỉ lệ 1x, 2x và WebP.",
+      "taskDescription": "Tạo các slice cho 3 icon vector và 1 banner quảng cáo trong Slice Studio với các tỉ lệ 1x, 2x và WebP.",
       "checkpoints": [
         "Tạo Slice tự động cho từng icon từ layer tương ứng.",
         "Thiết lập công thức xuất 1x PNG, 2x PNG và 1x WebP cho mỗi slice.",
@@ -82,7 +82,7 @@
     },
     "independentChallenge": {
       "title": "Thiết lập đường ống Continuous Export cho dự án thương mại",
-      "prompt": "Sử dụng tài liệu hướng dẫn P10, kích hoạt tính năng Continuous Export cho một banner sản phẩm, sau đó quay lại Photo Persona đổi màu chữ và kiểm tra file trên ổ cứng.",
+      "prompt": "Sử dụng tài liệu hướng dẫn P10, kích hoạt tính năng Continuous Export cho một banner sản phẩm, sau đó quay lại Pixel Studio đổi màu chữ và kiểm tra file trên ổ cứng.",
       "starterAsset": {
         "filename": "P10_export_delivery_production_guide.md",
         "filepath": "curriculum/assets/photo/P10_export_delivery_production_guide.md",
@@ -90,7 +90,7 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Slice Studio và đóng gói xuất bản trong Affinity Photo."
       },
       "challengeCriteria": [
         "Tích chọn Continuous Export trên panel Slices.",
@@ -114,7 +114,7 @@
     "knowledgeCheck": [
       {
         "id": "P10-01-Q1",
-        "question": "Tính năng 'Continuous Export' trong Export Persona có tác dụng gì đặc biệt?",
+        "question": "Tính năng 'Continuous Export' trong Slice Studio có tác dụng gì đặc biệt?",
         "options": [
           "Tự động xuất lại và ghi đè các file ảnh thành phẩm ngay khi người dùng chỉnh sửa và lưu tài liệu gốc",
           "Tự động gửi ảnh qua email cho khách hàng mỗi 5 phút",
@@ -128,13 +128,13 @@
         "id": "P10-01-Q2",
         "question": "Khi cần tạo một slice bao khít chính xác kích thước của một logo vector hoặc nút bấm, thao tác nào là nhanh nhất?",
         "options": [
-          "Chọn layer đó trong tab Layers của Export Persona và bấm 'Create Slice'",
+          "Chọn layer đó trong tab Layers của Slice Studio và bấm 'Create Slice'",
           "Dùng Crop Tool cắt canvas",
           "Dùng thước kẻ đo từng pixel rồi vẽ bằng tay",
           "Xóa tất cả các layer khác đi"
         ],
         "correctIndex": 0,
-        "explanation": "Lệnh Create Slice from Layer trong Export Persona sẽ tạo một slice khớp 100% với ranh giới hình học và hiệu ứng của layer được chọn."
+        "explanation": "Lệnh Create Slice from Layer trong Slice Studio sẽ tạo một slice khớp 100% với ranh giới hình học và hiệu ứng của layer được chọn."
       },
       {
         "id": "P10-01-Q3",
@@ -151,7 +151,7 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Export Persona là không gian chuyên nghiệp để cắt lát và xuất bản đa kênh hàng loạt.",
+        "Slice Studio là không gian chuyên nghiệp để cắt lát và xuất bản đa kênh hàng loạt.",
         "Create Slice from Layer tự động liên kết ranh giới lát cắt với chuyển động của layer.",
         "Công thức đa tỉ lệ (1x, 2x, 3x) đáp ứng mọi mật độ hiển thị màn hình di động.",
         "Continuous Export tự động cập nhật file xuất trên ổ đĩa ngay khi tài liệu gốc lưu lại."
@@ -183,12 +183,12 @@
     {
       "id": "slide-p10-01-01",
       "order": 1,
-      "title": "Sức mạnh của Export Persona",
+      "title": "Sức mạnh của Slice Studio",
       "subtitle": "Quy trình cắt lát và đóng gói thành phẩm chuyên sâu",
       "type": "concept",
-      "content": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Export Persona là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút.",
-      "tips": "Biểu tượng Export Persona nằm trên thanh toolbar chính (icon hình trang giấy và mũi tên đi ra).",
-      "codeSnippet": "4 Thế mạnh của Export Persona:\n1. Cắt lát phi phá hủy (Slice Tool)\n2. Xuất nhiều định dạng chỉ với 1 cú nhấp (PNG + WebP + JPEG)\n3. Xuất đa tỷ lệ đáp ứng (1x, 2x, 3x, 512w, 1024w)\n4. Tự động xuất liên tục mỗi khi lưu file (Continuous Export)"
+      "content": "Khác với hộp thoại File > Export đơn lẻ truyền thống, Slice Studio là một không gian làm việc chuyên nghiệp được thiết kế để xuất hàng chục tài sản đồ họa cùng lúc với các định dạng, kích cỡ và tỉ lệ hiển thị khác nhau chỉ trong một lần bấm nút.",
+      "tips": "Biểu tượng Slice Studio nằm trên thanh toolbar chính (icon hình trang giấy và mũi tên đi ra).",
+      "codeSnippet": "4 Thế mạnh của Slice Studio:\n1. Cắt lát phi phá hủy (Slice Tool)\n2. Xuất nhiều định dạng chỉ với 1 cú nhấp (PNG + WebP + JPEG)\n3. Xuất đa tỷ lệ đáp ứng (1x, 2x, 3x, 512w, 1024w)\n4. Tự động xuất liên tục mỗi khi lưu file (Continuous Export)"
     },
     {
       "id": "slide-p10-01-02",
@@ -196,7 +196,7 @@
       "title": "Slice thủ công vs Slice tự động từ Layer",
       "subtitle": "Lựa chọn phương thức cắt lát phù hợp",
       "type": "workflow",
-      "content": "1) Slice Tool (S): Dùng chuột vẽ các khung chữ nhật tự do ở bất kỳ khu vực nào trên canvas; 2) Create Slice from Layer: Nhấp chọn một layer trong tab Layers của Export Persona và bấm nút tạo slice. Khung cắt sẽ tự động bám khít theo đúng kích thước pixel của layer đó.",
+      "content": "1) Slice Tool (S): Dùng chuột vẽ các khung chữ nhật tự do ở bất kỳ khu vực nào trên canvas; 2) Create Slice from Layer: Nhấp chọn một layer trong tab Layers của Slice Studio và bấm nút tạo slice. Khung cắt sẽ tự động bám khít theo đúng kích thước pixel của layer đó.",
       "tips": "Nếu layer đối tượng di chuyển vị trí, slice liên kết với layer đó sẽ tự động di chuyển theo.",
       "visualDescription": "Mô phỏng canvas với các khung viền nét đứt màu cam của Slice Tool bao quanh các icon và nút bấm."
     },
@@ -216,7 +216,7 @@
       "title": "Continuous Export: Tự động hóa thời gian thực",
       "subtitle": "Cầu nối trực tiếp tới môi trường lập trình và dàn trang",
       "type": "interaction",
-      "content": "Bật tùy chọn 'Continuous' trên panel Slices. Bất cứ khi nào bạn quay lại chỉnh sửa chi tiết, sửa chữ hay đổi màu trong Photo Persona và nhấn Ctrl+S (Cmd+S), Affinity Photo sẽ âm thầm chạy render nền và cập nhật các file ảnh trên ổ cứng ngay tức thì.",
+      "content": "Bật tùy chọn 'Continuous' trên panel Slices. Bất cứ khi nào bạn quay lại chỉnh sửa chi tiết, sửa chữ hay đổi màu trong Pixel Studio và nhấn Ctrl+S (Cmd+S), Affinity Photo sẽ âm thầm chạy render nền và cập nhật các file ảnh trên ổ cứng ngay tức thì.",
       "tips": "Cực kỳ lý tưởng khi bạn làm việc cùng lúc với lập trình viên web hoặc dàn trang trên Publisher.",
       "visualDescription": "Sơ đồ hiển thị vòng tròn tự động hóa: Chỉnh sửa trong Pixel Studio -> Lưu (Save) -> Continuous Export tự động kết xuất tệp ra thư mục theo thời gian thực."
     },
@@ -226,7 +226,7 @@
       "title": "Tùy biến đường dẫn xuất với Path Variables",
       "subtitle": "Tự động phân loại thư mục theo định dạng",
       "type": "detail",
-      "content": "Export Persona cho phép sử dụng các biến như {format}, {scale}, {width}, {height} trong đường dẫn lưu file. Bạn có thể thiết lập để toàn bộ file WebP tự động vào thư mục '/dist/webp/' và toàn bộ file JPEG vào '/dist/jpeg/'.",
+      "content": "Slice Studio cho phép sử dụng các biến như {format}, {scale}, {width}, {height} trong đường dẫn lưu file. Bạn có thể thiết lập để toàn bộ file WebP tự động vào thư mục '/dist/webp/' và toàn bộ file JPEG vào '/dist/jpeg/'.",
       "tips": "Mở rộng bảng Export Options để tùy chỉnh trường Path Template cho từng slice.",
       "codeSnippet": "Ví dụ cú pháp Path Template:\nĐường dẫn xuất: deliverables/{format}/{filename}_{scale}\nKết quả đầu ra:\n- deliverables/png/hero-banner_1x.png\n- deliverables/png/hero-banner_2x.png\n- deliverables/webp/hero-banner_1x.webp"
     },

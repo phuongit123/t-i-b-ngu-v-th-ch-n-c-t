@@ -14,24 +14,26 @@ import {
   Laptop,
   Apple,
   Layers,
-  X,
-  ZoomIn,
 } from 'lucide-react';
 import type { CurriculumLesson, LessonSlide } from '@/types/curriculum';
 import { lessonTranslationsVi } from '@/data/curriculum/translationsVi';
+import { getLessonIllustrations, type LessonLightboxVisual } from '@/data/lesson-illustrations';
 import { Button } from '@/components/ui/Button';
 import { useAuth } from '@/lib/supabase/auth-context';
 import { usePreferences, formatShortcutForOs } from '@/lib/preferences-context';
 import { getLocalProgress } from '@/lib/supabase/progress-sync';
-import { recordLessonSlideVisit, markLessonCompleted } from '@/lib/learning-store';
+import { recordLessonSlideVisit, markLessonCompleted, useLearningProgress } from '@/lib/learning-store';
 import { resolveCurriculumAssetUrl } from '@/lib/curriculum-asset-urls';
-import { getLessonVisualShowcase } from '@/lib/lesson-visuals';
+import { isBundledLessonImage } from '@/lib/lesson-visuals';
 import { InlineMarkdown, SafeMarkdown } from '@/components/common/SafeMarkdown';
-import { BeforeAfterSlider } from '@/components/common/BeforeAfterSlider';
 import { LessonSectionsReader } from '@/components/lesson/LessonSectionsReader';
+import { LessonIllustrationDialog, LessonStepFigure } from '@/components/lesson/LessonStepFigure';
+import type { LessonReaderGroup } from '@/lib/lesson-reader';
 
 export interface SlidePlayerProps {
   lesson: CurriculumLesson;
+  readerGroup?: LessonReaderGroup;
+  embedded?: boolean;
   onLessonComplete?: (lessonId: string) => void;
   onBackToCatalog?: () => void;
   viewMode?: 'slides' | 'sections';
@@ -78,6 +80,8 @@ const DIFFICULTY_LABELS_VI: Record<string, string> = {
 
 export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   lesson,
+  readerGroup = 'all',
+  embedded = false,
   onLessonComplete,
   onBackToCatalog,
   viewMode: controlledViewMode,
@@ -97,17 +101,13 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   };
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const { completedLessonIds } = useLearningProgress();
+  const isCompleted = completedLessonIds.includes(lesson.id);
   const [selectedQuizOption, setSelectedQuizOption] = useState<number | null>(null);
   const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
   const [lastQuizScore, setLastQuizScore] = useState<number | null>(null);
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
-  const [lightboxVisual, setLightboxVisual] = useState<{
-    src: string;
-    alt: string;
-    caption?: string;
-    isDiagram?: boolean;
-  } | null>(null);
+  const [lightboxVisual, setLightboxVisual] = useState<LessonLightboxVisual | null>(null);
 
   const totalSlides = lesson.slides.length;
   const safeIndex = Math.min(currentSlideIndex, Math.max(0, totalSlides - 1));
@@ -117,7 +117,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   // Restore saved progress when switching lessons
   useEffect(() => {
     const saved = getLocalProgress(lesson.id);
-    setIsCompleted(saved?.status === 'completed');
+
     setLastQuizScore(saved?.quizScore ?? null);
     if (
       saved &&
@@ -161,11 +161,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && lightboxVisual) {
-        setLightboxVisual(null);
-        return;
-      }
-      if (viewMode !== 'slides') return;
+      if (lightboxVisual || viewMode !== 'slides') return;
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName)) return;
 
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
@@ -202,7 +198,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
     }
 
     await markLessonCompleted(user?.id ?? null, lesson.id, safeIndex, resolvedQuizScore);
-    setIsCompleted(true);
+
     if (onLessonComplete) {
       onLessonComplete(lesson.id);
     }
@@ -219,31 +215,25 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
   const displayLessonTitle = lessonTranslationsVi[lesson.id] || lesson.title;
   const slideTypeLabel =
     (currentSlide.type && SLIDE_TYPE_LABELS_VI[currentSlide.type]) || 'Nội dung bài học';
-  const visualShowcase = getLessonVisualShowcase(lesson.id, lesson.moduleId, lesson.trackId);
+  const illustrations = getLessonIllustrations(lesson.id);
+  const procedureIndex = lesson.slides.findIndex((slide) => slide.type === 'step-by-step' || slide.type === 'workflow');
+  const illustrationSlideIndex = procedureIndex < 0 ? Math.min(1, totalSlides - 1) : procedureIndex;
 
+  const isGuidedSlide = safeIndex === 0 || safeIndex === illustrationSlideIndex || currentSlide.type === 'guided-practice';
+  const guidedAsset = isGuidedSlide ? lesson.standardSections.guidedPractice.starterAsset : undefined;
   const slideStarterAsset =
     currentSlide.practiceData?.starterAsset ??
     (safeIndex === totalSlides - 1
       ? lesson.standardSections.independentChallenge.starterAsset ?? lesson.practiceAsset
-      : undefined);
+      : guidedAsset);
   const starterDownloadUrl = slideStarterAsset
     ? resolveCurriculumAssetUrl(slideStarterAsset.filepath) ??
       resolveCurriculumAssetUrl(slideStarterAsset.filename)
     : null;
 
-  const shouldShowVisualCard =
-    safeIndex === 0 ||
-    currentSlide.type === 'tool-anatomy' ||
-    currentSlide.type === 'diagram' ||
-    currentSlide.type === 'layout';
-
-  const shouldShowBeforeAfterInSlide =
-    !!visualShowcase.comparisonSlider &&
-    (safeIndex === 1 || safeIndex === 3 || currentSlide.type === 'detail');
-
   return (
-    <div className="flex flex-col h-full w-full rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] shadow-2xl overflow-hidden">
-      {/* Top Header & Navigation Bar (Strictly single H2 across entire lesson view) */}
+    <div className={embedded ? "editorial-slide-player" : "flex flex-col h-full w-full rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] overflow-hidden"}>
+      {(!embedded || viewMode === 'slides') && <div className="course-slide-toolbar">
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-[var(--color-border-hairline)] bg-[var(--color-canvas)]">
         <div className="flex items-center gap-3 min-w-0">
           {onBackToCatalog && (
@@ -275,16 +265,15 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 </span>
               )}
             </div>
-            <h2 className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-xl">
+            <div className="text-sm font-semibold text-[var(--color-text-primary)] truncate max-w-xl">
               {displayLessonTitle}
-            </h2>
+            </div>
           </div>
         </div>
 
         {/* Mode Switcher, OS Shortcut Switcher & Slide Counter */}
         <div className="flex flex-wrap items-center gap-3">
-          {/* Slide vs 10-Section Reader Switch */}
-          <div
+          {!embedded && <div
             role="tablist"
             aria-label="Chế độ xem bài giảng"
             className="flex items-center gap-1 p-0.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-hairline)] text-[11px] font-mono"
@@ -319,7 +308,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               <BookOpen className="w-3.5 h-3.5" />
               <span>Đọc sâu 10 Học phần</span>
             </button>
-          </div>
+          </div>}
 
           {/* OS Shortcut Switcher */}
           <div
@@ -352,6 +341,9 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
             </button>
           </div>
 
+          {viewMode === 'slides' && illustrations.length > 0 && safeIndex !== illustrationSlideIndex && (
+            <Button variant="outline" size="sm" onClick={() => navigateToSlide(illustrationSlideIndex)}>Hình theo từng bước</Button>
+          )}
           <div data-testid="slide-counter" className="text-right font-mono text-xs">
             <span className="font-semibold text-[var(--color-text-primary)]">
               Trang {safeIndex + 1}
@@ -393,14 +385,18 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
         />
       </div>
 
+      </div>}
+
       {/* Main Content Stage */}
-      <div className="flex-1 p-6 md:p-8 overflow-y-auto flex flex-col justify-between min-h-[480px]">
+      <div className={embedded && viewMode === 'sections' ? "course-reading-stage" : "flex-1 p-6 md:p-8 overflow-y-auto flex flex-col justify-between min-h-[480px]"}>
         {viewMode === 'sections' ? (
           <div className="flex-1 flex flex-col justify-between gap-6">
             <LessonSectionsReader
               lesson={lesson}
+              group={readerGroup}
+              embedded={embedded}
               displayTitle={displayLessonTitle}
-              accentColor={accentColor}
+              illustrations={illustrations}
               checkedItems={checkedItems}
               onToggleCheckpoint={handleCheckpointToggle}
               activeSectionIndex={activeSectionIndex}
@@ -413,7 +409,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               }}
             />
 
-            <div className="pt-5 border-t border-hairline flex items-center justify-between gap-3">
+            {(!embedded || readerGroup === 'all') && <div className="pt-5 border-t border-hairline flex flex-wrap items-center justify-between gap-3">
               <Button
                 variant="outline"
                 size="sm"
@@ -433,7 +429,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               >
                 {isCompleted ? 'Đã hoàn thành bài học ✓' : 'Đánh dấu hoàn thành'}
               </Button>
-            </div>
+            </div>}
           </div>
         ) : (
           <>
@@ -473,6 +469,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                         <span className="font-semibold text-[10px] uppercase px-1.5 py-0.5 rounded bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border-hairline)]">
                           {slideStarterAsset.assetStatus === 'REAL_AFFINITY_FILE' &&
                             'File Affinity gốc'}
+                          {slideStarterAsset.assetStatus === 'CAMERA_RAW' && 'Ảnh RAW từ máy ảnh'}
                           {slideStarterAsset.assetStatus === 'GUIDE_DOCUMENT' &&
                             'Tài liệu hướng dẫn'}
                           {slideStarterAsset.assetStatus === 'JAVASCRIPT_SCRIPT' &&
@@ -491,9 +488,9 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               </div>
 
               {/* Strictly Single H1 Title in Slide Mode */}
-              <h1 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] tracking-tight mb-5">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] tracking-tight mb-5">
                 {currentSlide.title}
-              </h1>
+              </h2>
 
               {/* Rendered Safe Markdown Content & Legacy Bullets */}
               <div className="max-w-none text-sm md:text-base leading-relaxed text-[var(--color-text-primary)] space-y-4 mb-6 font-sans">
@@ -513,45 +510,15 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
                 )}
               </div>
 
-              {/* Contextual Visual Plate / SVG Diagram with Zoom Lightbox */}
-              {shouldShowVisualCard && (
-                <div className="my-5 rounded-xl border border-hairline bg-[#090b10] overflow-hidden">
-                  <div className="relative flex items-center justify-center max-h-64 overflow-hidden bg-[#090b10]">
-                    <img
-                      src={visualShowcase.primary.src}
-                      alt={visualShowcase.primary.alt}
-                      className={
-                        visualShowcase.primary.isDiagram
-                          ? 'w-full max-h-64 object-contain p-3'
-                          : 'w-full max-h-64 object-cover'
-                      }
-                    />
-                    <button
-                      type="button"
-                      data-testid="open-visual-lightbox"
-                      onClick={() => setLightboxVisual(visualShowcase.primary)}
-                      className="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1.5 rounded-md border border-hairline bg-obsidian/90 px-2.5 py-1 text-[11px] font-mono text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
-                    >
-                      <ZoomIn className="w-3.5 h-3.5" />
-                      <span>Phóng to sơ đồ</span>
-                    </button>
-                  </div>
-                  <div className="px-4 py-2 border-t border-hairline bg-canvas text-xs text-zinc-400">
-                    {visualShowcase.primary.caption}
-                  </div>
-                </div>
+              {safeIndex === 0 && safeIndex !== illustrationSlideIndex && illustrations[0] && (
+                <LessonStepFigure visual={illustrations[0]} onZoom={setLightboxVisual} />
               )}
-
-              {/* Embedded Interactive Before/After Slider for Color / RAW Lessons */}
-              {shouldShowBeforeAfterInSlide && visualShowcase.comparisonSlider && (
-                <div className="my-5">
-                  <BeforeAfterSlider
-                    beforeSrc={visualShowcase.comparisonSlider.beforeSrc}
-                    afterSrc={visualShowcase.comparisonSlider.afterSrc}
-                    beforeLabel={visualShowcase.comparisonSlider.beforeLabel}
-                    afterLabel={visualShowcase.comparisonSlider.afterLabel}
-                  />
-                </div>
+              {safeIndex === illustrationSlideIndex && illustrations.length > 0 && (
+                <section aria-label="Hình minh họa theo từng bước" className="lesson-slide-illustrations">
+                  {illustrations.map((visual) => (
+                    <LessonStepFigure key={visual.step} visual={visual} onZoom={setLightboxVisual} showStep />
+                  ))}
+                </section>
               )}
 
               {(currentSlide.tips || currentSlide.proTip || currentSlide.callout) && (
@@ -626,7 +593,9 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
               {/* Visual Block (Diagram / Code / Badge Grid / Table / Comparison) */}
               {currentSlide.visual && (
                 <div className="my-5 p-4 rounded-lg bg-[#0a0a0d] border border-[var(--color-border-hairline)] overflow-x-auto">
-                  {currentSlide.visual.type === 'code' ? (
+                  {isBundledLessonImage(currentSlide.visual.content) ? (
+                    <img src={currentSlide.visual.content} alt={currentSlide.visualDescription ?? currentSlide.title} className="w-full rounded" />
+                  ) : currentSlide.visual.type === 'code' ? (
                     <pre className="font-mono text-xs md:text-sm text-emerald-400 whitespace-pre">
                       {currentSlide.visual.content}
                     </pre>
@@ -812,8 +781,7 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
         )}
       </div>
 
-      {/* Footer Navigation Hints */}
-      <div className="px-6 py-2.5 bg-[var(--color-canvas)] border-t border-[var(--color-border-hairline)] flex items-center justify-between text-[11px] text-[var(--color-text-secondary)]">
+      {viewMode === 'slides' && <div className="px-6 py-2.5 bg-[var(--color-canvas)] border-t border-[var(--color-border-hairline)] flex items-center justify-between text-[11px] text-[var(--color-text-secondary)]">
         <span className="flex items-center gap-1.5">
           <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">
             &larr;
@@ -821,53 +789,14 @@ export const SlidePlayer: React.FC<SlidePlayerProps> = ({
           <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-hairline)] font-mono text-[10px] text-white">
             &rarr;
           </kbd>
-          <span>Sử dụng phím mũi tên hoặc các nút để điều hướng bài học</span>
+          <span>Dùng phím mũi tên để đổi trang trình chiếu</span>
         </span>
         <span className="font-mono">
-          Giáo trình Affinity Studio &bull; Cấu trúc chuẩn 10 học phần
+          Giáo trình Affinity Academy
         </span>
-      </div>
+      </div>}
 
-      {/* Visual Zoom Lightbox Modal */}
-      {lightboxVisual && (
-        <div
-          data-testid="lesson-visual-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Xem ảnh minh họa phóng to"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
-          onClick={() => setLightboxVisual(null)}
-        >
-          <div
-            className="relative max-w-5xl w-full rounded-xl border border-hairline bg-[#090b10] p-4 space-y-3 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-xs font-mono text-cyan-300 truncate">
-                {lightboxVisual.alt}
-              </span>
-              <button
-                type="button"
-                onClick={() => setLightboxVisual(null)}
-                aria-label="Đóng khung xem phóng to"
-                className="p-1.5 rounded-md border border-hairline bg-surface text-zinc-300 hover:text-white"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="flex items-center justify-center max-h-[75vh] overflow-auto">
-              <img
-                src={lightboxVisual.src}
-                alt={lightboxVisual.alt}
-                className="max-h-[72vh] w-auto object-contain rounded"
-              />
-            </div>
-            {lightboxVisual.caption && (
-              <p className="text-xs text-zinc-300 text-center">{lightboxVisual.caption}</p>
-            )}
-          </div>
-        </div>
-      )}
+      {lightboxVisual && <LessonIllustrationDialog visual={lightboxVisual} onClose={() => setLightboxVisual(null)} />}
     </div>
   );
 };

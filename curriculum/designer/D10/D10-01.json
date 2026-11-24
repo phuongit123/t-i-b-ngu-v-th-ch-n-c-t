@@ -3,29 +3,29 @@
   "moduleId": "D10",
   "trackId": "designer",
   "order": 1,
-  "title": "Export Persona và cấu trúc Slices",
-  "subtitle": "Điều hướng Export Persona, Slice Tool, cắt lát theo Layer và tự động bám khung bao",
+  "title": "Slice Studio và cấu trúc Slices",
+  "subtitle": "Điều hướng Slice Studio, Slice Tool, cắt lát theo Layer và tự động bám khung bao",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Điều hướng thành thạo không gian làm việc Export Persona (không gian cắt lát và xuất bản) cùng bộ công cụ chuyên biệt của nó.",
+      "Điều hướng thành thạo không gian làm việc Slice Studio (không gian cắt lát và xuất bản) cùng bộ công cụ chuyên biệt của nó.",
       "Phân biệt rõ bốn loại vùng cắt lát: Document Slice, Artboard Slice, User Custom Slice và Layer-Based Slice.",
       "Tạo Layer-Based Slices tự động bám theo mọi thay đổi kích thước hoặc vị trí của nhóm vector.",
       "Quản lý hiển thị, quy ước đặt tên và đầu ra cho từng lát cắt bên trong bảng Slices Studio."
     ],
-    "foundationalKnowledge": "Ở các công cụ thiết kế truyền thống, việc xuất riêng lẻ từng icon, nút bấm hay banner từ một tệp tổng hợp thường phải cắt khung thủ công hoặc chạy script ngoài. Affinity gom trọn quy trình này vào Export Persona (mở qua biểu tượng góc trên bên trái thanh công cụ). Trong không gian này, bạn có thể kẻ vùng cắt tay bằng Slice Tool (S), hoặc hiệu quả hơn là biến bất kỳ lớp vector nào thành 'Layer-Based Slice'. Khác với khung tọa độ tĩnh, Layer-Based Slice ôm khít đúng khung bao toán học của đối tượng và tự cập nhật lại kích thước xuất ngay khi bạn di chuyển hoặc co giãn artwork.",
+    "foundationalKnowledge": "Ở các công cụ thiết kế truyền thống, việc xuất riêng lẻ từng icon, nút bấm hay banner từ một tệp tổng hợp thường phải cắt khung thủ công hoặc chạy script ngoài. Affinity gom trọn quy trình này vào Slice Studio (mở qua biểu tượng góc trên bên trái thanh công cụ). Trong không gian này, bạn có thể kẻ vùng cắt tay bằng Slice Tool (S), hoặc hiệu quả hơn là biến bất kỳ lớp vector nào thành 'Layer-Based Slice'. Khác với khung tọa độ tĩnh, Layer-Based Slice ôm khít đúng khung bao toán học của đối tượng và tự cập nhật lại kích thước xuất ngay khi bạn di chuyển hoặc co giãn artwork.",
     "technicalEvidence": {
       "classification": "VERIFIED",
-      "source": "Đặc tả Export Persona và kiến trúc Slices trên Affinity Designer 3.3.3",
+      "source": "Đặc tả Slice Studio và kiến trúc Slices trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Export Persona & Slice Tool (Không gian xuất bản & Công cụ cắt lát)",
-      "persona": "Export Persona (thanh công cụ góc trên bên trái)",
+      "toolName": "Slice Studio & Slice Tool (Không gian xuất bản & Công cụ cắt lát)",
+      "persona": "Slice Studio (thanh công cụ góc trên bên trái)",
       "shortcut": {
-        "win": "Nhấp biểu tượng Export Persona (góc trên bên trái) / Phím tắt tự gán trong Edit > Preferences > Shortcuts. Công cụ: S (Slice Tool), Shift+S (Slice Select)",
-        "mac": "Nhấp biểu tượng Export Persona (góc trên bên trái) / Phím tắt tự gán trong Affinity Designer > Settings > Shortcuts. Công cụ: S (Slice Tool), Shift+S (Slice Select)"
+        "win": "Nhấp biểu tượng Slice Studio (góc trên bên trái) / Phím tắt tự gán trong Edit > Preferences > Shortcuts. Công cụ: S (Slice Tool), Shift+S (Slice Select)",
+        "mac": "Nhấp biểu tượng Slice Studio (góc trên bên trái) / Phím tắt tự gán trong Affinity Designer > Settings > Shortcuts. Công cụ: S (Slice Tool), Shift+S (Slice Select)"
       },
       "description": "Môi trường xuất bản chuyên dụng hỗ trợ tạo vùng cắt lát, tự bám khung bao đối tượng và cấu hình xuất hàng loạt đa định dạng. Lưu ý: phần mềm không gán sẵn phím tắt chuyển Persona mặc định.",
       "contextBarOptions": [
@@ -33,15 +33,15 @@
         "Slice Selection Tool: Chọn, kéo chỉnh kích thước và đổi vị trí các khung cắt có sẵn",
         "Slices Studio: Hiển thị cây danh sách toàn bộ lát cắt kèm ô tích bật/tắt xuất",
         "Export Options Studio: Thiết lập sẵn cấu hình định dạng mặc định (PNG, JPEG, WebP, SVG, PDF)",
-        "Nút Create Slice: Nằm ở đáy thẻ Layers bên trong không gian Export Persona"
+        "Nút Create Slice: Nằm ở đáy thẻ Layers bên trong không gian Slice Studio"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Chuyển sang không gian Export Persona",
-        "instruction": "Mở một tài liệu đang có nhiều icon hoặc thành phần giao diện. Nhấp vào biểu tượng thứ ba trên thanh Persona ở góc trên bên trái (Export Persona), hoặc bấm phím tắt bạn tự gán trong Preferences. Thanh công cụ và dock bên phải sẽ tự đổi sang bộ công cụ cắt lát.",
-        "shortcutTip": { "win": "Biểu tượng Export Persona", "mac": "Biểu tượng Export Persona" }
+        "title": "Chuyển sang không gian Slice Studio",
+        "instruction": "Mở một tài liệu đang có nhiều icon hoặc thành phần giao diện. Nhấp vào biểu tượng thứ ba trên thanh Persona ở góc trên bên trái (Slice Studio), hoặc bấm phím tắt bạn tự gán trong Preferences. Thanh công cụ và dock bên phải sẽ tự đổi sang bộ công cụ cắt lát.",
+        "shortcutTip": { "win": "Biểu tượng Slice Studio", "mac": "Biểu tượng Slice Studio" }
       },
       {
         "stepNumber": 2,
@@ -52,13 +52,13 @@
       {
         "stepNumber": 3,
         "title": "Tạo Layer-Based Slice tự động bám đối tượng",
-        "instruction": "Trong Export Persona, nhấp sang thẻ 'Layers' ở dock bên phải, chọn một nhóm nút hoặc icon (chẳng hạn 'Component_Button_Primary') rồi nhấn nút 'Create Slice' ở đáy bảng. Quay lại thẻ 'Slices': một vùng cắt vừa khít mang đúng tên lớp đã được tạo sẵn.",
+        "instruction": "Trong Slice Studio, nhấp sang thẻ 'Layers' ở dock bên phải, chọn một nhóm nút hoặc icon (chẳng hạn 'Component_Button_Primary') rồi nhấn nút 'Create Slice' ở đáy bảng. Quay lại thẻ 'Slices': một vùng cắt vừa khít mang đúng tên lớp đã được tạo sẵn.",
         "shortcutTip": { "win": "Nhấn 'Create Slice'", "mac": "Nhấn 'Create Slice'" }
       },
       {
         "stepNumber": 4,
         "title": "Kiểm chứng tính năng tự cập nhật khung bao",
-        "instruction": "Nhấp biểu tượng Designer / Vector Persona ở góc trên bên trái để về chế độ vẽ, dùng Move Tool kéo rộng nút từ 160 px lên 220 px. Sau đó quay lại Export Persona: khung lát cắt đã tự động giãn rộng lên đúng 220 px theo hình vẽ mới.",
+        "instruction": "Nhấp biểu tượng Designer / Vector Studio ở góc trên bên trái để về chế độ vẽ, dùng Move Tool kéo rộng nút từ 160 px lên 220 px. Sau đó quay lại Slice Studio: khung lát cắt đã tự động giãn rộng lên đúng 220 px theo hình vẽ mới.",
         "shortcutTip": { "win": "Chuyển đổi biểu tượng Persona", "mac": "Chuyển đổi biểu tượng Persona" }
       },
       {
@@ -86,8 +86,8 @@
       "title": "Thiết lập danh mục Slice cho thanh điều hướng ứng dụng",
       "taskDescription": "Tạo hệ thống lát cắt gọn sạch cho một thanh điều hướng gồm 5 biểu tượng hệ thống.",
       "checkpoints": [
-        "Trong Designer Persona, gom 5 icon thành 5 nhóm đặt tên rõ nghĩa ('Nav_Home', 'Nav_Search', 'Nav_Feed', 'Nav_Notifications', 'Nav_Profile').",
-        "Chuyển sang Export Persona bằng biểu tượng ở góc trên bên trái thanh công cụ.",
+        "Trong Vector Studio, gom 5 icon thành 5 nhóm đặt tên rõ nghĩa ('Nav_Home', 'Nav_Search', 'Nav_Feed', 'Nav_Notifications', 'Nav_Profile').",
+        "Chuyển sang Slice Studio bằng biểu tượng ở góc trên bên trái thanh công cụ.",
         "Tại thẻ Layers, chọn cả 5 nhóm icon rồi nhấn 'Create Slice'.",
         "Trong Slices Studio, kiểm tra cả 5 Layer-Based Slices hiển thị đúng tên và kích thước.",
         "Bỏ tích ô Document Slice mặc định để lần xuất chỉ tạo ra đúng 5 tệp icon."
@@ -96,7 +96,7 @@
     },
     "independentChallenge": {
       "title": "Cắt lát hệ thống giao diện Dashboard đa Artboard",
-      "prompt": "Xây dựng cấu trúc cắt lát hoàn chỉnh cho sản phẩm thực tế: (1) Thiết lập tài liệu có 3 Artboard ('Desktop_1440', 'Tablet_768', 'Mobile_375'); (2) Mỗi Artboard có các nhóm thành phần Header, Sidebar và thẻ chỉ số; (3) Trong Export Persona, kiểm tra 3 Artboard Slices tự động sinh ra; (4) Tạo Layer-Based Slices riêng cho từng thẻ chỉ số và ảnh đại diện; (5) Đặt tên lát cắt theo chuẩn kebab-case thân thiện mã nguồn (ví dụ 'ui-card-revenue', 'nav-icon-home'); (6) Kiểm tra để các lát cắt không bị cắt cụt phần bóng đổ hay phát sáng ngoài.",
+      "prompt": "Xây dựng cấu trúc cắt lát hoàn chỉnh cho sản phẩm thực tế: (1) Thiết lập tài liệu có 3 Artboard ('Desktop_1440', 'Tablet_768', 'Mobile_375'); (2) Mỗi Artboard có các nhóm thành phần Header, Sidebar và thẻ chỉ số; (3) Trong Slice Studio, kiểm tra 3 Artboard Slices tự động sinh ra; (4) Tạo Layer-Based Slices riêng cho từng thẻ chỉ số và ảnh đại diện; (5) Đặt tên lát cắt theo chuẩn kebab-case thân thiện mã nguồn (ví dụ 'ui-card-revenue', 'nav-icon-home'); (6) Kiểm tra để các lát cắt không bị cắt cụt phần bóng đổ hay phát sáng ngoài.",
       "starterAsset": {
         "filename": "D10_export_slices_production_guide.md",
         "filepath": "curriculum/assets/designer/D10_export_slices_production_guide.md",
@@ -104,10 +104,10 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu hướng dẫn Export Persona và cấu trúc cắt lát Slices (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn Slice Studio và cấu trúc cắt lát Slices (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
-        "Điều hướng thành thạo vào Export Persona và bộ công cụ Slices.",
+        "Điều hướng thành thạo vào Slice Studio và bộ công cụ Slices.",
         "Quản lý song song gọn gàng cả Artboard Slices lẫn Layer-Based Slices trong Slices Studio.",
         "Áp dụng quy ước đặt tên kebab-case đồng nhất cho toàn bộ danh sách xuất.",
         "Kiểm chứng khung slice tự cập nhật theo khi chỉnh lại kích thước hình vector gốc."
@@ -117,7 +117,7 @@
       {
         "mistake": "Kẻ khung cắt tay bằng Slice Tool phủ lên từng nút bấm thay vì tạo Layer-Based Slice.",
         "consequence": "Nếu về sau bạn nhích vị trí hoặc kéo dài nút bấm, khung cắt tay đứng yên tại chỗ và cắt mất một góc hình.",
-        "solution": "Luôn chọn nhóm đối tượng trong thẻ Layers của Export Persona và nhấn 'Create Slice' để lát cắt tự bám theo vật thể."
+        "solution": "Luôn chọn nhóm đối tượng trong thẻ Layers của Slice Studio và nhấn 'Create Slice' để lát cắt tự bám theo vật thể."
       },
       {
         "mistake": "Quên bỏ tích các lát cắt mặc định trước khi bấm Export Slices.",
@@ -140,13 +140,13 @@
           "Layer-Based Slice chỉ chạy trên macOS."
         ],
         "correctIndex": 1,
-        "explanation": "Layer-Based Slice liên kết trực tiếp với khung bao của lớp vector gốc, nên mọi thay đổi kích thước hay vị trí bên Vector Persona đều tự cập nhật sang lát cắt."
+        "explanation": "Layer-Based Slice liên kết trực tiếp với khung bao của lớp vector gốc, nên mọi thay đổi kích thước hay vị trí bên Vector Studio đều tự cập nhật sang lát cắt."
       },
       {
-        "question": "Cách mặc định để chuyển sang không gian Export Persona trong Affinity Designer là gì?",
+        "question": "Cách mặc định để chuyển sang không gian Slice Studio trong Affinity Designer là gì?",
         "options": [
           "Nhấn Ctrl+Shift+E",
-          "Nhấp biểu tượng Export Persona ở góc trên bên trái thanh công cụ (mặc định phần mềm không gán sẵn phím tắt, nhưng bạn có thể tự gán trong Preferences)",
+          "Nhấp biểu tượng Slice Studio ở góc trên bên trái thanh công cụ (mặc định phần mềm không gán sẵn phím tắt, nhưng bạn có thể tự gán trong Preferences)",
           "Nhấn phím F12",
           "Nhấp đúp vào vùng trống của bản vẽ"
         ],
@@ -154,20 +154,20 @@
         "explanation": "Affinity không gán sẵn phím tắt chuyển Persona mặc định; bạn nhấp biểu tượng trên góc trái thanh công cụ hoặc tự đặt phím tắt trong Preferences > Keyboard Shortcuts."
       },
       {
-        "question": "Nút lệnh 'Create Slice' để biến một nhóm vector thành lát cắt động nằm ở đâu bên trong Export Persona?",
+        "question": "Nút lệnh 'Create Slice' để biến một nhóm vector thành lát cắt động nằm ở đâu bên trong Slice Studio?",
         "options": [
           "Trong menu File > Print.",
-          "Ở cạnh dưới của thẻ 'Layers' bên trong dock studio của Export Persona.",
+          "Ở cạnh dưới của thẻ 'Layers' bên trong dock studio của Slice Studio.",
           "Trong menu bảng Swatches Studio.",
           "Trong mục tài liệu hướng dẫn Help."
         ],
         "correctIndex": 1,
-        "explanation": "Trong Export Persona, hãy chuyển sang thẻ 'Layers', chọn lớp hoặc nhóm mong muốn rồi nhấn nút 'Create Slice' ở đáy bảng."
+        "explanation": "Trong Slice Studio, hãy chuyển sang thẻ 'Layers', chọn lớp hoặc nhóm mong muốn rồi nhấn nút 'Create Slice' ở đáy bảng."
       }
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Export Persona cung cấp không gian tách biệt và phi phá hủy cho việc cắt lát và xuất tài sản đồ họa.",
+        "Slice Studio cung cấp không gian tách biệt và phi phá hủy cho việc cắt lát và xuất tài sản đồ họa.",
         "Layer-Based Slices tự động cập nhật kích thước và tọa độ theo đối tượng vector.",
         "Mỗi Artboard được phần mềm tự động sinh sẵn một Artboard Slice tương ứng.",
         "Bỏ tích các slice không cần xuất trong Slices Studio giúp đầu ra gọn sạch, đúng danh mục bàn giao."
@@ -179,15 +179,15 @@
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Làm quen với không gian Export Persona",
+      "title": "Làm quen với không gian Slice Studio",
       "subtitle": "Chuẩn hóa quy trình xuất bản sản phẩm số và in ấn",
       "bullets": [
         "Ở nhiều phần mềm cũ, tách xuất từng icon đòi hỏi vẽ khung cắt thủ công rất tốn thời gian.",
-        "Affinity tách khâu xuất bản thành một không gian làm việc riêng biệt: Export Persona.",
+        "Affinity tách khâu xuất bản thành một không gian làm việc riêng biệt: Slice Studio.",
         "Mọi lát cắt đều lưu bền vững, phi phá hủy và không làm rối màn hình khi đang vẽ.",
         "Truy cập nhanh bằng biểu tượng ở góc trên bên trái hoặc phím tắt tự gán trong Preferences."
       ],
-      "proTip": "Export Persona giúp bản vẽ thiết kế chính của bạn luôn sạch sẽ không bị vướng khung đường cắt."
+      "proTip": "Slice Studio giúp bản vẽ thiết kế chính của bạn luôn sạch sẽ không bị vướng khung đường cắt."
     },
     {
       "slideNumber": 2,
@@ -196,7 +196,7 @@
       "bullets": [
         "Thanh trái: Slice Tool (S) để kẻ vùng cắt tay và Slice Selection Tool để chỉnh khung.",
         "Thanh dock phải: Slices Studio (quản lý từng lát cắt) và Export Options Studio (mặc định định dạng).",
-        "Thẻ Layers trong Export Persona: nơi chuyển đổi nhanh lớp vector thành Layer-Based Slice.",
+        "Thẻ Layers trong Slice Studio: nơi chuyển đổi nhanh lớp vector thành Layer-Based Slice.",
         "Vùng bản vẽ: đánh dấu trực quan các vùng cắt đang hoạt động bằng khung viền màu."
       ],
       "proTip": "Bất cứ lúc nào cũng có thể nhấp lại biểu tượng đầu tiên ở góc trên trái để về giao diện vẽ Vector."
@@ -218,7 +218,7 @@
       "title": "Tạo Layer-Based Slices bám đối tượng",
       "subtitle": "Không còn lo căn lại khung cắt khi sửa thiết kế",
       "bullets": [
-        "Trong Export Persona, nhấp vào thẻ 'Layers' ở thanh dock bên phải.",
+        "Trong Slice Studio, nhấp vào thẻ 'Layers' ở thanh dock bên phải.",
         "Chọn nhóm icon hoặc nút bấm cần xuất (ví dụ 'Btn_Primary_Action').",
         "Nhấn nút 'Create Slice' nằm ở đáy bảng.",
         "Một khung cắt ôm khít lấy viền ngoài của toàn bộ nhóm vector được sinh ra ngay lập tức."
@@ -230,9 +230,9 @@
       "title": "Kiểm chứng khung Slice tự cập nhật theo hình vẽ",
       "subtitle": "Cập nhật tọa độ và kích thước hoàn toàn tự động",
       "bullets": [
-        "Quay về Designer / Vector Persona bằng biểu tượng ở góc trên bên trái.",
+        "Quay về Designer / Vector Studio bằng biểu tượng ở góc trên bên trái.",
         "Dịch chuyển nút sang chỗ khác hoặc kéo rộng bề ngang từ 160 px lên 220 px.",
-        "Chuyển lại sang Export Persona.",
+        "Chuyển lại sang Slice Studio.",
         "Khung lát cắt đã tự động dời vị trí và giãn kích thước lên đúng 220 px!"
       ],
       "callout": "Vùng cắt vẽ tay thủ công KHÔNG tự bám theo vật thể — hãy luôn ưu tiên Layer-Based Slices!"
@@ -255,8 +255,8 @@
       "subtitle": "Thiết lập hàng loạt Layer-Based Slices",
       "bullets": [
         "Làm theo hướng dẫn trong tệp 'D10_export_slices_production_guide.md'.",
-        "Gom 5 biểu tượng hệ thống thành 5 nhóm vector sạch sẽ trong Designer Persona.",
-        "Chuyển sang Export Persona từ thanh công cụ góc trên bên trái.",
+        "Gom 5 biểu tượng hệ thống thành 5 nhóm vector sạch sẽ trong Vector Studio.",
+        "Chuyển sang Slice Studio từ thanh công cụ góc trên bên trái.",
         "Trong thẻ Layers, chọn cả 5 nhóm và nhấn 'Create Slice'.",
         "Kiểm tra trong Slices Studio để xác nhận đủ 5 lát cắt ôm khít đúng kích thước từng icon."
       ],
@@ -267,9 +267,9 @@
       "title": "Kiểm tra nhanh kiến thức cấu trúc Slices",
       "subtitle": "Rà soát trước khi sang xuất đa mật độ",
       "bullets": [
-        "Biết cách chuyển vào Export Persona và tự gán phím tắt trong Preferences nếu cần.",
+        "Biết cách chuyển vào Slice Studio và tự gán phím tắt trong Preferences nếu cần.",
         "Giải thích vì sao Layer-Based Slice ưu việt hơn vùng cắt kẻ tay.",
-        "Chỉ đúng vị trí lệnh 'Create Slice' trong thẻ Layers của Export Persona.",
+        "Chỉ đúng vị trí lệnh 'Create Slice' trong thẻ Layers của Slice Studio.",
         "Xác nhận đủ 5 lát cắt icon sạch sẽ trước khi cấu hình tỷ lệ 1x/2x/3x."
       ]
     },
@@ -278,7 +278,7 @@
       "title": "Tổng kết & Chuyển sang xuất đa mật độ",
       "subtitle": "Từ từng lát cắt tĩnh sang đường ống tự động hóa",
       "bullets": [
-        "Đã nắm vững giao diện Export Persona và cách phân biệt bốn loại Slices.",
+        "Đã nắm vững giao diện Slice Studio và cách phân biệt bốn loại Slices.",
         "Đã tạo được Layer-Based Slices tự bám theo thay đổi kích thước của đối tượng.",
         "Đã sắp xếp gọn gàng danh mục đặt tên trong Slices Studio.",
         "Ở bài D10-02 tiếp theo, ta thiết lập xuất đồng thời 1x/2x/3x và bật Continuous Export tự động cập nhật mỗi khi lưu tệp."

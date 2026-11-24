@@ -11,6 +11,12 @@
 
 ---
 
+## Bổ sung bằng chứng ngày 24/11/2026
+
+- **VEC-002.** Kiểm gói cài và thao tác trực tiếp trong Affinity 3.3.3.5004 trên Windows 11. New Document có nút Artboards. Artboard Tool hiện Size, W, H, Spacing và Insert Artboard. Nút cộng bên cạnh khung sinh thêm artboard. Ctrl+J nhân bản khung đang chọn, có mục Duplicate trong History. Tài liệu giải thích tạo khung theo tài liệu, preset, vùng chọn, kích thước tùy chỉnh và nhân bản. [Artboard Tool](https://www.affinity.studio/help/tools-tools-artboard/) · [Thêm và bỏ artboard](https://www.affinity.studio/help/artboards-artboards-add-delete/)
+- **PIX-012.** Trong Pixel Studio, menu Window > Pixel > Histogram hiện đúng bảng đang mở. Histogram nhận ra dữ liệu All Channels, Layer và Marquee. Đã thử tăng Exposure trong Develop trên tệp NEF và quan sát biểu đồ dời về vùng sáng. Tài liệu xác nhận phạm vi ảnh, lớp hoặc vùng chọn cùng đường dẫn menu trên Windows và macOS. [Histogram panel](https://www.affinity.studio/help/panels-histogram-panel/)
+- Giáo trình D01-02 và P05-01 đã cập nhật theo hai mục trên. Phần còn cần thử gồm Lock Children với một artboard có lớp con, hành vi làm mới Histogram khi đổi vùng chọn và kiểm đủ danh mục của cả ba Studio. Trạng thái toàn tác vụ vẫn là `IN_PROGRESS`.
+
 ## 1. Mục tiêu và Phiên bản Đối chiếu Mục tiêu
 
 ### 1.1. Mục tiêu Kiểm toán

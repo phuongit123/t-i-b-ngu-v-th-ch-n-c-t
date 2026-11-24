@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Cơ chế Clipping & Vector Masking",
-      "persona": "Vector Persona (Vùng thả trong Layers Studio & Thanh công cụ trên cùng)",
+      "persona": "Vector Studio (Vùng thả trong Layers Studio & Thanh công cụ trên cùng)",
       "shortcut": {
         "win": "Ctrl+Alt+X (Insert inside the selection), Layer > Release Mask",
         "mac": "Cmd+Option+X (Insert inside the selection), Layer > Release Mask"
@@ -112,7 +112,7 @@
         "Mọi chi tiết bên trong giữ nguyên khả năng chọn và dịch chuyển tự do.",
         "Không chuyển sang ảnh raster; giữ 100% chất lượng vector sắc nét."
       ],
-      "bonusGoal": "Chuyển sang Pixel Persona lồng thêm một lớp chất liệu giấy sần nhẹ vào bên trong nền con tem."
+      "bonusGoal": "Chuyển sang Pixel Studio lồng thêm một lớp chất liệu giấy sần nhẹ vào bên trong nền con tem."
     },
     "commonPitfalls": [
       {

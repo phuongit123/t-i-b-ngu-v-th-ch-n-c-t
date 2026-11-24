@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "title": "Mở Affinity và tạo trang đầu tiên",
+    "instruction": "Mở Affinity trên máy tính. Vào File → New, chọn đơn vị Pixels và nhập 1080 cho cả chiều rộng lẫn chiều cao. Chọn RGB để làm ảnh đăng mạng, bấm Create rồi chọn Vector ở thanh trên. Nếu chưa thấy bảng Layers, mở Window → General → Layers.",
+    "checkpoint": "Vùng vẽ là một hình vuông. Tab Vector đang được chọn.",
+    "tool": "New Document",
+    "before": {
+      "scene": "starter:new",
+      "label": "Nhập chiều ngang và chiều cao"
+    },
+    "after": {
+      "scene": "starter:canvas",
+      "label": "Khung vuông 1080 × 1080"
+    },
+    "lookFor": "Hai cạnh bằng nhau. Đây là kích thước ảnh xuất tính theo pixel."
+  },
+  {
+    "step": 2,
+    "title": "Chọn thông tin người xem cần thấy trước",
+    "instruction": "Viết ba dòng: “Đổi sách cuối tuần”, “9 giờ · Thứ Bảy”, “Thư viện phường”. Người lướt qua cần nhận ra sự kiện gì trước, rồi mới tìm giờ và địa điểm. Phác hai cách xếp ba dòng trên giấy và chọn cách đọc nhanh hơn.",
+    "checkpoint": "Có hai phác thảo và một lý do chọn, chẳng hạn tiêu đề dễ bắt gặp ở kích thước nhỏ.",
+    "tool": "Phác bố cục và phân cấp chữ",
+    "before": {
+      "scene": "starter:equal",
+      "label": "Ba dòng cùng sức nặng"
+    },
+    "after": {
+      "scene": "starter:priority",
+      "label": "Tên sự kiện lớn và nổi bật"
+    },
+    "lookFor": "Thu nhỏ rồi nhìn nhanh. Tiêu đề cần đọc được trước giờ và địa điểm."
+  },
+  {
+    "step": 3,
+    "title": "Dựng bản nháp và đặt tên lớp",
+    "instruction": "Rê chuột lên biểu tượng ở thanh công cụ bên trái để xem tên. Dùng Rectangle Tool kéo một hình phủ trang làm nền. Với Artistic Text Tool, bấm vào trang rồi gõ từng dòng thành một khối chữ riêng. Chọn Move Tool để kéo các khối chữ cùng về một đường căn trái. Kiểm và đặt tên các lớp trong Layers.",
+    "checkpoint": "Ba thông tin vẫn có thể sửa riêng. Khoảng chừa từ chữ tới mép trang đủ để đọc thoải mái.",
+    "tool": "Rectangle, Artistic Text, Move và Layers",
+    "before": {
+      "scene": "starter:guides",
+      "label": "Ba khối chữ căn cùng mép"
+    },
+    "after": {
+      "scene": "starter:layers",
+      "label": "Bốn lớp đặt tên rõ ràng"
+    },
+    "lookFor": "Dùng Move Tool chỉnh từng khối. Trong Layers, nền đứng dưới và mỗi khối chữ có một hàng riêng."
+  },
+  {
+    "step": 4,
+    "title": "Kiểm trên kích thước nhỏ rồi sửa",
+    "instruction": "Thu nhỏ bản vẽ đến cỡ màn hình điện thoại. Tiêu đề cần nổi rõ trước, sau đó đến giờ và địa điểm. Nếu hai dòng chi tiết tranh nhau, giảm kích cỡ hoặc độ đậm của một dòng. Thử nền sáng và chữ tối để giữ tương phản.",
+    "checkpoint": "Chụp bản trước và sau. Ghi một câu về thay đổi và điều nó giúp người xem đọc nhanh hơn.",
+    "tool": "Zoom và kiểm tương phản",
+    "before": {
+      "scene": "starter:tinyDraft",
+      "label": "Bản nháp khó đọc ở cỡ nhỏ"
+    },
+    "after": {
+      "scene": "starter:tinyFinal",
+      "label": "Tiêu đề rõ ở cỡ điện thoại"
+    },
+    "lookFor": "So hai bản ở cùng kích thước. Giữ đủ tương phản cho hai dòng chi tiết."
+  },
+  {
+    "step": 5,
+    "title": "Lưu tệp để sửa và xuất ảnh để gửi",
+    "instruction": "Dùng File → Save để lưu tệp Affinity (.af) còn chỉnh sửa được. Sau đó chọn File → Export, chọn PNG và kiểm lại 1080 × 1080 px trong cửa sổ xuất. Mở ảnh đã xuất để kiểm tra đủ ba dòng chữ trước khi gửi.",
+    "checkpoint": "Có một tệp .af mở lại được và một ảnh PNG xem được.",
+    "tool": "File → Save và File → Export",
+    "before": {
+      "scene": "starter:saved",
+      "label": "Giữ tệp nguồn .af"
+    },
+    "after": {
+      "scene": "starter:export",
+      "label": "Gửi ảnh PNG vuông"
+    },
+    "lookFor": "Mở thử cả hai tệp. Tệp nguồn còn sửa được, PNG chứa đủ chữ ở 1080 × 1080 px."
+  }
+]

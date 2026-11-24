@@ -6,6 +6,7 @@ async function saveScreenshot(page: Page, filename: string): Promise<void> {
 test.describe('Phòng mô phỏng Pen & Node Tool Bézier (Vector Studio)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
     await page.getByTestId('nav-simulator').click();
     await expect(page.locator('h1')).toContainText('Bộ Mô Phỏng Bézier Pen & Node Tool');
   });

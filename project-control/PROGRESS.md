@@ -7,10 +7,45 @@
 - **Project Phase:** `Phase 5/6/7 — Full Platform Overhaul & Local Quality Gate Certification`
 - **Curriculum Status:** `60 core + 6 pilot = 66 existing / 120 planned lessons`
 - **Last completed verification boundary:** `Full 6-phase overhaul verified locally on feat/full-platform-overhaul via 13 verification gates including Playwright E2E 66/66 PASS, UI localization leak audit 0 violations, curriculum audit 66/66 & 0 violations, backend 44/44 PASS, capstone 7/7 PASS, ESLint 0 warnings, and TypeScript 0 errors. Platform E2E pass does not close TASK-080 or establish learner A5 competency.`
-- **Last Updated:** `2026-11-22`
+- **Last Updated:** `2026-11-24`
 - **Governing Agent:** `Orchestrator` / `QAAgent`
 
 ---
+
+## Bổ sung học liệu thực hành ngày 2026-11-24
+
+- Chủ dự án duyệt bộ 294 hình gồm 289 hình theo bước và năm hình poster. Đưa bộ hình vào nhánh `feat/full-platform-overhaul` cùng trình đọc, lộ trình từ số 0 và các bài đã đối chiếu.
+- `P01-02` và `P09-01` có tệp NEF cảng tàu ở phần làm theo hướng dẫn. Tệp khớp SHA-256 mẫu 1117 của raw.pixls.us, giấy phép CC0 1.0. Affinity 3.3.3.5004 trên Windows mở ảnh trong Develop Studio. Kiểm tra tăng Exposure, Histogram, đầu ra RAW Layer (Embedded) và tab Pixel. Nguồn cũ `.afphoto` được bỏ khỏi bài tập RAW P01-02.
+- `D01-02` và `P05-01` đã sửa đường dẫn thao tác sau khi kiểm Artboard Tool và Histogram trên bản cài. Cập nhật hai mục `VEC-002` và `PIX-012` theo `TASK-080 / REQ-LEARN-002`. Phần hành vi lớp con, cơ chế làm mới Histogram theo vùng chọn và độ đầy đủ của ma trận còn thuộc đợt rà tiếp.
+- Bổ sung phần giải thích lưu tiến độ, tài khoản và nộp đồ án trong [Hướng dẫn backend](../docs/BACKEND_SETUP.md). Kiểm backend tại máy qua 44 ca, tám migration và kiểm hồi quy hàng chờ. `BLK-007` còn khóa 54 bài mở rộng cùng các hạng mục IDE và cloud nâng cao.
+- Bản ứng dụng đạt 73/73 Playwright Edge. Trình kiểm tra giáo trình và học liệu đạt 66/66 bài, 294 hình. Ca tải NEF mới xác nhận URL của cả hai bài trả đúng SHA-256 của tệp nguồn.
+
+## Hình minh họa theo thao tác ngày 2026-11-23
+
+- Trình đọc trước đây chọn một hình cho cả học phần, dẫn đến nhiều bài hiện ảnh trang trí hoặc lặp ví dụ. Đợt này gắn 289 hình với đúng 289 công đoạn của 66 bài hiện hữu, mỗi bài 4–5 hình, và bổ sung 5 hình cho bài poster từ số 0.
+- Mỗi hình ghi tên công cụ, hai trạng thái để so và dấu hiệu tự kiểm. Trình đọc đặt hình ngay dưới hoặc cạnh bước, mục Ví dụ có liên kết về từng hình, trình chiếu có nút Hình theo từng bước. Màn hình nhỏ dùng bố cục ảnh xếp dọc, hộp xem phóng to có thể đóng bằng Escape.
+- Phạm vi giáo trình đối chiếu với `TASK-010–013 / REQ-CURR-001–004`, trình đọc theo `TASK-022 / REQ-FE-003` và `TASK-073 / REQ-PAGE-003`. Đây là tài liệu minh họa thao tác và dấu hiệu kiểm kết quả theo `PLO-01, PLO-03, PLO-04, PLO-08, PLO-09`. `TASK-080` còn kiểm thao tác trực tiếp. `BLK-007` đang khóa phần mở rộng.
+- Kiểm tải 294 hình trong 67 mục học trên Edge ở 1440 px và 390 px. Playwright đạt 72/72. Kiểm cấu trúc 66/66 bài, 41/41 xác nhận từ bộ kiểm trình xác thực, ESLint, TypeScript, bản build và rà giao diện tiếng Việt đều đạt.
+
+## Lộ trình từ số 0 và khung đọc ngày 2026-11-23
+
+- Theo yêu cầu chủ dự án, đưa mục lục lên cùng phần giới thiệu. Bốn tab đọc dùng hết khung trang. Tổng quan và Bài tập chia hai cột từ 900 px, xếp dọc trên màn hình nhỏ. Tăng tương phản số bước và kết quả thực hành. Phạm vi `TASK-022 / REQ-FE-003` và `TASK-073 / REQ-PAGE-003`.
+- Thêm [Học Affinity từ số 0](http://127.0.0.1:4175/lo-trinh/bat-dau) từ Trang chủ và Khóa học theo `TASK-021 / REQ-FE-002`, `TASK-071–072 / REQ-PAGE-001–002`. Bài dựng poster có năm bước và đối chiếu hai cách phân cấp chữ. Bốn chặng chọn 23 bài hiện hữu, mỗi chặng có đề độc lập, sản phẩm cần làm và tiêu chí tự kiểm. Khi học hết một chặng, trình đọc có liên kết về đề tự làm của chặng. Đồ án dùng đề và tiêu chí có sẵn theo `TASK-079 / REQ-LEARN-001` và `TASK-081 / REQ-LEARN-003`.
+- Dấu đã xem lấy từ bộ lưu tiến độ hiện có. Chặng Layout dùng ba bài B01 đang mở. Bộ 66 bài và audit công cụ `TASK-080` giữ nguyên phạm vi. `BLK-007` đang khóa.
+- Playwright Edge đạt 70/70 sau khi bài kiểm tra đa kích thước chuyển sang chờ tiêu đề và font. Đối chiếu 23 URL bài được chọn với sitemap, mở bản xem trước ở sáu chiều rộng 320–1920 px. TypeScript, ESLint, bản build và kiểm ngôn ngữ giao diện đều đạt. Trình kiểm cấu trúc giáo trình đạt 66/66.
+
+## Frontend đã duyệt ngày 2026-11-23
+
+- Chủ dự án duyệt hướng giao diện lớp học nền giấy sáng, xanh lá và bảng mục lục bên phải trong ảnh bài Artboard. Triển khai vào React theo `TASK-020 / REQ-FE-001` và `TASK-071–073 / REQ-PAGE-001–003`. [Bản Figma đã duyệt](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=16-2) · [Ứng dụng local](http://127.0.0.1:4175/)
+- Đưa danh mục, các nhóm Thực hành và Học liệu, trình đọc bài, thanh điều hướng và màu chung vào ứng dụng chính. Bốn tab đọc dùng dữ liệu bài thật. Chế độ trình chiếu và Đọc toàn bài vẫn có trong trình học. Nút Đánh dấu đã xem lưu qua bộ lưu tiến độ hiện có.
+- Đã sửa màu nền tương phản thấp trên Đồ án và nhật ký kiểm thử điều hướng để theo bố cục mới. `TASK-080` vẫn cần tái hiện thao tác trên phần mềm cho các bài còn lại. `BLK-007` tiếp tục khóa.
+- Kiểm tra local với Edge đạt 68/68 ca Playwright. Sau khi giới hạn gợi ý phím mũi tên ở chế độ trình chiếu, chạy lại 6 ca trình học và giao diện, đạt 6/6. Kiểm thêm 39 lượt mở trang trên máy tính, tablet và điện thoại, có mở mục lục và chuyển tới Đồ án trên điện thoại. Build, ESLint, kiểm ngôn ngữ giao diện và validator 66 bài đều đạt.
+
+## Bản duyệt UI ngày 2026-11-22
+
+- Chủ dự án yêu cầu duyệt giao diện trước khi hoàn thiện frontend. Bản duyệt dựa trên `CODEX_HANDOFF_PROMPTS.md` và baseline `9bef09f` của `feat/full-platform-overhaul`. Phạm vi tham chiếu `TASK-020 / REQ-FE-001`, `TASK-071–075 / REQ-PAGE-001–005`, `TASK-077–078 / REQ-PAGE-007–008` và `TASK-081 / REQ-LEARN-003`. Backend dự kiến tiếp nối `TASK-030–033 / REQ-BE-001–004`.
+- [Bản duyệt tương tác](http://127.0.0.1:4174/) có 10 màn hình Night Sky và trạng thái mẫu khi mất mạng, đang đồng bộ, lỗi và chờ chấm. [Trang Figma](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=7-14) có 10 khung desktop và 2 khung mobile. [Kế hoạch và giải thích backend](http://127.0.0.1:4174/ke-hoach.html) nằm cùng bản duyệt.
+- Playwright Edge đã kiểm 10 màn hình ở 390, 768 và 1440 px, cùng luồng menu, tìm kiếm, chọn tệp mẫu và trạng thái nộp. Kết quả kiểm này áp dụng cho prototype. Đang chờ duyệt UI. `BLK-007` tiếp tục ở trạng thái khóa.
 
 ## 1. High-Level Progress Overview
 

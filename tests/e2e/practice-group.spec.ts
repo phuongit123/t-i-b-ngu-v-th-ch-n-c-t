@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Thử thách thực hành & Đồng bộ điểm với Học tập', () => {
   test('TC-PRAC-01: Trang Thử thách sạch nhãn nội bộ và hiển thị đầy đủ danh sách', async ({ page }) => {
     await page.goto('/');
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
     await page.getByTestId('nav-challenges').click();
 
     await expect(page.locator('h1')).toContainText('Thử Thách Kỹ Thuật & Bài Luyện Thực Hành');

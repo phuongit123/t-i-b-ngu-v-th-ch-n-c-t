@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Live Perspective & Warp Groups",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Layer > New Live Filter Layer > Distort > Perspective / Layer > Warp Group",
         "mac": "Layer > New Live Filter Layer > Distort > Perspective / Layer > Warp Group"

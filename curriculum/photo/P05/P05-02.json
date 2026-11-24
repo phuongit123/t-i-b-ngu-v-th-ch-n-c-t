@@ -22,10 +22,10 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Curves & Levels Adjustment Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
-        "win": "Ctrl+M (Curves) / Ctrl+L (Levels) trong Photo Persona",
-        "mac": "Cmd+M (Curves) / Cmd+L (Levels) trong Photo Persona"
+        "win": "Ctrl+M (Curves) / Ctrl+L (Levels) trong Pixel Studio",
+        "mac": "Cmd+M (Curves) / Cmd+L (Levels) trong Pixel Studio"
       },
       "description": "Hai công cụ cốt lõi điều khiển toàn diện độ tương phản, dải sắc độ và cân bằng màu sắc vi mô của bức ảnh.",
       "contextBarOptions": [

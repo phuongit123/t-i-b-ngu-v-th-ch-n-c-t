@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Sharpening & Noise Reduction Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field",
         "mac": "Hourglass > Sharpen / Hourglass > Noise > Denoise / Hourglass > Blur > Depth of Field"

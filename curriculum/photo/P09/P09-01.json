@@ -12,12 +12,12 @@
       "Hiểu rõ quy trình xử lý ảnh RAW và vai trò của Develop Studio trong việc giải mã các tệp RAW được máy ảnh hỗ trợ.",
       "Lựa chọn chính xác chế độ đầu ra (Output): Pixel layer, RAW layer (embedded) hoặc RAW layer (linked).",
       "Làm chủ bảng Basic: Cân bằng trắng nhiệt độ màu/sắc thái (Temp/Tint), cứu chi tiết vùng cháy sáng (Highlights) và vùng tối (Shadows).",
-      "Điều chỉnh dải sắc độ và cân bằng trắng trong bảng Basic trước khi bấm Develop sang Pixel Studio."
+      "Điều chỉnh dải sắc độ và cân bằng trắng trong bảng Basic trước khi bấm Develop rồi chọn Pixel nếu cần."
     ],
     "foundationalKnowledge": "Một tệp RAW chứa dữ liệu cảm biến thô cần được xử lý trước khi hiển thị và chia sẻ thông thường. Khi bạn mở một tệp RAW được hỗ trợ, Affinity tự động khởi chạy Develop Studio. Bảng Basic chứa các công cụ phơi sáng, đường cong tone curve, enhance và cân bằng trắng; bảng Lens chứa các hiệu chỉnh quang học; bảng Detail cung cấp khử nhiễu và làm nét; các bảng Tones và Masks hỗ trợ tinh chỉnh bổ sung. Đầu ra có thể là Pixel layer, RAW layer (embedded) hoặc RAW layer (linked). Tài liệu hướng dẫn RAW chính thức được rà soát không xác nhận các lớp phủ cảnh báo cắt ngọn hay phím tắt cụ thể từng nêu trước đây.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Photo 3.3.3 Serif Labs RAW Engine & 32-bit Pipeline Specification",
+      "classification": "DOCUMENTED",
+      "source": "24/11/2026 · Affinity 3.3.3.5004 trên Windows mở trực tiếp NEF Nikon D70s. Đã kiểm Histogram trong Develop, xuất RAW Layer (Embedded) và chuyển sang Pixel bằng tab Studio. Tùy chọn 16/32-bit đối chiếu Affinity Help.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
@@ -41,7 +41,7 @@
       {
         "stepNumber": 1,
         "title": "Mở tệp RAW trong Develop Studio",
-        "instruction": "Mở một tệp RAW được hỗ trợ. Affinity sẽ tự động mở tệp trong Develop Studio. Quan sát bảng Basic và xác định chế độ đầu ra (Output) mong muốn.",
+        "instruction": "Tải ảnh cảng tàu .nef trong bài và mở từ File > Open. Tệp tự mở trong Develop Studio. Quan sát Histogram và thẻ Basic trước khi thay đổi thông số.",
         "shortcutTip": {
           "win": "File > Open",
           "mac": "File > Open"
@@ -77,7 +77,7 @@
       {
         "stepNumber": 5,
         "title": "Phát triển sang Pixel Studio",
-        "instruction": "Nhấp Develop trên thanh Context Toolbar. Bức ảnh sẽ mở trong Pixel Studio. Các lớp RAW dạng embedded hoặc linked vẫn có thể mở lại để tiếp tục tinh chỉnh thông số RAW về sau.",
+        "instruction": "Bấm Develop để tạo tài liệu đã xử lý. Chọn tab Pixel nếu Affinity đang ở Studio khác. Chọn lớp RAW vừa nhúng và bấm Develop trên thanh tùy chọn để thử mở lại thông số.",
         "shortcutTip": {
           "win": "Develop",
           "mac": "Develop"
@@ -94,19 +94,28 @@
     ],
     "guidedPractice": {
       "title": "Phục hồi vùng sáng và vùng tối trên ảnh RAW",
-      "taskDescription": "Khôi phục chi tiết nhìn thấy được trong một bức ảnh hoàng hôn ngược sáng RAW bằng bảng Basic, đồng thời giữ lại đầu ra RAW phi phá hủy.",
+      "taskDescription": "Dùng ảnh RAW cảng tàu để so vùng trời sáng với thân tàu tối, rồi chỉnh cân bằng trắng và độ phơi sáng. Dùng đầu ra nhúng và thử mở lại lớp RAW.",
       "checkpoints": [
         "Mở một ảnh RAW được hỗ trợ và xác nhận tệp khởi chạy trong Develop Studio.",
         "Điều chỉnh Highlights trong bảng Basic để kéo lại chi tiết bầu trời.",
         "Điều chỉnh Shadows để mở rõ chi tiết tiền cảnh mà vẫn giữ tương phản tự nhiên.",
         "Đặt Output thành RAW layer (Embedded) hoặc RAW layer (Linked).",
-        "Nhấp Develop và xác nhận ảnh đã xử lý mở trong Pixel Studio."
+        "Bấm Develop. Chọn Pixel nếu cần, rồi kiểm nút Develop xuất hiện khi chọn lớp RAW."
       ],
-      "expectedOutcome": "Bức ảnh sau phát triển có chi tiết vùng sáng và vùng tối cân đối hơn theo đúng chế độ đầu ra RAW đã chọn."
+      "expectedOutcome": "Bức ảnh sau phát triển có chi tiết vùng sáng và vùng tối cân đối hơn theo đúng chế độ đầu ra RAW đã chọn.",
+      "starterAsset": {
+        "filename": "P01_RAW_cang_tau.nef",
+        "filepath": "curriculum/assets/photo/P01_RAW_cang_tau.nef",
+        "filesize": "4,95 MiB",
+        "filetype": ".nef",
+        "assetStatus": "CAMERA_RAW",
+        "isVerified": true,
+        "statusNote": "Ảnh cảng tàu từ Nikon D70s, raw.pixls.us mẫu 1117, CC0 1.0. Đã mở bằng Affinity 3.3.3.5004 trên Windows."
+      }
     },
     "independentChallenge": {
       "title": "Hiệu chỉnh sắc độ 32-bit cho ảnh phong cảnh núi tuyết",
-      "prompt": "Phát triển một bức ảnh RAW cảnh núi tuyết: cân bằng trắng dựa trên một vùng trung tính, điều chỉnh Tone Curve và Highlights để giữ nguyên chi tiết bề mặt tuyết, chọn đầu ra RAW phi phá hủy và nhấn Develop sang Pixel Studio.",
+      "prompt": "Dùng một ảnh RAW khác ảnh cảng mẫu, có vùng trắng sáng và vùng tối còn chi tiết. Cân bằng trắng dựa trên một vùng trung tính, chỉnh Tone Curve và Highlights. Lưu đầu ra RAW nhúng và giải thích cách kiểm chi tiết vùng sáng.",
       "starterAsset": {
         "filename": "P09_raw_develop_workflow_guide.md",
         "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
@@ -114,14 +123,14 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW và quy trình phòng tối trong Pixel Studio / Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW và quy trình phòng tối trong Pixel Studio."
       },
       "challengeCriteria": [
         "Mảng tuyết giữ được sắc trắng trung tính, không bị ám xanh hoặc ám vàng ngoài ý muốn.",
         "Các chi tiết quan trọng ở vùng sáng gắt vẫn hiển thị rõ ràng.",
         "Điều chỉnh Tone Curve giúp tách bạch sắc độ tốt mà không gây gãy dải màu (posterization)."
       ],
-      "bonusGoal": "Nhấp đúp vào RAW Layer trong Pixel Studio / Photo Persona sau khi Develop để kiểm chứng khả năng mở lại bảng thông số gốc."
+      "bonusGoal": "Chọn lớp RAW trong Pixel Studio rồi bấm Develop trên thanh tùy chọn để quay lại các thiết lập RAW."
     },
     "commonPitfalls": [
       {
@@ -190,6 +199,11 @@
           "title": "Tài liệu thực hành: P09_raw_develop_workflow_guide.md",
           "target": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",
           "type": "guide"
+        },
+        {
+          "title": "Nguồn và giấy phép ảnh RAW cảng tàu",
+          "target": "curriculum/assets/photo/P01_RAW_cang_tau_nguon.md",
+          "type": "guide"
         }
       ]
     }
@@ -201,7 +215,7 @@
     "filetype": ".md",
     "assetStatus": "GUIDE_DOCUMENT",
     "isVerified": true,
-    "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW, hiệu chỉnh ống kính và xử lý hàng loạt trong Pixel Studio / Affinity Photo."
+    "statusNote": "Tài liệu kỹ thuật hướng dẫn xử lý ảnh RAW, hiệu chỉnh ống kính và xử lý hàng loạt trong Pixel Studio."
   },
   "slides": [
     {
@@ -270,9 +284,9 @@
       "title": "Chuyển giao chuyên nghiệp vào Pixel Studio",
       "subtitle": "Sẵn sàng cho các công đoạn chỉnh sửa chuyên sâu",
       "type": "summary",
-      "content": "Sau khi hoàn tất cân bằng trắng và tinh chỉnh sắc độ, nhấp nút Develop. Bức ảnh đã xử lý sẽ mở trong Pixel Studio; nếu chọn RAW layer dạng embedded hoặc linked, bạn luôn giữ được đường dẫn quay lại chỉnh sửa thông số RAW ban đầu.",
+      "content": "Sau khi hoàn tất cân bằng trắng và tinh chỉnh sắc độ, nhấp nút Develop. Ảnh đã xử lý trở về tài liệu. Chọn Pixel khi cần chỉnh tiếp; nếu chọn RAW layer dạng embedded hoặc linked, bạn luôn giữ được đường dẫn quay lại chỉnh sửa thông số RAW ban đầu.",
       "tips": "Giữ file .afphoto chứa RAW Layer để lưu trữ vĩnh viễn cấu hình phát triển gốc của bức ảnh.",
-      "codeSnippet": "Danh sách kiểm tra trước khi Develop:\n[✓] Đã chọn Output (Pixel / RAW embedded / RAW linked)\n[✓] Đã kiểm tra cân bằng trắng và sắc độ\n[✓] Đã rà soát hiệu chỉnh ống kính / chi tiết nếu cần\n[✓] Nhấp Develop -> Chuyển sang Pixel Studio"
+      "codeSnippet": "Danh sách kiểm tra trước khi Develop:\n[✓] Đã chọn Output (Pixel / RAW embedded / RAW linked)\n[✓] Đã kiểm tra cân bằng trắng và sắc độ\n[✓] Đã rà soát hiệu chỉnh ống kính / chi tiết nếu cần\n[✓] Nhấp Develop rồi chọn Pixel nếu cần"
     }
   ]
 }

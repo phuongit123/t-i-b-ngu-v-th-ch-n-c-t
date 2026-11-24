@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { AppShell } from './components/layout/AppShell';
-import { SidebarNavigation } from './components/layout/SidebarNavigation';
 const DesignSystemPreview = React.lazy(() => import('./components/preview/DesignSystemPreview').then(module => ({ default: module.DesignSystemPreview })));
 import { SearchCommand, SearchResultItem } from './components/search/SearchCommand';
 import { Toast } from './components/ui/Toast';
 const SimulatorPage = React.lazy(() => import('./pages/SimulatorPage').then(module => ({ default: module.SimulatorPage })));
 import { HomePage } from './pages/HomePage';
 const LessonPage = React.lazy(() => import('./pages/LessonPage').then(module => ({ default: module.LessonPage })));
-import type { ThemeMode, AffinityTrackId, ModuleSummary } from './types/design-system';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS, getLessonById } from './data/curriculum/index';
 import { lessonTranslationsVi } from './data/curriculum/translationsVi';
-import { useLearningProgress } from './lib/learning-store';
+import { LEARNING_PATH_QUERY } from './data/learning-path';
 import {
   parseLocationPathname,
   getRoutePath,
@@ -18,8 +16,10 @@ import {
   type ParsedRouteState,
 } from './lib/seo-router';
 import { useSeoMetadata } from './lib/seo-metadata';
+import type { AffinityTrackId, ThemeMode } from './types/design-system';
 
 const CatalogPage = React.lazy(() => import('./pages/CatalogPage'));
+const LearningPathPage = React.lazy(() => import('./pages/LearningPathPage'));
 const EncyclopediaPage = React.lazy(() => import('./pages/EncyclopediaPage'));
 const PlaygroundPage = React.lazy(() => import('./pages/PlaygroundPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
@@ -43,18 +43,15 @@ export const App: React.FC = () => {
   const [activeTrack, setActiveTrack] = useState<AffinityTrackId>(
     initialState.trackId ?? 'designer'
   );
-  const [activeModuleId, setActiveModuleId] = useState<string>(
-    initialState.moduleId ?? 'D01'
-  );
   const [activeLessonId, setActiveLessonId] = useState<string | null>(
     initialState.lessonId ?? null
   );
+  const [inLearningPath, setInLearningPath] = useState(() => window.location.search === LEARNING_PATH_QUERY);
   const [playgroundSymbolId, setPlaygroundSymbolId] = useState<string | null>(null);
-  const [theme, setTheme] = useState<ThemeMode>('dark');
+  const [theme, setTheme] = useState<ThemeMode>('light');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeToast, setActiveToast] = useState<{ title: string; message?: string } | null>(null);
 
-  const { getModuleProgress } = useLearningProgress();
 
   const handleNavigate = (route: string, trackOverride?: AffinityTrackId) => {
     const resolvedTrack = trackOverride ?? activeTrack;
@@ -81,24 +78,12 @@ export const App: React.FC = () => {
       const parsed = parseLocationPathname(window.location.pathname);
       setActiveRoute(parsed.route);
       if (parsed.trackId) setActiveTrack(parsed.trackId);
-      if (parsed.moduleId) setActiveModuleId(parsed.moduleId);
       setActiveLessonId(parsed.lessonId ?? null);
+      setInLearningPath(window.location.search === LEARNING_PATH_QUERY);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  const sidebarModules: ModuleSummary[] = ALL_PILOT_MODULES.map((m) => ({
-    id: m.id,
-    trackId: m.trackId,
-    moduleNumber: m.moduleNumber || m.id,
-    title: m.title,
-    description: m.description,
-    lessonCount: m.lessons.length,
-    estimatedMinutes: m.estimatedMinutes,
-    difficulty: m.difficulty,
-    progressPercentage: getModuleProgress(m.id).percentage,
-  }));
 
   const handleToggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -106,17 +91,18 @@ export const App: React.FC = () => {
     document.documentElement.setAttribute('data-theme', next);
   };
 
-  const handleLaunchLesson = (lessonId: string) => {
+  const handleLaunchLesson = (lessonId: string, fromLearningPath = false) => {
     const target = getLessonById(lessonId);
     if (target) {
       setActiveTrack(target.trackId);
-      setActiveModuleId(target.moduleId);
     }
     setActiveLessonId(lessonId);
     setActiveRoute('lesson');
+    setInLearningPath(fromLearningPath);
     if (typeof window !== 'undefined') {
-      const targetPath = target ? getLessonCanonicalPath(target) : `/bai-hoc/${lessonId.toLowerCase()}`;
-      if (window.location.pathname !== targetPath) {
+      const lessonPath = target ? getLessonCanonicalPath(target) : `/bai-hoc/${lessonId.toLowerCase()}`;
+      const targetPath = lessonPath + (fromLearningPath ? LEARNING_PATH_QUERY : '');
+      if (window.location.pathname + window.location.search !== targetPath) {
         window.history.pushState(null, '', targetPath);
       }
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
@@ -141,10 +127,12 @@ export const App: React.FC = () => {
       return (
         <div className="py-2">
           <LessonPage
+            key={currentLesson.id}
             lesson={currentLesson}
             module={currentModule}
             allLessons={ALL_PILOT_LESSONS}
-            onSelectLesson={handleLaunchLesson}
+            onSelectLesson={(id) => handleLaunchLesson(id, inLearningPath)}
+            inLearningPath={inLearningPath}
             onBackToCatalog={() => handleNavigate('catalog')}
             onNavigate={handleNavigate}
             onLessonComplete={(id) => {
@@ -176,16 +164,14 @@ export const App: React.FC = () => {
       case 'preview':
       case 'design-system':
         return <DesignSystemPreview />;
+      case 'journey':
+        return <LearningPathPage onLaunchLesson={(id) => handleLaunchLesson(id, true)} />;
       case 'catalog':
         return (
           <CatalogPage
             activeTrack={activeTrack}
             onSelectTrack={(trackId) => {
               setActiveTrack(trackId);
-              const firstMod = ALL_PILOT_MODULES.find((m) => m.trackId === trackId);
-              if (firstMod) {
-                setActiveModuleId(firstMod.id);
-              }
               if (typeof window !== 'undefined') {
                 const trackPath = getRoutePath('catalog', { trackId });
                 if (window.location.pathname !== trackPath) {
@@ -272,27 +258,7 @@ export const App: React.FC = () => {
       onToggleTheme={handleToggleTheme}
       onOpenSearch={() => setIsSearchOpen(true)}
       isMcpConnected={false}
-      sidebar={
-        activeRoute === 'catalog' ? (
-          <SidebarNavigation
-            activeTrackId={activeTrack}
-            onSelectTrack={(t) => {
-              setActiveTrack(t);
-              const firstMod = ALL_PILOT_MODULES.find((m) => m.trackId === t);
-              if (firstMod) setActiveModuleId(firstMod.id);
-            }}
-            modules={sidebarModules}
-            activeModuleId={activeModuleId}
-            onSelectModule={(mId) => {
-              setActiveModuleId(mId);
-              const targetMod = ALL_PILOT_MODULES.find((m) => m.id === mId);
-              if (targetMod && targetMod.lessons.length > 0) {
-                handleLaunchLesson(targetMod.lessons[0].id);
-              }
-            }}
-          />
-        ) : undefined
-      }
+
     >
       <React.Suspense
         fallback={
@@ -312,16 +278,8 @@ export const App: React.FC = () => {
           if (item.category === 'lesson') {
             handleLaunchLesson(item.id);
           } else if (item.category === 'module') {
-            setActiveTrack(
-              item.id.startsWith('D')
-                ? 'designer'
-                : item.id.startsWith('P')
-                ? 'photo'
-                : item.id.startsWith('B')
-                ? 'publisher'
-                : 'scripting'
-            );
-            handleNavigate('catalog');
+            const track = ALL_PILOT_MODULES.find((module) => module.id === item.id)?.trackId;
+            handleNavigate('catalog', track);
           } else if (item.category === 'tool') {
             handleNavigate('shortcuts');
           } else if (item.category === 'glossary') {

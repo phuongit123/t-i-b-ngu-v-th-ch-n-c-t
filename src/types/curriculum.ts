@@ -62,6 +62,7 @@ export interface QuizQuestion {
 
 export type AssetStatus = 
   | 'REAL_AFFINITY_FILE'
+  | 'CAMERA_RAW'
   | 'GUIDE_DOCUMENT'
   | 'JAVASCRIPT_SCRIPT'
   | 'EXTERNAL_RESOURCE'
@@ -77,7 +78,7 @@ export interface PracticeAssetInfo {
   filename: string;
   filepath: string;
   filesize: string;
-  filetype: '.afdesign' | '.afphoto' | '.afpub' | '.js' | '.pdf' | '.md';
+  filetype: '.afdesign' | '.afphoto' | '.afpub' | '.js' | '.pdf' | '.md' | '.nef';
   assetStatus: AssetStatus;
   isVerified: boolean;
   statusNote: string;
@@ -103,6 +104,7 @@ export interface StandardLessonSections {
   guidedPractice: {
     title: string;
     taskDescription: string;
+    starterAsset?: PracticeAssetInfo;
     checkpoints: string[];
     expectedOutcome: string;
   };

@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Artistic Text Tool & Frame Text Tool (Chữ nghệ thuật & Khung chữ)",
-      "persona": "Vector Persona (thanh Tools bên trái)",
+      "persona": "Vector Studio (thanh Tools bên trái)",
       "shortcut": {
         "win": "T (Chuyển đổi giữa Artistic Text Tool và Frame Text Tool)",
         "mac": "T (Chuyển đổi giữa Artistic Text Tool và Frame Text Tool)"
@@ -65,7 +65,7 @@
     "visualExamples": [
       {
         "title": "Bảng so sánh Artistic Text Tool và Frame Text Tool",
-        "description": "Khác biệt cốt lõi giữa hai công cụ chữ trong Vector Persona.",
+        "description": "Khác biệt cốt lõi giữa hai công cụ chữ trong Vector Studio.",
         "visualType": "table",
         "visualContent": "| Tiêu chí | Artistic Text Tool | Frame Text Tool |\n|---|---|---|\n| Khi kéo tay nắm góc khung | Phóng to hoặc thu nhỏ trực tiếp cỡ chữ (pt) | Sắp xếp lại số dòng trong khung; cỡ chữ giữ nguyên |\n| Tự động xuống dòng | Không tự ngắt dòng; phải nhấn Enter thủ công | Tự động ngắt dòng gọn theo mép khung chứa |\n| Ứng dụng phù hợp | Logo, tiêu đề lớn, huy hiệu, nhãn giá | Đoạn văn mô tả, nội dung bài viết, thông số |\n| Chức năng nâng cao | Gắn trực tiếp làm chữ chạy theo đường cong | Nối luồng văn bản chảy qua nhiều khung liên tiếp |"
       },

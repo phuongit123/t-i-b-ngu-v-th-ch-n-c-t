@@ -3,179 +3,177 @@
   "moduleId": "D01",
   "trackId": "designer",
   "order": 1,
-  "title": "Cấu trúc giao diện Designer và chuyển đổi Persona",
-  "subtitle": "Kiến trúc ba không gian Persona: Vector, Pixel và Export trong cùng một tài liệu",
-  "durationMinutes": 25,
+  "title": "Làm quen giao diện Affinity và ba Studio",
+  "subtitle": "Mở một poster, tìm Layers và chuyển giữa Vector, Pixel, Layout",
+  "durationMinutes": 20,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Hiểu rõ vai trò riêng biệt nhưng gắn kết liền mạch giữa Vector Persona (không gian vector), Pixel Persona (không gian điểm ảnh) và Export Persona (không gian xuất file).",
-      "Làm quen 5 vùng giao diện chính trong Affinity: thanh công cụ trên cùng (Toolbar), bộ chuyển đổi Persona, Context Toolbar, thanh công cụ bên trái (Tools Panel) và các bảng Studio.",
-      "Chuyển đổi qua lại giữa các Persona ngay trong một tài liệu đang mở mà vẫn giữ nguyên cấu trúc layer và trạng thái đối tượng.",
-      "Sắp xếp lại các bảng Studio và ẩn/hiện giao diện gọn gàng để tập trung vẽ vector hoặc tô bóng raster."
+      "Chỉ đúng vị trí thanh công cụ, thanh tùy chọn và bảng Layers trong Affinity.",
+      "Mở một poster có nhiều lớp và ẩn, hiện đúng một chi tiết trong Layers.",
+      "Chọn Studio phù hợp để sửa đường cong, chỉnh ảnh hoặc dàn trang."
     ],
-    "foundationalKnowledge": "Ở các phần mềm đồ họa truyền thống, vẽ đường nét vector và tô chất liệu điểm ảnh raster thường tách rời thành hai ứng dụng khác nhau. Affinity hợp nhất cả hai trên một lõi xử lý chung (dual-engine core), cho phép lớp vector và lớp pixel nằm cùng một cấu trúc cây đối tượng (scene graph) trong một tệp duy nhất. Ba Persona thực chất không phải ba định dạng file khác nhau, mà là ba bộ công cụ chuyên biệt cho từng giai đoạn thiết kế: (1) Vector Persona (không gian làm việc đồ họa vector) cung cấp đường cong Bézier vô hạn độ phân giải, phép toán hình học và typography; (2) Pixel Persona (không gian vẽ và xử lý điểm ảnh) mang lại cọ vẽ raster, tạo hạt texture, tẩy và vùng chọn pixel; (3) Export Persona (không gian xuất sản phẩm) giúp cắt lát và xuất nhiều định dạng, độ phân giải cùng lúc.",
+    "foundationalKnowledge": "Affinity mở tài liệu trong một ứng dụng. Vector dùng để vẽ hình và sửa đường cong. Pixel dùng để chỉnh ảnh và làm việc với điểm ảnh. Layout bổ sung công cụ trang, khung chữ và trang mẫu. Chuyển Studio sẽ đổi bộ công cụ đang hiện; giữ nguyên tài liệu đang mở. Trước khi chỉnh, hãy kiểm tra lớp được chọn trong Layers.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Tài liệu chính thức về Kiến trúc Giao diện & Persona — Affinity 3.3.3",
+      "classification": "DOCUMENTED",
+      "source": "Giao diện Vector, Pixel, Layout và tệp SVG mở trực tiếp trên Windows, Affinity 3.3.3.5004, 22/11/2026. Vị trí Layers đối chiếu Affinity Help.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Bộ chuyển đổi Persona (Persona Switcher)",
-      "persona": "Thanh công cụ góc trên bên trái (Top-Left Toolbar)",
-      "shortcut": {
-        "win": "Nhấn biểu tượng Persona (góc trên bên trái) / Tự gán phím tắt trong Settings > Shortcuts. Lưu ý: Ctrl+1 là Zoom 100%, Ctrl+2 là Zoom 200%",
-        "mac": "Nhấn biểu tượng Persona (góc trên bên trái) / Tự gán phím tắt trong Settings > Shortcuts. Lưu ý: Cmd+1 là Zoom 100%, Cmd+2 là Zoom 200%"
-      },
-      "description": "Persona Switcher nằm ở góc trên bên trái thanh công cụ chính. Khi bạn nhấn chọn một biểu tượng Persona, thanh Tools bên trái và các bảng Studio bên phải lập tức đổi sang bộ công cụ tương ứng mà không làm gián đoạn bản vẽ hiện tại.",
+      "toolName": "Vector, Pixel, Layout và Layers panel",
+      "persona": "Các tab Studio nằm ngay dưới thanh menu. Layers mở từ Window > General > Layers.",
+      "description": "Chọn Studio theo việc cần làm. Chọn một lớp bằng Move Tool hoặc bấm trực tiếp vào hàng của lớp trong Layers. Xem thanh tùy chọn phía trên mỗi khi đổi công cụ.",
       "contextBarOptions": [
-        "Vector Persona: Tùy chọn chọn điểm neo (Node), chế độ Pen, phép toán Boolean, Convert to Curves, màu Fill/Stroke",
-        "Pixel Persona: Thông số động lực cọ, thanh Flow/Opacity, chế độ hòa trộn (Blend Mode), vẽ đối xứng, Protect Alpha",
-        "Export Persona: Công cụ Slice Tool, chọn vùng cắt Slice Selection Tool, bảng Export Options và danh sách Slices xuất hàng loạt"
-      ]
+        "Các tab Vector, Pixel, Layout đổi bộ công cụ đang hiện.",
+        "Thanh dọc bên trái chứa công cụ của Studio đang chọn.",
+        "Thanh tùy chọn ngay dưới thanh công cụ chính thay đổi theo công cụ và lớp được chọn.",
+        "Biểu tượng con mắt trong Layers cho biết một lớp đang hiện hay ẩn."
+      ],
+      "shortcut": {
+        "win": "Bấm tên Studio hoặc mở Window > General > Layers",
+        "mac": "Bấm tên Studio hoặc mở Window > General > Layers"
+      }
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Quan sát không gian mặc định của Vector Persona",
-        "instruction": "Mở Affinity và tạo hoặc mở một bản vẽ vector bất kỳ. Nhìn lên góc trên bên trái sẽ thấy biểu tượng ngòi bút màu xanh đang sáng (Vector Persona đang hoạt động). Ở thanh công cụ bên trái có các công cụ vector cốt lõi: Move Tool (V — chọn và di chuyển), Node Tool (A — sửa điểm neo), Pen Tool (P — vẽ đường cong Bézier) và nhóm công cụ hình khối.",
-        "shortcutTip": { "win": "V", "mac": "V" }
+        "title": "Mở poster Trà Mát",
+        "instruction": "Vào File > Open và mở tra-mat.svg từ mục Tài liệu. Chọn Vector. Tìm bảng Layers ở bên phải. Nếu bảng đang ẩn, mở Window > General > Layers."
       },
       {
         "stepNumber": 2,
-        "title": "Chuyển sang Pixel Persona để thêm chất liệu điểm ảnh",
-        "instruction": "Nhấn trực tiếp vào biểu tượng cọ vẽ raster của Pixel Persona trên thanh công cụ góc trên bên trái (hoặc dùng phím tắt riêng nếu bạn đã gán trong Settings > Shortcuts). Thanh công cụ bên trái sẽ lập tức chuyển sang Paint Brush Tool (B — cọ vẽ điểm ảnh), Pixel Tool, Eraser Brush Tool (E — tẩy) và nhóm công cụ tạo vùng chọn.",
-        "shortcutTip": { "win": "Nhấn biểu tượng Pixel Persona", "mac": "Nhấn biểu tượng Pixel Persona" }
+        "title": "Tìm một đường cong trong Layers",
+        "instruction": "Chọn Move Tool ở thanh bên trái. Chọn một nét lá trên poster. Đối chiếu hàng đang sáng trong Layers. Nếu chọn vào cả nhóm, mở nhóm trong Layers để xem các đường cong bên trong."
       },
       {
         "stepNumber": 3,
-        "title": "Chuyển sang Export Persona để kiểm tra vùng cắt xuất file",
-        "instruction": "Nhấn biểu tượng Export Persona trên thanh công cụ góc trên bên trái. Khung làm việc chuyển sang chế độ cắt lát xuất tài nguyên với công cụ Slice Tool (S) bên trái và bảng Slices Studio bên phải hiển thị danh sách các vùng xuất tự động.",
-        "shortcutTip": { "win": "Nhấn biểu tượng Export Persona", "mac": "Nhấn biểu tượng Export Persona" }
+        "title": "Quan sát khi đổi Studio",
+        "instruction": "Bấm Pixel rồi Layout. So sánh thanh công cụ trái và các bảng đang hiện. Trong Layout, tìm bảng Pages. Quay lại Vector và xác nhận vẫn đang ở cùng tab tài liệu."
       },
       {
         "stepNumber": 4,
-        "title": "Sắp xếp và khôi phục bố cục các bảng Studio",
-        "instruction": "Nhấn lại biểu tượng Vector Persona để quay về giao diện thiết kế vector. Nếu các bảng Studio bị kéo lệch hoặc rối, vào Window > Studio > Reset Studio để khôi phục mặc định, hoặc nhấn Tab để ẩn/hiện toàn bộ thanh công cụ khi cần soi kỹ bản vẽ.",
-        "shortcutTip": { "win": "Tab", "mac": "Tab" }
+        "title": "Ẩn rồi hiện một lớp",
+        "instruction": "Chọn một lớp chữ trong Layers, tắt con mắt và quan sát đúng dòng chữ đó biến mất. Bật lại để phục hồi. Khi cần giữ một bản chỉnh sửa, dùng File > Save As và lưu một bản Affinity riêng."
       }
     ],
     "visualExamples": [
       {
-        "title": "Bảng so sánh ba Persona chính",
-        "description": "Phân biệt chức năng, định dạng đầu ra và công cụ tiêu biểu của từng Persona trong Vector Studio.",
-        "visualType": "table",
-        "visualContent": "| Persona | Trọng tâm xử lý | Đầu ra tiêu biểu | Công cụ đặc trưng |\n|---|---|---|---|\n| Vector Persona | Đường cong Bézier, logo, icon, dàn bố cục | .afdesign, .svg, .eps, .pdf | Pen Tool (P), Node Tool (A), Vector Brush Tool (B) |\n| Pixel Persona | Tô bóng hạt texture, vẽ minh họa raster | Mặt nạ raster, lớp điểm ảnh Pixel | Paint Brush Tool (B), Eraser Brush Tool (E), Smudge |\n| Export Persona | Cắt lát vùng xuất, xuất đa tỷ lệ Retina | PNG @1x/@2x/@3x, WebP, SVG | Slice Tool (S), Slices Studio |"
+        "title": "Vị trí các vùng trong cửa sổ Affinity",
+        "description": "Sơ đồ khái quát. Ảnh chụp Windows nằm trong trình chiếu.",
+        "visualType": "diagram",
+        "visualContent": "/assets/lessons/diagram-vector-workspace-vi.svg"
       },
       {
-        "title": "Sơ đồ cây đối tượng hợp nhất (Unified Scene Graph)",
-        "description": "Cách các lớp vector và lớp pixel lồng ghép trực tiếp trong cùng một tài liệu mà không cần chuyển đổi file.",
-        "visualType": "diagram",
-        "visualContent": "Gốc tài liệu (Document Root)\n ├── Artboard (Desktop 1920x1080)\n │    ├── [Vector] Đường nét minh họa chính (Hero Illustration)\n │    │    └── [Pixel Mask] Lớp cọ hạt tạo bóng lồng bên trong\n │    ├── [Vector] Khung chữ tiêu đề (Headline Typography)\n │    └── [Pixel] Lớp hạt nhiễu tạo chiều sâu nền"
+        "title": "Việc nào dùng Studio nào?",
+        "description": "Chọn bộ công cụ theo đầu việc.",
+        "visualType": "table",
+        "visualContent": "| Studio | Việc cần làm | Dấu hiệu trong giao diện |\n|---|---|---|\n| Vector | Chỉnh dáng lá hoặc đường viền logo | Pen Tool và Node Tool |\n| Pixel | Chỉnh một phần của ảnh | Histogram, Brushes, Layers |\n| Layout | Kiểm trang, khung chữ và trang mẫu | Pages và nhóm công cụ văn bản |"
       }
     ],
     "guidedPractice": {
-      "title": "Thực hành quy trình phối hợp 3 Persona",
-      "taskDescription": "Vẽ một hình tròn vector, chuyển sang Pixel Persona để tô bóng hạt lồng bên trong hình tròn đó, rồi chuyển sang Export Persona để kiểm tra vùng cắt xuất file.",
+      "title": "Nhận diện các lớp trên poster Trà Mát",
+      "taskDescription": "Mở tệp poster SVG, chuyển qua ba Studio, sau đó xác định phần chữ, đường lá và nền trong Layers.",
       "checkpoints": [
-        "Chọn công cụ hình Elip/Tròn (Ellipse Tool — nhóm công cụ hình khối, phím M hoặc chọn từ thanh trái) và giữ Shift kéo một hình tròn tô màu xanh ngọc (#00d2ff).",
-        "Nhấn biểu tượng Pixel Persona trên thanh công cụ góc trên bên trái (hoặc dùng phím tắt bạn tự thiết lập trong Settings > Shortcuts). Chọn Paint Brush Tool (B) và chọn màu xám than đậm.",
-        "Tô cọ dọc theo mép dưới hình tròn (bật 'Insert inside the selection' hoặc để Affinity tự lồng lớp). Quan sát nét cọ điểm ảnh tự động nằm gọn bên trong hình tròn vector mà không làm mất đường nét vector.",
-        "Nhấn biểu tượng Export Persona trên thanh công cụ góc trên bên trái và kiểm tra vùng cắt tương ứng xuất hiện trong bảng Slices."
+        "Ghi lại tên tài liệu trước và sau khi chuyển Studio.",
+        "Ẩn rồi hiện lại lớp chữ 50 G. Kiểm tra nền và hình lá giữ nguyên.",
+        "Mở nhóm lá rồi chọn một đường cong bên trong ở Vector."
       ],
-      "expectedOutcome": "Một hình tròn vector chứa lớp bóng hạt raster mềm mại bên trong, vẫn chỉnh sửa được đường cong vector bất cứ lúc nào mà không bị phẳng hóa (rasterize) khối gốc."
+      "expectedOutcome": "Tìm được Studio, công cụ và lớp cần thao tác mà không thay đổi nội dung poster."
     },
     "independentChallenge": {
-      "title": "Dựng biểu tượng ứng dụng phối hợp đa Persona",
-      "prompt": "Thiết kế một biểu tượng ứng dụng (app icon) kích thước 1024×1024 px trong Vector Persona. Tiếp theo, chuyển sang Pixel Persona để tô thêm vùng sáng và bóng đổ có hạt texture lồng bên trong hình gốc. Cuối cùng, mở Export Persona và thiết lập sẵn bộ xuất PNG @1x, @2x và @3x.",
+      "title": "Sửa thông tin trên nhãn một loại trà khác",
+      "prompt": "Tạo bản sao của poster. Đổi tên thành Trà Vườn và sử dụng một trọng lượng theo brief: 75 g. Chọn công cụ để sửa chữ, mở hai Studio khác để kiểm tra tài liệu, rồi quay lại Vector. Lưu bản nguồn riêng và ghi một câu về việc bạn sẽ chuyển sang Pixel hoặc Layout khi nào.",
       "starterAsset": {
         "filename": "D01_artboard_starter_guide.md",
         "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
-        "filesize": "1.2 KB",
+        "filesize": "Xem tệp",
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Hướng dẫn thiết lập khung artboard 1024px (GUIDE_DOCUMENT)."
+        "statusNote": "Hướng dẫn thực hành. Tệp vector tra-mat.svg nằm ở mục Tham khảo."
       },
       "challengeCriteria": [
-        "Hình khối nền tảng của icon phải giữ nguyên 100% ở dạng đường nét vector có thể phóng to vô hạn.",
-        "Mọi lớp tô bóng điểm ảnh phải được lồng cắt (clip) gọn bên trong lớp vector cha.",
-        "Export Persona phải cấu hình đủ 3 tỷ lệ xuất tự động (1x, 2x, 3x) cho vùng cắt của icon."
-      ],
-      "bonusGoal": "Gắn nhãn màu (Color Tag) phân biệt giữa nhóm lớp vector và lớp pixel trong Layers Studio."
+        "Sửa đúng hai thông tin và giữ nguyên hình lá.",
+        "Tên tài liệu, màu và kích thước poster được kiểm sau khi chuyển Studio.",
+        "Giải thích được một trường hợp cần Pixel hoặc Layout dựa trên đầu ra."
+      ]
     },
     "commonPitfalls": [
       {
-        "pitfall": "Nhầm lẫn giữa Vector Brush Tool và Paint Brush Tool (cọ điểm ảnh)",
-        "cause": "Cùng mang phím tắt B, nhưng trong Vector Persona, Vector Brush Tool tạo ra đường cong Bézier có gắn họa tiết bitmap chạy dọc thân nét; còn trong Pixel Persona, Paint Brush Tool vẽ trực tiếp các điểm ảnh lên lớp Pixel.",
-        "solution": "Luôn nhìn kiểm tra biểu tượng Persona đang sáng ở góc trên bên trái trước khi vẽ. Cần đường nét chỉnh sửa node thì ở Vector Persona; cần tô hạt texture hay tả chất liệu tự nhiên thì chuyển sang Pixel Persona."
+        "pitfall": "Đổi Studio nhưng không thấy công cụ vừa dùng",
+        "cause": "Bộ công cụ thay đổi theo Studio.",
+        "solution": "Quay lại Studio phù hợp với việc đang làm và kiểm tra tab đang được chọn."
       },
       {
-        "pitfall": "Vô tình biến lớp vector thành ảnh điểm ảnh (rasterize) khi tô cọ",
-        "cause": "Tô cọ pixel trực tiếp lên một hình vector đang chọn mà chưa tạo lớp Pixel riêng hoặc chưa bật chế độ vẽ lồng bên trong, khiến phần mềm tự rasterize cả khối vector.",
-        "solution": "Tạo một Pixel Layer mới và kéo lồng vào trong lớp vector cha, hoặc bật nút 'Insert inside the selection' trên thanh công cụ trên cùng trước khi tô."
-      },
-      {
-        "pitfall": "Toàn bộ thanh công cụ và bảng Studio biến mất khỏi màn hình",
-        "cause": "Vô tình bấm nhầm phím Tab khiến giao diện chuyển sang chế độ xem toàn màn hình không thanh công cụ.",
-        "solution": "Nhấn phím Tab thêm một lần nữa để bật lại, hoặc vào Window > Studio > Reset Studio để đưa các bảng về vị trí chuẩn."
+        "pitfall": "Ẩn nhầm nhiều chi tiết cùng lúc",
+        "cause": "Bạn tắt hiển thị của cả nhóm thay vì một lớp con.",
+        "solution": "Bật lại nhóm, mở nhóm trong Layers rồi tắt đúng một hàng."
       }
     ],
     "knowledgeCheck": [
       {
         "id": "D01-01-Q1",
-        "question": "Ưu điểm kiến trúc cốt lõi của hệ thống Persona trong Affinity so với việc phải mở hai phần mềm vector và chỉnh ảnh riêng lẻ là gì?",
+        "question": "Bạn muốn chỉnh dáng của một đường lá đang là đường cong. Bắt đầu ở Studio nào?",
         "options": [
-          "Các Persona tự động chuyển toàn bộ bản vẽ vector thành ảnh bitmap 300 DPI.",
-          "Các Persona cho phép thao tác vector và điểm ảnh cùng tồn tại phi phá hủy trên một tài liệu duy nhất, không cần xuất qua lại hay chuyển đổi định dạng.",
-          "Các Persona giảm dung lượng file bằng cách tắt lịch sử hoàn tác (Undo).",
-          "Người dùng phải mua ba gói bản quyền riêng cho từng Persona."
+          "Layout",
+          "Pixel",
+          "Vector",
+          "Slice"
         ],
-        "correctIndex": 1,
-        "explanation": "Affinity dùng chung một lõi xử lý hợp nhất. Khi đổi Persona, phần mềm chỉ thay bộ công cụ làm việc trong khi vẫn giữ nguyên tệp tài liệu, hình học vector, lớp pixel và toàn bộ lịch sử thao tác."
+        "correctIndex": 2,
+        "explanation": "Vector có các công cụ để chọn và chỉnh đường cong."
       },
       {
         "id": "D01-01-Q2",
-        "question": "Theo thiết lập mặc định của Affinity, làm thế nào để chuyển đổi qua lại giữa các Persona?",
+        "question": "Điều gì thay đổi khi chuyển từ Vector sang Pixel trong cùng tab tài liệu?",
         "options": [
-          "Nhấn Ctrl+1, Ctrl+2 hoặc Ctrl+3 (những phím này mặc định dùng để thu phóng 100%, 200%)",
-          "Nhấn vào các biểu tượng Persona trên thanh công cụ góc trên bên trái, hoặc tự gán phím tắt trong Settings > Shortcuts",
-          "Khởi động lại ứng dụng kèm tham số dòng lệnh",
-          "Xuất file sang định dạng PSD rồi mở lại"
+          "Bộ công cụ đang hiện",
+          "Mọi lớp thành ảnh",
+          "Nội dung bị xóa",
+          "Tên tệp đổi"
         ],
-        "correctIndex": 1,
-        "explanation": "Mặc định Affinity không gán sẵn phím tắt chuyển Persona; Ctrl+1 và Ctrl+2 (Win) / Cmd+1 và Cmd+2 (Mac) là phím phóng to 100% và 200%. Bạn nhấn trực tiếp biểu tượng Persona ở góc trên bên trái hoặc tự gán phím tắt riêng tại Settings > Shortcuts."
+        "correctIndex": 0,
+        "explanation": "Studio đổi bộ công cụ và các bảng đang hiện, còn tài liệu được giữ."
       },
       {
         "id": "D01-01-Q3",
-        "question": "Nếu bạn dùng Paint Brush Tool trong Pixel Persona để tô khi đang chọn một hình vector với tùy chọn 'Insert inside the selection' đang bật, điều gì sẽ xảy ra với nét cọ?",
+        "question": "Bạn tắt con mắt của một lớp chữ rồi bật lại. Vì sao chữ xuất hiện lại?",
         "options": [
-          "Hình vector bị gộp cứng vĩnh viễn thành ảnh JPEG.",
-          "Các điểm ảnh vẽ ra được tự động lồng gọn bên trong biên giới của hình vector như một lớp con phi phá hủy.",
-          "Nét cọ biến mất vì hình vector không thể chứa điểm ảnh.",
-          "Phần mềm hiện hộp thoại báo lỗi không tương thích."
+          "Lớp đã được nhập lại",
+          "Thao tác chỉ đổi khả năng hiển thị",
+          "Chữ đã được vẽ lại",
+          "Tệp đã mở lại"
         ],
         "correctIndex": 1,
-        "explanation": "Affinity tự tạo một Pixel Layer con nằm bên trong lớp vector cha, giúp đường bao vector đóng vai trò khung cắt phi phá hủy cho toàn bộ nét tô bên trong."
+        "explanation": "Layers giữ lớp và thuộc tính của nó khi bạn chỉ đổi hiển thị."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Affinity hợp nhất khả năng thiết kế Vector, tô vẽ Pixel và cắt xuất Export trên cùng một cấu trúc tài liệu.",
-        "Vector Persona đảm nhận độ chính xác toán học cho logo, biểu tượng và bố cục giao diện.",
-        "Pixel Persona bổ sung độ sâu chất liệu bằng cọ raster và bóng đổ hạt mà không phá vỡ hình học vector.",
-        "Export Persona tự động hóa quy trình cắt và xuất tài nguyên đa mật độ màn hình."
+        "Nhìn tên Studio trước khi tìm công cụ.",
+        "Kiểm tra lớp đang chọn trước khi sửa.",
+        "Khi làm tài liệu nhiều trang, bắt đầu với Pages trong Layout."
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: D01-02 Cấu trúc Artboard và thiết lập bản vẽ đơn",
-          "target": "D01-02",
-          "type": "next-lesson"
+          "title": "Tệp vector Poster Trà Mát (.svg)",
+          "target": "/assets/lessons/tra-mat.svg",
+          "type": "doc"
         },
         {
-          "title": "Tài liệu chính thức Affinity: Tìm hiểu về các Persona",
-          "target": "https://affinity.serif.com/designer/personas/",
+          "title": "Affinity Essentials: Làm quen với Affinity",
+          "target": "https://www.affinity.studio/blog/affinity-essentials-lesson-1-welcome-to-affinity",
           "type": "doc"
+        },
+        {
+          "title": "Affinity Help: Layers panel",
+          "target": "https://www.affinity.studio/help/panels-layers-panel/",
+          "type": "doc"
+        },
+        {
+          "title": "Tiếp theo: Thiết lập artboard",
+          "target": "D01-02",
+          "type": "next-lesson"
         }
       ]
     }
@@ -185,107 +183,83 @@
       "id": "D01-01-S1",
       "slideNumber": 1,
       "type": "intro",
-      "title": "Giao Diện Vector Studio & Kiến Trúc Ba Persona",
-      "subtitle": "Cách tiếp cận thống nhất giữa đồ họa Vector và xử lý điểm ảnh",
-      "contentMarkdown": "Chào mừng bạn đến với bài học đầu tiên của **Vector Studio trong Affinity**.\n\nThay vì buộc người thiết kế phải nhảy qua lại giữa hai phần mềm riêng để vẽ nét vector rồi ghép chất liệu ảnh bitmap, Affinity chạy trên một **lõi xử lý kép thống nhất**.\n\nTrong bài học này, bạn sẽ làm chủ **kiến trúc 3 Persona**: chuyển đổi nhanh giữa độ chính xác vector, tô bóng raster và xuất file sản xuất ngay trên cùng một bản vẽ.",
-      "actionBox": {
-        "label": "Điểm cốt lõi",
-        "text": "Persona không phải là các định dạng file khác nhau; chúng là ba bộ công cụ chuyên biệt cùng thao tác trên một tài liệu duy nhất."
-      }
+      "title": "Làm quen giao diện Affinity và ba Studio",
+      "contentMarkdown": "Affinity mở tài liệu trong một ứng dụng. Vector dùng để vẽ hình và sửa đường cong. Pixel dùng để chỉnh ảnh và làm việc với điểm ảnh. Layout bổ sung công cụ trang, khung chữ và trang mẫu. Chuyển Studio sẽ đổi bộ công cụ đang hiện; giữ nguyên tài liệu đang mở. Trước khi chỉnh, hãy kiểm tra lớp được chọn trong Layers."
     },
     {
       "id": "D01-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "Hệ Sinh Thái Ba Persona Hoạt Động Như Thế Nào?",
-      "subtitle": "Không gian Vector, Pixel và Export",
-      "contentMarkdown": "Affinity chia quy trình sáng tạo đồ họa thành ba không gian chuyên dụng:\n\n1. **Vector Persona:** Không gian thiết kế chính. Vẽ đường cong Bézier chuẩn xác, phóng to không vỡ nét, xử lý chữ, phép toán hình học và Symbol.\n2. **Pixel Persona:** Không gian tô vẽ điểm ảnh. Thêm hạt texture, cọ vẽ mềm, tẩy chi tiết và tạo vùng chọn raster.\n3. **Export Persona:** Trạm xuất bản sản phẩm. Định nghĩa vùng cắt (Slice), xuất hàng loạt kích thước @1x/@2x/@3x và tối ưu SVG/PDF.\n\n*Lưu ý điều hướng:* Mặc định, bạn nhấn trực tiếp vào biểu tượng Persona ở góc trên bên trái thanh công cụ. Các phím như `Ctrl+1` / `Cmd+1` hay `Ctrl+2` / `Cmd+2` là phím tắt thu phóng 100% / 200%, còn phím tắt đổi Persona có thể tự gán thêm trong `Settings > Shortcuts`.",
-      "visual": {
-        "type": "badge-grid",
-        "content": "Vector Persona (Vẽ & Dựng hình) | Pixel Persona (Chất liệu & Tô bóng) | Export Persona (Cắt lát & Xuất file)"
-      }
+      "title": "Chọn Studio theo việc cần làm",
+      "contentMarkdown": "| Studio | Việc cần làm | Dấu hiệu trong giao diện |\n|---|---|---|\n| Vector | Chỉnh dáng lá hoặc đường viền logo | Pen Tool và Node Tool |\n| Pixel | Chỉnh một phần của ảnh | Histogram, Brushes, Layers |\n| Layout | Kiểm trang, khung chữ và trang mẫu | Pages và nhóm công cụ văn bản |"
     },
     {
       "id": "D01-01-S3",
       "slideNumber": 3,
       "type": "tool-anatomy",
-      "title": "Giải Phẫu 5 Vùng Giao Diện Làm Việc",
-      "subtitle": "Làm chủ bố cục màn hình thiết kế",
-      "contentMarkdown": "Mọi khu vực trên giao diện đều được bố trí để bạn giữ sự tập trung vào khung vẽ:\n\n- **Thanh công cụ trên cùng (Top Toolbar):** Chứa bộ chuyển đổi Persona, thiết lập tài liệu, bật/tắt bắt dính (Snapping) và các phép toán hình học.\n- **Thanh ngữ cảnh (Context Toolbar):** Tự động đổi tùy chọn theo đúng công cụ bạn đang cầm.\n- **Thanh công cụ bên trái (Tools Panel):** Nơi đặt các công cụ chính như Move, Node, Pen, Shape và cọ vẽ.\n- **Các bảng Studio bên phải:** Bảng Layers, Color, Swatches, Stroke, Appearance và Transform có thể kéo thả tùy biến.\n- **Vùng làm việc chính (Canvas Viewport):** Sân khấu vẽ có tăng tốc phần cứng mượt mà.",
-      "actionBox": {
-        "label": "Phím tắt tiện lợi",
-        "text": "Nhấn phím Tab bất kỳ lúc nào để ẩn toàn bộ thanh công cụ và bảng Studio khi muốn quan sát trọn vẹn bản vẽ.",
-        "shortcut": { "win": "Tab", "mac": "Tab" }
+      "title": "Tìm thanh công cụ và Layers",
+      "contentMarkdown": "- Các tab Vector, Pixel, Layout đổi bộ công cụ đang hiện.\n- Thanh dọc bên trái chứa công cụ của Studio đang chọn.\n- Thanh tùy chọn ngay dưới thanh công cụ chính thay đổi theo công cụ và lớp được chọn.\n- Biểu tượng con mắt trong Layers cho biết một lớp đang hiện hay ẩn.",
+      "visual": {
+        "type": "image",
+        "content": "/assets/lessons/affinity-333-vector.webp"
       }
     },
     {
       "id": "D01-01-S4",
       "slideNumber": 4,
       "type": "step-by-step",
-      "title": "Thực Hành Từng Bước: Chuyển Đổi 3 Persona",
-      "subtitle": "Phối hợp Vector và Pixel trên cùng một đối tượng",
-      "contentMarkdown": "Hãy thực hiện lần lượt các bước sau để thấy rõ sự liền mạch của 3 Persona:\n\n1. **Ở Vector Persona:** Chọn công cụ hình Elip (trong nhóm hình khối bên trái), giữ `Shift` và kéo chuột để tạo một hình tròn chuẩn.\n2. **Tô màu:** Chọn màu xanh ngọc `#00d2ff` trong bảng Color Studio.\n3. **Chuyển sang Pixel Persona:** Nhấn biểu tượng **Pixel Persona** ở góc trên bên trái thanh công cụ. Thanh công cụ bên trái lập tức chuyển sang bộ cọ raster.\n4. **Vẽ lồng vào hình tròn:** Nhấn `B` chọn **Paint Brush Tool**, chọn đầu cọ có hạt mềm rồi tô nhẹ dọc viền dưới hình tròn.\n5. **Kiểm tra Layers Studio:** Bạn sẽ thấy lớp Pixel mới tự động thụt vào làm lớp con (clipping) bên trong hình tròn vector.\n6. **Chuyển sang Export Persona:** Nhấn biểu tượng **Export Persona** ở góc trên bên trái để xem vùng cắt xuất file vừa tạo sẵn.",
+      "title": "Mở poster và chuyển Studio",
+      "contentMarkdown": "1. **Mở poster Trà Mát**. Vào File > Open và mở tra-mat.svg từ mục Tài liệu. Chọn Vector. Tìm bảng Layers ở bên phải. Nếu bảng đang ẩn, mở Window > General > Layers.\n2. **Tìm một đường cong trong Layers**. Chọn Move Tool ở thanh bên trái. Chọn một nét lá trên poster. Đối chiếu hàng đang sáng trong Layers. Nếu chọn vào cả nhóm, mở nhóm trong Layers để xem các đường cong bên trong.\n3. **Quan sát khi đổi Studio**. Bấm Pixel rồi Layout. So sánh thanh công cụ trái và các bảng đang hiện. Trong Layout, tìm bảng Pages. Quay lại Vector và xác nhận vẫn đang ở cùng tab tài liệu.\n4. **Ẩn rồi hiện một lớp**. Chọn một lớp chữ trong Layers, tắt con mắt và quan sát đúng dòng chữ đó biến mất. Bật lại để phục hồi. Khi cần giữ một bản chỉnh sửa, dùng File > Save As và lưu một bản Affinity riêng.",
       "visual": {
-        "type": "comparison",
-        "content": "Hình khối Vector (Toán học vô hạn) + Chất liệu Pixel (Hạt tự nhiên) = Tác phẩm hợp nhất phi phá hủy"
+        "type": "image",
+        "content": "/assets/lessons/affinity-333-layout.webp"
       }
     },
     {
       "id": "D01-01-S5",
       "slideNumber": 5,
-      "type": "pitfalls",
-      "title": "Những Lỗi Hay Gặp & Cách Khắc Phục",
-      "subtitle": "Tránh các nhầm lẫn phổ biến khi mới làm quen",
-      "contentMarkdown": "### 1. Nhầm Vector Brush với cọ điểm ảnh (Paint Brush)\n- **Vấn đề:** Chọn nhầm Vector Brush Tool (`B` trong Vector Persona) rồi thắc mắc vì sao nét vẽ lại ra đường cong có điểm neo.\n- **Cách xử lý:** Vector Brush luôn tạo đường Bézier. Muốn tô hạt hay đổ bóng điểm ảnh tự nhiên, hãy nhấn biểu tượng **Pixel Persona** ở góc trên bên trái (hoặc dùng phím tắt bạn tự gán trong `Settings > Shortcuts`).\n\n### 2. Lỡ làm phẳng (rasterize) đối tượng vector\n- **Vấn đề:** Tô cọ pixel trực tiếp lên lớp vector chưa bật chế độ lồng, làm toàn bộ hình biến thành ảnh điểm ảnh.\n- **Cách xử lý:** Bật nút `Insert inside the selection` trên thanh công cụ trên cùng hoặc tạo riêng một Pixel Layer rồi kéo lồng vào trong lớp vector.\n\n### 3. Mất toàn bộ bảng Studio\n- **Cách xử lý:** Nhấn lại `Tab`, hoặc vào `Window > Studio > Reset Studio`.",
-      "actionBox": {
-        "label": "Nguyên tắc vàng",
-        "text": "Không bao giờ rasterize hình vector chỉ để tô bóng. Hãy lồng một lớp Pixel vào bên trong lớp vector cha."
-      }
+      "type": "guided-practice",
+      "title": "Nhận diện các lớp trên poster Trà Mát",
+      "contentMarkdown": "Mở tệp poster SVG, chuyển qua ba Studio, sau đó xác định phần chữ, đường lá và nền trong Layers.\n\n- Ghi lại tên tài liệu trước và sau khi chuyển Studio.\n- Ẩn rồi hiện lại lớp chữ 50 G. Kiểm tra nền và hình lá giữ nguyên.\n- Mở nhóm lá rồi chọn một đường cong bên trong ở Vector."
     },
     {
       "id": "D01-01-S6",
       "slideNumber": 6,
-      "type": "quiz",
-      "title": "Kiểm Tra Nhanh: Kiến Trúc Ba Persona",
-      "subtitle": "Củng cố kiến thức vừa học",
-      "contentMarkdown": "Hãy trả lời câu hỏi dưới đây để kiểm tra mức độ hiểu bài trước khi sang phần thử thách.",
-      "quizData": {
-        "id": "D01-01-Q1",
-        "question": "Ưu điểm kiến trúc cốt lõi của hệ thống Persona trong Affinity so với việc phải mở hai phần mềm vector và chỉnh ảnh riêng lẻ là gì?",
-        "options": [
-          "Các Persona tự động chuyển toàn bộ bản vẽ vector thành ảnh bitmap 300 DPI.",
-          "Các Persona cho phép thao tác vector và điểm ảnh cùng tồn tại phi phá hủy trên một tài liệu duy nhất, không cần xuất qua lại hay chuyển đổi định dạng.",
-          "Các Persona giảm dung lượng file bằng cách tắt lịch sử hoàn tác (Undo).",
-          "Người dùng phải mua ba gói bản quyền riêng cho từng Persona."
-        ],
-        "correctIndex": 1,
-        "explanation": "Affinity dùng chung một lõi xử lý hợp nhất. Khi đổi Persona, phần mềm chỉ thay bộ công cụ làm việc trong khi vẫn giữ nguyên tệp tài liệu, hình học vector, lớp pixel và toàn bộ lịch sử thao tác."
-      }
+      "type": "pitfalls",
+      "title": "Tìm đúng công cụ và lớp",
+      "contentMarkdown": "- Đổi Studio nhưng không thấy công cụ vừa dùng. Quay lại Studio phù hợp với việc đang làm và kiểm tra tab đang được chọn.\n- Ẩn nhầm nhiều chi tiết cùng lúc. Bật lại nhóm, mở nhóm trong Layers rồi tắt đúng một hàng."
     },
     {
       "id": "D01-01-S7",
       "slideNumber": 7,
-      "type": "challenge",
-      "title": "Thử Thách Độc Lập: Icon Ứng Dụng Đa Persona",
-      "subtitle": "Vận dụng trọn vẹn quy trình 3 Persona",
-      "contentMarkdown": "### Nhiệm vụ của bạn:\nThiết kế một icon ứng dụng sắc nét (1024×1024 px) kết hợp cả 3 Persona:\n\n1. Trong **Vector Persona**, dựng hình khối cơ bản của icon bằng các công cụ hình chữ nhật, hình tròn.\n2. Trong **Pixel Persona**, thêm lớp ánh sáng và bóng đổ chấm hạt mềm bằng cọ có texture, lồng gọn bên trong hình vector.\n3. Trong **Export Persona**, cấu hình sẵn các mức xuất PNG @1x, @2x và @3x trong bảng Slices.\n\n### Tiêu chí hoàn thành:\n- Toàn bộ khung hình nền tảng giữ nguyên 100% dạng đường nét vector.\n- Lớp tô bóng raster được lồng cắt phi phá hủy bên trong lớp cha.\n- Bảng Slices hiển thị đầy đủ 3 cấu hình xuất @1x, @2x, @3x.",
-      "practiceData": {
-        "prompt": "Tạo một biểu tượng ứng dụng tận dụng cả 3 Persona mà không làm mất tính chỉnh sửa vector gốc.",
-        "starterAsset": {
-          "filename": "D01_artboard_starter_guide.md",
-          "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
-          "filesize": "1.2 KB",
-          "filetype": ".md",
-          "assetStatus": "GUIDE_DOCUMENT",
-          "isVerified": true,
-          "statusNote": "Hướng dẫn thiết lập khung artboard cho thử thách dựng icon (GUIDE_DOCUMENT)."
-        },
-        "checkpoints": [
-          "Dựng hình vector hoàn chỉnh trong Vector Persona",
-          "Lồng lớp chất liệu raster trong Pixel Persona",
-          "Cấu hình vùng xuất đa tỷ lệ trong Export Persona"
-        ]
+      "type": "quiz",
+      "title": "Kiểm tra cách chọn Studio",
+      "contentMarkdown": "Bạn muốn chỉnh dáng của một đường lá đang là đường cong. Bắt đầu ở Studio nào?",
+      "quizData": {
+        "question": "Bạn muốn chỉnh dáng của một đường lá đang là đường cong. Bắt đầu ở Studio nào?",
+        "options": [
+          "Layout",
+          "Pixel",
+          "Vector",
+          "Slice"
+        ],
+        "correctIndex": 2,
+        "explanation": "Vector có các công cụ để chọn và chỉnh đường cong."
       }
+    },
+    {
+      "id": "D01-01-S8",
+      "slideNumber": 8,
+      "type": "challenge",
+      "title": "Sửa thông tin trên nhãn một loại trà khác",
+      "contentMarkdown": "Tạo bản sao của poster. Đổi tên thành Trà Vườn và sử dụng một trọng lượng theo brief: 75 g. Chọn công cụ để sửa chữ, mở hai Studio khác để kiểm tra tài liệu, rồi quay lại Vector. Lưu bản nguồn riêng và ghi một câu về việc bạn sẽ chuyển sang Pixel hoặc Layout khi nào.\n\n- Sửa đúng hai thông tin và giữ nguyên hình lá.\n- Tên tài liệu, màu và kích thước poster được kiểm sau khi chuyển Studio.\n- Giải thích được một trường hợp cần Pixel hoặc Layout dựa trên đầu ra."
+    },
+    {
+      "id": "D01-01-S9",
+      "slideNumber": 9,
+      "type": "summary",
+      "title": "Trước khi chuyển sang Artboard",
+      "contentMarkdown": "- Nhìn tên Studio trước khi tìm công cụ.\n- Kiểm tra lớp đang chọn trước khi sửa.\n- Khi làm tài liệu nhiều trang, bắt đầu với Pages trong Layout."
     }
   ]
 }

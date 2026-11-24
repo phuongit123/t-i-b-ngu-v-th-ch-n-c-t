@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Trung tâm Tri thức: Tìm kiếm, Phím tắt, Bảng tóm tắt & Từ điển', () => {
   test('TC-KNOW-01: Điều hướng Trung tâm Tri thức không lộ nhãn nội bộ và tìm kiếm trực tiếp', async ({ page }) => {
     await page.goto('/');
+    await page.getByRole('button', { name: 'Học liệu', exact: true }).click();
     await page.getByTestId('nav-knowledge').click();
 
     await expect(page.locator('h1')).toContainText('Trung Tâm Tri Thức & Tra Cứu Toàn Diện');

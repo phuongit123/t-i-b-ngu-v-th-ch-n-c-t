@@ -9,7 +9,7 @@
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Kích hoạt và tùy biến cấu hình hiệu chỉnh ống kính tự động (Lens Profiles) dựa trên thư viện Lensfun trong Develop Persona.",
+      "Kích hoạt và tùy biến cấu hình hiệu chỉnh ống kính tự động (Lens Profiles) dựa trên thư viện Lensfun trong Develop Studio.",
       "Xử lý méo hình quang học: Méo hình cầu (Barrel Distortion) trên ống góc rộng và méo hình gối (Pincushion Distortion) trên telephoto.",
       "Triệt tiêu quang sai màu sắc (Chromatic Aberration) viền đỏ/lục lam và xanh lam/vàng ở các góc khung hình.",
       "Sử dụng công cụ Defringe chuyên sâu để loại bỏ viền tím (Purple Fringing) trên cành cây hoặc mép kim loại ngược sáng."
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Lens Panel & Defringe Studio",
-      "persona": "Develop Persona",
+      "persona": "Develop Studio",
       "shortcut": {
         "win": "Ctrl + 1 (Zoom 100%) / Ctrl + 2 (Zoom 200%) / Space (Pan)",
         "mac": "Cmd + 1 (Zoom 100%) / Cmd + 2 (Zoom 200%) / Space (Pan)"
@@ -38,8 +38,8 @@
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Mở tab Lens trong Develop Persona",
-        "instruction": "Trong cột panel bên phải của Develop Persona, nhấp chuyển sang tab 'Lens'. Quan sát mục 'Lens Profile'. Affinity Photo sẽ đọc metadata EXIF và tự động nhận diện thương hiệu máy ảnh cùng ống kính sử dụng.",
+        "title": "Mở tab Lens trong Develop Studio",
+        "instruction": "Trong cột panel bên phải của Develop Studio, nhấp chuyển sang tab 'Lens'. Quan sát mục 'Lens Profile'. Affinity Photo sẽ đọc metadata EXIF và tự động nhận diện thương hiệu máy ảnh cùng ống kính sử dụng.",
         "shortcutTip": { "win": "Tab Lens", "mac": "Tab Lens" }
       },
       {
@@ -63,7 +63,7 @@
     ],
     "visualExamples": [
       {
-        "title": "Các dạng khuyết tật quang học và giải pháp xử lý trong Develop Persona",
+        "title": "Các dạng khuyết tật quang học và giải pháp xử lý trong Develop Studio",
         "description": "Bảng tra cứu triệu chứng và công cụ sửa.",
         "visualType": "table",
         "visualContent": "| Khuyết tật quang học | Triệu chứng | Công cụ xử lý |\n|---|---|---|\n| Barrel Distortion | Phình to ở giữa khung hình, đường chân trời bị cong | Automatic Lens Distortion / Manual Slider (-) |\n| Pincushion Distortion | Lõm ở giữa, viền khung bị kéo giãn | Manual Distortion Slider (+) |\n| Lateral CA | Viền xanh đỏ tách rời ở 4 góc mép ngoài | Bật ô kiểm 'Chromatic Aberration' |\n| Purple Fringing | Viền tím gắt quanh cành cây hoặc mép kim loại ngược sáng | Công cụ Defringe Eyedropper + Radius |\n| Keystone Distortion | Tòa nhà bị đổ dốc nghiêng chóp nón | Slider Vertical / Horizontal Keystone |"

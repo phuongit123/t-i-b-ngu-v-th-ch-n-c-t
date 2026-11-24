@@ -7,8 +7,10 @@ import {
   type TrackCounts,
 } from '@/components/catalog/TrackFilterBar';
 import { ModuleGrid } from '@/components/catalog/ModuleGrid';
-import { Search, X, Sparkles, Filter } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { ArrowRight, Search, X, Sparkles, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getRoutePath } from '@/lib/seo-router';
 import type { AffinityTrackId, LessonDifficulty } from '@/types/curriculum';
 import { ALL_PILOT_MODULES, ALL_PILOT_LESSONS } from '@/data/curriculum/index';
 import {
@@ -205,10 +207,18 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
   return (
     <div className={cn('space-y-8', className)}>
       <PageHeader
-        title="Danh Mục Khóa Học & Lộ Trình Đào Tạo"
-        description="Khám phá hệ thống bài giảng tương tác theo từng studio thiết kế và nhánh tự động hóa. Chương trình hiện hành gồm 66 bài học sẵn sàng thực hành trên 22 học phần."
-        badge="Danh mục khóa học · 66 bài học sẵn sàng"
+        title="Khóa học Affinity"
+        description="Tìm theo Studio, tên công cụ hoặc bài học. Chọn một học phần để xem nội dung và bắt đầu thực hành."
+        badge="66 bài · 22 học phần"
       />
+
+      <section className="path-entry" aria-labelledby="beginner-entry-title">
+        <div>
+          <h2 id="beginner-entry-title">Mới học Affinity?</h2>
+          <p>Làm poster đầu tiên, sau đó học từng chặng có bài tự làm và tiêu chí tự kiểm.</p>
+        </div>
+        <a className="path-primary" href={getRoutePath('journey')}>Bắt đầu từ số 0 <ArrowRight size={16} aria-hidden="true" /></a>
+      </section>
 
       {/* 4 Track Summary Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -221,7 +231,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.designer.lessons}
           completedLessonsCount={designerProgress.completed}
           progressPercentage={designerProgress.percentage}
-          coverImage="/assets/academy/studio-vector-art.png"
+          coverImage="/assets/academy/tra-mat.webp"
           onClick={() => handleTrackChange('designer')}
         />
         <TrackCard
@@ -233,7 +243,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.photo.lessons}
           completedLessonsCount={photoProgress.completed}
           progressPercentage={photoProgress.percentage}
-          coverImage="/assets/academy/studio-pixel-retouch.png"
+          coverImage="/assets/academy/retouch.webp"
           onClick={() => handleTrackChange('photo')}
         />
         <TrackCard
@@ -245,7 +255,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           lessonCount={trackCounts.publisher.lessons}
           completedLessonsCount={publisherProgress.completed}
           progressPercentage={publisherProgress.percentage}
-          coverImage="/assets/academy/studio-layout-editorial.png"
+          coverImage="/assets/academy/editorial.webp"
           onClick={() => handleTrackChange('publisher')}
         />
         <TrackCard
@@ -278,7 +288,8 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
             <div className="relative flex-1 sm:w-72">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 pointer-events-none" />
               <input
-                type="text"
+                aria-label="Tìm học phần, bài học hoặc công cụ"
+                type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tìm học phần, bài học, công cụ..."
@@ -345,7 +356,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
               className="text-xl font-bold text-[var(--color-text-primary)]"
             >
               {selectedTrack === 'all'
-                ? 'Tất Cả Lộ Trình Đào Tạo'
+                ? 'Tất cả học phần'
                 : `Lộ trình ${trackInfoVi[selectedTrack].name} (${trackInfoVi[selectedTrack].label})`}
             </h2>
             <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">
@@ -361,13 +372,24 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           </div>
         </div>
 
-        {/* Module Grid Component */}
+        <div className={selectedTrack === 'all' ? undefined : 'academy-track-layout'}>
         <ModuleGrid
+          className="course-module-list"
           modules={filteredModules}
           activeLessonId={activeLessonId}
           onLaunchLesson={onLaunchLesson}
           onResetFilters={handleResetFilters}
         />
+          {selectedTrack !== 'all' && (
+            <aside className="academy-track-summary">
+              <h3>{trackInfoVi[selectedTrack].name}</h3>
+              <p>{trackCounts[selectedTrack].lessons} bài · {trackCounts[selectedTrack].modules} học phần</p>
+              {filteredModules[0]?.lessons[0] && (
+                <Button onClick={() => onLaunchLesson(filteredModules[0].lessons[0].id)}>Bắt đầu học</Button>
+              )}
+            </aside>
+          )}
+        </div>
       </div>
     </div>
   );

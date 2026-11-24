@@ -3,7 +3,7 @@
   "moduleId": "P01",
   "trackId": "photo",
   "order": 2,
-  "title": "RAW Develop Persona và quy trình màu HDR 32-bit",
+  "title": "RAW Develop Studio và quy trình màu HDR 32-bit",
   "subtitle": "Giải mã dữ liệu cảm biến, phục hồi phơi sáng, cân bằng trắng và hiệu chỉnh ống kính",
   "durationMinutes": 25,
   "difficulty": "Beginner",
@@ -16,8 +16,8 @@
     ],
     "foundationalKnowledge": "Khi máy ảnh chụp một bức ảnh RAW, nó ghi lại dữ liệu cảm biến thô cần được giải mã và xử lý trước khi hiển thị hay chia sẻ thông thường. Trong Affinity, khi mở một tệp RAW được hỗ trợ, ứng dụng sẽ khởi chạy Develop Studio—môi trường chuyên dụng để phát triển ảnh RAW. Các bảng điều khiển đã được ghi nhận trong tài liệu hiện tại gồm Basic (phơi sáng, tone curve, enhance và white balance), Lens (biến dạng, xoay, quang sai màu và tối góc), Detail (khử nhiễu và làm nét), Tones và Masks. Các phím tắt hay lớp phủ cảnh báo cắt ngọn (clipping-warning) từng được mô tả trước đây chưa được xác minh từ tài liệu hướng dẫn RAW chính thức được rà soát ở đây, nên không được giảng dạy như hành vi đã kiểm chứng.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Photo Develop Studio RAW Bayer Pipeline & 32-bit Float Engine",
+      "classification": "DOCUMENTED",
+      "source": "24/11/2026 · Affinity 3.3.3.5004 trên Windows mở trực tiếp NEF Nikon D70s. Đã kiểm Histogram trong Develop, xuất RAW Layer (Embedded) và chuyển sang Pixel bằng tab Studio. Tùy chọn 16/32-bit đối chiếu Affinity Help.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
@@ -34,14 +34,14 @@
         "Bảng Detail: Khử nhiễu (noise reduction) và làm nét (sharpening)",
         "Bảng Tones: Đường cong sắc độ (tonal curves), chuyển đổi đen trắng và split toning",
         "Bảng Masks: Mặt nạ chọn lọc bằng cọ (brush) hoặc dải chuyển (gradient)",
-        "Menu Output: Pixel layer, RAW layer (embedded) hoặc RAW layer (linked); nút Develop chuyển kết quả sang Pixel Studio"
+        "Menu Output: Pixel layer, RAW layer (embedded) hoặc RAW layer (linked); nút Develop tạo tài liệu đã xử lý"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
         "title": "Mở tệp RAW trong Develop Studio",
-        "instruction": "Mở một tệp RAW được hỗ trợ qua File > Open. Affinity tự động mở tệp trong Develop Studio. Quan sát bảng Basic cùng các thanh điều chỉnh phơi sáng và cân bằng trắng.",
+        "instruction": "Tải ảnh cảng tàu .nef trong bài. Vào File > Open và chọn tệp vừa tải. Affinity mở ảnh trong Develop Studio. Tìm Histogram và thẻ Basic, rồi so vùng trời sáng với thân tàu tối.",
         "shortcutTip": {
           "win": "File > Open",
           "mac": "File > Open"
@@ -68,7 +68,7 @@
       {
         "stepNumber": 4,
         "title": "Chọn chế độ đầu ra (Output)",
-        "instruction": "Chọn Pixel layer nếu muốn kết quả đã giải mã phẳng; chọn RAW layer (embedded) để lưu kèm tệp RAW gốc ngay bên trong tài liệu; hoặc chọn RAW layer (linked) để giữ tệp nguồn tại vị trí gốc trên ổ đĩa.",
+        "instruction": "Trong Output, chọn RAW Layer (Embedded) để giữ lại dữ liệu RAW trong tài liệu khi cần sửa tiếp. RAW Layer (Linked) dựa vào tệp nguồn bên ngoài. Pixel Layer cho kết quả điểm ảnh. Nếu bài sau cần tài liệu RGB 32-bit, kiểm RAW output format trong Develop Assistant và đọc lại chế độ màu sau khi bấm Develop.",
         "shortcutTip": {
           "win": "Danh sách thả xuống Output",
           "mac": "Danh sách thả xuống Output"
@@ -77,7 +77,7 @@
       {
         "stepNumber": 5,
         "title": "Phát triển ảnh sang Pixel Studio",
-        "instruction": "Nhấp nút Develop trên thanh Context Toolbar. Bức ảnh sau xử lý sẽ mở trong Pixel Studio trong khi tệp RAW gốc vẫn hoàn toàn nguyên vẹn.",
+        "instruction": "Bấm Develop để tạo tài liệu đã xử lý. Chọn tab Pixel nếu Affinity đang ở Studio khác. Chọn lớp RAW vừa nhúng và bấm Develop trên thanh tùy chọn để thử mở lại thông số.",
         "shortcutTip": {
           "win": "Develop",
           "mac": "Develop"
@@ -95,33 +95,33 @@
         "title": "Sơ đồ giải mã cảm biến Bayer",
         "description": "Cách Develop Studio tái tạo màu sắc đầy đủ từ dữ liệu thô của cảm biến máy ảnh.",
         "visualType": "diagram",
-        "visualContent": "Cảm biến CMOS máy ảnh [Mẫu Bayer RG/GB]\n   ↓ Tín hiệu điện áp cảm biến thô\nDevelop Studio [Thuật toán De-mosaicing]\n   ├── Hiệu chỉnh ma trận Cân bằng trắng\n   ├── Phục hồi Highlights/Shadows không giới hạn\n   └── Sửa méo ống kính & tối 4 góc\n   ↓\nPixel Studio / Photo Persona [Khung vẽ 16-bit hoặc 32-bit đầy đủ]"
+        "visualContent": "Cảm biến CMOS máy ảnh [Mẫu Bayer RG/GB]\n   ↓ Tín hiệu điện áp cảm biến thô\nDevelop Studio [Thuật toán De-mosaicing]\n   ├── Hiệu chỉnh ma trận Cân bằng trắng\n   ├── Điều chỉnh Highlights và Shadows trong giới hạn dữ liệu ảnh\n   └── Sửa méo ống kính & tối 4 góc\n   ↓\nTài liệu sau Develop [Khung vẽ 16-bit hoặc 32-bit đầy đủ]"
       }
     ],
     "guidedPractice": {
       "title": "Phục hồi phơi sáng và cân bằng trắng từ ảnh RAW",
-      "taskDescription": "Phát triển một bức ảnh phong cảnh RAW bằng cách cân đối phơi sáng, highlights, shadows và cân bằng trắng, sau đó rà soát các hiệu chỉnh ống kính và chi tiết phù hợp.",
+      "taskDescription": "Dùng ảnh RAW cảng tàu để cân sáng vùng trời và thân tàu. Chọn một vùng thực sự trung tính nếu có, rồi thử Temperature và Tint. Xem bảng Lens và Details để tìm chỉnh sửa cần thiết.",
       "checkpoints": [
         "Mở tệp RAW và xác nhận tệp tự động mở trong Develop Studio.",
         "Sử dụng bảng Basic để kiểm tra và điều chỉnh Exposure, Highlights và Shadows.",
         "Sử dụng thanh trượt Temperature và Tint của White Balance để khử sắc ám sai màu.",
         "Kiểm tra bảng Lens và Detail để áp dụng hiệu chỉnh quang học và khử nhiễu phù hợp.",
-        "Chọn chế độ Output và nhấn Develop để mở kết quả trong Pixel Studio."
+        "Bấm Develop. Chọn Pixel nếu cần, rồi kiểm nút Develop xuất hiện khi chọn lớp RAW."
       ],
-      "expectedOutcome": "Một bức ảnh đã được phát triển cân bằng sáng tối với chế độ đầu ra RAW đã chọn và không làm thay đổi tệp RAW nguồn."
+      "expectedOutcome": "Một bức ảnh đã được phát triển cân bằng sáng tối với chế độ đầu ra RAW đã chọn và không làm thay đổi tệp RAW nguồn.",
+      "starterAsset": {
+        "filename": "P01_RAW_cang_tau.nef",
+        "filepath": "curriculum/assets/photo/P01_RAW_cang_tau.nef",
+        "filesize": "4,95 MiB",
+        "filetype": ".nef",
+        "assetStatus": "CAMERA_RAW",
+        "isVerified": true,
+        "statusNote": "Ảnh cảng tàu từ Nikon D70s, raw.pixls.us mẫu 1117, CC0 1.0. Đã mở bằng Affinity 3.3.3.5004 trên Windows."
+      }
     },
     "independentChallenge": {
       "title": "Hiệu chỉnh ống kính cho ảnh kiến trúc RAW",
-      "prompt": "Phát triển một bức ảnh kiến trúc RAW: (1) cân bằng trắng dựa trên một vùng trung tính; (2) dùng bảng Lens để sửa méo hình và quang sai màu ở những mục khả dụng; (3) rà soát mức khử nhiễu và làm nét trong bảng Detail; (4) chọn chế độ Output phù hợp và nhấn Develop sang Pixel Studio.",
-      "starterAsset": {
-        "filename": "P01_starter.afphoto",
-        "filepath": "curriculum/assets/photo/P01_starter.afphoto",
-        "filesize": "1.65 MB",
-        "filetype": ".afphoto",
-        "assetStatus": "REAL_AFFINITY_FILE",
-        "isVerified": true,
-        "statusNote": "Tài liệu thực hành cho hiệu chỉnh ống kính và cân bằng sắc độ (REAL_AFFINITY_FILE)."
-      },
+      "prompt": "Dùng một ảnh RAW kiến trúc khác ảnh cảng mẫu, có các cạnh thẳng gần mép ảnh. Chọn vùng trung tính để cân bằng trắng, so ảnh trước và sau hiệu chỉnh Lens, rồi kiểm vân bề mặt trong Details. Chọn Output theo nhu cầu sửa tiếp. Bấm Develop, sau đó chọn Pixel nếu Affinity đang ở Studio khác.",
       "challengeCriteria": [
         "Cân bằng trắng chuẩn xác, không để lại sắc ám màu ngoài ý muốn.",
         "Các lỗi biến dạng ống kính và quang sai màu khả dụng được giảm thiểu rõ rệt.",
@@ -152,12 +152,12 @@
         "question": "Lợi ích chính của việc phát triển tệp RAW trong không gian màu dấu phẩy động 32-bit (RGB/32 HDR) là gì?",
         "options": [
           "Giúp dung lượng tệp nhỏ hơn ảnh JPEG.",
-          "Cho phép lưu trữ giá trị độ sáng không giới hạn (vượt quá 1.0 - trắng thuần), nhờ đó các bước chỉnh sửa sau vẫn có thể kéo lại chi tiết vùng sáng gắt thay vì bị cắt trắng vĩnh viễn như 8-bit hay 16-bit.",
+          "Cho phép giữ các giá trị độ sáng trên 1,0 trong quy trình 32-bit, để có thể hạ sáng phần dữ liệu ấy ở bước sau.",
           "Ép máy ảnh chụp thêm một bức ảnh khác.",
           "Chuyển bức ảnh thành các đường cong vector."
         ],
         "correctIndex": 1,
-        "explanation": "Biểu diễn màu dấu phẩy động 32-bit không bị chặn trần ở 1.0. Các giá trị lớn hơn 1.0 lưu giữ cường độ sáng vật lý thực, cho phép hạ sáng vùng cháy ở bước sau mà vẫn giữ chi tiết mây trời."
+        "explanation": "Giá trị dấu phẩy động có thể vượt mức trắng tham chiếu. Hạ Exposure giúp xem lại dữ liệu đang có trên ngưỡng đó. Dữ liệu mất ngay khi chụp vẫn không thể phục hồi."
       },
       {
         "id": "P01-02-Q2",
@@ -189,7 +189,7 @@
         "Develop Studio tự động mở các tệp RAW được hỗ trợ để xử lý theo quy trình phi phá hủy.",
         "Các bảng Basic, Lens, Detail, Tones và Masks tổ chức gọn gàng toàn bộ quy trình xử lý RAW.",
         "Đầu ra có thể chọn dạng Pixel layer, RAW layer (embedded) hoặc RAW layer (linked).",
-        "Lệnh Develop chuyển bức ảnh đã xử lý sang Pixel Studio để tiếp tục chỉnh sửa."
+        "Bấm Develop để tạo tài liệu đã xử lý. Chọn Pixel khi cần chỉnh tiếp."
       ],
       "relatedResources": [
         {
@@ -201,6 +201,11 @@
           "title": "Hướng dẫn xử lý RAW trong Affinity",
           "target": "https://affinity.serif.com/photo/raw-processing/",
           "type": "doc"
+        },
+        {
+          "title": "Nguồn và giấy phép ảnh RAW cảng tàu",
+          "target": "curriculum/assets/photo/P01_RAW_cang_tau_nguon.md",
+          "type": "guide"
         }
       ]
     }
@@ -296,24 +301,15 @@
       "type": "challenge",
       "title": "Thử thách độc lập: Phát triển RAW & Hiệu chỉnh ống kính",
       "subtitle": "Hoàn thiện ảnh kiến trúc độ tương phản cao",
-      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\nPhát triển một bức ảnh kiến trúc RAW được hỗ trợ:\n1. Cân bằng trắng dựa trên một vùng xám hoặc trắng trung tính.\n2. Dùng các nút điều khiển trong bảng Lens để giảm méo hình và quang sai màu ở những mục khả dụng.\n3. Kiểm tra độ khử nhiễu và làm nét trong bảng Detail.\n4. Chọn chế độ Output phù hợp và bấm Develop sang Pixel Studio.\n\n### Tiêu Chí Nghiệm Thu:\n- Cân bằng trắng trung thực về mặt thị giác.\n- Các đường thẳng kiến trúc và viền màu được cải thiện rõ rệt.\n- Thiết lập bảng Detail bảo toàn kết cấu bề mặt tự nhiên.\n- Giữ lại đường dẫn chỉnh sửa RAW khi chọn đầu ra embedded hoặc linked.",
+      "contentMarkdown": "### Nhiệm Vụ Của Bạn:\nDùng một ảnh RAW kiến trúc khác ảnh cảng mẫu:\n1. Cân bằng trắng dựa trên một vùng xám hoặc trắng trung tính.\n2. Dùng các nút điều khiển trong bảng Lens để giảm méo hình và quang sai màu ở những mục khả dụng.\n3. Kiểm tra độ khử nhiễu và làm nét trong bảng Detail.\n4. Chọn chế độ Output phù hợp và bấm Develop rồi chọn Pixel nếu cần.\n\n### Tiêu Chí Nghiệm Thu:\n- Cân bằng trắng trung thực về mặt thị giác.\n- Các đường thẳng kiến trúc và viền màu được cải thiện rõ rệt.\n- Thiết lập bảng Detail bảo toàn kết cấu bề mặt tự nhiên.\n- Giữ lại đường dẫn chỉnh sửa RAW khi chọn đầu ra embedded hoặc linked.",
       "practiceData": {
-        "prompt": "Phát triển một bức ảnh kiến trúc RAW: (1) cân bằng trắng với vùng trung tính; (2) dùng bảng Lens để giảm biến dạng và quang sai màu khi khả dụng; (3) rà soát khử nhiễu và làm nét ở bảng Detail; (4) chọn chế độ Output phù hợp rồi Develop sang Pixel Studio.",
-        "starterAsset": {
-          "filename": "P01_starter.afphoto",
-          "filepath": "curriculum/assets/photo/P01_starter.afphoto",
-          "filesize": "1.65 MB",
-          "filetype": ".afphoto",
-          "assetStatus": "REAL_AFFINITY_FILE",
-          "isVerified": true,
-          "statusNote": "Tài liệu thực hành cho hiệu chỉnh ống kính và cân bằng sắc độ (REAL_AFFINITY_FILE)."
-        },
+        "prompt": "Dùng một ảnh RAW kiến trúc khác ảnh cảng mẫu, có các cạnh thẳng gần mép ảnh. Chọn vùng trung tính để cân bằng trắng, so ảnh trước và sau hiệu chỉnh Lens, rồi kiểm vân bề mặt trong Details. Chọn Output theo nhu cầu sửa tiếp. Bấm Develop, sau đó chọn Pixel nếu Affinity đang ở Studio khác.",
         "checkpoints": [
           "Mở tệp RAW và xác nhận tệp tự động mở trong Develop Studio.",
           "Sử dụng bảng Basic để kiểm tra và điều chỉnh Exposure, Highlights và Shadows.",
           "Sử dụng thanh trượt Temperature và Tint của White Balance để khử sắc ám sai màu.",
           "Kiểm tra bảng Lens và Detail để áp dụng hiệu chỉnh quang học và khử nhiễu phù hợp.",
-          "Chọn chế độ Output và nhấn Develop để mở kết quả trong Pixel Studio."
+          "Chọn chế độ Output và nhấn Develop rồi chọn Pixel nếu cần."
         ]
       }
     }

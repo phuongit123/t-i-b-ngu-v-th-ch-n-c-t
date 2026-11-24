@@ -9,7 +9,7 @@
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P03", "P05", "P06"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P07_compositing_manipulation_guide.md",
     "filepath": "curriculum/assets/photo/P07_compositing_manipulation_guide.md",

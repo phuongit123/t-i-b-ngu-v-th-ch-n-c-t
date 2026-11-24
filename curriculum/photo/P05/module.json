@@ -9,7 +9,7 @@
   "difficulty": "Intermediate",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P03"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P05_color_correction_grading_guide.md",
     "filepath": "curriculum/assets/photo/P05_color_correction_grading_guide.md",

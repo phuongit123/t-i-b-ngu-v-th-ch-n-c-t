@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Đồ án tốt nghiệp — Tải tệp thật & Bảo mật phân quyền Giám khảo (RBAC)', () => {
   test('TC-CAP-01: Giao diện học viên sạch nhãn nội bộ và ẩn hoàn toàn bảng chấm điểm Giám khảo', async ({ page }) => {
     await page.goto('/');
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
     await page.getByTestId('nav-capstone').click();
 
     await expect(page.locator('h1')).toContainText(

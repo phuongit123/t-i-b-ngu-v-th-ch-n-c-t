@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Grid and Axis Manager (Trình quản lý lưới & trục)",
-      "persona": "Vector Persona (View > Grid and Axis Manager...)",
+      "persona": "Vector Studio (View > Grid and Axis Manager...)",
       "shortcut": {
         "win": "Ctrl+Alt+G (Mở hộp thoại), Ctrl+' (Hiện/ẩn lưới), Ctrl+Alt+' (Bắt dính vào lưới)",
         "mac": "Cmd+Option+G (Mở hộp thoại), Cmd+' (Hiện/ẩn lưới), Cmd+Option+' (Bắt dính vào lưới)"

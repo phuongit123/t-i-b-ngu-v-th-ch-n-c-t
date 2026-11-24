@@ -2,7 +2,7 @@
   "id": "D09",
   "trackId": "designer",
   "order": 9,
-  "title": "Tích Hợp Pixel Persona, Đổ Bóng & Kết Cấu Hạt (Texture)",
+  "title": "Tích Hợp Pixel Studio, Đổ Bóng & Kết Cấu Hạt (Texture)",
   "subtitle": "Cọ vẽ Raster, đổ bóng hạt Noise, lớp Pixel con và mặt nạ vector phi phá hủy",
   "description": "Kết hợp sức mạnh điểm ảnh vào thiết kế vector: sử dụng cọ vẽ raster, tạo hạt noise, tạo khối và bóng đổ tự nhiên.",
   "difficulty": "Advanced",
@@ -13,7 +13,7 @@
     "D05: Quản Lý Layer, Mặt Nạ Vector & Đường Cắt Bố Cục (Clipping)"
   ],
   "learningOutcomes": [
-    "Chuyển đổi linh hoạt giữa không gian vector và Pixel Persona qua thanh công cụ hoặc phím tắt tự thiết lập.",
+    "Chuyển đổi linh hoạt giữa không gian vector và Pixel Studio qua thanh công cụ hoặc phím tắt tự thiết lập.",
     "Làm chủ thông số cọ raster gồm Flow, Opacity, Hardness, Spacing và độ biến thiên theo lực nhấn bút vẽ.",
     "Lồng lớp điểm ảnh làm lớp con bên trong đường cong vector để tạo vùng cắt gọn gàng, phi phá hủy.",
     "Khóa vùng trong suốt bằng Protect Alpha để phủ lại sắc độ cho lớp hạt sẵn có mà không lem ra ngoài.",
@@ -34,7 +34,7 @@
     {
       "id": "D09-01",
       "order": 1,
-      "title": "Pixel Persona và động lực cọ Raster trong Designer",
+      "title": "Pixel Studio và động lực cọ Raster trong Designer",
       "subtitle": "Chuyển đổi Persona, nhóm cọ vẽ, Flow với Opacity và bộ điều chỉnh Jitter",
       "durationMinutes": 30,
       "difficulty": "Advanced"

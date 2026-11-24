@@ -11,28 +11,27 @@
     "learningObjectives": [
       "Nắm vững cơ chế sản xuất ấn phẩm thương mại: tay sách (signatures), bố cục trang đối diện (Facing Pages) và độ xê dịch gáy sách.",
       "Thiết lập chuẩn xác Facing Pages (trang đôi đối diện), trang bắt đầu (Right hay Left) và tổng số trang theo bội số đóng quyển (4, 8, 16 trang).",
-      "Tính toán và cấu hình vùng Bleed (lề tràn xén in ấn) chuẩn ISO 3mm, phân biệt rõ với vùng Slug (ghi chú kỹ thuật ngoài mép xén) và hiểu vì sao Bleed bắt buộc phải có khi in tràn mép.",
+      "Thiết lập Bleed 3 mm theo đề bài, phân biệt vùng tràn lề với lề an toàn và hiểu khi nào cần hỏi quy cách nhà in.",
       "Xây dựng lề an toàn Margins bất đối xứng với khoảng chừa gáy (Gutter) phù hợp cho sách dán gáy keo vuông so với ấn phẩm đóng ghim giữa."
     ],
-    "foundationalKnowledge": "Trên màn hình kỹ thuật số, mỗi trang hiển thị tồn tại độc lập. Ngược lại, trong sản xuất in ấn thương mại, tài liệu được bình trang lên những tờ giấy in khổ lớn, gấp lại thành từng tay sách (thường gồm 8, 16 hoặc 32 trang), đóng gáy và xén thành phẩm bằng máy dao công nghiệp tốc độ cao. Do tờ giấy luôn có độ xê dịch cơ học nhất định khi gấp và xén (sai số khoảng +/- 1.0 mm), mọi mảng màu hoặc hình ảnh muốn phủ kín ra sát mép giấy bắt buộc phải kéo tràn qua đường cắt thành phẩm vào vùng Bleed (lề tràn xén) rộng 3.0 mm. Nếu thiếu Bleed, chỉ cần dao cắt lệch nửa milimet cũng sẽ để lại vệt giấy trắng mất thẩm mỹ dọc mép trang. Ngoài ra, trong chế bản in ấn còn có khái niệm Slug: khoảng không gian nằm ngoài cả đường Bleed dùng để ghi chú kỹ thuật, mã đơn hàng, dấu xén (Printer Marks) và thông số kiểm soát cho thợ in mà không làm ảnh hưởng đến trang thành phẩm.",
+    "foundationalKnowledge": "Khi xén ấn phẩm, vị trí đường cắt có thể dịch nhẹ. Nếu ảnh hoặc màu nền chạm mép thành phẩm, kéo phần đó ra ngoài mép cắt đến vạch Bleed. Lề an toàn nằm bên trong mép cắt, nơi giữ chữ và nội dung quan trọng. Bài tập dùng 3 mm. Với sản phẩm thật, xác nhận mức tràn lề và hồ sơ màu với nhà in. Slug là thuật ngữ chế bản cho vùng ghi chú ngoài trang; bài thực hành dùng các mục Margins và Bleed trong Affinity.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Kiến trúc tài liệu Affinity Layout Studio (Publisher) & Tiêu chuẩn Bleed/Trim ISO 12647",
-      "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
+      "classification": "DOCUMENTED",
+      "source": "Affinity Print Design Guide và công cụ thiết lập tài liệu mới. Mức 3 mm là thông số của bài thực hành."
     },
     "toolAndFeatureExplanation": {
       "toolName": "Document Setup & Hệ thống Bleed (Thiết lập tài liệu & Lề tràn xén)",
-      "persona": "Layout Studio (Publisher Persona)",
+      "persona": "Layout Studio (Layout Studio)",
       "shortcut": {
-        "win": "Ctrl+Shift+P (Document Setup), Ctrl+N (Tạo tài liệu mới)",
-        "mac": "Cmd+Shift+P (Document Setup), Cmd+N (Tạo tài liệu mới)"
+        "win": "File > New hoặc Document Setup trên thanh tùy chọn của Move Tool",
+        "mac": "File > New hoặc Document Setup trên thanh tùy chọn của Move Tool"
       },
-      "description": "Truy cập qua File > Document Setup (Ctrl+Shift+P trên Windows / Cmd+Shift+P trên macOS) hoặc ngay khi tạo tài liệu mới (Ctrl+N / Cmd+N). Đây là trung tâm kiểm soát kích thước trang, luồng trang đối diện (Facing Pages), lề an toàn (Margins), vùng tràn lề (Bleed) và hồ sơ màu in ấn.",
+      "description": "Tạo tài liệu mới trong Layout Studio để đặt kích thước thành phẩm, trang đối diện, Margins và Bleed. Với tài liệu đã mở, nút Document Setup xuất hiện trên thanh tùy chọn của Move Tool khi bỏ chọn đối tượng.",
       "contextBarOptions": [
         "Facing Pages: Bật chế độ hiển thị hai trang đối diện nhau (Trái/Phải) chung một đường gáy ở giữa",
         "Arrange: Sắp xếp trang đôi theo chiều ngang (Horizontal — chuẩn sách báo) hoặc chiều dọc (Vertical)",
         "Start on: Chọn mặt trang đầu tiên nằm bên phải (Right — Trang 1 là bìa trước bên phải theo chuẩn xuất bản)",
-        "Bleed: Nhập khoảng tràn lề cho 4 cạnh Top, Bottom, Inner, Outer (tiêu chuẩn 3.0 mm ở các mép cắt ngoài)"
+        "Bleed: Nhập khoảng tràn lề cho 4 cạnh Top, Bottom, Inner, Outer (3.0 mm cho bài tập)"
       ]
     },
     "stepByStepInstructions": [
@@ -40,31 +39,46 @@
         "stepNumber": 1,
         "title": "Mở hộp thoại tạo ấn phẩm mới",
         "instruction": "Mở Affinity và chuyển sang Layout Studio (không gian Publisher), nhấn Ctrl+N (Windows) hoặc Cmd+N (macOS). Ở nhóm danh mục 'Print' hoặc 'Press Ready', chọn khổ mẫu 'A4' (210 x 297 mm).",
-        "shortcutTip": { "win": "Ctrl+N", "mac": "Cmd+N" }
+        "shortcutTip": {
+          "win": "Ctrl+N",
+          "mac": "Cmd+N"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Cấu hình kiến trúc trang đôi (Facing Pages)",
         "instruction": "Tại thẻ 'Layout' bên phải, tích chọn ô 'Facing pages'. Đặt 'Arrange' là Horizontal, 'Start on' là 'Right', và nhập 'Number of pages' là 8 (một tay sách tạp chí tiêu chuẩn 8 trang).",
-        "shortcutTip": { "win": "Bật Facing Pages", "mac": "Bật Facing Pages" }
+        "shortcutTip": {
+          "win": "Bật Facing Pages",
+          "mac": "Bật Facing Pages"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Thiết lập lề Margins bất đối xứng chừa gáy đóng sách",
         "instruction": "Chuyển sang thẻ 'Margins'. Bấm bỏ chọn biểu tượng móc xích để nhập từng cạnh độc lập: Top 20 mm, Bottom 22 mm, Outer (lề ngoài) 18 mm, và Inner (Gutter — lề trong sát gáy) 25 mm. Lề trong rộng hơn giúp chữ không bị hút vào rãnh gấp khi đóng quyển.",
-        "shortcutTip": { "win": "Inner Margin: 25 mm", "mac": "Inner Margin: 25 mm" }
+        "shortcutTip": {
+          "win": "Inner Margin: 25 mm",
+          "mac": "Inner Margin: 25 mm"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Cấu hình lề tràn xén Bleed 3 mm thương mại",
         "instruction": "Mở thẻ 'Bleed'. Đảm bảo biểu tượng móc xích đang bật để liên kết 4 cạnh và nhập '3.0 mm'. Tất cả bốn ô (Top, Bottom, Inner, Outer) sẽ tự động điền 3 mm. Nhấn 'Create' để khởi tạo tài liệu.",
-        "shortcutTip": { "win": "Bleed: 3 mm", "mac": "Bleed: 3 mm" }
+        "shortcutTip": {
+          "win": "Bleed: 3 mm",
+          "mac": "Bleed: 3 mm"
+        }
       },
       {
         "stepNumber": 5,
         "title": "Kiểm tra đường dẫn Bleed trực tiếp trên vùng làm việc",
         "instruction": "Quan sát trang đôi vừa tạo: khung viền liền nét là đường mép xén thành phẩm (Trim Edge). Đường dẫn bao bên ngoài cách mép trang 3 mm là đường giới hạn Bleed. Mọi hình nền tràn lề đều phải kéo phủ tới sát đường Bleed ngoài cùng này (bật kiểm tra qua View > Show Bleed).",
-        "shortcutTip": { "win": "View > Show Bleed", "mac": "View > Show Bleed" }
+        "shortcutTip": {
+          "win": "View > Show Bleed",
+          "mac": "View > Show Bleed"
+        }
       }
     ],
     "visualExamples": [
@@ -172,7 +186,7 @@
       "summaryPoints": [
         "Thiết kế xuất bản đòi hỏi hiểu đúng quy trình gấp tay sách và sai số dao xén tại xưởng in.",
         "Chế độ Facing Pages giúp người thiết kế cân bằng bố cục chữ và thị giác trên trọn vẹn hai trang mở đối diện.",
-        "Tiêu chuẩn Bleed 3 mm ngăn chặn triệt để lỗi hở viền trắng sau khi xén thành phẩm.",
+        "Lề tràn 3 mm theo đề bài giảm nguy cơ hở giấy trắng khi xén. Luôn xác nhận quy cách cho đơn in thật.",
         "Lề trong (Inner Gutter) bất đối xứng bảo vệ khả năng đọc trước độ cong tự nhiên của gáy sách dán keo."
       ],
       "relatedResources": [
@@ -185,6 +199,11 @@
           "title": "Tài liệu Affinity chính thức: Hướng dẫn thiết lập in ấn & Bleed",
           "target": "https://affinity.serif.com/publisher/print-setup/",
           "type": "doc"
+        },
+        {
+          "title": "Affinity: Chuẩn bị tài liệu để in",
+          "target": "https://www.affinity.studio/blog/print-design-everything-you-need-to-know",
+          "type": "doc"
         }
       ]
     }
@@ -196,7 +215,7 @@
       "type": "intro",
       "title": "Kiến Trúc Ấn Phẩm & Tiêu Chuẩn Bleed",
       "subtitle": "Kỹ thuật hình học đằng sau một ấn phẩm in thương mại",
-      "contentMarkdown": "Chào mừng bạn đến với **Layout Studio** (không gian dàn trang **Publisher** trong Affinity).\n\nThiết kế cho in ấn mang tính kỹ thuật vật lý rõ rệt: bạn không chỉ tạo ra một màn hình tĩnh, mà đang thiết kế một vật thể ba chiều bằng giấy được gấp tay sách, vào keo đóng gáy và đưa qua dao xén công nghiệp.\n\nTrong bài học này, bạn sẽ nắm vững **cấu trúc trang đôi Facing Pages, khoảng chừa gáy sách (Gutter), khái niệm vùng Slug và quy tắc bắt buộc của Bleed 3 mm**.",
+      "contentMarkdown": "Chào mừng bạn đến với **Layout Studio** (không gian dàn trang **Publisher** trong Affinity).\n\nThiết kế cho in ấn mang tính kỹ thuật vật lý rõ rệt: bạn không chỉ tạo ra một màn hình tĩnh, mà đang thiết kế một vật thể ba chiều bằng giấy được gấp tay sách, vào keo đóng gáy và đưa qua dao xén công nghiệp.\n\nTrong bài học này, bạn sẽ nắm vững **cấu trúc trang đôi Facing Pages, khoảng chừa gáy sách (Gutter), khái niệm vùng Slug và cách đặt Bleed 3 mm theo yêu cầu của bài**.",
       "actionBox": {
         "label": "Nguyên Lý In Ấn",
         "text": "Mọi cuốn sách đều được ghép từ các tờ giấy gấp đôi. Tổng số trang in luôn phải chia hết cho 4."
@@ -224,7 +243,10 @@
       "actionBox": {
         "label": "Quy Chuẩn Nhà In",
         "text": "Các xưởng in offset tại châu Á và châu Âu tiêu chuẩn yêu cầu Bleed 3.0 mm; tại Mỹ thường yêu cầu 0.125 inch (3.175 mm).",
-        "shortcut": { "win": "Ctrl+Shift+P", "mac": "Cmd+Shift+P" }
+        "shortcut": {
+          "win": "Ctrl+Shift+P",
+          "mac": "Cmd+Shift+P"
+        }
       }
     },
     {
@@ -248,7 +270,7 @@
       "contentMarkdown": "### 1. Lỗi hở viền trắng mép cắt\n- **Nguyên nhân:** Đặt ảnh vừa khít mép trang thay vì kéo ra đường dẫn Bleed 3 mm.\n- **Hậu quả:** Dao xén chỉ cần xê dịch 0.5 mm sẽ để lại sợi giấy trắng chạy dọc mép ấn phẩm.\n- **Cách xử lý:** Luôn kéo các thành phần tràn nền chạm khít đường Bleed bên ngoài.\n\n### 2. Chữ bị nuốt vào rãnh gáy sách\n- **Nguyên nhân:** Đặt lề 4 cạnh bằng nhau (ví dụ đều 12 mm) cho sách dày hàng trăm trang.\n- **Cách xử lý:** Chừa lề trong `Inner` ít nhất `25–28 mm` đối với sách dán gáy keo vuông.\n\n### 3. Số trang không chia hết cho 4\n- **Nguyên tắc:** Một cuốn sách nhỏ không thể in ở mức 15 hay 17 trang. Luôn quy hoạch số trang là bội số của 4.",
       "actionBox": {
         "label": "Nguyên Tắc Vàng",
-        "text": "Đồ họa đã chạm mép trang thì bắt buộc phải tràn ra ngoài đường cắt thêm 3 mm."
+        "text": "Đồ họa đã chạm mép trang thì bắt buộc phải tràn ra ngoài đường cắt theo quy cách xén."
       }
     },
     {

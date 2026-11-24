@@ -3,26 +3,26 @@
   "moduleId": "D02",
   "trackId": "designer",
   "order": 1,
-  "title": "Các chế độ Pen Tool và cơ chế tay cầm Bézier",
-  "subtitle": "Chế độ Pen, Smart, Polygon, Line và kỹ thuật bẻ góc tay cầm",
+  "title": "Vẽ đường cong bằng Pen Tool",
+  "subtitle": "Nhìn thanh tùy chọn, đặt điểm neo và kiểm tra đường trơn hoặc gãy",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
       "Làm chủ Pen Tool (công cụ vẽ đường cong Bézier, phím P) cùng 4 chế độ vẽ: Pen Mode, Smart Mode, Polygon Mode và Line Mode.",
       "Hiểu nguyên lý toán học của đường cong Bézier bậc ba: độ dài và góc nghiêng của tay cầm quyết định độ căng và hướng tiếp tuyến.",
-      "Dùng phím bổ trợ Alt (Windows) / Option (macOS) để bẻ gãy tính đối xứng của tay cầm thành góc nhọn ngay trong lúc đang vẽ.",
+      "Dùng Node Tool để kiểm tra tay cầm và sửa một đoạn có điểm gãy ngoài ý muốn.",
       "Đặt điểm neo đúng tại các điểm cực trị (trên, dưới, trái, phải) để đường nét mượt mà với số lượng node tối giản."
     ],
-    "foundationalKnowledge": "Đồ họa vector dựng đường cong dựa trên phương trình Bézier bậc ba gồm hai điểm neo đầu mút (anchor nodes) và hai điểm điều khiển nằm ngoài đường nét gọi là tay cầm (control handles). Chiều dài tay cầm quyết định lực kéo của cung cong, còn góc của tay cầm quy định hướng tiếp tuyến khi đường đi vào và đi ra khỏi điểm neo. Người mới thường có thói quen chấm quá nhiều điểm liên tiếp vì sợ chỉnh tay cầm, khiến đường nét bị gồ ghề và nặng file. Trong Affinity, nguyên tắc quan trọng nhất là đặt ít điểm nhất có thể, tập trung vào các điểm cực trị ngang và dọc (extrema) của đường cong.",
+    "foundationalKnowledge": "Một đoạn cong có hai điểm đầu mút. Hướng của tay cầm xác định hướng đường đi vào hoặc đi ra khỏi điểm. Vẽ ít điểm trước, sau đó thêm điểm khi cần đổi hướng. Với hình đơn giản, đặt điểm ở đỉnh, đáy hoặc hai bên giúp kiểm soát dáng dễ hơn.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Tài liệu kỹ thuật Pen Tool & Đường cong Bézier — Affinity 3.3.3",
+      "classification": "DOCUMENTED",
+      "source": "Ảnh Pen Tool chụp trực tiếp trong Affinity 3.3.3.5004 Windows. Cách vẽ/sửa đường cong đối chiếu Affinity Vector Drawing.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Pen Tool",
-      "persona": "Vector Persona (Thanh công cụ bên trái)",
+      "persona": "Vector Studio (Thanh công cụ bên trái)",
       "shortcut": {
         "win": "P (Chọn Pen Tool)",
         "mac": "P (Chọn Pen Tool)"
@@ -41,31 +41,45 @@
         "stepNumber": 1,
         "title": "Kích hoạt Pen Tool",
         "instruction": "Nhấn phím P để chọn Pen Tool. Kiểm tra trên thanh Context Toolbar xem biểu tượng đầu tiên 'Pen Mode' đang được chọn.",
-        "shortcutTip": { "win": "P", "mac": "P" }
+        "shortcutTip": {
+          "win": "P",
+          "mac": "P"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Vẽ một cung cong Bézier mượt mà",
         "instruction": "Nhấp rồi thả chuột trên bản vẽ để đặt điểm bắt đầu. Di chuyển sang phải, nhấp và giữ kéo thẳng lên trên để tạo vòm cong. Bạn sẽ thấy hai tay cầm đối xứng vươn ra từ điểm neo vừa tạo.",
-        "shortcutTip": { "win": "Nhấp và kéo chuột", "mac": "Nhấp và kéo chuột" }
+        "shortcutTip": {
+          "win": "Nhấp và kéo chuột",
+          "mac": "Nhấp và kéo chuột"
+        }
       },
       {
         "stepNumber": 3,
-        "title": "Bẻ gãy đối xứng tay cầm bằng Alt/Option",
-        "instruction": "Trong lúc vẫn giữ chuột kéo tay cầm, giữ thêm phím Alt (Windows) hoặc Option (macOS) rồi xoay riêng tay cầm phía trước gập xuống 90 độ. Thả chuột ra: bạn vừa tạo xong một góc đổi hướng sắc nét mà không cần đổi công cụ.",
-        "shortcutTip": { "win": "Giữ Alt + Kéo tay cầm", "mac": "Giữ Option + Kéo tay cầm" }
+        "title": "Sửa hình bằng Node Tool",
+        "instruction": "Chọn Node Tool trong thanh công cụ bên trái. Bấm vào điểm trên đường cong để hiện tay cầm, kéo một đầu tay cầm rồi quan sát hình đổi theo hướng kéo. Dùng Undo để so sánh với nét trước đó."
       },
       {
         "stepNumber": 4,
         "title": "Trải nghiệm chế độ Smart Mode",
         "instruction": "Nhấn biểu tượng thứ hai trên thanh Context Toolbar để chuyển sang 'Smart Mode'. Nhấp liên tiếp 4–5 điểm trên màn hình mà không cần kéo chuột; Affinity tự tính toán cung uốn mềm mại đi qua toàn bộ các điểm đó.",
-        "shortcutTip": { "win": "Smart Mode", "mac": "Smart Mode" }
+        "shortcutTip": {
+          "win": "Smart Mode",
+          "mac": "Smart Mode"
+        }
       }
     ],
     "visualExamples": [
       {
+        "title": "Công cụ Pen trong Vector Studio",
+        "description": "Thanh tùy chọn xuất hiện ngay dưới thanh công cụ chính khi đã chọn Pen Tool.",
+        "visualType": "diagram",
+        "visualContent": "/assets/lessons/affinity-333-pen.webp"
+      },
+      {
         "title": "Tổng quan 4 chế độ của Pen Tool",
-        "description": "Phân biệt thao tác chuột và tình huống áp dụng của 4 chế độ vẽ trong Vector Persona.",
+        "description": "Phân biệt thao tác chuột và tình huống áp dụng của 4 chế độ vẽ trong Vector Studio.",
         "visualType": "table",
         "visualContent": "| Chế độ Pen | Thao tác chuột | Kết quả đường vẽ | Tình huống dùng tối ưu |\n|---|---|---|---|\n| Pen Mode | Nhấp rồi kéo tay cầm | Đường cong Bézier kiểm soát toàn phần | Vẽ minh họa, logo, chữ tùy biến |\n| Smart Mode | Chỉ nhấp từng điểm | Đường cong mềm tính toán tự động | Phác thảo nhanh dáng hữu cơ |\n| Polygon Mode | Chỉ nhấp từng điểm | Toàn bộ là đoạn thẳng sắc cạnh | Đồ họa đa giác (Low-poly), kiến trúc |\n| Line Mode | Nhấp kéo từng cặp điểm | Từng đoạn thẳng rời độc lập | Sơ đồ kỹ thuật, đường gióng kích thước |"
       },
@@ -90,8 +104,8 @@
       "expectedOutcome": "Một hình giọt nước trơn tru, không thừa điểm neo và tiếp tuyến hoàn toàn cân xứng."
     },
     "independentChallenge": {
-      "title": "Thử thách vẽ bóng cổ thiên nga tối giản",
-      "prompt": "Dựa theo tài liệu hướng dẫn, hãy vẽ dáng đầu và cổ thiên nga bằng vector khép kín với tổng cộng tối đa 8 điểm neo. Dùng phím Alt/Option để tạo đỉnh mỏ sắc nét và các điểm Smooth cho phần cổ uốn cong.",
+      "title": "Vẽ biểu tượng lá cho nhãn trà nhỏ",
+      "prompt": "Tham khảo poster Trà Mát rồi vẽ một chiếc lá khác cho nhãn trà đường kính 30 mm. Tự chọn vị trí điểm neo và kiểm hình ở kích thước nhỏ. Lưu bản nguồn chỉnh được và ghi lại điểm bạn sửa sau khi kiểm.",
       "starterAsset": {
         "filename": "D02_pen_node_geometry_guide.md",
         "filepath": "curriculum/assets/designer/D02_pen_node_geometry_guide.md",
@@ -102,11 +116,10 @@
         "statusNote": "Bao gồm hướng dẫn thực hành đường cong Bézier (GUIDE_DOCUMENT)."
       },
       "challengeCriteria": [
-        "Đường nét khép kín hoàn toàn và đổ được màu đặc.",
-        "Tổng số điểm neo không vượt quá 8 điểm.",
-        "Đầu mỏ sắc gọn rõ nét; đường cong cổ trơn mượt không bị gãy khúc."
-      ],
-      "bonusGoal": "Dùng Corner Tool (C — công cụ bo góc) để bo nhẹ đầu mỏ khoảng 0.5mm cho tự nhiên hơn."
+        "Một đường cong kín, nhận được màu đặc.",
+        "Đầu lá và dáng lá còn rõ ở kích thước nhãn.",
+        "Có bản nguồn và ghi chú chỉ vị trí điểm đã chỉnh."
+      ]
     },
     "commonPitfalls": [
       {
@@ -128,15 +141,15 @@
     "knowledgeCheck": [
       {
         "id": "D02-01-Q1",
-        "question": "Phím bổ trợ nào cho phép bẻ gãy tính thẳng hàng của tay cầm Bézier ngay trong lúc đang kéo bằng Pen Tool?",
+        "question": "Bạn cần chỉnh dáng của một đoạn cong đã vẽ. Thao tác nào trực tiếp nhất?",
         "options": [
-          "Shift (Win / Mac)",
-          "Alt (Windows) / Option (macOS)",
-          "Ctrl (Windows) / Cmd (macOS)",
-          "Phím Spacebar"
+          "Đổi độ dày nét",
+          "Chọn điểm bằng Node Tool rồi chỉnh tay cầm",
+          "Xuất ảnh PNG",
+          "Đổi màu nền tài liệu"
         ],
         "correctIndex": 1,
-        "explanation": "Giữ phím Alt (Win) hoặc Option (Mac) khi đang kéo tay cầm giúp tách rời tay cầm phía trước khỏi trục đối xứng, tạo góc chuyển hướng đột ngột ngay lập tức."
+        "explanation": "Node Tool chọn điểm neo và tay cầm của đường cong đang có. Chỉnh tay cầm giúp đổi dáng mà giữ lại cấu trúc còn sửa được."
       },
       {
         "id": "D02-01-Q2",
@@ -167,7 +180,7 @@
       "summaryPoints": [
         "Pen Tool (P) là công cụ cốt lõi để dựng đường nét vector chính xác trong Affinity.",
         "Tay cầm Bézier quyết định góc tiếp tuyến và lực căng của đoạn cong.",
-        "Phím Alt/Option giúp bẻ gãy hướng tay cầm để tạo đỉnh góc nhọn ngay khi đang vẽ.",
+        "Dùng Node Tool để kiểm tra và điều chỉnh từng tay cầm sau khi vẽ.",
         "Đặt điểm neo tại cực trị tạo ra đường cong mịn nhất với ít điểm nhất."
       ],
       "relatedResources": [
@@ -177,8 +190,13 @@
           "type": "next-lesson"
         },
         {
-          "title": "Tài liệu chính thức Affinity: Các chế độ Pen Tool",
-          "target": "https://affinity.help/designer/en-US.lproj/pages/Tools/tools_pen.html",
+          "title": "Affinity: Vẽ và sửa đường cong",
+          "target": "https://www.affinity.studio/features/vector-drawing",
+          "type": "doc"
+        },
+        {
+          "title": "Poster Trà Mát (.svg)",
+          "target": "/assets/lessons/tra-mat.svg",
           "type": "doc"
         }
       ]
@@ -219,7 +237,10 @@
       "actionBox": {
         "label": "Phím tắt quan trọng",
         "text": "Giữ Alt (Windows) hoặc Option (macOS) trong lúc kéo tay cầm để bẻ gãy đối xứng thành góc nhọn tức thì.",
-        "shortcut": { "win": "Alt + Kéo tay cầm", "mac": "Option + Kéo tay cầm" }
+        "shortcut": {
+          "win": "Alt + Kéo tay cầm",
+          "mac": "Option + Kéo tay cầm"
+        }
       }
     },
     {
@@ -250,9 +271,9 @@
       "id": "D02-01-S6",
       "slideNumber": 6,
       "type": "challenge",
-      "title": "Thử Thách Độc Lập: Bóng Thiên Nga Tối Đa 8 Node",
+      "title": "Vẽ biểu tượng lá cho nhãn trà nhỏ",
       "subtitle": "Kiểm chứng kỹ năng kiểm soát đường cong",
-      "contentMarkdown": "### Nhiệm vụ của bạn:\nDựng dáng đầu và cổ thiên nga bằng vector khép kín với **không quá 8 điểm neo**:\n\n1. Chỉ đặt điểm neo tại các vị trí cực trị ngang và dọc.\n2. Giữ `Alt` / `Option` khi kéo để bẻ góc sắc tại đầu mỏ.\n3. Nhấp lại vào điểm xuất phát để khép kín đường bao và đổ màu đặc.\n\n### Tiêu chí hoàn thành:\n- Đường nét khép kín 100%.\n- Kiểm tra bằng Node Tool thấy tổng số điểm neo ≤ 8.\n- Đường cổ cong mượt mà, không gợn khấc.",
+      "contentMarkdown": "Tham khảo poster Trà Mát rồi vẽ một chiếc lá khác cho nhãn trà đường kính 30 mm. Tự chọn vị trí điểm neo và kiểm hình ở kích thước nhỏ. Lưu bản nguồn chỉnh được và ghi lại điểm bạn sửa sau khi kiểm.\n\n- Một đường cong kín, nhận được màu đặc.\n- Đầu lá và dáng lá còn rõ ở kích thước nhãn.\n- Có bản nguồn và ghi chú chỉ vị trí điểm đã chỉnh.",
       "practiceData": {
         "prompt": "Dựng bóng thiên nga vector bằng không quá 8 điểm neo theo quy tắc cực trị.",
         "starterAsset": {

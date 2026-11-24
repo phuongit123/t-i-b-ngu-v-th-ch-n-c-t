@@ -27,6 +27,7 @@ const ROUTE_TO_PATH: Record<string, string> = {
   home: '/',
   'reset-password': '/reset-password',
   catalog: '/lo-trinh',
+  journey: '/lo-trinh/bat-dau',
   simulator: '/phong-mo-phong',
   sandbox: '/phong-mo-phong',
   challenges: '/thu-thach',
@@ -50,6 +51,7 @@ const PATH_TO_ROUTE: Record<string, string> = {
   'home': 'home',
   'reset-password': 'reset-password',
   'lo-trinh': 'catalog',
+  'lo-trinh/bat-dau': 'journey',
   'catalog': 'catalog',
   'phong-mo-phong': 'simulator',
   'simulator': 'simulator',
@@ -163,6 +165,11 @@ export function parseLocationPathname(pathname: string): ParsedRouteState {
     return { route: 'not-found' };
   }
 
+  const direct = PATH_TO_ROUTE[clean];
+  if (direct) {
+    return { route: direct };
+  }
+
   // Match /lo-trinh/:trackSlug
   if (clean.startsWith('lo-trinh/')) {
     const trackSlug = clean.slice('lo-trinh/'.length);
@@ -171,11 +178,6 @@ export function parseLocationPathname(pathname: string): ParsedRouteState {
       return { route: 'catalog', trackId: mappedTrack };
     }
     return { route: 'not-found' };
-  }
-
-  const direct = PATH_TO_ROUTE[clean];
-  if (direct) {
-    return { route: direct };
   }
 
   return { route: 'not-found' };

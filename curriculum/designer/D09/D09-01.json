@@ -3,29 +3,29 @@
   "moduleId": "D09",
   "trackId": "designer",
   "order": 1,
-  "title": "Pixel Persona và động lực cọ Raster trong Designer",
+  "title": "Pixel Studio và động lực cọ Raster trong Designer",
   "subtitle": "Chuyển đổi Persona, nhóm cọ vẽ, Flow với Opacity và bộ điều chỉnh Jitter",
   "durationMinutes": 30,
   "difficulty": "Advanced",
   "standardSections": {
     "learningObjectives": [
-      "Hiểu kiến trúc động cơ lõi kép của Affinity và chuyển đổi mượt mà giữa không gian Vector và Pixel Persona.",
-      "Phân biệt rõ cọ nét vector (Vector Brush) và cọ điểm ảnh raster thực thụ trong Pixel Persona.",
+      "Hiểu kiến trúc động cơ lõi kép của Affinity và chuyển đổi mượt mà giữa không gian Vector và Pixel Studio.",
+      "Phân biệt rõ cọ nét vector (Vector Brush) và cọ điểm ảnh raster thực thụ trong Pixel Studio.",
       "Làm chủ các thông số ngữ cảnh của cọ: Width, Hardness, Spacing cùng khác biệt then chốt giữa Opacity và Flow.",
       "Cấu hình bảng thiết lập sâu 'More' của cọ vẽ: Size Jitter, Accumulation, độ mượt nét và bộ điều khiển theo lực nhấn bút."
     ],
-    "foundationalKnowledge": "Trong minh họa truyền thống, người vẽ thường bị kẹt giữa phần mềm vector sắc nét nhưng khô cứng và phần mềm vẽ điểm ảnh giàu chất liệu nhưng lại vỡ hạt khi phóng to. Affinity giải quyết mâu thuẫn này bằng cách tích hợp trọn vẹn bộ máy vẽ điểm ảnh ngay bên trong ứng dụng vector qua Pixel Persona (không gian xử lý pixel raster). Chuyển sang Pixel Persona không hề làm phẳng hay biến đổi tài liệu vector; thao tác này chỉ đổi bộ công cụ sang Paint Brush Tool (B), Eraser (E) và các cọ chọn vùng để vẽ lên các Pixel Layer nằm song song cùng đường cong Bézier.",
+    "foundationalKnowledge": "Trong minh họa truyền thống, người vẽ thường bị kẹt giữa phần mềm vector sắc nét nhưng khô cứng và phần mềm vẽ điểm ảnh giàu chất liệu nhưng lại vỡ hạt khi phóng to. Affinity giải quyết mâu thuẫn này bằng cách tích hợp trọn vẹn bộ máy vẽ điểm ảnh ngay bên trong ứng dụng vector qua Pixel Studio (không gian xử lý pixel raster). Chuyển sang Pixel Studio không hề làm phẳng hay biến đổi tài liệu vector; thao tác này chỉ đổi bộ công cụ sang Paint Brush Tool (B), Eraser (E) và các cọ chọn vùng để vẽ lên các Pixel Layer nằm song song cùng đường cong Bézier.",
     "technicalEvidence": {
       "classification": "VERIFIED",
       "source": "Đặc tả kiến trúc Persona và bộ máy cọ vẽ Pixel Brush trên Affinity Designer 3.3.3",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Pixel Persona & Paint Brush Tool (Không gian điểm ảnh & Cọ vẽ raster)",
-      "persona": "Pixel Persona (thanh công cụ góc trên bên trái)",
+      "toolName": "Pixel Studio & Paint Brush Tool (Không gian điểm ảnh & Cọ vẽ raster)",
+      "persona": "Pixel Studio (thanh công cụ góc trên bên trái)",
       "shortcut": {
-        "win": "Nhấp biểu tượng Pixel Persona (góc trên bên trái) / Phím tắt tự gán trong Edit > Preferences > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)",
-        "mac": "Nhấp biểu tượng Pixel Persona (góc trên bên trái) / Phím tắt tự gán trong Affinity Designer > Settings > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)"
+        "win": "Nhấp biểu tượng Pixel Studio (góc trên bên trái) / Phím tắt tự gán trong Edit > Preferences > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)",
+        "mac": "Nhấp biểu tượng Pixel Studio (góc trên bên trái) / Phím tắt tự gán trong Affinity Designer > Settings > Shortcuts. Công cụ: B (Paint Brush), E (Eraser), [ / ] (Cỡ cọ)"
       },
       "description": "Môi trường vẽ raster tích hợp sẵn trong Designer với động lực cọ cảm ứng lực nhấn, chất liệu hạt tự nhiên và vùng chọn điểm ảnh. Lưu ý: phần mềm không gán sẵn phím tắt mặc định để chuyển Persona.",
       "contextBarOptions": [
@@ -39,9 +39,9 @@
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Chuyển sang Pixel Persona",
-        "instruction": "Mở hoặc tạo tài liệu mới ở độ phân giải 300 DPI. Nhấp biểu tượng thứ hai trên thanh Persona ở góc trên bên trái (Pixel Persona), hoặc dùng phím tắt do bạn tự thiết lập trong Preferences > Keyboard Shortcuts. Quan sát thanh công cụ bên trái tự động chuyển sang bộ công cụ raster.",
-        "shortcutTip": { "win": "Biểu tượng Pixel Persona", "mac": "Biểu tượng Pixel Persona" }
+        "title": "Chuyển sang Pixel Studio",
+        "instruction": "Mở hoặc tạo tài liệu mới ở độ phân giải 300 DPI. Nhấp biểu tượng thứ hai trên thanh Persona ở góc trên bên trái (Pixel Studio), hoặc dùng phím tắt do bạn tự thiết lập trong Preferences > Keyboard Shortcuts. Quan sát thanh công cụ bên trái tự động chuyển sang bộ công cụ raster.",
+        "shortcutTip": { "win": "Biểu tượng Pixel Studio", "mac": "Biểu tượng Pixel Studio" }
       },
       {
         "stepNumber": 2,
@@ -77,16 +77,16 @@
       },
       {
         "title": "Sơ đồ chuyển đổi bộ công cụ giữa hai Persona",
-        "description": "Cách thanh công cụ bên trái thay đổi khi chuyển từ Vector sang Pixel Persona.",
+        "description": "Cách thanh công cụ bên trái thay đổi khi chuyển từ Vector sang Pixel Studio.",
         "visualType": "diagram",
-        "visualContent": "[Designer Persona (Biểu tượng 1)] ──> Công cụ Vector: Pen (P), Node (A), Shapes (M), Corner (C)\n                                        │\n                                        ▼ (Chuyển Persona trên thanh công cụ trên)\n[Pixel Persona    (Biểu tượng 2)] ──> Công cụ Raster: Paint Brush (B), Pixel (P), Eraser (E), Smudge"
+        "visualContent": "[Vector Studio (Biểu tượng 1)] ──> Công cụ Vector: Pen (P), Node (A), Shapes (M), Corner (C)\n                                        │\n                                        ▼ (Chuyển Persona trên thanh công cụ trên)\n[Pixel Studio    (Biểu tượng 2)] ──> Công cụ Raster: Paint Brush (B), Pixel (P), Eraser (E), Smudge"
       }
     ],
     "guidedPractice": {
       "title": "Hiệu chỉnh đầu cọ đánh bóng hạt tùy biến",
       "taskDescription": "Nhân bản một đầu cọ phấn khô mặc định, tùy biến động lực Jitter và tô khối cầu 5 sắc độ chuyển mịn.",
       "checkpoints": [
-        "Chuyển sang Pixel Persona bằng biểu tượng ở góc trên bên trái thanh công cụ.",
+        "Chuyển sang Pixel Studio bằng biểu tượng ở góc trên bên trái thanh công cụ.",
         "Nhân bản đầu cọ 'Chalk Rough' trong Brushes Studio và đặt tên 'Custom_Velvet_Grain'.",
         "Mở thiết lập cọ: đặt Spacing 18%, Size Jitter 20% (Pressure) và Flow 15%.",
         "Vẽ một khối cầu raster và tô chuyển sắc từ vùng sáng trắng xuống vùng bóng tối sâu.",
@@ -96,7 +96,7 @@
     },
     "independentChallenge": {
       "title": "Minh họa mặt trăng Vector kết hợp bóng hạt Raster",
-      "prompt": "Thiết kế tấm áp phích thiên văn cách điệu: (1) Ở Designer Persona, vẽ hình tròn vector chuẩn (600x600 px) tô màu xanh đêm (#0F172A); (2) Chuyển sang Pixel Persona; (3) Tạo Pixel Layer mới và chọn cọ hạt stipple/noise; (4) Đặt Flow 20% để đánh vùng bóng lưỡi liềm cong ôm theo khối cầu; (5) Phủ thêm viền sáng vàng ấm dọc theo cạnh đối diện; (6) Quay lại Designer Persona để vẽ chồng các vòng tròn miệng núi lửa vector nét mảnh 1.5 pt màu trắng.",
+      "prompt": "Thiết kế tấm áp phích thiên văn cách điệu: (1) Ở Vector Studio, vẽ hình tròn vector chuẩn (600x600 px) tô màu xanh đêm (#0F172A); (2) Chuyển sang Pixel Studio; (3) Tạo Pixel Layer mới và chọn cọ hạt stipple/noise; (4) Đặt Flow 20% để đánh vùng bóng lưỡi liềm cong ôm theo khối cầu; (5) Phủ thêm viền sáng vàng ấm dọc theo cạnh đối diện; (6) Quay lại Vector Studio để vẽ chồng các vòng tròn miệng núi lửa vector nét mảnh 1.5 pt màu trắng.",
       "starterAsset": {
         "filename": "D09_pixel_persona_shading_guide.md",
         "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
@@ -104,7 +104,7 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu hướng dẫn thiết lập Pixel Persona và đổ bóng hạt (GUIDE_DOCUMENT)."
+        "statusNote": "Tài liệu hướng dẫn thiết lập Pixel Studio và đổ bóng hạt (GUIDE_DOCUMENT)."
       },
       "successCriteria": [
         "Tài liệu được thiết lập ngay từ đầu ở mức 300 DPI để giữ nét cho hạt cọ.",
@@ -125,9 +125,9 @@
         "solution": "Luôn cài đặt tài liệu ở 300 DPI (hoặc tối thiểu 144 DPI cho màn hình Retina) trong Document Setup trước khi vẽ."
       },
       {
-        "mistake": "Cố tìm Pen Tool hoặc Node Tool để sửa đường vector khi vẫn đang ở trong Pixel Persona.",
+        "mistake": "Cố tìm Pen Tool hoặc Node Tool để sửa đường vector khi vẫn đang ở trong Pixel Studio.",
         "consequence": "Thanh công cụ bên trái chỉ hiển thị công cụ điểm ảnh khiến người mới tưởng phần mềm bị mất công cụ vector.",
-        "solution": "Nhấp lại biểu tượng Designer / Vector Persona ở góc trên bên trái để quay về bộ công cụ vector."
+        "solution": "Nhấp lại biểu tượng Designer / Vector Studio ở góc trên bên trái để quay về bộ công cụ vector."
       }
     ],
     "knowledgeCheck": [
@@ -143,10 +143,10 @@
         "explanation": "Opacity đặt mức trần trong suốt cho cả nét bút, còn Flow điều tiết lượng hạt xả ra trên mỗi lần quét qua, giúp tạo độ chuyển sắc mịn như phấn thật."
       },
       {
-        "question": "Cách chuyển sang Pixel Persona mặc định trong Affinity Designer là gì?",
+        "question": "Cách chuyển sang Pixel Studio mặc định trong Affinity Designer là gì?",
         "options": [
           "Nhấn phím F9",
-          "Nhấp biểu tượng Pixel Persona ở góc trên bên trái thanh công cụ (phần mềm không gán phím tắt mặc định sẵn, nhưng có thể tự gán trong Preferences > Keyboard Shortcuts)",
+          "Nhấp biểu tượng Pixel Studio ở góc trên bên trái thanh công cụ (phần mềm không gán phím tắt mặc định sẵn, nhưng có thể tự gán trong Preferences > Keyboard Shortcuts)",
           "Nhấn Ctrl+Shift+P",
           "Vào File > New"
         ],
@@ -154,11 +154,11 @@
         "explanation": "Affinity không gán sẵn phím tắt chuyển Persona mặc định; bạn nhấp biểu tượng trên góc trái thanh công cụ hoặc tự gán phím tắt trong Preferences > Keyboard Shortcuts."
       },
       {
-        "question": "Vì sao thông số DPI của tài liệu lại cực kỳ quan trọng khi làm việc với Pixel Persona?",
+        "question": "Vì sao thông số DPI của tài liệu lại cực kỳ quan trọng khi làm việc với Pixel Studio?",
         "options": [
           "Vì đường vector không vẽ được ở mức dưới 300 DPI.",
-          "Vì nét vẽ cọ raster trong Pixel Persona là dữ liệu điểm ảnh phụ thuộc trực tiếp vào độ phân giải DPI của tài liệu.",
-          "Vì Pixel Persona tự xóa mọi layer nếu đổi DPI.",
+          "Vì nét vẽ cọ raster trong Pixel Studio là dữ liệu điểm ảnh phụ thuộc trực tiếp vào độ phân giải DPI của tài liệu.",
+          "Vì Pixel Studio tự xóa mọi layer nếu đổi DPI.",
           "Vì DPI chỉ ảnh hưởng đến cỡ chữ."
         ],
         "correctIndex": 1,
@@ -167,7 +167,7 @@
     ],
     "summaryAndResources": {
       "keyTakeaways": [
-        "Pixel Persona tích hợp trọn vẹn bộ máy vẽ raster ngay bên trong tài liệu vector.",
+        "Pixel Studio tích hợp trọn vẹn bộ máy vẽ raster ngay bên trong tài liệu vector.",
         "Chuyển Persona qua nhóm biểu tượng góc trên bên trái hoặc tự gán phím tắt trong Preferences.",
         "Giữ Opacity 100% và hạ Flow 15%–25% là chìa khóa để đánh bóng hạt mịn, không vệt ngấn.",
         "Luôn đặt tài liệu ở chuẩn 300 DPI khi minh họa có sử dụng chất liệu raster cho in ấn hoặc màn hình độ nét cao."
@@ -179,12 +179,12 @@
   "slides": [
     {
       "slideNumber": 1,
-      "title": "Kiến trúc lõi kép: Pixel Persona trong Designer",
+      "title": "Kiến trúc lõi kép: Pixel Studio trong Designer",
       "subtitle": "Kết hợp độ sắc nét của Vector với chất liệu hạt tự nhiên",
       "bullets": [
         "Đồ họa vector thuần túy đôi khi tạo cảm giác phẳng và quá máy móc.",
         "Phần mềm vẽ raster thuần túy lại dễ bị vỡ nét khi phóng to cho in ấn khổ lớn.",
-        "Affinity tích hợp thẳng một studio vẽ điểm ảnh đầy đủ ngay trong Pixel Persona.",
+        "Affinity tích hợp thẳng một studio vẽ điểm ảnh đầy đủ ngay trong Pixel Studio.",
         "Chuyển đổi qua lại tức thì ngay trên cùng một tài liệu mà không cần xuất hay gộp phẳng lớp."
       ],
       "proTip": "Tệp gốc .afdesign vẫn lưu đồng thời cả đường cong vector lẫn lớp pixel hạt trong cùng một cây layer."
@@ -194,9 +194,9 @@
       "title": "Chuyển đổi Persona và thích nghi thanh công cụ",
       "subtitle": "Thao tác liền mạch giữa ba không gian làm việc",
       "bullets": [
-        "Designer / Vector Persona (Biểu tượng 1): Pen, Node, Shapes, phép toán Boolean.",
-        "Pixel Persona (Biểu tượng 2): Paint Brush, Pixel Tool, Eraser, Smudge, Selection.",
-        "Export Persona (Biểu tượng 3): Cắt lát Slices và xuất hàng loạt đa mật độ.",
+        "Designer / Vector Studio (Biểu tượng 1): Pen, Node, Shapes, phép toán Boolean.",
+        "Pixel Studio (Biểu tượng 2): Paint Brush, Pixel Tool, Eraser, Smudge, Selection.",
+        "Slice Studio (Biểu tượng 3): Cắt lát Slices và xuất hàng loạt đa mật độ.",
         "Mặc định không có phím tắt chuyển Persona sẵn; có thể tự gán trong Edit > Preferences > Shortcuts."
       ],
       "proTip": "Bạn có thể tự gán cặp phím tắt như Alt+1 / Alt+2 (hoặc Opt+1 / Opt+2 trên Mac) để chuyển nhanh giữa vẽ nét và tô hạt."
@@ -206,7 +206,7 @@
       "title": "Kho cọ raster trong Brushes Studio",
       "subtitle": "Khám phá nhóm Texture, Dry Media và Inks",
       "bullets": [
-        "Khi sang Pixel Persona, bảng Brushes Studio tự chuyển sang thư viện cọ điểm ảnh độ phân giải cao.",
+        "Khi sang Pixel Studio, bảng Brushes Studio tự chuyển sang thư viện cọ điểm ảnh độ phân giải cao.",
         "Dry Media: nhóm cọ phấn, chì than giàu độ sần bề mặt giấy.",
         "Inks & Gouache: đầu cọ màu nước và mực vẽ có viền sắc nét tự nhiên.",
         "Spray and Spatters: đầu cọ phun sương và rải hạt stipple ngẫu nhiên."
@@ -255,7 +255,7 @@
       "subtitle": "Làm quen cọ phấn và quy trình đánh bóng nhiều lượt",
       "bullets": [
         "Làm theo hướng dẫn trong tệp 'D09_pixel_persona_shading_guide.md'.",
-        "Tạo bản vẽ 300 DPI và chuyển sang Pixel Persona ở góc trên bên trái.",
+        "Tạo bản vẽ 300 DPI và chuyển sang Pixel Studio ở góc trên bên trái.",
         "Chọn đầu cọ 'Chalk Rough' hoặc 'Noise Grain' trong nhóm Dry Media.",
         "Đặt Opacity: 100%, Flow: 20%, Hardness: 0%.",
         "Quét nhiều lượt tạo khối sáng, vùng chuyển trung gian và phần bóng tối sâu cho hình cầu."
@@ -264,7 +264,7 @@
     },
     {
       "slideNumber": 8,
-      "title": "Kiểm tra nhanh kiến thức Pixel Persona",
+      "title": "Kiểm tra nhanh kiến thức Pixel Studio",
       "subtitle": "Rà soát thông số trước khi sang kỹ thuật lồng lớp clipping",
       "bullets": [
         "Phân biệt rõ cơ chế tích tụ màu của Flow và Opacity.",

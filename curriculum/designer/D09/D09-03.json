@@ -12,7 +12,7 @@
       "Nắm vững ranh giới kỹ thuật giữa độ nét vô hạn của toán học vector và giới hạn độ phân giải DPI của lớp điểm ảnh.",
       "Cài đặt đúng độ phân giải tài liệu (DPI) và hồ sơ màu cho in ấn thương mại (300 DPI) so với hiển thị màn hình.",
       "Khai thác bộ tạo hạt Vector Noise có sẵn trong Color Studio để thêm chất liệu hạt tức thì mà không cần tạo Pixel Layer.",
-      "Đánh giá ưu nhược điểm giữa Vector Noise tự động và cọ vẽ hạt thủ công trong Pixel Persona.",
+      "Đánh giá ưu nhược điểm giữa Vector Noise tự động và cọ vẽ hạt thủ công trong Pixel Studio.",
       "Kiểm tra và chuẩn bị tệp đồ họa lai vector–raster sẵn sàng xuất sang PDF/X và các định dạng đa nền tảng."
     ],
     "foundationalKnowledge": "Quy trình lai giữa vector và raster đem lại độ tự do sáng tạo cao, nhưng đi kèm những giới hạn kỹ thuật rõ ràng cần quản lý chặt chẽ. Đường nét vector thuần có thể phóng to in biển quảng cáo khổ lớn mà không vỡ nét; tuy nhiên ngay khi bản vẽ có thêm Pixel Layer con hay bộ lọc raster, lớp điểm ảnh đó bị khóa cố định theo DPI của tài liệu. Nếu lỡ dựng ở 72 DPI rồi đem in poster khổ lớn, đường viền vector vẫn sắc nhưng phần hạt tô bóng sẽ lộ ô vuông răng cưa. Nắm vững kiểm soát DPI, công cụ tạo hạt Noise và chế độ xem trước điểm ảnh giúp sản phẩm xuất ra đạt chuẩn thương mại.",
@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Vector Noise trong Color Studio & Document Setup",
-      "persona": "Designer Persona (File > Document Setup... & View > Studio > Color)",
+      "persona": "Vector Studio (File > Document Setup... & View > Studio > Color)",
       "shortcut": {
         "win": "Ctrl+Alt+P (Document Setup), Nhấp ô tròn Opacity trong Color Studio (Đổi sang Noise)",
         "mac": "Cmd+Option+P (Document Setup), Nhấp ô tròn Opacity trong Color Studio (Đổi sang Noise)"
@@ -47,7 +47,7 @@
       {
         "stepNumber": 2,
         "title": "Mở thanh trượt Noise trong bảng Color Studio",
-        "instruction": "Chọn một hình vector tô màu đặc trong Designer Persona. Mở bảng Color Studio (View > Studio > Color), tìm ô tròn nhỏ ghi chữ 'Opacity' nằm ngay dưới bánh xe màu và nhấp chuột vào ô tròn đó: nhãn lập tức chuyển thành 'Noise'.",
+        "instruction": "Chọn một hình vector tô màu đặc trong Vector Studio. Mở bảng Color Studio (View > Studio > Color), tìm ô tròn nhỏ ghi chữ 'Opacity' nằm ngay dưới bánh xe màu và nhấp chuột vào ô tròn đó: nhãn lập tức chuyển thành 'Noise'.",
         "shortcutTip": { "win": "Nhấp ô tròn Opacity", "mac": "Nhấp ô tròn Opacity" }
       },
       {
@@ -64,17 +64,17 @@
       },
       {
         "stepNumber": 5,
-        "title": "So sánh hạt Vector Noise và cọ Pixel Persona",
-        "instruction": "Phóng to bản vẽ lên 400%: Vector Noise tính toán lại hạt mịn ngay trên màn hình khi zoom, còn cọ Pixel Persona cho khả năng đánh bóng có hướng và kiểm soát khối bằng tay. Kết hợp cả hai mang lại chiều sâu tối ưu.",
+        "title": "So sánh hạt Vector Noise và cọ Pixel Studio",
+        "instruction": "Phóng to bản vẽ lên 400%: Vector Noise tính toán lại hạt mịn ngay trên màn hình khi zoom, còn cọ Pixel Studio cho khả năng đánh bóng có hướng và kiểm soát khối bằng tay. Kết hợp cả hai mang lại chiều sâu tối ưu.",
         "shortcutTip": { "win": "Zoom (Ctrl++)", "mac": "Zoom (Cmd++)" }
       }
     ],
     "visualExamples": [
       {
-        "title": "So sánh Vector Noise (Color Studio) và Cọ Pixel Persona",
+        "title": "So sánh Vector Noise (Color Studio) và Cọ Pixel Studio",
         "description": "Khác biệt về bản chất lưu trữ, hành vi khi xuất tệp và ứng dụng thực tế.",
         "visualType": "table",
-        "visualContent": "| Tiêu chí | Vector Noise (Color Studio) | Đổ bóng Pixel Persona (Brushes) |\n|---|---|---|\n| Bản chất lớp | Thuộc tính gắn trực tiếp vào màu tô / viền / gradient | Lớp Pixel Layer con tách biệt |\n| Hiển thị khi phóng to | Tính toán hạt theo thời gian thực khi zoom trên bản vẽ | Phụ thuộc trực tiếp vào mức DPI của tài liệu |\n| Hành vi khi xuất file | Bị rasterize theo DPI tài liệu khi xuất ra SVG/PDF | Xuất ra dạng dữ liệu điểm ảnh theo DPI tài liệu |\n| Giới hạn điều khiển | Chỉ có một thanh kéo 0–100%; dễ bị reset khi đổi màu | Chủ động vẽ theo hướng sáng và lực nhấn tay |\n| Dung lượng tệp gốc | Gần như không tốn thêm dung lượng trong tệp .afdesign | Tăng dung lượng theo số lượng và kích thước lớp điểm ảnh |\n| Trường hợp nên dùng | Phủ nhiễu nền nhanh, tạo bề mặt thẻ giao diện | Đánh khối nhân vật, đổ bóng định hướng nghệ thuật |"
+        "visualContent": "| Tiêu chí | Vector Noise (Color Studio) | Đổ bóng Pixel Studio (Brushes) |\n|---|---|---|\n| Bản chất lớp | Thuộc tính gắn trực tiếp vào màu tô / viền / gradient | Lớp Pixel Layer con tách biệt |\n| Hiển thị khi phóng to | Tính toán hạt theo thời gian thực khi zoom trên bản vẽ | Phụ thuộc trực tiếp vào mức DPI của tài liệu |\n| Hành vi khi xuất file | Bị rasterize theo DPI tài liệu khi xuất ra SVG/PDF | Xuất ra dạng dữ liệu điểm ảnh theo DPI tài liệu |\n| Giới hạn điều khiển | Chỉ có một thanh kéo 0–100%; dễ bị reset khi đổi màu | Chủ động vẽ theo hướng sáng và lực nhấn tay |\n| Dung lượng tệp gốc | Gần như không tốn thêm dung lượng trong tệp .afdesign | Tăng dung lượng theo số lượng và kích thước lớp điểm ảnh |\n| Trường hợp nên dùng | Phủ nhiễu nền nhanh, tạo bề mặt thẻ giao diện | Đánh khối nhân vật, đổ bóng định hướng nghệ thuật |"
       },
       {
         "title": "Tháp tiêu chuẩn độ phân giải DPI theo đầu ra",
@@ -85,7 +85,7 @@
     ],
     "guidedPractice": {
       "title": "Thiết lập áp phích kết hợp hai kỹ thuật tạo hạt",
-      "taskDescription": "Dựng một tấm áp phích ở chuẩn 300 DPI phối hợp gradient có Vector Noise cho nền với các lớp hạt cọ Pixel Persona cho chủ thể chính.",
+      "taskDescription": "Dựng một tấm áp phích ở chuẩn 300 DPI phối hợp gradient có Vector Noise cho nền với các lớp hạt cọ Pixel Studio cho chủ thể chính.",
       "checkpoints": [
         "Khởi tạo tài liệu kích thước 2400x3200 px ở 300 DPI (hệ màu sRGB hoặc CMYK).",
         "Tạo hình chữ nhật nền và kéo dải gradient có gắn 20% Vector Noise ở điểm dừng màu tối.",
@@ -121,9 +121,9 @@
         "solution": "Luôn chốt xong tông màu, độ bão hòa và độ sáng trước rồi mới chỉnh thanh trượt Noise ở bước cuối cùng."
       },
       {
-        "mistake": "Vẽ hoàn chỉnh toàn bộ lớp Pixel Persona trên tài liệu 72 DPI rồi mới tăng lên 300 DPI khi chuẩn bị in.",
+        "mistake": "Vẽ hoàn chỉnh toàn bộ lớp Pixel Studio trên tài liệu 72 DPI rồi mới tăng lên 300 DPI khi chuẩn bị in.",
         "consequence": "Các đường vector tăng nét bình thường nhưng toàn bộ lớp hạt pixel đã vẽ trước đó bị phóng nội suy nên nhòe mờ.",
-        "solution": "Luôn cài đặt đúng 300 DPI trong Document Setup TRƯỚC KHI bắt đầu vẽ bất kỳ nét cọ nào trong Pixel Persona."
+        "solution": "Luôn cài đặt đúng 300 DPI trong Document Setup TRƯỚC KHI bắt đầu vẽ bất kỳ nét cọ nào trong Pixel Studio."
       },
       {
         "mistake": "Kỳ vọng phần tô có Vector Noise trong Color Studio sẽ xuất ra thành mã SVG thuần vector.",
@@ -186,7 +186,7 @@
       "bullets": [
         "Đường cong vector là phương trình toán học nên không bao giờ bị vỡ nét khi phóng to.",
         "Lớp điểm ảnh (Pixel Layer) là lưới ô màu cố định phụ thuộc vào mật độ điểm ảnh.",
-        "Mọi nét vẽ trong Pixel Persona đều được kết xuất dựa trên thông số DPI của tài liệu.",
+        "Mọi nét vẽ trong Pixel Studio đều được kết xuất dựa trên thông số DPI của tài liệu.",
         "Quản lý DPI chặt chẽ là điều kiện tiên quyết để bản in không bị rạn hạt hoặc mờ viền."
       ],
       "proTip": "Luôn kiểm tra lại mục DPI trong Document Setup trước khi đặt nét cọ đầu tiên."
@@ -230,10 +230,10 @@
     {
       "slideNumber": 5,
       "title": "Chọn công cụ tạo hạt phù hợp cho từng phần",
-      "subtitle": "Kết hợp Vector Noise và Cọ Pixel Persona",
+      "subtitle": "Kết hợp Vector Noise và Cọ Pixel Studio",
       "bullets": [
         "Vector Noise: tối ưu để rải hạt đồng đều lên mảng nền lớn, bầu trời hoặc thẻ giao diện.",
-        "Cọ Pixel Persona: tối ưu để đánh khối có hướng ánh sáng, tạo gân và điểm sáng nghệ thuật.",
+        "Cọ Pixel Studio: tối ưu để đánh khối có hướng ánh sáng, tạo gân và điểm sáng nghệ thuật.",
         "Chiến lược phối hợp: dùng Vector Noise cho mảng nền lớn và dùng cọ tay trên lớp con cho chủ thể chính.",
         "Vừa rút ngắn thời gian thực hiện vừa giữ được dấu ấn hội họa thủ công."
       ],
@@ -280,7 +280,7 @@
       "title": "Hoàn thành Module D09: Làm chủ quy trình Vector–Raster",
       "subtitle": "Tổng kết sức mạnh kết hợp hai không gian vẽ",
       "bullets": [
-        "Đã chuyển đổi thuần thục giữa Designer Persona và Pixel Persona.",
+        "Đã chuyển đổi thuần thục giữa Vector Studio và Pixel Studio.",
         "Đã biết hiệu chỉnh cọ hạt Flow thấp để đánh khối mượt không vệt ngấn.",
         "Đã lồng lớp Pixel Layer con phi phá hủy bên trong vỏ vector cha.",
         "Đã nắm vững kỹ thuật Vector Noise và tiêu chuẩn độ phân giải 300 DPI.",

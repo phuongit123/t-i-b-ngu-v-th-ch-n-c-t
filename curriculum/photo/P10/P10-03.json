@@ -12,9 +12,9 @@
       "Tổng hợp và vận hành thành thục toàn bộ quy trình sản xuất chuyên nghiệp trong Pixel Studio / Affinity Photo từ file RAW gốc đến ấn phẩm thương mại cuối cùng.",
       "Kết hợp đồng bộ kỹ thuật xử lý ảnh RAW 32-bit, phục hồi khuyết tật quang học, tách tần số (Frequency Separation), và kỹ thuật né/đốt (Dodge & Burn).",
       "Tích hợp chủ thể vào không gian mới với hệ thống bóng 2 tầng (Contact + Cast Shadow), ánh sáng tràn viền (Light Wrap), và căn chỉnh phối cảnh.",
-      "Thiết kế bố cục chữ lồng ghép (Text Behind Subject) và đóng gói xuất bản đa kênh thông qua Export Persona."
+      "Thiết kế bố cục chữ lồng ghép (Text Behind Subject) và đóng gói xuất bản đa kênh thông qua Slice Studio."
     ],
-    "foundationalKnowledge": "Bài thực hành Capstone là sự hội tụ đỉnh cao của toàn bộ 10 module trong Track 2 Affinity Photo. Một chuyên gia hình ảnh hiện đại không chỉ thành thạo một công cụ riêng lẻ mà phải có tư duy hệ thống liền mạch: Từ giai đoạn xử lý tín hiệu quang học 32-bit trong Develop Persona, retouching vi mô và tách tần số giữ nguyên cấu trúc da, đến nghệ thuật compositing không gian thực, thiết kế đồ họa typography và đóng gói xuất bản đa độ phân giải trong Export Persona.",
+    "foundationalKnowledge": "Bài thực hành Capstone là sự hội tụ đỉnh cao của toàn bộ 10 module trong Track 2 Affinity Photo. Một chuyên gia hình ảnh hiện đại không chỉ thành thạo một công cụ riêng lẻ mà phải có tư duy hệ thống liền mạch: Từ giai đoạn xử lý tín hiệu quang học 32-bit trong Develop Studio, retouching vi mô và tách tần số giữ nguyên cấu trúc da, đến nghệ thuật compositing không gian thực, thiết kế đồ họa typography và đóng gói xuất bản đa độ phân giải trong Slice Studio.",
     "technicalEvidence": {
       "classification": "VERIFIED",
       "source": "Affinity Photo 3.3.3 End-to-End Master Commercial Production Architecture",
@@ -22,30 +22,30 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "All Personas & Full Production Pipeline",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Ctrl + S (Save Master) / Ctrl + Shift + Alt + S (Export Dialog) / B (Brush)",
         "mac": "Cmd + S (Save Master) / Cmd + Shift + Option + S (Export Dialog) / B (Brush)"
       },
       "description": "Toàn bộ hệ thống công cụ và không gian làm việc của Pixel Studio / Affinity Photo phối hợp nhịp nhàng.",
       "contextBarOptions": [
-        "Develop Persona: Demosaicing 32-bit tuyến tính và sửa lỗi quang học Lensfun",
-        "Photo Persona: Retouching Frequency Separation, Compositing và Typography",
-        "Export Persona: Cắt lát Slices xuất đa kênh WebP, TIFF 16-bit và JPEG @2x",
+        "Develop Studio: Demosaicing 32-bit tuyến tính và sửa lỗi quang học Lensfun",
+        "Pixel Studio: Retouching Frequency Separation, Compositing và Typography",
+        "Slice Studio: Cắt lát Slices xuất đa kênh WebP, TIFF 16-bit và JPEG @2x",
         "Layer Stack Architecture: Phân nhóm 5 tầng chuẩn công nghiệp"
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
-        "title": "Phát triển file RAW trong Develop Persona",
+        "title": "Phát triển file RAW trong Develop Studio",
         "instruction": "Nạp file RAW chân dung ngoại cảnh. Trong tab Lens, bật Automatic Lens Distortion và Defringe để làm sạch quang sai. Trong tab Basic, lấy mẫu cân bằng trắng 18%, cứu chi tiết vùng mây cháy (-40% Highlights), mở bóng râm (+25% Shadows). Đặt Output là 'RAW Layer (Embedded)' và bấm Develop.",
-        "shortcutTip": { "win": "Develop Persona > Output: RAW Layer", "mac": "Develop Persona > Output: RAW Layer" }
+        "shortcutTip": { "win": "Develop Studio > Output: RAW Layer", "mac": "Develop Studio > Output: RAW Layer" }
       },
       {
         "stepNumber": 2,
         "title": "Làm sạch khuyết điểm và Tách tần số (Frequency Separation)",
-        "instruction": "Trong Photo Persona, tạo Pixel Layer trống, dùng Inpainting Brush xóa mụn và tóc con (Source: Current & Below). Vào Filters > Frequency Separation, chỉnh bán kính Radius vừa làm mờ hạt da (khoảng 3-4px). Dùng Clone Stamp trên layer Low Frequency làm mịn màu da, giữ nguyên texture trên High Frequency.",
+        "instruction": "Trong Pixel Studio, tạo Pixel Layer trống, dùng Inpainting Brush xóa mụn và tóc con (Source: Current & Below). Vào Filters > Frequency Separation, chỉnh bán kính Radius vừa làm mờ hạt da (khoảng 3-4px). Dùng Clone Stamp trên layer Low Frequency làm mịn màu da, giữ nguyên texture trên High Frequency.",
         "shortcutTip": { "win": "Filters > Frequency Separation", "mac": "Filters > Frequency Separation" }
       },
       {
@@ -62,8 +62,8 @@
       },
       {
         "stepNumber": 5,
-        "title": "Phân phối màu tổng thể và Xuất bản với Export Persona",
-        "instruction": "Đặt một Curves Adjustment và Gradient Map (Soft Light 15%) ở trên cùng để liên kết màu sắc. Chuyển sang Export Persona, tạo các Slice: 1) Master Print (TIFF 16-bit Adobe RGB); 2) Web Hero Banner (WebP 85% sRGB); 3) Social Story (JPEG 90% 1080x1920 sRGB). Bấm 'Export Slices' để hoàn tất toàn bộ dự án Capstone.",
+        "title": "Phân phối màu tổng thể và Xuất bản với Slice Studio",
+        "instruction": "Đặt một Curves Adjustment và Gradient Map (Soft Light 15%) ở trên cùng để liên kết màu sắc. Chuyển sang Slice Studio, tạo các Slice: 1) Master Print (TIFF 16-bit Adobe RGB); 2) Web Hero Banner (WebP 85% sRGB); 3) Social Story (JPEG 90% 1080x1920 sRGB). Bấm 'Export Slices' để hoàn tất toàn bộ dự án Capstone.",
         "shortcutTip": { "win": "Export Slices", "mac": "Export Slices" }
       }
     ],
@@ -72,7 +72,7 @@
         "title": "Sơ đồ dây chuyền 5 giai đoạn của Đồ án Tốt nghiệp Capstone",
         "description": "Quy trình tích hợp toàn diện từ file cảm biến thô đến ấn phẩm truyền thông quốc tế.",
         "visualType": "workflow",
-        "visualContent": "Giai đoạn 1: Develop Persona (Giải mã RAW 32-bit, Cứu sáng Highlights, Khử quang sai Lensfun)\n   └── Giai đoạn 2: Retouching (Inpainting làm sạch + Frequency Separation + Dodge & Burn)\n        └── Giai đoạn 3: Compositing (Tách tóc Refine + Căn phối cảnh + Bóng 2 tầng + Light Wrap)\n             └── Giai đoạn 4: Typography & Layout (Text Behind Subject + Layer FX + Huy hiệu)\n                  └── Giai đoạn 5: Master Grading & Export (Curves + Gradient Map + Slices xuất đa kênh)"
+        "visualContent": "Giai đoạn 1: Develop Studio (Giải mã RAW 32-bit, Cứu sáng Highlights, Khử quang sai Lensfun)\n   └── Giai đoạn 2: Retouching (Inpainting làm sạch + Frequency Separation + Dodge & Burn)\n        └── Giai đoạn 3: Compositing (Tách tóc Refine + Căn phối cảnh + Bóng 2 tầng + Light Wrap)\n             └── Giai đoạn 4: Typography & Layout (Text Behind Subject + Layer FX + Huy hiệu)\n                  └── Giai đoạn 5: Master Grading & Export (Curves + Gradient Map + Slices xuất đa kênh)"
       }
     ],
     "guidedPractice": {
@@ -83,7 +83,7 @@
         "Retouching da mặt đạt chuẩn tự nhiên, giữ trọn cấu trúc hạt da.",
         "Ghép nền kiến trúc với hệ thống bóng tiếp xúc và bóng đổ chuẩn mực.",
         "Thiết lập tiêu đề Text Behind Subject với bóng tương tác 3D.",
-        "Xuất thành công 3 định dạng tài sản thông qua Export Persona."
+        "Xuất thành công 3 định dạng tài sản thông qua Slice Studio."
       ],
       "expectedOutcome": "Tác phẩm Key Visual hoàn mỹ, sẵn sàng đưa vào portfolio quảng cáo thương mại cao cấp."
     },
@@ -97,13 +97,13 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Slice Studio và đóng gói xuất bản trong Affinity Photo."
       },
       "challengeCriteria": [
         "Áp dụng trọn vẹn kỹ thuật xử lý phi phá hủy trong suốt quá trình.",
         "Đồng bộ màu sắc bằng Gradient Map tone xanh lơ - cam ấm (Teal & Orange).",
         "Thêm hạt Film Grain đồng nhất liên kết quang học toàn cảnh.",
-        "Cấu hình Export Persona xuất file in 300 DPI và file web WebP."
+        "Cấu hình Slice Studio xuất file in 300 DPI và file web WebP."
       ],
       "bonusGoal": "Lưu file .afphoto với cấu trúc thư mục 5 tầng đạt chuẩn kiểm định studio."
     },
@@ -122,9 +122,9 @@
     "knowledgeCheck": [
       {
         "id": "P10-03-Q1",
-        "question": "Trong quy trình sản xuất chuyên nghiệp của Capstone, tại sao việc xuất ảnh từ Develop Persona dưới dạng 'RAW Layer (Embedded)' lại được ưu tiên hàng đầu?",
+        "question": "Trong quy trình sản xuất chuyên nghiệp của Capstone, tại sao việc xuất ảnh từ Develop Studio dưới dạng 'RAW Layer (Embedded)' lại được ưu tiên hàng đầu?",
         "options": [
-          "Vì nó cho phép mở lại Develop Persona bất cứ lúc nào trong tương lai để tinh chỉnh lại dải tương phản thô mà không làm mất các layer retouch và compositing bên trên",
+          "Vì nó cho phép mở lại Develop Studio bất cứ lúc nào trong tương lai để tinh chỉnh lại dải tương phản thô mà không làm mất các layer retouch và compositing bên trên",
           "Vì nó làm cho dung lượng file xuất giảm về 0 KB",
           "Vì nó tự động gộp tất cả các layer lại thành 1 layer duy nhất",
           "Vì nó bắt buộc phải kết nối Internet mới chạy được"
@@ -196,17 +196,17 @@
       "type": "concept",
       "content": "Chào mừng bạn đến với đồ án tốt nghiệp Track 2 Affinity Photo! Tại đây, bạn sẽ thực hiện một dự án thương mại thực tế hoàn chỉnh từ đầu đến cuối: Biến một bức ảnh chụp thô thành tác phẩm Key Visual quảng cáo thời trang cao cấp đạt tiêu chuẩn ấn phẩm quốc tế.",
       "tips": "Mọi kỹ thuật học được từ P01 đến P10 sẽ được xâu chuỗi thành một quy trình sản xuất liền mạch.",
-      "codeSnippet": "Quy trình Capstone 5 giai đoạn:\nGiai đoạn 1: Phát triển RAW & Chỉnh quang học (Develop Persona)\nGiai đoạn 2: Tách tần số & Retouching cao cấp (Photo Persona)\nGiai đoạn 3: Ghép không gian liền mạch & Bóng 2 tầng (Photo Persona)\nGiai đoạn 4: Typography đồ họa & Bố cục thương mại (Photo Persona)\nGiai đoạn 5: Phối màu tổng thể & Xuất bản đa kênh (Export Persona)"
+      "codeSnippet": "Quy trình Capstone 5 giai đoạn:\nGiai đoạn 1: Phát triển RAW & Chỉnh quang học (Develop Studio)\nGiai đoạn 2: Tách tần số & Retouching cao cấp (Pixel Studio)\nGiai đoạn 3: Ghép không gian liền mạch & Bóng 2 tầng (Pixel Studio)\nGiai đoạn 4: Typography đồ họa & Bố cục thương mại (Pixel Studio)\nGiai đoạn 5: Phối màu tổng thể & Xuất bản đa kênh (Slice Studio)"
     },
     {
       "id": "slide-p10-03-02",
       "order": 2,
-      "title": "Giai đoạn 1: Chuẩn bị nguyên liệu trong Develop Persona",
+      "title": "Giai đoạn 1: Chuẩn bị nguyên liệu trong Develop Studio",
       "subtitle": "Giải mã tín hiệu quang học chuẩn 32-bit",
       "type": "workflow",
       "content": "Mở file RAW. Sửa méo hình thấu kính tự động và triệt tiêu viền tím quang sai với Defringe. Cứu chi tiết mây sáng và mở rộng bóng tối. Xuất ảnh dưới dạng 'RAW Layer (Embedded)' để bảo toàn khả năng biên tập phi hủy diệt.",
       "tips": "Giữ dải tương phản tự nhiên, tránh kéo clarity quá gắt ở bước này.",
-      "visualDescription": "Mô phỏng chân dung người mẫu trong Develop Persona sau khi được cân bằng sáng và sửa méo hình ống kính."
+      "visualDescription": "Mô phỏng chân dung người mẫu trong Develop Studio sau khi được cân bằng sáng và sửa méo hình ống kính."
     },
     {
       "id": "slide-p10-03-03",
@@ -254,9 +254,9 @@
       "title": "Giai đoạn 6: Xuất bản và Đóng gói chuyên nghiệp",
       "subtitle": "Chào mừng bạn đã làm chủ Pixel Studio / Affinity Photo!",
       "type": "summary",
-      "content": "Mở Export Persona. Tạo các slice: Poster in ấn 16-bit TIFF Adobe RGB 300DPI, Banner WebP 85% sRGB, Ảnh vuông Instagram JPEG 90%. Bấm 'Export Slices'. Xin chúc mừng, bạn đã chinh phục toàn diện Pixel Studio / Affinity Photo!",
+      "content": "Mở Slice Studio. Tạo các slice: Poster in ấn 16-bit TIFF Adobe RGB 300DPI, Banner WebP 85% sRGB, Ảnh vuông Instagram JPEG 90%. Bấm 'Export Slices'. Xin chúc mừng, bạn đã chinh phục toàn diện Pixel Studio / Affinity Photo!",
       "tips": "Hãy tự hào lưu trữ tác phẩm Capstone của bạn vào portfolio nghề nghiệp chuyên nghiệp.",
-      "codeSnippet": "Danh sách nghiệm thu đồ án Capstone:\n[✓] Đã kiểm chứng giải mã RAW 32-bit\n[✓] Bảo toàn tách tần số Frequency Separation phi phá hủy\n[✓] Cân đối bóng đổ 2 tầng & hiệu ứng Light Wrap\n[✓] Căn chỉnh phân cấp chữ và Layer FX đồng bộ\n[✓] Đã xuất bản đa định dạng qua Export Persona"
+      "codeSnippet": "Danh sách nghiệm thu đồ án Capstone:\n[✓] Đã kiểm chứng giải mã RAW 32-bit\n[✓] Bảo toàn tách tần số Frequency Separation phi phá hủy\n[✓] Cân đối bóng đổ 2 tầng & hiệu ứng Light Wrap\n[✓] Căn chỉnh phân cấp chữ và Layer FX đồng bộ\n[✓] Đã xuất bản đa định dạng qua Slice Studio"
     }
   ]
 }

@@ -10,7 +10,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "check:env": "node scripts/check-affinity-env.js",
-    "validate:curriculum": "node scripts/validate-curriculum.js",
+    "validate:curriculum": "node scripts/validate-curriculum.js && node scripts/validate-lesson-illustrations.js",
     "test:validator": "node scripts/test-curriculum-validator.js",
     "test:scripts": "node scripts/test-curriculum-scripts.js",
     "test:e2e": "playwright test",

@@ -22,10 +22,10 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Slices Studio (Xuất đa mật độ & Continuous Export)",
-      "persona": "Export Persona (View > Studio > Slices)",
+      "persona": "Slice Studio (View > Studio > Slices)",
       "shortcut": {
-        "win": "Export Persona (góc trên bên trái), tích 'Continuous' trong bảng Slices, Ctrl+S (lưu kích hoạt xuất lại)",
-        "mac": "Export Persona (góc trên bên trái), tích 'Continuous' trong bảng Slices, Cmd+S (lưu kích hoạt xuất lại)"
+        "win": "Slice Studio (góc trên bên trái), tích 'Continuous' trong bảng Slices, Ctrl+S (lưu kích hoạt xuất lại)",
+        "mac": "Slice Studio (góc trên bên trái), tích 'Continuous' trong bảng Slices, Cmd+S (lưu kích hoạt xuất lại)"
       },
       "description": "Ma trận xuất đa tầng cho phép kết xuất đồng thời nhiều tỷ lệ và định dạng kèm cơ chế tự cập nhật tệp nền. Điều kiện vận hành: (1) Phải bấm 'Export Slices' một lần đầu tiên để gắn thư mục đích; (2) Các sự kiện kích hoạt gồm lưu file (Ctrl+S / Cmd+S), sửa trực tiếp hình/chữ bên trong vùng cắt, đổi kích thước slice hoặc đổi cấu hình định dạng; (3) Chỉ nên bật chọn lọc trên các thành phần đang làm việc để tránh chậm thao tác lưu ở tài liệu quá lớn.",
       "contextBarOptions": [
@@ -40,7 +40,7 @@
       {
         "stepNumber": 1,
         "title": "Mở danh sách tầng xuất của lát cắt",
-        "instruction": "Trong Export Persona, tìm lát cắt 'Component_Button_Primary' trong bảng Slices Studio và nhấp mũi tên nhỏ bên cạnh tên để mở rộng các tầng định dạng xuất.",
+        "instruction": "Trong Slice Studio, tìm lát cắt 'Component_Button_Primary' trong bảng Slices Studio và nhấp mũi tên nhỏ bên cạnh tên để mở rộng các tầng định dạng xuất.",
         "shortcutTip": { "win": "Mở mũi tên Slice", "mac": "Mở mũi tên Slice" }
       },
       {
@@ -64,7 +64,7 @@
       {
         "stepNumber": 5,
         "title": "Kiểm chứng tự động cập nhật nền khi lưu",
-        "instruction": "Quay về Designer Persona từ thanh công cụ góc trên trái, đổi màu nút sang hồng tím (#EC4899) rồi nhấn Ctrl+S (Cmd+S). Mở thư mục đầu ra: cả 4 tệp (@1x.png, @2x.png, @3x.webp, .svg) đã được tự động cập nhật mới hoàn toàn mà không hiện hộp thoại hỏi lại.",
+        "instruction": "Quay về Vector Studio từ thanh công cụ góc trên trái, đổi màu nút sang hồng tím (#EC4899) rồi nhấn Ctrl+S (Cmd+S). Mở thư mục đầu ra: cả 4 tệp (@1x.png, @2x.png, @3x.webp, .svg) đã được tự động cập nhật mới hoàn toàn mà không hiện hộp thoại hỏi lại.",
         "shortcutTip": { "win": "Ctrl+S (Tự xuất lại)", "mac": "Cmd+S (Tự xuất lại)" }
       }
     ],
@@ -79,18 +79,18 @@
         "title": "Luồng xử lý tự động của Continuous Export",
         "description": "Cách thao tác lưu bản vẽ kích hoạt cập nhật đồng loạt các tệp đầu ra.",
         "visualType": "diagram",
-        "visualContent": "[Bản vẽ Designer Persona] ──> [Ctrl+S (Lưu tệp)]\n                                     │\n                                     ▼ (Tác vụ nền Affinity)\n     ┌───────────────────────────────┴───────────────────────────────┐\n     ▼                               ▼                               ▼\n[`btn-primary@1x.png`]     [`btn-primary@2x.png`]        [`btn-primary.svg`]"
+        "visualContent": "[Bản vẽ Vector Studio] ──> [Ctrl+S (Lưu tệp)]\n                                     │\n                                     ▼ (Tác vụ nền Affinity)\n     ┌───────────────────────────────┴───────────────────────────────┐\n     ▼                               ▼                               ▼\n[`btn-primary@1x.png`]     [`btn-primary@2x.png`]        [`btn-primary.svg`]"
       }
     ],
     "guidedPractice": {
       "title": "Dựng dây chuyền xuất bộ Icon cho ứng dụng di động",
       "taskDescription": "Thiết lập đồng loạt cấu hình 4 tầng xuất đa mật độ cho 4 icon điều hướng và kiểm nghiệm cập nhật tự động.",
       "checkpoints": [
-        "Trong Export Persona, chọn cả 4 lát cắt icon trong bảng Slices Studio.",
+        "Trong Slice Studio, chọn cả 4 lát cắt icon trong bảng Slices Studio.",
         "Gán chung 4 tầng xuất: 1x PNG (@1x), 2x PNG (@2x), 3x PNG (@3x) và 1x SVG.",
         "Tích bật ô 'Continuous' ở đầu bảng Slices.",
         "Xuất thử một lần đầu để gắn thư mục build đầu ra.",
-        "Quay lại Designer Persona sửa độ dày nét của một icon, nhấn Ctrl+S và kiểm tra cả 4 tệp trên ổ đĩa tự đổi theo."
+        "Quay lại Vector Studio sửa độ dày nét của một icon, nhấn Ctrl+S và kiểm tra cả 4 tệp trên ổ đĩa tự đổi theo."
       ],
       "expectedOutcome": "Đường ống tự động biên dịch tài sản đồ họa mỗi lần chỉnh sửa và lưu tệp thiết kế."
     },
@@ -125,7 +125,7 @@
         "solution": "Luôn dùng PNG-24, WebP hoặc SVG cho icon và các thành phần giao diện cần nền trong suốt."
       },
       {
-        "mistake": "Xuất tỷ lệ 3x cho tác phẩm có tô lớp Pixel Persona được khởi tạo ban đầu ở 72 DPI.",
+        "mistake": "Xuất tỷ lệ 3x cho tác phẩm có tô lớp Pixel Studio được khởi tạo ban đầu ở 72 DPI.",
         "consequence": "Bản xuất 3x bị phóng nội suy nên lớp hạt cọ nhìn mờ nhòe thiếu chi tiết.",
         "solution": "Đảm bảo tài liệu có chứa lớp raster được khởi tạo chuẩn 300 DPI (Module D09) để phóng xuất đa tỷ lệ vẫn sắc mịn."
       }
@@ -220,7 +220,7 @@
       "bullets": [
         "Tích chọn ô 'Continuous' ở phía trên bảng Slices Studio.",
         "Nhấn 'Export Slices' một lần để chỉ định thư mục chứa tệp đầu ra của dự án.",
-        "Quay về Designer Persona tiếp tục chỉnh sửa màu sắc hoặc đường nét bình thường.",
+        "Quay về Vector Studio tiếp tục chỉnh sửa màu sắc hoặc đường nét bình thường.",
         "Mỗi khi bấm Ctrl+S (Cmd+S) hoặc sửa nội dung trong vùng cắt, tệp xuất tự động được làm mới."
       ],
       "proTip": "Kết hợp Continuous Export với máy chủ chạy web cục bộ (Vite/Webpack) giúp xem bản thiết kế cập nhật ngay trên trình duyệt."
@@ -243,7 +243,7 @@
       "subtitle": "Thấy thay đổi tức thì không qua hộp thoại lặp lại",
       "bullets": [
         "Mở song song trình soạn mã (như VS Code) bên cạnh Affinity.",
-        "Nhích một điểm neo hoặc đổi mã màu nhấn thương hiệu trong Designer Persona.",
+        "Nhích một điểm neo hoặc đổi mã màu nhấn thương hiệu trong Vector Studio.",
         "Nhấn Ctrl+S (Cmd+S) để lưu tệp gốc.",
         "Trình duyệt hoặc ứng dụng thử nghiệm tự nạp ngay bộ ảnh 1x/2x/3x mới cập nhật!"
       ],
@@ -257,7 +257,7 @@
         "Làm theo hướng dẫn trong tệp 'D10_export_slices_production_guide.md'.",
         "Gán 4 tầng xuất cho mỗi icon trong 5 icon điều hướng (1x PNG, 2x PNG, 3x WebP, 1x SVG).",
         "Bật Continuous Export và xuất lần đầu vào thư mục tài nguyên thử nghiệm.",
-        "Quay lại Designer Persona, sửa độ dày nét vẽ rồi bấm lưu Ctrl+S.",
+        "Quay lại Vector Studio, sửa độ dày nét vẽ rồi bấm lưu Ctrl+S.",
         "Mở thư mục đích kiểm tra cả 20 tệp đều được cập nhật thời gian sửa đổi mới nhất."
       ],
       "proTip": "So sánh thử dung lượng giữa tệp PNG và WebP ở cùng kích thước để thấy mức tiết kiệm thực tế."

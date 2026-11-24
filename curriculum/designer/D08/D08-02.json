@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Assets Studio (Thư viện tài nguyên dùng chung)",
-      "persona": "Vector Persona (View > Studio > Assets)",
+      "persona": "Vector Studio (View > Studio > Assets)",
       "shortcut": {
         "win": "View > Studio > Assets (Mở bảng), Kéo thả trực tiếp ra bản vẽ để chèn",
         "mac": "View > Studio > Assets (Mở bảng), Kéo thả trực tiếp ra bản vẽ để chèn"

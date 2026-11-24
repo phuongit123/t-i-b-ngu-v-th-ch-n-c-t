@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import type { AffinityTrackId } from '@/types/design-system';
 import type { CurriculumLesson, CurriculumModule } from '@/types/curriculum';
-import { getLessonVisualShowcase } from '@/lib/lesson-visuals';
+import { getLessonStepImagePath } from '@/lib/lesson-visuals';
 import { SITE_ORIGIN, getLessonCanonicalPath, getRoutePath } from '@/lib/seo-router';
 import { lessonTranslationsVi, moduleTranslationsVi } from '@/data/curriculum/translationsVi';
 
@@ -99,11 +99,6 @@ function buildDescriptor(opts: SeoMetadataOptions): PageSeoDescriptor {
       activeLesson.moduleId;
     const trackMeta = TRACK_META[activeLesson.trackId] ?? TRACK_META.designer;
     const canonicalPath = getLessonCanonicalPath(activeLesson);
-    const visual = getLessonVisualShowcase(
-      activeLesson.id,
-      activeLesson.moduleId,
-      activeLesson.trackId
-    );
     const desc =
       activeLesson.subtitle?.trim() ||
       `Bài học ${activeLesson.id}: ${lessonTitleVi} thuộc học phần ${moduleTitleVi} (${activeLesson.durationMinutes} phút).`;
@@ -112,7 +107,7 @@ function buildDescriptor(opts: SeoMetadataOptions): PageSeoDescriptor {
       title: `${activeLesson.id}: ${lessonTitleVi} — Affinity Academy`,
       description: desc,
       canonicalPath,
-      ogImage: visual.primary.src,
+      ogImage: getLessonStepImagePath(activeLesson.id, 1),
       breadcrumbs: [
         { name: 'Trang chủ', path: '/' },
         { name: trackMeta.name, path: getRoutePath('catalog', { trackId: activeLesson.trackId }) },
@@ -122,6 +117,18 @@ function buildDescriptor(opts: SeoMetadataOptions): PageSeoDescriptor {
   }
 
   switch (activeRoute) {
+    case 'journey':
+      return {
+        title: 'Học Affinity từ số 0 — Affinity Academy',
+        description: 'Dựng poster từ trang trắng, học nền tảng thị giác, Vector, Pixel và Layout theo thứ tự, rồi tự làm đồ án thiết kế.',
+        canonicalPath: getRoutePath('journey'),
+        ogImage: '/assets/academy/tra-mat.webp',
+        breadcrumbs: [
+          { name: 'Trang chủ', path: '/' },
+          { name: 'Khóa học', path: '/lo-trinh' },
+          { name: 'Học Affinity từ số 0', path: getRoutePath('journey') },
+        ],
+      };
     case 'catalog': {
       const tm = TRACK_META[activeTrack] ?? TRACK_META.designer;
       const overview = /^\/(lo-trinh|catalog)\/?$/.test(window.location.pathname);

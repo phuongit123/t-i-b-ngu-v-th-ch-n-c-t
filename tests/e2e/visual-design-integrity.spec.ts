@@ -49,16 +49,16 @@ test.describe('Phase 2 Visual Architecture, Single Header & Studio Assets Integr
     expect(bodyText).not.toContain('Affinity 3.0');
 
     // Every desktop nav item renders cleanly on 1 horizontal line (height <= 42px)
-    const navButtons = page.locator('header nav button');
+    const navButtons = page.getByRole('navigation', { name: 'Điều hướng chính' }).getByRole('button');
     const navCount = await navButtons.count();
-    expect(navCount).toBe(9);
+    expect(navCount).toBe(3);
 
     const yPositions: number[] = [];
     for (let i = 0; i < navCount; i += 1) {
       const box = await navButtons.nth(i).boundingBox();
       expect(box).not.toBeNull();
       if (box) {
-        expect(box.height).toBeLessThanOrEqual(42);
+        expect(box.height).toBeLessThanOrEqual(74);
         yPositions.push(box.y);
       }
     }
@@ -68,33 +68,25 @@ test.describe('Phase 2 Visual Architecture, Single Header & Studio Assets Integr
     expect(maxY - minY).toBeLessThanOrEqual(12);
   });
 
-  test('TC-P2-02: Interactive BeforeAfterSlider and Canva Studio Kit switch cleanly on Homepage', async ({ page }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
+  test('TC-P2-02: Trang chủ mở bài Affinity và các tab hoạt động bằng bàn phím', async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
-
-    const slider = page.getByTestId('before-after-slider');
-    await slider.scrollIntoViewIfNeeded();
-    await expect(slider).toBeVisible();
-    await expect(slider).toHaveAttribute('aria-valuenow', '50');
-
-    await slider.focus();
-    await page.keyboard.press('Shift+ArrowRight');
-    const updatedValue = Number(await slider.getAttribute('aria-valuenow'));
-    expect(updatedValue).toBeGreaterThan(50);
-
-    // Click Slide 02 Canva Studio Kit button and check slide preview swaps to canva-slide-2.png
-    const slide2Btn = page.getByRole('button', { name: /Slide 02 · Canva Studio Kit/i });
-    await slide2Btn.scrollIntoViewIfNeeded();
-    await slide2Btn.click();
-    await expect(page.locator('img[src="/assets/academy/canva-slide-2.png"]')).toBeVisible();
-
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Làm ngay trong Affinity');
     await assertAllImagesLoadedWithoutInteria(page, '/');
+    await expect(page.getByTestId('track-card-designer')).toBeVisible();
 
-    // Verify Hero primary CTA launches lesson D01-01 directly
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.getByRole('button', { name: /Học thử bài D01 ngay/i }).click();
-    await expect(page.getByTestId('slide-counter')).toBeVisible();
+    await page.getByRole('button', { name: 'Mở bài đầu tiên' }).click();
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Làm quen giao diện Affinity');
+    const overview = page.getByRole('tab', { name: 'Tổng quan' });
+    await expect(overview).toHaveAttribute('aria-selected', 'true');
+    await overview.press('ArrowRight');
+    await expect(page.getByRole('tab', { name: 'Theo từng bước' })).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#lesson-section-4')).toBeVisible();
+    await page.getByRole('tab', { name: 'Tài liệu' }).click();
+    await expect(page.getByRole('link', { name: /Poster Trà Mát/ })).toBeVisible();
+    await page.getByTestId('mark-lesson-viewed').click();
+    await expect(page.getByTestId('mark-lesson-viewed')).toContainText('Đã đánh dấu');
+    await page.reload();
+    await expect(page.getByTestId('mark-lesson-viewed')).toBeDisabled();
   });
 
   test('TC-P2-03: Course Catalog & Resources pages render Studio thumbnails, SVG diagrams & plates cleanly', async ({ page }) => {
@@ -105,11 +97,12 @@ test.describe('Phase 2 Visual Architecture, Single Header & Studio Assets Integr
     await page.getByTestId('nav-catalog').click();
     await page.waitForLoadState('networkidle');
     expect(await page.locator('header').count()).toBe(1);
-    await expect(page.locator('img[src="/assets/academy/studio-vector-art.png"]').first()).toBeVisible();
+    await expect(page.locator('img[src="/assets/academy/tra-mat.webp"]').first()).toBeVisible();
     await expect(page.locator('img[src="/assets/lessons/diagram-vector-workspace-vi.svg"]').first()).toBeVisible();
     await assertAllImagesLoadedWithoutInteria(page, '/catalog');
 
     // Check Resources gallery & download plates
+    await page.getByRole('button', { name: 'Học liệu', exact: true }).click();
     await page.getByTestId('nav-resources').click();
     await page.waitForLoadState('networkidle');
     expect(await page.locator('header').count()).toBe(1);

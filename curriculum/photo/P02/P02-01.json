@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Selection Brush Tool & Selection Family",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)",
         "mac": "W (Selection Brush Tool) / L (Freehand Selection Tool) / M (Marquee Tools)"
@@ -64,7 +64,7 @@
     "visualExamples": [
       {
         "title": "Bảng so sánh các công cụ chọn vùng pixel",
-        "description": "Đặc tính và trường hợp sử dụng tối ưu của từng công cụ trong Photo Persona.",
+        "description": "Đặc tính và trường hợp sử dụng tối ưu của từng công cụ trong Pixel Studio.",
         "visualType": "table",
         "visualContent": "| Công cụ | Phím tắt | Thuật toán cốt lõi | Trường hợp sử dụng tối ưu |\n|---|---|---|---|\n| Selection Brush | W | Edge Snapping dựa trên contrast gradient | Chủ thể người, xe cộ, đồ vật tách biệt khỏi nền |\n| Freehand Lasso | L | Tọa độ điểm vector hoặc vẽ tay tự do | Cắt nhanh đa giác phẳng, kiến trúc, hình khối cơ học |\n| Flood Select | W | Dung sai màu (Tolerance) & Contiguous | Bầu trời phẳng, phông nền studio đơn sắc |\n| Marquee (Rect/Elliptical) | M | Hình học cơ bản kèm ràng buộc tỷ lệ | Cắt khung hình chữ nhật, hình tròn, tạo mặt nạ vignette |"
       }

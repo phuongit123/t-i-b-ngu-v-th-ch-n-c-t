@@ -16,34 +16,39 @@ import {
   Sparkles,
   Target,
   Wrench,
-  ZoomIn,
 } from 'lucide-react';
 import type { CurriculumLesson, PitfallItem } from '@/types/curriculum';
+import type { LessonLightboxVisual, LessonStepVisual } from '@/data/lesson-illustrations';
 import { usePreferences, formatShortcutForOs } from '@/lib/preferences-context';
 import { resolveCurriculumAssetUrl } from '@/lib/curriculum-asset-urls';
-import { getLessonVisualShowcase } from '@/lib/lesson-visuals';
-import { BeforeAfterSlider } from '@/components/common/BeforeAfterSlider';
+import { isBundledLessonImage } from '@/lib/lesson-visuals';
 import { InlineMarkdown, SafeMarkdown } from '@/components/common/SafeMarkdown';
 import { Button } from '@/components/ui/Button';
+import { isSectionVisible, type LessonReaderGroup } from '@/lib/lesson-reader';
+import { LessonStepFigure } from '@/components/lesson/LessonStepFigure';
 
 export interface LessonSectionsReaderProps {
   lesson: CurriculumLesson;
+  group?: LessonReaderGroup;
+  embedded?: boolean;
   displayTitle: string;
-  accentColor: string;
+  illustrations: LessonStepVisual[];
   checkedItems: Record<string, boolean>;
   onToggleCheckpoint: (id: string) => void;
   activeSectionIndex?: number | null;
   onSelectLesson?: (lessonId: string) => void;
   onNavigate?: (route: string) => void;
-  onOpenLightbox?: (visual: { src: string; alt: string; caption?: string; isDiagram?: boolean }) => void;
+  onOpenLightbox?: (visual: LessonLightboxVisual) => void;
   isCompleted?: boolean;
   onCompleteLesson?: () => void;
 }
 
 export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
   lesson,
+  group = 'all',
+  embedded = false,
   displayTitle,
-  accentColor,
+  illustrations,
   checkedItems,
   onToggleCheckpoint,
   activeSectionIndex = null,
@@ -71,7 +76,13 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
   }, [activeSectionIndex, lesson.id]);
 
   const sections = lesson.standardSections;
-  const visualShowcase = getLessonVisualShowcase(lesson.id, lesson.moduleId, lesson.trackId);
+  const guidedAsset = sections.guidedPractice.starterAsset;
+  const guidedDownload = resolveCurriculumAssetUrl(guidedAsset?.filepath);
+  const guidedDownloadLink = guidedAsset && guidedDownload && (
+    <a className="path-primary" href={guidedDownload} download={guidedAsset.filename}>
+      <Download size={16} aria-hidden="true" /> Tải tệp thực hành ({guidedAsset.filename})
+    </a>
+  );
   const starterAsset = sections.independentChallenge.starterAsset ?? lesson.practiceAsset;
   const starterDownloadUrl = starterAsset
     ? resolveCurriculumAssetUrl(starterAsset.filepath) ?? resolveCurriculumAssetUrl(starterAsset.filename)
@@ -90,9 +101,9 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
   const formatPitfallCause = (item: PitfallItem) => item.cause ?? item.consequence ?? '';
 
   return (
-    <div className="space-y-6 pb-4" data-testid="lesson-sections-reader">
+    <div className={embedded ? "editorial-reader" : "space-y-6 pb-4"} data-testid="lesson-sections-reader">
       {/* Single H1 when in 10-section Reader mode */}
-      <div className="border-b border-hairline pb-4">
+      {!embedded && <div className="border-b border-hairline pb-4">
         <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400">
           Tài Liệu Đọc Sâu 10 Học Phần Chuẩn Hóa
         </div>
@@ -100,16 +111,17 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
           {displayTitle}
         </h1>
         <p className="mt-1 text-sm text-zinc-400">{lesson.subtitle}</p>
-      </div>
+      </div>}
 
       {/* Section 1: Learning Objectives */}
       <section
         id="lesson-section-1"
+        hidden={!isSectionVisible(group, 1)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-3"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-cyan-400">
           <Target className="w-4 h-4" />
-          <span>01 · Mục tiêu bài học (Learning Objectives)</span>
+          <h2 className="reader-section-title">Bạn sẽ làm được gì</h2>
         </div>
         <ul className="space-y-2">
           {sections.learningObjectives.map((obj, idx) => (
@@ -126,17 +138,18 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 2: Foundational Knowledge */}
       <section
         id="lesson-section-2"
+        hidden={!isSectionVisible(group, 2)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-3"
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-400">
             <BookOpen className="w-4 h-4" />
-            <span>02 · Kiến thức nền tảng &amp; Tư duy thiết kế</span>
+            <h2 className="reader-section-title">Chuẩn bị</h2>
           </div>
           {sections.technicalEvidence && (
             <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-mono text-emerald-300">
               <ShieldCheck className="w-3 h-3" />
-              Kiểm chứng kỹ thuật · {sections.technicalEvidence.source}
+              Nguồn đối chiếu · {sections.technicalEvidence.source}
             </span>
           )}
         </div>
@@ -146,6 +159,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 3: Tool & Feature Explanation */}
       <section
         id="lesson-section-3"
+        hidden={!isSectionVisible(group, 3)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-4"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-amber-400">
@@ -205,99 +219,83 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 4: Step-by-Step Instructions */}
       <section
         id="lesson-section-4"
+        hidden={!isSectionVisible(group, 4)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-4"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400">
           <ListChecks className="w-4 h-4" />
           <span>04 · Quy trình thực hành từng bước</span>
         </div>
+        {illustrations.length > 0 && (
+          <p className="lesson-figure-note">
+            Mỗi hình chỉ ra phần cần quan sát trong bước đó. Hình là sơ đồ hoặc ảnh mẫu có chú thích. Ảnh chụp Affinity được ghi rõ trong nhãn.
+          </p>
+        )}
+        {guidedDownloadLink}
         <div className="space-y-3">
-          {sections.stepByStepInstructions.map((step) => (
-            <div
-              key={step.stepNumber}
-              className="rounded-lg border border-hairline bg-surface p-4 flex flex-col sm:flex-row sm:items-start gap-3"
-            >
-              <span
-                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-mono text-xs font-bold text-zinc-950"
-                style={{ backgroundColor: accentColor }}
+          {sections.stepByStepInstructions.map((step) => {
+            const illustration = illustrations.find((item) => item.step === step.stepNumber);
+            return (
+              <section
+                key={step.stepNumber}
+                id={`lesson-step-${step.stepNumber}`}
+                tabIndex={-1}
+                className="lesson-step-card rounded-lg border border-hairline bg-surface p-4"
               >
-                {step.stepNumber}
-              </span>
-              <div className="flex-1 space-y-1.5 min-w-0">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="text-sm font-bold text-white">{step.title}</div>
-                  {step.shortcutTip && (
-                    <kbd className="rounded border border-hairline bg-obsidian px-2 py-0.5 text-[11px] font-mono text-emerald-300">
-                      {formatShortcutForOs(
-                        step.shortcutTip.win,
-                        step.shortcutTip.mac,
-                        preferences.shortcutModifier
+                <div className="lesson-step-copy">
+                  <span className="reader-step-number inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-mono text-xs font-bold">
+                    {step.stepNumber}
+                  </span>
+                  <div className="space-y-1.5 min-w-0">
+                    <h3 className="text-base font-bold text-white">{step.title}</h3>
+                    {step.shortcutTip && (
+                      <kbd className="inline-block rounded border border-hairline bg-obsidian px-2 py-0.5 text-[11px] font-mono text-emerald-300">
+                        {formatShortcutForOs(
+                          step.shortcutTip.win,
+                          step.shortcutTip.mac,
+                          preferences.shortcutModifier
+                        )}
+                      </kbd>
                       )}
-                    </kbd>
-                  )}
+                    <p className="text-sm text-zinc-300 leading-relaxed">
+                      <InlineMarkdown text={step.instruction} />
+                    </p>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  <InlineMarkdown text={step.instruction} />
-                </p>
-              </div>
-            </div>
-          ))}
+                {illustration && <LessonStepFigure visual={illustration} onZoom={onOpenLightbox} />}
+              </section>
+            );
+          })}
         </div>
       </section>
 
       {/* Section 5: Visual Examples & Interactive Graphics */}
       <section
         id="lesson-section-5"
+        hidden={!isSectionVisible(group, 5)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-4"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-cyan-400">
           <ImageIcon className="w-4 h-4" />
-          <span>05 · Ví dụ trực quan, Sơ đồ &amp; Bảng thông số</span>
+          <span>05 · Ví dụ và đối chiếu</span>
         </div>
 
-        {/* Visual Showcase Plate or Before/After Comparison */}
-        {visualShowcase.comparisonSlider && (
-          <BeforeAfterSlider
-            beforeSrc={visualShowcase.comparisonSlider.beforeSrc}
-            afterSrc={visualShowcase.comparisonSlider.afterSrc}
-            beforeLabel={visualShowcase.comparisonSlider.beforeLabel}
-            afterLabel={visualShowcase.comparisonSlider.afterLabel}
-          />
+        {illustrations.length > 0 && (
+          <nav className="lesson-figure-index" aria-label="Hình minh họa theo bước">
+            {illustrations.map((visual) => (
+              <a key={visual.step} href={`#lesson-step-${visual.step}`}>Bước {visual.step} · {visual.tool}</a>
+            ))}
+          </nav>
         )}
-
-        <div className="rounded-xl border border-hairline bg-[#090b10] overflow-hidden">
-          <div className="relative flex items-center justify-center max-h-80 overflow-hidden bg-[#090b10]">
-            <img
-              src={visualShowcase.primary.src}
-              alt={visualShowcase.primary.alt}
-              className={
-                visualShowcase.primary.isDiagram
-                  ? 'w-full max-h-80 object-contain p-3'
-                  : 'w-full max-h-80 object-cover'
-              }
-            />
-            {onOpenLightbox && (
-              <button
-                type="button"
-                onClick={() => onOpenLightbox(visualShowcase.primary)}
-                className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-lg border border-hairline bg-obsidian/90 px-3 py-1.5 text-xs font-mono text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
-              >
-                <ZoomIn className="w-3.5 h-3.5" />
-                <span>Phóng to hình minh họa</span>
-              </button>
-            )}
-          </div>
-          <div className="px-4 py-2.5 border-t border-hairline bg-surface text-xs text-zinc-300">
-            {visualShowcase.primary.caption}
-          </div>
-        </div>
 
         <div className="space-y-4">
           {sections.visualExamples.map((example, idx) => (
             <div key={idx} className="rounded-lg border border-hairline bg-surface p-4 space-y-2.5">
               <div className="text-sm font-bold text-white">{example.title}</div>
               <p className="text-xs text-zinc-400">{example.description}</p>
-              {example.visualType === 'table' || example.visualContent.includes('|---') ? (
+              {example.visualType === 'diagram' && isBundledLessonImage(example.visualContent) ? (
+                <img src={example.visualContent} alt={example.description} className="w-full rounded" loading="lazy" />
+              ) : example.visualType === 'table' || example.visualContent.includes('|---') ? (
                 <SafeMarkdown content={example.visualContent} />
               ) : example.visualType === 'code' ? (
                 <pre className="p-3.5 rounded-lg bg-[#0a0a0d] border border-hairline font-mono text-xs text-emerald-300 overflow-x-auto whitespace-pre">
@@ -316,6 +314,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 6: Guided Practice */}
       <section
         id="lesson-section-6"
+        hidden={!isSectionVisible(group, 6)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-3"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400">
@@ -324,6 +323,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
         </div>
         <div className="text-base font-bold text-white">{sections.guidedPractice.title}</div>
         <SafeMarkdown content={sections.guidedPractice.taskDescription} className="text-sm text-zinc-300" />
+        {guidedDownloadLink}
         <div className="space-y-2 pt-1">
           {sections.guidedPractice.checkpoints.map((cp, idx) => {
             const cpId = `${lesson.id}-sec-cp-${idx}`;
@@ -361,6 +361,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 7: Independent Challenge */}
       <section
         id="lesson-section-7"
+        hidden={!isSectionVisible(group, 7)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-3"
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -404,6 +405,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 8: Common Pitfalls */}
       <section
         id="lesson-section-8"
+        hidden={!isSectionVisible(group, 8)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-3"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-rose-400">
@@ -432,6 +434,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 9: Knowledge Check (All Quiz Questions) */}
       <section
         id="lesson-section-9"
+        hidden={!isSectionVisible(group, 9)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-4"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-cyan-400">
@@ -516,6 +519,7 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
       {/* Section 10: Summary & Related Resources */}
       <section
         id="lesson-section-10"
+        hidden={!isSectionVisible(group, 10)}
         className="scroll-mt-24 rounded-xl border border-hairline bg-canvas p-5 space-y-4"
       >
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400">
@@ -570,7 +574,11 @@ export const LessonSectionsReader: React.FC<LessonSectionsReaderProps> = ({
                 </a>
               );
             }
-            if (res.target.startsWith('http')) {
+            if (isBundledLessonImage(res.target)) {
+              return <a key={idx} href={res.target} download className="inline-flex items-center gap-2 text-sm text-primary underline underline-offset-4"><Download size={16} />{res.title}</a>;
+            }
+
+            if (res.target.startsWith('https://') || res.target.startsWith('http://')) {
               return (
                 <a
                   key={idx}

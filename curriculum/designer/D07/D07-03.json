@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Snapping Manager & Hệ thống Snapping Candidates",
-      "persona": "Vector Persona (View > Snapping Manager...)",
+      "persona": "Vector Studio (View > Snapping Manager...)",
       "shortcut": {
         "win": "Ctrl+Alt+S (Bật/tắt bắt dính), Ctrl+Y (Chế độ khung dây Outline), Rê chuột (Kích hoạt Candidate)",
         "mac": "Cmd+Option+S (Bật/tắt bắt dính), Cmd+Y (Chế độ khung dây Outline), Rê chuột (Kích hoạt Candidate)"

@@ -3,17 +3,17 @@
   "trackId": "designer",
   "order": 10,
   "title": "Xuất Bản Dự Án Thực Chiến, Cắt Lát (Slices) & Đóng Gói Sản Phẩm",
-  "subtitle": "Export Persona, cắt lát đa mật độ, Continuous Export, tối ưu mã SVG và xuất PDF/X chuẩn in",
-  "description": "Sử dụng Export Persona để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.",
+  "subtitle": "Slice Studio, cắt lát đa mật độ, Continuous Export, tối ưu mã SVG và xuất PDF/X chuẩn in",
+  "description": "Sử dụng Slice Studio để tạo các vùng cắt lát đa kích thước (@1x, @2x, @3x), xuất định dạng SVG/PDF/PNG và bàn giao file gốc chuẩn sản xuất.",
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": [
     "D01: Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
     "D08: Biểu Tượng Tái Sử Dụng (Symbols), Tài Nguyên Liên Kết & Thư Viện Asset",
-    "D09: Tích Hợp Pixel Persona, Đổ Bóng & Kết Cấu Hạt (Texture)"
+    "D09: Tích Hợp Pixel Studio, Đổ Bóng & Kết Cấu Hạt (Texture)"
   ],
   "learningOutcomes": [
-    "Làm chủ không gian làm việc Export Persona và phân biệt vùng cắt lát toàn tài liệu, theo Artboard và theo Layer.",
+    "Làm chủ không gian làm việc Slice Studio và phân biệt vùng cắt lát toàn tài liệu, theo Artboard và theo Layer.",
     "Thiết lập đường ống xuất tự động đa mật độ 1x, 2x, 3x cho các định dạng PNG, WebP và SVG.",
     "Vận hành cơ chế Continuous Export để tự động kết xuất lại tài nguyên nền mỗi khi lưu bản thiết kế.",
     "Kiểm tra và tinh gọn cấu hình xuất SVG với tọa độ viewBox chuẩn, giảm chữ số thập phân và làm phẳng biến đổi.",
@@ -24,7 +24,7 @@
     "description": "Đóng gói bộ tài sản thương mại hoàn chỉnh từ hệ thống nhận diện thương hiệu: thiết lập cắt lát tự động đa mật độ (1x/2x/3x PNG và WebP), xuất tệp SVG gọn nhẹ có viewBox linh hoạt và xuất bản in PDF/X-4 kèm dấu cắt thành phẩm và lề tràn 3mm.",
     "deliverableAsset": "curriculum/assets/designer/D10_export_slices_production_guide.md",
     "evaluationCriteria": [
-      "Tạo đầy đủ Layer-Based Slices trong Export Persona cho các biểu tượng và thẻ giao diện cốt lõi.",
+      "Tạo đầy đủ Layer-Based Slices trong Slice Studio cho các biểu tượng và thẻ giao diện cốt lõi.",
       "Cấu hình đúng hậu tố tỷ lệ cho các cấp mật độ (@1x, @2x, @3x).",
       "Kiểm tra mã nguồn tệp SVG xuất ra sạch sẽ, không chứa khối ảnh raster mã hóa base64 phình dung lượng.",
       "Tệp PDF/X-4 xuất ra có đủ dấu cắt (crop marks), dấu căn chồng màu (registration marks) và lề tràn 3mm."
@@ -34,8 +34,8 @@
     {
       "id": "D10-01",
       "order": 1,
-      "title": "Export Persona và cấu trúc Slices",
-      "subtitle": "Điều hướng Export Persona, Slice Tool, cắt lát theo Layer và tự động bám khung bao",
+      "title": "Slice Studio và cấu trúc Slices",
+      "subtitle": "Điều hướng Slice Studio, Slice Tool, cắt lát theo Layer và tự động bám khung bao",
       "durationMinutes": 30,
       "difficulty": "Advanced"
     },

@@ -179,7 +179,7 @@
         "options": [
           "Không; mọi hình trong Compound phải dùng chung một chế độ.",
           "Có; từng hình con có biểu tượng phép toán riêng trong Layers Studio để đổi độc lập sang Add, Subtract, Intersect hoặc Xor.",
-          "Chỉ làm được khi chuyển sang Pixel Persona.",
+          "Chỉ làm được khi chuyển sang Pixel Studio.",
           "Chỉ hoạt động khi tài liệu có ít hơn 2 layer."
         ],
         "correctIndex": 1,

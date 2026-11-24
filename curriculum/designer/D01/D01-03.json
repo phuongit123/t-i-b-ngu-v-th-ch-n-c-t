@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Hệ thống Snapping & Chế độ xem (View Mode)",
-      "persona": "Vector Persona (Thanh công cụ trên cùng)",
+      "persona": "Vector Studio (Thanh công cụ trên cùng)",
       "shortcut": {
         "win": "; (Bật/tắt Snapping), Ctrl+' (Bật/tắt Grid), Ctrl+; (Bật/tắt Guides)",
         "mac": "; (Bật/tắt Snapping), Cmd+' (Bật/tắt Grid), Cmd+; (Bật/tắt Guides)"

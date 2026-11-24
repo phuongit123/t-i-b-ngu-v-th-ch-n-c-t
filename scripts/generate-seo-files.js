@@ -75,6 +75,7 @@ function collectLessonRoutes(translationsMap) {
 const staticRoutes = [
   { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
   { loc: `${SITE_ORIGIN}/lo-trinh`, changefreq: 'weekly', priority: '0.9' },
+  { loc: `${SITE_ORIGIN}/lo-trinh/bat-dau`, changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_ORIGIN}/lo-trinh/vector-studio`, changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_ORIGIN}/lo-trinh/pixel-studio`, changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_ORIGIN}/lo-trinh/layout-studio`, changefreq: 'weekly', priority: '0.85' },
@@ -123,6 +124,16 @@ const aliases = [
   'glossary', 'resources', 'playground', 'encyclopedia', 'dashboard', 'settings', 'capstone', 'design-system',
   'preview', 'reset-password', 'lo-trinh/designer', 'lo-trinh/photo', 'lo-trinh/publisher', 'lo-trinh/scripting',
   'bai-hoc/p05-01-nguyen-ly-can-chinh-mau-sac-bieu-do-histogram-va-curves',
+  // Previous canonical paths continue to resolve after lesson titles are corrected.
+  'bai-hoc/d01-01-cau-truc-giao-dien-designer-va-chuyen-doi-persona',
+  'bai-hoc/d02-01-cac-che-do-pen-tool-va-co-che-tay-cam-bezier',
+  'bai-hoc/d05-01-phan-cap-layers-studio-nhom-va-gan-mau-doi-tuong',
+  'bai-hoc/d09-01-pixel-persona-va-dong-luc-co-raster-trong-designer',
+  'bai-hoc/d10-01-export-persona-va-cau-truc-slices',
+  'bai-hoc/p01-01-giao-dien-photo-thanh-cong-cu-va-cac-bang-studio',
+  'bai-hoc/p01-02-raw-develop-persona-va-quy-trinh-mau-hdr-32-bit',
+  'bai-hoc/p04-02-clone-stamp-healing-brush-va-nguyen-ly-phuc-che',
+  'bai-hoc/p10-01-export-persona-slices-da-dinh-dang-1x-2x-3x-va-continuous-export',
 ].map(route => '/' + route);
 const validRoutes = new Set([
   ...aliases, ...allUrls.map(entry => new URL(entry.loc).pathname),

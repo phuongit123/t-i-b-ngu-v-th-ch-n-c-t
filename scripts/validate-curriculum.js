@@ -35,7 +35,7 @@ export const EXPECTED_CURRICULUM = {
 
 // Non-track directories maintained alongside the curriculum tracks.
 export const ALLOWED_CURRICULUM_ROOT_ENTRIES = ['assets', 'schema'];
-export const ALLOWED_CURRICULUM_ROOT_FILES = ['README.md'];
+export const ALLOWED_CURRICULUM_ROOT_FILES = ['README.md', 'first-project.json', 'lesson-illustrations.json'];
 
 export const REQUIRED_SECTIONS = [
   'learningObjectives',
@@ -54,6 +54,7 @@ export const VALID_DIFFICULTIES = ['Beginner', 'Intermediate', 'Advanced'];
 
 export const VALID_ASSET_STATUSES = [
   'REAL_AFFINITY_FILE',
+  'CAMERA_RAW',
   'GUIDE_DOCUMENT',
   'JAVASCRIPT_SCRIPT',
   'EXTERNAL_RESOURCE',
@@ -186,20 +187,23 @@ function getStandardSectionErrors(sections, context) {
     const challengeCriteria = sections.independentChallenge.challengeCriteria
       ?? sections.independentChallenge.successCriteria;
     expectStringArray(challengeCriteria, 'independentChallenge.challengeCriteria/successCriteria');
-    const asset = sections.independentChallenge.starterAsset;
-    if (asset !== undefined) {
-      if (
-        !isPlainObject(asset)
-        || !isNonEmptyString(asset.filename)
-        || !isNonEmptyString(asset.filepath)
-        || !isNonEmptyString(asset.filesize)
-        || !isNonEmptyString(asset.filetype)
-        || !VALID_ASSET_STATUSES.includes(asset.assetStatus)
-        || typeof asset.isVerified !== 'boolean'
-        || !isNonEmptyString(asset.statusNote)
-      ) {
-        errors.push(`     [FAIL] ${context}.independentChallenge.starterAsset has invalid metadata`);
-      }
+  }
+  for (const section of ['guidedPractice', 'independentChallenge']) {
+    const asset = sections[section]?.starterAsset;
+    if (asset === undefined) continue;
+    if (
+      !isPlainObject(asset)
+      || !isNonEmptyString(asset.filename)
+      || !isNonEmptyString(asset.filepath)
+      || !isNonEmptyString(asset.filesize)
+      || !isNonEmptyString(asset.filetype)
+      || !VALID_ASSET_STATUSES.includes(asset.assetStatus)
+      || typeof asset.isVerified !== 'boolean'
+      || !isNonEmptyString(asset.statusNote)
+      || (asset.assetStatus === 'CAMERA_RAW' && (asset.filetype !== '.nef'
+        || !asset.filename.toLowerCase().endsWith('.nef') || !asset.filepath.toLowerCase().endsWith('.nef')))
+    ) {
+      errors.push(`     [FAIL] ${context}.${section}.starterAsset has invalid metadata`);
     }
   }
 
@@ -689,8 +693,9 @@ export function validateCurriculum(options = {}) {
           }
 
           // 6. Practice asset existence & status transparency check
-          const asset = lesson.standardSections?.independentChallenge?.starterAsset;
-          if (asset) {
+          for (const section of ['guidedPractice', 'independentChallenge']) {
+            const asset = lesson.standardSections?.[section]?.starterAsset;
+            if (!asset) continue;
             if (!asset.assetStatus || !VALID_ASSET_STATUSES.includes(asset.assetStatus)) {
               logLessonError(`     [FAIL] Invalid or missing assetStatus in ${expectedLessonId}: "${asset.assetStatus}"`);
               lessonHasError = true;
@@ -701,6 +706,7 @@ export function validateCurriculum(options = {}) {
               if (!fs.existsSync(fullAssetPath)) {
                 if (
                   asset.assetStatus === 'REAL_AFFINITY_FILE' ||
+                  asset.assetStatus === 'CAMERA_RAW' ||
                   asset.assetStatus === 'GUIDE_DOCUMENT' ||
                   asset.assetStatus === 'JAVASCRIPT_SCRIPT'
                 ) {

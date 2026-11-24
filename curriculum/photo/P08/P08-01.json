@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Artistic & Frame Text Tools",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "T (Text Tool) / Ctrl + B (Bold) / Ctrl + Enter (Convert to Curves)",
         "mac": "T (Text Tool) / Cmd + B (Bold) / Cmd + Return (Convert to Curves)"

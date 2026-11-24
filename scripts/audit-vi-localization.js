@@ -115,8 +115,8 @@ if (!fs.existsSync(sitemapPath)) {
   const lessonMatches = sitemap.match(/<loc>[^<]*\/bai-hoc\/[^<]+<\/loc>/g) || [];
   sitemapUrlCount = urlMatches.length;
   sitemapLessonCount = lessonMatches.length;
-  if (sitemapUrlCount !== 84) {
-    violations.push(`[SEO] public/sitemap.xml expected 84 <url> entries, found ${sitemapUrlCount}`);
+  if (sitemapUrlCount !== 85) {
+    violations.push(`[SEO] public/sitemap.xml expected 85 <url> entries, found ${sitemapUrlCount}`);
   }
   if (sitemapLessonCount !== 66) {
     violations.push(

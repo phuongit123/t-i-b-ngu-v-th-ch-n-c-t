@@ -9,7 +9,7 @@
   "difficulty": "Advanced",
   "estimatedMinutes": 90,
   "prerequisites": ["P01", "P02", "P05"],
-  "primaryPersona": "Develop Persona",
+  "primaryPersona": "Develop Studio",
   "starterAsset": {
     "filename": "P09_raw_develop_workflow_guide.md",
     "filepath": "curriculum/assets/photo/P09_raw_develop_workflow_guide.md",

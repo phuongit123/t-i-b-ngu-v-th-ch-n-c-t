@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from './lib/supabase/auth-context';
 import { PreferencesProvider } from './lib/preferences-context';
 import { startProgressSync } from './lib/supabase/progress-sync';
 import './styles/index.css';
+import './styles/academy.css';
 
 // eslint-disable-next-line react-refresh/only-export-components
 function AccountApp() {

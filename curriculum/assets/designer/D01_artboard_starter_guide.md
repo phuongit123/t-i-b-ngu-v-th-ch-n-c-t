@@ -1,4 +1,9 @@
 # TÀI LIỆU HƯỚNG DẪN THỰC HÀNH — MODULE D01
+
+## Bài mở đầu: Làm quen Affinity
+
+Mở [poster Trà Mát dạng SVG](/assets/lessons/tra-mat.svg) trong Affinity. Đổi giữa các tab Vector, Pixel và Layout ngay dưới thanh menu. Trong Vector, mở Window > General > Layers và tìm lớp chữ “50 G”. Nhấn con mắt để ẩn, bật lại để hiện. Chuyển sang Layout và quan sát bảng Pages ở bên trái.
+
 ## CHỦ ĐỀ: THIẾT LẬP BẢN VẼ ARTBOARD ĐA THIẾT BỊ (RESPONSIVE CANVAS)
 
 - **Tệp tài nguyên:** `D01_artboard_starter_guide.md`

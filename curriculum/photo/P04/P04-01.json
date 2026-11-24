@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Inpainting Brush Tool & Patch Tool",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)",
         "mac": "Nhóm công cụ phím J (Inpainting Brush, Healing Brush, Patch Tool)"

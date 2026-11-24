@@ -172,7 +172,7 @@
         "Global Swatches đóng vai trò như biến màu (design tokens) cho phép đổi tông màu toàn tài liệu tức thì.",
         "Kết hợp Symbols, Assets, Constraints và Global Swatches tạo nên quy trình thiết kế hệ thống hoàn chỉnh."
       ],
-      "nextSteps": "Hoàn thành bài tập tổng kết Module D08 theo hướng dẫn trong D08_symbols_assets_guide.md, sau đó chuyển sang Module D09 (Tích Hợp Pixel Persona & Đổ Bóng Kết Cấu Hạt).",
+      "nextSteps": "Hoàn thành bài tập tổng kết Module D08 theo hướng dẫn trong D08_symbols_assets_guide.md, sau đó chuyển sang Module D09 (Tích Hợp Pixel Studio & Đổ Bóng Kết Cấu Hạt).",
       "officialDocsUrl": "https://affinity.help/designer/en-US.lproj/pages/Panels/constraintsPanel.html"
     }
   },
@@ -285,7 +285,7 @@
         "Đã đóng gói thư viện .afassets phân cấp rõ ràng phục vụ tái sử dụng đa dự án.",
         "Đã cấu hình Constraints để thẻ và nút tự co giãn mượt mà không méo chi tiết.",
         "Đã triển khai Global Color Swatches cho phép thay đổi chủ đề màu toàn cục.",
-        "Tiếp theo: Module D09 (Tích Hợp Pixel Persona & Đổ Bóng Kết Cấu Hạt)."
+        "Tiếp theo: Module D09 (Tích Hợp Pixel Studio & Đổ Bóng Kết Cấu Hạt)."
       ],
       "proTip": "Bộ kỹ năng này giúp bạn quản lý thiết kế giao diện quy mô lớn khoa học, sạch sẽ và tiết kiệm tối đa thời gian chỉnh sửa."
     }

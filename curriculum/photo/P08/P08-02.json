@@ -9,7 +9,7 @@
   "difficulty": "Intermediate",
   "standardSections": {
     "learningObjectives": [
-      "Vẽ và hiệu chỉnh các hình khối vector tham số (Rectangle, Ellipse, Star, Callout) trực tiếp trong Photo Persona.",
+      "Vẽ và hiệu chỉnh các hình khối vector tham số (Rectangle, Ellipse, Star, Callout) trực tiếp trong Pixel Studio.",
       "Thiết lập các hiệu ứng Layer FX chuyên nghiệp: Outer Shadow, Inner Shadow, Outline, 3D / Bevel Emboss, Color Overlay.",
       "Kích hoạt và hiểu rõ tầm quan trọng của tùy chọn 'Scale with Object' khi co giãn kích thước layer hiệu ứng.",
       "Sử dụng Quick FX panel để lưu trữ, sao chép và đồng bộ phong cách đồ họa (Layer Styles) giữa các đối tượng."
@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Shape Tools & Layer Effects (Quick FX)",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Ctrl + Alt + V)",
         "mac": "U (Shapes) / P (Pen Tool) / Edit > Paste FX (Cmd + Option + V)"
@@ -151,7 +151,7 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "Hình khối vector trong Photo Persona luôn sắc nét vô hạn ở mọi độ phóng đại.",
+        "Hình khối vector trong Pixel Studio luôn sắc nét vô hạn ở mọi độ phóng đại.",
         "Layer FX cung cấp 10 hiệu ứng bề mặt phi hủy diệt tính toán bằng GPU thời gian thực.",
         "Luôn kích hoạt 'Scale with Object' để bảo vệ tỉ lệ hiệu ứng khi co giãn đồ họa.",
         "Lệnh Paste FX cho phép sao chép công thức hiệu ứng cho hàng loạt phần tử tức thì."
@@ -188,7 +188,7 @@
       "type": "concept",
       "content": "Trong Affinity Photo, các công cụ Shape (U) và Pen Tool (P) hoạt động hoàn toàn dưới dạng Vector. Bạn có thể phóng to hình khối lên 1000% mà không bao giờ bị vỡ hạt hay mờ mép, mang lại sự tương phản thị giác đắt giá khi đặt cạnh ảnh chụp.",
       "tips": "Hình khối vector có thể làm mặt nạ clipping mask chứa các ảnh chụp bên trong cực kỳ mượt mà.",
-      "codeSnippet": "Vector trong Pixel Studio (Photo Persona):\n- Hình khối cơ bản: Rectangle, Ellipse, Star, Donut, Callout\n- Điều khiển tham số: Bo góc, số răng bánh xe, số cánh sao\n- Độ phân giải vô hạn: Kết xuất sắc nét ở mọi mức DPI không bị nhòe"
+      "codeSnippet": "Vector trong Pixel Studio (Pixel Studio):\n- Hình khối cơ bản: Rectangle, Ellipse, Star, Donut, Callout\n- Điều khiển tham số: Bo góc, số răng bánh xe, số cánh sao\n- Độ phân giải vô hạn: Kết xuất sắc nét ở mọi mức DPI không bị nhòe"
     },
     {
       "id": "slide-p08-02-02",
@@ -246,7 +246,7 @@
       "title": "Tóm lược hệ sinh thái đồ họa trong Photo",
       "subtitle": "Cầu nối giữa chỉnh sửa ảnh và thiết kế truyền thông",
       "type": "summary",
-      "content": "Khả năng xử lý vector và Layer FX ngay trong Photo Persona giúp bạn hoàn thiện các ấn phẩm banner, thumbnail YouTube, poster sự kiện mà không cần phải chuyển đổi qua lại giữa nhiều phần mềm khác nhau.",
+      "content": "Khả năng xử lý vector và Layer FX ngay trong Pixel Studio giúp bạn hoàn thiện các ấn phẩm banner, thumbnail YouTube, poster sự kiện mà không cần phải chuyển đổi qua lại giữa nhiều phần mềm khác nhau.",
       "tips": "Sử dụng tính năng Studio Presets để lưu lại không gian làm việc vừa có công cụ ảnh vừa có công cụ text thuận tiện.",
       "codeSnippet": "Danh sách kiểm tra tích hợp đồ họa:\n[✓] Hình khối vector hiển thị sắc nét với khử răng cưa chuẩn\n[✓] Layer FX áp dụng độ mờ dịu và đúng hướng sáng\n[✓] Bật 'Scale with Object' trên mọi thành phần sản xuất\n[✓] Đồng bộ phong cách hàng loạt qua lệnh Paste FX"
     }

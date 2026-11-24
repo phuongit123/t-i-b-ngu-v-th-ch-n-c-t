@@ -7,8 +7,7 @@ test.describe('Phase 5 — Technical SEO, URL Tiếng Việt & JSON-LD Schema', 
     await page.goto('/bai-hoc/p05-01-nguyen-ly-can-chinh-mau-sac-bieu-do-histogram-va-curves');
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'vi');
-    await expect(page.locator('span:has-text("P05-01")').first()).toBeVisible();
-    await expect(page.locator('h2')).toContainText('Exposure, dải tương phản và cân bằng trắng');
+    await expect(page.locator('h1')).toContainText('Exposure, dải tương phản và cân bằng trắng');
     await expect(page.locator('h1')).toBeVisible();
 
     const title = await page.title();
@@ -101,8 +100,7 @@ test.describe('Phase 5 — Technical SEO, URL Tiếng Việt & JSON-LD Schema', 
     expect(href).toMatch(/^\/bai-hoc\/d02-01-/);
 
     await siloLink.click();
-    await expect(page.locator('span:has-text("D02-01")').first()).toBeVisible();
-    await expect(page.locator('h2')).toContainText('Các chế độ Pen Tool và cơ chế tay cầm Bézier');
+    await expect(page.locator('h1')).toContainText('Vẽ đường cong bằng Pen Tool');
     await expect(page).toHaveURL(/\/bai-hoc\/d02-01-/);
 
     const lessonSiloBar = page.getByTestId('lesson-seo-silo-bar');
@@ -111,7 +109,7 @@ test.describe('Phase 5 — Technical SEO, URL Tiếng Việt & JSON-LD Schema', 
     await expect(lessonSiloBar.locator('a[href="/tri-thuc/tu-dien-thuat-ngu"]')).toBeVisible();
   });
 
-  test('TC-P5-04: sitemap.xml liệt kê đủ 84 URL (18 chuyên mục + 66 bài học) và robots.txt hợp lệ', async ({
+  test('TC-P5-04: sitemap.xml liệt kê đủ 85 URL (19 chuyên mục + 66 bài học) và robots.txt hợp lệ', async ({
     page,
   }) => {
     const sitemapRes = await page.request.get('/sitemap.xml');
@@ -124,7 +122,8 @@ test.describe('Phase 5 — Technical SEO, URL Tiếng Việt & JSON-LD Schema', 
     expect(sitemapXml).toContain('<loc>https://affinityacademy.vn/thuc-hanh-tu-dong-hoa</loc>');
 
     const urlMatches = sitemapXml.match(/<url>/g) ?? [];
-    expect(urlMatches.length).toBe(84);
+    expect(urlMatches.length).toBe(85);
+    expect(sitemapXml).toContain('<loc>https://affinityacademy.vn/lo-trinh/bat-dau</loc>');
 
     const lessonUrlMatches = sitemapXml.match(/\/bai-hoc\/[dpbs]\d{2}-\d{2}-/g) ?? [];
     expect(lessonUrlMatches.length).toBe(66);

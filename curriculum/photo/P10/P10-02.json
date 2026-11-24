@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Color Management & Export Formats",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Document > Convert Format / ICC Profile / Ctrl + Alt + Shift + S",
         "mac": "Document > Convert Format / ICC Profile / Cmd + Option + Shift + S"
@@ -90,7 +90,7 @@
         "filetype": ".md",
         "assetStatus": "GUIDE_DOCUMENT",
         "isVerified": true,
-        "statusNote": "Tài liệu kỹ thuật hướng dẫn Export Persona và đóng gói xuất bản trong Affinity Photo."
+        "statusNote": "Tài liệu kỹ thuật hướng dẫn Slice Studio và đóng gói xuất bản trong Affinity Photo."
       },
       "challengeCriteria": [
         "File web sRGB hiển thị rực rỡ và nhúng profile ICC chính xác.",

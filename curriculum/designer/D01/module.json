@@ -2,20 +2,24 @@
   "id": "D01",
   "trackId": "designer",
   "moduleNumber": "D01",
-  "title": "Giao Diện Vector, Các Persona & Thiết Lập Bản Vẽ (Artboard)",
-  "tagline": "Làm chủ không gian ba Persona, Artboard đa thiết bị và hệ thống căn gióng chính xác.",
-  "description": "Nắm vững kiến trúc engine kép độc đáo của Affinity Designer: chuyển đổi linh hoạt giữa Vector Persona, Pixel Persona và Export Persona. Thực hành tổ chức artboard chuyên nghiệp cho giao diện đa thiết bị và ấn phẩm in ấn, kết hợp chế độ xem trước điểm ảnh và lưới căn gióng thông minh.",
+  "title": "Giao diện Affinity và thiết lập Artboard",
+  "tagline": "Tìm công cụ trong ba Studio, tạo artboard và căn đối tượng.",
+  "description": "Mở tài liệu trong Affinity, nhận diện các lớp và chuyển giữa Vector, Pixel và Layout. Sau đó tạo artboard và dùng lưới, chế độ xem điểm ảnh để kiểm tra đầu ra.",
   "difficulty": "Beginner",
-  "estimatedMinutes": 75,
+  "estimatedMinutes": 70,
   "prerequisites": [],
-  "primaryPersona": "Vector Persona",
+  "primaryPersona": "Vector Studio",
   "starterAsset": {
     "filename": "D01_artboard_starter_guide.md",
     "filepath": "curriculum/assets/designer/D01_artboard_starter_guide.md",
     "filesize": "1.2 KB",
-    "filetype": ".pdf",
+    "filetype": ".md",
     "isVerified": true,
     "statusNote": "Hướng dẫn thiết lập đã kiểm chứng cho bản vẽ Artboard đa thiết bị."
   },
-  "lessonIds": ["D01-01", "D01-02", "D01-03"]
+  "lessonIds": [
+    "D01-01",
+    "D01-02",
+    "D01-03"
+  ]
 }

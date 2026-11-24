@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Lồng lớp Pixel con (Child Pixel Clipping) & Protect Alpha",
-      "persona": "Kết hợp hai không gian (Designer Persona & Pixel Persona)",
+      "persona": "Kết hợp hai không gian (Vector Studio & Pixel Studio)",
       "shortcut": {
         "win": "Kéo thả lồng lớp con trong Layers, nút Insert Inside (thanh công cụ trên), ô tích Protect Alpha",
         "mac": "Kéo thả lồng lớp con trong Layers, nút Insert Inside (thanh công cụ trên), ô tích Protect Alpha"
@@ -41,7 +41,7 @@
       {
         "stepNumber": 1,
         "title": "Dựng đường bao Vector cha cho hình khối",
-        "instruction": "Ở Designer Persona, dùng Pen Tool (P) vẽ một chiếc lá hoặc cánh tay nhân vật. Tô màu nền trung tính phẳng (chẳng hạn xanh rêu #15803D) và tắt đường viền (Stroke: None).",
+        "instruction": "Ở Vector Studio, dùng Pen Tool (P) vẽ một chiếc lá hoặc cánh tay nhân vật. Tô màu nền trung tính phẳng (chẳng hạn xanh rêu #15803D) và tắt đường viền (Stroke: None).",
         "shortcutTip": { "win": "P (Pen Tool)", "mac": "P (Pen Tool)" }
       },
       {
@@ -52,8 +52,8 @@
       },
       {
         "stepNumber": 3,
-        "title": "Chuyển sang Pixel Persona và thêm lớp Pixel con",
-        "instruction": "Nhấp biểu tượng Pixel Persona ở góc trên bên trái. Trong bảng Layers Studio, nhấn nút 'Add Pixel Layer'. Lớp Pixel mới xuất hiện thụt lề ngay bên dưới đường cong chiếc lá kèm mũi tên mở rộng.",
+        "title": "Chuyển sang Pixel Studio và thêm lớp Pixel con",
+        "instruction": "Nhấp biểu tượng Pixel Studio ở góc trên bên trái. Trong bảng Layers Studio, nhấn nút 'Add Pixel Layer'. Lớp Pixel mới xuất hiện thụt lề ngay bên dưới đường cong chiếc lá kèm mũi tên mở rộng.",
         "shortcutTip": { "win": "Add Pixel Layer", "mac": "Add Pixel Layer" }
       },
       {
@@ -87,9 +87,9 @@
       "title": "Đổ bóng bàn tay nhân vật cách điệu nhiều đốt",
       "taskDescription": "Dựng một bàn tay vector và phủ lớp đổ bóng hạt lồng riêng vào từng ngón tay và lòng bàn tay mà không làm lem màu giữa các kẽ.",
       "checkpoints": [
-        "Vẽ hình khối bàn tay và các ngón tách lớp sạch sẽ trong Designer Persona.",
+        "Vẽ hình khối bàn tay và các ngón tách lớp sạch sẽ trong Vector Studio.",
         "Dùng 'Insert inside the selection' để lồng Pixel Layer con vào từng ngón tay.",
-        "Chuyển sang Pixel Persona, chọn cọ phấn hạt (Flow: 20%) và đặt lớp bóng ở chế độ Multiply.",
+        "Chuyển sang Pixel Studio, chọn cọ phấn hạt (Flow: 20%) và đặt lớp bóng ở chế độ Multiply.",
         "Tô bóng đổ dưới các khớp ngón; xác nhận không có hạt màu nào bị lem sang ngón kế bên.",
         "Chọn khối lòng bàn tay bằng Node Tool (A) và kéo chỉnh nhẹ đường cong để kiểm tra biên cắt tự động cập nhật."
       ],
@@ -97,7 +97,7 @@
     },
     "independentChallenge": {
       "title": "Tán lá cọ Retro-Futuristic lồng lớp độc lập",
-      "prompt": "Xây dựng minh họa thực vật hoàn chỉnh: (1) Ở Designer Persona, vẽ một tàu lá cọ lớn gồm 7 phiến lá thuôn nhọn riêng biệt; (2) Lồng Pixel Layer con độc lập vào bên trong từng phiến lá; (3) Đánh bóng hạt chuyển sắc với Multiply cho phần tối và Screen cho mép sáng; (4) Bật Protect Alpha để nhuộm thêm ánh vàng ấm vào những vùng bóng sâu; (5) Quay lại Designer Persona, xoay chỉnh vị trí 3 phiến lá xếp chồng lên nhau và xác nhận lớp hạt của từng lá luôn nằm gọn trong hình dáng riêng của lá đó.",
+      "prompt": "Xây dựng minh họa thực vật hoàn chỉnh: (1) Ở Vector Studio, vẽ một tàu lá cọ lớn gồm 7 phiến lá thuôn nhọn riêng biệt; (2) Lồng Pixel Layer con độc lập vào bên trong từng phiến lá; (3) Đánh bóng hạt chuyển sắc với Multiply cho phần tối và Screen cho mép sáng; (4) Bật Protect Alpha để nhuộm thêm ánh vàng ấm vào những vùng bóng sâu; (5) Quay lại Vector Studio, xoay chỉnh vị trí 3 phiến lá xếp chồng lên nhau và xác nhận lớp hạt của từng lá luôn nằm gọn trong hình dáng riêng của lá đó.",
       "starterAsset": {
         "filename": "D09_pixel_persona_shading_guide.md",
         "filepath": "curriculum/assets/designer/D09_pixel_persona_shading_guide.md",
@@ -193,9 +193,9 @@
     {
       "slideNumber": 2,
       "title": "Khởi tạo lớp vỏ Vector cha",
-      "subtitle": "Nền tảng sắc nét từ Designer / Vector Persona",
+      "subtitle": "Nền tảng sắc nét từ Designer / Vector Studio",
       "bullets": [
-        "Ở Designer Persona, dùng Pen Tool (P) vẽ đường bao hình dáng gốc.",
+        "Ở Vector Studio, dùng Pen Tool (P) vẽ đường bao hình dáng gốc.",
         "Tô màu phẳng trung tính làm nền cơ bản (ví dụ xanh rêu #15803D).",
         "Đảm bảo các đường dẫn được khép kín gọn gàng với số điểm neo tối giản.",
         "Chọn sẵn đối tượng này để đánh dấu làm khung chứa cho các lớp đổ bóng."
@@ -208,7 +208,7 @@
       "subtitle": "Tạo lớp con trực tiếp bên trong đối tượng đang chọn",
       "bullets": [
         "Bật nút 'Insert inside the selection' trên thanh công cụ phía trên.",
-        "Chuyển sang Pixel Persona qua biểu tượng ở góc trên bên trái.",
+        "Chuyển sang Pixel Studio qua biểu tượng ở góc trên bên trái.",
         "Nhấn nút 'Add Pixel Layer' ở đáy bảng Layers Studio.",
         "Lớp Pixel mới sinh ra đã nằm thụt lề sẵn làm con của đường cong vector cha."
       ],
@@ -243,7 +243,7 @@
       "title": "Chỉnh sửa đường cong cha theo thời gian thực",
       "subtitle": "Sửa dáng hình mà không làm méo lớp chất liệu",
       "bullets": [
-        "Chuyển lại về Designer / Vector Persona trên thanh công cụ góc trái.",
+        "Chuyển lại về Designer / Vector Studio trên thanh công cụ góc trái.",
         "Chọn đường cong cha bằng Node Tool (A).",
         "Kéo di chuyển các điểm neo hoặc bẻ lại tay nắm tiếp tuyến để đổi hình khối.",
         "Mảng hạt raster bên trong tự động cắt khớp lại theo đường bao mới ngay tức thì."
@@ -259,7 +259,7 @@
         "Vẽ hình chiếc lá tô màu xanh ngọc trầm (#0F766E).",
         "Lồng lớp Pixel con chế độ Multiply đánh hạt phấn dọc theo nửa mép tối.",
         "Lồng lớp Pixel con thứ hai chế độ Screen đánh viền sáng dọc mép trên.",
-        "Quay lại Designer Persona vẽ chồng các đường gân lá vector 2 pt sắc gọn."
+        "Quay lại Vector Studio vẽ chồng các đường gân lá vector 2 pt sắc gọn."
       ],
       "proTip": "Sự đối lập giữa nét gân vector sắc lẹm và nền hạt phấn mịn tạo nét thẩm mỹ rất cuốn hút cho tranh biên tập."
     },

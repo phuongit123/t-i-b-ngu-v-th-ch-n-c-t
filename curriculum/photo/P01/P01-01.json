@@ -3,31 +3,31 @@
   "moduleId": "P01",
   "trackId": "photo",
   "order": 1,
-  "title": "Giao diện Photo, thanh công cụ và các bảng Studio",
+  "title": "Làm quen Pixel Studio và bảng chỉnh ảnh",
   "subtitle": "Tùy biến không gian làm việc, điều hướng vùng vẽ và kiến trúc chỉnh sửa phi phá hủy",
   "durationMinutes": 25,
   "difficulty": "Beginner",
   "standardSections": {
     "learningObjectives": [
-      "Điều hướng thành thạo giao diện Pixel Studio / Affinity Photo: các Persona (Photo, Develop, Liquify, Tone Mapping, Export), thanh công cụ (Toolbars) và các bảng Studio.",
+      "Điều hướng thành thạo giao diện Pixel Studio trong Affinity: các Studio (Photo, Develop, Liquify, Tone Mapping, Export), thanh công cụ (Toolbars) và các bảng Studio.",
       "Hiểu rõ mô hình thiết kế phi phá hủy cốt lõi: Adjustment Layers (lớp điều chỉnh), Live Filters (bộ lọc trực tiếp) và Pixel Masks (mặt nạ điểm ảnh).",
       "Tùy chỉnh hệ thống bảng Studio, bố cục cột công cụ và lưu các cấu hình không gian làm việc (Presets) cho từng nhu cầu chỉnh sửa ảnh.",
       "Làm chủ thao tác điều hướng vùng vẽ mượt mà: thu phóng (Z / Alt+Cuộn chuột), trượt vùng nhìn (Spacebar) và xoay khung vẽ."
     ],
-    "foundationalKnowledge": "Pixel Studio / Affinity Photo được xây dựng từ nền tảng như một bộ máy chỉnh sửa phi phá hủy (Non-Destructive Engine) thuần túy. Trong các phần mềm xử lý ảnh truyền thống, thao tác cắt khung (Crop), làm mờ, làm nét hay kéo đường cong màu sắc thường ghi đè trực tiếp lên dữ liệu điểm ảnh gốc (chỉnh sửa phá hủy). Trong Affinity, mọi thay đổi—từ điều chỉnh Curves, Unsharp Mask, Gaussian Blur đến biến đổi phối cảnh—đều vận hành dưới dạng lớp tính toán thời gian thực (Shader Layer), cho phép bạn hiệu chỉnh lại thông số, đổi thứ tự lớp, che bằng mặt nạ hoặc tắt bỏ bất kỳ lúc nào mà không làm suy giảm điểm ảnh nguồn.",
+    "foundationalKnowledge": "Pixel Studio trong Affinity được xây dựng từ nền tảng như một bộ máy chỉnh sửa phi phá hủy (Non-Destructive Engine) thuần túy. Trong các phần mềm xử lý ảnh truyền thống, thao tác cắt khung (Crop), làm mờ, làm nét hay kéo đường cong màu sắc thường ghi đè trực tiếp lên dữ liệu điểm ảnh gốc (chỉnh sửa phá hủy). Trong Affinity, mọi thay đổi—từ điều chỉnh Curves, Unsharp Mask, Gaussian Blur đến biến đổi phối cảnh—đều vận hành dưới dạng lớp tính toán thời gian thực (Shader Layer), cho phép bạn hiệu chỉnh lại thông số, đổi thứ tự lớp, che bằng mặt nạ hoặc tắt bỏ bất kỳ lúc nào mà không làm suy giảm điểm ảnh nguồn.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Affinity Photo 3.3.3 Non-Destructive Layer Pipeline & Persona Architecture",
+      "classification": "DOCUMENTED",
+      "source": "Tab Pixel, Histogram và Layers quan sát trực tiếp trong Affinity 3.3.3.5004 Windows. Luồng bài đối chiếu Affinity Essentials Lesson 3.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
-      "toolName": "Không gian làm việc Photo Persona & các bảng Studio (Pixel Studio)",
-      "persona": "Photo Persona (Chế độ mặc định của Pixel Studio)",
+      "toolName": "Không gian làm việc Pixel Studio & các bảng Studio (Pixel Studio)",
+      "persona": "Tab Pixel dưới thanh menu",
       "shortcut": {
         "win": "Nhấp biểu tượng Persona (Thanh công cụ góc trên bên trái) / Phím tắt tùy chỉnh trong Settings > Shortcuts (Lưu ý: Ctrl+1 là Thu phóng 100%, Ctrl+2 là Thu phóng 200%)",
         "mac": "Nhấp biểu tượng Persona (Thanh công cụ góc trên bên trái) / Phím tắt tùy chỉnh trong Settings > Shortcuts (Lưu ý: Cmd+1 là Thu phóng 100%, Cmd+2 là Thu phóng 200%)"
       },
-      "description": "Photo Persona là trung tâm xử lý điểm ảnh, chỉnh sửa chân dung (Retouching), ghép ảnh và phối màu. Các bảng Studio quan trọng ở dock bên phải gồm Layers (F7), Histogram, Info, Adjustment, Color, Channels và History.",
+      "description": "Pixel Studio là trung tâm xử lý điểm ảnh, chỉnh sửa chân dung (Retouching), ghép ảnh và phối màu. Các bảng Studio quan trọng ở dock bên phải gồm Layers (F7), Histogram, Info, Adjustment, Color, Channels và History.",
       "contextBarOptions": [
         "View Tool (H) / Công cụ Bàn tay: Trượt khung nhìn vùng vẽ, chỉnh góc xoay và phần trăm thu phóng",
         "Move Tool (V): Chọn đối tượng/layer, các tùy chọn tự động chọn (Default, Group, Object)",
@@ -39,34 +39,52 @@
       {
         "stepNumber": 1,
         "title": "Mở tệp thực hành",
-        "instruction": "Mở tệp thực hành chuẩn bị sẵn 'P01_starter.afphoto' qua File > Open (Ctrl+O / Cmd+O). Quan sát tệp ảnh tải trực tiếp vào Photo Persona với đầy đủ độ sâu bit màu nguyên vẹn.",
-        "shortcutTip": { "win": "Ctrl+O", "mac": "Cmd+O" }
+        "instruction": "Mở tệp thực hành chuẩn bị sẵn 'P01_starter.afphoto' qua File > Open (Ctrl+O / Cmd+O). Quan sát tệp ảnh tải trực tiếp vào Pixel Studio với đầy đủ độ sâu bit màu nguyên vẹn.",
+        "shortcutTip": {
+          "win": "Ctrl+O",
+          "mac": "Cmd+O"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Kiểm tra ngăn xếp Layer phi phá hủy",
         "instruction": "Mở bảng Layers Studio (nhấn F7 nếu đang ẩn). Quan sát cách các Adjustment Layers và mặt nạ nằm phía trên lớp điểm ảnh nền. Bật/tắt dấu tích hiển thị của một lớp điều chỉnh để thấy xem trước phi phá hủy theo thời gian thực.",
-        "shortcutTip": { "win": "F7", "mac": "F7" }
+        "shortcutTip": {
+          "win": "F7",
+          "mac": "F7"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Điều hướng vùng vẽ mượt mà",
         "instruction": "Giữ phím Spacebar và kéo chuột để trượt khắp vùng vẽ độ phân giải cao ở tốc độ 60fps. Giữ Ctrl+Space (Win) hoặc Cmd+Space (Mac) rồi kéo sang trái/phải để phóng to/thu nhỏ liên tục. Giữ Alt+kéo chuột khi đang dùng View Tool để xoay góc vùng vẽ cho thuận tay vẽ cọ.",
-        "shortcutTip": { "win": "Spacebar (Trượt vùng nhìn)", "mac": "Spacebar (Trượt vùng nhìn)" }
+        "shortcutTip": {
+          "win": "Spacebar (Trượt vùng nhìn)",
+          "mac": "Spacebar (Trượt vùng nhìn)"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Tùy biến bố cục bảng Tools",
         "instruction": "Vào menu View > Customize Tools. Chuyển số cột hiển thị từ 1 lên 2. Kéo thả các công cụ hay dùng (như Inpainting Brush Tool hoặc các công cụ chọn) vào nhóm công cụ chính của bạn.",
-        "shortcutTip": { "win": "View > Customize Tools", "mac": "View > Customize Tools" }
+        "shortcutTip": {
+          "win": "View > Customize Tools",
+          "mac": "View > Customize Tools"
+        }
       }
     ],
     "visualExamples": [
       {
-        "title": "Ma trận tổng quan 5 Persona chuyên biệt",
-        "description": "Các môi trường làm việc chuyên biệt trong quy trình xử lý ảnh của Pixel Studio / Affinity Photo.",
+        "title": "Pixel Studio trên Windows",
+        "description": "Tab Pixel, Histogram, Layers và Brushes cùng hiển thị. Tệp đang mở là poster vector dùng để quan sát việc chuyển Studio.",
+        "visualType": "diagram",
+        "visualContent": "/assets/lessons/affinity-333-pixel.webp"
+      },
+      {
+        "title": "Ma trận tổng quan Các Studio và công cụ chuyên biệt",
+        "description": "Các môi trường làm việc chuyên biệt trong quy trình xử lý ảnh của Pixel Studio trong Affinity.",
         "visualType": "table",
-        "visualContent": "| Persona | Chức năng chính | Khả năng nổi bật |\n|---|---|---|\n| Photo Persona | Retouching, ghép ảnh, phối màu | Layers, Adjustments, Live Filters, Masks |\n| Develop Persona | Giải mã cảm biến RAW & chuẩn bị phơi sáng | Quy trình 32-bit float, khử quang sai, chỉnh méo ống kính |\n| Tone Mapping | Trộn dải tương phản động cao (HDR) | Nén dải sáng 32-bit xuống 16/8-bit |\n| Liquify Persona | Biến dạng lưới, nắn chỉnh chân dung & hình thể | Cọ Push, Twirl, Pinch, Reconstruct |\n| Export Persona | Cắt lát (Slices) và xuất file sản xuất | Xuất hàng loạt WebP, JPEG XL, TIFF, OpenEXR |"
+        "visualContent": "| Persona | Chức năng chính | Khả năng nổi bật |\n|---|---|---|\n| Pixel Studio | Retouching, ghép ảnh, phối màu | Layers, Adjustments, Live Filters, Masks |\n| Develop Studio | Giải mã cảm biến RAW & chuẩn bị phơi sáng | Quy trình 32-bit float, khử quang sai, chỉnh méo ống kính |\n| Tone Mapping | Trộn dải tương phản động cao (HDR) | Nén dải sáng 32-bit xuống 16/8-bit |\n| Liquify Studio | Biến dạng lưới, nắn chỉnh chân dung & hình thể | Cọ Push, Twirl, Pinch, Reconstruct |\n| Slice Studio | Cắt lát (Slices) và xuất file sản xuất | Xuất hàng loạt WebP, JPEG XL, TIFF, OpenEXR |"
       },
       {
         "title": "Sơ đồ luồng xử lý Layer phi phá hủy",
@@ -89,7 +107,7 @@
     },
     "independentChallenge": {
       "title": "Thiết lập không gian làm việc Retouching tùy biến",
-      "prompt": "Thiết lập một không gian làm việc Retouching hiệu suất cao trong Pixel Studio / Affinity Photo: (1) Chỉnh bảng Tools sang dạng 2 cột với các công cụ Inpainting và Healing ở vị trí dễ thấy; (2) Gắn (Dock) các bảng Layers, Channels và Histogram ở cạnh phải; (3) Thêm một lớp Live High Pass filter vào 'P01_starter.afphoto' và đặt chế độ hòa trộn 'Overlay'; (4) Kiểm tra khả năng nhấp đúp vào biểu tượng High Pass để thay đổi bán kính phi phá hủy.",
+      "prompt": "Thiết lập một không gian làm việc Retouching hiệu suất cao trong Pixel Studio trong Affinity: (1) Chỉnh bảng Tools sang dạng 2 cột với các công cụ Inpainting và Healing ở vị trí dễ thấy; (2) Gắn (Dock) các bảng Layers, Channels và Histogram ở cạnh phải; (3) Thêm một lớp Live High Pass filter vào 'P01_starter.afphoto' và đặt chế độ hòa trộn 'Overlay'; (4) Kiểm tra khả năng nhấp đúp vào biểu tượng High Pass để thay đổi bán kính phi phá hủy.",
       "starterAsset": {
         "filename": "P01_starter.afphoto",
         "filepath": "curriculum/assets/photo/P01_starter.afphoto",
@@ -126,7 +144,7 @@
     "knowledgeCheck": [
       {
         "id": "P01-01-Q1",
-        "question": "Sự khác biệt cốt lõi giữa Bộ lọc tiêu chuẩn (trong menu Filters) và Live Filter Layer trong Pixel Studio / Affinity Photo là gì?",
+        "question": "Sự khác biệt cốt lõi giữa Bộ lọc tiêu chuẩn (trong menu Filters) và Live Filter Layer trong Pixel Studio trong Affinity là gì?",
         "options": [
           "Bộ lọc tiêu chuẩn có độ phân giải cao hơn Live Filters.",
           "Live Filter Layer hoạt động phi phá hủy như một shader GPU thời gian thực, cho phép chỉnh lại thông số, đổi thứ tự hoặc gắn mặt nạ bất kỳ lúc nào mà không làm hỏng pixel gốc.",
@@ -163,20 +181,25 @@
     ],
     "summaryAndResources": {
       "summaryPoints": [
-        "5 Persona chuyên biệt giúp tách bạch rõ từng giai đoạn từ giải mã RAW đến retouching và xuất file.",
+        "Các Studio và công cụ chuyên biệt giúp tách bạch rõ từng giai đoạn từ giải mã RAW đến retouching và xuất file.",
         "Quy trình phi phá hủy bảo toàn dữ liệu cảm biến gốc trong khi vẫn cho phép tinh chỉnh tham số vô hạn.",
         "Live Filters và Adjustment Layers đều tích hợp sẵn kênh mặt nạ để chỉnh sửa cục bộ chính xác.",
         "Tùy biến các bảng Studio và thanh công cụ giúp tối ưu tốc độ và tư thế thao tác khi xử lý ảnh."
       ],
       "relatedResources": [
         {
-          "title": "Bài tiếp theo: P01-02 RAW Develop Persona và quy trình màu HDR 32-bit",
+          "title": "Bài tiếp theo: P01-02 RAW Develop Studio và quy trình màu HDR 32-bit",
           "target": "P01-02",
           "type": "next-lesson"
         },
         {
           "title": "Tài liệu hướng dẫn Affinity: Chỉnh sửa phi phá hủy",
           "target": "https://affinity.serif.com/photo/non-destructive/",
+          "type": "doc"
+        },
+        {
+          "title": "Affinity Essentials: Pixel Studio",
+          "target": "https://www.affinity.studio/blog/affinity-essentials-lesson-3-pixel-studio",
           "type": "doc"
         }
       ]
@@ -189,7 +212,7 @@
       "type": "intro",
       "title": "Giao diện Photo & Kiến trúc Phi Phá Hủy",
       "subtitle": "Tư duy xử lý ảnh chuyên nghiệp hiện đại",
-      "contentMarkdown": "Chào mừng bạn đến với **Pixel Studio / Affinity Photo**.\n\nĐược thiết kế ngay từ đầu để khắc phục quy trình ghi đè phá hủy dữ liệu của các trình sửa ảnh cũ, Affinity vận hành trên một **cơ chế phi phá hủy (Non-Destructive Engine)** thuần túy.\n\nTrong bài học này, bạn sẽ nắm vững **cấu trúc không gian làm việc, 5 Persona chuyên biệt và ngăn xếp Layer phi phá hủy** mà các chuyên gia retouch sử dụng hằng ngày.",
+      "contentMarkdown": "Chào mừng bạn đến với **Pixel Studio trong Affinity**.\n\nĐược thiết kế ngay từ đầu để khắc phục quy trình ghi đè phá hủy dữ liệu của các trình sửa ảnh cũ, Affinity vận hành trên một **cơ chế phi phá hủy (Non-Destructive Engine)** thuần túy.\n\nTrong bài học này, bạn sẽ nắm vững **cấu trúc không gian làm việc, Các Studio và công cụ chuyên biệt và ngăn xếp Layer phi phá hủy** mà các chuyên gia retouch sử dụng hằng ngày.",
       "actionBox": {
         "label": "Triết Lý Cốt Lõi",
         "text": "Đừng bao giờ đóng cứng một thay đổi phá hủy lên điểm ảnh khi bạn có thể đạt kết quả tương tự bằng Adjustment Layer hoặc Live Filter."
@@ -199,12 +222,12 @@
       "id": "P01-01-S2",
       "slideNumber": 2,
       "type": "theory",
-      "title": "5 Persona chuyên biệt trong quy trình xử lý ảnh",
+      "title": "Các Studio và công cụ chuyên biệt trong quy trình xử lý ảnh",
       "subtitle": "Chuỗi công việc khép kín từ đầu đến cuối",
-      "contentMarkdown": "Affinity chia vòng đời xử lý hình ảnh số thành 5 môi trường chuyên dụng:\n\n1. **Photo Persona:** Retouching chính, ghép lớp, mặt nạ và phối màu.\n2. **Develop Persona:** Giải mã cảm biến RAW bit sâu cao, cứu sáng và hiệu chỉnh quang học ống kính.\n3. **Tone Mapping Persona:** Nén dải tương phản động cao (HDR) cho ảnh chụp phơi sáng nhiều mức 32-bit.\n4. **Liquify Persona:** Biến dạng lưới bằng GPU, nắn chỉnh đường nét chân dung và hình thể.\n5. **Export Persona:** Cắt lát (Slices) và xuất file tự động cho web, in ấn và tài nguyên ứng dụng.",
+      "contentMarkdown": "Affinity chia vòng đời xử lý hình ảnh số thành 5 môi trường chuyên dụng:\n\n1. **Pixel Studio:** Retouching chính, ghép lớp, mặt nạ và phối màu.\n2. **Develop Studio:** Giải mã cảm biến RAW bit sâu cao, cứu sáng và hiệu chỉnh quang học ống kính.\n3. **Tone Mapping Studio:** Nén dải tương phản động cao (HDR) cho ảnh chụp phơi sáng nhiều mức 32-bit.\n4. **Liquify Studio:** Biến dạng lưới bằng GPU, nắn chỉnh đường nét chân dung và hình thể.\n5. **Slice Studio:** Cắt lát (Slices) và xuất file tự động cho web, in ấn và tài nguyên ứng dụng.",
       "visual": {
         "type": "badge-grid",
-        "content": "Photo Persona (Cobalt) | Develop Persona (Amber) | Tone Mapping (Violet) | Liquify (Rose) | Export (Emerald)"
+        "content": "Pixel Studio (Cobalt) | Develop Studio (Amber) | Tone Mapping (Violet) | Liquify (Rose) | Export (Emerald)"
       }
     },
     {
@@ -217,7 +240,10 @@
       "actionBox": {
         "label": "Điều Hướng Mượt Mà",
         "text": "Giữ Spacebar để trượt vùng nhìn. Giữ Space+Ctrl (Win) hoặc Space+Cmd (Mac) và kéo để thu phóng liên tục.",
-        "shortcut": { "win": "Spacebar", "mac": "Spacebar" }
+        "shortcut": {
+          "win": "Spacebar",
+          "mac": "Spacebar"
+        }
       }
     },
     {
@@ -253,7 +279,7 @@
       "contentMarkdown": "Kiểm tra lại kiến thức của bạn trước khi chuyển sang bước tiếp theo.",
       "quizData": {
         "id": "P01-01-Q1",
-        "question": "Sự khác biệt cốt lõi giữa Bộ lọc tiêu chuẩn (trong menu Filters) và Live Filter Layer trong Pixel Studio / Affinity Photo là gì?",
+        "question": "Sự khác biệt cốt lõi giữa Bộ lọc tiêu chuẩn (trong menu Filters) và Live Filter Layer trong Pixel Studio trong Affinity là gì?",
         "options": [
           "Bộ lọc tiêu chuẩn có độ phân giải cao hơn Live Filters.",
           "Live Filter Layer hoạt động phi phá hủy như một shader GPU thời gian thực, cho phép chỉnh lại thông số, đổi thứ tự hoặc gắn mặt nạ bất kỳ lúc nào mà không làm hỏng pixel gốc.",

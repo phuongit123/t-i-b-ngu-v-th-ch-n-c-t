@@ -9,7 +9,7 @@
   "difficulty": "Intermediate",
   "estimatedMinutes": 85,
   "prerequisites": ["P01", "P02", "P03"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P06_live_filters_effects_guide.md",
     "filepath": "curriculum/assets/photo/P06_live_filters_effects_guide.md",

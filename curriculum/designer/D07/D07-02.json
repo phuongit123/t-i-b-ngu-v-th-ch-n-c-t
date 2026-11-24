@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Isometric Studio (Bảng điều khiển mặt phẳng trục đo)",
-      "persona": "Vector Persona (View > Studio > Isometric)",
+      "persona": "Vector Studio (View > Studio > Isometric)",
       "shortcut": {
         "win": "View > Studio > Isometric (Mở bảng), Ctrl+Shift+M (Chuyển nhanh giữa các mặt phẳng)",
         "mac": "View > Studio > Isometric (Mở bảng), Cmd+Shift+M (Chuyển nhanh giữa các mặt phẳng)"

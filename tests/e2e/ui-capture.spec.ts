@@ -73,6 +73,7 @@ test.describe('Affinity Academy UI Gallery Capture', () => {
 
   test('08 - Vector Bézier Sandbox Simulator', async ({ page }) => {
     await page.goto('/');
+    await page.getByRole('button', { name: 'Thực hành', exact: true }).click();
     await page.getByTestId('nav-simulator').click();
     await page.waitForTimeout(500);
     await page.screenshot({ path: test.info().outputPath('08-simulator-vector-bezier.png') });

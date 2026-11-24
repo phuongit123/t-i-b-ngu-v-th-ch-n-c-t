@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Text-on-Path (Chữ chạy theo đường dẫn)",
-      "persona": "Vector Persona (Artistic Text Tool + thanh Context Toolbar)",
+      "persona": "Vector Studio (Artistic Text Tool + thanh Context Toolbar)",
       "shortcut": {
         "win": "T (Di chuột chạm viền đường dẫn đến khi hiện biểu tượng chữ T kèm nét cong)",
         "mac": "T (Di chuột chạm viền đường dẫn đến khi hiện biểu tượng chữ T kèm nét cong)"

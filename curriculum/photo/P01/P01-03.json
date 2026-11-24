@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Crop Tool & Straighten Tool (Công cụ cắt khung & cân đường chân trời)",
-      "persona": "Photo Persona (Thanh công cụ bên trái trong Pixel Studio)",
+      "persona": "Pixel Studio (Thanh công cụ bên trái trong Pixel Studio)",
       "shortcut": {
         "win": "C",
         "mac": "C"

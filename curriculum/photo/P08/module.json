@@ -9,7 +9,7 @@
   "difficulty": "Intermediate",
   "estimatedMinutes": 80,
   "prerequisites": ["P01", "P02", "P03"],
-  "primaryPersona": "Photo Persona",
+  "primaryPersona": "Pixel Studio",
   "starterAsset": {
     "filename": "P08_typography_graphic_integration_guide.md",
     "filepath": "curriculum/assets/photo/P08_typography_graphic_integration_guide.md",

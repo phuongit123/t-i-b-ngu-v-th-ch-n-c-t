@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Paint Brush Tool & Live Blur/Perspective",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "B (Paint Brush) / [ and ] (Brush Size) / Ctrl + J (Duplicate)",
         "mac": "B (Paint Brush) / [ and ] (Brush Size) / Cmd + J (Duplicate)"

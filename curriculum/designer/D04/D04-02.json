@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Stroke Studio & Biểu đồ Pressure",
-      "persona": "Vector Persona (View > Studio > Stroke)",
+      "persona": "Vector Studio (View > Studio > Stroke)",
       "shortcut": {
         "win": "View > Studio > Stroke (hoặc nhấn ô Stroke trên Context Toolbar)",
         "mac": "View > Studio > Stroke (hoặc nhấn ô Stroke trên Context Toolbar)"

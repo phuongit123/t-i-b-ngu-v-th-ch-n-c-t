@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Layers Studio & Layer Management",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "F7 (Toggle Layers Studio) / Ctrl+G (Group) / Ctrl+Shift+N (New Pixel Layer)",
         "mac": "F7 (Toggle Layers Studio) / Cmd+G (Group) / Cmd+Shift+N (New Pixel Layer)"

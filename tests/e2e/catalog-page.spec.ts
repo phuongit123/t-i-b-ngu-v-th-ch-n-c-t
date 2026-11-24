@@ -6,8 +6,8 @@ test.describe('Danh mục khóa học & Bộ lọc chuyên ngành', () => {
 
     const heading = page.locator('h1');
     await expect(heading).toBeVisible();
-    await expect(heading).toContainText('Danh Mục Khóa Học & Lộ Trình Đào Tạo');
-    await expect(page.locator('text=Danh mục khóa học · 66 bài học sẵn sàng').first()).toBeVisible();
+    await expect(heading).toContainText('Khóa học Affinity');
+    await expect(page.locator('text=66 bài · 22 học phần').first()).toBeVisible();
   });
 
   test('TC-CATALOG-02: Lọc chuyên ngành Pixel Studio hiển thị đúng 10 học phần P01-P10', async ({ page }) => {
@@ -101,7 +101,8 @@ test.describe('Danh mục khóa học & Bộ lọc chuyên ngành', () => {
     await expect(startModuleButton).toBeVisible();
     await startModuleButton.click();
 
-    await expect(page.locator('h2')).toContainText('Cấu trúc giao diện Designer và chuyển đổi Persona');
+    await expect(page.locator('h1')).toContainText('Làm quen giao diện Affinity và ba Studio');
+    await page.getByTestId('lesson-mode-slides').click();
     await expect(page.getByTestId('slide-counter')).toContainText('Trang 1');
   });
 });

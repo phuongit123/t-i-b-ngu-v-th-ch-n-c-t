@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Move Tool & Guides Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "V (Move Tool) / Ctrl + R (Rulers) / Ctrl + ; (Guides)",
         "mac": "V (Move Tool) / Cmd + R (Rulers) / Cmd + ; (Guides)"
@@ -39,7 +39,7 @@
       {
         "stepNumber": 1,
         "title": "Phân tích Background Plate",
-        "instruction": "Mở ảnh nền trong Photo Persona. Nhấn Ctrl+R (Cmd+R) để hiện Rulers. Kéo một thước dóng ngang xuống đúng vị trí đường chân trời (Horizon Line) của ảnh nền.",
+        "instruction": "Mở ảnh nền trong Pixel Studio. Nhấn Ctrl+R (Cmd+R) để hiện Rulers. Kéo một thước dóng ngang xuống đúng vị trí đường chân trời (Horizon Line) của ảnh nền.",
         "shortcutTip": { "win": "Ctrl + R", "mac": "Cmd + R" }
       },
       {

@@ -9,6 +9,43 @@
 
 ---
 
+## Bàn giao thực hành RAW và kiểm công cụ ngày 2026-11-24
+
+- Bản preview dùng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort`. [Develop cơ bản](http://127.0.0.1:4175/bai-hoc/p01-02) · [Develop nâng cao](http://127.0.0.1:4175/bai-hoc/p09-01) · [Artboard](http://127.0.0.1:4175/bai-hoc/d01-02) · [Histogram](http://127.0.0.1:4175/bai-hoc/p05-01).
+- Học liệu `curriculum/assets/photo/P01_RAW_cang_tau.nef` dùng cho phần có hướng dẫn của hai bài Develop. Thông tin nguồn ở `P01_RAW_cang_tau_nguon.md`. Thử thách độc lập yêu cầu ảnh khác. Sơ đồ minh họa dùng ảnh xem trước nhúng trong NEF, có thể tạo lại với `py -B -X utf8 scripts/generate-lesson-illustrations.py --lesson P01-02 --lesson P09-01`.
+- Trên Windows, bản cài 3.3.3.5004 mở NEF trong Develop. Exposure làm thay đổi đồ thị đã quan sát. Develop với RAW Layer (Embedded) có thể đưa về Studio trước đó. Sau khi chuyển sang Pixel, thanh tùy chọn của lớp RAW có nút Develop và bảng Histogram có đường dẫn Window > Pixel > Histogram. Trong Vector, đã tạo artboard, bấm nút cộng với Spacing mặc định và thử Ctrl+J. Đã đối chiếu nội dung hai bài Help Center trước đây chưa trích xuất được.
+- Bước xác minh tiếp theo trong `TASK-080` là thử Lock Children với một artboard có nội dung, thử phạm vi Layer/Marquee riêng trong Histogram và kiểm độ đầy đủ của ma trận theo bản cài. Chưa nâng mức độ phủ vì lượt kiểm chỉ xác nhận các thao tác đã thực hiện. `BLK-007` vẫn khóa phần mở rộng.
+- Build, ESLint, TypeScript, kiểm giao diện và giáo trình tiếng Việt đều đạt. Playwright Edge đạt 73/73 với `AFFINITY_E2E_PORT=4175` trong `test-results/continuation-verified`. Backend offline và PostgreSQL nhúng đã kiểm qua `npm run test:backend`. Cần môi trường cloud đã cấu hình để kiểm email, lưu tệp và đồng bộ giữa thiết bị.
+
+## Bàn giao minh họa theo bước ngày 2026-11-23
+
+- Triển khai trên working tree của `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`. [Pen Tool](http://127.0.0.1:4175/bai-hoc/d02-01) · [Tinh chỉnh mép tóc](http://127.0.0.1:4175/bai-hoc/p02-02) · [Dàn trang và Bleed](http://127.0.0.1:4175/bai-hoc/b01-01) · [Bài poster đầu tiên](http://127.0.0.1:4175/lo-trinh/bat-dau#bai-dau-tien).
+- Nội dung ảnh của 66 bài nằm tại `curriculum/lesson-illustrations.json`. Bài poster dùng `curriculum/first-project.json`. Từ thư mục gốc, tạo lại ảnh WebP bằng `py -B -X utf8 scripts/generate-lesson-illustrations.py` với Pillow. Cờ `--lesson D02-01` chỉ tạo ảnh của bài được chọn. Những ảnh ngang và xếp dọc được đưa sẵn vào `public/assets/lessons/steps` để ứng dụng dùng trực tiếp. `npm run validate:curriculum` kiểm đủ hình ở từng bước và phát hiện tệp trùng trong một bài.
+- Hình là sơ đồ và ảnh mẫu được xử lý để thấy sự khác biệt ở từng bước. Các phần chụp trực tiếp từ Affinity 3.3.3.5004 trên Windows ghi nhãn ngay trong hình. Các nguồn đối chiếu gồm [Vẽ vector](https://www.affinity.studio/features/vector-drawing), [Xử lý RAW](https://www.affinity.studio/blog/editing-raw-images-and-working-with-raw-files), [Smart Master Pages](https://www.affinity.studio/features/smart-master-pages) và [Affinity SDK](https://sdk.affinity.studio/). Việc đối chiếu từng thao tác trên bản cài còn thuộc `TASK-080`. `BLK-007` đang khóa.
+- Kết quả đối chiếu từng bài và ảnh preview nằm trong thư mục `Duyet-UI-Affinity-Academy/Minh-hoa-bai-hoc` của phiên, tệp `kiem-tra-anh.json`. Edge kiểm đủ hai định dạng hiển thị và không phát sinh ngoại lệ. Bộ kiểm hồi quy trình chiếu, hình theo bước và phóng to nằm tại `tests/e2e/lesson-illustrations.spec.ts` và `tests/e2e/lesson-viewer-phase3.spec.ts`. Chạy toàn bộ Playwright trên Edge với `AFFINITY_E2E_PORT=4175` và `--workers=3` đạt 72/72.
+
+## Bàn giao lộ trình từ số 0 ngày 2026-11-23
+
+- Kiểm trên working tree của `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`. [Lộ trình local](http://127.0.0.1:4175/lo-trinh/bat-dau) · [Bài đầu trong trình đọc](http://127.0.0.1:4175/bai-hoc/d01-01) · [Figma lộ trình](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=22-20) · [Figma khung đọc](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=22-49).
+- Sửa bài khởi động, danh sách bài và tiêu chí tự kiểm tại `src/data/learning-path.ts`. `src/pages/LearningPathPage.tsx` hiển thị bốn chặng. `?tu=lo-trinh` duy trì thứ tự trong chặng trên trình đọc, canonical vẫn trỏ tới URL bài học. Bài cuối mỗi chặng liên kết về đúng đề tự làm.
+- Bản mở trên cổng 4175 giữ được giao diện nền giấy của bản duyệt. Chạy lại bằng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort`. `TASK-080` còn việc đối chiếu công cụ. `BLK-007` vẫn đang khóa. Phạm vi kiểm ở máy local.
+- Chạy `npm run test:e2e -- --workers=3 --output=test-results/learning-path-verified` với `AFFINITY_E2E_PORT=4175` đạt 70/70 Edge. Các ca hồi quy mới ở `tests/e2e/learning-path.spec.ts`. Sitemap có 85 URL và danh sách lộ trình dẫn tới 23 bài có canonical hợp lệ. Ảnh desktop, mobile, từng chặng và ba tab bài học nằm trong thư mục `Duyet-UI-Affinity-Academy/hoc-affinity` của phiên.
+
+## Bàn giao frontend đã duyệt ngày 2026-11-23
+
+- Branch `feat/full-platform-overhaul`, base `9bef09f702a8e1e9f0983c3669f4bef54b10d1ea`, đã kiểm trên working tree của phiên này. Phạm vi `TASK-020 / REQ-FE-001` và `TASK-071–073 / REQ-PAGE-001–003`.
+- [Ứng dụng React local :4175](http://127.0.0.1:4175/) · [Bài Artboard](http://127.0.0.1:4175/bai-hoc/d01-02) · [Figma](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=16-2). Khởi động lại bằng `npm run dev -- --host 127.0.0.1 --port 4175 --strictPort` trong repo.
+- Điểm vào là `src/pages/HomePage.tsx`, `src/pages/CatalogPage.tsx`, `src/pages/LessonPage.tsx`, `src/components/layout/MainNavigation.tsx` và `src/styles/academy.css`. Giao diện tái sử dụng bộ lưu tiến độ, xác thực, tệp học liệu và nộp đồ án hiện có.
+- Đã lấy ngữ cảnh thiết kế từ Figma cho trang chủ, khóa học, bài học desktop và mobile. Figma trả về hạn chế gói khi yêu cầu xuất Code Connect. Hai component được đối chiếu trong code là `Button` (16:11) và `TrackCard` (16:13). Phiên hiện tại không có thông tin xác thực CLI Figma để xuất kết nối.
+- [Đối chiếu giáo trình](./AFFINITY_CURRICULUM_ALIGNMENT_2026-11-22.md). Kiểm thử nền tảng chỉ xác nhận website và dữ liệu cấu trúc. `TASK-080` vẫn đang thực hiện. `BLK-007` đang khóa.
+- Kiểm tra local với Edge đạt 68/68 ca Playwright. Sau khi giới hạn gợi ý phím mũi tên ở chế độ trình chiếu, chạy lại 6 ca trình học và giao diện, đạt 6/6. Kiểm thêm 39 lượt mở trang trên máy tính, tablet và điện thoại, có mở mục lục và chuyển tới Đồ án trên điện thoại. Build, ESLint, kiểm ngôn ngữ giao diện và validator 66 bài đều đạt.
+
+## Bàn giao bản duyệt UI ngày 2026-11-22
+
+- Baseline `feat/full-platform-overhaul` tại `9bef09f`. Mở [preview local :4174](http://127.0.0.1:4174/), [Figma Night Sky](https://www.figma.com/design/cSRe5Wv0orAS63LYPxQc8w?node-id=7-14) và [kế hoạch kèm diễn giải backend](http://127.0.0.1:4174/ke-hoach.html). Thư mục preview ở `C:/Users/tuanl/Documents/Codex/2026-11-20/import-to-n-b-d-li/outputs/Duyet-UI-Affinity-Academy`. Khi cần chạy lại, chạy `py -m http.server 4174 --bind 127.0.0.1` trong thư mục đó.
+- Duyệt lần lượt khung trang và lộ trình, luồng học và thực hành, rồi hồ sơ và đồ án. Sau khi chủ dự án duyệt cả ba, đưa thiết kế vào React và đối chiếu lại với Figma theo `TASK-020` và các tác vụ liên quan. Tích hợp thật cần xác minh Supabase, email, phân quyền tệp và các trạng thái đồng bộ trên hai tài khoản. Cập nhật tài liệu hướng dẫn từ kết quả kiểm thực tế.
+- Prototype dùng dữ liệu mẫu. Các kiểm tra này chưa xác minh backend trên dịch vụ ngoài. Phạm vi vẫn là 66 bài hiện hữu và `BLK-007` đang khóa.
+
 ## 1. Executive Summary of Current State
 
 1. **Phase 5 Track 2 (Affinity Photo) Authoring & Integration (`TASK-011`):**

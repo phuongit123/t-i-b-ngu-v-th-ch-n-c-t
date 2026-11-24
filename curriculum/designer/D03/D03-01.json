@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Hình khối tham số & Corner Tool",
-      "persona": "Vector Persona (Thanh công cụ bên trái)",
+      "persona": "Vector Studio (Thanh công cụ bên trái)",
       "shortcut": {
         "win": "C (Corner Tool), Ctrl+Enter (Convert to Curves)",
         "mac": "C (Corner Tool), Cmd+Enter (Convert to Curves)"

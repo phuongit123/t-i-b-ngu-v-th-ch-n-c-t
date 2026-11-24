@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Selection Brush, Refine Studio & Artistic Text",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "W (Selection Brush) / T (Text) / Ctrl + J (Duplicate) / X (Swap Black/White)",
         "mac": "W (Selection Brush) / T (Text) / Cmd + J (Duplicate) / X (Swap Black/White)"
@@ -248,7 +248,7 @@
       "subtitle": "Gắn kết hình ảnh và typography thành tác phẩm duy nhất",
       "type": "summary",
       "content": "Sau khi hoàn tất mọi chi tiết, đặt một Gradient Map Adjustment Layer hoặc LUT ở trên cùng của toàn bộ file. Giảm Opacity xuống 15-20% và chọn Blend Mode 'Soft Light'. Bước này phủ một lớp tone màu đồng nhất lên cả ảnh chụp lẫn chữ cái đồ họa.",
-      "tips": "Xuất file bằng Export Persona định dạng TIFF hoặc PNG-24 chất lượng cao nhất.",
+      "tips": "Xuất file bằng Slice Studio định dạng TIFF hoặc PNG-24 chất lượng cao nhất.",
       "codeSnippet": "Quy trình hoàn thiện cuối cùng:\n1. Kiểm tra độ dễ đọc của chữ ở mức thu phóng 50%\n2. Rà soát bóng tiếp xúc hắt lên mặt chữ\n3. Đỉnh ngăn xếp: Curves Adjustment + Gradient Map (Soft Light 18%)\n4. File > Save -> Sẵn sàng bàn giao bản phân giải cao"
     }
   ]

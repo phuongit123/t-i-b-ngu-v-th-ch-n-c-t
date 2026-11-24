@@ -23,7 +23,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Thao tác đường cong & Stroke Studio",
-      "persona": "Vector Persona (Context Toolbar & bảng Stroke Studio)",
+      "persona": "Vector Studio (Context Toolbar & bảng Stroke Studio)",
       "shortcut": {
         "win": "View > Studio > Stroke (và các nút Action trên Context Toolbar của Node Tool)",
         "mac": "View > Studio > Stroke (và các nút Action trên Context Toolbar của Node Tool)"

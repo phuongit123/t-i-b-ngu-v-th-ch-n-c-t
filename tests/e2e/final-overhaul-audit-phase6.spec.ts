@@ -109,6 +109,7 @@ test.describe('Phase 6 — Kiểm Toán Cuối Cùng: Hành Trình Học Viên, 
   }) => {
     const auditRoutes = [
       { route: '/', checkHeading: 'h1' },
+      { route: '/lo-trinh/bat-dau', checkHeading: 'h1' },
       { route: '/lo-trinh/vector-studio', checkHeading: 'h1' },
       { route: '/bai-hoc/d01-01', checkHeading: 'h2' },
       { route: '/phong-mo-phong', checkHeading: 'h1' },
@@ -124,10 +125,9 @@ test.describe('Phase 6 — Kiểm Toán Cuối Cùng: Hành Trình Học Viên, 
     for (const vp of viewports) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       for (const item of auditRoutes) {
-        await page.goto(item.route);
-        await page.waitForLoadState('networkidle');
-        await page.waitForTimeout(180);
+        await page.goto(item.route, { waitUntil: 'domcontentloaded' });
         await expect(page.locator(item.checkHeading).first()).toBeVisible();
+        await page.evaluate(() => document.fonts.ready);
 
         const overflow = await page.evaluate(() => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -154,13 +154,12 @@ test.describe('Phase 6 — Kiểm Toán Cuối Cùng: Hành Trình Học Viên, 
 
     // Test mobile drawer open & navigation cleanly at 375x812
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     const mobileMenuBtn = page.locator('button[aria-label="Mở menu di động"]');
     await expect(mobileMenuBtn).toBeVisible();
     await mobileMenuBtn.click();
     await expect(page.getByTestId('mobile-nav-catalog')).toBeVisible();
     await page.getByTestId('mobile-nav-catalog').click();
-    await expect(page.locator('h1')).toContainText('Khóa Học');
+    await expect(page.locator('h1')).toContainText('Khóa học');
   });
 });

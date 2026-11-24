@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Refine Selection Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges...",
         "mac": "Nút 'Refine...' trên thanh Context Bar / Menu Select > Refine Edges..."

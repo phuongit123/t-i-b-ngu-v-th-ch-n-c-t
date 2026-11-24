@@ -16,16 +16,16 @@
     ],
     "foundationalKnowledge": "Với những ấn phẩm dày trên vài chục trang, việc gõ tay lặp đi lặp lại số trang, tên chương, tiêu đề chạy đầu trang hay đường kẻ phân cách vừa tốn thời gian vừa rất dễ sai sót mỗi khi khách hàng yêu cầu thêm bớt hoặc đảo thứ tự trang. Trong Affinity (Layout Studio), Master Pages đóng vai trò là bản thiết kế mẫu toàn cục. Mọi thành phần đặt trên Master Page sẽ tự động phát sóng đồng loạt xuống tất cả trang nội dung đang áp dụng mẫu đó. Không chỉ dừng lại ở một cấp, bạn còn có thể tạo cấu trúc kế thừa nhiều Master: trang mẫu con kế thừa bộ khung tiêu đề và số trang từ Master A rồi bổ sung thêm lưới cột bài viết riêng, hình thành hệ thống mẫu mô-đun gọn gàng và dễ bảo trì.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Tài liệu kiến trúc Master Pages & Dynamic Fields trong Affinity Layout Studio (Publisher)",
+      "classification": "DOCUMENTED",
+      "source": "Bảng Pages và nhóm Master Pages quan sát trong Layout Studio trên Windows 3.3.3.5004. Cơ chế áp dụng trang mẫu đối chiếu Affinity Smart Master Pages.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Bảng Master Pages & Trường dữ liệu động (Dynamic Fields)",
-      "persona": "Layout Studio — Pages Studio (Publisher Persona)",
+      "persona": "Layout Studio — bảng Pages",
       "shortcut": {
-        "win": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), View > Studio > Pages",
-        "mac": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), View > Studio > Pages"
+        "win": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), bảng Pages ở bên trái Layout Studio",
+        "mac": "Text > Insert > Fields > Page Number (hoặc tự gán phím tắt trong Settings > Shortcuts), bảng Pages ở bên trái Layout Studio"
       },
       "description": "Nửa trên của bảng Pages Studio là nơi quản lý các Master Pages. Nhấp chuột phải vào vùng này cho phép tạo trang mẫu mới, áp dụng trang mẫu cho dải trang bất kỳ và thiết lập kế thừa cha-con. Các trường động được chèn qua menu Text > Insert > Fields.",
       "contextBarOptions": [
@@ -40,31 +40,46 @@
         "stepNumber": 1,
         "title": "Mở khu vực Master Pages trong Pages Studio",
         "instruction": "Mở tài liệu ấn phẩm của bạn. Ở bảng Pages Studio bên trái, nhìn lên ngăn phía trên có tiêu đề 'Master Pages'. Mặc định phần mềm đã tạo sẵn một trang mẫu đôi tên là 'Master A'.",
-        "shortcutTip": { "win": "Pages Studio", "mac": "Pages Studio" }
+        "shortcutTip": {
+          "win": "Pages Studio",
+          "mac": "Pages Studio"
+        }
       },
       {
         "stepNumber": 2,
         "title": "Chèn số trang động lên trang mẫu đôi",
         "instruction": "Nhấp đúp vào 'Master A' để mở trang mẫu lên vùng làm việc. Vẽ một khung chữ Artistic Text nhỏ ở góc dưới ngoài cùng của trang trái, vào Text > Insert > Fields > Page Number. Ký hiệu '#' sẽ xuất hiện. Làm tương tự ở góc dưới ngoài cùng của trang phải.",
-        "shortcutTip": { "win": "Text > Insert > Fields > Page Number", "mac": "Text > Insert > Fields > Page Number" }
+        "shortcutTip": {
+          "win": "Text > Insert > Fields > Page Number",
+          "mac": "Text > Insert > Fields > Page Number"
+        }
       },
       {
         "stepNumber": 3,
         "title": "Tạo trang mẫu con kế thừa từ trang mẫu cha",
         "instruction": "Nhấp chuột phải trong vùng Master Pages và chọn 'Add Master'. Đặt tên là 'Master B - Bai Viet Chinh'. Tại mục 'Based on', chọn 'Master A' rồi bấm OK. Lúc này Master B tự động nhận toàn bộ số trang và tiêu đề từ Master A, đồng thời cho phép bạn đặt thêm lưới cột riêng.",
-        "shortcutTip": { "win": "Based On: Master A", "mac": "Based On: Master A" }
+        "shortcutTip": {
+          "win": "Based On: Master A",
+          "mac": "Based On: Master A"
+        }
       },
       {
         "stepNumber": 4,
         "title": "Áp dụng Master Pages cho các trang nội dung",
         "instruction": "Nhấp chuột phải vào 'Master B' và chọn 'Apply Master to Pages'. Ở ô Pages nhập '4-7' rồi bấm OK. Chuyển xuống xem Trang 4 trong tài liệu: bạn sẽ thấy bố cục của Master B hiện ra đầy đủ và ký hiệu '#' đã tự động đổi thành số '4', còn Trang 5 hiển thị số '5'.",
-        "shortcutTip": { "win": "Apply Master to Pages", "mac": "Apply Master to Pages" }
+        "shortcutTip": {
+          "win": "Apply Master to Pages",
+          "mac": "Apply Master to Pages"
+        }
       },
       {
         "stepNumber": 5,
         "title": "Ghi đè cục bộ bằng chế độ Edit Detached",
         "instruction": "Giả sử trên Trang 4 bạn đặt một bức ảnh tràn trang che mất số trang của Master. Trong bảng Layers Studio, nhấp chuột phải vào lớp Master của Trang 4 và chọn 'Edit Detached'. Di chuyển hoặc ẩn khung số trang đó đi, rồi bấm nút 'Finish' trên thanh màu cam phía trên màn hình. Tùy biến này được lưu riêng cho Trang 4 mà không làm hỏng liên kết với Master A ở các trang còn lại.",
-        "shortcutTip": { "win": "Edit Detached", "mac": "Edit Detached" }
+        "shortcutTip": {
+          "win": "Edit Detached",
+          "mac": "Edit Detached"
+        }
       }
     ],
     "visualExamples": [
@@ -185,6 +200,11 @@
           "title": "Tài liệu Affinity chính thức: Master Pages thông minh",
           "target": "https://affinity.serif.com/publisher/master-pages/",
           "type": "doc"
+        },
+        {
+          "title": "Affinity: Smart Master Pages",
+          "target": "https://www.affinity.studio/features/smart-master-pages",
+          "type": "doc"
         }
       ]
     }
@@ -224,7 +244,10 @@
       "actionBox": {
         "label": "Đường Dẫn Chèn Trường Số Trang",
         "text": "Vào Text > Insert > Fields > Page Number để chèn số trang động (có thể tự gán phím tắt riêng trong Settings > Shortcuts).",
-        "shortcut": { "win": "Text > Insert > Fields > Page Number", "mac": "Text > Insert > Fields > Page Number" }
+        "shortcut": {
+          "win": "Text > Insert > Fields > Page Number",
+          "mac": "Text > Insert > Fields > Page Number"
+        }
       }
     },
     {

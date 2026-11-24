@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "HSL, Gradient Map & LUT Studio",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Ctrl+U (HSL Adjustment) / Adjustments > Gradient Map / Adjustments > LUT",
         "mac": "Cmd+U (HSL Adjustment) / Adjustments > Gradient Map / Adjustments > LUT"

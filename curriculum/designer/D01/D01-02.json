@@ -16,30 +16,30 @@
     ],
     "foundationalKnowledge": "Trong thiết kế số, mỗi Artboard đóng vai trò như một khung bản vẽ độc lập nằm trong cùng một không gian làm việc mở rộng vô hạn. Thiết lập bản vẽ đơn rất phù hợp cho sản phẩm độc lập như áp phích hoặc hình in áo, nhưng thiết kế hiện đại thường đòi hỏi trình bày đồng thời nhiều kích thước màn hình: điện thoại, máy tính bảng và máy tính bàn. Trong Affinity, mỗi artboard về bản chất là một lớp chứa (container) đặc biệt có khung giới hạn và thuộc tính xuất file riêng. Những đối tượng đặt vào artboard sẽ tự động được cắt gọn trong ranh giới của artboard đó, tránh tràn hình sang các phiên bản màn hình kế bên.",
     "technicalEvidence": {
-      "classification": "VERIFIED",
-      "source": "Tài liệu về hệ thống Multi-Artboard & bảng Transform Studio trong Affinity 3.3.3",
+      "classification": "DOCUMENTED",
+      "source": "24/11/2026 · Artboards, Context Toolbar, nút cộng và Ctrl+J quan sát trực tiếp trên Affinity 3.3.3.5004 Windows. Đối chiếu Affinity Help về cách thêm, nhân bản và dùng Spacing.",
       "verifiedInAffinityVersion": "Affinity 3.3.3.5004"
     },
     "toolAndFeatureExplanation": {
       "toolName": "Artboard Tool",
-      "persona": "Vector Persona (không gian thiết kế vector)",
+      "persona": "Vector Studio (không gian thiết kế vector)",
       "shortcut": {
-        "win": "Chưa xác minh phím tắt mặc định hay đường dẫn chi tiết từ trang Help Center đã truy xuất",
-        "mac": "Chưa xác minh phím tắt mặc định hay đường dẫn chi tiết từ trang Help Center đã truy xuất"
+        "win": "Artboard Tool trên thanh công cụ Vector",
+        "mac": "Artboard Tool trên thanh công cụ Vector"
       },
-      "description": "Artboard Tool dùng để tạo và quản lý các khung bản vẽ độc lập trong cùng một tệp tài liệu. Bài thực hành sử dụng kích thước pixel và tên gọi cụ thể. Bố cục chính xác của thanh Context Toolbar cũng như danh mục preset thiết bị có sẵn cần đối chiếu trực tiếp trên bản Affinity bạn đang cài do nội dung bài Help Center gốc chưa được trích xuất đầy đủ.",
+      "description": "Artboard Tool tạo, di chuyển và đổi kích thước các khung vẽ trong cùng tài liệu. Chọn khung trong Layers để làm việc trên đúng kích thước màn hình.",
       "contextBarOptions": [
-        "Thực hành theo bài: tạo artboard với kích thước pixel và tên gọi cụ thể; đối chiếu vị trí ô nhập kích thước trực tiếp trên bản Affinity đang dùng",
-        "Không mặc định khẳng định danh sách preset thiết bị có tên sẵn nếu chưa kiểm tra trực tiếp trên bản cài đặt hoặc trang Help Center đầy đủ",
-        "Các nút chỉnh màu nền riêng và độ trong suốt của artboard cần kiểm tra thực tế trên bản đang dùng",
-        "Tùy chọn Lock Children có xuất hiện trong quy trình học; hãy kiểm tra tên nhãn chính xác và hiệu ứng khi co giãn trên bản cài đặt mục tiêu"
+        "Size có Document, Selection và các khổ có sẵn. W và H là chiều rộng và chiều cao.",
+        "Dùng Insert Artboard hoặc kéo trên vùng làm việc để thêm khung.",
+        "Nút cộng ở bốn cạnh tạo khung cùng kích thước. Spacing đặt khoảng cách tới khung bên cạnh.",
+        "Transform dùng để đối chiếu số đo của khung được chọn sau khi thêm hoặc đổi cỡ."
       ]
     },
     "stepByStepInstructions": [
       {
         "stepNumber": 1,
         "title": "Khởi tạo tài liệu có bật sẵn Artboard",
-        "instruction": "Nhấn Ctrl+N (Windows) / Cmd+N (macOS). Ở nhóm 'Web', chọn mẫu 'FHD (1920 x 1080)'. Trong phần Layout, tích chọn ô 'Create Artboard', sau đó nhấn Create.",
+        "instruction": "Chọn Vector rồi mở File > New. Đặt Document units là Pixels, nhập 1920 cho Page width và 1080 cho Page height. Bật Artboards rồi bấm Create Document. Đặt tên Web-Desktop trong Layers.",
         "shortcutTip": {
           "win": "Ctrl+N",
           "mac": "Cmd+N"
@@ -48,28 +48,28 @@
       {
         "stepNumber": 2,
         "title": "Thêm artboard Tablet với kích thước cụ thể",
-        "instruction": "Dùng Artboard Tool để thêm artboard thứ hai, thiết lập kích thước 768 x 1024 px qua các ô nhập kích thước tùy chỉnh có trên bản Affinity đang dùng, rồi đặt tên là 'Web-Tablet'. Không phụ thuộc vào tên preset thiết bị cố định vì danh mục preset hiện hành chưa được kiểm chứng từ nội dung bài Help Center.",
+        "instruction": "Chọn Artboard Tool trong thanh công cụ Vector. Nhập W 768 px và H 1024 px, bấm Insert Artboard. Chọn khung mới trong Layers, đặt tên Web-Tablet và kiểm lại kích thước trong Transform.",
         "shortcutTip": {
-          "win": "Kiểm tra ô nhập kích thước tùy chỉnh trên giao diện",
-          "mac": "Kiểm tra ô nhập kích thước tùy chỉnh trên giao diện"
+          "win": "Artboard Tool > Insert Artboard",
+          "mac": "Artboard Tool > Insert Artboard"
         }
       },
       {
         "stepNumber": 3,
         "title": "Nhân bản artboard kèm toàn bộ nội dung bên trong",
-        "instruction": "Chọn artboard Desktop và thực hiện thao tác nhân bản có sẵn trên bản Affinity đang dùng. Kiểm tra xem các lớp con bên trong có được nhân bản đầy đủ theo không; phím tắt Alt/Option+kéo chuột chưa được khẳng định chắc chắn cho tới khi kiểm tra trực tiếp trên ứng dụng.",
+        "instruction": "Chọn khung Web-Desktop trong Layers. Dùng Duplicate, rồi kéo bản sao ra khoảng trống bằng Move Tool. Mở nhánh của bản sao trong Layers để kiểm tiêu đề và các lớp con.",
         "shortcutTip": {
-          "win": "Kiểm tra thao tác nhân bản trên bản đang dùng",
-          "mac": "Kiểm tra thao tác nhân bản trên bản đang dùng"
+          "win": "Ctrl+J",
+          "mac": "Duplicate"
         }
       },
       {
         "stepNumber": 4,
         "title": "Kiểm tra hành vi co giãn lớp con của Artboard",
-        "instruction": "Trước khi dựa vào tùy chọn 'Lock Children', hãy kiểm tra xem nút điều khiển này nằm ở đâu trên bản đang dùng, xác nhận tên nhãn hiện tại và thử nghiệm trực tiếp trên một artboard bản sao. Tương tác này chưa được xác nhận từ nội dung bài Help Center đã thu thập.",
+        "instruction": "Đổi chiều rộng trên bản sao. So kích thước khung với vị trí và kích thước của tiêu đề. Trong Move Tool, Lock Children giữ lớp con khỏi bị biến đổi cùng đối tượng cha theo Affinity Help. Kiểm lại cả hai trạng thái trước khi làm trên bản chính.",
         "shortcutTip": {
-          "win": "Cần kiểm chứng trên bản cài đặt thực tế",
-          "mac": "Cần kiểm chứng trên bản cài đặt thực tế"
+          "win": "Move Tool > Lock Children",
+          "mac": "Move Tool > Lock Children"
         }
       }
     ],
@@ -78,7 +78,7 @@
         "title": "So sánh Bản vẽ đơn và Hệ thống nhiều Artboard",
         "description": "Các khác biệt cấu trúc chính giữa hai mô hình tổ chức trang vẽ.",
         "visualType": "table",
-        "visualContent": "| Tiêu chí | Bản vẽ đơn (Single Canvas) | Nhiều Artboard (Multi-Artboard) |\n|---|---|---|\n| Thiết kế giao diện đa màn hình | Không thể đặt nhiều màn hình trong 1 file | Đặt Desktop, Tablet, Mobile song song dễ so sánh |\n| Cách Export Persona xử lý | Xuất cả vùng vẽ thành 1 tệp | Tự nhận diện từng artboard thành 1 vùng cắt (Slice) |\n| Hiển thị vùng xén (Bleed) | Bleed nằm ngoài mép trang duy nhất | Bleed quản lý tách biệt cho từng artboard |\n| Chia sẻ tài nguyên phụ trợ | Đối tượng ngoài vùng vẽ dễ bị khuất | Bảng màu, ghi chú đặt thoải mái ngoài vùng pasteboard |"
+        "visualContent": "| Tiêu chí | Bản vẽ đơn (Single Canvas) | Nhiều Artboard (Multi-Artboard) |\n|---|---|---|\n| Thiết kế giao diện đa màn hình | Không thể đặt nhiều màn hình trong 1 file | Đặt Desktop, Tablet, Mobile song song dễ so sánh |\n| Cách Slice Studio xử lý | Xuất cả vùng vẽ thành 1 tệp | Tự nhận diện từng artboard thành 1 vùng cắt (Slice) |\n| Hiển thị vùng xén (Bleed) | Bleed nằm ngoài mép trang duy nhất | Bleed quản lý tách biệt cho từng artboard |\n| Chia sẻ tài nguyên phụ trợ | Đối tượng ngoài vùng vẽ dễ bị khuất | Bảng màu, ghi chú đặt thoải mái ngoài vùng pasteboard |"
       },
       {
         "title": "Sơ đồ bố cục giao diện đa thiết bị (Responsive)",
@@ -113,7 +113,7 @@
       "challengeCriteria": [
         "Cả 4 artboard đều đúng kích thước pixel yêu cầu.",
         "Mỗi artboard được đặt tên rõ ràng trong bảng Layers Studio.",
-        "Nếu dùng hành vi 'Lock Children' khi chỉnh lại kích thước lề banner, cần kiểm chứng trực tiếp trên bản Affinity đang dùng thay vì mặc định suy đoán từ bài học."
+        "Khi đổi kích thước một banner, đối chiếu cỡ chữ và vị trí lớp con với kích thước của khung mới."
       ],
       "bonusGoal": "Đặt màu nền riêng biệt cho từng artboard của mỗi nền tảng mạng xã hội."
     },
@@ -129,9 +129,9 @@
         "solution": "Kiểm tra lại Layers Studio và kéo thả đối tượng vào đúng tầng của artboard mong muốn để đảm bảo cắt biên và xuất file chuẩn."
       },
       {
-        "pitfall": "Export Persona chỉ nhận diện được một màn hình duy nhất",
+        "pitfall": "Slice Studio chỉ nhận diện được một màn hình duy nhất",
         "cause": "Khi tạo tài liệu ban đầu bạn quên tích 'Create Artboard', khiến mọi thứ nằm trên một bản vẽ đơn thông thường.",
-        "solution": "Chuyển đổi lớp sang artboard qua menu Layer > New Artboard, hoặc tự vẽ vùng cắt bằng Slice Tool trong Export Persona."
+        "solution": "Chuyển đổi lớp sang artboard qua menu Layer > New Artboard, hoặc tự vẽ vùng cắt bằng Slice Tool trong Slice Studio."
       }
     ],
     "knowledgeCheck": [
@@ -161,7 +161,7 @@
       },
       {
         "id": "D01-02-Q3",
-        "question": "Export Persona xử lý các artboard được tạo trong tài liệu như thế nào?",
+        "question": "Slice Studio xử lý các artboard được tạo trong tài liệu như thế nào?",
         "options": [
           "Buộc người dùng phải vẽ thủ công vùng cắt đè lên từng màn hình.",
           "Tự động tạo một vùng cắt xuất file (Slice) riêng cho từng artboard trong tài liệu.",
@@ -169,13 +169,13 @@
           "Bỏ qua toàn bộ các artboard."
         ],
         "correctIndex": 1,
-        "explanation": "Trong Export Persona, mỗi artboard mặc định trở thành một Slice độc lập, giúp bạn xuất hàng loạt tất cả kích thước màn hình chỉ với một thao tác."
+        "explanation": "Trong Slice Studio, mỗi artboard mặc định trở thành một Slice độc lập, giúp bạn xuất hàng loạt tất cả kích thước màn hình chỉ với một thao tác."
       }
     ],
     "summaryAndResources": {
       "summaryPoints": [
         "Artboard cho phép đặt nhiều khung bản vẽ độc lập với kích thước khác nhau trong một tệp dự án.",
-        "Artboard tự động cắt gọn nội dung tràn biên và hỗ trợ xuất hàng loạt trong Export Persona.",
+        "Artboard tự động cắt gọn nội dung tràn biên và hỗ trợ xuất hàng loạt trong Slice Studio.",
         "Cần kiểm tra trực tiếp hành vi co giãn lớp con ('Lock Children') trên bản Affinity đang cài trước khi sử dụng.",
         "Thiết lập đa artboard là quy trình chuẩn cho thiết kế UI đa thiết bị và bộ ấn phẩm truyền thông."
       ],
@@ -188,6 +188,11 @@
         {
           "title": "Tài liệu Affinity: Thực hành tốt nhất với Artboard",
           "target": "https://affinity.serif.com/designer/artboards/",
+          "type": "doc"
+        },
+        {
+          "title": "Cách thêm và nhân bản artboard",
+          "target": "https://www.affinity.studio/help/artboards-artboards-add-delete/",
           "type": "doc"
         }
       ]

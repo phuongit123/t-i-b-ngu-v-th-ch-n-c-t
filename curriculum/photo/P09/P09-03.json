@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Macro Studio & Batch Job Manager",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Window > Macro / Window > Library / File > New Batch Job",
         "mac": "Window > Macro / Window > Library / File > New Batch Job"
@@ -159,7 +159,7 @@
       ],
       "relatedResources": [
         {
-          "title": "Học phần tiếp theo: P10-01 Export Persona Slices, đa định dạng 1x/2x/3x và Continuous Export",
+          "title": "Học phần tiếp theo: P10-01 Slice Studio Slices, đa định dạng 1x/2x/3x và Continuous Export",
           "target": "P10-01",
           "type": "next-lesson"
         },

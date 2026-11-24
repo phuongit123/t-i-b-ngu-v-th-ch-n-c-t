@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Blend Mode Dropdown & Clipping Engine",
-      "persona": "Photo Persona",
+      "persona": "Pixel Studio",
       "shortcut": {
         "win": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip",
         "mac": "Shift++ hoặc Shift+- (Duyệt qua các Blend Mode) / Kéo thả layer để Clip"

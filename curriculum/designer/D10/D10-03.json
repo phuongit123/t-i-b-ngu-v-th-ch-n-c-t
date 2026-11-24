@@ -22,7 +22,7 @@
     },
     "toolAndFeatureExplanation": {
       "toolName": "Bộ xuất tối ưu SVG & PDF/X",
-      "persona": "Designer Persona & Export Persona (File > Export... / Ctrl+Alt+Shift+S)",
+      "persona": "Vector Studio & Slice Studio (File > Export... / Ctrl+Alt+Shift+S)",
       "shortcut": {
         "win": "Ctrl+Alt+Shift+S (Hộp thoại Export), Ctrl+Alt+P (Document Setup / Bleed)",
         "mac": "Cmd+Option+Shift+S (Hộp thoại Export), Cmd+Option+P (Document Setup / Bleed)"
@@ -40,7 +40,7 @@
       {
         "stepNumber": 1,
         "title": "Thiết lập lề tràn Bleed trong Document Setup",
-        "instruction": "Ở Designer Persona, nhấn Ctrl+Alt+P (Cmd+Option+P) để mở Document Setup rồi chuyển sang thẻ 'Bleed'. Nhập thông số Top, Bottom, Left, Right theo yêu cầu nhà in (phổ biến là 3 mm ở hệ mét hoặc 0.125 inch ở hệ Anh) và nhấn OK. Đường gióng xanh lơ bao ngoài khung trang sẽ hiện lên làm mốc kéo tràn nền.",
+        "instruction": "Ở Vector Studio, nhấn Ctrl+Alt+P (Cmd+Option+P) để mở Document Setup rồi chuyển sang thẻ 'Bleed'. Nhập thông số Top, Bottom, Left, Right theo yêu cầu nhà in (phổ biến là 3 mm ở hệ mét hoặc 0.125 inch ở hệ Anh) và nhấn OK. Đường gióng xanh lơ bao ngoài khung trang sẽ hiện lên làm mốc kéo tràn nền.",
         "shortcutTip": { "win": "Ctrl+Alt+P -> Thẻ Bleed", "mac": "Cmd+Option+P -> Thẻ Bleed" }
       },
       {
@@ -284,7 +284,7 @@
         "• D01–D03: Tổ chức Artboard, điều khiển Pen & Node Bézier và hình học Boolean phi phá hủy.",
         "• D04–D06: Gradient nhiều điểm, cây quản lý Layer/Mask và Typography chuyên sâu.",
         "• D07–D08: Phối cảnh Isometric 3D, Symbols đồng bộ và hệ thống Assets Component.",
-        "• D09–D10: Tích hợp hạt raster trong Pixel Persona, Slices đa mật độ, SVG sạch và chuẩn in PDF/X.",
+        "• D09–D10: Tích hợp hạt raster trong Pixel Studio, Slices đa mật độ, SVG sạch và chuẩn in PDF/X.",
         "Hãy rà soát lại các dự án capstone để tự tin ứng dụng vào công việc thiết kế thực tế!"
       ],
       "proTip": "Giữ thói quen kiểm tra Wireframe (Ctrl+Y), kiểm tra 100% Pixel Preview và kiểm tra mã SVG trước mọi lần bàn giao."
