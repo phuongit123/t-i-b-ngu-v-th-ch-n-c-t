@@ -30,7 +30,7 @@ test('Điện thoại tải hình xếp dọc và phóng to ảnh hướng dẫn
   const preview = figure.locator('img');
   await preview.scrollIntoViewIfNeeded();
   await expect.poll(() => preview.evaluate((image: HTMLImageElement) => ({
-    file: new URL(image.currentSrc).pathname,
+    file: image.currentSrc ? new URL(image.currentSrc).pathname : '',
     width: image.naturalWidth,
     height: image.naturalHeight,
   }))).toEqual({ file: '/assets/lessons/steps/p02-02-03-stacked.webp', width: 460, height: 588 });

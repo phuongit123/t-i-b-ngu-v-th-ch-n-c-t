@@ -21,7 +21,10 @@ export function LessonStepFigure({ visual, onZoom, showStep }: {
       <figcaption className="lesson-step-tool">{showStep && `Bước ${visual.step} · `}{visual.tool}</figcaption>
       {onZoom ? (
         <button type="button" className="lesson-step-zoom" data-testid="open-visual-lightbox"
-          aria-label={`Phóng to hình bước ${visual.step}, ${visual.tool}`} onClick={() => onZoom(visual)}>
+          aria-label={`Phóng to hình bước ${visual.step}, ${visual.tool}`} onClick={(event) => {
+            event.currentTarget.focus();
+            onZoom(visual);
+          }}>
           <LessonStepImage visual={visual} lazy />
           <span className="lesson-zoom-icon"><ZoomIn size={17} aria-hidden="true" /></span>
         </button>

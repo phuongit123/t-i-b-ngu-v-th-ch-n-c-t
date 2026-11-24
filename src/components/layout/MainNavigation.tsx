@@ -97,7 +97,10 @@ export function MainNavigation({ activeRoute, onNavigate, theme, onToggleTheme, 
         <div className="academy-nav-actions">
           <button type="button" className="academy-icon" aria-label="Mở bảng tìm kiếm lệnh" title="Tìm kiếm nhanh (Ctrl+K)" onClick={onOpenSearch}><Search size={17} /></button>
           <span data-testid="sync-status-badge" role="status" aria-label={statusText[syncStatus]} title={statusText[syncStatus]} className="academy-sync" data-status={syncStatus}><StatusIcon aria-hidden="true" size={16} /></span>
-          <button type="button" data-testid="nav-auth-btn" className="academy-icon" onClick={() => setAuthOpen(true)} aria-label="Tài khoản và hồ sơ học viên" title={profile?.display_name || 'Tài khoản'}><User size={17} /></button>
+          <button type="button" data-testid="nav-auth-btn" className="academy-icon" onClick={(event) => {
+            event.currentTarget.focus();
+            setAuthOpen(true);
+          }} aria-label="Tài khoản và hồ sơ học viên" title={profile?.display_name || 'Tài khoản'}><User size={17} /></button>
           <button type="button" data-testid="nav-settings" className="academy-icon academy-wide-action" aria-label="Cài đặt hệ thống & tài khoản" onClick={() => navigate('settings')}><Settings size={17} /></button>
           <button type="button" className="academy-icon academy-wide-action" aria-label={`Chuyển sang chế độ ${theme === 'dark' ? 'sáng' : 'tối'}`} onClick={onToggleTheme}>{theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}</button>
           <button type="button" data-testid="nav-dashboard" className="academy-learning-link" onClick={() => navigate('dashboard')}>Đang học <ArrowUpRight size={16} /></button>
